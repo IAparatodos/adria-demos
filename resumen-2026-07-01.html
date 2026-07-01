@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión requisitos · INGESERVICE · 2026-07-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --turquesa:#4dd2d0;
+    --petroleo:#3f6f7b;
+    --profundo:#102e35;
+    --crema:#f5fbfb;
+    --gris:#5b6b6e;
+    --ok:#3fbf8f;
+    --warn:#e0a04b;
+    --linea:#d9e8e8;
+  }
+  *{box-sizing:border-box}
+  body{
+    font-family:'Poppins',system-ui,sans-serif;
+    margin:0;background:var(--crema);color:var(--profundo);
+    line-height:1.55;font-weight:300;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px 80px}
+
+  /* Header */
+  header{
+    background:linear-gradient(135deg,var(--profundo),var(--petroleo));
+    color:#fff;padding:34px 22px 30px;
+  }
+  header .inner{max-width:1000px;margin:0 auto}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--turquesa);font-weight:600}
+  header h1{margin:6px 0 4px;font-size:27px;font-weight:600}
+  header .meta{font-size:14px;color:#cfe6e6;font-weight:300}
+  header .meta b{color:#fff;font-weight:500}
+
+  /* Toolbar */
+  .toolbar{
+    position:sticky;top:0;z-index:20;background:rgba(245,251,251,.92);
+    backdrop-filter:blur(6px);border-bottom:1px solid var(--linea);
+    padding:10px 22px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+  }
+  .toolbar .status{font-size:12.5px;color:var(--gris);margin-left:auto}
+  button{
+    font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;
+    border:1px solid var(--petroleo);background:#fff;color:var(--petroleo);
+    padding:7px 14px;border-radius:8px;transition:.15s;
+  }
+  button:hover{background:var(--petroleo);color:#fff}
+  button.primary{background:var(--turquesa);border-color:var(--turquesa);color:var(--profundo)}
+  button.primary:hover{background:#37c0be}
+
+  section{background:#fff;border:1px solid var(--linea);border-radius:14px;padding:24px 26px;margin-top:20px;box-shadow:0 1px 3px rgba(16,46,53,.04)}
+  h2{font-size:18px;font-weight:600;margin:0 0 14px;display:flex;align-items:center;gap:10px}
+  h2 .dot{width:10px;height:10px;border-radius:50%;background:var(--turquesa);flex:none}
+  h3{font-size:14.5px;font-weight:600;margin:18px 0 8px;color:var(--petroleo)}
+  p{margin:0 0 12px}
+  ul{margin:0 0 12px;padding-left:20px}
+  li{margin:5px 0}
+
+  [contenteditable]{outline:none;border-radius:6px;transition:.15s}
+  [contenteditable]:hover{background:#f0f9f9}
+  [contenteditable]:focus{background:#eafafa;box-shadow:inset 0 0 0 2px var(--turquesa)}
+
+  /* Bolsa de horas */
+  .horas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+  .card{background:var(--crema);border:1px solid var(--linea);border-radius:12px;padding:16px;text-align:center}
+  .card .num{font-size:30px;font-weight:700;color:var(--petroleo);line-height:1}
+  .card.rest .num{color:var(--ok)}
+  .card.used .num{color:var(--warn)}
+  .card .lbl{font-size:12px;color:var(--gris);text-transform:uppercase;letter-spacing:.06em;margin-top:6px}
+  .bar{height:12px;border-radius:8px;background:#e3efef;overflow:hidden;margin:6px 0 18px}
+  .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--turquesa),var(--petroleo));width:0;transition:width .4s}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--linea)}
+  th{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--gris);font-weight:600}
+  td input{font-family:inherit;font-size:14px;border:1px solid var(--linea);border-radius:6px;padding:5px 8px;width:100%;color:var(--profundo)}
+  td input:focus{outline:none;border-color:var(--turquesa)}
+  td.dur{font-weight:600;color:var(--petroleo);white-space:nowrap}
+  .row-add{margin-top:10px}
+
+  /* Tareas */
+  .owner{display:inline-block;font-size:11px;font-weight:600;padding:2px 9px;border-radius:20px;margin-right:8px;vertical-align:middle}
+  .o-ricardo{background:#e2f6f6;color:var(--petroleo)}
+  .o-david{background:#fdf0dd;color:#b3792a}
+  .o-grupo{background:#e9e9f7;color:#5a5aa0}
+  .task{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--linea)}
+  .task:last-child{border-bottom:none}
+  .task input[type=checkbox]{margin-top:5px;width:17px;height:17px;accent-color:var(--turquesa);flex:none;cursor:pointer}
+  .task .txt{flex:1}
+  .task.done .txt{text-decoration:line-through;color:#9fb0b0}
+  .legend{font-size:12.5px;color:var(--gris);margin-bottom:14px}
+
+  .phase2{background:#fbfaf5;border-color:#eee3c9}
+  .note{font-size:13px;color:var(--gris);font-style:italic}
+  footer{text-align:center;font-size:12px;color:var(--gris);margin-top:34px}
+  a.tlink{color:var(--petroleo)}
+  @media(max-width:640px){.horas-grid{grid-template-columns:1fr}}
+  @media print{.toolbar{display:none}body{background:#fff}section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <div class="kicker">Código AdrIA — Acta de sesión</div>
+    <h1 contenteditable="true">Automatización toma de datos — Sesión de requisitos #2</h1>
+    <div class="meta">
+      <b>Cliente:</b> INGESERVICE VALENCIA S.L.P. (David Gómez Ingeniería) ·
+      <b>CIF:</b> B56174709 ·
+      <b>Interlocutor:</b> David Gómez Martínez<br>
+      <b>Fecha:</b> 1 jul 2026 · <b>Horario:</b> 17:30 – 19:10 · <b>Consultor:</b> Ricardo Hoyos (Código AdrIA)
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <button class="primary" onclick="save()">💾 Guardar cambios</button>
+  <button onclick="window.print()">🖨️ Imprimir / PDF</button>
+  <button onclick="resetAll()">↺ Descartar cambios</button>
+  <span class="status" id="status">Editable · haz clic en cualquier texto para modificarlo</span>
+</div>
+
+<div class="wrap">
+
+  <!-- BOLSA DE HORAS -->
+  <section id="horas">
+    <h2><span class="dot"></span>Bolsa de horas (20 h contratadas)</h2>
+    <div class="horas-grid">
+      <div class="card"><div class="num" id="hTotal">20:00</div><div class="lbl">Contratadas</div></div>
+      <div class="card used"><div class="num" id="hUsed">0:00</div><div class="lbl">Consumidas</div></div>
+      <div class="card rest"><div class="num" id="hRest">20:00</div><div class="lbl">Restantes</div></div>
+    </div>
+    <div class="bar"><i id="bar"></i></div>
+    <table id="hoursTable">
+      <thead>
+        <tr><th style="width:120px">Fecha</th><th>Sesión / concepto</th><th style="width:90px">Inicio</th><th style="width:90px">Fin</th><th style="width:80px">Duración</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input value="2026-06-16"></td>
+          <td><input value="Sesión #1 — descubrimiento (rellenar duración real)"></td>
+          <td><input class="t-ini" value=""></td>
+          <td><input class="t-fin" value=""></td>
+          <td class="dur">—</td>
+        </tr>
+        <tr>
+          <td><input value="2026-07-01"></td>
+          <td><input value="Sesión #2 — requisitos + prueba firma remota"></td>
+          <td><input class="t-ini" value="17:30"></td>
+          <td><input class="t-fin" value="19:10"></td>
+          <td class="dur">—</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row-add"><button onclick="addRow()">+ Añadir sesión</button></div>
+    <p class="note" style="margin-top:12px">Escribe las horas en formato <b>HH:MM</b>. La duración, el consumo y las restantes se recalculan solos. La sesión #1 está sin duración: pon inicio/fin cuando lo confirmes.</p>
+  </section>
+
+  <!-- RESUMEN EJECUTIVO -->
+  <section>
+    <h2><span class="dot"></span>Resumen ejecutivo</h2>
+    <div contenteditable="true">
+      <p>Sesión centrada en <b>cerrar la Fase 1</b>: automatizar el flujo de datos del servicio de <b>camiones / reformas de vehículos</b>. Hoy todo es manual (formulario de Google → volcado a Excel → GPT propio para extraer datos del COC → firma en el ordenador).</p>
+      <p><b>Flujo objetivo acordado:</b> el envío del <b>formulario de Google</b> dispara una automatización en <b>N8N</b> que <b>duplica una plantilla Excel en blanco</b>, la renombra con el <b>nº de bastidor (17 dígitos)</b> como identificador único y la guarda en la carpeta <b>«trabajos entrantes» de Dropbox</b>, para que la compañera de David pueda trabajar al instante aunque él esté en campo. La <b>extracción de datos del Certificado de Conformidad (COC)</b> se hace con IA (sustituyendo al GPT actual) y las <b>fotos</b> (bastidor, placa del fabricante) se insertan en <b>celdas concretas</b> del Excel. La revisión humana sigue siendo obligatoria en campos críticos como el nº de bastidor.</p>
+      <p><b>Hito de la sesión:</b> se probó con éxito la <b>firma digital en remoto</b> — desde el móvil se controló el ordenador de escritorio para completar una firma con <b>Autofirma</b>. Viabilidad técnica confirmada.</p>
+      <p><b>Infraestructura:</b> el equipo de David tiene <b>8 GB de RAM</b> (suficiente para arrancar N8N; si se queda corto → ampliar RAM o montar un <b>VPS</b>). Se mantiene <b>Dropbox</b> para las pruebas (Ricardo necesita acceso).</p>
+    </div>
+  </section>
+
+  <!-- INPUT -->
+  <section>
+    <h2><span class="dot"></span>Input — lo que aporta David para arrancar</h2>
+    <p class="legend">Insumos que David debe entregar antes de que Ricardo pueda montar y probar la automatización.</p>
+    <div contenteditable="true">
+      <ul>
+        <li><b>Acceso a Dropbox</b> — carpeta de un vehículo real para pruebas en el entorno real.</li>
+        <li><b>Acceso al formulario</b> de alta de vehículos (Google Forms) para vincularlo a la automatización.</li>
+        <li><b>Ejemplo completo de un vehículo</b> — ficha técnica, datos reformados con cotas y demás archivos, para entrenar la extracción.</li>
+        <li><b>Ejemplos de COC</b> (certificados de conformidad) <b>buenos y malos</b>, para afinar el procesamiento de imágenes.</li>
+        <li><b>Certificados de características</b> — subir uno <b>válido</b> y uno <b>no válido</b> a la carpeta compartida.</li>
+        <li><b>Plantilla Excel en blanco</b> definida — con las <b>celdas exactas</b> donde van fotos y valores (ej. B590), para que las automatizaciones no descuadren.</li>
+        <li><b>Enlace del GPT</b> actual (por correo) + <b>prompt</b> guardado en la carpeta de Dropbox.</li>
+        <li><b>Especificaciones del equipo</b> — captura de las características del ordenador (valorar ampliar RAM).</li>
+        <li><b>Diagrama del flujo</b> de trabajo completo dibujado (papel o digital).</li>
+        <li><b>Carpeta «archivos generados»</b> creada dentro de la carpeta principal del proyecto.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TAREAS -->
+  <section>
+    <h2><span class="dot"></span>Tareas pendientes</h2>
+    <p class="legend">
+      <span class="owner o-ricardo">Ricardo</span> nosotros ·
+      <span class="owner o-david">David</span> cliente ·
+      <span class="owner o-grupo">Grupo</span> conjunta ·
+      <span style="color:var(--gris)">marca la casilla al completar (se guarda)</span>
+    </p>
+
+    <h3>Ricardo Hoyos (Adrihosan)</h3>
+    <div class="tasklist">
+      <div class="task"><input type="checkbox"><div class="txt" contenteditable="true"><span class="owner o-ricardo">Ricardo</span>Automatizar el formulario: que el envío de Google Forms dispare aviso/volcado automático (sin revisión manual).</div></div>
+      <div class="task"><input type="checkbox"><div class="txt" contenteditable="true"><span class="owner o-ricardo">Ricardo</span>Configurar y probar la automatización del flujo de datos en <b>N8N</b> (duplicar plantilla + renombrar por bastidor + guardar en Dropbox).</div></div>
+      <div class="task"><input type="checkbox"><div class="txt" contenteditable="true"><span class="owner o-ricardo">Ricardo</span>Analizar el <b>Excel</b> de David como punto de partida de la automatización.</div></div>
+      <div class="task"><input type="checkbox"><div class="txt" contenteditable="true"><span class="owner o-ricardo">Ricardo</span>Investigar y probar la <b>firma digital de PDFs</b> para generar documentos firmados desde el móvil.</div></div>
+      <div class="task"><input type="checkbox"><div class="txt" contenteditable="true"><span class="owner o-ricardo">Ricardo</span>Comunicar dudas y avances por <b>WhatsApp</b>.</div></div>
+    </div>
+
+    <h3>David Gómez (INGESERVICE)</h3>
+    <div class="tasklist">
+      <div class="task"><input type="checkbox"><div class="txt" contenteditable="true"><span class="owner o-david">David</span>Dar <b>acceso a Dropbox</b> (carpeta de un vehículo) y al <b>formulario</b> de alta.</div></div>
+      <div class="task"><input type="checkbox"><div class="txt" contenteditable="true"><span class="owner o-david">David</span>Compartir <b>documentación completa de un vehículo</b> (ficha técnica + cotas + reformas) para el entrenamiento.</div></div>
+      <div class="task"><input type="checkbox"><div class="txt" contenteditable="true"><span class="owner o-david">David</span>Enviar <b>ejemplos de COC</b> buenos y malos + subir <b>certificados de características</b> (válido y no válido).</div></div>
+      <div class="task"><input type="checkbox"><div class="txt" contenteditable="true"><span class="owner o-david">David</span>Enviar el <b>enlace del GPT</b> por correo y <b>guardar el prompt</b> en Dropbox.</div></div>
+      <div class="task"><input type="checkbox"><div class="txt" contenteditable="true"><span class="owner o-david">David</span>Crear carpeta <b>«archivos generados»</b> dentro del proyecto.</div></div>
+      <div class="task"><input type="checkbox"><div class="txt" contenteditable="true"><span class="owner o-david">David</span>Enviar <b>captura de las specs del ordenador</b> (valorar ampliar RAM).</div></div>
+      <div class="task"><input type="checkbox"><div class="txt" contenteditable="true"><span class="owner o-david">David</span><b>Dibujar el diagrama de flujo</b> del proceso completo (papel o digital) para que Ricardo lo visualice.</div></div>
+    </div>
+
+    <h3>Conjunta</h3>
+    <div class="tasklist">
+      <div class="task"><input type="checkbox"><div class="txt" contenteditable="true"><span class="owner o-grupo">Grupo</span>Definir la <b>plantilla Excel en blanco</b>: celdas exactas donde insertar fotografías y valores extraídos.</div></div>
+    </div>
+  </section>
+
+  <!-- FASE 2 -->
+  <section class="phase2">
+    <h2><span class="dot" style="background:var(--warn)"></span>Fase 2 — aplazado (no bloquea la Fase 1)</h2>
+    <div contenteditable="true">
+      <ul>
+        <li><b>App de medición / escalado de imágenes:</b> pinchar dos puntos del camión y obtener la distancia real usando la distancia fija entre ejes como escala (validar cotas sin ir a medir).</li>
+        <li><b>Proyecto castillos hinchables:</b> app para generar los PDFs y su firma (no hay API pública de firma disponible).</li>
+        <li><b>Facturación:</b> automatizar el proceso, hoy manual.</li>
+        <li><b>Notas de voz</b> para rellenar formularios más rápido.</li>
+      </ul>
+      <p class="note">Acuerdo: <b>un proyecto a la vez</b>. Primero la Fase 1 de datos; lo demás después.</p>
+    </div>
+  </section>
+
+  <footer>
+    Acta generada desde la transcripción (<a class="tlink" href="transcripcion-2026-07-01.md">transcripcion-2026-07-01.md</a>) ·
+    Grabación y transcripción originales en Google Drive<br>
+    <b>Código AdrIA</b> · codigoadria.com · ricardo@codigoadria.com · 96 195 71 36
+  </footer>
+
+</div>
+
+<script>
+  const KEY = 'ingeservice-2026-07-01';
+
+  /* ---------- Horas ---------- */
+  function toMin(s){
+    if(!s) return null;
+    const m = s.trim().match(/^(\d{1,2}):(\d{2})$/);
+    if(!m) return null;
+    return (+m[1])*60 + (+m[2]);
+  }
+  function fmt(min){
+    if(min<0) min=0;
+    const h=Math.floor(min/60), m=min%60;
+    return h+':'+String(m).padStart(2,'0');
+  }
+  function recalc(){
+    let used=0;
+    document.querySelectorAll('#hoursTable tbody tr').forEach(tr=>{
+      const ini=toMin(tr.querySelector('.t-ini').value);
+      const fin=toMin(tr.querySelector('.t-fin').value);
+      const cell=tr.querySelector('.dur');
+      if(ini!=null && fin!=null && fin>ini){
+        const d=fin-ini; used+=d; cell.textContent=fmt(d);
+      } else { cell.textContent='—'; }
+    });
+    const total=20*60;
+    document.getElementById('hUsed').textContent=fmt(used);
+    document.getElementById('hRest').textContent=fmt(total-used);
+    document.getElementById('bar').style.width=Math.min(100,(used/total)*100)+'%';
+  }
+  function addRow(){
+    const tb=document.querySelector('#hoursTable tbody');
+    const tr=document.createElement('tr');
+    tr.innerHTML='<td><input value=""></td><td><input value="Sesión — concepto"></td>'+
+      '<td><input class="t-ini" value=""></td><td><input class="t-fin" value=""></td><td class="dur">—</td>';
+    tb.appendChild(tr);
+    tr.querySelectorAll('input').forEach(i=>i.addEventListener('input',()=>{recalc();dirty();}));
+    dirty();
+  }
+  document.querySelectorAll('#hoursTable input').forEach(i=>i.addEventListener('input',()=>{recalc();dirty();}));
+
+  /* ---------- Tareas ---------- */
+  document.querySelectorAll('.task input[type=checkbox]').forEach(cb=>{
+    cb.addEventListener('change',e=>{
+      e.target.closest('.task').classList.toggle('done',e.target.checked);
+      dirty();
+    });
+  });
+
+  /* ---------- Guardado ---------- */
+  let isDirty=false;
+  function dirty(){ isDirty=true; setStatus('Cambios sin guardar…'); }
+  function setStatus(t){ document.getElementById('status').textContent=t; }
+  document.querySelectorAll('[contenteditable]').forEach(el=>el.addEventListener('input',dirty));
+
+  function save(){
+    const data={html:{},checks:[],hours:[]};
+    document.querySelectorAll('[contenteditable]').forEach((el,i)=>data.html[i]=el.innerHTML);
+    document.querySelectorAll('.task input[type=checkbox]').forEach(cb=>data.checks.push(cb.checked));
+    document.querySelectorAll('#hoursTable tbody tr').forEach(tr=>{
+      const c=[...tr.querySelectorAll('input')].map(i=>i.value);
+      data.hours.push(c);
+    });
+    localStorage.setItem(KEY,JSON.stringify(data));
+    isDirty=false; setStatus('✔ Guardado en este navegador · '+new Date().toLocaleTimeString('es-ES'));
+  }
+  function load(){
+    const raw=localStorage.getItem(KEY); if(!raw) return;
+    try{
+      const data=JSON.parse(raw);
+      // restaurar filas de horas extra
+      const tb=document.querySelector('#hoursTable tbody');
+      while(tb.children.length < data.hours.length) addRowSilent();
+      data.hours.forEach((row,r)=>{
+        const inputs=tb.children[r].querySelectorAll('input');
+        row.forEach((v,c)=>{ if(inputs[c]) inputs[c].value=v; });
+      });
+      const eds=document.querySelectorAll('[contenteditable]');
+      Object.entries(data.html).forEach(([i,h])=>{ if(eds[i]) eds[i].innerHTML=h; });
+      const cbs=document.querySelectorAll('.task input[type=checkbox]');
+      data.checks.forEach((v,i)=>{ if(cbs[i]){cbs[i].checked=v; cbs[i].closest('.task').classList.toggle('done',v);} });
+      setStatus('✔ Cargado lo guardado anteriormente');
+    }catch(e){}
+  }
+  function addRowSilent(){
+    const tb=document.querySelector('#hoursTable tbody');
+    const tr=document.createElement('tr');
+    tr.innerHTML='<td><input></td><td><input></td><td><input class="t-ini"></td><td><input class="t-fin"></td><td class="dur">—</td>';
+    tb.appendChild(tr);
+    tr.querySelectorAll('input').forEach(i=>i.addEventListener('input',()=>{recalc();dirty();}));
+  }
+  function resetAll(){
+    if(confirm('¿Descartar los cambios guardados y volver al acta original?')){
+      localStorage.removeItem(KEY); location.reload();
+    }
+  }
+  window.addEventListener('beforeunload',e=>{ if(isDirty){e.preventDefault();e.returnValue='';} });
+
+  load(); recalc();
+</script>
+</body>
+</html>
