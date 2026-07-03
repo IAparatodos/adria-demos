@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mastermind — 3 de julio de 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B2128;
+      --bg2: #102E35;
+      --bg3: #163A43;
+      --accent: #4DD2D0;
+      --accent2: #7CE0DE;
+      --accent-dim: rgba(77,210,208,0.12);
+      --accent-border: rgba(77,210,208,0.18);
+      --petroleo: #3F6F7B;
+      --text: #EAF6F6;
+      --muted: #86A9AE;
+      --green: #4CAF50;
+      --red: #E57373;
+      --blue: #64B5F6;
+      --purple: #B39DDB;
+      --orange: #FFB74D;
+      --cyan: #4DD0E1;
+      --radius: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    /* HERO */
+    .hero {
+      padding: clamp(48px, 9vw, 96px) 24px clamp(36px, 6vw, 64px);
+      text-align: center;
+      background: radial-gradient(ellipse at top, var(--accent-dim), transparent 60%), var(--bg);
+      border-bottom: 1px solid var(--accent-border);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      color: var(--accent2);
+      padding: 6px 16px; border-radius: 100px;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+      margin-bottom: 24px;
+    }
+    .hero-badge .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .hero h1 {
+      font-size: clamp(30px, 5.5vw, 52px);
+      font-weight: 800; letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--accent2); }
+    .hero .subtitle {
+      color: var(--muted);
+      font-size: clamp(15px, 2.2vw, 18px);
+      max-width: 640px; margin: 0 auto 28px;
+    }
+    .hero .meta {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 12px 24px; font-size: 14px; color: var(--muted);
+    }
+
+    /* NAV TIMELINE */
+    .nav-timeline {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; gap: 4px; overflow-x: auto;
+      background: rgba(11,33,40,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--accent-border);
+      padding: 10px 16px;
+      scrollbar-width: none;
+    }
+    .nav-timeline::-webkit-scrollbar { display: none; }
+    .nav-item {
+      flex: 0 0 auto;
+      display: flex; align-items: center; gap: 7px;
+      padding: 7px 14px; border-radius: 100px;
+      font-size: 13px; font-weight: 500;
+      color: var(--muted); cursor: pointer;
+      transition: all 0.3s; white-space: nowrap;
+      border: 1px solid transparent;
+    }
+    .nav-item:hover { color: var(--text); background: var(--bg3); }
+    .nav-item.active {
+      color: var(--accent2);
+      background: var(--accent-dim);
+      border-color: var(--accent-border);
+    }
+    .nav-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--bg3); font-size: 11px; font-weight: 700;
+    }
+    .nav-item.active .nav-num { background: var(--accent); color: #fff; }
+
+    /* SECTIONS */
+    .section { padding: clamp(44px, 7vw, 80px) 0; border-bottom: 1px solid rgba(77,210,208,0.07); }
+    .section-num {
+      display: flex; align-items: center; gap: 12px;
+      color: var(--accent2); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .section-num .line { width: 36px; height: 2px; background: var(--accent); border-radius: 2px; }
+    .time-badge {
+      background: var(--accent-dim); border: 1px solid var(--accent-border);
+      color: var(--accent2); padding: 2px 10px; border-radius: 100px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0;
+    }
+    .section h2 {
+      font-size: clamp(22px, 3.6vw, 32px);
+      font-weight: 800; letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+    .section .lead { color: var(--muted); font-size: clamp(14px, 2vw, 16px); max-width: 720px; margin-bottom: 32px; }
+
+    /* TALKING POINTS */
+    .tp-list { display: flex; flex-direction: column; gap: 12px; }
+    .tp {
+      display: flex; gap: 16px;
+      background: var(--bg2);
+      border: 1px solid rgba(77,210,208,0.1);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .tp:hover { border-color: var(--accent-border); background: var(--bg3); }
+    .tp.open { border-color: var(--accent-border); background: var(--bg3); }
+    .tp-icon {
+      flex: 0 0 auto;
+      width: 40px; height: 40px; border-radius: 12px;
+      background: var(--accent-dim);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .tp-content { flex: 1; min-width: 0; }
+    .tp-title { font-weight: 700; font-size: 15px; margin-bottom: 2px; }
+    .tp-desc { color: var(--muted); font-size: 14px; }
+    .tp-detail {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, margin 0.4s ease, opacity 0.35s ease;
+      opacity: 0;
+    }
+    .tp.open .tp-detail { max-height: 900px; margin-top: 12px; opacity: 1; }
+    .tp-detail p { color: var(--text); font-size: 14px; margin-bottom: 10px; }
+    .tp-quote {
+      border-left: 3px solid var(--accent);
+      background: var(--accent-dim);
+      border-radius: 0 12px 12px 0;
+      padding: 10px 16px;
+      font-style: italic; font-size: 14px;
+      color: var(--accent2);
+      margin: 10px 0;
+    }
+    .ts-plain {
+      display: inline-block;
+      background: rgba(77,208,225,0.08);
+      border: 1px solid rgba(77,208,225,0.15);
+      color: var(--cyan);
+      padding: 2px 10px; border-radius: 100px;
+      font-size: 12px; font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+    .tool-tag {
+      display: inline-block;
+      background: rgba(77,208,225,0.08);
+      border: 1px solid rgba(77,208,225,0.15);
+      color: var(--cyan);
+      padding: 1px 9px; border-radius: 100px;
+      font-size: 12px; font-weight: 600;
+      margin: 2px 2px 2px 0;
+    }
+
+    /* RESOURCES */
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .resource-card {
+      background: var(--bg2);
+      border: 1px solid rgba(77,210,208,0.1);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .resource-category {
+      color: var(--accent2); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .resource-items { display: flex; flex-direction: column; gap: 10px; }
+    .resource-item {
+      display: flex; gap: 10px; align-items: flex-start;
+      text-decoration: none; color: var(--text);
+      padding: 8px 10px; border-radius: 10px;
+      transition: background 0.3s;
+    }
+    a.resource-item:hover { background: var(--accent-dim); }
+    .resource-icon { font-size: 15px; margin-top: 1px; }
+    .resource-name { font-size: 14px; font-weight: 600; }
+    a .resource-name { color: var(--accent2); }
+    .resource-context { font-size: 12px; color: var(--muted); }
+
+    /* ACTIONS */
+    .action-list { display: flex; flex-direction: column; gap: 10px; }
+    .action {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: var(--bg2);
+      border: 1px solid rgba(77,210,208,0.1);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+    }
+    .action-who {
+      flex: 0 0 auto;
+      background: var(--accent-dim); border: 1px solid var(--accent-border);
+      color: var(--accent2);
+      padding: 3px 12px; border-radius: 100px;
+      font-size: 12px; font-weight: 700; margin-top: 2px;
+      white-space: nowrap;
+    }
+    .action-text { font-size: 14px; }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 48px 24px 56px;
+      color: var(--muted); font-size: 14px;
+    }
+    .footer p { margin-bottom: 6px; }
+
+    /* ANIMATIONS */
+    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 560px) {
+      .tp { padding: 14px; gap: 12px; }
+      .hero .meta { gap: 8px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge"><span class="dot"></span> ⚡ MASTERMIND · SESIÓN DE JULIO</div>
+    <h1>Automatiza como los pros: <span>tu propio Zapier, skills y vídeo con IA</span></h1>
+    <p class="subtitle">Joan destripa cómo sustituir Zapier con un VPS de 5&nbsp;€, Ricardo enseña su estudio de vídeo con agentes, y el grupo cierra una sesión práctica extra de automatizaciones de punta a punta.</p>
+    <div class="meta">
+      <span>📅 Jueves 3 de julio de 2026</span>
+      <span>⏱ 107 min</span>
+      <span>📋 8 temas</span>
+      <span>👥 10 participantes</span>
+    </div>
+  </div>
+
+  <!-- NAV TIMELINE -->
+  <nav class="nav-timeline" id="nav">
+    <div class="nav-item active" onclick="scrollTo_('s1')"><span class="nav-num">1</span> Tu propio Zapier</div>
+    <div class="nav-item" onclick="scrollTo_('s2')"><span class="nav-num">2</span> El modelo justo</div>
+    <div class="nav-item" onclick="scrollTo_('s3')"><span class="nav-num">3</span> Audio y vídeo con skills</div>
+    <div class="nav-item" onclick="scrollTo_('s4')"><span class="nav-num">4</span> IA en local</div>
+    <div class="nav-item" onclick="scrollTo_('s5')"><span class="nav-num">5</span> Doblaje multiidioma</div>
+    <div class="nav-item" onclick="scrollTo_('s6')"><span class="nav-num">6</span> Seguridad y RGPD</div>
+    <div class="nav-item" onclick="scrollTo_('s7')"><span class="nav-num">7</span> Plaud</div>
+    <div class="nav-item" onclick="scrollTo_('s8')"><span class="nav-num">8</span> Próxima sesión</div>
+    <div class="nav-item" onclick="scrollTo_('resources')"><span class="nav-num">🔗</span> Recursos</div>
+  </nav>
+
+  <!-- TEMA 1 -->
+  <div class="section" id="s1">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-num"><span class="line"></span> TEMA 1 <span class="time-badge">⏱ 04:11 → 26:30 · ~22 min</span></div>
+        <h2>🔌 Monta tu propio Zapier: VPS, webhooks y n8n</h2>
+        <p class="lead">Joan explica su migración completa fuera de Zapier: un VPS de 5&nbsp;€ en Hetzner, un dominio técnico y código generado por IA que escucha webhooks. Con tres reglas de oro para que sea fiable de verdad.</p>
+      </div>
+      <div class="tp-list fade-in">
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🖥️</div>
+          <div class="tp-content">
+            <div class="tp-title">La receta: VPS barato + dominio técnico</div>
+            <div class="tp-desc">Un servidor de 5 €/mes en Hetzner y un dominio que nunca verá nadie.</div>
+            <div class="tp-detail">
+              <p>Joan contrató el VPS más básico de Hetzner y le apuntó un dominio técnico (estilo <em>boluda-automations.com</em>). El dominio evita el problema de las IPs dinámicas: si Hetzner cambia la IP del servidor, todas las integraciones seguirían funcionando. Ahí llegan los webhooks de Stripe, Gmail o lo que haga falta, y un "listener" generado con Codex o Claude los procesa.</p>
+              <p>Ejemplo real de su flujo: pago en Stripe → factura en FacturaDirecta (con API key, buscando si el cliente ya existe) → envío del PDF por Gmail. Todo lo que antes hacía Zapier.</p>
+              <span class="ts-plain">⏱ 05:40</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">💬</div>
+          <div class="tp-content">
+            <div class="tp-title">El vibe coding ha matado al no-code</div>
+            <div class="tp-desc">Código → no-code (Zapier) → IA que escribe el código directamente.</div>
+            <div class="tp-detail">
+              <p>La evolución que dibuja Joan: antes picabas código, luego llegó el no-code con sus nodos y formularios "para tontos", y ahora la IA se salta esa capa. Le describes la automatización en lenguaje natural, te hace las preguntas que le falten (¿con impuestos?, ¿qué concepto pongo?) y escribe el código. Sin pagar por "tasks" ni pelearte con variables que la integración de Zapier no expone.</p>
+              <div class="tp-quote">"Nos hemos saltado una capa que hay por encima del código, que era el no-code. ¿Para qué queremos no-code? Yo le digo 'hazme esto' y me lo hace."</div>
+              <span class="ts-plain">⏱ 12:20</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🔀</div>
+          <div class="tp-content">
+            <div class="tp-title">¿Código puro o n8n encima del VPS?</div>
+            <div class="tp-desc">Las dos opciones son válidas; depende de si quieres entrar a toquetear.</div>
+            <div class="tp-detail">
+              <p>Opción A (Joan): solo código en el servidor, sin interfaz. Opción B (Ricardo y Laura): instalar n8n en el VPS y pedirle a la IA que monte los flujos ahí, con la ventaja de verlos como mapa de nodos, tener registro de ejecuciones y botón de reintentar. El criterio de Joan: si nunca vas a entrar a tocar los nodos, la capa visual sobra; si te gusta modificar a mano, n8n tiene sentido. En n8n autoalojado no pagas por nodos, a diferencia del cloud.</p>
+              <span class="ts-plain">⏱ 15:44</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🚨</div>
+          <div class="tp-content">
+            <div class="tp-title">Las tres reglas de fiabilidad: registro, reintentos y avisos</div>
+            <div class="tp-desc">Lo mínimo que debe tener tu Zapier casero para no enterarte tarde de los fallos.</div>
+            <div class="tp-detail">
+              <p>Si sustituyes Zapier, tienes que replicar lo que Zapier ya trae de serie: <strong>1)</strong> un registro de cada ejecución (Joan usa una base de datos SQL con una sola tabla), <strong>2)</strong> reintentos automáticos escalonados (1, 5 y 10 minutos) para timeouts puntuales de FacturaDirecta o Gmail, y <strong>3)</strong> un correo de alerta si fallan todos los reintentos. Caso real: mails que llegaban como "Nombre &lt;correo&gt;" en vez del correo pelado rompían su script; lo detectó por el aviso y lo arregló pidiéndoselo a la IA.</p>
+              <p>Nivel pro opcional: un pequeño dashboard con el histórico en verde/rojo y botón de reintentar. Pero ojo: si te pasas añadiendo interfaz, acabas construyendo un n8n… y para eso te instalas n8n.</p>
+              <div class="tp-quote">"Son tres cosas: registro, reintento y notificación. Con eso hay más que suficiente."</div>
+              <span class="ts-plain">⏱ 19:24</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🗂️</div>
+          <div class="tp-content">
+            <div class="tp-title">Centralizar: un solo servidor para todas las automatizaciones</div>
+            <div class="tp-desc">Joan tenía scripts esparcidos por cada hosting; ahora todo pasa por un punto.</div>
+            <div class="tp-detail">
+              <p>Antes tenía automatizaciones repartidas entre los hostings de sus distintas webs. Si un bug afectaba a todas (como el del formato de correo), había que ir hosting por hosting. Ahora todo vive en el servidor de automatizaciones: se corrige una vez y vale para todos los proyectos. Es literalmente "tu Zapier": todo entra y sale por el mismo sitio, ordenado por carpetas.</p>
+              <span class="ts-plain">⏱ 30:43</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMA 2 -->
+  <div class="section" id="s2">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-num"><span class="line"></span> TEMA 2 <span class="time-badge">⏱ 26:59 → 39:50 · ~13 min</span></div>
+        <h2>🧠 El modelo justo para cada tarea (y para cada bolsillo)</h2>
+        <p class="lead">No pongas a Einstein a sumar de dos en dos: la analogía del endocrino de Joan para elegir entre Haiku, Sonnet, Opus o Fable según lo que pida la tarea. Con el caso real de Laura analizando 1.000 reseñas.</p>
+      </div>
+      <div class="tp-list fade-in">
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🩺</div>
+          <div class="tp-content">
+            <div class="tp-title">La analogía del endocrino: 80% médicos de familia, 20% especialistas</div>
+            <div class="tp-desc">La mayoría de tareas son "resfriados": no necesitan al mega crack.</div>
+            <div class="tp-detail">
+              <p>El médico de Joan le puso el paralelismo: el 80% de los médicos atienden lo frecuente (resfriados, recetas) y solo un pequeño porcentaje son superespecialistas. Con los modelos pasa igual: para resúmenes, clasificar correos (¿pregunta pre-compra o soporte?) o agrupar texto, un Haiku o un Gemini ligero sobran. Los modelos frontera (Opus 4.8, Fable) se reservan para lo crítico. Los tokens hoy están baratos, "pero ya veréis como acaban subiendo".</p>
+              <div class="tp-quote">"Es como si pusiéramos a Einstein a hacer sumas de dos dígitos."</div>
+              <span class="ts-plain">⏱ 34:32</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🍝</div>
+          <div class="tp-content">
+            <div class="tp-title">Caso Laura: análisis semántico de 1.000 reseñas en cascada</div>
+            <div class="tp-desc">Haiku agrupa ("ñoquis", "gnocchi", "ñoquis cremosos"), Sonnet analiza.</div>
+            <div class="tp-detail">
+              <p>Laura trabaja reseñas de restaurantes en italiano. Pasarle todas las variantes de cada plato a un modelo grande le disparaba los tokens y se le "atoraba". Solución: un primer paso con Haiku que hace la agrupación semántica (unifica ñoquis/gnocchi/ñoquis cremosos en una categoría) y un segundo paso con Sonnet para el análisis fino. Va nodo por nodo en n8n revisando resultados y mejorando el flujo por iteración.</p>
+              <p>Su otro aprendizaje: contrasta propuestas entre varios modelos (Claude, Codex, OpenAI) porque se contradicen entre ellos, y el diseño del sistema de créditos se lo desatascó una conversación humana con Joan, no la IA.</p>
+              <span class="ts-plain">⏱ 28:52</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🎨</div>
+          <div class="tp-content">
+            <div class="tp-title">Cuándo sí compensa el modelo grande: Fable clavando un Figma</div>
+            <div class="tp-desc">Codex y Opus 4.8 fallaron maquetando; Fable lo bordó a la primera.</div>
+            <div class="tp-detail">
+              <p>Joan probó a pasar un diseño de Figma a código: Codex se saltaba detalles (negritas, estilos), Opus 4.8 cometió los mismos errores y le fundió los créditos del plan Max x5 en dos horas. Con Fable, recién desbloqueado, lo clavó: miró el Figma como herramienta de diseño, respetó tipografías y posiciones exactas. Moraleja: el modelo frontera para tareas de precisión; para el día a día, un escalón (o dos) por debajo. Ojo con la API pura: "por API es carísimo".</p>
+              <span class="ts-plain">⏱ 37:07</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMA 3 -->
+  <div class="section" id="s3">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-num"><span class="line"></span> TEMA 3 <span class="time-badge">⏱ 39:58 → 01:04:00 · ~24 min</span></div>
+        <h2>🎬 Editar audio y vídeo con skills y agentes</h2>
+        <p class="lead">El bloque estrella: Ricardo enseña su pipeline de reels con agentes que se revisan entre sí, Joan automatiza el podcast de su madre con FFmpeg, y aparecen hasta APIs públicas de memes.</p>
+      </div>
+      <div class="tp-list fade-in">
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">⚡</div>
+          <div class="tp-content">
+            <div class="tp-title">Las skills: instrucciones reutilizables que ahorran tokens</div>
+            <div class="tp-desc">"A la que pides tres veces la misma cosa: skill."</div>
+            <div class="tp-detail">
+              <p>Una skill es un prompt con instrucciones, rutas y variables que el propio modelo se escribe. Como "va a tiro hecho", no tiene que redescubrir el proceso cada vez y gasta muchos menos tokens. Ricardo tiene montado un "sistema operativo" local: carpetas de proyectos, clientes y skills que se cargan solo cuando hacen falta, con validación de seguridad al instalar skills de terceros desde GitHub.</p>
+              <p>Ejemplos: la skill de WordPress de Ricardo ("vamos a atacar el ID 46" y le prepara el SEO y los PHP de la categoría) o la skill "/trailer" de Joan (mira Drive, comprueba qué cursos están publicados en WordPress, sube el tráiler a YouTube y lo enlaza al curso).</p>
+              <div class="tp-quote">"Le digo: hay un curso nuevo, tú mismo. Y va, lo hace. Antes me tiraba una hora y pico por curso."</div>
+              <span class="ts-plain">⏱ 40:36</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🤖</div>
+          <div class="tp-content">
+            <div class="tp-title">El pipeline de reels de Ricardo: agentes que se vigilan entre sí</div>
+            <div class="tp-desc">Un agente monta, otro revisa, y sin OK del revisor no hay render.</div>
+            <div class="tp-detail">
+              <p>Su skill de vídeo corta silencios y fallos, mete recursos y B-roll (conectado a ChatGPT para imágenes y a Freepik para vídeo de archivo vía API), pone los textos con su tipografía y colores corporativos… y un segundo agente lo audita todo: que los títulos no tapen la boca, que todo cuadre. El primero no puede renderizar sin el visto bueno del segundo. Detalle fino: los LLM tienen sesgo de "valle del medio" (lo hacen bien al principio y al final y se despistan en el centro del vídeo), así que tiene otro agente vigilando específicamente el tramo central.</p>
+              <p>El resultado: "Tenía dos chavales tres días haciendo edición; ahora se hace en 15 minutos". Y a Laura le cobraban 270&nbsp;€ por vídeo. La inversión: unos tres días afinando la skill, que se pagan solos.</p>
+              <div class="tp-quote">"El primero no puede renderizar si el segundo no le ha dado el OK."</div>
+              <span class="ts-plain">⏱ 56:31</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🎙️</div>
+          <div class="tp-content">
+            <div class="tp-title">El podcast de la madre de Joan: de Audacity a una orden de voz</div>
+            <div class="tp-desc">20-25 MP3 sueltos → "carretera y manta" → episodio montado con FFmpeg.</div>
+            <div class="tp-detail">
+              <p>Antes: arrastrar los MP3 a Audacity, alinear pistas en escalera, hacer merge, poner intro y outro cuidando el fade. Ahora le dice a Codex el nombre del podcast y la skill mira la carpeta, junta los audios con FFmpeg (la misma librería que usa Audacity por debajo), coloca intro/outro respetando el fade y lo exporta. Para limpiar el sonido tira de Auphonic: normaliza, comprime y quita solo un poco de ruido de fondo para no cargarse los pájaros y campanas del directo.</p>
+              <p>Truco compartido para Paqui (graba paseos con la DJI Osmo en clips de 20 min): la IA trabaja el vídeo por transcripción con timestamps, así que el peso del archivo no gasta más tokens, solo más tiempo.</p>
+              <span class="ts-plain">⏱ 49:02</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">😂</div>
+          <div class="tp-content">
+            <div class="tp-title">Sí, hay APIs públicas de memes</div>
+            <div class="tp-desc">"No infravaloremos": la IA puede meterte el Bob Esponja en el B-roll.</div>
+            <div class="tp-detail">
+              <p>A la pregunta de Laura de si se pueden intercalar memes en los vídeos: existen APIs públicas de memes preparadas para agentes. Le dices que según el texto busque el meme adecuado y lo coloque como B-roll o pausa cómica. La lección de fondo de Joan: antes de asumir que "esto no lo sabrá hacer", pregunta. Él tardó meses en pedir la automatización de publicar cursos por puro escepticismo, y le costó un fin de semana que ahora le ahorra horas cada semana.</p>
+              <span class="ts-plain">⏱ 57:11</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">👀</div>
+          <div class="tp-content">
+            <div class="tp-title">Cuándo conviene que la IA trabaje DENTRO de tu software</div>
+            <div class="tp-desc">Si vas a retocar a mano, pide el proyecto editable, no el MP4 final.</div>
+            <div class="tp-detail">
+              <p>Matiz de Joan: si quieres tocar cositas después (quitar un cachito, cambiar una capa), pídele a la IA que monte el proyecto en una plataforma de edición (tipo Descript) donde luego entras tú. Si te da el MP4 renderizado, ya no hay marcha atrás, y pedirle 10 iteraciones por un detalle es más lento que hacerlo tú. Ricardo, en cambio, revisa el resultado y si algo no le gusta lo corrige por chat. Para usuarios de Premiere (pregunta de José Luis): si ya lo dominas, aprovecha su IA integrada; si no, no aprendas un software nuevo para esto.</p>
+              <span class="ts-plain">⏱ 44:52</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMA 4 -->
+  <div class="section" id="s4">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-num"><span class="line"></span> TEMA 4 <span class="time-badge">⏱ 01:04:00 → 01:11:00 · ~7 min</span></div>
+        <h2>💻 IA en local: Gemma, Ollama y LM Studio</h2>
+        <p class="lead">Modelo + runtime + agente: las tres piezas para tener IA sin conexión, sin tokens y con tus datos en casa. Ricardo enseña su setup en directo.</p>
+      </div>
+      <div class="tp-list fade-in">
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🧩</div>
+          <div class="tp-content">
+            <div class="tp-title">Cerebro, cuerpo y sistema nervioso</div>
+            <div class="tp-desc">El símil de Joan para explicar qué hay que instalarse.</div>
+            <div class="tp-detail">
+              <p>Para montar IA local necesitas tres cosas: el <strong>modelo</strong> (el cerebro: Gemma de Google, Mistral, Phi de Microsoft… los frontier tipo Opus no se pueden descargar), el <strong>agente</strong> (las manos) y el <strong>runtime</strong> que los conecta (Ollama, por ejemplo). Con eso instalado, apagas el WiFi y sigue funcionando. Sin tokens, sin coste por uso, sin que tus datos salgan de casa.</p>
+              <span class="ts-plain">⏱ 01:05:35</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🔬</div>
+          <div class="tp-content">
+            <div class="tp-title">El setup híbrido de Ricardo con LM Studio</div>
+            <div class="tp-desc">Modelos locales entrenados con su información, "por si los tokens se ponen caros".</div>
+            <div class="tp-detail">
+              <p>Ricardo compartió pantalla con LM Studio: tiene Gemma, Mistral y Phi en local, con controles de temperatura y selección de modelo, e incluso lo usa de servidor para n8n. Su motivación es doble: seguro ante subidas de precio de los tokens y privacidad (toda su información se queda en su máquina). Accesible también desde el móvil.</p>
+              <div class="tp-quote">"Lo voy entrenando y aquí tiene toda mi información. Lo utilicé incluso de servidor para n8n."</div>
+              <span class="ts-plain">⏱ 01:06:43</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">💶</div>
+          <div class="tp-content">
+            <div class="tp-title">Ponencias sobre IA: un mercado que paga bien</div>
+            <div class="tp-desc">José Luis abre la puerta del sector farma/sanitario al grupo.</div>
+            <div class="tp-detail">
+              <p>A raíz de una charla de Néstor Guerra en su hospital (5.000-8.000&nbsp;€ por ponencia), José Luis ofrece sus contactos en la industria farmacéutica: se pagan bien las formaciones prácticas de IA. Joan y Ricardo se apuntan a todo lo que sea online. El ángulo diferencial que ve Ricardo: no charlas genéricas de "la IA es maravillosa", sino "yo esto lo hago en mi empresa y te enseño cómo funciona por dentro".</p>
+              <span class="ts-plain">⏱ 01:22:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMA 5 -->
+  <div class="section" id="s5">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-num"><span class="line"></span> TEMA 5 <span class="time-badge">⏱ 01:11:00 → 01:28:00 · ~17 min</span></div>
+        <h2>🌍 Vídeos multiidioma: doblaje + lip-sync para conquistar Alemania</h2>
+        <p class="lead">José Luis necesita el mercado alemán "como agua de mayo": su web convierte al 4% en Alemania sin tener ni una línea en alemán. El grupo le monta el pipeline completo, empezando por grill-me.</p>
+      </div>
+      <div class="tp-list fade-in">
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🔥</div>
+          <div class="tp-content">
+            <div class="tp-title">Primer paso: la skill grill-me</div>
+            <div class="tp-desc">"Hazme mil preguntas hasta que tengas claro lo que quiero."</div>
+            <div class="tp-detail">
+              <p>Joan compartió en el chat la skill grill-me (de aihero.dev): se instala en Claude o Codex y, antes de ejecutar nada, te interroga a fondo: qué tipo de vídeo, formato, ejemplos que te gustan, imagen corporativa, tipografías… Puede parecer pesada, pero cada pregunta evita un error que te costaría 50 iteraciones después. Combinada con "créame una skill", todo lo aprendido queda guardado para la próxima vez. Ricardo añade su método: enséñale un vídeo de referencia ("este de Ángela Aparicio, con este rollo pero mi estilo") y, cuando el resultado te guste, dile "móntame una skill de esto".</p>
+              <div class="tp-quote">"Es mejor responder las preguntas hasta que se harte, porque si no se lo digo, ¿qué va a poner aquí?"</div>
+              <span class="ts-plain">⏱ 01:13:42</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🗣️</div>
+          <div class="tp-content">
+            <div class="tp-title">El pipeline de doblaje: ElevenLabs + Magnific (Freepik)</div>
+            <div class="tp-desc">Doblaje con tu voz clonada + sincronización labial. Y todo por API.</div>
+            <div class="tp-detail">
+              <p>La receta de Ricardo, probada con sus propios vídeos en inglés: el doblaje se hace en ElevenLabs (calidad top) y el lip-sync en Magnific, dentro de Freepik (que compró la herramienta). HeyGen es la alternativa más conocida pero "se nota más" al mirar en detalle. Lo mágico, apunta Joan: ambas tienen API, así que la skill puede hacerlo todo sola: "vídeo alemán" → dobla → sincroniza labios → te devuelve el archivo. Y de ahí a Metricool para programar la publicación, como ya hace Ricardo.</p>
+              <p>Truco de grabación: no pases las manos por delante de la cara: el lip-sync todavía "explota" y aparecen dientes donde no toca.</p>
+              <div class="tp-quote">"Le dices: aquí tienes el vídeo. Alemán, catalán, español, italiano. Me voy a almorzar, y cuando regreses tendrás todo doblado y sincronizado."</div>
+              <span class="ts-plain">⏱ 01:18:02</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🎯</div>
+          <div class="tp-content">
+            <div class="tp-title">El consejo de fondo: cúrrate el primero, luego automatiza</div>
+            <div class="tp-desc">La primera vez cuesta; a partir de ahí es "/vídeo y ya está".</div>
+            <div class="tp-detail">
+              <p>Consenso de Ricardo y Joan para José Luis: dedica tiempo al primer vídeo, itera hasta que el resultado te encante y entonces conviértelo en skill con todas las decisiones tomadas. Elegir herramienta importa menos que centrarte en una: "la IA da igual, la que tú estés cómodo, si funciona". Eso sí: Claude o Codex mejor que Gemini para esto (necesitan acceso a tus archivos locales), y las herramientas buenas son de pago: ElevenLabs, Magnific, HeyGen. "Cuando buscas algo profesional, lo gratis ya sabes dónde llega."</p>
+              <span class="ts-plain">⏱ 01:20:55</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMA 6 -->
+  <div class="section" id="s6">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-num"><span class="line"></span> TEMA 6 <span class="time-badge">⏱ 01:29:19 → 01:31:45 · ~6 min</span></div>
+        <h2>🔐 Seguridad, RGPD y datos sensibles</h2>
+        <p class="lead">Esther preguntó por chat lo que a muchos les da "miedito": ¿y si me hackean la app que me ha hecho la IA? La respuesta del grupo: auditoría cruzada entre modelos y, con datos sanitarios, todo en local.</p>
+      </div>
+      <div class="tp-list fade-in">
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🛡️</div>
+          <div class="tp-content">
+            <div class="tp-title">Auditoría cruzada: que un modelo revise lo que hizo otro</div>
+            <div class="tp-desc">Si lo hizo Claude, que lo audite OpenAI. Y al revés. Mínimo dos o tres pasadas.</div>
+            <div class="tp-detail">
+              <p>El miedo es legítimo, pero existiría igual con un programador humano (Joan recuerda cuántas brechas famosas hubo antes de la IA). El blindaje práctico: pedir el código a una IA y pasarlo por una auditoría de seguridad con otro modelo distinto, o al menos con un chat nuevo que lo mire "con otros ojos". Ricardo apunta que para auditar, Fable es el mejor: aquí sí compensa el modelo potente. Cuando tres o cuatro modelos no encuentran nada, "ahí no se puede entrar". Y siempre: encriptar los datos sensibles de la base de datos.</p>
+              <div class="tp-quote">"❤️ me quedo más tranqui" — Esther, por el chat</div>
+              <span class="ts-plain">⏱ 01:30:02</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🏥</div>
+          <div class="tp-content">
+            <div class="tp-title">Datos sanitarios: cuando el RGPD te obliga a ir en local</div>
+            <div class="tp-desc">OpenEvidence bloqueada en Europa; la ortopedia del primo de Ricardo, todo en casa.</div>
+            <div class="tp-detail">
+              <p>José Luis contó que OpenEvidence (la IA de evidencia médica que usan a diario) ha quedado cortada en Europa por protección de datos: los médicos se conectan por VPN. La alternativa seria es la que montó Ricardo para la ortopedia de su primo en Tenerife: todo en local con Gemma, consentimiento firmado del paciente al llegar, transcripción de consultas y llamadas con Plaud directamente a la ficha del CRM, y firma de PDFs con AutoFirma. Historial completo sin que un solo dato salga del local.</p>
+              <span class="ts-plain">⏱ 01:23:54</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMA 7 -->
+  <div class="section" id="s7">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-num"><span class="line"></span> TEMA 7 <span class="time-badge">⏱ 01:31:48 → 01:43:00 · ~11 min</span></div>
+        <h2>🎙️ Plaud: la grabadora que lo transcribe y resume todo</h2>
+        <p class="lead">Laura se compró el Plaud Pro y ya no puede vivir sin él… pero los 300 minutos se le quedan cortos. Consejos de plan, trucos de uso y dos anécdotas de espionaje involuntario en ferias.</p>
+      </div>
+      <div class="tp-list fade-in">
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">📌</div>
+          <div class="tp-content">
+            <div class="tp-title">Por qué engancha: transcripción automática con perfiles de voz</div>
+            <div class="tp-desc">Graba, sube, transcribe y resume solo. Y reconoce quién habla.</div>
+            <div class="tp-detail">
+              <p>Joan lo lleva a todas partes (reunión del cole incluida: llegó a casa con el acta hecha y se la mandó a su mujer). Con la opción de autodetección activada, guarda el perfil de voz de cada persona y a la segunda reunión ya etiqueta solo quién dice qué. La transcripción es lo único que consume minutos; las plantillas (resumen, mapa conceptual, acta…) son ilimitadas sobre la misma transcripción. Ricardo hace lo mismo en la asociación de comercios del barrio: "Oye Ricardo, ¿no te has traído el aparatito?"</p>
+              <div class="tp-quote">"Estuvimos tres horas de palique en su terraza y al acabar le di a enviar: ya tenía todo el resumen en el correo."</div>
+              <span class="ts-plain">⏱ 01:38:48</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">💳</div>
+          <div class="tp-content">
+            <div class="tp-title">Qué plan pillar (consejo para Laura)</div>
+            <div class="tp-desc">Mensual de 1.200 min ahora; el anual ilimitado, mejor en Black Friday.</div>
+            <div class="tp-detail">
+              <p>A Laura los 300 minutos del plan base se le agotan a mitad de mes. La escalera que recomienda Joan: mensual de 1.200 minutos (~9&nbsp;€) y, si se queda corto, el ilimitado (~18&nbsp;€/mes, 110&nbsp;€/año). Él pagó el anual ilimitado y le cambió el uso: "cuando es ilimitada vas con el bicho todo el día". Consejo táctico: no pillar el anual todavía, que en septiembre suele haber oferta de Black Friday. Alternativa low-cost mientras tanto: grabar con cualquier micro y pasar el MP3 a Whisper o a Claude, aunque pierdes la comodidad, que es justo lo que se paga.</p>
+              <span class="ts-plain">⏱ 01:39:51</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🕵️</div>
+          <div class="tp-content">
+            <div class="tp-title">La anécdota de Albert: los proveedores chinos de Eurobike</div>
+            <div class="tp-desc">Hablaron entre ellos en chino delante del móvil… y el Plaud lo transcribió todo.</div>
+            <div class="tp-detail">
+              <p>En la feria Eurobike de Frankfurt, Albert dejó el móvil con el Plaud sobre la mesa mientras negociaba en un stand. Los comerciales se pusieron a hablar en chino entre ellos y la transcripción capturó (y tradujo) la conversación entera. Le pasa igual con unos proveedores holandeses que discuten en su idioma delante del cliente. Ricardo remató con su caso: usa la voz avanzada de ChatGPT como intérprete simultáneo con clientas extranjeras en la tienda: "he facturado más de 80.000 euros gracias a la voz avanzada".</p>
+              <span class="ts-plain">⏱ 01:41:31</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMA 8 -->
+  <div class="section" id="s8">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-num"><span class="line"></span> TEMA 8 <span class="time-badge">⏱ 01:28:14 y 01:43:00 → cierre · ~6 min</span></div>
+        <h2>📅 Próxima sesión: taller práctico de automatizaciones</h2>
+        <p class="lead">Laura lo propuso y el grupo lo compró en el acto: una sesión extra donde Joan y Ricardo monten una automatización de punta a punta, en directo y desde cero.</p>
+      </div>
+      <div class="tp-list fade-in">
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">🧑‍🏫</div>
+          <div class="tp-content">
+            <div class="tp-title">El formato: proceso completo, no truquitos sueltos</div>
+            <div class="tp-desc">Petición expresa de Albert: despacio y viendo todo el camino.</div>
+            <div class="tp-detail">
+              <p>Joan preparará un ejemplo básico "comodín" de principio a fin, con cuentas ficticias y API keys de prueba ya creadas para no perder tiempo en directo. Hará una parte con Claude y otra con Codex para ver las diferencias. Lo importante, insiste, es la metodología: cada uno luego la aplica a su caso. Albert, que lleva "una temporada en galeras" editando vídeos de proveedores chinos, pidió explícitamente ritmo pausado.</p>
+              <div class="tp-quote">"Si sabes hablar, sabes usar Codex. Si sabes hablar, sabes usar Claude. Punto."</div>
+              <span class="ts-plain">⏱ 01:44:00</span>
+            </div>
+          </div>
+        </div>
+        <div class="tp" onclick="this.classList.toggle('open')">
+          <div class="tp-icon">📋</div>
+          <div class="tp-content">
+            <div class="tp-title">Compromisos que se llevó cada uno</div>
+            <div class="tp-desc">Joan, Ricardo, José Luis y el grupo salen con deberes.</div>
+            <div class="tp-detail">
+              <p><strong>Joan</strong>: preparar la demo end-to-end + un documento de "ingredientes" (qué cuentas, dominios y API keys necesitas traer), idea de Jose Luis Guardia; en HTML editable, sugiere Ricardo. <strong>Ricardo</strong>: adaptar su skill de vídeo para compartirla, con preguntas iniciales tipo grill-me (marca, formato, destino) para que cada uno la personalice sin heredar sus colores turquesa. <strong>José Luis</strong>: probar grill-me esa misma noche con sus vídeos de productividad y mover ponencias en el sector farma. <strong>Todos</strong>: cuadrar fecha por Telegram; si no cabe este mes, se hace en la sesión siguiente.</p>
+              <span class="ts-plain">⏱ 01:45:43</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECURSOS -->
+  <div class="section" id="resources">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>🔗 Recursos compartidos</h2>
+        <p class="lead">Links del chat y herramientas mencionadas durante la sesión.</p>
+      </div>
+      <div class="resource-grid fade-in">
+        <div class="resource-card">
+          <div class="resource-category">Links del chat</div>
+          <div class="resource-items">
+            <a href="https://www.aihero.dev/skills-grill-me" target="_blank" class="resource-item">
+              <span class="resource-icon">🔥</span>
+              <div>
+                <div class="resource-name">grill-me (aihero.dev)</div>
+                <div class="resource-context">Joan · Skill que te interroga antes de ejecutar; el punto de partida recomendado para José Luis</div>
+              </div>
+            </a>
+            <a href="https://consensus.app/" target="_blank" class="resource-item">
+              <span class="resource-icon">🔬</span>
+              <div>
+                <div class="resource-name">Consensus</div>
+                <div class="resource-context">Andrés · IA para búsqueda de estudios científicos</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="resource-card">
+          <div class="resource-category">Infraestructura y automatización</div>
+          <div class="resource-items">
+            <div class="resource-item"><span class="resource-icon">🖥️</span><div><div class="resource-name">Hetzner</div><div class="resource-context">VPS de 5 €/mes que Joan usa como "su Zapier"</div></div></div>
+            <div class="resource-item"><span class="resource-icon">🔀</span><div><div class="resource-name">n8n autoalojado</div><div class="resource-context">La opción visual de Ricardo y Laura; sin coste por nodos</div></div></div>
+            <div class="resource-item"><span class="resource-icon">💳</span><div><div class="resource-name">Stripe · FacturaDirecta · Gmail</div><div class="resource-context">El flujo ejemplo: pago → factura → envío del PDF</div></div></div>
+            <div class="resource-item"><span class="resource-icon">🤖</span><div><div class="resource-name">Claude Code · Codex</div><div class="resource-context">Los dos agentes del grupo; la demo de la próxima sesión usará ambos</div></div></div>
+          </div>
+        </div>
+        <div class="resource-card">
+          <div class="resource-category">Audio y vídeo</div>
+          <div class="resource-items">
+            <div class="resource-item"><span class="resource-icon">🗣️</span><div><div class="resource-name">ElevenLabs</div><div class="resource-context">Doblaje multiidioma con voz clonada</div></div></div>
+            <div class="resource-item"><span class="resource-icon">👄</span><div><div class="resource-name">Magnific (Freepik)</div><div class="resource-context">Lip-sync tras el doblaje; Freepik también como banco de B-roll vía API</div></div></div>
+            <div class="resource-item"><span class="resource-icon">🎭</span><div><div class="resource-name">HeyGen</div><div class="resource-context">Alternativa de avatar/doblaje; "se nota más" en detalle</div></div></div>
+            <div class="resource-item"><span class="resource-icon">🎚️</span><div><div class="resource-name">Auphonic · Audacity · FFmpeg</div><div class="resource-context">Limpieza y montaje de audio; FFmpeg es lo que usa la IA por debajo</div></div></div>
+            <div class="resource-item"><span class="resource-icon">📆</span><div><div class="resource-name">Metricool</div><div class="resource-context">Ricardo programa la publicación en redes directamente desde la skill</div></div></div>
+            <div class="resource-item"><span class="resource-icon">🎬</span><div><div class="resource-name">DaVinci Resolve · Premiere</div><div class="resource-context">Edición tradicional; solo si ya son tu herramienta</div></div></div>
+          </div>
+        </div>
+        <div class="resource-card">
+          <div class="resource-category">IA local y captura</div>
+          <div class="resource-items">
+            <div class="resource-item"><span class="resource-icon">🧠</span><div><div class="resource-name">LM Studio · Ollama</div><div class="resource-context">Runtimes para correr modelos en tu máquina</div></div></div>
+            <div class="resource-item"><span class="resource-icon">💎</span><div><div class="resource-name">Gemma · Mistral · Phi</div><div class="resource-context">Modelos descargables; Gemma también en la ortopedia (RGPD)</div></div></div>
+            <div class="resource-item"><span class="resource-icon">🎙️</span><div><div class="resource-name">Plaud / NotePin</div><div class="resource-context">Grabadora con transcripción y resúmenes; plan 1.200 min ≈ 9 €/mes</div></div></div>
+            <div class="resource-item"><span class="resource-icon">🗨️</span><div><div class="resource-name">ChatGPT voz avanzada</div><div class="resource-context">Intérprete simultáneo en tienda; "+80.000 € facturados"</div></div></div>
+            <div class="resource-item"><span class="resource-icon">✍️</span><div><div class="resource-name">AutoFirma · Whisper</div><div class="resource-context">Firma de PDFs en el flujo de la ortopedia; transcripción low-cost</div></div></div>
+            <div class="resource-item"><span class="resource-icon">🩺</span><div><div class="resource-name">OpenEvidence · Heidi</div><div class="resource-context">IA médica; OpenEvidence bloqueada en Europa por RGPD</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="container">
+      <p style="color: var(--accent); font-weight: 700;">Mastermind — Código AdrIA</p>
+      <p>Jueves 3 de julio de 2026 · 15:02 (CEST) · 107 minutos</p>
+      <p style="font-size: 12px;">codigoadria.com</p>
+    </div>
+  </div>
+
+  <script>
+    function scrollTo_(id) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    const sections = document.querySelectorAll('.section');
+    const navItems = document.querySelectorAll('.nav-item');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      navItems.forEach(item => {
+        const target = item.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+        item.classList.toggle('active', target === current);
+      });
+    });
+  </script>
+</body>
+</html>
