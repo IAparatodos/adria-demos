@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análisis GPT-5.6 sin humo · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Análisis GPT-5.6 sin humo · Código AdrIA">
+<meta property="og:description" content="Qué hay de verdad en GPT-5.6, qué es humo y qué puedes usar desde esta semana.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/recursos/analisis-gpt-5-6-sol.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Análisis GPT-5.6 sin humo · Código AdrIA">
+<meta name="twitter:description" content="Qué hay de verdad en GPT-5.6, qué es humo y qué puedes usar desde esta semana.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tq:#4dd2d0; --pet:#3f6f7b; --prof:#102e35; --dark:#0b2128;
+  --paper:#f7fafa; --card:#ffffff; --ink:#102e35; --muted:#5c7a80;
+  --hairline:rgba(16,46,53,.1); --tq-dim:rgba(77,210,208,.12); --tq-border:rgba(77,210,208,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',-apple-system,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;padding:0 22px}
+
+/* HERO */
+.hero{background:radial-gradient(ellipse at 50% -20%,rgba(77,210,208,.16),transparent 60%),var(--dark);color:#eaf6f6;padding:clamp(56px,10vw,104px) 0 clamp(44px,7vw,72px);text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--tq-dim);border:1px solid var(--tq-border);color:var(--tq);padding:7px 18px;border-radius:100px;font-size:13px;font-weight:600;letter-spacing:.05em;margin-bottom:26px}
+.hero h1{font-size:clamp(30px,6vw,54px);font-weight:900;letter-spacing:-.02em;line-height:1.12;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--tq)}
+.hero p{color:#9fc0c4;max-width:620px;margin:0 auto 26px;font-size:clamp(15px,2.2vw,18px)}
+.hero .meta{color:#6f959b;font-size:13px}
+
+/* SECTIONS */
+section{padding:clamp(44px,7vw,72px) 0}
+section.dark{background:var(--prof);color:#eaf6f6}
+.kicker{color:var(--pet);font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+.dark .kicker{color:var(--tq)}
+h2{font-size:clamp(23px,4vw,34px);font-weight:800;letter-spacing:-.01em;line-height:1.2;margin-bottom:14px}
+.lead{color:var(--muted);max-width:660px;margin-bottom:32px}
+.dark .lead{color:#9fc0c4}
+
+/* RESUMEN 30s */
+.list30{display:flex;flex-direction:column;gap:12px}
+.list30 li{list-style:none;display:flex;gap:14px;background:var(--card);border:1px solid var(--hairline);border-radius:14px;padding:16px 20px;font-size:15px}
+.list30 .n{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--tq);color:var(--prof);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.list30 b{color:var(--prof)}
+
+/* MODELOS */
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.tier{background:var(--card);border:1px solid var(--hairline);border-radius:18px;padding:26px 24px;position:relative}
+.tier.star{border:2px solid var(--tq);box-shadow:0 12px 36px rgba(77,210,208,.14)}
+.tier .flag{position:absolute;top:-12px;left:24px;background:var(--tq);color:var(--prof);font-size:11px;font-weight:800;letter-spacing:.08em;padding:3px 12px;border-radius:100px}
+.tier h3{font-size:22px;font-weight:800;margin-bottom:2px}
+.tier .rol{color:var(--muted);font-size:13.5px;margin-bottom:16px;min-height:42px}
+.tier .price{font-size:14px;color:var(--ink);border-top:1px solid var(--hairline);padding-top:14px}
+.tier .price b{font-size:20px;color:var(--prof)}
+.tier .price span{color:var(--muted);font-size:12.5px;display:block}
+.notaprecio{color:var(--muted);font-size:13px;margin-top:18px}
+
+/* MEJORAS */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.fact{background:var(--card);border:1px solid var(--hairline);border-radius:16px;padding:22px}
+.dark .fact{background:rgba(255,255,255,.04);border-color:rgba(77,210,208,.15)}
+.fact .ico{font-size:22px;margin-bottom:10px}
+.fact h4{font-size:16px;font-weight:700;margin-bottom:6px}
+.fact p{font-size:14px;color:var(--muted)}
+.dark .fact p{color:#9fc0c4}
+.fact .src{display:inline-block;margin-top:10px;font-size:11.5px;color:var(--pet);background:var(--tq-dim);border-radius:100px;padding:2px 10px;font-weight:600}
+.dark .fact .src{color:var(--tq)}
+
+/* HUMO TABLE */
+.humo{display:flex;flex-direction:column;gap:12px}
+.humo-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.humo-cell{border-radius:14px;padding:16px 18px;font-size:14px}
+.humo-cell.h{background:#fdf0ee;border:1px solid #f3d5d0;color:#7a3b30}
+.humo-cell.v{background:#eefaf9;border:1px solid #cdeeed;color:#1d5c58}
+.humo-cell b{display:block;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;opacity:.75}
+@media (max-width:560px){.humo-row{grid-template-columns:1fr}}
+
+/* ACCIONES */
+.acciones{display:flex;flex-direction:column;gap:12px;counter-reset:acc}
+.acc{background:rgba(255,255,255,.04);border:1px solid rgba(77,210,208,.15);border-radius:14px;padding:18px 20px}
+.acc h4{font-size:15.5px;font-weight:700;color:var(--tq);margin-bottom:4px}
+.acc p{font-size:14px;color:#b9d4d7}
+
+/* CTA */
+.ctabox{background:linear-gradient(135deg,rgba(77,210,208,.14),rgba(63,111,123,.14)),var(--dark);border:1px solid var(--tq-border);border-radius:22px;padding:clamp(30px,5vw,48px);text-align:center;color:#eaf6f6}
+.ctabox h2{margin-bottom:10px}
+.ctabox p{color:#9fc0c4;max-width:560px;margin:0 auto 24px;font-size:15px}
+.btn{display:inline-block;background:var(--tq);color:var(--prof);font-weight:800;font-size:15px;padding:15px 36px;border-radius:100px;text-decoration:none;transition:transform .15s ease,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(77,210,208,.35)}
+
+/* FOOTER */
+footer{background:var(--dark);color:#6f959b;text-align:center;padding:36px 22px;font-size:13px}
+footer b{color:var(--tq);font-weight:700}
+footer a{color:#9fc0c4}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="badge">⚡ ANÁLISIS SIN HUMO · JULIO 2026</div>
+    <h1>GPT-5.6 llegó:<br>lo que es <em>real</em>, lo que es humo<br>e importa para tu negocio</h1>
+    <p>OpenAI ha presentado su nueva familia de modelos en una vista previa que casi nadie puede tocar. Aquí tienes todos los datos del anuncio oficial, traducidos al castellano de a pie, con los precios reales encima de la mesa.</p>
+    <div class="meta">Fuente: anuncio oficial de OpenAI (26 de junio de 2026) · Sin especulación: si no está en la fuente, no está aquí</div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Si solo tienes medio minuto</div>
+    <h2>En 30 segundos</h2>
+    <ul class="list30">
+      <li><span class="n">1</span><div><b>Son tres modelos, no uno:</b> Sol (el potente), Terra (el equilibrado, rinde como GPT-5.5 costando la mitad) y Luna (el rápido barato). El número es la generación; el nombre, el nivel.</div></li>
+      <li><span class="n">2</span><div><b>Nadie que conozcas puede usarlos todavía.</b> Vista previa limitada a socios seleccionados, por API y Codex, coordinada con el Gobierno de EE. UU. La disponibilidad general llegará "en las próximas semanas".</div></li>
+      <li><span class="n">3</span><div><b>La mejora estrella es trabajar solo:</b> récord en tareas de terminal (planificar, ejecutar, coordinar herramientas) y un modo "ultra" que reparte el trabajo entre varios subagentes en paralelo.</div></li>
+      <li><span class="n">4</span><div><b>Los precios ya son públicos:</b> desde 1&nbsp;$ por millón de tokens de entrada (Luna) hasta 5&nbsp;$/30&nbsp;$ (Sol). La caché de prompts descuenta el 90&nbsp;% en lecturas.</div></li>
+      <li><span class="n">5</span><div><b>Casi todo lo que promete ya se puede aproximar hoy</b> con los agentes disponibles (Claude Code, Codex). La habilidad que no caduca es saber dirigirlos.</div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="kicker">La familia al completo</div>
+    <h2>Los tres modelos, explicados</h2>
+    <p class="lead">Con GPT-5.6 estrenan sistema de nombres: el número marca la generación; Sol, Terra o Luna marcan el nivel de capacidad. Elegir bien el nivel es donde se ahorra el dinero.</p>
+    <div class="tiers">
+      <div class="tier star" style="background:var(--card);color:var(--ink)">
+        <div class="flag">EL INSIGNIA</div>
+        <h3>☀️ Sol</h3>
+        <div class="rol">El más potente que han hecho nunca. Para trabajo complejo: programación seria, análisis largos, auditorías.</div>
+        <div class="price"><b>5&nbsp;$ / 30&nbsp;$</b><span>entrada / salida por millón de tokens</span></div>
+      </div>
+      <div class="tier" style="background:var(--card);color:var(--ink)">
+        <h3>🌍 Terra</h3>
+        <div class="rol">El equilibrado para el día a día. Rinde al nivel de GPT-5.5 costando 2 veces menos.</div>
+        <div class="price"><b>2,50&nbsp;$ / 15&nbsp;$</b><span>entrada / salida por millón de tokens</span></div>
+      </div>
+      <div class="tier" style="background:var(--card);color:var(--ink)">
+        <h3>🌙 Luna</h3>
+        <div class="rol">El rápido barato. Para tareas simples en volumen: clasificar, resumir, etiquetar.</div>
+        <div class="price"><b>1&nbsp;$ / 6&nbsp;$</b><span>entrada / salida por millón de tokens</span></div>
+      </div>
+    </div>
+    <p class="notaprecio" style="color:#9fc0c4">💡 Traducción práctica: un millón de tokens son unas 750.000 palabras. La lección de siempre aplica más que nunca: no pongas a Sol a hacer el trabajo de Luna — es como contratar a un cirujano para poner tiritas.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Datos del anuncio, no promesas</div>
+    <h2>Lo que mejora de verdad</h2>
+    <p class="lead">Todo lo de abajo sale del anuncio oficial. Cuando OpenAI publique la disponibilidad general prometen resultados ampliados; de momento esto es lo que hay.</p>
+    <div class="grid2">
+      <div class="fact"><div class="ico">🖥️</div><h4>Récord trabajando en terminal</h4><p>Nuevo referente en Terminal-Bench 2.1: flujos de línea de comandos que exigen planificar, iterar entre pasos coordinando herramientas. Es la base de los agentes que trabajan solos.</p><span class="src">Terminal-Bench 2.1</span></div>
+      <div class="fact"><div class="ico">🧠</div><h4>Razonamiento «max»</h4><p>Un nuevo nivel de esfuerzo que da al modelo el máximo tiempo para pensar en profundidad antes de responder. Para problemas donde equivocarse sale caro.</p><span class="src">Novedad GPT-5.6</span></div>
+      <div class="fact"><div class="ico">🕸️</div><h4>Modo «ultra» con subagentes</h4><p>Va más allá de un único agente: reparte trabajos complejos entre varios subagentes que avanzan en paralelo. La dirección es clara: equipos de IA, no asistentes sueltos.</p><span class="src">Novedad GPT-5.6</span></div>
+      <div class="fact"><div class="ico">🧬</div><h4>Biología con menos tokens</h4><p>En GeneBench v1 (análisis genómico de largo recorrido) supera a GPT-5.5 gastando menos. El patrón se repite: más resultado por token.</p><span class="src">GeneBench v1</span></div>
+      <div class="fact"><div class="ico">🛡️</div><h4>Ciberseguridad eficiente</h4><p>En ExploitBench rinde al nivel de Mythos Preview usando solo un tercio de los tokens de salida. Ayuda mejor a encontrar fallos que a explotarlos: no cruza el umbral «Cyber Critical» de su propio marco de preparación.</p><span class="src">ExploitBench · ExploitGym (UC Berkeley)</span></div>
+      <div class="fact"><div class="ico">⚡</div><h4>Velocidad extrema en camino</h4><p>En julio llega Sol sobre chips Cerebras: hasta 750 tokens por segundo, primero para clientes seleccionados. Respuestas largas casi instantáneas.</p><span class="src">Anuncio oficial</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="kicker">Lo que no te contarán en el hype</div>
+    <h2>La letra pequeña</h2>
+    <div class="grid2">
+      <div class="fact"><div class="ico">🔒</div><h4>Acceso cerrado, de momento</h4><p>Solo un grupo pequeño de socios de confianza, por API y Codex, con participación comunicada al Gobierno de EE. UU. dentro del marco de la orden ejecutiva de ciberseguridad. La propia OpenAI dice que no quiere que esto sea la norma.</p></div>
+      <div class="fact"><div class="ico">⏳</div><h4>«Próximas semanas»</h4><p>Ese es todo el calendario que existe para ChatGPT, Codex o API en general. Cualquiera que te dé una fecha concreta se la está inventando.</p></div>
+      <div class="fact"><div class="ico">🚧</div><h4>Esperarás bloqueos</h4><p>Las medidas de seguridad por capas (entrenadas en el modelo + clasificadores en tiempo real + revisión de cuenta) pueden pausar o rechazar peticiones legítimas durante la preview, sobre todo en temas de doble uso.</p></div>
+      <div class="fact"><div class="ico">🤺</div><h4>700.000 horas de GPU en ponerlo a prueba</h4><p>Red teaming automatizado buscando jailbreaks universales, más expertos humanos externos. El dato dice algo importante: se toman en serio que esta generación es más capaz también para lo malo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Protege tu cartera</div>
+    <h2>Detector de humo</h2>
+    <p class="lead">Con cada lanzamiento pasa igual. Esta vez ve con esto aprendido:</p>
+    <div class="humo">
+      <div class="humo-row">
+        <div class="humo-cell h"><b>Te dirán</b>«Curso definitivo de GPT-5.6, plazas limitadas»</div>
+        <div class="humo-cell v"><b>La realidad</b>Nadie fuera de los socios seleccionados lo ha podido probar. Ni quien te vende el curso. Pregúntale cómo lo probó.</div>
+      </div>
+      <div class="humo-row">
+        <div class="humo-cell h"><b>Te dirán</b>«GPT-5.6 deja obsoleto todo lo que sabías»</div>
+        <div class="humo-cell v"><b>La realidad</b>Es la misma dirección de siempre con más músculo: agentes que trabajan solos. Lo aprendido sobre dirigir la IA vale más, no menos.</div>
+      </div>
+      <div class="humo-row">
+        <div class="humo-cell h"><b>Te dirán</b>«Espérate a Sol para automatizar tu negocio»</div>
+        <div class="humo-cell v"><b>La realidad</b>Lo que promete Sol ya se aproxima hoy con Claude Code o Codex: encontrar un fallo en tu web, arreglarlo, verificarlo. Esperar es perder meses.</div>
+      </div>
+      <div class="humo-row">
+        <div class="humo-cell h"><b>Te dirán</b>«La IA ya programa sola, despide a tu informático»</div>
+        <div class="humo-cell v"><b>La realidad</b>El propio anuncio la posiciona para encontrar-corregir con supervisión. Alguien tiene que dirigir, revisar, decidir. Esa persona puedes ser tú.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="kicker">Sin esperar a nadie</div>
+    <h2>Qué puedes hacer desde esta misma semana</h2>
+    <p class="lead">Cuatro movimientos concretos con las herramientas que ya existen. Todos los hago en mi propio negocio.</p>
+    <div class="acciones">
+      <div class="acc"><h4>1 · Ponle un agente a tu web</h4><p>Claude Code o Codex conectados a tu WordPress (por API, sin plugins raros) pueden encontrar un fallo, proponer el arreglo, aplicarlo con copia de seguridad previa. En mi reel lo hago en directo sobre mi web real.</p></div>
+      <div class="acc"><h4>2 · Aplica la regla Sol/Terra/Luna a lo que ya usas</h4><p>Revisa tus automatizaciones actuales: ¿qué tareas simples estás pagando a precio de modelo caro? Clasificar correos o resumir textos va al modelo barato. El ahorro es inmediato.</p></div>
+      <div class="acc"><h4>3 · Convierte lo repetitivo en skills</h4><p>Cada proceso que repites tres veces merece instrucciones guardadas que el agente ejecuta a la primera. Cuando llegue GPT-5.6, tus skills funcionarán con él: son instrucciones, no dependen del modelo.</p></div>
+      <div class="acc"><h4>4 · Prepara el terreno para los subagentes</h4><p>El modo «ultra» confirma la dirección: un agente que ejecuta, otro que revisa. Ese patrón ya funciona hoy: monta tu primer pipeline con revisor antes de que sea mainstream.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="ctabox">
+      <h2>Aprende a dirigir la IA,<br>no a perseguir modelos</h2>
+      <p>En la comunidad de Código AdrIA enseño esto mismo con casos reales de mi negocio: automatizaciones que funcionan, sin teoría de relleno. Soporte diario, en castellano, para gente de a pie.</p>
+      <a class="btn" href="https://www.codigoadria.com/" target="_blank">Únete gratis al canal VIP →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><b>Cortesía Código AdrIA</b> · codigoadria.com</p>
+  <p style="margin-top:6px">Fuente de todos los datos: <a href="https://openai.com/es-ES/index/previewing-gpt-5-6-sol/" target="_blank">anuncio oficial de OpenAI</a> (26-jun-2026). Documento informativo, julio 2026.</p>
+</footer>
+
+</body>
+</html>
