@@ -1,0 +1,365 @@
+<meta charset="UTF-8">
+<title>Fable 5: el modelo más potente de Anthropic · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fable 5 · Código AdrIA">
+<meta property="og:description" content="El modelo más capaz de Anthropic: 1M de contexto, razonamiento siempre activo y trabajo autónomo de horas.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/fable-5.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fable 5 · Código AdrIA">
+<meta name="twitter:description" content="El modelo más capaz de Anthropic: 1M de contexto, razonamiento siempre activo y trabajo autónomo de horas.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Guía exclusiva del canal de Telegram de Código AdrIA sobre Fable 5, el modelo más capaz de Anthropic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#4dd2d0;
+    --teal-deep:#3f6f7b;
+    --ink:#0d1f24;
+    --body:#33474d;
+    --muted:#6c8085;
+    --hairline:#e4ddd2;
+    --canvas:#faf8f3;
+    --surface:#f3efe6;
+    --card:#ffffff;
+    --dark:#0e242b;
+    --dark-elev:#14313a;
+    --on-dark:#eaf6f5;
+    --on-dark-soft:#8fb2b4;
+    --coral:#e8956a;
+    --radius:16px;
+    --radius-sm:10px;
+    --shadow:0 1px 2px rgba(13,31,36,.04),0 8px 30px rgba(13,31,36,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--canvas);
+    color:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .serif{font-family:'Fraunces',Georgia,serif;font-weight:500;letter-spacing:-.5px}
+
+  /* ---------- Top ribbon ---------- */
+  .ribbon{
+    background:var(--dark);
+    color:var(--on-dark-soft);
+    font-size:13px;
+    text-align:center;
+    padding:9px 16px;
+    letter-spacing:.3px;
+  }
+  .ribbon b{color:var(--teal);font-weight:600}
+
+  /* ---------- Nav ---------- */
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--ink);font-size:15px}
+  .brand .dot{
+    width:26px;height:26px;border-radius:8px;
+    background:linear-gradient(135deg,var(--teal),var(--teal-deep));
+    display:grid;place-items:center;color:#fff;font-weight:700;font-size:14px;
+  }
+  .badge-tg{
+    display:inline-flex;align-items:center;gap:7px;
+    background:rgba(77,210,208,.14);color:var(--teal-deep);
+    border:1px solid rgba(77,210,208,.35);
+    padding:7px 13px;border-radius:999px;font-size:12.5px;font-weight:600;
+  }
+  .badge-tg svg{width:15px;height:15px}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:54px 0 44px;position:relative}
+  .hero .kicker{
+    display:inline-block;
+    font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+    color:var(--teal-deep);margin-bottom:20px;
+    padding:6px 14px;border:1px solid var(--hairline);border-radius:999px;background:var(--card);
+  }
+  .hero h1{
+    font-family:'Fraunces',Georgia,serif;font-weight:500;
+    font-size:clamp(38px,7vw,72px);line-height:1.02;letter-spacing:-1.5px;
+    color:var(--ink);margin-bottom:22px;
+  }
+  .hero h1 em{font-style:italic;color:var(--teal-deep)}
+  .hero .sub{font-size:clamp(16px,2.2vw,20px);color:var(--body);max-width:620px;margin-bottom:30px}
+  .hero .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-weight:600;font-size:15px;text-decoration:none;
+    padding:13px 24px;border-radius:12px;transition:.2s;cursor:pointer;border:none;
+  }
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--teal-deep);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--hairline)}
+  .btn-ghost:hover{background:var(--surface)}
+
+  .orb{
+    position:absolute;top:20px;right:-60px;width:340px;height:340px;
+    background:radial-gradient(circle at 30% 30%,rgba(77,210,208,.4),transparent 62%);
+    filter:blur(10px);z-index:-1;border-radius:50%;pointer-events:none;
+  }
+
+  /* ---------- En corto ---------- */
+  .encorto{
+    background:var(--dark);color:var(--on-dark);
+    border-radius:var(--radius);padding:30px 32px;margin:12px 0 8px;
+    position:relative;overflow:hidden;
+  }
+  .encorto::before{
+    content:"";position:absolute;top:0;left:0;width:4px;height:100%;
+    background:linear-gradient(var(--teal),var(--teal-deep));
+  }
+  .encorto .lbl{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+  .encorto p{font-size:clamp(17px,2.4vw,21px);line-height:1.5;color:var(--on-dark);font-family:'Fraunces',serif;font-weight:400}
+  .encorto b{color:var(--teal)}
+
+  /* ---------- Section shell ---------- */
+  section{padding:56px 0}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--teal-deep);margin-bottom:14px}
+  h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(28px,4.4vw,42px);line-height:1.1;letter-spacing:-.8px;color:var(--ink);margin-bottom:16px}
+  .lead{font-size:17px;color:var(--body);max-width:640px;margin-bottom:38px}
+
+  /* ---------- Virtue grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .vcard{
+    background:var(--card);border:1px solid var(--hairline);border-radius:var(--radius);
+    padding:28px;transition:.22s;box-shadow:var(--shadow);
+  }
+  .vcard:hover{transform:translateY(-3px);border-color:rgba(77,210,208,.5)}
+  .vicon{
+    width:46px;height:46px;border-radius:12px;
+    background:linear-gradient(135deg,rgba(77,210,208,.18),rgba(63,111,123,.14));
+    display:grid;place-items:center;margin-bottom:18px;
+  }
+  .vicon svg{width:24px;height:24px;stroke:var(--teal-deep);fill:none;stroke-width:1.8}
+  .vcard h3{font-size:18px;font-weight:600;color:var(--ink);margin-bottom:9px;letter-spacing:-.2px}
+  .vcard p{font-size:14.5px;color:var(--body)}
+  .vcard .num{float:right;font-family:'Fraunces',serif;font-size:15px;color:var(--muted);font-weight:500}
+
+  /* ---------- Specs strip ---------- */
+  .specs{background:var(--surface);border-radius:var(--radius);padding:8px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .spec{background:var(--card);border-radius:var(--radius-sm);padding:22px 18px;text-align:center}
+  .spec .n{font-family:'Fraunces',serif;font-size:clamp(24px,4vw,34px);color:var(--teal-deep);font-weight:600;letter-spacing:-1px;line-height:1}
+  .spec .t{font-size:12.5px;color:var(--muted);margin-top:8px;font-weight:500}
+
+  /* ---------- Cuando usarlo ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .panel{border-radius:var(--radius);padding:28px;border:1px solid var(--hairline)}
+  .panel.yes{background:linear-gradient(180deg,rgba(77,210,208,.09),var(--card))}
+  .panel.no{background:var(--card)}
+  .panel h4{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:16px;display:flex;align-items:center;gap:9px}
+  .panel h4 .pip{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font-size:13px;color:#fff}
+  .panel.yes .pip{background:var(--teal-deep)}
+  .panel.no .pip{background:var(--muted)}
+  .panel ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .panel li{font-size:14.5px;color:var(--body);padding-left:24px;position:relative}
+  .panel li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--teal)}
+  .panel.no li::before{background:var(--hairline)}
+
+  /* ---------- Nota ---------- */
+  .note{
+    display:flex;gap:16px;background:var(--card);border:1px solid var(--hairline);
+    border-left:4px solid var(--coral);border-radius:var(--radius-sm);padding:22px 24px;
+  }
+  .note .ic{font-size:22px;flex-shrink:0}
+  .note p{font-size:14.5px;color:var(--body)}
+  .note b{color:var(--ink)}
+
+  /* ---------- CTA final ---------- */
+  .final{background:var(--dark);color:var(--on-dark);border-radius:var(--radius);padding:clamp(38px,6vw,64px);text-align:center;position:relative;overflow:hidden}
+  .final .glow{position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:400px;height:300px;background:radial-gradient(circle,rgba(77,210,208,.35),transparent 65%);pointer-events:none}
+  .final h2{color:#fff;position:relative}
+  .final p{color:var(--on-dark-soft);max-width:520px;margin:14px auto 30px;position:relative;font-size:16px}
+  .btn-tg{background:var(--teal);color:var(--ink);position:relative;font-size:16px;padding:15px 30px}
+  .btn-tg:hover{background:#61dedb;transform:translateY(-1px)}
+
+  /* ---------- Footer ---------- */
+  footer{padding:44px 0 60px;text-align:center;color:var(--muted);font-size:13px}
+  footer .fbrand{display:inline-flex;align-items:center;gap:8px;color:var(--ink);font-weight:600;font-size:14px;margin-bottom:8px}
+  footer .fbrand .dot{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,var(--teal),var(--teal-deep));display:grid;place-items:center;color:#fff;font-size:12px;font-weight:700}
+
+  @media(max-width:720px){
+    .grid,.split{grid-template-columns:1fr}
+    .specs{grid-template-columns:repeat(2,1fr)}
+    section{padding:44px 0}
+    .hero{padding:38px 0 32px}
+    nav .badge-tg span{display:none}
+    .encorto{padding:26px 24px}
+  }
+</style>
+
+<div class="ribbon">📡 Contenido <b>exclusivo</b> del canal de Telegram de Código AdrIA · No lo compartas fuera del canal</div>
+
+<div class="wrap">
+  <nav>
+    <div class="brand"><span class="dot">A</span> Código AdrIA</div>
+    <span class="badge-tg">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.8 16.6l-.4 4c.6 0 .8-.2 1.1-.5l2.6-2.5 5.4 3.9c1 .5 1.7.3 2-.9l3.5-16.5c.3-1.5-.5-2.1-1.5-1.7L1.1 9.3C-.4 9.9-.4 10.8.9 11.2l5.3 1.6L18.6 5c.6-.4 1.1-.2.7.2"/></svg>
+      <span>Canal privado</span>
+    </span>
+  </nav>
+</div>
+
+<!-- HERO -->
+<header class="wrap hero">
+  <div class="orb"></div>
+  <span class="kicker">Nuevo · Anthropic</span>
+  <h1>Fable 5.<br>La IA más <em>potente</em> de Anthropic.</h1>
+  <p class="sub">No es "otro modelo más". Fable 5 es lo más capaz que Anthropic ha puesto en manos del público: piensa siempre, aguanta un millón de tokens de contexto y trabaja sola durante horas sin perder el hilo. Te cuento por qué importa.</p>
+  <div class="cta-row">
+    <a href="#virtudes" class="btn btn-primary">Ver las virtudes ↓</a>
+    <a href="#ficha" class="btn btn-ghost">Ficha técnica</a>
+  </div>
+</header>
+
+<!-- EN CORTO -->
+<div class="wrap">
+  <div class="encorto">
+    <div class="lbl">En corto</div>
+    <p>Fable 5 es el modelo <b>más inteligente</b> de Anthropic hasta la fecha. Brilla en lo que a las demás IA se les atraganta: <b>tareas largas y autónomas</b>, análisis complejos, revisión de código y entregables profesionales listos para usar. A cambio, es más caro y más lento por respuesta — es un <b>caballo de fondo, no un sprint</b>.</p>
+  </div>
+</div>
+
+<!-- VIRTUDES -->
+<section class="wrap" id="virtudes">
+  <div class="eyebrow">Por qué te va a interesar</div>
+  <h2>8 virtudes que la separan del resto</h2>
+  <p class="lead">Cada una resuelve un problema real que hoy te obliga a partir el trabajo en trozos, revisar a mano o cambiar de herramienta.</p>
+
+  <div class="grid">
+    <div class="vcard">
+      <span class="num">01</span>
+      <div class="vicon"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.6 5.7 21l2.3-7.2-6-4.4h7.6z"/></svg></div>
+      <h3>El cerebro más capaz</h3>
+      <p>Es el modelo más inteligente que Anthropic ofrece de forma abierta. Pensado para los razonamientos más exigentes, no para preguntas de trámite.</p>
+    </div>
+
+    <div class="vcard">
+      <span class="num">02</span>
+      <div class="vicon"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+      <h3>1 millón de tokens de contexto</h3>
+      <p>Le caben libros enteros, repositorios de código o meses de conversación de una tacada — y de serie, sin activar nada. Deja de trocear documentos.</p>
+    </div>
+
+    <div class="vcard">
+      <span class="num">03</span>
+      <div class="vicon"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 8v4l3 2"/></svg></div>
+      <h3>Razonamiento siempre activo</h3>
+      <p>Piensa antes de responder en todas las peticiones, sin que tengas que pedírselo. Menos respuestas impulsivas, más rigor por defecto.</p>
+    </div>
+
+    <div class="vcard">
+      <span class="num">04</span>
+      <div class="vicon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></div>
+      <h3>Trabajo autónomo de horas</h3>
+      <p>Encara tareas de "largo horizonte": una sola petición puede trabajar durante muchos minutos —refactors completos, procesos de principio a fin— sin perder el rumbo.</p>
+    </div>
+
+    <div class="vcard">
+      <span class="num">05</span>
+      <div class="vicon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></svg></div>
+      <h3>Entregables listos para usar</h3>
+      <p>Genera análisis financieros, hojas de Excel, presentaciones y documentos de empresa terminados — no borradores que tienes que rematar tú.</p>
+    </div>
+
+    <div class="vcard">
+      <span class="num">06</span>
+      <div class="vicon"><svg viewBox="0 0 24 24"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg></div>
+      <h3>Revisión de código de élite</h3>
+      <p>Encuentra bugs de verdad y depura mejor que las versiones anteriores: acierta a la primera donde otras daban por resuelto un fallo que seguía ahí.</p>
+    </div>
+
+    <div class="vcard">
+      <span class="num">07</span>
+      <div class="vicon"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>Visión de alta resolución</h3>
+      <p>Lee imágenes densas o de mala calidad —capturas, documentos escaneados, fotos borrosas— usando herramientas para recortar y ampliar lo que necesita ver.</p>
+    </div>
+
+    <div class="vcard">
+      <span class="num">08</span>
+      <div class="vicon"><svg viewBox="0 0 24 24"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>Delega en sub-agentes</h3>
+      <p>Reparte el trabajo en varios agentes en paralelo y coordina resultados de forma fiable. Ideal para proyectos que se abren en muchas ramas a la vez.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FICHA -->
+<section class="wrap" id="ficha">
+  <div class="eyebrow">De un vistazo</div>
+  <h2>Ficha técnica</h2>
+  <p class="lead">Los números que definen a Fable 5 frente a los modelos que ya conoces.</p>
+  <div class="specs">
+    <div class="spec"><div class="n">1M</div><div class="t">tokens de contexto (por defecto)</div></div>
+    <div class="spec"><div class="n">128K</div><div class="t">tokens de respuesta máxima</div></div>
+    <div class="spec"><div class="n">∞</div><div class="t">razonamiento siempre activo</div></div>
+    <div class="spec"><div class="n">30 días</div><div class="t">retención de datos requerida</div></div>
+  </div>
+</section>
+
+<!-- CUANDO USARLO -->
+<section class="wrap">
+  <div class="eyebrow">Úsalo con cabeza</div>
+  <h2>Cuándo tirar de Fable 5</h2>
+  <p class="lead">Es un modelo premium: potente y caro. La clave no es usarlo siempre, sino usarlo donde marca la diferencia.</p>
+  <div class="split">
+    <div class="panel yes">
+      <h4><span class="pip">✓</span> Sácalo para…</h4>
+      <ul>
+        <li>Proyectos largos que otras IA no rematan de una vez</li>
+        <li>Análisis complejos, informes y entregables de empresa</li>
+        <li>Revisión de código y depuración de bugs escurridizos</li>
+        <li>Tareas que abres en varias líneas de trabajo a la vez</li>
+        <li>Tu problema más difícil, ese que aún no has resuelto</li>
+      </ul>
+    </div>
+    <div class="panel no">
+      <h4><span class="pip">−</span> Guárdalo para otra…</h4>
+      <ul>
+        <li>Preguntas rápidas o consultas de trámite</li>
+        <li>Chat cotidiano donde prima la velocidad</li>
+        <li>Tareas sencillas y repetitivas (sale caro de sobra)</li>
+        <li>Cuando necesitas respuesta inmediata, al segundo</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- NOTA -->
+<section class="wrap" style="padding-top:0">
+  <div class="note">
+    <div class="ic">💡</div>
+    <p><b>El detalle que casi nadie cuenta:</b> Fable 5 tarda más por respuesta —una sola petición puede pensar y trabajar durante minutos— porque razona a fondo antes de actuar. No es lentitud: es que está haciendo el trabajo que antes te tocaba a ti. Piénsalo como contratar a un especialista, no como pedir un dato en ventanilla.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="wrap">
+  <div class="final">
+    <div class="glow"></div>
+    <h2>Esto es solo el principio</h2>
+    <p>En el canal de Telegram de Código AdrIA desgranamos cada modelo nuevo antes que nadie, con ejemplos reales y sin humo. Actívalo para no perderte el próximo.</p>
+    <a href="#" class="btn btn-tg">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M9.8 16.6l-.4 4c.6 0 .8-.2 1.1-.5l2.6-2.5 5.4 3.9c1 .5 1.7.3 2-.9l3.5-16.5c.3-1.5-.5-2.1-1.5-1.7L1.1 9.3C-.4 9.9-.4 10.8.9 11.2l5.3 1.6L18.6 5c.6-.4 1.1-.2.7.2"/></svg>
+      Seguir en Telegram
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="wrap">
+  <div class="fbrand"><span class="dot">A</span> Código AdrIA</div>
+  <div>Cortesía Código AdrIA · Contenido exclusivo para el canal de Telegram</div>
+</footer>
