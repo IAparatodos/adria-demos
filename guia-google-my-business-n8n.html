@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conectar Google My Business a n8n — Guía paso a paso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E272E;
+    --petrol-900:#102E35;
+    --petrol:#3F6F7B;
+    --petrol-soft:#6E9AA5;
+    --turquoise:#4DD2D0;
+    --turquoise-deep:#2CA8A6;
+    --sand:#DFD7C9;
+    --paper:#FAF7F1;
+    --paper-2:#F1EADC;
+    --ink-70:rgba(16,46,53,.70);
+    --ink-45:rgba(16,46,53,.45);
+    --line:rgba(16,46,53,.13);
+    --line-strong:rgba(16,46,53,.22);
+    --shadow:0 1px 2px rgba(14,39,46,.06), 0 12px 34px rgba(14,39,46,.09);
+    --radius:18px;
+    --mono:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --display:'Space Grotesk', system-ui, sans-serif;
+    --body:'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    color:var(--petrol-900);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(120% 90% at 88% -10%, rgba(77,210,208,.16), transparent 55%),
+      radial-gradient(90% 70% at 0% 110%, rgba(77,210,208,.08), transparent 60%),
+      var(--ink);
+    color:#EAF1F0;
+    padding:64px 0 78px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+    background:linear-gradient(90deg,transparent,var(--turquoise),transparent);
+    opacity:.5;
+  }
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--turquoise);
+    display:inline-flex;align-items:center;gap:10px;
+    margin-bottom:26px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--turquoise);opacity:.7}
+  h1{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(2.1rem,6vw,3.4rem);
+    line-height:1.04;
+    letter-spacing:-.02em;
+    color:#fff;
+    max-width:16ch;
+  }
+  h1 .accent{color:var(--turquoise)}
+  .lede{
+    margin-top:22px;
+    font-size:clamp(1rem,2.4vw,1.16rem);
+    color:rgba(234,241,240,.80);
+    max-width:56ch;
+  }
+
+  /* ---------- signature: date rail ---------- */
+  .rail{
+    margin-top:46px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.11);
+    border-radius:16px;
+    padding:26px 30px;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:8px;
+  }
+  .rail-node .tag{
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--petrol-soft);
+  }
+  .rail-node .date{
+    font-family:var(--display);font-weight:600;font-size:1.35rem;color:#fff;margin-top:4px;
+    display:flex;align-items:center;gap:11px;
+  }
+  .rail-node .date::before{
+    content:"";width:11px;height:11px;border-radius:50%;
+    background:var(--turquoise);box-shadow:0 0 0 5px rgba(77,210,208,.18);
+    flex:none;
+  }
+  .rail-node.right{text-align:right}
+  .rail-node.right .date{flex-direction:row-reverse}
+  .rail-mid{
+    position:relative;padding:0 18px;text-align:center;min-width:120px;
+  }
+  .rail-mid .line{height:2px;background:linear-gradient(90deg,var(--turquoise-deep),var(--turquoise));border-radius:2px;position:relative}
+  .rail-mid .line::after{
+    content:"";position:absolute;right:-1px;top:50%;transform:translateY(-50%) rotate(45deg);
+    width:7px;height:7px;border-top:2px solid var(--turquoise);border-right:2px solid var(--turquoise);
+  }
+  .rail-mid .dur{
+    font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--turquoise);
+    margin-bottom:9px;display:block;
+  }
+
+  /* ---------- intro strip ---------- */
+  .intro{padding:52px 0 8px}
+  .intro p{font-size:1.06rem;color:var(--ink-70);max-width:64ch}
+  .intro p strong{color:var(--petrol-900);font-weight:600}
+
+  .prereq{
+    margin-top:30px;
+    border-left:3px solid var(--turquoise);
+    background:var(--paper-2);
+    border-radius:0 14px 14px 0;
+    padding:20px 24px;
+  }
+  .prereq h3{
+    font-family:var(--display);font-size:.86rem;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--petrol);margin-bottom:12px;font-weight:600;
+  }
+  .prereq ul{list-style:none;display:grid;gap:9px}
+  .prereq li{padding-left:26px;position:relative;font-size:.97rem}
+  .prereq li::before{
+    content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;
+    border:2px solid var(--turquoise-deep);border-radius:3px;
+  }
+
+  /* ---------- phases / process spine ---------- */
+  .phases{padding:44px 0 20px}
+  .phase{
+    position:relative;
+    padding-left:76px;
+    padding-bottom:38px;
+  }
+  .phase::before{ /* spine */
+    content:"";position:absolute;left:26px;top:8px;bottom:-8px;width:2px;
+    background:linear-gradient(var(--line-strong),var(--line));
+  }
+  .phase:last-child::before{display:none}
+  .num{
+    position:absolute;left:0;top:0;
+    width:54px;height:54px;border-radius:14px;
+    background:#fff;border:1px solid var(--line-strong);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-weight:500;font-size:1.05rem;color:var(--petrol);
+    box-shadow:var(--shadow);z-index:2;
+  }
+  .phase.done .num{background:var(--petrol-900);color:var(--turquoise);border-color:var(--petrol-900)}
+
+  .card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px 28px;
+    box-shadow:var(--shadow);
+    transition:transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s;
+  }
+  .phase-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:6px}
+  .phase-head h2{
+    font-family:var(--display);font-weight:600;font-size:1.32rem;letter-spacing:-.01em;color:var(--petrol-900);
+  }
+  .when{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;
+    color:var(--turquoise-deep);
+    background:rgba(77,210,208,.13);
+    padding:4px 10px;border-radius:999px;white-space:nowrap;
+  }
+  .card p{color:var(--ink-70);font-size:1rem;margin-top:6px}
+  .card p + p{margin-top:12px}
+  .card a{color:var(--turquoise-deep);text-decoration:none;border-bottom:1px solid rgba(44,168,166,.35);font-weight:500;word-break:break-word}
+  .card a:hover{border-color:var(--turquoise-deep)}
+
+  /* value / field rows */
+  .fields{margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .field{
+    display:grid;grid-template-columns:200px 1fr;gap:2px;
+    border-bottom:1px solid var(--line);
+    background:var(--paper);
+  }
+  .field:last-child{border-bottom:none}
+  .field .k{
+    padding:11px 15px;font-weight:500;font-size:.85rem;color:var(--petrol);
+    background:var(--paper-2);display:flex;align-items:center;
+  }
+  .field .v{padding:11px 15px;background:#fff;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  code{
+    font-family:var(--mono);font-size:.83rem;
+    background:rgba(16,46,53,.055);
+    color:var(--petrol-900);
+    padding:2px 7px;border-radius:6px;
+    word-break:break-all;user-select:all;
+  }
+  .yours{
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:#B67A2E;background:rgba(214,150,46,.13);padding:2px 7px;border-radius:5px;white-space:nowrap;
+  }
+
+  .apilist{margin-top:16px;display:grid;gap:10px}
+  .api{
+    display:flex;align-items:center;gap:13px;
+    background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 15px;
+  }
+  .api .dot{width:9px;height:9px;border-radius:50%;background:var(--turquoise-deep);flex:none}
+  .api .nm{font-weight:500;font-size:.95rem}
+  .api .u{font-family:var(--mono);font-size:.76rem;color:var(--ink-45);margin-left:auto;word-break:break-all}
+
+  /* critical callout */
+  .critical{
+    margin-top:18px;
+    background:linear-gradient(180deg,#12333B,#0E272E);
+    color:#EAF1F0;border-radius:14px;padding:20px 22px;
+    border:1px solid rgba(77,210,208,.3);
+  }
+  .critical .lab{
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--turquoise);
+    display:flex;align-items:center;gap:9px;margin-bottom:10px;
+  }
+  .critical .lab::before{content:"!";display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--turquoise);color:var(--ink);font-weight:700;font-size:12px;font-family:var(--body)}
+  .critical p{color:rgba(234,241,240,.82);font-size:.95rem;margin:0}
+  .critical code{background:rgba(77,210,208,.16);color:#CFF6F5}
+
+  /* ---------- troubleshooting ---------- */
+  .fix{padding:20px 0 60px}
+  .fix-title{
+    font-family:var(--display);font-weight:600;font-size:1.5rem;color:var(--petrol-900);
+    margin-bottom:6px;letter-spacing:-.01em;
+  }
+  .fix-sub{color:var(--ink-70);margin-bottom:26px;font-size:1rem}
+  .fixgrid{display:grid;gap:14px}
+  .fixrow{
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;
+    display:grid;grid-template-columns:1fr;gap:8px;box-shadow:var(--shadow);
+  }
+  .err{
+    font-family:var(--mono);font-size:.86rem;color:#B4442E;
+    background:rgba(180,68,46,.09);padding:3px 9px;border-radius:6px;justify-self:start;
+  }
+  .sol{color:var(--ink-70);font-size:.97rem}
+  .sol strong{color:var(--petrol-900);font-weight:600}
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--ink);color:rgba(234,241,240,.7);
+    padding:38px 0;font-size:.9rem;
+  }
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+  footer strong{color:var(--turquoise);font-family:var(--display);font-weight:600;letter-spacing:.01em}
+  footer .mono{font-family:var(--mono);font-size:.78rem;color:var(--petrol-soft)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(18px)}
+  .reveal.in{opacity:1;transform:none;transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:680px){
+    .rail{grid-template-columns:1fr;gap:20px;padding:22px}
+    .rail-node.right{text-align:left}
+    .rail-node.right .date{flex-direction:row}
+    .rail-mid{padding:4px 0}
+    .rail-mid .line{width:2px;height:34px;margin:0 auto}
+    .rail-mid .line::after{right:50%;top:auto;bottom:-1px;transform:translateX(50%) rotate(135deg)}
+    .phase{padding-left:0}
+    .phase::before{display:none}
+    .num{position:static;margin-bottom:14px}
+    .field{grid-template-columns:1fr}
+    .field .k{background:var(--paper-2)}
+    .api{flex-wrap:wrap}
+    .api .u{margin-left:0;width:100%}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+    .card{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Guía real · Adrihosan × n8n</span>
+    <h1>Conectar <span class="accent">Google My Business</span> a n8n</h1>
+    <p class="lede">El caso real, con fechas y cada paso. Lo que tarda Google, lo que pide su formulario y dónde está el único campo que lo rompe todo si te lo saltas.</p>
+
+    <div class="rail">
+      <div class="rail-node">
+        <span class="tag">Paso de salida</span>
+        <span class="date">29 abr 2026</span>
+        <span class="tag" style="margin-top:6px;display:block">Solicitud enviada</span>
+      </div>
+      <div class="rail-mid">
+        <span class="dur">17 días de espera</span>
+        <div class="line"></div>
+      </div>
+      <div class="rail-node right">
+        <span class="tag">Luz verde</span>
+        <span class="date">16 may 2026</span>
+        <span class="tag" style="margin-top:6px;display:block">Acceso aprobado</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="intro">
+    <div class="wrap">
+      <p><strong>Google no deja tocar tu ficha por API a las bravas.</strong> Primero rellenas un formulario y esperas su aprobación; solo entonces puedes habilitar las APIs y montar el acceso OAuth en n8n. Aquí tienes el recorrido entero, tal cual lo hicimos, para que no descubras los baches sobre la marcha.</p>
+
+      <div class="prereq">
+        <h3>Antes de empezar, ten a mano</h3>
+        <ul>
+          <li>Una cuenta de <strong>Google Workspace</strong> que sea dueña verificada de la ficha del negocio.</li>
+          <li>Un <strong>proyecto en Google Cloud Console</strong> (el mismo que usarás para todo).</li>
+          <li><strong>n8n funcionando</strong>, ya sea self-hosted o en la nube, con una URL pública accesible.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="phases">
+    <div class="wrap">
+
+      <!-- 01 -->
+      <article class="phase done reveal">
+        <div class="num">01</div>
+        <div class="card">
+          <div class="phase-head">
+            <h2>Solicitar el acceso a la API</h2>
+            <span class="when">Día 0 · 29 abr 2026</span>
+          </div>
+          <p>Todo arranca con el formulario de acceso de Google. Rellenarlo pone en marcha el reloj, así que se hace lo primero. Enlace directo:</p>
+          <p><a href="https://support.google.com/business/contact/api_default" target="_blank" rel="noopener">support.google.com/business/contact/api_default</a></p>
+
+          <div class="fields">
+            <div class="field"><div class="k">Project ID</div><div class="v"><code>tu-proyecto-cloud</code><span class="yours">tuyo</span></div></div>
+            <div class="field"><div class="k">Project Number</div><div class="v"><code>número del proyecto</code><span class="yours">tuyo</span></div></div>
+            <div class="field"><div class="k">Business name</div><div class="v"><code>Nombre del negocio</code><span class="yours">tuyo</span></div></div>
+            <div class="field"><div class="k">Website</div><div class="v"><code>https://tudominio.com</code><span class="yours">tuyo</span></div></div>
+            <div class="field"><div class="k">País</div><div class="v"><code>España</code></div></div>
+          </div>
+
+          <p style="margin-top:16px">En el apartado <em>“What is your use case?”</em> conviene responder <strong>en inglés</strong> y dejar clarísimo que es para tu propio negocio, no para revender un servicio. Un texto que funciona:</p>
+          <div class="critical" style="background:var(--paper-2);color:var(--petrol-900);border-color:var(--line-strong)">
+            <p style="color:var(--ink-70)">“We are the verified owner of our Google Business Profile listing. We want to use the API only to read and reply to reviews on our own single location, using AI-assisted drafts reviewed before publishing. Built on self-hosted n8n for internal use only, no reselling. Estimated volume: under 200 reviews/year.”</p>
+          </div>
+          <p style="margin-top:14px"><strong>Claves para que aprueben rápido:</strong> negocio propio, ficha verificada, una sola ubicación y un volumen bajo y honesto. Nada de inflar cifras ni sonar a plataforma comercial.</p>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="phase done reveal">
+        <div class="num">02</div>
+        <div class="card">
+          <div class="phase-head">
+            <h2>Esperar la aprobación</h2>
+            <span class="when">2–7 días (a nosotros, 17)</span>
+          </div>
+          <p>Primero llega un email de confirmación de que han recibido la solicitud. Después, el aprobado de verdad. Google promete <strong>de 2 a 7 días laborables</strong>, pero en la práctica puede estirarse: nosotros enviamos el 29 de abril y la luz verde llegó el <strong>16 de mayo</strong>. Si tarda, es normal, no toques nada mientras esperas.</p>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="phase reveal">
+        <div class="num">03</div>
+        <div class="card">
+          <div class="phase-head">
+            <h2>Habilitar las 3 APIs</h2>
+            <span class="when">Al recibir el OK</span>
+          </div>
+          <p>Con el acceso concedido, entra en Google Cloud Console y activa las tres APIs que necesita el flujo completo. Están en la biblioteca de APIs de tu proyecto:</p>
+          <div class="apilist">
+            <div class="api"><span class="dot"></span><span class="nm">Google Business Profile API</span><span class="u">mybusiness.googleapis.com</span></div>
+            <div class="api"><span class="dot"></span><span class="nm">My Business Account Management API</span><span class="u">mybusinessaccountmanagement.…</span></div>
+            <div class="api"><span class="dot"></span><span class="nm">My Business Business Information API</span><span class="u">mybusinessbusinessinformation.…</span></div>
+          </div>
+          <div class="critical">
+            <span class="lab">Ojo con el proyecto</span>
+            <p>Cada vez que abras una pantalla en Google Cloud, mira arriba a la izquierda: tiene que estar seleccionado <strong>tu proyecto</strong>. Es el fallo más típico: habilitar la API en el proyecto equivocado y luego no encontrarla.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 -->
+      <article class="phase reveal">
+        <div class="num">04</div>
+        <div class="card">
+          <div class="phase-head">
+            <h2>Crear las credenciales OAuth</h2>
+            <span class="when">Client ID + Secret</span>
+          </div>
+          <p>Ve a <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener">console.cloud.google.com/apis/credentials</a> y crea un <strong>ID de cliente de OAuth 2.0</strong> de tipo <em>Aplicación web</em>. Al terminar, Google te da dos datos que guardarás para n8n:</p>
+          <div class="fields">
+            <div class="field"><div class="k">Client ID</div><div class="v"><code>xxxx-xxxx.apps.googleusercontent.com</code><span class="yours">tuyo</span></div></div>
+            <div class="field"><div class="k">Client Secret</div><div class="v"><code>GOCSPX-••••••••</code><span class="yours">tuyo</span></div></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 -->
+      <article class="phase reveal">
+        <div class="num">05</div>
+        <div class="card">
+          <div class="phase-head">
+            <h2>Registrar la URI de redirección</h2>
+            <span class="when">Enlaza Google con n8n</span>
+          </div>
+          <p>Dentro de ese mismo cliente OAuth, en <strong>URIs de redirección autorizados</strong>, añade la dirección de retorno de n8n. Sin esto, la autorización falla al volver:</p>
+          <div class="fields">
+            <div class="field"><div class="k">Redirect URI</div><div class="v"><code>https://TU-DOMINIO/rest/oauth2-credential/callback</code><span class="yours">tuyo</span></div></div>
+          </div>
+          <p style="margin-top:14px">Cambia <code>TU-DOMINIO</code> por tu dirección real de n8n: el dominio de producción, tu túnel (ngrok o similar) o <code>localhost:5678</code> si trabajas en local.</p>
+        </div>
+      </article>
+
+      <!-- 06 -->
+      <article class="phase reveal">
+        <div class="num">06</div>
+        <div class="card">
+          <div class="phase-head">
+            <h2>Configurar la credencial en n8n</h2>
+            <span class="when">OAuth2 API (genérica)</span>
+          </div>
+          <p>En n8n → <strong>Credentials → New → OAuth2 API</strong>. Google My Business no tiene nodo propio, así que se usa la credencial OAuth2 genérica y luego todo va por HTTP Request. Rellena así:</p>
+          <div class="fields">
+            <div class="field"><div class="k">Grant Type</div><div class="v"><code>Authorization Code</code></div></div>
+            <div class="field"><div class="k">Authorization URL</div><div class="v"><code>https://accounts.google.com/o/oauth2/v2/auth</code></div></div>
+            <div class="field"><div class="k">Access Token URL</div><div class="v"><code>https://oauth2.googleapis.com/token</code></div></div>
+            <div class="field"><div class="k">Client ID / Secret</div><div class="v"><code>los del paso 04</code><span class="yours">tuyos</span></div></div>
+            <div class="field"><div class="k">Scope</div><div class="v"><code>https://www.googleapis.com/auth/business.manage</code></div></div>
+            <div class="field"><div class="k">Auth URI Query Params</div><div class="v"><code>access_type=offline&amp;prompt=consent</code></div></div>
+            <div class="field"><div class="k">Authentication</div><div class="v"><code>Body</code></div></div>
+          </div>
+
+          <div class="critical">
+            <span class="lab">El campo que lo rompe</span>
+            <p>Sin <code>access_type=offline&amp;prompt=consent</code> en los Query Params, Google se salta la pantalla de consentimiento y <strong>no devuelve refresh token</strong>. El síntoma es el clásico error <code>refreshToken is required</code>. No dejes ese campo vacío.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 07 -->
+      <article class="phase reveal">
+        <div class="num">07</div>
+        <div class="card">
+          <div class="phase-head">
+            <h2>Conectar y sacar tus IDs</h2>
+            <span class="when">Último paso</span>
+          </div>
+          <p>Pulsa <strong>Connect</strong> y autoriza con la cuenta de Workspace dueña de la ficha. Cuando la credencial quede en verde, haz una llamada de prueba con un nodo <strong>HTTP Request</strong> para averiguar tus dos identificadores. Los usarás en todo el workflow:</p>
+          <div class="fields">
+            <div class="field"><div class="k">1 · Tus cuentas</div><div class="v"><code>GET https://mybusiness.googleapis.com/v4/accounts</code></div></div>
+            <div class="field"><div class="k">2 · Tus ubicaciones</div><div class="v"><code>GET …/v4/accounts/{accountId}/locations</code></div></div>
+          </div>
+          <p style="margin-top:14px">Apunta el <strong>Account ID</strong> y el <strong>Location ID</strong> que devuelven esas llamadas. Con eso ya puedes leer reseñas, responderlas o lo que monte tu flujo.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="fix">
+    <div class="wrap">
+      <h2 class="fix-title reveal">Si algo se atasca</h2>
+      <p class="fix-sub reveal">Los tres tropiezos que casi todo el mundo se encuentra, con su arreglo directo.</p>
+      <div class="fixgrid">
+        <div class="fixrow reveal">
+          <span class="err">refreshToken is required</span>
+          <p class="sol">Faltó <strong>access_type=offline&amp;prompt=consent</strong> en la credencial. Arréglalo así: añade los parámetros → guarda → revoca el acceso de la app en <strong>myaccount.google.com/permissions</strong> → reconecta en n8n. Esta vez Google mostrará la pantalla de permisos completa y sí entregará el token.</p>
+        </div>
+        <div class="fixrow reveal">
+          <span class="err">La API no aparece para habilitar</span>
+          <p class="sol">O el acceso <strong>aún no está aprobado</strong> (paga la espera del paso 02), o estás en el <strong>proyecto de Google Cloud equivocado</strong>. Comprueba el selector de proyecto arriba a la izquierda antes de nada.</p>
+        </div>
+        <div class="fixrow reveal">
+          <span class="err">Redirección eterna a /setup (n8n self-hosted)</span>
+          <p class="sol">Si n8n va detrás de un proxy o túnel, arranca con <strong>N8N_SECURE_COOKIE=false</strong> y <strong>N8N_PROXY_HOPS=1</strong>. Sin esas dos variables, n8n rebota una y otra vez a la pantalla de configuración.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><strong>Código AdrIA</strong> — guía documentada de un caso real</span>
+    <span class="mono">Solicitud 29·04·2026 → Aprobación 16·05·2026</span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+      });
+    },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+  })();
+</script>
+</body>
+</html>
