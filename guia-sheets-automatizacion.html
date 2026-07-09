@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Sheets · Automatización de redes Adrihosan</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root{
+  --petroleo-negro:#16282e;
+  --petroleo:#24424b;
+  --petroleo-medio:#3f6f7b;
+  --turquesa:#4dd2d0;
+  --turquesa-suave:rgba(77,210,208,0.14);
+  --blanco:#f4fbfb;
+  --texto-suave:rgba(244,251,251,0.72);
+  --texto-mudo:rgba(244,251,251,0.45);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(165deg,var(--petroleo-negro) 0%,var(--petroleo) 60%,#1d3archive 100%);
+  background:linear-gradient(165deg,var(--petroleo-negro) 0%,var(--petroleo) 100%);
+  color:var(--blanco);
+  min-height:100vh;
+  padding:48px 20px 32px;
+}
+.wrap{max-width:880px;margin:0 auto}
+
+/* ---------- Cabecera ---------- */
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--turquesa);margin-bottom:14px;
+}
+h1{font-size:clamp(30px,5vw,46px);font-weight:700;line-height:1.12;margin-bottom:14px}
+h1 .acento{color:var(--turquesa)}
+.intro{font-size:16px;font-weight:300;color:var(--texto-suave);max-width:620px;line-height:1.65;margin-bottom:44px}
+.intro strong{font-weight:600;color:var(--blanco)}
+
+/* ---------- Selector de modos ---------- */
+.modos{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.modo{
+  font-family:'Poppins',sans-serif;
+  border:1.5px solid rgba(244,251,251,0.22);
+  background:transparent;color:var(--texto-suave);
+  padding:12px 20px;border-radius:40px;
+  font-size:14px;font-weight:500;cursor:pointer;
+  transition:all .18s ease;
+}
+.modo:hover{border-color:var(--turquesa);color:var(--blanco)}
+.modo:focus-visible{outline:2px solid var(--turquesa);outline-offset:3px}
+.modo.activo{
+  background:var(--turquesa);border-color:var(--turquesa);
+  color:var(--petroleo-negro);font-weight:600;
+  box-shadow:0 6px 22px rgba(77,210,208,0.35);
+}
+
+/* ---------- Fila simulada del Sheets ---------- */
+.hoja{
+  background:rgba(22,40,46,0.55);
+  border:1px solid rgba(244,251,251,0.1);
+  border-radius:16px;padding:22px 20px 16px;margin-bottom:16px;
+  overflow-x:auto;
+}
+.fila{display:flex;gap:8px;min-width:760px}
+.celda{
+  flex:1;min-width:88px;
+  border:1.5px dashed rgba(244,251,251,0.18);
+  border-radius:10px;padding:10px 8px 12px;
+  transition:all .22s ease;position:relative;
+}
+.celda .col{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10.5px;letter-spacing:.5px;color:var(--texto-mudo);
+  display:block;margin-bottom:7px;word-break:break-all;
+}
+.celda .quien{
+  font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  color:var(--texto-mudo);
+}
+.celda.tu{
+  border:1.5px solid var(--turquesa);
+  background:var(--turquesa-suave);
+}
+.celda.tu .col{color:var(--turquesa)}
+.celda.tu .quien{color:var(--turquesa)}
+.celda.maquina .quien{color:var(--texto-mudo)}
+.leyenda{
+  display:flex;gap:22px;margin-top:16px;flex-wrap:wrap;
+  font-size:12.5px;color:var(--texto-mudo);
+}
+.leyenda span{display:flex;align-items:center;gap:8px}
+.punto{width:12px;height:12px;border-radius:4px}
+.punto.p-tu{background:var(--turquesa)}
+.punto.p-vacia{border:1.5px dashed rgba(244,251,251,0.35)}
+
+/* ---------- Explicación del modo ---------- */
+.explica{
+  background:rgba(77,210,208,0.08);
+  border-left:3px solid var(--turquesa);
+  border-radius:0 12px 12px 0;
+  padding:18px 22px;margin-bottom:52px;
+  font-size:15px;font-weight:300;line-height:1.7;color:var(--texto-suave);
+  min-height:88px;
+}
+.explica strong{color:var(--blanco);font-weight:600}
+.explica code{
+  font-family:'JetBrains Mono',monospace;font-size:13px;
+  color:var(--turquesa);background:rgba(22,40,46,0.6);
+  padding:1px 7px;border-radius:5px;
+}
+
+/* ---------- Reglas de oro ---------- */
+h2{font-size:22px;font-weight:600;margin-bottom:22px}
+.reglas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:52px}
+.regla{
+  background:rgba(22,40,46,0.55);
+  border:1px solid rgba(244,251,251,0.1);
+  border-radius:14px;padding:20px;
+}
+.regla h3{font-size:15px;font-weight:600;color:var(--turquesa);margin-bottom:8px}
+.regla p{font-size:13.5px;font-weight:300;line-height:1.65;color:var(--texto-suave)}
+.regla code{
+  font-family:'JetBrains Mono',monospace;font-size:12px;
+  color:var(--turquesa);background:rgba(77,210,208,0.1);
+  padding:1px 6px;border-radius:5px;
+}
+
+/* ---------- Semáforo estado ---------- */
+.semaforo{display:flex;align-items:center;gap:0;flex-wrap:wrap;margin-bottom:52px}
+.paso{
+  background:rgba(22,40,46,0.55);
+  border:1px solid rgba(244,251,251,0.12);
+  border-radius:12px;padding:16px 22px;
+}
+.paso .tag{
+  font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;
+  color:var(--turquesa);display:block;margin-bottom:5px;
+}
+.paso p{font-size:12.5px;font-weight:300;color:var(--texto-suave);max-width:180px;line-height:1.5}
+.flecha{color:var(--turquesa);font-size:22px;padding:0 14px;user-select:none}
+
+footer{
+  text-align:center;margin-top:24px;
+  font-size:12px;color:var(--texto-mudo);font-weight:300;
+}
+
+@media (max-width:640px){
+  .semaforo{flex-direction:column;align-items:stretch}
+  .flecha{transform:rotate(90deg);text-align:center;padding:6px 0}
+  .paso p{max-width:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Fábrica de posts · Adrihosan</p>
+  <h1>El Sheets manda.<br>Tú solo rellenas <span class="acento">estas celdas</span>.</h1>
+  <p class="intro">Cada fila del Sheets es un post. Según qué celdas rellenes, la máquina trabaja de una forma u otra. <strong>Elige tu modo</strong> y mira qué te toca escribir a ti — el resto lo completa sola.</p>
+
+  <div class="modos" role="tablist" aria-label="Modos de trabajo">
+    <button class="modo activo" data-modo="auto" role="tab" aria-selected="true">Piloto automático</button>
+    <button class="modo" data-modo="textos" role="tab" aria-selected="false">Mis textos</button>
+    <button class="modo" data-modo="dirigida" role="tab" aria-selected="false">IA dirigida con muestra</button>
+    <button class="modo" data-modo="fotoreal" role="tab" aria-selected="false">Mi foto real</button>
+  </div>
+
+  <div class="hoja" aria-label="Fila del Sheets simulada">
+    <div class="fila" id="fila"></div>
+    <div class="leyenda">
+      <span><span class="punto p-tu"></span> La rellenas tú</span>
+      <span><span class="punto p-vacia"></span> La dejas vacía (la completa la máquina)</span>
+    </div>
+  </div>
+
+  <div class="explica" id="explica" aria-live="polite"></div>
+
+  <h2>Las tres reglas de oro</h2>
+  <div class="reglas">
+    <div class="regla">
+      <h3>La URL manda sobre el prompt</h3>
+      <p>Si <code>url_fondo</code> tiene un enlace, esa foto ES el fondo y el prompt se ignora. Para que la IA genere, esa celda debe estar <strong>vacía</strong>.</p>
+    </div>
+    <div class="regla">
+      <h3>Regenerar = borrar la celda</h3>
+      <p>¿No te gusta el fondo que salió? Borra <code>url_fondo</code>, retoca el <code>prompt_imagen</code> si quieres, estado a <code>pendiente</code> y relanza. Fondo nuevo.</p>
+    </div>
+    <div class="regla">
+      <h3>Lo tuyo se respeta siempre</h3>
+      <p>Cualquier celda de texto que escribas (titular, subtítulo, cta, copy) sale <strong>exacta</strong> en el post. La IA solo inventa donde tú dejas hueco.</p>
+    </div>
+  </div>
+
+  <h2>El semáforo de la columna estado</h2>
+  <div class="semaforo">
+    <div class="paso">
+      <span class="tag">pendiente</span>
+      <p>Tu orden de trabajo: "hazme este post". La máquina la recoge en la siguiente pasada.</p>
+    </div>
+    <div class="flecha" aria-hidden="true">→</div>
+    <div class="paso">
+      <span class="tag">revisar</span>
+      <p>Post terminado. Abre el enlace de <code style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#4dd2d0">url_canva</code>, revisa imagen y textos.</p>
+    </div>
+    <div class="flecha" aria-hidden="true">→</div>
+    <div class="paso">
+      <span class="tag">ok</span>
+      <p>Tu aprobación. En la Fase 2, esto será la señal para que Metricool lo programe solo.</p>
+    </div>
+  </div>
+
+  <footer>Cortesía Código AdrIA</footer>
+</div>
+
+<script>
+const columnas = ["tema","canal","titular","subtitulo","cta","copy","prompt_imagen","url_referencia","url_fondo","estado"];
+
+const modos = {
+  auto: {
+    tu: ["tema","canal","estado"],
+    texto: "El modo sin esfuerzo. Escribes el <strong>tema</strong> (una idea, una noticia, incluso una URL de tu blog), el <strong>canal</strong> (instagram, facebook...) y pones <code>estado</code> en <code>pendiente</code>. La IA escribe titular, subtítulo, botón y copy, inventa la escena del fondo, monta el post y te deja el enlace en <code>url_canva</code>."
+  },
+  textos: {
+    tu: ["tema","canal","titular","subtitulo","cta","estado"],
+    texto: "Tú pones las palabras, la máquina pone el resto. Escribe el <strong>titular</strong>, <strong>subtítulo</strong> o <strong>cta</strong> que quieras — saldrán exactos en la imagen. Lo que dejes vacío lo completa la IA. Ideal para retocar: cambias una celda, estado a <code>pendiente</code>, y el post se regenera con tu texto y el <strong>mismo fondo</strong>."
+  },
+  dirigida: {
+    tu: ["tema","canal","prompt_imagen","url_referencia","estado"],
+    texto: "La sesión de fotos virtual. Escribe en <code>prompt_imagen</code> la escena que quieres (termina siempre con <em>no text, no words, no letters, no typography</em>) y pega en <code>url_referencia</code> la foto de un producto tuyo de la web. La IA genera la escena de tu prompt manteniendo <strong>tu producto reconocible</strong>. Importante: <code>url_fondo</code> vacía, o el prompt se ignora."
+  },
+  fotoreal: {
+    tu: ["tema","canal","url_fondo","estado"],
+    texto: "Sin IA de imagen: tu foto tal cual. Pega en <code>url_fondo</code> la URL de una foto real (de adrihosan.com o de Drive) y esa será el fondo del post. La máquina solo escribe los textos y monta el diseño encima. Perfecto para producto concreto en stock."
+  }
+};
+
+const fila = document.getElementById('fila');
+const explica = document.getElementById('explica');
+
+function pintar(modo){
+  const conf = modos[modo];
+  fila.innerHTML = columnas.map(c => {
+    const esTu = conf.tu.includes(c);
+    return `<div class="celda ${esTu ? 'tu' : 'maquina'}">
+      <span class="col">${c}</span>
+      <span class="quien">${esTu ? 'Tú' : '—'}</span>
+    </div>`;
+  }).join('');
+  explica.innerHTML = conf.texto;
+}
+
+document.querySelectorAll('.modo').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.modo').forEach(b => { b.classList.remove('activo'); b.setAttribute('aria-selected','false'); });
+    btn.classList.add('activo');
+    btn.setAttribute('aria-selected','true');
+    pintar(btn.dataset.modo);
+  });
+});
+
+pintar('auto');
+</script>
+</body>
+</html>
