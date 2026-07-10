@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Comparativa práctica entre GPT-5.5 y GPT-5.6 Sol para creación de contenido, programación, investigación y automatización." />
+  <title>GPT-5.6 Sol vs GPT-5.5 | Código AdrIA</title>
+  <style>
+    :root {
+      --bg: #071014;
+      --bg-soft: #0d1a20;
+      --card: rgba(15, 31, 38, 0.82);
+      --card-strong: #10232b;
+      --primary: #4dd2d0;
+      --primary-soft: rgba(77, 210, 208, 0.14);
+      --white: #f7fbfc;
+      --text: #d7e3e7;
+      --muted: #8fa5ad;
+      --line: rgba(255, 255, 255, 0.10);
+      --success: #86efac;
+      --warning: #fde68a;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(77, 210, 208, 0.16), transparent 28%),
+        radial-gradient(circle at 85% 8%, rgba(77, 210, 208, 0.08), transparent 24%),
+        linear-gradient(145deg, #050b0e 0%, #07151a 48%, #051013 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 11, 14, 0.74);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--white);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #071014;
+      background: linear-gradient(135deg, #84f0ed, var(--primary));
+      box-shadow: 0 0 30px rgba(77, 210, 208, 0.25);
+      font-weight: 900;
+    }
+
+    .brand span {
+      color: var(--primary);
+    }
+
+    .nav-link {
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--text);
+      transition: .25s ease;
+    }
+
+    .nav-link:hover {
+      border-color: rgba(77, 210, 208, 0.55);
+      color: var(--primary);
+    }
+
+    .hero {
+      padding: 90px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 13px;
+      border: 1px solid rgba(77, 210, 208, 0.28);
+      background: var(--primary-soft);
+      color: var(--primary);
+      border-radius: 999px;
+      font-size: .83rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      margin-bottom: 22px;
+    }
+
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 0 rgba(77, 210, 208, 0.55);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      70% { box-shadow: 0 0 0 12px rgba(77, 210, 208, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(77, 210, 208, 0); }
+    }
+
+    h1 {
+      color: var(--white);
+      font-size: clamp(3rem, 7vw, 6.4rem);
+      line-height: .93;
+      letter-spacing: -0.065em;
+      max-width: 900px;
+      margin-bottom: 26px;
+    }
+
+    h1 .accent {
+      display: block;
+      color: var(--primary);
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      border: 0;
+      padding: 14px 21px;
+      border-radius: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #061012;
+      background: var(--primary);
+      box-shadow: 0 14px 35px rgba(77, 210, 208, 0.20);
+    }
+
+    .btn-secondary {
+      color: var(--white);
+      background: transparent;
+      border: 1px solid var(--line);
+    }
+
+    .model-orbit {
+      position: relative;
+      min-height: 430px;
+      display: grid;
+      place-items: center;
+    }
+
+    .orbit {
+      position: absolute;
+      border: 1px solid rgba(77, 210, 208, 0.18);
+      border-radius: 50%;
+    }
+
+    .orbit.one { width: 390px; height: 390px; }
+    .orbit.two { width: 290px; height: 290px; }
+    .orbit.three { width: 195px; height: 195px; }
+
+    .sun {
+      position: relative;
+      z-index: 2;
+      width: 160px;
+      height: 160px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-radius: 50%;
+      color: #041113;
+      background:
+        radial-gradient(circle at 32% 28%, #ecffff 0 8%, #90efed 18%, #4dd2d0 48%, #199d9d 100%);
+      box-shadow:
+        0 0 50px rgba(77, 210, 208, .36),
+        0 0 110px rgba(77, 210, 208, .18);
+      font-weight: 900;
+      line-height: 1.08;
+    }
+
+    .sun strong {
+      display: block;
+      font-size: 1.55rem;
+    }
+
+    .floating-tag {
+      position: absolute;
+      z-index: 3;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(12, 27, 33, .92);
+      border: 1px solid var(--line);
+      color: var(--white);
+      font-size: .85rem;
+      box-shadow: var(--shadow);
+    }
+
+    .tag-1 { top: 54px; left: 18px; }
+    .tag-2 { top: 88px; right: 0; }
+    .tag-3 { bottom: 55px; left: 0; }
+    .tag-4 { bottom: 28px; right: 26px; }
+
+    section {
+      padding: 54px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .section-kicker {
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: .78rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      color: var(--white);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+      margin-bottom: 14px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .comparison {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: rgba(8, 20, 25, .82);
+      box-shadow: var(--shadow);
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 1.3fr .85fr .85fr;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .comparison-row:last-child {
+      border-bottom: 0;
+    }
+
+    .comparison-row > div {
+      padding: 20px 22px;
+    }
+
+    .comparison-row > div + div {
+      border-left: 1px solid var(--line);
+    }
+
+    .comparison-head {
+      color: var(--white);
+      background: rgba(77, 210, 208, .08);
+      font-weight: 900;
+    }
+
+    .task {
+      color: var(--white);
+      font-weight: 750;
+    }
+
+    .rating {
+      display: flex;
+      gap: 4px;
+      color: var(--primary);
+      letter-spacing: .06em;
+    }
+
+    .muted-star {
+      opacity: .18;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 240px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(17, 38, 46, .92), rgba(10, 24, 30, .92));
+      box-shadow: 0 18px 45px rgba(0, 0, 0, .18);
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(77, 210, 208, .42);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 1.35rem;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      color: var(--white);
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .selector {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(77, 210, 208, .10), rgba(9, 24, 30, .95));
+      padding: 32px;
+    }
+
+    .selector-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .use-case-list {
+      display: grid;
+      gap: 11px;
+    }
+
+    .use-case {
+      width: 100%;
+      text-align: left;
+      padding: 15px 17px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .025);
+      color: var(--text);
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .use-case:hover,
+    .use-case.active {
+      background: var(--primary-soft);
+      border-color: rgba(77, 210, 208, .45);
+      color: var(--white);
+    }
+
+    .result {
+      border-radius: 22px;
+      padding: 28px;
+      background: rgba(5, 15, 19, .82);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .result-label {
+      color: var(--muted);
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .result-model {
+      color: var(--primary);
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -.05em;
+      margin-bottom: 16px;
+    }
+
+    .result p {
+      color: var(--text);
+      max-width: 480px;
+    }
+
+    .verdict {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 24px;
+      align-items: center;
+      padding: 38px;
+      border-radius: var(--radius-xl);
+      background: var(--primary);
+      color: #041113;
+      box-shadow: 0 25px 70px rgba(77, 210, 208, .18);
+    }
+
+    .verdict h2 {
+      color: #041113;
+      margin: 0;
+    }
+
+    .verdict p {
+      font-size: 1.08rem;
+      font-weight: 650;
+    }
+
+    .source-note {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    footer {
+      padding: 34px 0 44px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .footer-line {
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .selector-grid,
+      .verdict {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .model-orbit {
+        min-height: 380px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 22px, 1180px);
+      }
+
+      .nav {
+        min-height: 66px;
+      }
+
+      .nav-link {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
+
+      .model-orbit {
+        transform: scale(.84);
+        margin: -25px 0;
+      }
+
+      .comparison {
+        overflow-x: auto;
+      }
+
+      .comparison-row {
+        min-width: 680px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .selector,
+      .verdict {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Código AdrIA">
+        <span class="brand-mark">A</span>
+        Código <span>AdrIA</span>
+      </a>
+      <a class="nav-link" href="#recomendacion">Ver recomendación</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> Nueva generación de razonamiento</div>
+          <h1>GPT-5.6 Sol <span class="accent">frente a GPT-5.5</span></h1>
+          <p class="hero-copy">
+            No sustituye a GPT-5.5 en todo. Lo supera cuando el trabajo exige más razonamiento,
+            programación avanzada, investigación, diseño, ciencia o uso complejo del ordenador.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#comparativa">Ver comparativa</a>
+            <a class="btn btn-secondary" href="#selector">¿Qué modelo uso?</a>
+          </div>
+        </div>
+
+        <div class="model-orbit" aria-hidden="true">
+          <div class="orbit one"></div>
+          <div class="orbit two"></div>
+          <div class="orbit three"></div>
+          <div class="sun"><div><strong>5.6</strong>SOL</div></div>
+          <span class="floating-tag tag-1">Código</span>
+          <span class="floating-tag tag-2">Investigación</span>
+          <span class="floating-tag tag-3">Diseño</span>
+          <span class="floating-tag tag-4">Agentes</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="comparativa">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Comparación práctica</div>
+          <h2>La diferencia aparece cuando el problema se complica</h2>
+          <p>Para tareas breves, ambos funcionan muy bien. Sol cobra sentido cuando hay más variables, archivos, herramientas o decisiones encadenadas.</p>
+        </div>
+
+        <div class="comparison">
+          <div class="comparison-row comparison-head">
+            <div>Tipo de tarea</div>
+            <div>GPT-5.5</div>
+            <div>GPT-5.6 Sol</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="task">Correos, traducciones, textos rápidos</div>
+            <div class="rating">★★★★★</div>
+            <div class="rating">★★★★★</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="task">Guiones, publicaciones y contenido SEO</div>
+            <div class="rating">★★★★★</div>
+            <div class="rating">★★★★★</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="task">Programación y depuración compleja</div>
+            <div class="rating">★★★★<span class="muted-star">★</span></div>
+            <div class="rating">★★★★★</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="task">Investigación técnica profunda</div>
+            <div class="rating">★★★★<span class="muted-star">★</span></div>
+            <div class="rating">★★★★★</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="task">Proyectos largos con varios archivos</div>
+            <div class="rating">★★★<span class="muted-star">★★</span></div>
+            <div class="rating">★★★★★</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="task">Uso de herramientas y flujos de trabajo</div>
+            <div class="rating">★★★★<span class="muted-star">★</span></div>
+            <div class="rating">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Dónde se nota</div>
+          <h2>Cuatro terrenos donde Sol marca distancia</h2>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">⌘</div>
+            <h3>Programación avanzada</h3>
+            <p>Mejor para construir aplicaciones, revisar arquitecturas, depurar errores difíciles y trabajar sobre repositorios grandes.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">◎</div>
+            <h3>Razonamiento profundo</h3>
+            <p>Analiza más variables antes de responder y resulta más útil para decisiones técnicas, científicas o estratégicas complejas.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">↗</div>
+            <h3>Trabajo con herramientas</h3>
+            <p>Está orientado a flujos con investigación, uso del ordenador, diseño y varias acciones encadenadas hasta completar el objetivo.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">▦</div>
+            <h3>Proyectos extensos</h3>
+            <p>Mantiene mejor la coherencia cuando el trabajo implica muchas instrucciones, documentos, revisiones y pasos relacionados.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="selector">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Selector rápido</div>
+          <h2>Elige la tarea y descubre qué modelo usar</h2>
+        </div>
+
+        <div class="selector">
+          <div class="selector-grid">
+            <div class="use-case-list">
+              <button class="use-case active" data-model="GPT-5.5" data-text="Es rápido, competente y suficiente para la mayoría de tareas cotidianas de comunicación y contenido.">Redactar un correo para un cliente</button>
+              <button class="use-case" data-model="GPT-5.5" data-text="Para una publicación, una descripción o un guion normal, GPT-5.5 ofrece calidad sin gastar razonamiento extra.">Crear una publicación para Código AdrIA</button>
+              <button class="use-case" data-model="GPT-5.6 Sol" data-text="Sol es la mejor elección cuando necesitas arquitectura, programación, pruebas, depuración y varias iteraciones conectadas.">Construir una aplicación completa</button>
+              <button class="use-case" data-model="GPT-5.6 Sol" data-text="Aquí importa contrastar fuentes, razonar, detectar contradicciones y elaborar una conclusión sólida.">Realizar una investigación técnica</button>
+              <button class="use-case" data-model="GPT-5.6 Sol" data-text="Los flujos con varias herramientas, archivos y decisiones encadenadas aprovechan mejor su capacidad de razonamiento.">Diseñar una automatización compleja</button>
+            </div>
+
+            <div class="result" aria-live="polite">
+              <div class="result-label">Modelo recomendado</div>
+              <div class="result-model" id="resultModel">GPT-5.5</div>
+              <p id="resultText">Es rápido, competente y suficiente para la mayoría de tareas cotidianas de comunicación y contenido.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="recomendacion">
+      <div class="container">
+        <div class="verdict">
+          <h2>La regla sencilla</h2>
+          <p>
+            Usa GPT-5.5 para el trabajo diario. Activa GPT-5.6 Sol cuando una respuesta incorrecta,
+            una mala decisión técnica o una cadena de errores te vaya a costar tiempo de verdad.
+          </p>
+        </div>
+        <p class="source-note">
+          Contenido basado en la información oficial publicada por OpenAI sobre GPT-5.5 y el despliegue de GPT-5.6 Sol en julio de 2026.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-line">
+      <span>Código AdrIA · Inteligencia artificial sin humo</span>
+      <span>Diseñado para aprender haciendo</span>
+    </div>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('.use-case');
+    const resultModel = document.getElementById('resultModel');
+    const resultText = document.getElementById('resultText');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(item => item.classList.remove('active'));
+        button.classList.add('active');
+
+        resultModel.animate(
+          [
+            { opacity: 0, transform: 'translateY(8px)' },
+            { opacity: 1, transform: 'translateY(0)' }
+          ],
+          { duration: 260, easing: 'ease-out' }
+        );
+
+        resultModel.textContent = button.dataset.model;
+        resultText.textContent = button.dataset.text;
+      });
+    });
+  </script>
+</body>
+</html>
