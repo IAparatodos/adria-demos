@@ -1,0 +1,673 @@
+<meta name="robots" content="noindex, nofollow">
+<title>Intake del sistema operativo · Pedro Bisbal</title>
+
+<style>
+  :root{
+    --brand:#3f6f7b;
+    --brand-bright:#4dd2d0;
+    --brand-soft:#eaf7f6;
+    --brand-line:#c5e6e4;
+
+    --ink:#1c211f;
+    --ink-2:#4a5250;
+    --ink-3:#79817f;
+
+    --canvas:#f7f8f7;
+    --card:#ffffff;
+    --card-2:#fbfcfb;
+    --line:#e2e6e4;
+    --line-2:#c6ccc9;
+
+    --flag-bg:#fdf3e3;
+    --flag-ink:#8a5f14;
+
+    --r-s:6px; --r-m:9px; --r-l:14px; --r-pill:999px;
+    --shadow:0 1px 2px rgba(20,30,28,.05);
+
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root{
+      --brand:#5fc2c0;
+      --brand-bright:#4dd2d0;
+      --brand-soft:#16302f;
+      --brand-line:#2c5250;
+
+      --ink:#eef2f1;
+      --ink-2:#b3bcba;
+      --ink-3:#828b89;
+
+      --canvas:#101514;
+      --card:#181e1d;
+      --card-2:#1d2423;
+      --line:#2a3231;
+      --line-2:#3c4544;
+
+      --flag-bg:#33270f;
+      --flag-ink:#e0b56a;
+
+      --shadow:0 1px 2px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"]{
+    --brand:#5fc2c0; --brand-bright:#4dd2d0; --brand-soft:#16302f; --brand-line:#2c5250;
+    --ink:#eef2f1; --ink-2:#b3bcba; --ink-3:#828b89;
+    --canvas:#101514; --card:#181e1d; --card-2:#1d2423; --line:#2a3231; --line-2:#3c4544;
+    --flag-bg:#33270f; --flag-ink:#e0b56a;
+    --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+  :root[data-theme="light"]{
+    --brand:#3f6f7b; --brand-bright:#4dd2d0; --brand-soft:#eaf7f6; --brand-line:#c5e6e4;
+    --ink:#1c211f; --ink-2:#4a5250; --ink-3:#79817f;
+    --canvas:#f7f8f7; --card:#ffffff; --card-2:#fbfcfb; --line:#e2e6e4; --line-2:#c6ccc9;
+    --flag-bg:#fdf3e3; --flag-ink:#8a5f14;
+    --shadow:0 1px 2px rgba(20,30,28,.05);
+  }
+
+  .pb *{box-sizing:border-box}
+  .pb{
+    font-family:var(--sans);
+    background:var(--canvas);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    margin:0;
+    min-height:100vh;
+  }
+
+  /* barra */
+  .pb-bar{
+    position:sticky; top:0; z-index:40;
+    background:color-mix(in srgb, var(--canvas) 88%, transparent);
+    backdrop-filter:saturate(160%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .pb-bar-in{
+    max-width:860px; margin:0 auto; padding:12px 22px;
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  }
+  .pb-mark{
+    font-weight:600; font-size:13.5px; color:var(--ink-2);
+    display:flex; align-items:center; gap:8px; margin-right:auto;
+  }
+  .pb-dot{width:9px;height:9px;border-radius:var(--r-pill);background:var(--brand-bright)}
+  .pb-prog{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--ink-3);font-weight:500;font-variant-numeric:tabular-nums}
+  .pb-track{width:110px;height:5px;border-radius:var(--r-pill);background:var(--line);overflow:hidden}
+  .pb-fill{height:100%;width:0%;background:var(--brand-bright);transition:width .35s ease}
+
+  .pb button{font-family:inherit;font-size:13.5px;font-weight:500;padding:9px 15px;border-radius:var(--r-m);cursor:pointer;border:1px solid transparent;transition:background .15s,border-color .15s}
+  .pb .b1{background:var(--brand);color:#fff}
+  .pb .b1:hover{filter:brightness(1.08)}
+  .pb .b2{background:var(--card);color:var(--ink);border-color:var(--line-2)}
+  .pb .b2:hover{background:var(--card-2)}
+  .pb button:focus-visible{outline:2px solid var(--brand-bright);outline-offset:2px}
+
+  .pb-main{max-width:860px;margin:0 auto;padding:0 22px 90px}
+
+  .pb-hero{padding:58px 0 32px}
+  .pb-eye{font-size:11.5px;font-weight:600;letter-spacing:.9px;text-transform:uppercase;color:var(--brand);margin:0 0 14px}
+  .pb h1{font-size:41px;font-weight:650;line-height:1.12;letter-spacing:-1.1px;margin:0 0 18px;text-wrap:balance;color:var(--ink)}
+  .pb-lede{font-size:17.5px;color:var(--ink-2);margin:0 0 10px;max-width:63ch}
+  .pb-lede strong{color:var(--ink);font-weight:600}
+
+  .pb-deal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:30px 0 0}
+  .pb-dc{background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:16px 18px}
+  .pb-dc .k{font-size:11px;font-weight:600;letter-spacing:.7px;text-transform:uppercase;color:var(--ink-3);margin:0 0 3px}
+  .pb-dc .v{font-size:19px;font-weight:600;color:var(--ink);letter-spacing:-.3px;margin:0}
+  .pb-dc .n{font-size:12.5px;color:var(--ink-3);margin:1px 0 0}
+
+  .pb-note{background:var(--brand-soft);border:1px solid var(--brand-line);border-radius:var(--r-l);padding:18px 22px;margin:22px 0 0;font-size:14.5px;color:var(--ink-2)}
+  .pb-note p{margin:0 0 8px}
+  .pb-note p:last-child{margin:0}
+  .pb-note strong{color:var(--ink)}
+
+  .pb-sec{background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:30px;margin:18px 0;box-shadow:var(--shadow)}
+  .pb-sh{display:flex;align-items:baseline;gap:11px;margin-bottom:5px}
+  .pb-step{font-size:12px;font-weight:600;color:var(--brand);background:var(--brand-soft);border:1px solid var(--brand-line);border-radius:var(--r-s);padding:1px 7px;flex:none;font-variant-numeric:tabular-nums}
+  .pb h2{font-size:24px;font-weight:620;letter-spacing:-.5px;margin:0;line-height:1.28;color:var(--ink);text-wrap:balance}
+  .pb-ss{color:var(--ink-3);font-size:14.5px;margin:5px 0 24px;max-width:66ch}
+
+  .pb-q{margin:0 0 24px;padding:0 0 24px;border-bottom:1px solid var(--line)}
+  .pb-q:last-child{margin-bottom:0;padding-bottom:0;border-bottom:0}
+  .pb-l{display:block;font-size:15.5px;font-weight:600;color:var(--ink);margin-bottom:5px}
+  .pb-h{font-size:14px;color:var(--ink-3);margin:0 0 11px;max-width:66ch}
+  .pb-h code{background:var(--card-2);border:1px solid var(--line);padding:1px 5px;border-radius:4px;font-size:12.5px}
+  .pb-h strong{color:var(--ink-2)}
+
+  .pb input[type=text],.pb textarea{
+    width:100%;font-family:inherit;font-size:15.5px;color:var(--ink);
+    background:var(--card-2);border:1px solid var(--line-2);border-radius:var(--r-m);
+    padding:11px 13px;transition:border-color .15s,box-shadow .15s;resize:vertical;
+  }
+  .pb input[type=text]{height:46px}
+  .pb textarea{min-height:92px;line-height:1.6}
+  .pb input[type=text]:focus,.pb textarea:focus{outline:none;border-color:var(--brand-bright);box-shadow:0 0 0 3px color-mix(in srgb, var(--brand-bright) 25%, transparent)}
+  .pb ::placeholder{color:var(--ink-3);opacity:.75}
+
+  .pb-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .pb-rank{display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:center;margin-bottom:9px}
+  .pb-num{width:32px;height:32px;border-radius:var(--r-pill);background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13.5px;flex:none}
+
+  .pb-opts{display:grid;gap:9px}
+  .pb-opt{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);border-radius:var(--r-m);padding:13px 15px;cursor:pointer;transition:border-color .15s,background .15s;background:var(--card-2)}
+  .pb-opt:hover{border-color:var(--line-2)}
+  .pb-opt input{margin:3px 0 0;accent-color:var(--brand);flex:none;width:16px;height:16px}
+  .pb-opt input:focus-visible{outline:2px solid var(--brand-bright);outline-offset:2px}
+  .pb-ot{font-weight:600;color:var(--ink);display:block;margin-bottom:1px;font-size:14.5px}
+  .pb-od{color:var(--ink-3);font-size:13.5px;display:block}
+  .pb-opt.on{border-color:var(--brand-bright);background:var(--brand-soft)}
+  .pb-opt.on .pb-od{color:var(--ink-2)}
+  .pb-src{display:inline-block;font-size:10.5px;font-weight:600;color:var(--flag-ink);background:var(--flag-bg);border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:1px;letter-spacing:.3px}
+
+  .pb blockquote{margin:13px 0;padding:11px 17px;border-left:2px solid var(--brand-bright);color:var(--ink-2);font-size:14.5px;background:var(--card-2);border-radius:0 var(--r-s) var(--r-s) 0}
+  .pb blockquote strong{color:var(--ink)}
+
+  /* manual */
+  .pb-manual{background:var(--card-2);border:1px solid var(--line);border-radius:var(--r-l);padding:30px}
+  .pb-manual ol{margin:0;padding-left:0;list-style:none;display:grid;gap:16px;counter-reset:m}
+  .pb-manual li{display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:start;counter-increment:m}
+  .pb-manual li::before{
+    content:counter(m);
+    width:26px;height:26px;border-radius:var(--r-pill);
+    background:var(--brand);color:#fff;font-size:12.5px;font-weight:600;
+    display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px;
+  }
+  .pb-manual h3{margin:0 0 2px;font-size:15.5px;font-weight:600;color:var(--ink)}
+  .pb-manual p{margin:0;font-size:14.5px;color:var(--ink-2)}
+
+  .pb-close{background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:38px 30px;text-align:center;margin:18px 0}
+  .pb-close h2{margin-bottom:8px}
+  .pb-close p{color:var(--ink-2);font-size:15.5px;max-width:52ch;margin:0 auto 22px}
+  .pb-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .pb-hint{font-size:12.5px;color:var(--ink-3);text-align:center;margin-top:20px}
+
+  .pb-foot{text-align:center;padding:32px 22px 8px;color:var(--ink-3);font-size:12.5px}
+  .pb-foot a{color:var(--brand);font-weight:500;text-decoration:none}
+  .pb-foot a:hover{text-decoration:underline}
+
+  .pb-toast{
+    position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(140%);
+    background:var(--ink);color:var(--canvas);font-size:13.5px;font-weight:500;
+    padding:11px 19px;border-radius:var(--r-pill);z-index:99;
+    transition:transform .3s cubic-bezier(.16,1,.3,1);
+  }
+  .pb-toast.on{transform:translateX(-50%) translateY(0)}
+
+  @media (prefers-reduced-motion: reduce){
+    .pb *,.pb *::before{transition:none !important}
+  }
+  @media (max-width:740px){
+    .pb h1{font-size:31px;letter-spacing:-.5px}
+    .pb-sec,.pb-manual{padding:22px 18px}
+    .pb-2,.pb-deal{grid-template-columns:1fr}
+    .pb-hero{padding:36px 0 22px}
+    .pb-track{width:66px}
+    .pb-main{padding:0 15px 60px}
+    .pb-bar-in{padding:10px 15px}
+  }
+</style>
+
+<div class="pb">
+
+<div class="pb-bar">
+  <div class="pb-bar-in">
+    <span class="pb-mark"><span class="pb-dot"></span> Intake · sistema operativo</span>
+    <div class="pb-prog">
+      <span id="pb-pct">0%</span>
+      <div class="pb-track"><div class="pb-fill" id="pb-bar"></div></div>
+    </div>
+    <button class="b2" onclick="pbCopiar()">Copiar respuestas</button>
+    <button class="b1" onclick="pbDescargar()">Descargar</button>
+  </div>
+</div>
+
+<div class="pb-main">
+
+  <div class="pb-hero">
+    <p class="pb-eye">Pedro Bisbal × Adrihosan · Julio 2026</p>
+    <h1>Tus deberes, en un solo sitio</h1>
+    <p class="pb-lede">Quedamos en que me pasarías <strong>tu listado de prioridades</strong> — qué es proyecto, qué es trabajo ordinario, qué es cliente — y <strong>las tres primeras skills</strong> que quieres activar. Esto es ese listado, en formato rellenable.</p>
+    <p class="pb-lede">Con lo que escribas aquí te digo si las 20 horas dan de sí o nos hemos quedado cortos, y te preparo el plan de la tarde larga de diseño.</p>
+
+    <div class="pb-deal">
+      <div class="pb-dc"><p class="k">Paquete</p><p class="v">20 horas</p><p class="n">1.500 € · 75 €/h</p></div>
+      <div class="pb-dc"><p class="k">Fase 1</p><p class="v">Infraestructura</p><p class="n">Carpeta master, taxonomía, primeras skills</p></div>
+      <div class="pb-dc"><p class="k">Cuándo</p><p class="v">Agosto, tardes</p><p class="n">Una tarde larga para diseñar bien</p></div>
+    </div>
+
+    <div class="pb-note">
+      <p><strong>Lo importante es el orden.</strong> El sistema funciona si cada cosa vive donde tiene que vivir. Lo que hoy te pasa — haces una propuesta, el artefacto vive en algún sitio y luego no lo encuentras — se arregla aquí, decidiendo la estructura antes de tocar nada.</p>
+      <p>Responde a lo bruto, sin pulir. Se guarda solo según escribes. Si no sabes cómo va esto, <a href="#pb-manual" style="color:var(--brand);font-weight:600">salta al final</a>: te lo explico en cuatro líneas.</p>
+    </div>
+  </div>
+
+  <!-- 1 -->
+  <div class="pb-sec">
+    <div class="pb-sh"><span class="pb-step">1 / 7</span><h2>El mapa: qué es cada cosa</h2></div>
+    <p class="pb-ss">Es la decisión que ordena todo lo demás. Cada carpeta lleva su contexto, su memoria y su forma de trabajar. Si esto queda claro, el resto se monta solo.</p>
+
+    <div class="pb-q">
+      <label class="pb-l" for="clientes">Clientes</label>
+      <p class="pb-h">Empresas y personas con las que ya trabajas o vas a trabajar. Uno por línea. Si alguno tiene manías propias (tono, idioma, cosas que no se tocan), dímelo al lado.</p>
+      <textarea id="clientes" placeholder="Ej: FEMEVAL — formación in-company — trato institucional&#10;Cliente X — plan de adopción — confidencial, no se publica"></textarea>
+    </div>
+
+    <div class="pb-q">
+      <label class="pb-l" for="proyectos">Proyectos</label>
+      <p class="pb-h">Cosas tuyas con principio y final que no son un cliente: la membresía, el radar, la web, el IAtón, la selección de perfiles con habilidades IA, la conferencia que estés montando…</p>
+      <textarea id="proyectos" placeholder="Uno por línea, con una frase de qué es y en qué punto está."></textarea>
+    </div>
+
+    <div class="pb-q">
+      <label class="pb-l" for="ordinarios">Trabajos ordinarios</label>
+      <p class="pb-h">Lo que se repite cada semana o cada mes y te come la vida: despachar correo, hacer propuestas, facturar, conciliar el banco, programar redes, cerrar agenda de talleres…</p>
+      <textarea id="ordinarios" placeholder="Uno por línea. Si sabes cuántas horas al mes te come cada uno, ponlo: así sé por dónde empezar."></textarea>
+    </div>
+
+    <div class="pb-q">
+      <label class="pb-l" for="ya_tienes">Lo que ya tienes montado</label>
+      <p class="pb-h">En la reunión me nombraste el <strong>facturador con conciliador</strong>, tu <strong>sistema editorial</strong> con 10-15 años de escritos volcado a Obsidian, y tu <strong>CRM propio</strong> tipo Pipedrive con Sendinblue. Nada de eso se tira: se integra. ¿Hay más?</p>
+      <textarea id="ya_tienes" placeholder="Qué tienes hecho, con qué lo hiciste (Claude, cowork, código) y dónde vive."></textarea>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="pb-sec">
+    <div class="pb-sh"><span class="pb-step">2 / 7</span><h2>Las tres primeras skills</h2></div>
+    <p class="pb-ss">Marca las que te interesen y luego ordénalas: solo tres entran en las 20 horas. Las marcadas con «reunión» salieron de tu boca el otro día.</p>
+
+    <div class="pb-q">
+      <label class="pb-l">Candidatas</label>
+      <div class="pb-opts" data-name="skills">
+        <label class="pb-opt"><input type="checkbox" name="skills" value="Propuestas comerciales: email → propuesta con identidad → registro → seguimiento">
+          <span><span class="pb-ot">Propuestas comerciales<span class="pb-src">reunión</span></span><span class="pb-od">Llega un correo pidiendo un taller. Se genera la propuesta con tu identidad, se registra el lead y se hace el seguimiento solo.</span></span></label>
+
+        <label class="pb-opt"><input type="checkbox" name="skills" value="Catálogo de talleres: contenidos estructurados para que el modelo proponga bien">
+          <span><span class="pb-ot">Catálogo de talleres<span class="pb-src">reunión</span></span><span class="pb-od">Tus contenidos de formación, estructurados. Sin esto, la skill de propuestas se los inventa. Es su requisito previo.</span></span></label>
+
+        <label class="pb-opt"><input type="checkbox" name="skills" value="Agenda: cruzar peticiones de taller con huecos reales y proponer fechas">
+          <span><span class="pb-ot">Agenda<span class="pb-src">reunión</span></span><span class="pb-od">Que mire tu calendario, vea si hay hueco para ese taller de octubre y proponga fechas tentativas.</span></span></label>
+
+        <label class="pb-opt"><input type="checkbox" name="skills" value="Triage de correo: filtrado en origen, cuentas específicas, respuesta o escalado">
+          <span><span class="pb-ot">Triage de correo<span class="pb-src">reunión</span></span><span class="pb-od">Tu doctrina aplicada a ti: resolver en origen. Cuentas específicas, spam fuera, lo trivial respondido, lo importante a tu mesa.</span></span></label>
+
+        <label class="pb-opt"><input type="checkbox" name="skills" value="Contenido de redes: titular, copy, CTA, imagen y programación (sustituye a la persona de redes)">
+          <span><span class="pb-ot">Contenido de redes<span class="pb-src">reunión</span></span><span class="pb-od">Lo que te enseñé funcionando: titular, subtítulo, CTA, copy e imagen con tu marca, programado solo. Es la que te quita el gasto de la persona de redes.</span></span></label>
+
+        <label class="pb-opt"><input type="checkbox" name="skills" value="Audiovisual: piezas de demo para conferencias (vídeo, voz clonada, Magnific)">
+          <span><span class="pb-ot">Audiovisual para conferencias<span class="pb-src">reunión</span></span><span class="pb-od">Las piezas que quieres enseñar en sala como caso de uso: vídeo con fondos, voz clonada, flujos de Magnific.</span></span></label>
+
+        <label class="pb-opt"><input type="checkbox" name="skills" value="Integrar el facturador con conciliador dentro del sistema">
+          <span><span class="pb-ot">Facturación<span class="pb-src">reunión</span></span><span class="pb-od">Ya lo tienes hecho. Aquí solo es meterlo dentro del sistema para que deje de vivir aparte.</span></span></label>
+
+        <label class="pb-opt"><input type="checkbox" name="skills" value="Integrar el sistema editorial (Obsidian, 10-15 años de escritos)">
+          <span><span class="pb-ot">Sistema editorial<span class="pb-src">reunión</span></span><span class="pb-od">Tu voz ya está entrenada ahí. Conectarlo para que TODO el sistema escriba como tú, no solo la newsletter.</span></span></label>
+
+        <label class="pb-opt"><input type="checkbox" name="skills" value="El radar: monitorización de consultoras, freelances y agencias de IA">
+          <span><span class="pb-ot">El radar<span class="pb-src">reunión</span></span><span class="pb-od">Monitorizar quién presta servicios de IA. Alimenta tu boutique de selección de perfiles.</span></span></label>
+
+        <label class="pb-opt"><input type="checkbox" name="skills" value="Prospección por sector: segmentar, sacar empresas y responsables">
+          <span><span class="pb-ot">Prospección por sector<span class="pb-src">reunión</span></span><span class="pb-od">Tu ejemplo: «segméntame peluquerías, sácame los responsables». Investigación de mercado bajo demanda.</span></span></label>
+
+        <label class="pb-opt"><input type="checkbox" name="skills" value="Contenidos de la membresía para capas estratégicas">
+          <span><span class="pb-ot">Membresía</span><span class="pb-od">La producción continua de contenido que va a exigirte la membresía para capas estratégicas.</span></span></label>
+      </div>
+    </div>
+
+    <div class="pb-q">
+      <label class="pb-l">Ordénalas: solo estas tres entran</label>
+      <p class="pb-h">Criterio que yo usaría: la que más horas tuyas libera, primero. Pero mandas tú.</p>
+      <div class="pb-rank"><span class="pb-num">1</span><input type="text" id="skill_1" placeholder="La primera. La que si mañana funcionara, ya habría valido la pena."></div>
+      <div class="pb-rank"><span class="pb-num">2</span><input type="text" id="skill_2" placeholder="La segunda."></div>
+      <div class="pb-rank"><span class="pb-num">3</span><input type="text" id="skill_3" placeholder="La tercera."></div>
+    </div>
+
+    <div class="pb-q">
+      <label class="pb-l" for="horas_dolor">¿Cuál te está robando más horas HOY?</label>
+      <p class="pb-h">Dijiste que la labor administrativa te mata, y que se te amontonan los correos y las propuestas cuando vuelves de un cliente. Ponle número si puedes: horas a la semana.</p>
+      <textarea id="horas_dolor" placeholder="Ej: propuestas, 4-5 h a la semana. Correo, otras 3."></textarea>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="pb-sec">
+    <div class="pb-sh"><span class="pb-step">3 / 7</span><h2>Dónde vive el sistema</h2></div>
+    <p class="pb-ss">La otra decisión que tenías pendiente. Lo delicado es la instalación, y de eso me encargo yo.</p>
+
+    <div class="pb-q">
+      <label class="pb-l">Equipo</label>
+      <div class="pb-opts" data-name="equipo">
+        <label class="pb-opt"><input type="radio" name="equipo" value="Mac mini nuevo como servidor siempre encendido">
+          <span><span class="pb-ot">Mac mini nuevo</span><span class="pb-od">Siempre encendido, te conectas desde donde estés. Es lo que te rondaba. Tiene sentido si vas a querer pedirle cosas desde el móvil o de viaje.</span></span></label>
+        <label class="pb-opt"><input type="radio" name="equipo" value="Empezar en el Mac actual y migrar después">
+          <span><span class="pb-ot">Empezar en tu Mac actual</span><span class="pb-od">Cero inversión ahora. Montamos, lo pruebas, y si te convence compras el mini y lo migramos. Migrar es barato.</span></span></label>
+        <label class="pb-opt"><input type="radio" name="equipo" value="Que lo recomiende Ricardo">
+          <span><span class="pb-ot">Recomiéndame tú</span><span class="pb-od">Me dices para qué lo vas a usar de verdad y yo te digo qué comprar. O que no compres nada.</span></span></label>
+      </div>
+    </div>
+
+    <div class="pb-q">
+      <label class="pb-l" for="ubicuidad">¿Desde dónde vas a querer trabajar contra él?</label>
+      <p class="pb-h">Tú lo llamaste «el don de la ubicuidad». Yo apruebo cosas desde el móvil estando en la piscina, así que sé de qué hablas.</p>
+      <textarea id="ubicuidad" placeholder="Portátil en casa de cliente, móvil, iPad… y si necesitas que funcione sin ti delante."></textarea>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="pb-sec">
+    <div class="pb-sh"><span class="pb-step">4 / 7</span><h2>Qué conectamos</h2></div>
+    <p class="pb-ss">Marca lo que uses de verdad. Cada conector es tiempo de montaje, así que solo lo que vaya a trabajar.</p>
+
+    <div class="pb-q">
+      <label class="pb-l">Conectores</label>
+      <div class="pb-opts" data-name="conectores">
+        <label class="pb-opt"><input type="checkbox" name="conectores" value="Google Drive sincronizado con local"><span><span class="pb-ot">Google Drive</span><span class="pb-od">El repositorio central que querías, sincronizado con local. Es la base de todo.</span></span></label>
+        <label class="pb-opt"><input type="checkbox" name="conectores" value="Correo"><span><span class="pb-ot">Correo</span><span class="pb-od">Dime abajo qué cuentas tienes y cuáles quieres separar.</span></span></label>
+        <label class="pb-opt"><input type="checkbox" name="conectores" value="Calendario"><span><span class="pb-ot">Calendario</span><span class="pb-od">Imprescindible si quieres la skill de agenda.</span></span></label>
+        <label class="pb-opt"><input type="checkbox" name="conectores" value="Slack"><span><span class="pb-ot">Slack</span><span class="pb-od">Donde ya tienes al equipo. Dijiste Slack antes que Telegram para no abrir otro melón: de acuerdo.</span></span></label>
+        <label class="pb-opt"><input type="checkbox" name="conectores" value="CRM propio (tipo Pipedrive) con Sendinblue"><span><span class="pb-ot">Tu CRM con Sendinblue</span><span class="pb-od">Decidimos si sigue vivo o si su función se la come una carpeta de clientes. Tú ya sospechas que no lo necesitas.</span></span></label>
+        <label class="pb-opt"><input type="checkbox" name="conectores" value="Obsidian (sistema editorial)"><span><span class="pb-ot">Obsidian</span><span class="pb-od">Donde ya vuelca tu sistema editorial.</span></span></label>
+        <label class="pb-opt"><input type="checkbox" name="conectores" value="Programador de redes (Metricool u otro)"><span><span class="pb-ot">Redes</span><span class="pb-od">Para publicar solo. Metricool cobra la API; hay alternativas.</span></span></label>
+        <label class="pb-opt"><input type="checkbox" name="conectores" value="Web / WordPress"><span><span class="pb-ot">Tu web</span><span class="pb-od">Aquí vamos despacio. Nada contra producción sin permiso.</span></span></label>
+        <label class="pb-opt"><input type="checkbox" name="conectores" value="Banco / facturación"><span><span class="pb-ot">Banco con facturación</span><span class="pb-od">Para el conciliador que ya te has hecho.</span></span></label>
+        <label class="pb-opt"><input type="checkbox" name="conectores" value="Dropbox / Box / OneDrive"><span><span class="pb-ot">Dropbox · Box · OneDrive</span><span class="pb-od">Tienes los tres. Hay que decidir qué se migra y qué se jubila.</span></span></label>
+      </div>
+    </div>
+
+    <div class="pb-q">
+      <label class="pb-l" for="cuentas">Cuentas de correo: cuáles tienes, cuáles quieres separar</label>
+      <p class="pb-h">Tu idea era filtrar en origen con cuentas específicas, del tipo <code>formacion@pedrobisbal.com</code>.</p>
+      <textarea id="cuentas" placeholder="Las que tienes hoy, y las que te gustaría crear."></textarea>
+    </div>
+
+    <div class="pb-q">
+      <label class="pb-l" for="no_tocar">¿Qué no puede tocar nunca sin pedirte permiso?</label>
+      <p class="pb-h">Los dos pensamos igual: nada contra producción a lo loco. Pero prefiero que lo escribas y lo dejemos configurado, no confiado a la memoria.</p>
+      <textarea id="no_tocar" placeholder="Ej: la web, enviar correos a clientes, publicar sin que yo lo apruebe, tocar facturación real…"></textarea>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="pb-sec">
+    <div class="pb-sh"><span class="pb-step">5 / 7</span><h2>Para que escriba como tú</h2></div>
+    <p class="pb-ss">Sin esto, el sistema genera propuestas correctas que no suenan a ti. Es lo que separa una skill útil de una que acabas reescribiendo entera.</p>
+
+    <blockquote>Buena noticia: tu voz ya está medio resuelta. Tienes 10-15 años de escritos volcados en tu sistema editorial y el modelo ya conoce tu estilo. Lo que falta es <strong>conectarlo</strong> para que lo use todo el sistema, no solo la newsletter del viernes.</blockquote>
+
+    <div class="pb-q">
+      <label class="pb-l" for="identidad">Identidad corporativa: dónde vive</label>
+      <p class="pb-h">Dijiste que ya la tienes para las propuestas, aunque mejorable. Pásame dónde está: plantillas, logo, tipografías, colores.</p>
+      <textarea id="identidad" placeholder="Carpeta, enlace, o «te lo mando aparte»."></textarea>
+    </div>
+
+    <div class="pb-q">
+      <label class="pb-l" for="mejor_propuesta">Pásame la mejor propuesta comercial que hayas enviado</label>
+      <p class="pb-h">Una que ganaras. Es el mejor material posible: de ahí sale el molde de la skill número uno.</p>
+      <textarea id="mejor_propuesta" placeholder="Adjúntala en el correo, o dime dónde está."></textarea>
+    </div>
+
+    <div class="pb-q">
+      <label class="pb-l" for="voz_limites">¿Hay algo que el sistema no deba decir nunca en tu nombre?</label>
+      <p class="pb-h">En sala hablas sin filtro y funciona. Pero una propuesta a un comité no es una masterclass. ¿Dónde está la raya?</p>
+      <textarea id="voz_limites" placeholder="Temas, tono, palabrotas, opiniones, competencia."></textarea>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="pb-sec">
+    <div class="pb-sh"><span class="pb-step">6 / 7</span><h2>Hacia dónde vas</h2></div>
+    <p class="pb-ss">Esto lo apunté de la reunión. Confírmame que lo entendí bien, porque el sistema se diseña para donde vas, no para lo que haces hoy.</p>
+
+    <blockquote>Has <strong>subido precios</strong> y te has quedado <strong>solo en capas estratégicas</strong>: fuera compras, logística, formación de Copilot. Y quieres dejar de hacer <strong>«horas nalga»</strong> — si no estás sentado, no facturas. Encima de la mesa: membresía · plan de adopción · selección de perfiles con habilidades IA · el radar · conferencias · el IAtón.</blockquote>
+
+    <div class="pb-q">
+      <label class="pb-l" for="negocio_ok">¿Es correcto? ¿Sobra algo, falta algo, cambia algo?</label>
+      <textarea id="negocio_ok" placeholder="Corrígeme."></textarea>
+    </div>
+
+    <div class="pb-q">
+      <label class="pb-l" for="doce_meses">De esas líneas, ¿cuál tiene que despegar sí o sí en 12 meses?</label>
+      <p class="pb-h">A esa le pongo el sistema a trabajar primero. Las demás esperan.</p>
+      <textarea id="doce_meses" placeholder="Una. Y por qué esa."></textarea>
+    </div>
+
+    <div class="pb-q">
+      <label class="pb-l" for="exito">Dentro de seis meses, ¿qué tiene que haber pasado para que digas que las 20 horas valieron la pena?</label>
+      <p class="pb-h">Con número, si puede ser. Es la vara con la que lo mediremos.</p>
+      <textarea id="exito" placeholder="Ej: «no vuelvo a escribir una propuesta desde cero», «me quito el gasto de redes», «recupero 8 horas a la semana»."></textarea>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="pb-sec">
+    <div class="pb-sh"><span class="pb-step">7 / 7</span><h2>La tarde larga</h2></div>
+    <p class="pb-ss">Lo que no se diseña bien de golpe se paga después, buscando dónde guardaste las cosas.</p>
+
+    <div class="pb-q">
+      <label class="pb-l" for="fechas">Dame dos o tres tardes que te vengan bien</label>
+      <p class="pb-h">Los dos tenemos agosto y las tardes. Yo por la mañana vendo azulejos.</p>
+      <div class="pb-2">
+        <input type="text" id="fechas" placeholder="Ej: 5, 7 o 12 de agosto, a partir de las 16:00">
+        <input type="text" id="modalidad" placeholder="Remoto o presencial">
+      </div>
+    </div>
+
+    <div class="pb-q">
+      <label class="pb-l" for="libre">Lo que no te he preguntado y debería</label>
+      <textarea id="libre" placeholder="Suéltalo aquí."></textarea>
+    </div>
+  </div>
+
+  <div class="pb-close">
+    <h2>Ya está</h2>
+    <p>Pulsa copiar y pégamelo por donde quieras. Con esto te digo si las 20 horas dan de sí y te mando el plan de trabajo.</p>
+    <div class="pb-row">
+      <button class="b1" onclick="pbCopiar()">Copiar todas las respuestas</button>
+      <button class="b2" onclick="pbDescargar()">Descargar como archivo</button>
+      <button class="b2" onclick="window.print()">Imprimir o guardar en PDF</button>
+    </div>
+    <p class="pb-hint">Todo se guarda solo en este navegador. Puedes cerrar y seguir mañana.</p>
+  </div>
+
+  <!-- MANUAL -->
+  <div class="pb-manual" id="pb-manual">
+    <div class="pb-sh"><h2>Cómo se usa esto</h2></div>
+    <p class="pb-ss">Cuatro cosas y ya. No hay que registrarse ni instalar nada.</p>
+    <ol>
+      <li>
+        <div>
+          <h3>Escribe directamente en los recuadros</h3>
+          <p>Son campos de texto normales. Crecen solos si escribes mucho. No hay respuestas correctas ni longitud mínima: si algo no aplica, escribe «paso» y sigue. En las listas, pincha sobre la opción para marcarla.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Se guarda solo, en tu navegador</h3>
+          <p>No hay botón de guardar y no se envía nada a ningún sitio mientras escribes. Cada tecla queda guardada en tu propio navegador: puedes cerrar la pestaña, apagar el ordenador y volver mañana, que estará todo como lo dejaste. La barra de arriba te dice cuánto llevas. Ojo con una cosa: si lo abres en otro dispositivo, ahí empieza vacío. Rellénalo entero desde el mismo sitio.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Al terminar, pulsa «Copiar respuestas»</h3>
+          <p>Copia todo lo que hayas escrito, ya ordenado y limpio, al portapapeles. Ve a tu correo o a WhatsApp, pega (Cmd+V) y envíamelo. Solo se copia lo que hayas respondido: lo que dejes en blanco no aparece.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Si prefieres un archivo</h3>
+          <p>«Descargar» te baja un .txt con lo mismo, para que lo adjuntes. Y «Imprimir» te permite guardarlo en PDF si quieres quedártelo. Cualquiera de las tres vale: elige la que te sea más cómoda.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="pb-foot">
+    <p>Cortesía <strong>Código AdrIA</strong> · Preparado para Pedro Bisbal · 13 de julio de 2026</p>
+    <p><a href="#" onclick="pbBorrar();return false;">Borrar todo lo escrito y empezar de cero</a></p>
+  </div>
+
+</div>
+
+<div class="pb-toast" id="pb-toast">Copiado</div>
+</div>
+
+<script>
+(function(){
+  var KEY = 'pb-intake-so-2026-07';
+  var root = document.querySelector('.pb');
+  var campos = function(){ return Array.prototype.slice.call(root.querySelectorAll('input[type=text], textarea')); };
+  var radios = function(){ return Array.prototype.slice.call(root.querySelectorAll('input[type=radio]')); };
+  var checks = function(){ return Array.prototype.slice.call(root.querySelectorAll('input[type=checkbox]')); };
+
+  function estado(){
+    var d = {texto:{}, radio:{}, check:{}};
+    campos().forEach(function(f){ if(f.value.trim()) d.texto[f.id] = f.value; });
+    radios().forEach(function(r){ if(r.checked) d.radio[r.name] = r.value; });
+    checks().forEach(function(c){ if(c.checked){ (d.check[c.name] = d.check[c.name] || []).push(c.value); } });
+    return d;
+  }
+
+  function guardar(){
+    try{ localStorage.setItem(KEY, JSON.stringify(estado())); }catch(e){}
+    progreso();
+  }
+
+  function restaurar(){
+    var d;
+    try{ d = JSON.parse(localStorage.getItem(KEY) || '{}'); }catch(e){ return; }
+    if(!d) return;
+    Object.keys(d.texto || {}).forEach(function(id){
+      var el = document.getElementById(id);
+      if(el){ el.value = d.texto[id]; el.style.height = 'auto'; el.style.height = Math.max(el.scrollHeight, 92) + 'px'; }
+    });
+    radios().forEach(function(r){ if((d.radio||{})[r.name] === r.value) r.checked = true; });
+    checks().forEach(function(c){ if(((d.check||{})[c.name]||[]).indexOf(c.value) !== -1) c.checked = true; });
+    pintar();
+    progreso();
+  }
+
+  function progreso(){
+    var tTexto = campos().length;
+    var hTexto = campos().filter(function(f){ return f.value.trim().length > 2; }).length;
+    var gR = []; radios().forEach(function(r){ if(gR.indexOf(r.name) === -1) gR.push(r.name); });
+    var gC = []; checks().forEach(function(c){ if(gC.indexOf(c.name) === -1) gC.push(c.name); });
+    var hR = gR.filter(function(n){ return root.querySelector('input[name="'+n+'"]:checked'); }).length;
+    var hC = gC.filter(function(n){ return root.querySelector('input[name="'+n+'"]:checked'); }).length;
+    var total = tTexto + gR.length + gC.length;
+    var hechos = hTexto + hR + hC;
+    var pct = total ? Math.round(hechos / total * 100) : 0;
+    document.getElementById('pb-bar').style.width = pct + '%';
+    document.getElementById('pb-pct').textContent = pct + '%';
+  }
+
+  function pintar(){
+    Array.prototype.slice.call(root.querySelectorAll('.pb-opt')).forEach(function(o){
+      var i = o.querySelector('input');
+      if(i.checked){ o.classList.add('on'); } else { o.classList.remove('on'); }
+    });
+  }
+
+  function construir(){
+    var out = [];
+    out.push('INTAKE SISTEMA OPERATIVO — PEDRO BISBAL');
+    out.push('Respondido el ' + new Date().toLocaleDateString('es-ES', {day:'numeric', month:'long', year:'numeric'}));
+    out.push('====================================================');
+    out.push('');
+
+    Array.prototype.slice.call(root.querySelectorAll('.pb-sec')).forEach(function(sec){
+      var h2 = sec.querySelector('h2');
+      if(!h2) return;
+      var bloque = [];
+      Array.prototype.slice.call(sec.querySelectorAll('.pb-q')).forEach(function(q){
+        var l = q.querySelector('.pb-l');
+        var pregunta = l ? l.textContent.trim() : '';
+        var textos = Array.prototype.slice.call(q.querySelectorAll('input[type=text], textarea'))
+          .filter(function(f){ return f.value.trim(); })
+          .map(function(f){ return f.value.trim(); });
+        var grupo = q.querySelector('.pb-opts');
+        var opciones = [];
+        if(grupo){
+          opciones = Array.prototype.slice.call(root.querySelectorAll('input[name="'+grupo.dataset.name+'"]:checked'))
+            .map(function(i){ return i.value; });
+        }
+        if(textos.length || opciones.length){
+          bloque.push('— ' + pregunta);
+          opciones.forEach(function(o){ bloque.push('  [x] ' + o); });
+          textos.forEach(function(t){ bloque.push('  ' + t.replace(/\n/g, '\n  ')); });
+          bloque.push('');
+        }
+      });
+      if(bloque.length){
+        out.push('## ' + h2.textContent.trim());
+        out.push('');
+        out = out.concat(bloque);
+      }
+    });
+
+    if(out.length <= 4) out.push('(Sin respuestas todavía.)');
+    return out.join('\n');
+  }
+
+  function toast(msg){
+    var t = document.getElementById('pb-toast');
+    t.textContent = msg;
+    t.classList.add('on');
+    setTimeout(function(){ t.classList.remove('on'); }, 2400);
+  }
+
+  function fallback(texto, done){
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try{ document.execCommand('copy'); done(); }
+    catch(e){ toast('No he podido copiar. Usa Descargar.'); }
+    document.body.removeChild(ta);
+  }
+
+  window.pbCopiar = function(){
+    var texto = construir();
+    var done = function(){ toast('Copiado. Pégalo en un correo y mándamelo.'); };
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(texto).then(done)['catch'](function(){ fallback(texto, done); });
+    } else { fallback(texto, done); }
+  };
+
+  window.pbDescargar = function(){
+    var blob = new Blob([construir()], {type:'text/plain;charset=utf-8'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'pedro-bisbal-intake-sistema-operativo.txt';
+    a.click();
+    URL.revokeObjectURL(a.href);
+    toast('Descargado');
+  };
+
+  window.pbBorrar = function(){
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    campos().forEach(function(f){ f.value = ''; });
+    radios().concat(checks()).forEach(function(i){ i.checked = false; });
+    pintar();
+    progreso();
+    toast('Borrado');
+  };
+
+  root.addEventListener('input', function(e){
+    if(e.target.matches('input, textarea')){
+      guardar();
+      if(e.target.tagName === 'TEXTAREA'){
+        e.target.style.height = 'auto';
+        e.target.style.height = Math.max(e.target.scrollHeight, 92) + 'px';
+      }
+    }
+  });
+  root.addEventListener('change', function(e){
+    if(e.target.type === 'radio' || e.target.type === 'checkbox'){ pintar(); guardar(); }
+  });
+
+  restaurar();
+})();
+</script>
