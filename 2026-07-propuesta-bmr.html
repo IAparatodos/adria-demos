@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Propuesta de trabajo — BEGO Mental Reset · Código AdrIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#4dd2d0;
+    --secondary:#3f6f7b;
+    --ink:#12333c;
+    --ink-2:#2c4f59;
+    --mute:#5f7d85;
+    --canvas:#ffffff;
+    --canvas-soft:#f4f9f9;
+    --cream:#f7f1e3;
+    --hairline:#dfeaea;
+    --dark:#0c242b;
+    --dark-2:#123239;
+    --tint-mint:#e2f6f2;
+    --tint-sky:#e3f0f8;
+    --tint-lavender:#ebe7f6;
+    --tint-peach:#fdeada;
+    --ruby:#e05c7a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Poppins',system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:var(--canvas);
+    font-size:16px;
+    line-height:1.6;
+    font-weight:300;
+    overflow-x:hidden;
+  }
+  .card p, .access li{overflow-wrap:break-word}
+  .num{font-variant-numeric:tabular-nums;letter-spacing:-0.02em}
+  .wrap{max-width:860px;margin:0 auto;padding:0 24px}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:linear-gradient(160deg,var(--dark) 0%,var(--dark-2) 55%,#16424b 100%);
+    color:#fff;
+    padding:64px 0 72px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;inset:auto -20% -55% -20%;height:70%;
+    background:radial-gradient(60% 100% at 30% 0%,rgba(77,210,208,.32),transparent 70%),
+               radial-gradient(50% 100% at 75% 10%,rgba(224,92,122,.16),transparent 70%);
+    pointer-events:none;
+  }
+  .brand{display:flex;align-items:center;gap:10px;margin-bottom:48px}
+  .brand-dot{width:12px;height:12px;border-radius:3px;background:var(--primary)}
+  .brand span{font-weight:600;font-size:15px;letter-spacing:.02em}
+  .eyebrow{
+    display:inline-block;font-size:11px;font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--primary);
+    border:1px solid rgba(77,210,208,.4);border-radius:9999px;
+    padding:6px 14px;margin-bottom:20px;
+  }
+  h1{
+    font-size:clamp(30px,6vw,46px);
+    font-weight:600;line-height:1.12;letter-spacing:-0.02em;
+    max-width:640px;position:relative;z-index:1;
+  }
+  h1 em{font-style:normal;color:var(--primary)}
+  .hero-sub{
+    margin-top:18px;font-size:17px;font-weight:300;color:#bcd6d9;max-width:560px;
+    position:relative;z-index:1;
+  }
+  .meta{
+    margin-top:40px;display:flex;flex-wrap:wrap;gap:10px 32px;
+    font-size:13px;color:#9fbfc4;position:relative;z-index:1;
+  }
+  .meta b{display:block;color:#fff;font-weight:500;font-size:14px}
+
+  /* ---------- Stats ---------- */
+  .stats{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+    background:var(--hairline);border:1px solid var(--hairline);
+    border-radius:12px;overflow:hidden;
+    margin:-36px auto 0;position:relative;z-index:2;
+    box-shadow:0 24px 48px -16px rgba(12,36,43,.18);
+  }
+  .stat{background:var(--canvas);padding:22px 20px}
+  .stat .v{font-size:clamp(22px,4vw,30px);font-weight:600;letter-spacing:-0.02em;color:var(--ink)}
+  .stat .l{font-size:12.5px;color:var(--mute);margin-top:2px;line-height:1.4}
+  .stat .v small{font-size:60%;font-weight:500;color:var(--secondary)}
+
+  /* ---------- Sections ---------- */
+  section{padding:56px 0 8px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+  .sec-num{
+    font-size:12px;font-weight:600;color:var(--primary);
+    font-variant-numeric:tabular-nums;letter-spacing:.1em;
+  }
+  h2{font-size:clamp(22px,4vw,28px);font-weight:600;letter-spacing:-0.02em;line-height:1.2}
+  h3{font-size:16px;font-weight:600;line-height:1.35}
+  p{margin-bottom:14px;color:var(--ink-2)}
+  .lead{font-size:17px}
+  blockquote{
+    border-left:3px solid var(--primary);
+    background:var(--canvas-soft);
+    padding:16px 20px;border-radius:0 10px 10px 0;
+    margin:20px 0;font-size:15.5px;color:var(--ink-2);
+  }
+  blockquote i{font-style:normal;font-weight:500;color:var(--ink)}
+
+  /* ---------- Cards ---------- */
+  .cards{display:grid;gap:14px;margin:24px 0 8px}
+  .cards.three{grid-template-columns:repeat(3,1fr)}
+  .cards.two{grid-template-columns:repeat(2,1fr)}
+  .card{
+    border-radius:12px;padding:22px;
+    border:1px solid var(--hairline);background:var(--canvas);
+  }
+  .card .tag{
+    display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.12em;
+    text-transform:uppercase;border-radius:6px;padding:3px 9px;margin-bottom:12px;
+  }
+  .card p{font-size:14px;margin:8px 0 0;color:var(--ink-2)}
+  .card.leak{background:var(--canvas)}
+  .card.leak .tag{background:#fbe3e9;color:#a83a52}
+  .card.f1{background:var(--tint-mint);border-color:transparent}
+  .card.f2{background:var(--tint-sky);border-color:transparent}
+  .card.f3{background:var(--tint-lavender);border-color:transparent}
+  .card.f4{background:var(--tint-peach);border-color:transparent}
+  .card.fase .tag{background:rgba(255,255,255,.75);color:var(--secondary)}
+  .card.fase h3{margin-bottom:2px}
+
+  /* ---------- Callout recomendación ---------- */
+  .callout{
+    background:var(--dark);color:#e6f2f3;border-radius:14px;
+    padding:28px 28px;margin:26px 0;
+    position:relative;overflow:hidden;
+  }
+  .callout::after{
+    content:"";position:absolute;inset:-40% -30% auto auto;width:60%;height:160%;
+    background:radial-gradient(closest-side,rgba(77,210,208,.25),transparent);
+  }
+  .callout .tag{
+    display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--dark);background:var(--primary);
+    border-radius:9999px;padding:4px 12px;margin-bottom:14px;
+  }
+  .callout h3{color:#fff;font-size:19px;margin-bottom:8px;position:relative;z-index:1}
+  .callout p{color:#b9d3d6;font-size:14.5px;margin-bottom:0;position:relative;z-index:1}
+
+  /* ---------- Banda acceso ---------- */
+  .access{
+    background:var(--cream);border-radius:14px;padding:30px 28px;margin:26px 0;
+  }
+  .access h3{font-size:18px;margin-bottom:6px}
+  .access .note{font-size:13px;color:#8a7a55;font-weight:500;margin-bottom:16px}
+  .access ul{list-style:none}
+  .access li{
+    padding:10px 0 10px 30px;position:relative;font-size:14.5px;color:var(--ink-2);
+    border-bottom:1px dashed #e4d9bd;
+  }
+  .access li:last-child{border-bottom:0}
+  .access li::before{
+    content:"→";position:absolute;left:2px;color:var(--secondary);font-weight:600;
+  }
+
+  /* ---------- Pricing ---------- */
+  .price-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin:24px 0}
+  .price-card{
+    border-radius:12px;padding:28px;border:1px solid var(--hairline);
+  }
+  .price-card.featured{
+    background:var(--dark);color:#fff;border-color:var(--dark);
+    box-shadow:0 20px 40px -18px rgba(12,36,43,.45);
+  }
+  .price-card.featured .offer-tag{
+    display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--dark);background:var(--primary);
+    border-radius:9999px;padding:4px 12px;margin-bottom:14px;
+  }
+  .price-card.featured .amount{font-size:38px;font-weight:600;letter-spacing:-0.03em}
+  .price-card.featured .amount s{
+    font-size:20px;font-weight:400;color:#7fa1a7;text-decoration-color:#7fa1a7;
+    margin-right:6px;
+  }
+  .price-card.featured .offer-note{
+    margin:18px 0 0;padding-top:14px;border-top:1px solid rgba(255,255,255,.14);
+    font-size:12.5px;color:#9fbfc4;line-height:1.55;
+  }
+  .price-card.featured .amount small{font-size:15px;font-weight:400;color:#9fbfc4}
+  .price-card.featured .per{font-size:13px;color:var(--primary);font-weight:500;margin-top:2px}
+  .price-card.featured ul{margin-top:18px;list-style:none}
+  .price-card.featured li{
+    font-size:14px;color:#cfe2e4;padding:7px 0 7px 26px;position:relative;
+  }
+  .price-card.featured li::before{
+    content:"✓";position:absolute;left:0;color:var(--primary);font-weight:600;
+  }
+  .price-card h3{margin-bottom:14px}
+  .price-card.plain p{font-size:14px}
+
+  /* ---------- Pasos ---------- */
+  .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:24px 0}
+  .step{
+    background:var(--canvas-soft);border-radius:12px;padding:22px;
+    border:1px solid var(--hairline);
+  }
+  .step .n{
+    width:32px;height:32px;border-radius:9999px;background:var(--primary);
+    color:var(--dark);font-weight:600;font-size:14px;
+    display:flex;align-items:center;justify-content:center;margin-bottom:12px;
+  }
+  .step p{font-size:14px;margin:0}
+
+  /* ---------- Cierre + footer ---------- */
+  .close-note{
+    border-top:1px solid var(--hairline);margin-top:48px;padding-top:32px;
+  }
+  .sign{margin-top:24px;font-size:15px}
+  .sign b{font-weight:600}
+  .sign span{display:block;font-size:13px;color:var(--mute)}
+  footer{
+    margin-top:56px;background:var(--canvas-soft);border-top:1px solid var(--hairline);
+    padding:28px 0;text-align:center;font-size:12.5px;color:var(--mute);
+  }
+  footer b{color:var(--secondary);font-weight:600}
+
+  @media(min-width:640px){
+    .stats{grid-template-columns:repeat(4,1fr)}
+  }
+  @media(max-width:760px){
+    .cards.three,.cards.two,.steps{grid-template-columns:1fr}
+    .price-grid{grid-template-columns:1fr}
+    section{padding:44px 0 4px}
+  }
+  @media print{
+    .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    body{font-size:13px}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="brand"><div class="brand-dot"></div><span>Código AdrIA</span></div>
+    <div class="eyebrow">Propuesta de trabajo</div>
+    <h1>Tu audiencia es enorme.<br>Falta el sistema que la <em>capture, la mida</em> — la convierta.</h1>
+    <p class="hero-sub">Diagnóstico externo, plan de trabajo en cuatro fases para BEGO Mental Reset, con una recomendación clara sobre el embudo evergreen.</p>
+    <div class="meta">
+      <div>Para<b>Begoña del Campo · BEGO Mental Reset</b></div>
+      <div>De<b>Ricardo Hoyos · Código AdrIA</b></div>
+      <div>Fecha<b class="num">15 de julio de 2026</b></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="stats num">
+    <div class="stat"><div class="v">284<small>k</small></div><div class="l">seguidores en Instagram (cuenta verificada)</div></div>
+    <div class="stat"><div class="v">1,3<small>M</small></div><div class="l">reproducciones de tu último reel viral (3 jul)</div></div>
+    <div class="stat"><div class="v">+11,6<small>%</small></div><div class="l">crecimiento mensual del canal en YouTube</div></div>
+    <div class="stat"><div class="v">30.000</div><div class="l">contactos en GoHighLevel sin ordenar ni medir</div></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <div class="sec-head"><span class="sec-num">01</span><h2>Lo que me contaste</h2></div>
+    <p class="lead">Siete infoproductos (uno en Stripe, el resto en Hotmart), todo centralizado en GoHighLevel, con unos 30.000 contactos acumulados por los que han pasado varias personas… dos agencias distintas. Resultado: base de datos desordenada, campañas muertas que siguen ahí, una web donde la gente aterriza pero no compra porque tiene que autodiagnosticarse entre siete productos.</p>
+    <blockquote>Lo resumiste perfecto en la reunión: <i>«a mi negocio lo que le hace falta básicamente es medir para saber qué mejorar»</i>.</blockquote>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">02</span><h2>Lo que he comprobado sin tocar tus cuentas</h2></div>
+    <p>Antes de proponerte nada he analizado todo lo que es público: tu web, tu Instagram, tu YouTube. Los números de arriba confirman lo que me dijiste — tu orgánico es real, es grande, sigue creciendo sin invertir en ads. Pero ese alcance se está escapando por tres agujeros:</p>
+    <div class="cards three">
+      <div class="card leak">
+        <span class="tag">Fuga 01</span>
+        <h3>Los DMs se los queda otro</h3>
+        <p>Tus reels más virales salen de las cuentas de los podcasts donde participas — su «Comenta BEGOÑA» entra en el ManyChat <b>del podcast</b>, no en el tuyo. Generas leads que no llegan a tu base de datos.</p>
+      </div>
+      <div class="card leak">
+        <span class="tag">Fuga 02</span>
+        <h3>El link de tu bio aterriza fuera</h3>
+        <p>nrm.begomentalreset.com/oferta está montado en una plataforma distinta de tu web… de GoHighLevel. Tu único punto de captura propio vive fuera del CRM donde quieres medir.</p>
+      </div>
+      <div class="card leak">
+        <span class="tag">Fuga 03</span>
+        <h3>La web no está hecha para vender</h3>
+        <p>Hostinger Website Builder: cerrado, sin medición seria posible, con la portada obligando a elegir entre 7 productos. Además, tu foto sale cortada en escritorio.</p>
+      </div>
+    </div>
+    <p>A esto se suma lo que sabías: los grupos de WhatsApp — a los que mandas tráfico dos veces por semana — no están conectados a GoHighLevel, así que ese canal no se mide.</p>
+    <blockquote><i>Conclusión del diagnóstico:</i> no tienes un problema de alcance. Tienes un problema de captura… de medición. La audiencia existe; falta el sistema que la recoja, la ordene, la convierta.</blockquote>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">03</span><h2>Plan de trabajo en cuatro fases</h2></div>
+    <div class="cards two">
+      <div class="card fase f1">
+        <span class="tag">Fase 1</span>
+        <h3>Orden en GoHighLevel</h3>
+        <p>Auditoría completa de tu cuenta, limpieza de los ~30.000 contactos (duplicados, inactivos, sin origen), eliminación de campañas muertas — ese low ticket de enero-febrero, entre otras — con etiquetado por origen, por producto. Salimos con una base de datos en la que puedas confiar.</p>
+      </div>
+      <div class="card fase f2">
+        <span class="tag">Fase 2</span>
+        <h3>Medición</h3>
+        <p>Cuadro de mando con lo que importa: de dónde entra cada contacto, qué campaña lo trajo, qué compra. Conectamos lo que no se ve: el flujo Instagram/ManyChat hacia GHL, más una solución para trazar lo que entra por WhatsApp. Sin esta fase, el embudo sería volar a ciegas.</p>
+      </div>
+      <div class="card fase f3">
+        <span class="tag">Fase 3</span>
+        <h3>El embudo evergreen</h3>
+        <p><b>El test de autodiagnóstico como puerta de entrada</b> — tu idea, la correcta. Tú pones el criterio clínico; lo convierto en un test que segmenta, alimenta GHL con datos de cada lead. Las páginas se montan en los funnels de GoHighLevel (donde sí se mide todo), con la mecánica «comenta X, te lo mando por DM» en TU cuenta con TU ManyChat.</p>
+      </div>
+      <div class="card fase f4">
+        <span class="tag">Fase 4</span>
+        <h3>Retargeting a tu comunidad</h3>
+        <p>Con la base limpia, segmentada: secuencias para reactivar a los 30.000 que te conocen, campañas a la audiencia orgánica — solo si los números lo piden, ads de apoyo. Tu histórico de CPL de 1–3 € es bueno; margen existe.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="tag">Mi recomendación</span>
+      <h3>Un embudo, no dos</h3>
+      <p>Test → App BMR (<span class="num">197 €</span>) como primer escalón, con el Gimnasio de la Mente como siguiente paso natural de la escalera — el propio test dirá a quién ofrecérselo. Montar dos embudos a la vez duplica el coste, divide los datos antes de saber qué funciona. Cuando el primero esté medido, rodando, el segundo se monta sobre lo aprendido.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">04</span><h2>Análisis preliminar — cómo mejorará al arrancar</h2></div>
+    <div class="access">
+      <h3>Este diagnóstico es la foto de la fachada, no del interior</h3>
+      <div class="note">Todo lo anterior está construido desde fuera. En cuanto arranquemos — con rol de administrador en tu GoHighLevel más el informe de tu conector de OpenAI — el análisis gana precisión de inmediato:</div>
+      <ul>
+        <li>Sabremos <b>cuántos de los 30.000 contactos están vivos</b> de verdad (aperturas, clics, compras)… cuántos son peso muerto que encarece cada envío.</li>
+        <li>Veremos <b>qué campañas, qué automatizaciones existen</b>: cuáles siguen disparándose sin que lo sepas, cuáles hace falta matar.</li>
+        <li>Podremos <b>trazar el recorrido real de un lead</b> — de dónde entró, qué recibió, si compró — para detectar en qué punto exacto se pierde la gente.</li>
+        <li>Afinaremos el <b>perfil real de tu compradora</b> con datos, no con intuición: el test de autodiagnóstico será mucho más certero.</li>
+      </ul>
+    </div>
+    <p>Es decir: el plan no cambia, pero las prioridades dentro de cada fase se ajustarán a lo que digan tus datos reales. Lo primero que recibirás al empezar es esa auditoría interna completa.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">05</span><h2>Cómo trabajamos</h2></div>
+    <div class="price-grid">
+      <div class="price-card featured">
+        <span class="offer-tag">Oferta de lanzamiento</span>
+        <h3>Bono de 20 horas</h3>
+        <div class="amount num"><s>2.000 €</s> 1.200 € <small>/ bono</small></div>
+        <div class="per num">Para las acciones de IA más sencillas · sin permanencia, sin cuotas</div>
+        <ul>
+          <li>Cuando se acaba, decides si seguimos</li>
+          <li>Fases 1 + 2 caben en el primer bono</li>
+          <li>El embudo completo (fase 3) es un segundo bono</li>
+          <li>La fase 4 se dimensiona con datos en la mano</li>
+        </ul>
+        <p class="offer-note">El precio habitual del bono es de 2.000 €. Este arranca en 1.200 € como deferencia a Óscar — además, tu proyecto me ha atraído desde la primera conversación.</p>
+      </div>
+      <div class="price-card plain">
+        <h3>Todo queda a tu nombre</h3>
+        <p>No creo cuentas mías: tú me das rol de administrador — como hacías con tu agencia anterior — cualquier herramienta nueva la contratas tú, es tuya.</p>
+        <p>Si un día dejamos de trabajar, te quedas con todo funcionando, con la documentación de cómo funciona.</p>
+        <p>Comunicación por WhatsApp, con una llamada corta de seguimiento cuando toque.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">06</span><h2>Para arrancar</h2></div>
+    <div class="steps">
+      <div class="step"><div class="n num">1</div><p>Tu OK a esta propuesta, al primer bono.</p></div>
+      <div class="step"><div class="n num">2</div><p>Acceso de administrador a GoHighLevel + informe del conector de OpenAI. Con eso, fase 1 en marcha.</p></div>
+    </div>
+    <div class="close-note">
+      <p>Lo que te dije en la reunión sigue en pie: en tu cabeza estaba la idea correcta — el test como puerta de entrada. Mi trabajo es ponerle debajo el sistema que la haga funcionar, para que por fin puedas medir.</p>
+      <div class="sign">
+        <b>Ricardo Hoyos</b>
+        <span>Código AdrIA · consultoría e implementación de IA</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>Cortesía <b>Código AdrIA</b> · Documento preparado para Begoña del Campo · Julio 2026</footer>
+
+</body>
+</html>
