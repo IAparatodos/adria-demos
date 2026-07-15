@@ -3,301 +3,406 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La paciente sujeta la sonda · Ecografía autooperada en FIV</title>
-<meta name="description" content="Primer estudio en humanos de ecografía transvaginal autooperada para monitorización de estimulación ovárica. Los datos igualaron a los del ecografista experto.">
+<title>Monitorización autooperada en FIV — El estudio que cambia quién sostiene la sonda</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#132b31;
-    --deep:#3f6f7b;
-    --teal:#4dd2d0;
-    --teal-dim:#8fb9bd;
-    --paper:#f3faf9;
-    --panel:#ffffff;
-    --line:#dbe9e8;
-    --muted:#5f7a7e;
-    --max:1080px;
+    --aqua:#4dd2d0;
+    --teal:#3f6f7b;
+    --ink:#12303a;
+    --ink-soft:#4a636c;
+    --paper:#f5fafb;
+    --paper-2:#ffffff;
+    --screen:#081316;
+    --screen-2:#0e2127;
+    --line:#dde9eb;
+    --amber:#f2b84b;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
+  *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    font-family:'Poppins',system-ui,sans-serif;
-    color:var(--ink);
+    font-family:'Poppins',sans-serif;
     background:var(--paper);
-    line-height:1.55;
-    font-variant-numeric:tabular-nums;
+    color:var(--ink);
+    line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(22px,4.5vw,40px)}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--screen);
+    background-image:
+      radial-gradient(circle at 78% 30%, rgba(77,210,208,.14), transparent 55%),
+      radial-gradient(circle at 20% 80%, rgba(63,111,123,.18), transparent 60%);
+    color:#eaf6f7;
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid rgba(77,210,208,.25);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background-image:repeating-linear-gradient(0deg, rgba(255,255,255,.015) 0 1px, transparent 1px 3px);
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center;
+    padding-top:78px;padding-bottom:86px;position:relative;z-index:2;
+  }
+  .hero-copy{max-width:100%}
   .eyebrow{
-    font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
-    color:var(--deep);
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--aqua);margin-bottom:26px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--aqua);display:inline-block}
+  h1.hero-title{
+    font-size:clamp(2.15rem,4.3vw,3.3rem);font-weight:700;line-height:1.07;
+    letter-spacing:-.02em;margin-bottom:22px;
+  }
+  h1.hero-title em{font-style:normal;color:var(--aqua)}
+  .hero-sub{font-size:1.1rem;color:#b8d2d5;font-weight:300;max-width:42ch;line-height:1.5}
+  .hero-tag{
+    margin-top:34px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;
+    color:#7fa6ab;letter-spacing:.04em;
   }
 
-  /* HERO */
-  header{
-    padding:96px 0 72px;
-    background:
-      radial-gradient(120% 90% at 88% -10%, rgba(77,210,208,.28), transparent 60%),
-      linear-gradient(180deg,#eaf6f5 0%, var(--paper) 100%);
-    border-bottom:1px solid var(--line);
+  /* ecógrafo panel */
+  .scope{
+    position:relative;aspect-ratio:1/1;border-radius:6px;
+    background:radial-gradient(circle at 50% 42%, #16323a 0%, #050d0f 78%);
+    border:1px solid rgba(77,210,208,.28);
+    box-shadow:0 0 0 6px rgba(77,210,208,.04), 0 30px 60px rgba(0,0,0,.45);
+    overflow:hidden;
   }
-  h1{
-    font-size:clamp(2.4rem,6.2vw,4.4rem);
-    font-weight:800;line-height:1.02;letter-spacing:-.03em;
-    margin:22px 0 20px;max-width:16ch;
+  .scope svg{position:absolute;inset:0;width:100%;height:100%}
+  .scope-label{
+    position:absolute;top:12px;left:14px;font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;letter-spacing:.15em;color:var(--aqua);opacity:.85;
   }
-  h1 em{font-style:normal;color:var(--deep);position:relative;white-space:nowrap}
-  h1 em::after{
-    content:"";position:absolute;left:0;right:0;bottom:.06em;height:.28em;
-    background:var(--teal);z-index:-1;opacity:.55;border-radius:2px;
+  .scope-scale{
+    position:absolute;top:12px;right:14px;bottom:12px;display:flex;flex-direction:column;
+    justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
+    color:rgba(180,220,222,.55);text-align:right;
   }
-  .lede{font-size:clamp(1.05rem,2vw,1.28rem);font-weight:300;color:#2c4a50;max-width:56ch;margin-bottom:34px}
-  .lede b{font-weight:600;color:var(--ink)}
-  .thesis{
-    display:inline-flex;align-items:center;gap:14px;
-    background:var(--ink);color:#eafaf9;
-    padding:16px 24px;border-radius:14px;font-weight:400;
-    font-size:clamp(.98rem,1.7vw,1.12rem);max-width:60ch;
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:76px 0}
+  .kicker{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:16px;
   }
-  .thesis .dot{width:9px;height:9px;border-radius:50%;background:var(--teal);flex:0 0 auto;box-shadow:0 0 0 5px rgba(77,210,208,.25)}
+  h2{font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:700;letter-spacing:-.015em;line-height:1.12;margin-bottom:18px}
+  .lead{font-size:1.18rem;color:var(--ink-soft);font-weight:300;max-width:60ch}
 
-  /* HEAD TO HEAD */
-  .h2h{padding:76px 0}
-  .kick{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:700;letter-spacing:-.02em;max-width:20ch}
-  .kick .q{color:var(--deep)}
-  .h2h-card{
-    margin-top:36px;background:var(--panel);border:1px solid var(--line);
-    border-radius:22px;padding:clamp(24px,4vw,44px);
-    box-shadow:0 24px 60px -40px rgba(19,43,49,.5);
+  /* thesis */
+  .thesis{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .thesis h2{max-width:20ch}
+  .thesis .lead{margin-top:8px}
+  .thesis strong{color:var(--ink);font-weight:600}
+
+  /* stats grid */
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:12px}
+  .stat{background:var(--paper-2);padding:34px 26px}
+  .stat .num{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:2.7rem;color:var(--ink);letter-spacing:-.03em;line-height:1}
+  .stat .num span{font-size:1.3rem;color:var(--aqua)}
+  .stat .cap{margin-top:12px;font-size:.92rem;color:var(--ink-soft);line-height:1.4}
+
+  /* comparison */
+  .compare{background:var(--screen);color:#eaf6f7}
+  .compare .kicker{color:var(--aqua)}
+  .compare h2{color:#fff}
+  .compare .lead{color:#a9c7cb}
+  .bars{margin-top:44px;display:grid;gap:30px;max-width:760px}
+  .bar-row{}
+  .bar-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+  .bar-head .name{font-size:1rem;font-weight:500}
+  .bar-head .name small{display:block;color:#87a9ad;font-weight:300;font-size:.82rem}
+  .bar-head .val{font-family:'IBM Plex Mono',monospace;font-size:1.15rem;color:var(--aqua);font-weight:600}
+  .track{height:12px;background:rgba(255,255,255,.07);border-radius:20px;overflow:hidden;position:relative}
+  .fill{height:100%;width:0;border-radius:20px;transition:width 1.4s cubic-bezier(.16,.84,.44,1)}
+  .fill.dev{background:linear-gradient(90deg,var(--teal),var(--aqua))}
+  .fill.std{background:rgba(255,255,255,.28)}
+  .bar-note{margin-top:38px;font-size:.95rem;color:#a9c7cb;max-width:56ch;border-left:2px solid var(--aqua);padding-left:18px}
+
+  /* safety zeros */
+  .safety{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .zeros{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .zero{text-align:center;padding:38px 20px;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+  .zero .z{font-family:'IBM Plex Mono',monospace;font-size:4rem;font-weight:600;color:var(--aqua);line-height:1}
+  .zero .zl{margin-top:14px;font-size:.95rem;color:var(--ink-soft)}
+  .safety-foot{margin-top:30px;font-size:.9rem;color:var(--ink-soft);text-align:center}
+
+  /* experience */
+  .exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:20px}
+  .quote{font-size:clamp(1.5rem,2.6vw,2rem);font-weight:600;line-height:1.28;letter-spacing:-.01em}
+  .quote .hl{color:var(--teal)}
+  .exp-metrics{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .em{background:var(--paper-2);padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .em .k{font-size:.95rem;color:var(--ink-soft)}
+  .em .v{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:1.4rem;color:var(--ink)}
+  .em .v span{color:var(--aqua);font-size:.9rem}
+
+  /* closing */
+  .close{background:var(--screen);color:#eaf6f7;text-align:center}
+  .close h2{color:#fff;max-width:24ch;margin:0 auto 20px}
+  .close .lead{color:#a9c7cb;margin:0 auto 40px}
+  .close h2 em{font-style:normal;color:var(--aqua)}
+  .pills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px}
+  .pill{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;color:#bfe0e2;border:1px solid rgba(77,210,208,.35);border-radius:40px;padding:9px 18px}
+
+  /* source note */
+  .source{background:var(--paper);padding:38px 0}
+  .source .wrap{max-width:820px}
+  .source p{font-size:.82rem;color:var(--ink-soft);line-height:1.65}
+  .source strong{color:var(--ink)}
+
+  /* footer */
+  footer{background:var(--screen-2);color:#8fb0b4;text-align:center;padding:30px 0}
+  footer .brand{font-weight:600;color:var(--aqua);letter-spacing:.02em}
+  footer .fmono{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;margin-top:6px;color:#5c7d81}
+
+  /* responsive */
+  @media(max-width:960px){
+    .hero-grid{grid-template-columns:1fr;gap:40px;padding-top:60px;padding-bottom:68px}
+    .scope{max-width:340px}
+    .stat-grid{grid-template-columns:repeat(2,1fr)}
+    .zeros{grid-template-columns:1fr}
+    .exp-grid{grid-template-columns:1fr;gap:34px}
   }
-  .metric-label{font-weight:600;font-size:1.02rem;margin-bottom:4px}
-  .metric-sub{color:var(--muted);font-size:.9rem;margin-bottom:26px;font-weight:300}
-  .bar-row{display:grid;grid-template-columns:180px 1fr auto;align-items:center;gap:18px;margin:14px 0}
-  .bar-name{font-weight:500;font-size:.96rem}
-  .bar-name .tag{display:block;font-size:.72rem;color:var(--muted);font-weight:400;letter-spacing:.02em}
-  .track{height:34px;background:#eef5f4;border-radius:9px;overflow:hidden;position:relative}
-  .fill{height:100%;width:0;border-radius:9px;transition:width 1.3s cubic-bezier(.16,1,.3,1)}
-  .fill.home{background:linear-gradient(90deg,var(--teal),#37b8b6)}
-  .fill.std{background:linear-gradient(90deg,var(--teal-dim),#7ba7ab)}
-  .rho{font-weight:700;font-size:1.35rem;letter-spacing:-.02em;min-width:96px;text-align:right}
-  .rho.home{color:var(--deep)}
-  .rho.std{color:var(--muted)}
-  .rho small{font-weight:400;font-size:.72rem;color:var(--muted);display:block;letter-spacing:.02em}
-  .verdict{
-    margin-top:26px;padding-top:22px;border-top:1px dashed var(--line);
-    font-size:1.02rem;font-weight:300;color:#2c4a50;
+  @media(max-width:480px){
+    .stat-grid{grid-template-columns:1fr}
+    .stat .num{font-size:2.4rem}
   }
-  .verdict b{font-weight:600;color:var(--ink)}
-
-  /* STAT BAND */
-  .band{background:var(--ink);color:#dff4f2;padding:64px 0}
-  .band .eyebrow{color:var(--teal)}
-  .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:30px}
-  .stat .num{font-size:clamp(1.9rem,3.6vw,2.9rem);font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1}
-  .stat .cap{font-size:.82rem;color:#a9cfcd;font-weight:300;margin-top:10px;line-height:1.35}
-  .stat{border-left:2px solid rgba(77,210,208,.4);padding-left:16px}
-
-  /* CLINICAL AGREEMENT */
-  .agree{padding:76px 0}
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:34px}
-  .cell{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px}
-  .cell .big{font-size:1.9rem;font-weight:700;color:var(--deep);letter-spacing:-.02em}
-  .cell .lab{font-weight:600;margin:4px 0 8px}
-  .cell p{color:var(--muted);font-size:.9rem;font-weight:300}
-
-  /* BUSINESS */
-  .biz{padding:20px 0 76px}
-  .biz-list{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:34px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
-  .biz-item{background:var(--panel);padding:30px}
-  .biz-item h3{font-size:1.08rem;font-weight:600;display:flex;gap:12px;align-items:baseline}
-  .biz-item h3 span{color:var(--teal);font-weight:800;font-size:.9rem}
-  .biz-item p{color:var(--muted);font-weight:300;margin-top:8px;font-size:.95rem}
-
-  /* HONESTY */
-  .honest{background:#eaf3f2;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0}
-  .honest .kick{max-width:24ch}
-  .honest ul{list-style:none;margin-top:26px;max-width:64ch}
-  .honest li{padding:13px 0 13px 30px;position:relative;border-bottom:1px solid #d6e6e4;font-weight:300;color:#2c4a50}
-  .honest li:last-child{border-bottom:0;font-weight:500;color:var(--ink)}
-  .honest li::before{content:"";position:absolute;left:0;top:20px;width:14px;height:2px;background:var(--deep)}
-
-  /* CTA */
-  .cta{padding:88px 0;text-align:center}
-  .cta h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-.02em;max-width:22ch;margin:0 auto 18px}
-  .cta p{color:var(--muted);font-weight:300;max-width:48ch;margin:0 auto 30px}
-  .btn{display:inline-block;background:var(--ink);color:#eafaf9;text-decoration:none;font-weight:600;padding:16px 34px;border-radius:12px;transition:transform .2s ease, box-shadow .2s ease}
-  .btn:hover{transform:translateY(-2px);box-shadow:0 18px 40px -22px rgba(19,43,49,.8)}
-
-  /* FOOTER */
-  footer{background:var(--ink);color:#8fb3b1;padding:40px 0;font-size:.82rem;font-weight:300}
-  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
-  footer a{color:var(--teal);text-decoration:none}
-  footer .brand{font-weight:600;color:#dff4f2;letter-spacing:.02em}
-
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease}
-  .reveal.in{opacity:1;transform:none}
-
-  @media(max-width:820px){
-    .stats{grid-template-columns:repeat(2,1fr)}
-    .grid3{grid-template-columns:1fr}
-    .biz-list{grid-template-columns:1fr}
-    .bar-row{grid-template-columns:1fr;gap:8px}
-    .rho{text-align:left;min-width:0}
-    .track{order:3}
-  }
+  :focus-visible{outline:2px solid var(--aqua);outline-offset:3px;border-radius:3px}
   @media(prefers-reduced-motion:reduce){
-    *{transition:none!important;scroll-behavior:auto}
-    .reveal{opacity:1;transform:none}
+    .fill{transition:none}
+    html{scroll-behavior:auto}
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap">
-    <div class="eyebrow">Preprint · Assuta Medical Center · 2026</div>
-    <h1>La paciente sujeta la sonda. La <em>máquina</em> hace el resto.</h1>
-    <p class="lede">Primer estudio en humanos de ecografía transvaginal <b>autooperada</b> para monitorización de estimulación ovárica. La adquisición se estandariza y se aparta del ecografista. La <b>interpretación sigue siendo del médico</b>.</p>
-    <div class="thesis"><span class="dot"></span> En la misma paciente y el mismo día, los datos igualaron a los del ecografista experto.</div>
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">Estudio clínico · Reproducción asistida</div>
+      <h1 class="hero-title">La paciente sostiene la sonda.<br>El médico <em>solo interpreta.</em></h1>
+      <p class="hero-sub">Una ecografía transvaginal que la propia paciente se realiza, sin formación previa, con datos a la altura del sonógrafo experto.</p>
+      <div class="hero-tag">Assuta Medical Center · Tel Aviv · abril–noviembre 2025</div>
+    </div>
+    <div class="scope" aria-hidden="true">
+      <span class="scope-label mono">US · SOTUS</span>
+      <div class="scope-scale mono"><span>cm</span><span>2.0</span><span>4.0</span><span>6.0</span></div>
+      <svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <radialGradient id="fol" cx="50%" cy="45%" r="60%">
+            <stop offset="0%" stop-color="#2a4c54"/>
+            <stop offset="100%" stop-color="#0a171a"/>
+          </radialGradient>
+        </defs>
+        <!-- follicles -->
+        <circle class="foll" cx="120" cy="130" r="0" fill="url(#fol)" stroke="#4dd2d0" stroke-width="1.1" stroke-opacity=".7"/>
+        <circle class="foll" cx="178" cy="108" r="0" fill="url(#fol)" stroke="#4dd2d0" stroke-width="1.1" stroke-opacity=".55"/>
+        <circle class="foll" cx="158" cy="176" r="0" fill="url(#fol)" stroke="#4dd2d0" stroke-width="1.1" stroke-opacity=".5"/>
+        <circle class="foll" cx="96" cy="182" r="0" fill="url(#fol)" stroke="#4dd2d0" stroke-width="1" stroke-opacity=".4"/>
+        <circle class="foll" cx="205" cy="162" r="0" fill="url(#fol)" stroke="#4dd2d0" stroke-width="1" stroke-opacity=".4"/>
+        <!-- caliper on main follicle -->
+        <g stroke="#f2b84b" stroke-width="1" opacity=".9">
+          <line x1="98" y1="130" x2="142" y2="130" stroke-dasharray="2 3"/>
+          <line x1="98" y1="126" x2="98" y2="134"/>
+          <line x1="142" y1="126" x2="142" y2="134"/>
+        </g>
+        <text x="150" y="126" fill="#f2b84b" font-size="8" font-family="IBM Plex Mono" text-anchor="start">18.2mm</text>
+      </svg>
+    </div>
   </div>
 </header>
 
-<section class="h2h wrap reveal">
-  <div class="eyebrow" style="margin-bottom:14px">El dato que decide la punción</div>
-  <div class="kick">Cara a cara: dispositivo autooperado <span class="q">frente a</span> ecografía estándar.</div>
-
-  <div class="h2h-card">
-    <div class="metric-label">Folículos ≥14&nbsp;mm ↔ ovocitos maduros recuperados</div>
-    <div class="metric-sub">Correlación de Spearman en la ecografía previa al trigger. Cuanto más alta, mejor predice la cosecha.</div>
-
-    <div class="bar-row">
-      <div class="bar-name">Autooperado <span class="tag">dispositivo del estudio</span></div>
-      <div class="track"><div class="fill home" data-w="83"></div></div>
-      <div class="rho home">ρ 0,83<small>p = 0,01</small></div>
-    </div>
-    <div class="bar-row">
-      <div class="bar-name">Estándar <span class="tag">ecografista experto</span></div>
-      <div class="track"><div class="fill std" data-w="80"></div></div>
-      <div class="rho std">ρ 0,80<small>p = 0,02</small></div>
-    </div>
-
-    <div class="verdict">No solo empata: <b>roza superar</b> a la técnica que lleva décadas siendo el patrón oro. La mano cambia; la señal clínica se mantiene.</div>
+<!-- THESIS -->
+<section class="thesis">
+  <div class="wrap">
+    <div class="kicker">Qué cambia</div>
+    <h2>La FIV deja de depender de quién esté en la sala.</h2>
+    <p class="lead">Hoy la monitorización folicular ata a la paciente a la clínica: visitas repetidas, desplazamientos, agendas y un sonógrafo experto disponible cada vez. Este trabajo separa dos cosas que siempre iban juntas — <strong>capturar la imagen</strong> e <strong>interpretarla</strong>. La captura se estandariza y la puede hacer la paciente; el criterio clínico sigue íntegro en manos del médico.</p>
   </div>
 </section>
 
-<section class="band">
-  <div class="wrap reveal">
-    <div class="eyebrow">Los números del piloto</div>
-    <div class="stats">
-      <div class="stat"><div class="num" data-count="94.7" data-suffix="%">0</div><div class="cap">datasets evaluables (18 de 19 intentos)</div></div>
-      <div class="stat"><div class="num" data-count="88.9" data-suffix="%">0</div><div class="cap">visualización ovárica bilateral</div></div>
-      <div class="stat"><div class="num">0</div><div class="cap">eventos adversos, lesiones, sangrado o infecciones</div></div>
-      <div class="stat"><div class="num" data-count="100" data-suffix="%">0</div><div class="cap">de las pacientes repetiría el sistema</div></div>
-      <div class="stat"><div class="num">p&nbsp;0,002</div><div class="cap">mejor experiencia que la eco estándar</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="agree wrap reveal">
-  <div class="eyebrow" style="margin-bottom:14px">Lo que ve el médico no cambia</div>
-  <div class="kick">Concordancia clínica con la técnica de siempre.</div>
-  <div class="grid3">
-    <div class="cell">
-      <div class="big">ρ 0,91</div>
-      <div class="lab">Grosor endometrial</div>
-      <p>Correlación con la eco estándar. Sesgo medio de solo −0,21&nbsp;mm y sin diferencia significativa (p=0,33).</p>
-    </div>
-    <div class="cell">
-      <div class="big">κ 0,85</div>
-      <div class="lab">Adecuación endometrial</div>
-      <p>Acuerdo del 93% clasificando por encima o por debajo del umbral de 7&nbsp;mm. Concordancia sustancial (Cohen).</p>
-    </div>
-    <div class="cell">
-      <div class="big">p 0,099</div>
-      <div class="lab">Distribución folicular</div>
-      <p>Sin diferencia significativa entre ambos métodos al repartir folículos por categorías de tamaño clínicas.</p>
+<!-- STATS -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Los cuatro números</div>
+    <h2>Un piloto pequeño con señales grandes.</h2>
+    <div class="stat-grid" id="stats">
+      <div class="stat">
+        <div class="num" data-to="94.7" data-suffix="%">0<span>%</span></div>
+        <div class="cap">de las capturas fueron válidas para análisis clínico (18 de 19).</div>
+      </div>
+      <div class="stat">
+        <div class="num" data-to="88.9" data-suffix="%">0<span>%</span></div>
+        <div class="cap">con visualización de ambos ovarios en exploraciones evaluables.</div>
+      </div>
+      <div class="stat">
+        <div class="num" data-to="0" data-plain="0">0</div>
+        <div class="cap">eventos adversos, lesiones o infecciones en todo el estudio.</div>
+      </div>
+      <div class="stat">
+        <div class="num" data-to="100" data-suffix="%">0<span>%</span></div>
+        <div class="cap">de las pacientes repetiría con el sistema en un próximo ciclo.</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="biz wrap reveal">
-  <div class="eyebrow" style="margin-bottom:14px">La lectura de negocio</div>
-  <div class="kick">Qué cambia esto para una clínica de fertilidad.</div>
-  <div class="biz-list">
-    <div class="biz-item"><h3><span>01</span> Liberas el cuello de botella</h3><p>La monitorización es una de las interacciones más frecuentes del ciclo. Descentralizarla libera sillón, ecógrafo y sonógrafo para lo que de verdad exige a un experto.</p></div>
-    <div class="biz-item"><h3><span>02</span> Rompes la barrera geográfica</h3><p>La distancia al centro es una razón documentada para no empezar —o abandonar— un tratamiento. Pacientes lejanas dejan de ser un "no".</p></div>
-    <div class="biz-item"><h3><span>03</span> Retienes a la paciente</h3><p>El abandono en FIV es real y caro. Menos desplazamientos, menos fricción, mejor experiencia (y aquí gustó más: p=0,002).</p></div>
-    <div class="biz-item"><h3><span>04</span> Reposicionas al médico</h3><p>De sujetar la sonda a interpretar y decidir. La adquisición y la interpretación dejan de tener que ocurrir a la vez ni en la misma persona.</p></div>
+<!-- COMPARISON -->
+<section class="compare">
+  <div class="wrap">
+    <div class="kicker">Cabeza a cabeza</div>
+    <h2>El aparato que maneja la paciente empata con el experto.</h2>
+    <p class="lead">Correlación entre las mediciones y el resultado real. Cuanto más cerca de 1.0, más fiable la señal.</p>
+    <div class="bars" id="bars">
+      <div class="bar-row">
+        <div class="bar-head">
+          <div class="name">Folículos ≥14 mm ↔ ovocitos maduros <small>Dispositivo autooperado</small></div>
+          <div class="val">ρ 0.83</div>
+        </div>
+        <div class="track"><div class="fill dev" data-w="83"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-head">
+          <div class="name">Folículos ≥14 mm ↔ ovocitos maduros <small>Ecografía estándar en clínica</small></div>
+          <div class="val" style="color:#cfe6e8">ρ 0.80</div>
+        </div>
+        <div class="track"><div class="fill std" data-w="80"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-head">
+          <div class="name">Grosor endometrial <small>Dispositivo vs. estándar</small></div>
+          <div class="val">ρ 0.91</div>
+        </div>
+        <div class="track"><div class="fill dev" data-w="91"></div></div>
+      </div>
+    </div>
+    <p class="bar-note">El recuento de folículos ≥14 mm es el dato que decide cuándo puncionar. El dispositivo casero lo predice igual o mejor que el ecógrafo experto. En endometrio, la diferencia media fue de −0.21 mm: prácticamente la misma medida (κ de Cohen ≈ 0.85).</p>
   </div>
 </section>
 
-<section class="honest">
-  <div class="wrap reveal">
-    <div class="eyebrow" style="margin-bottom:14px;color:var(--deep)">Sin humo</div>
-    <div class="kick">Cómo leer esto con honestidad.</div>
-    <ul>
-      <li>Es un piloto exploratorio: 10 pacientes, un solo centro, un prototipo (IMMA v2.3).</li>
-      <li>La adquisición fue supervisada en un entorno tipo hogar; el uso independiente en casa todavía no se ha evaluado.</li>
-      <li>No es un estudio de equivalencia formal, y es un preprint pendiente de revisión por pares.</li>
-      <li>No es una promesa de resultados. Es una señal temprana, y sólida, de que la idea funciona.</li>
-    </ul>
+<!-- SAFETY -->
+<section class="safety">
+  <div class="wrap">
+    <div class="kicker">Seguridad</div>
+    <h2>La columna que más importa está llena de ceros.</h2>
+    <div class="zeros">
+      <div class="zero"><div class="z">0</div><div class="zl">eventos adversos</div></div>
+      <div class="zero"><div class="z">0</div><div class="zl">lesiones o sangrado vaginal</div></div>
+      <div class="zero"><div class="z">0</div><div class="zl">infecciones</div></div>
+    </div>
+    <p class="safety-foot">Hubo 3 incidencias mecánicas menores del prototipo, ninguna con daño a la paciente ni pérdida de datos.</p>
   </div>
 </section>
 
-<section class="cta wrap reveal">
-  <h2>¿Hablamos de lo que significaría en tu clínica?</h2>
-  <p>Convertimos evidencia como esta en decisiones: qué vigilar, qué pilotar y cómo integrarlo sin romper tu flujo actual.</p>
-  <a class="btn" href="#">Empezar la conversación</a>
+<!-- EXPERIENCE -->
+<section>
+  <div class="wrap">
+    <div class="kicker">La paciente</div>
+    <div class="exp-grid">
+      <div class="quote">No solo funciona: <span class="hl">gusta más</span> que la ecografía de siempre.</div>
+      <div class="exp-metrics">
+        <div class="em"><span class="k">Comodidad (mediana)</span><span class="v">8.7<span>/10</span></span></div>
+        <div class="em"><span class="k">Facilidad de uso</span><span class="v">8.9<span>/10</span></span></div>
+        <div class="em"><span class="k">Mejor experiencia que el estándar</span><span class="v">p<span>=0.002</span></span></div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- CLOSE -->
+<section class="close">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--aqua)">Qué significa para una clínica</div>
+    <h2>Atender <em>sin fronteras geográficas.</em></h2>
+    <p class="lead">Si la captura se descentraliza, el médico se libera de la sala de ecografía y concentra su tiempo donde aporta valor: interpretar, decidir, acompañar. Menos visitas presenciales, más capacidad, pacientes de zonas remotas al alcance.</p>
+    <div class="pills">
+      <span class="pill">Menos carga asistencial</span>
+      <span class="pill">Más capacidad por médico</span>
+      <span class="pill">Alcance a pacientes lejanos</span>
+      <span class="pill">Menos abandono de tratamiento</span>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCE -->
+<div class="source">
+  <div class="wrap">
+    <p><strong>La letra pequeña, sin humo.</strong> Estos datos provienen de un estudio piloto prospectivo con 10 mujeres (19 exploraciones) realizado en el Assuta Medical Center, publicado como <em>preprint</em> en medRxiv (junio 2026) y aún no revisado por pares. Es una prueba de concepto: muestra pequeña, un solo centro, bajo supervisión y sin uso en decisiones clínicas reales. No sustituye a estudios mayores. Lo interesante no es que ya esté probado, sino que la dirección funciona y merece la siguiente fase.</p>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">
-    <div>Fuente: Shavit et&nbsp;al., <em>Clinical Evaluation of Automated Self-Operated Transvaginal Ultrasound</em>. medRxiv 2026 · <a href="https://doi.org/10.64898/2026.06.21.26356181" target="_blank" rel="noopener">DOI 10.64898/2026.06.21.26356181</a></div>
-    <div class="brand">Cortesía Código AdrIA</div>
+    <div><span class="brand">Cortesía Código AdrIA</span> — IA aplicada, sin humo, resultados.</div>
+    <div class="fmono">SÍNTESIS DE ESTUDIO · SOTUS · MONITORIZACIÓN FIV</div>
   </div>
 </footer>
 
 <script>
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:.15});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // bars
-  const barIo = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.querySelectorAll('.fill').forEach(f=>{ f.style.width = f.dataset.w+'%'; });
-        barIo.unobserve(e.target);
+  // follicle grow-in
+  (function(){
+    const radii=[26,17,14,10,11];
+    document.querySelectorAll('.foll').forEach((c,i)=>{
+      if(reduce){c.setAttribute('r',radii[i]);return;}
+      setTimeout(()=>{
+        c.style.transition='r 1.1s cubic-bezier(.16,.84,.44,1)';
+        c.setAttribute('r',radii[i]);
+      }, 260*i+300);
+    });
+  })();
+
+  // count-up stats
+  function countUp(el){
+    const plain = el.getAttribute('data-plain');
+    if(plain!==null){el.textContent=plain;return;}
+    const to=parseFloat(el.getAttribute('data-to'));
+    const suf=el.getAttribute('data-suffix')||'';
+    if(reduce){el.innerHTML=to+'<span>'+suf+'</span>';return;}
+    const dur=1300, t0=performance.now();
+    function step(now){
+      const p=Math.min((now-t0)/dur,1);
+      const e=1-Math.pow(1-p,3);
+      const val=(to*e).toFixed(1).replace(/\.0$/,'');
+      el.innerHTML=val+'<span>'+suf+'</span>';
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  const so=new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        en.target.querySelectorAll('.num').forEach(countUp);
+        so.unobserve(en.target);
       }
     });
   },{threshold:.4});
-  document.querySelectorAll('.h2h-card').forEach(el=>barIo.observe(el));
+  const sg=document.getElementById('stats'); if(sg)so.observe(sg);
 
-  // count up
-  const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
-  const fmt = n => (n%1===0? n.toString() : n.toFixed(1)).replace('.',',');
-  const countIo = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(!e.isIntersecting) return;
-      const el = e.target, target = parseFloat(el.dataset.count), suf = el.dataset.suffix||'';
-      if(reduce){ el.textContent = fmt(target)+suf; countIo.unobserve(el); return; }
-      let start=null, dur=1200;
-      const step = t=>{
-        if(!start) start=t;
-        const p = Math.min((t-start)/dur,1);
-        const eased = 1-Math.pow(1-p,3);
-        el.textContent = fmt(+(target*eased).toFixed(1))+suf;
-        if(p<1) requestAnimationFrame(step); else el.textContent = fmt(target)+suf;
-      };
-      requestAnimationFrame(step);
-      countIo.unobserve(el);
+  // bars
+  const bo=new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        en.target.querySelectorAll('.fill').forEach(f=>{f.style.width=f.getAttribute('data-w')+'%';});
+        bo.unobserve(en.target);
+      }
     });
-  },{threshold:.6});
-  document.querySelectorAll('[data-count]').forEach(el=>countIo.observe(el));
+  },{threshold:.3});
+  const bars=document.getElementById('bars'); if(bars)bo.observe(bars);
 </script>
 </body>
 </html>
