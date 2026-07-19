@@ -91,6 +91,46 @@
     <tr><td>App BMR (producto)</td><td><span class="chip c-azul">🔵 Pendiente Rafa</span></td><td>Vercel + Resend confirmados por DNS; sin píxel; reunión el martes 22</td></tr>
   </table></div>
 
+  <h2><span class="n">🗺</span>Dónde vive cada cosa — el mapa del sistema</h2>
+  <p class="peq">Para no perderse: cada pieza, su plataforma real (verificada por DNS y navegador), y qué acceso tenemos.</p>
+
+  <h3>Escaparates (lo que ve la gente)</h3>
+  <div class="tabla-scroll"><table>
+    <tr><th>Pieza</th><th>URL</th><th>Vive en</th><th>Estado</th><th>Acceso</th></tr>
+    <tr><td><strong>Web principal + catálogo</strong></td><td>begomentalreset.com</td><td><strong>Hostinger</strong> (builder)</td><td>Viva — aquí están los testimonios fake, el T&C muerto y las faltas</td><td>✅ colaborador</td></tr>
+    <tr><td>Landings de venta duplicadas</td><td>cursos.begomentalreset.com</td><td><strong>GoHighLevel</strong></td><td>Viva y funciona (checkouts OK)</td><td>✅ admin</td></tr>
+    <tr><td>Funnel evento marzo</td><td>clase.begomentalreset.com</td><td><strong>GoHighLevel</strong></td><td>🔴 Caducado y captando — APAGAR</td><td>✅ admin</td></tr>
+    <tr><td>Landing evento marzo (2ª pieza)</td><td>nrm.begomentalreset.com</td><td><strong>Lovable</strong> (¿+ Supabase?)</td><td>🔴 Viva, "mañana a las 19:00" en bucle, datos a backend desconocido</td><td>❌ pedir invitación</td></tr>
+    <tr><td>Newsletter</td><td>newsletter.begomentalreset.com</td><td><strong>GoHighLevel</strong></td><td>Viva (tel. obligatorio, sin política)</td><td>✅ admin</td></tr>
+    <tr><td>4 subdominios desconocidos</td><td>diariobmr · reto · mental · membresia</td><td><strong>GoHighLevel</strong></td><td>❓ Auditar (diariobmr = funnel "Diario BMR 21")</td><td>✅ admin</td></tr>
+    <tr><td>Calendarios</td><td>calendario.begomentalreset.com</td><td><strong>GoHighLevel</strong></td><td>Raíz vacía ("OK!"); widget del replay muerto</td><td>✅ admin</td></tr>
+    <tr><td><strong>App BMR</strong> (el producto, 197 €/año)</td><td>appbegomentalreset.com</td><td><strong>Vercel</strong> (frontend)</td><td>Solo móvil; sin precio ni checkout visibles en escritorio — ¿dónde se paga?</td><td>❌ pedir a Rafa (viewer)</td></tr>
+    <tr><td>App vieja</td><td>legacy.appbegomentalreset.com</td><td>Hostinger CDN</td><td>Muerta (error SSL) — limpiar DNS</td><td>—</td></tr>
+    <tr><td>Web staging</td><td>begomentalreset-com-737401.hostingersite.com</td><td>Hostinger (dominio temporal)</td><td>❓ ¿Clon abandonado o borrador en uso?</td><td>✅ colaborador</td></tr>
+    <tr><td>Subdominio muerto</td><td>bmr.begomentalreset.com</td><td>GoHighLevel</td><td>404 — redirigir o limpiar</td><td>✅ admin</td></tr>
+  </table></div>
+
+  <h3>Motor (donde viven los datos y las automatizaciones)</h3>
+  <div class="tabla-scroll"><table>
+    <tr><th>Pieza</th><th>Vive en</th><th>Qué hay</th><th>Acceso</th></tr>
+    <tr><td><strong>CRM: contactos, workflows, pipelines, forms</strong></td><td><strong>GoHighLevel</strong></td><td>31.776 contactos · 151 workflows · 8.631 oportunidades · 197 tags</td><td>✅ admin + API</td></tr>
+    <tr><td>DMs y automatizaciones de Instagram</td><td><strong>ManyChat</strong></td><td>7.436 contactos · 18 automatizaciones · isla sin conectar</td><td>✅ editor</td></tr>
+    <tr><td>Anuncios + píxel + audiencias</td><td><strong>Meta</strong> (BM Begomentalreset)</td><td>Cuenta "Bego 1" (AED) · píxel vivo pero a medias</td><td>🟡 parcial (pedir total)</td></tr>
+    <tr><td><strong>Cobros de cursos</strong></td><td><strong>Hotmart</strong></td><td>Todos los checkouts actuales</td><td>❌ pendiente (hoja de accesos)</td></tr>
+    <tr><td>Entrega de la membresía</td><td><strong>Systeme.io</strong></td><td>Workflow "Bienvenida MEMBRESÍA SYSTEME" activo</td><td>❌ ¿quién tiene la cuenta?</td></tr>
+    <tr><td>Dominios y DNS (los 2 dominios)</td><td><strong>Hostinger</strong></td><td>Todo el mapa de subdominios se controla aquí</td><td>✅ colaborador</td></tr>
+  </table></div>
+
+  <h3>Email (por dónde sale el correo)</h3>
+  <div class="tabla-scroll"><table>
+    <tr><th>Qué correo</th><th>Sale por</th><th>Nota</th></tr>
+    <tr><td>Buzón normal (info@…)</td><td><strong>Hostinger Mail</strong></td><td>El día a día — aunque el público es un gmail</td></tr>
+    <tr><td>Campañas y funnels de GHL</td><td><strong>Mailgun</strong> (email.* y mail.*)</td><td>El transporte estándar de GHL</td></tr>
+    <tr><td>Emails de la app</td><td><strong>Resend / Amazon SES</strong></td><td>Transaccional — territorio de Rafa</td></tr>
+    <tr><td>Restos fantasma</td><td><strong>Brevo</strong> · <strong>Systeme.io</strong> · <strong>Sendflow</strong> (WhatsApp)</td><td>Configurados en DNS; aclarar qué sigue vivo y qué se paga</td></tr>
+  </table></div>
+  <div class="nota"><strong>Regla mental para no liarse:</strong> la <strong>WEB</strong> es Hostinger · los <strong>FUNNELS</strong> son GHL · el <strong>EVENTO viejo</strong> tiene 2 piezas (clase=GHL y nrm=Lovable) · la <strong>APP</strong> es Vercel · el <strong>DINERO</strong> es Hotmart · los <strong>DATOS</strong> son GHL + la isla de ManyChat. Todo lo demás son capas de equipos anteriores.</div>
+
   <h2><span class="n">1</span>GoHighLevel — el motor (dump por API, 17/7)</h2>
   <div class="grid">
     <div class="stat"><div class="v">31.776</div><div class="l">contactos</div></div>
