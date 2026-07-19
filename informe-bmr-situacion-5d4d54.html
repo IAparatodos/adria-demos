@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Estado real del ecosistema BMR · Auditoría Fase 1 · 19-jul-2026</title>
+<style>
+  :root{
+    --burdeos:#5c1a33; --burdeos-osc:#43112.5%; --crema:#f4ecdd; --tinta:#241a1e; --gris:#6b5f64;
+    --rojo:#c0392b; --ambar:#b9770e; --verde:#1e8449; --azul:#1f618d;
+    --card:#ffffff; --borde:#e8dfd2; --fondo:#faf6ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--fondo);color:var(--tinta);line-height:1.55;font-size:16px}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px 80px}
+  header{background:var(--burdeos);color:var(--crema);padding:48px 24px 40px;margin-bottom:36px}
+  header .inner{max-width:960px;margin:0 auto}
+  header h1{font-size:1.9rem;font-weight:800;letter-spacing:-.5px;line-height:1.2}
+  header .sub{margin-top:10px;opacity:.85;font-size:.95rem}
+  header .badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:3px 14px;font-size:.78rem;letter-spacing:.5px;text-transform:uppercase;margin-bottom:16px}
+  h2{font-size:1.35rem;font-weight:800;color:var(--burdeos);margin:44px 0 14px;display:flex;align-items:center;gap:10px}
+  h2 .n{background:var(--burdeos);color:#fff;border-radius:8px;width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+  h3{font-size:1.02rem;font-weight:700;margin:20px 0 8px}
+  p{margin-bottom:10px}
+  .lead{font-size:1.05rem}
+  .card{background:var(--card);border:1px solid var(--borde);border-radius:14px;padding:22px 24px;margin-bottom:16px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:16px 0}
+  .stat{background:var(--card);border:1px solid var(--borde);border-radius:12px;padding:16px 18px}
+  .stat .v{font-size:1.7rem;font-weight:800;color:var(--burdeos);line-height:1.1}
+  .stat .l{font-size:.82rem;color:var(--gris);margin-top:4px}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;margin:12px 0}
+  th{text-align:left;padding:9px 10px;background:var(--crema);color:var(--burdeos);font-weight:700;border-bottom:2px solid var(--borde)}
+  td{padding:9px 10px;border-bottom:1px solid var(--borde);vertical-align:top}
+  .tabla-scroll{overflow-x:auto}
+  .chip{display:inline-block;border-radius:20px;padding:1px 11px;font-size:.76rem;font-weight:700;white-space:nowrap}
+  .c-rojo{background:#fdecea;color:var(--rojo)} .c-ambar{background:#fdf3e0;color:var(--ambar)}
+  .c-verde{background:#e9f7ef;color:var(--verde)} .c-azul{background:#eaf2f8;color:var(--azul)}
+  .c-gris{background:#efe9ec;color:var(--gris)}
+  ul{margin:8px 0 12px 22px} li{margin-bottom:6px}
+  .semaforo td:first-child{font-weight:700;white-space:nowrap}
+  .alerta{border-left:5px solid var(--rojo);background:#fdecea;border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0}
+  .ok{border-left:5px solid var(--verde);background:#e9f7ef;border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0}
+  .nota{border-left:5px solid var(--azul);background:#eaf2f8;border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0}
+  .peq{font-size:.85rem;color:var(--gris)}
+  code{background:var(--crema);border-radius:5px;padding:1px 6px;font-size:.85em;color:var(--burdeos)}
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--borde);font-size:.82rem;color:var(--gris)}
+  @media(max-width:600px){header h1{font-size:1.4rem} .grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="inner">
+    <span class="badge">Auditoría Fase 1 · Interno</span>
+    <h1>Estado real del ecosistema BMR</h1>
+    <div class="sub">Bego Mental Reset · Corte a 19 de julio de 2026 · Elaborado por Código AdrIA (Ricardo Hoyos) · Fuentes: API GHL (dump 17/7), paneles ManyChat y Meta (17/7), barrido web (18/7), verificación en navegador + DNS Hostinger (19/7)</div>
+  </div>
+</header>
+<div class="wrap">
+
+  <h2><span class="n">0</span>La foto en 30 segundos</h2>
+  <div class="card lead">
+    <p><strong>Los activos existen y son de Bego</strong> (31.776 contactos, Business Manager y píxel propios, una mecánica de DMs que convierte al 60-78%), pero el motor está <strong>desconectado y sin mantenimiento</strong>: ManyChat no habla con el CRM, el píxel no ve el tráfico principal, un funnel caducado de marzo sigue captando registros con enlaces rotos, y la web pública tiene testimonios de plantilla en inglés.</p>
+    <p style="margin-bottom:0"><strong>La venta no está cayendo por falta de interés, sino por fugas de confianza y medición.</strong> Nada de lo encontrado es irreversible; casi todo es limpieza, conexión y arquitectura.</p>
+  </div>
+
+  <div class="tabla-scroll"><table class="semaforo">
+    <tr><th>Frente</th><th>Estado</th><th>Titular</th></tr>
+    <tr><td>GoHighLevel (CRM)</td><td><span class="chip c-ambar">🟡 Desordenado</span></td><td>Motor potente con 151 workflows y 197 tags sin gobierno; 0 campañas de email activas</td></tr>
+    <tr><td>ManyChat</td><td><span class="chip c-rojo">🔴 Isla</span></td><td>7.436 contactos y 1.887 conversaciones que NO llegan al CRM (cero integraciones)</td></tr>
+    <tr><td>Meta (Ads + píxel)</td><td><span class="chip c-ambar">🟡 A medio gas</span></td><td>Activos propios y píxel vivo, pero ciego al tráfico principal y sin eventos de conversión</td></tr>
+    <tr><td>Web pública</td><td><span class="chip c-rojo">🔴 Daña confianza</span></td><td>Testimonios falsos, legal incompleto, funnel caducado vivo, dos catálogos compitiendo</td></tr>
+    <tr><td>Hostinger / DNS</td><td><span class="chip c-azul">🔵 Mapeado 19/7</span></td><td>13 subdominios; 4 GHL desconocidos; herramientas fantasma destapadas</td></tr>
+    <tr><td>Email (entregabilidad)</td><td><span class="chip c-ambar">🟡 Fragmentado</span></td><td>Envíos desde 4 plataformas y DMARC sin protección en todos los dominios</td></tr>
+    <tr><td>App BMR (producto)</td><td><span class="chip c-azul">🔵 Pendiente Rafa</span></td><td>Vercel + Resend confirmados por DNS; sin píxel; reunión el martes 22</td></tr>
+  </table></div>
+
+  <h2><span class="n">1</span>GoHighLevel — el motor (dump por API, 17/7)</h2>
+  <div class="grid">
+    <div class="stat"><div class="v">31.776</div><div class="l">contactos</div></div>
+    <div class="stat"><div class="v">8.631</div><div class="l">oportunidades en 7 pipelines</div></div>
+    <div class="stat"><div class="v">151</div><div class="l">workflows (136 activos)</div></div>
+    <div class="stat"><div class="v">197</div><div class="l">tags (foco del caos)</div></div>
+    <div class="stat"><div class="v">15</div><div class="l">funnels (~80 páginas)</div></div>
+    <div class="stat"><div class="v">36</div><div class="l">formularios</div></div>
+    <div class="stat"><div class="v">11</div><div class="l">calendarios</div></div>
+    <div class="stat"><div class="v">0</div><div class="l">campañas de email activas</div></div>
+  </div>
+  <div class="card">
+    <ul style="margin-bottom:0">
+      <li><strong>147 custom fields</strong> y 197 tags sin nomenclatura: imposible segmentar con fiabilidad hasta que se limpie.</li>
+      <li><strong>136 workflows activos</strong> heredados de campañas pasadas: uno de ellos sigue <strong>confirmando plazas de un evento de marzo</strong> (verificado por email el 18/7). Hay que inventariar cuáles viven, cuáles disparan mensajes y cuáles se archivan.</li>
+      <li>Los <strong>15 funnels</strong> se reparten por 9 subdominios (ver §4); al menos uno (clase.*) está caducado y vivo.</li>
+      <li>Email de campañas: <strong>0 campañas</strong> en el endpoint — la base de 31.776 contactos está fría, sin nurturing.</li>
+    </ul>
+  </div>
+
+  <h2><span class="n">2</span>ManyChat — la isla (panel, 17/7)</h2>
+  <div class="grid">
+    <div class="stat"><div class="v">7.436</div><div class="l">contactos capturados (no llegan a GHL)</div></div>
+    <div class="stat"><div class="v">1.887</div><div class="l">conversaciones sin atender</div></div>
+    <div class="stat"><div class="v">0</div><div class="l">integraciones instaladas</div></div>
+    <div class="stat"><div class="v">60-78%</div><div class="l">CTR de las automatizaciones top</div></div>
+  </div>
+  <div class="alerta"><strong>Hallazgo clave:</strong> ManyChat no está conectado a NADA. Todo lo que capturan sus 18 automatizaciones (grupo de WhatsApp: 1.595 ejecuciones · reto: 2.165 · lanzamientos: 1.544) se queda en Instagram y nunca toca el CRM. Además hay <strong>1.887 conversaciones sin respuesta</strong> — leads calientes pudriéndose en la bandeja.</div>
+  <div class="ok"><strong>La buena noticia:</strong> la mecánica comentario/story → DM <em>funciona muy bien</em> (CTR 60-78%). El canal de entrada del futuro embudo del test ya existe; solo falta conectar la salida a GHL. Además existe el precedente <strong>"Test bmr + setter"</strong> (765 ejecuciones, parado) — preguntar a Bego su historia.</div>
+
+  <h2><span class="n">3</span>Meta — activos propios, medición a medias (BM, 17/7)</h2>
+  <div class="card">
+    <ul>
+      <li>✅ <strong>Todo es propiedad de Bego</strong>: Business Manager "Begomentalreset", cuenta publicitaria "Bego 1" y píxel "Pixel Begoña" (la sospecha de que eran de la agencia era infundada). Ojo: la cuenta opera en <strong>AED (dírhams)</strong>.</li>
+      <li>🔴 <strong>El píxel solo ve 4 subdominios</strong> (~278 eventos/28 días): clase, cursos, reto y mental. <strong>Invisible</strong>: la web principal, nrm (el link in bio), la app y los checkouts de Hotmart. Para 284k de audiencia, no hay combustible de retargeting.</li>
+      <li>🔴 <strong>Cero eventos de conversión</strong> (ni Lead, ni Purchase con moneda válida) — Meta avisa de "baja calidad de datos".</li>
+      <li>🟡 Existe una <strong>Conversions API</strong> configurada por alguien (¿GHL? ¿agencia?) — identificar el origen.</li>
+      <li>🟡 Accesos de Ricardo parciales (falta acceso total a cuenta + dataset — 2 clics de Bego).</li>
+    </ul>
+  </div>
+
+  <h2><span class="n">4</span>Web pública + Hostinger — donde se pierde la confianza (18-19/7)</h2>
+  <h3>🔴 Lo urgente (P0), todo verificado en navegador</h3>
+  <div class="card">
+    <ul style="margin-bottom:0">
+      <li><strong>Funnel <code>clase.*</code> caducado y VIVO</strong>: landing del evento de marzo captando registros hoy; su página de gracias lleva a un enlace doblemente muerto (la campaña de Sendflow no existe y el grupo de WhatsApp tampoco); /whatsapp y /directo en blanco; el botón "agendar llamada" del replay redirige a la home porque el calendario ya no existe. La máquina además envía emails confirmando plazas de marzo.</li>
+      <li><strong>Testimonios de PLANTILLA en la home</strong>: "Brian Moten" y "Clarice Turner" con texto en inglés ("I am extremely satisfied with this product!") y fotos de stock. En la página principal de una marca de confianza.</li>
+      <li><strong>"Términos y Condiciones" es texto muerto</strong> en el footer de TODAS las páginas (no enlaza a nada). La política de privacidad existe pero está incompleta (sin responsable, base legal ni derechos), y los formularios de nrm.* y newsletter.* no enlazan política ninguna → riesgo RGPD.</li>
+      <li><strong>El mismo producto se vende con dos duraciones</strong>: el Gimnasio dice "6 meses" en la web principal y "21 semanas" en cursos.* (y su propia FAQ se contradice). Dos catálogos completos compitiendo (web principal vs subdominio cursos), cada uno con sus landings.</li>
+      <li><strong>Emails de clientes yendo a un desconocido</strong> (verificado 19/7): el dominio del equipo anterior <code>reprogramatumente.com</code> caducó y hoy lo controla un servicio de parking de dominios (por eso da error 502/certificado) — pero el funnel viejo sigue anunciando <code>support@reprogramatumente.com</code> como soporte, y su correo (MX) apunta ahora al servidor del parking: <strong>cualquier cliente que escriba ahí manda su email a un tercero</strong>. Quitar toda referencia de inmediato.</li>
+    </ul>
+  </div>
+  <h3>🟡 Lo importante (P1)</h3>
+  <div class="card">
+    <ul style="margin-bottom:0">
+      <li><strong>Faltas de ortografía en páginas de venta</strong> (localizadas una a una): "neurociéncia" en la home, "sesisones", "repiito", "redirijirá", "incluídas", "¿Còmo funciona?"… En una marca que vende neurociencia.</li>
+      <li><strong>SEO nulo en el catálogo y la bio</strong>: /sistema-bmr y /sobre-begona tienen todo el contenido en imágenes — Google no lee ni una palabra de los productos.</li>
+      <li><strong>Niño Interior sin precio visible</strong> (vas a ciegas al checkout) — el resto de checkouts Hotmart funcionan correctamente ✅.</li>
+      <li>Email de contacto en gmail (<code>infobegomentalreset@gmail.com</code>).</li>
+      <li>Superficies muertas: <code>bmr.*</code> (404), <code>calendario.*</code> (página "OK!" pelada) y un sitio staging en dominio temporal de Hostinger.</li>
+    </ul>
+  </div>
+  <h3>El mapa DNS (leído en Hostinger, 19/7)</h3>
+  <div class="tabla-scroll"><table>
+    <tr><th>Subdominio</th><th>Servicio</th><th>Estado</th></tr>
+    <tr><td>begomentalreset.com + www</td><td><strong>Hostinger</strong> (¡la web principal NO es GHL!)</td><td><span class="chip c-ambar">Corregir aquí testimonios/legal/faltas</span></td></tr>
+    <tr><td>clase · cursos · newsletter · calendario</td><td>GHL</td><td><span class="chip c-rojo">clase caducado</span> <span class="chip c-verde">cursos vivo</span></td></tr>
+    <tr><td><strong>diariobmr · reto · mental · membresia</strong></td><td>GHL</td><td><span class="chip c-rojo">DESCONOCIDOS — nadie los mencionó, auditar</span></td></tr>
+    <tr><td>bmr</td><td>GHL</td><td><span class="chip c-gris">404</span></td></tr>
+    <tr><td>nrm (link in bio)</td><td>Lovable</td><td><span class="chip c-ambar">Sin política ni píxel</span></td></tr>
+    <tr><td>appbegomentalreset.com</td><td><strong>Vercel</strong> (frontend) + Resend/SES (email) + "legacy" en Hostinger</td><td><span class="chip c-azul">Confirmar con Rafa</span></td></tr>
+  </table></div>
+
+  <h2><span class="n">5</span>El stack fantasma — herramientas que nadie contó</h2>
+  <div class="card">
+    <p>El encargo hablaba de GHL + ManyChat + Hotmart. La realidad (destapada por DNS y enlaces rotos) incluye además:</p>
+    <div class="tabla-scroll"><table>
+      <tr><th>Herramienta</th><th>Evidencia</th><th>Pregunta abierta</th></tr>
+      <tr><td><strong>Sendflow</strong> (sndflw.com)</td><td>El enlace roto de clase.*/gracias era una campaña suya (ya borrada)</td><td>¿Cuenta activa? ¿Quedan más enlaces vivos?</td></tr>
+      <tr><td><strong>Brevo</strong> (ex-Sendinblue)</td><td>DKIM + código de verificación + DMARC apuntando a Brevo</td><td>¿Se envía algo desde ahí? ¿Se paga?</td></tr>
+      <tr><td><strong>Systeme.io</strong></td><td>DKIM + subdominio de correo entrante</td><td>¿Restos del equipo anterior?</td></tr>
+      <tr><td><strong>Resend / Amazon SES</strong></td><td>DKIM en el dominio de la app</td><td>Email transaccional de la app — confirmar con Rafa</td></tr>
+      <tr><td><strong>Mailgun</strong></td><td>MX de los dominios de envío de GHL (email.* y mail.*)</td><td>Transporte normal de GHL — OK, documentado</td></tr>
+    </table></div>
+    <div class="alerta" style="margin-bottom:0"><strong>Email fragmentado en 4 plataformas y DMARC en <code>p=none</code> en todos los dominios</strong> — cero protección antisuplantación y entregabilidad repartida. Consolidar remitentes y endurecer DMARC entra en la limpieza (semanas 2-3).</div>
+  </div>
+
+  <h2><span class="n">6</span>Accesos — estado a 19/7</h2>
+  <div class="tabla-scroll"><table>
+    <tr><th>Plataforma</th><th>Estado</th><th>Nota</th></tr>
+    <tr><td>GoHighLevel</td><td><span class="chip c-verde">✅ Admin + API solo lectura</span></td><td>Dump completo hecho</td></tr>
+    <tr><td>ManyChat</td><td><span class="chip c-verde">✅ Editor</span></td><td>Recon hecho</td></tr>
+    <tr><td>Meta Business</td><td><span class="chip c-ambar">🟡 Parcial</span></td><td>Falta acceso total a cuenta publicitaria + dataset del píxel (2 clics de Bego)</td></tr>
+    <tr><td>Hostinger</td><td><span class="chip c-verde">✅ Colaborador</span></td><td>DNS leído; la API de tokens está capada en este modo (si hiciera falta, token lo genera Bego)</td></tr>
+    <tr><td>Hotmart / Stripe</td><td><span class="chip c-rojo">⬜ Pendiente</span></td><td>Va en la hoja única de accesos</td></tr>
+    <tr><td>App (dev)</td><td><span class="chip c-azul">🔵 Martes 22</span></td><td>Reunión con Rafa</td></tr>
+  </table></div>
+
+  <h2><span class="n">7</span>Preguntas abiertas (reunión del martes 22 · Bego + Rafa)</h2>
+  <div class="card">
+    <ul style="margin-bottom:0">
+      <li>¿Qué son <code>diariobmr</code>, <code>reto</code>, <code>mental</code> y <code>membresia</code>? ¿Siguen en uso? ¿Captan datos?</li>
+      <li>¿El Gimnasio dura <strong>6 meses o 21 semanas</strong>? (hay que unificarlo en todas partes) · ¿El evento presencial sigue vigente?</li>
+      <li>Sendflow, Brevo, Systeme.io: ¿de quién eran, se pagan aún, queda algo vivo?</li>
+      <li>¿<code>reprogramatumente.com</code> fue vuestro? (ya caducó y está en parking de terceros — decidir si se ignora o se intenta recuperar)</li>
+      <li>¿Quién edita la web principal (builder de Hostinger)? ¿Y el sitio staging en dominio temporal?</li>
+      <li>Historia del flujo <strong>"Test bmr + setter"</strong> (765 ejecuciones): qué era, resultados, por qué se paró.</li>
+      <li>¿El precio oculto de Niño Interior es intencional? · Teléfono obligatorio en newsletter: ¿estrategia o fricción?</li>
+      <li>Rafa: confirmar Vercel + Resend, píxel/eventos de compra en la app, y qué es <code>legacy.appbegomentalreset.com</code>.</li>
+    </ul>
+  </div>
+
+  <h2><span class="n">8</span>Qué haría ahora (orden propuesto)</h2>
+  <div class="card">
+    <ol style="margin-left:22px">
+      <li style="margin-bottom:6px"><strong>Cortar la hemorragia de confianza (esta semana)</strong>: despublicar/redirigir clase.* y parar su automatización de emails · quitar los testimonios de plantilla · enlazar T&C.</li>
+      <li style="margin-bottom:6px"><strong>Reunión del martes</strong>: cerrar las preguntas abiertas y los roles con Rafa → con eso se cierra el informe de auditoría de la semana 1.</li>
+      <li style="margin-bottom:6px"><strong>Semanas 2-3 (limpieza + medición)</strong>: píxel en TODOS los dominios con eventos de conversión y moneda · conectar ManyChat→GHL · triaje de las 1.887 conversaciones · limpieza de tags/workflows · consolidar remitentes de email + DMARC · corrección de copy y unificación del catálogo.</li>
+      <li><strong>Cierre bono 1</strong>: campaña de reactivación sobre la base limpia → y el embudo del test (bono 2) ya con el terreno preparado.</li>
+    </ol>
+    <div class="ok" style="margin-bottom:0"><strong>Lo que ya funciona y hay que proteger:</strong> los checkouts de Hotmart, el grupo "Comunidad BMR 5", la mecánica de DMs de Instagram, la página de Sesiones 1:1 (precio claro y equipo con nº de colegiada) y los sellos de prensa (El País, ABC, La Vanguardia) que la web principal aún no aprovecha.</div>
+  </div>
+
+  <footer>
+    Informe interno de auditoría · Código AdrIA para Bego Mental Reset · Corte 19-jul-2026.<br>
+    Fuentes primarias en el workspace del cliente: dump API de GHL (17/7), recon ManyChat y Meta (17/7), barrido de URLs (18/7), pasada de navegador + worklist consolidada + recon DNS Hostinger (19/7).
+  </footer>
+</div>
+</body>
+</html>
