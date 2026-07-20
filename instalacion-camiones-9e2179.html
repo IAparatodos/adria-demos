@@ -128,6 +128,21 @@ n8n start</code></pre>
   <label class="chk"><input type="checkbox"><span>Credencial <strong>Anthropic API</strong>: pegar la key que se sacó David.</span></label>
 </div>
 
+<h2>Bloque 3 bis · VALIDAR SU PLANTILLA <span class="t">~15 min · el riesgo nº1</span></h2>
+<div class="stop">
+  <strong>Todo lo que hemos probado está calibrado contra NUESTRA copia</strong>, que es el expediente
+  del camión de ALGEMESI con datos dentro. David usa una <strong>plantilla en blanco</strong>: no es el
+  mismo archivo. Antes de instalar hay que comprobar que la suya encaja, o el sistema fallará en su
+  equipo aunque aquí funcione.
+</div>
+<div class="card">
+  <label class="chk"><input type="checkbox"><span><strong>Pedirle SU plantilla en blanco</strong> y guardarla como <code>plantilla_camion.xlsx</code>.</span></label>
+  <label class="chk"><input type="checkbox"><span><strong>1. Las fórmulas de observaciones.</strong> Comprobar que en «Documentacion técnica.» la celda <code>C21</code> contiene <code>=""&amp;Datos!B92&amp;""</code> y <code>C23</code> su equivalente con B93 y B94. <span class="peq">Si al vaciar la plantilla se borraron, las observaciones se escribirán en Datos pero NO saldrán en la descripción del completado: fallo silencioso.</span></span></label>
+  <label class="chk"><input type="checkbox"><span><strong>2. Las filas de las fotos.</strong> Los 10 anclajes van por fila exacta (E376, B380, A588, A618, A647, D647, A658, D658, B669, G388). Generar un expediente de prueba con fotos y <strong>mirar que no pisan texto</strong>. Si bailan, recalibrar.</span></label>
+  <label class="chk"><input type="checkbox"><span><strong>3. Los nombres de las pestañas.</strong> Deben existir tal cual: <code>Respuestas</code>, <code>Datos</code>, <code>DATOS COC</code> y <code>Documentacion técnica.</code> (con su punto final). Se localizan por nombre; una tilde de diferencia y aborta.</span></label>
+  <label class="chk"><input type="checkbox"><span>Guardar copia de su plantilla en <code>clients/Ingeniero/projects/cocs/plantilla/</code> como referencia de calibración, sustituyendo a la nuestra.</span></label>
+</div>
+
 <h2>Bloque 4 · Su Google Drive <span class="t">~15 min</span></h2>
 <div class="card">
   <label class="chk"><input type="checkbox"><span>Crear la <strong>carpeta raíz de camiones</strong> en el Drive de David (p. ej. <code>camiones / vehiculos</code>). <strong>Copiar su ID</strong> de la URL.</span></label>
