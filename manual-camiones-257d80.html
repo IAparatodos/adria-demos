@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Manual de uso · Sistema de expedientes de camiones · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Manual de uso · Expedientes de camiones · Código AdrIA">
+<meta property="og:description" content="Cómo guardar fotos y COC, rehacer un documento y qué revisar a mano antes de firmar.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/manual-camiones-257d80.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Manual de uso · Expedientes de camiones · Código AdrIA">
+<meta name="twitter:description" content="Cómo guardar fotos y COC, rehacer un documento y qué revisar a mano antes de firmar.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --turquesa:#4dd2d0; --petroleo:#3f6f7b; --profundo:#102e35;
+    --tinta:#16333b; --gris:#5a7078; --card:#ffffff; --borde:#dde8ea; --fondo:#f4f9f9;
+    --verde:#1e8449; --ambar:#b9770e; --rojo:#a93226;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Poppins',-apple-system,sans-serif;background:var(--fondo);color:var(--tinta);line-height:1.6;font-size:16px}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px 80px}
+  header{background:var(--profundo);color:#eef7f7;padding:52px 24px 44px;border-bottom:4px solid var(--turquesa)}
+  header .inner{max-width:880px;margin:0 auto}
+  .marca{font-weight:800;font-size:1rem;letter-spacing:.3px;color:var(--turquesa);margin-bottom:18px}
+  .marca span{color:#fff}
+  header h1{font-size:1.85rem;font-weight:800;letter-spacing:-.5px;line-height:1.25}
+  header .sub{margin-top:12px;opacity:.8;font-size:.92rem}
+  header .badge{display:inline-block;background:rgba(77,210,208,.15);border:1px solid var(--turquesa);color:var(--turquesa);border-radius:20px;padding:3px 14px;font-size:.75rem;letter-spacing:.6px;text-transform:uppercase;margin-bottom:16px;font-weight:600}
+  nav.indice{background:var(--card);border:1px solid var(--borde);border-radius:14px;padding:20px 24px;margin:32px 0 8px}
+  nav.indice strong{display:block;margin-bottom:10px;color:var(--profundo)}
+  nav.indice ol{margin-left:20px;font-size:.94rem}
+  nav.indice li{margin-bottom:5px}
+  nav.indice a{color:var(--petroleo);text-decoration:none;border-bottom:1px solid transparent}
+  nav.indice a:hover{border-bottom-color:var(--turquesa)}
+  h2{font-size:1.32rem;font-weight:800;color:var(--profundo);margin:46px 0 14px;border-left:5px solid var(--turquesa);padding-left:12px;scroll-margin-top:20px}
+  h3{font-size:1.02rem;font-weight:700;color:var(--petroleo);margin:22px 0 8px}
+  p{margin-bottom:12px}
+  .lead{font-size:1.05rem}
+  .card{background:var(--card);border:1px solid var(--borde);border-radius:14px;padding:24px 26px;margin-bottom:16px;box-shadow:0 1px 3px rgba(16,46,53,.05)}
+  ul,ol.pasos{margin:8px 0 12px 22px} li{margin-bottom:8px}
+  .ok{border-left:5px solid var(--verde);background:#eaf6ef;border-radius:0 12px 12px 0;padding:16px 20px;margin:14px 0}
+  .nota{border-left:5px solid var(--turquesa);background:#e8f7f7;border-radius:0 12px 12px 0;padding:16px 20px;margin:14px 0}
+  .avisa{border-left:5px solid var(--ambar);background:#fdf6e7;border-radius:0 12px 12px 0;padding:16px 20px;margin:14px 0}
+  .stop{border-left:5px solid var(--rojo);background:#fdecea;border-radius:0 12px 12px 0;padding:16px 20px;margin:14px 0}
+  code{background:#e8f2f2;border-radius:5px;padding:1px 6px;font-size:.86em;color:var(--petroleo);font-family:'Poppins',sans-serif;font-weight:600}
+  .arbol{background:var(--profundo);color:#d7ecec;border-radius:12px;padding:20px 24px;font-size:.9rem;line-height:1.9;overflow-x:auto;white-space:pre;margin:14px 0}
+  .arbol b{color:var(--turquesa);font-weight:700}
+  .arbol i{color:#8fb3b8;font-style:normal}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem;background:var(--card);border-radius:12px;overflow:hidden}
+  th{background:var(--profundo);color:#eef7f7;text-align:left;padding:11px 14px;font-weight:600;font-size:.85rem}
+  td{padding:11px 14px;border-top:1px solid var(--borde);vertical-align:top}
+  tr:nth-child(even) td{background:#fbfdfd}
+  .tabla-scroll{overflow-x:auto}
+  .peq{font-size:.86rem;color:var(--gris)}
+  .semaforo{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:16px 0}
+  .sem{background:var(--card);border:1px solid var(--borde);border-radius:12px;padding:16px 18px}
+  .sem .t{font-weight:800;color:var(--profundo);margin-bottom:4px}
+  .sem .d{font-size:.88rem;color:var(--gris)}
+  footer{margin-top:56px;padding-top:20px;border-top:2px solid var(--turquesa);font-size:.82rem;color:var(--gris)}
+  footer .fmarca{font-weight:700;color:var(--profundo)}
+  @media(max-width:600px){header h1{font-size:1.35rem} .arbol{font-size:.8rem}}
+</style>
+</head>
+<body>
+<header>
+  <div class="inner">
+    <div class="marca">Código Adr<span>IA</span></div>
+    <span class="badge">Manual de uso · v1</span>
+    <h1>Cómo trabajar con el sistema<br>de expedientes de camiones</h1>
+    <div class="sub">INGESERVICE VALENCIA · Preparado para David Gómez · 20 de julio de 2026</div>
+  </div>
+</header>
+<div class="wrap">
+
+  <div class="card lead">
+    <p>El sistema hace tres cosas por ti: <strong>rellena el Excel del vehículo</strong> con los datos del formulario, <strong>lee el COC</strong> y vuelca sus campos, e <strong>inserta las fotos</strong> en su sitio de la documentación técnica.</p>
+    <p style="margin-bottom:0">Tu trabajo se reduce a <strong>dejar cada archivo en su carpeta con el nombre correcto</strong> y a <strong>revisar a mano cuatro cosas concretas</strong> antes de firmar. Este manual explica exactamente cuáles.</p>
+  </div>
+
+  <nav class="indice">
+    <strong>Contenido</strong>
+    <ol>
+      <li><a href="#funciona">Cómo funciona (en 1 minuto)</a></li>
+      <li><a href="#carpeta">La carpeta de cada camión</a></li>
+      <li><a href="#fotos">Las fotos: nombres exactos</a></li>
+      <li><a href="#coc">El COC: dónde va y cómo debe estar</a></li>
+      <li><a href="#semaforo">El semáforo: las tres columnas de control</a></li>
+      <li><a href="#rehacer">Cómo rehacer algo que ha salido mal</a></li>
+      <li><a href="#revisar">Lo que hay que revisar a mano SIEMPRE</a></li>
+      <li><a href="#nunca">Lo que el sistema nunca toca</a></li>
+      <li><a href="#nosale">Si un camión no se procesa: diagnóstico</a></li>
+      <li><a href="#confirmar">Lo que necesitamos que nos confirmes</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="funciona">1 · Cómo funciona (en 1 minuto)</h2>
+  <div class="card">
+    <p>El sistema no espera a nada ni hay que darle a ningún botón: <strong>repasa las carpetas cada pocos minutos</strong> y, cuando un camión tiene todo lo que necesita, hace su parte y lo marca como hecho.</p>
+    <p>Son tres pasadas independientes:</p>
+    <ul>
+      <li><strong>Pasada 1 · el Excel.</strong> Coge la fila del formulario y genera el Excel del vehículo en <code>04-excel</code>. Si el camión aún no tiene carpeta, <strong>se la crea entera</strong> con sus subcarpetas.</li>
+      <li><strong>Pasada 2 · el COC.</strong> Cuando encuentra el PDF en <code>01-entrada</code>, lee sus datos y genera una versión nueva del Excel terminada en <code>-con-COC</code>.</li>
+      <li><strong>Pasada 3 · las fotos.</strong> Cuando encuentra fotos con nombre reconocido en <code>02-fotos</code>, las inserta y genera la versión <code>-con-FOTOS</code>.</li>
+    </ul>
+    <div class="nota" style="margin-bottom:0"><strong>El orden da igual.</strong> Puedes subir las fotos antes que el COC, o el COC una semana después. Cada pasada espera pacientemente a tener lo suyo y actúa cuando lo tiene. Lo único que sí manda es que <strong>el Excel se genera primero</strong>: COC y fotos se escriben encima de él.</div>
+  </div>
+
+  <h3>Cada pasada deja un archivo nuevo, no pisa el anterior</h3>
+  <p>En <code>04-excel</code> vas viendo crecer el expediente. Los nombres te dicen por dónde va:</p>
+  <div class="tabla-scroll">
+  <table>
+    <tr><th>Archivo</th><th>Qué contiene</th></tr>
+    <tr><td><code>LLUCH_EcoFéretros_1072026.xlsx</code></td><td>Datos del formulario (pasada 1)</td></tr>
+    <tr><td><code>…-con-COC.xlsx</code></td><td>Lo anterior + los datos del COC</td></tr>
+    <tr><td><code>…-con-COC-con-FOTOS.xlsx</code></td><td>Todo lo anterior + las fotos colocadas · <strong>este es el bueno</strong></td></tr>
+  </table>
+  </div>
+  <p class="peq">Los intermedios se quedan ahí a propósito: si algo sale mal siempre puedes volver al paso anterior sin repetir todo. Cuando el expediente esté cerrado, puedes borrarlos sin problema.</p>
+
+  <h2 id="carpeta">2 · La carpeta de cada camión</h2>
+  <p>Cada camión tiene <strong>una carpeta propia</strong> dentro de la carpeta raíz de camiones, y dentro van siempre las mismas cinco subcarpetas:</p>
+  <div class="arbol"><b>CARROCERO-CLIENTE</b>   <i>(ejemplo: LLUCH-ECOFÉRETROS)</i>
+├── <b>01-entrada</b>              <i>← aquí dejas el PDF del COC / ficha técnica</i>
+├── <b>02-fotos</b>                <i>← aquí dejas las fotos del vehículo</i>
+├── <b>03-calculos-trailerwin</b>  <i>← tus cálculos, el sistema no los toca</i>
+├── <b>04-excel</b>                <i>← aquí aparecen solos los Excel generados</i>
+└── <b>05-archivos-generados</b>   <i>← documentos finales</i></div>
+
+  <div class="avisa">
+    <strong>El nombre de la carpeta es lo que empareja el camión con su fila del formulario.</strong> El sistema busca el carrocero y el cliente del formulario dentro del nombre de la carpeta. Por eso:
+    <ul style="margin-bottom:0">
+      <li>El nombre debe contener <strong>el carrocero y el cliente final</strong>, escritos como en el formulario (acentos, guiones y mayúsculas dan igual).</li>
+      <li><strong>No puede haber dos carpetas que encajen con la misma fila.</strong> Si las hay, el sistema se detiene y no procesa ese camión — prefiere parar antes que meter datos en el expediente equivocado.</li>
+    </ul>
+  </div>
+  <div class="nota" style="margin-bottom:0">Si no creas tú la carpeta, no pasa nada: <strong>la pasada 1 la crea sola</strong> con sus cinco subcarpetas en cuanto le llega la fila del formulario. Lo más cómodo es dejar que la cree él y luego ir soltando ahí el COC y las fotos.</div>
+
+  <h2 id="fotos">3 · Las fotos: nombres exactos</h2>
+  <p>Esta es <strong>la parte donde más fácil es equivocarse</strong>, y la única que depende al 100% de ti. El sistema coloca cada foto en su hueco <strong>por el nombre del archivo</strong>. Si el nombre no lo reconoce, la foto no se inserta (te avisa, pero no la coloca).</p>
+  <div class="tabla-scroll">
+  <table>
+    <tr><th>Llama al archivo…</th><th>Y va a…</th><th>También vale</th></tr>
+    <tr><td><code>placa-fabricante.jpg</code></td><td>Placa de fabricante de 1ª fase</td><td>cualquier nombre con <em>placa</em></td></tr>
+    <tr><td><code>placa-fabricante-2-fase.jpg</code></td><td>Placa de fabricante de 2ª fase</td><td><em>placa</em> + un <em>2</em> (ej. <em>placa 2ª fase</em>)</td></tr>
+    <tr><td><code>bastidor.jpg</code></td><td>Número de bastidor / VIN</td><td><em>vin</em></td></tr>
+    <tr><td><code>reformado.jpg</code></td><td>Croquis del reformado <em>(se coloca en dos sitios)</em></td><td><em>croquis</em></td></tr>
+    <tr><td><code>reparto.jpg</code></td><td>Reparto de pesos</td><td>—</td></tr>
+    <tr><td><code>delantera.jpg</code></td><td>Vista delantera</td><td><em>frontal</em></td></tr>
+    <tr><td><code>lateral-izquierda.jpg</code></td><td>Lateral izquierdo</td><td><em>lateral</em> + <em>izq</em></td></tr>
+    <tr><td><code>lateral-derecha.jpg</code></td><td>Lateral derecho</td><td><em>lateral</em> + <em>der</em></td></tr>
+    <tr><td><code>trasera.jpg</code></td><td>Vista trasera</td><td>—</td></tr>
+  </table>
+  </div>
+
+  <h3>Cuatro reglas para no fallar</h3>
+  <ul>
+    <li><strong>Formatos:</strong> <code>.jpg</code>, <code>.jpeg</code> o <code>.png</code>. Nada de HEIC del iPhone ni PDF.</li>
+    <li><strong>Una foto por hueco.</strong> Si hay dos que encajan en el mismo sitio, no es predecible cuál gana.</li>
+    <li><strong>Cuidado con los duplicados de Drive.</strong> Un archivo llamado <code>placa-fabricante (2).jpg</code> tiene "placa" y un "2", así que <strong>se iría al hueco de la placa de 2ª fase</strong>. Si subes una foto dos veces, borra la copia antes de que pase el sistema.</li>
+    <li><strong>Los acentos y las mayúsculas dan igual</strong> (<code>REFORMADO.JPG</code> funciona), pero las palabras clave de la tabla tienen que estar.</li>
+  </ul>
+  <div class="ok" style="margin-bottom:0"><strong>Truco:</strong> renombra las fotos en el móvil justo después de hacerlas, antes de subirlas. Es más rápido que hacerlo luego en Drive y evita que se te cuele una foto sin colocar.</div>
+
+  <h2 id="coc">4 · El COC: dónde va y cómo debe estar</h2>
+  <div class="card">
+    <ul>
+      <li><strong>Dónde:</strong> el PDF va en <code>01-entrada</code>, dentro de la carpeta del camión. El nombre del archivo <strong>da igual</strong>.</li>
+      <li><strong>Cuántos:</strong> deja <strong>un solo PDF</strong>. Si hay varios, el sistema usa el primero por orden alfabético y te lo avisa — pero es mejor no jugársela.</li>
+      <li><strong>Qué conviene que lleve:</strong> lo ideal es <strong>el COC y la ficha técnica española juntos</strong> en el mismo PDF. Cuando tiene los dos, contrasta uno con otro para resolver las dudas de lectura del escaneo (el clásico 1 que parece L, o el 5 que parece 8), y en caso de conflicto manda la ficha española.</li>
+      <li><strong>Calidad:</strong> es un escaneo y se lee como tal. Cuanto más limpio, menos campos dudosos. Si una cifra está borrosa, el sistema <strong>no se la inventa</strong>: escribe <code>---</code> y tú la completas.</li>
+    </ul>
+    <div class="nota" style="margin-bottom:0">Esa es la regla de oro con la que está montado: <strong>ante la duda, deja el hueco vacío</strong>. Prefiere que veas un <code>---</code> y lo rellenes a que te cuele un número inventado en un expediente que vas a firmar.</div>
+  </div>
+
+  <h2 id="semaforo">5 · El semáforo: las tres columnas de control</h2>
+  <p>En la hoja de respuestas del formulario hay tres columnas que son <strong>el mando a distancia del sistema</strong>. Una por pasada:</p>
+  <div class="semaforo">
+    <div class="sem"><div class="t">TRAMITADO</div><div class="d">El Excel del vehículo ya está generado</div></div>
+    <div class="sem"><div class="t">COC</div><div class="d">Los datos del COC ya están volcados</div></div>
+    <div class="sem"><div class="t">FOTOS</div><div class="d">Las fotos ya están colocadas</div></div>
+  </div>
+  <p>La regla es simple: <strong>«Sí» significa hecho, cualquier otra cosa (vacío, «No») significa pendiente.</strong> El sistema las rellena solo cuando termina cada pasada. Y como las controlas tú, también son la forma de pedirle que repita algo — que es justo lo siguiente.</p>
+
+  <h2 id="rehacer">6 · Cómo rehacer algo que ha salido mal</h2>
+  <p>Rehacer siempre es lo mismo: <strong>quitar el «Sí» de la columna correspondiente y quitar de en medio el archivo viejo</strong>. En la siguiente pasada lo vuelve a hacer desde cero.</p>
+
+  <h3>Caso A · Las fotos han salido mal o faltaba alguna</h3>
+  <ol class="pasos">
+    <li>Corrige lo que falle en <code>02-fotos</code> (renombra la que no se colocó, añade la que faltaba, borra duplicados).</li>
+    <li>En <code>04-excel</code>, <strong>borra el archivo terminado en <code>-con-FOTOS</code></strong>.</li>
+    <li>En la hoja, <strong>borra el «Sí» de la columna FOTOS</strong> de esa fila.</li>
+  </ol>
+  <p class="peq">En unos minutos aparece un <code>-con-FOTOS</code> nuevo, hecho sobre la versión más completa que exista.</p>
+
+  <h3>Caso B · El COC se ha leído mal</h3>
+  <ol class="pasos">
+    <li>Si el problema era el PDF (escaneo malo, documento equivocado), <strong>sustitúyelo</strong> en <code>01-entrada</code> y deja solo el bueno.</li>
+    <li>En <code>04-excel</code>, borra el <code>-con-COC</code> y también el <code>-con-COC-con-FOTOS</code> si ya existía.</li>
+    <li>En la hoja, borra el «Sí» de la columna <strong>COC</strong> — y también el de <strong>FOTOS</strong> si habías borrado el archivo con fotos, para que las vuelva a poner encima.</li>
+  </ol>
+
+  <h3>Caso C · Hay que rehacer el Excel entero</h3>
+  <div class="avisa">
+    <strong>Este es el único que pide un poco de cuidado.</strong> Antes de nada, <strong>saca de <code>04-excel</code> todos los Excel viejos de ese camión</strong> (bórralos o muévelos a otra carpeta). Si dejas dos Excel base conviviendo, las pasadas siguientes pueden coger el que no es.
+  </div>
+  <ol class="pasos">
+    <li>Corrige lo que estuviera mal en la fila del formulario.</li>
+    <li>Vacía <code>04-excel</code> de ese camión (todos: el base, el <code>-con-COC</code> y el <code>-con-FOTOS</code>).</li>
+    <li>Borra el «Sí» de las <strong>tres</strong> columnas: TRAMITADO, COC y FOTOS.</li>
+  </ol>
+  <p class="peq">El sistema rehará el expediente completo en tres pasadas seguidas, sin que tengas que volver a subir ni el COC ni las fotos: siguen donde estaban.</p>
+
+  <div class="ok" style="margin-bottom:0"><strong>Puedes repetir las veces que quieras.</strong> Nada de esto es destructivo: el COC y las fotos originales no se tocan nunca, y cada pasada genera archivo nuevo. Si te lías, borra todos los Excel del camión y vacía las tres columnas: vuelves al punto de partida.</div>
+
+  <h2 id="revisar">7 · Lo que hay que revisar a mano SIEMPRE</h2>
+  <div class="stop">
+    <strong>Esta es la sección importante del manual.</strong> El sistema te ahorra el trabajo mecánico, pero <strong>el expediente lo firmas tú</strong>. Hay cuatro puntos que hay que mirar en cada camión antes de dar nada por bueno.
+  </div>
+
+  <h3>a) Los anchos de vía — casi siempre vendrán vacíos</h3>
+  <p>Los anchos de vía por eje <strong>no suelen venir en el COC</strong>, así que aparecerán como <code>---</code>. Es correcto y es deliberado: <strong>se miden con metro</strong>. Son tuyos, hay que ponerlos a mano.</p>
+
+  <h3>b) La fecha de homologación</h3>
+  <p>Es la fecha del <em>granted on</em> de la homologación de tipo, no la de fabricación ni la de emisión del documento. En escaneos regulares es un campo que se presta a confusión, y ya hemos visto un caso donde el documento y tu expediente no coincidían. <strong>Compruébala.</strong></p>
+
+  <h3>c) La longitud</h3>
+  <p>Sale del punto 5.1 del COC, que suele ser de los más borrosos del escaneo. Un dígito mal leído aquí se arrastra a todo el expediente. <strong>Contrástala con la ficha.</strong></p>
+
+  <h3>d) Todos los campos que pongan <code>---</code></h3>
+  <p>Cada <code>---</code> es el sistema diciéndote <em>«esto no lo tengo claro y no me lo invento»</em>. Repásalos todos: unos serán normales (las vías) y otros indicarán que ese dato no se leyó bien y hay que buscarlo.</p>
+
+  <div class="nota">
+    <strong>Un detalle del voladizo posterior:</strong> se toma del <strong>punto 12.1 del COC</strong> (voladizo máximo autorizado), no del voladizo carrozable de la ficha española. Son dos números distintos que es fácil confundir — lo dejamos fijado así a propósito.
+  </div>
+  <div class="avisa" style="margin-bottom:0">
+    <strong>Las observaciones del formulario no se vuelcan todavía.</strong> Si escribes algo en el campo de observaciones, <strong>no aparecerá en el Excel</strong>: hay que copiarlo a mano. Está pendiente de rediseño contigo — queremos decidir juntos dónde deben aterrizar.
+  </div>
+
+  <h2 id="nunca">8 · Lo que el sistema nunca toca</h2>
+  <div class="card">
+    <ul style="margin-bottom:0">
+      <li><strong>La plantilla maestra</strong>. Solo se lee, jamás se escribe. Cada camión recibe una copia nueva. Hay incluso una comprobación que aborta la operación si detecta que un archivo es la plantilla.</li>
+      <li><strong>Tus fórmulas.</strong> El fabricante y su dirección son fórmulas del libro y se respetan; el sistema empieza a escribir justo después.</li>
+      <li><strong>El resto de pestañas.</strong> Solo se escribe en las que corresponden a cada pasada. Las 26 pestañas del libro, sus fórmulas y sus notas de color se quedan como están.</li>
+      <li><strong>Tus originales.</strong> El PDF del COC y las fotos no se modifican, ni se mueven, ni se renombran.</li>
+      <li><strong>La carpeta <code>03-calculos-trailerwin</code></strong>: es tuya, el sistema ni la mira.</li>
+    </ul>
+  </div>
+
+  <h2 id="nosale">9 · Si un camión no se procesa: diagnóstico rápido</h2>
+  <p>Cuando un camión se queda parado casi siempre es una de estas cinco cosas:</p>
+  <div class="tabla-scroll">
+  <table>
+    <tr><th>Síntoma</th><th>Causa más probable</th><th>Solución</th></tr>
+    <tr><td>No se genera nada</td><td>La columna ya está en «Sí»</td><td>Bórralo para que lo repita</td></tr>
+    <tr><td>No encuentra la carpeta</td><td>El nombre no contiene el carrocero o el cliente tal y como están en el formulario</td><td>Renombra la carpeta</td></tr>
+    <tr><td>Se detiene sin hacer nada</td><td>Dos carpetas encajan con la misma fila</td><td>Renombra o retira la que sobre</td></tr>
+    <tr><td>El COC no se procesa</td><td>No hay PDF en <code>01-entrada</code>, o el Excel base aún no existe</td><td>Sube el PDF / espera a la pasada 1</td></tr>
+    <tr><td>Faltan fotos en el Excel</td><td>Nombres no reconocidos</td><td>Renómbralas según la tabla del punto 3</td></tr>
+  </table>
+  </div>
+  <p class="peq">El sistema deja constancia de por qué ha descartado cada camión, así que si algo se atasca podemos ver el motivo exacto sin adivinar. Si un camión se queda parado y no ves por qué, dínoslo y lo miramos.</p>
+
+  <h2 id="confirmar">10 · Lo que necesitamos que nos confirmes</h2>
+  <div class="card">
+    <ul style="margin-bottom:0">
+      <li><strong>La foto de la placa de 2ª fase:</strong> aún no teníamos ningún ejemplo tuyo con esa foto puesta, así que hemos elegido su sitio junto al cuadro del formato de placa. <strong>Confírmanos si va ahí</strong> o prefieres otra posición.</li>
+      <li><strong>El nombre de las carpetas:</strong> hoy usamos <em>carrocero + cliente</em>. Si tenéis número de expediente, sería más robusto meterlo también — ¿lo añadimos al formulario?</li>
+      <li><strong>Los nombres de las fotos:</strong> ¿los de la tabla del punto 3 te encajan, o los llamáis de otra forma en el día a día? Se adaptan en cinco minutos.</li>
+      <li><strong>Las observaciones:</strong> ¿dónde quieres que aparezcan en el Excel?</li>
+      <li><strong>Dos datos del IVECO de prueba</strong> que no nos cuadran y queremos entender: la fecha de homologación y la longitud, donde tu expediente y el COC escaneado no dicen lo mismo.</li>
+    </ul>
+  </div>
+
+  <p class="peq" style="margin-top:26px">Este manual se actualizará según vayamos ajustando el sistema contigo. Cualquier duda, o si algo no se comporta como aquí se describe, escríbeme y lo revisamos.</p>
+
+  <footer>
+    <span class="fmarca">Código AdrIA</span> · Automatiza con cabeza · ricardo@codigoadria.com · codigoadria.com<br>
+    Manual de uso · Sistema de expedientes de camiones · 20 de julio de 2026 · Documento privado para INGESERVICE VALENCIA (enlace no listado)
+  </footer>
+</div>
+</body>
+</html>
