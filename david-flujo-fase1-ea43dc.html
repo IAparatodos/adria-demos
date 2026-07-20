@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boceto flujo Fase 1 · INGESERVICE · Código AdrIA</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --turquesa:#4dd2d0;--petroleo:#3f6f7b;--profundo:#102e35;
+    --crema:#f5fbfb;--gris:#5b6b6e;--linea:#d9e8e8;
+    --david:#e0a04b;--auto:#4dd2d0;--out:#3fbf8f;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Poppins',system-ui,sans-serif;margin:0;background:var(--crema);color:var(--profundo);font-weight:300}
+  header{background:linear-gradient(135deg,var(--profundo),var(--petroleo));color:#fff;padding:30px 22px 26px}
+  header .inner{max-width:1080px;margin:0 auto}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--turquesa);font-weight:600}
+  header h1{margin:6px 0 4px;font-size:24px;font-weight:600}
+  header .meta{font-size:13.5px;color:#cfe6e6}
+  .draft{display:inline-block;background:var(--david);color:#3a2a08;font-size:11px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-top:10px}
+  .wrap{max-width:1080px;margin:0 auto;padding:26px 22px 80px}
+
+  .legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;margin-bottom:26px;color:var(--gris)}
+  .legend .tag{display:inline-flex;align-items:center;gap:7px}
+  .swatch{width:14px;height:14px;border-radius:4px;flex:none}
+  .s-david{background:var(--david)}.s-auto{background:var(--auto)}.s-out{background:var(--out)}
+
+  .flow{display:flex;flex-direction:column;align-items:center;gap:0}
+  .step{
+    width:100%;max-width:640px;background:#fff;border:1px solid var(--linea);border-left:6px solid var(--auto);
+    border-radius:12px;padding:15px 20px;box-shadow:0 1px 3px rgba(16,46,53,.05);position:relative;
+  }
+  .step.david{border-left-color:var(--david)}
+  .step.out{border-left-color:var(--out)}
+  .step .n{position:absolute;left:-14px;top:-12px;width:30px;height:30px;border-radius:50%;
+    background:var(--petroleo);color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .step h3{margin:0 0 4px;font-size:15.5px;font-weight:600}
+  .step p{margin:0;font-size:13.5px;color:var(--gris);line-height:1.5}
+  .step .who{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+  .who.wd{color:var(--david)}.who.wa{color:var(--petroleo)}.who.wo{color:var(--out)}
+  .arrow{width:2px;height:26px;background:var(--linea);position:relative}
+  .arrow::after{content:'';position:absolute;bottom:0;left:-4px;border:5px solid transparent;border-top-color:var(--linea)}
+
+  .fork{width:100%;max-width:640px;display:flex;gap:14px}
+  .fork .step{max-width:none}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .tab{font-size:11.5px;font-weight:500;background:var(--crema);border:1px solid var(--linea);border-radius:6px;padding:3px 9px}
+  .pdfs{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+  .pdf{font-size:11.5px;font-weight:500;background:#eafaf4;border:1px solid #cdeede;color:#2c8f6b;border-radius:6px;padding:3px 9px}
+
+  .note{max-width:640px;font-size:12.5px;color:var(--gris);font-style:italic;margin:8px auto 0}
+  .phase2{max-width:640px;margin:34px auto 0;background:#fbfaf5;border:1px solid #eee3c9;border-radius:12px;padding:16px 20px}
+  .phase2 h3{margin:0 0 8px;font-size:14px;color:#b3792a}
+  .phase2 ul{margin:0;padding-left:18px;font-size:13px;color:var(--gris)}
+  footer{text-align:center;font-size:12px;color:var(--gris);margin-top:40px}
+
+  /* Toolbar + edición */
+  .toolbar{position:sticky;top:0;z-index:20;background:rgba(245,251,251,.94);
+    backdrop-filter:blur(6px);border-bottom:1px solid var(--linea);
+    padding:10px 22px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .toolbar .status{font-size:12.5px;color:var(--gris);margin-left:auto}
+  button{font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;
+    border:1px solid var(--petroleo);background:#fff;color:var(--petroleo);
+    padding:7px 14px;border-radius:8px;transition:.15s}
+  button:hover{background:var(--petroleo);color:#fff}
+  button.primary{background:var(--turquesa);border-color:var(--turquesa);color:var(--profundo)}
+  button.primary:hover{background:#37c0be}
+  [contenteditable]{outline:none;border-radius:6px;transition:.15s}
+  [contenteditable]:hover{background:#f0f9f9}
+  [contenteditable]:focus{background:#eafafa;box-shadow:inset 0 0 0 2px var(--turquesa)}
+  .note-box{margin-top:10px;font-size:12.5px;color:var(--profundo);
+    background:#fffdf3;border:1px dashed var(--david);border-radius:8px;padding:8px 11px;min-height:20px}
+  .note-box:empty:before{content:'📝 Nota… (clic para escribir)';color:#c6a15c;font-style:italic}
+  .note-box:focus:before{content:''}
+
+  @media(max-width:620px){.fork{flex-direction:column}}
+  @media print{body{background:#fff}.step{box-shadow:none}.toolbar{display:none}
+    .note-box:empty{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="inner">
+    <div class="kicker">Código AdrIA — Boceto de flujo</div>
+    <h1>Fase 1 · Automatización toma de datos — camión / reforma</h1>
+    <div class="meta">Cliente: INGESERVICE VALENCIA S.L.P. (David Gómez) · 1 jul 2026</div>
+    <span class="draft">Borrador para validar con David</span>
+  </div>
+</header>
+
+<div class="toolbar">
+  <button class="primary" onclick="save()">💾 Guardar notas</button>
+  <button onclick="window.print()">🖨️ Imprimir / PDF</button>
+  <button onclick="resetAll()">↺ Descartar cambios</button>
+  <span class="status" id="status">Editable · escribe en las notas o en cualquier texto</span>
+</div>
+
+<div class="wrap">
+
+  <div class="legend">
+    <span class="tag"><span class="swatch s-david"></span> Lo aporta / hace David</span>
+    <span class="tag"><span class="swatch s-auto"></span> Automatización (N8N + IA) — Código AdrIA</span>
+    <span class="tag"><span class="swatch s-out"></span> Salida / entregable</span>
+  </div>
+
+  <div class="flow">
+
+    <div class="step david"><span class="n">1</span>
+      <div class="who wd">David / carrocero</div>
+      <h3>Alta del vehículo — Formulario de Google</h3>
+      <p>El carrocero (o David) rellena el formulario de alta. Un cliente fuerte lo rellena solo con su enlace.</p>
+    </div>
+    <div class="arrow"></div>
+
+    <div class="step"><span class="n">2</span>
+      <div class="who wa">N8N — disparador</div>
+      <h3>Detecta el nuevo envío</h3>
+      <p>Al enviarse el formulario, N8N arranca el flujo automáticamente (además avisa a David / a la compañera).</p>
+    </div>
+    <div class="arrow"></div>
+
+    <div class="step"><span class="n">3</span>
+      <div class="who wa">N8N</div>
+      <h3>Duplica la plantilla Excel en blanco</h3>
+      <p>Copia la plantilla maestra (nunca se toca la original) para este vehículo.</p>
+    </div>
+    <div class="arrow"></div>
+
+    <div class="step"><span class="n">4</span>
+      <div class="who wa">N8N</div>
+      <h3>Renombra por Nº de bastidor (17 dígitos)</h3>
+      <p>Identificador único → sin duplicados ni confusiones a lo largo de los años. Es la clave de todo el flujo.</p>
+    </div>
+    <div class="arrow"></div>
+
+    <div class="step"><span class="n">5</span>
+      <div class="who wa">N8N + IA</div>
+      <h3>Rellena las 3 pestañas del Excel</h3>
+      <p>Vuelca los datos en su sitio, sin copiar-pegar a mano:</p>
+      <div class="tabs">
+        <span class="tab">📋 Respuestas — del formulario</span>
+        <span class="tab">🤖 Datos COC — IA extrae ~56 campos del certificado</span>
+        <span class="tab">🧮 Datos — cálculos finales</span>
+      </div>
+    </div>
+    <div class="arrow"></div>
+
+    <div class="step"><span class="n">6</span>
+      <div class="who wa">N8N</div>
+      <h3>Inserta las fotos en su celda</h3>
+      <p>Bastidor, placa del fabricante… por convención de nombre y celda exacta (ej. B590). Flexible: las fotos pueden llegar más tarde.</p>
+    </div>
+    <div class="arrow"></div>
+
+    <div class="step out"><span class="n">7</span>
+      <div class="who wo">Salida</div>
+      <h3>Guarda en Dropbox «trabajos entrantes»</h3>
+      <p>En la carpeta del vehículo (nombrada por bastidor). La compañera ya puede trabajar aunque David esté en campo.</p>
+    </div>
+    <div class="arrow"></div>
+
+    <div class="step david"><span class="n">8</span>
+      <div class="who wd">David / revisión</div>
+      <h3>Revisión humana de campos críticos</h3>
+      <p>Sobre todo el Nº de bastidor. La automatización acelera, pero la validación final es de David.</p>
+    </div>
+    <div class="arrow"></div>
+
+    <div class="step out"><span class="n">9</span>
+      <div class="who wo">Salida</div>
+      <h3>Genera los 4 PDFs y firma</h3>
+      <p>Del Excel salen los documentos y se firman en remoto desde el móvil (Autofirma controlando el PC) — ya probado.</p>
+      <div class="pdfs">
+        <span class="pdf">PDF 1</span><span class="pdf">PDF 2</span><span class="pdf">PDF 3</span><span class="pdf">PDF 4</span>
+        <span class="pdf">✍️ Firma remota</span>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="note">⚠️ Los nombres de las 3 pestañas, las celdas exactas de fotos/valores y los 4 PDFs de salida están <b>por confirmar con David</b> — es justo lo que aporta él (plantilla + ejemplos). Este boceto es el mapa para validar en la próxima.</p>
+
+  <div class="phase2">
+    <h3>⏭️ Fuera de la Fase 1 (aplazado)</h3>
+    <ul>
+      <li>App de medición: escalar la foto por la distancia entre ejes para sacar cotas sin ir a medir.</li>
+      <li>Castillos hinchables: app para generar PDFs + firma.</li>
+      <li>Facturación automática · Notas de voz para rellenar el formulario.</li>
+    </ul>
+  </div>
+
+  <footer>
+    Código AdrIA · codigoadria.com · ricardo@codigoadria.com — Boceto sujeto a validación con David
+  </footer>
+
+</div>
+
+<script>
+  const KEY='ingeservice-flujo-fase1';
+
+  // 1) hacer editables los textos existentes
+  document.querySelectorAll('.step h3, .step p, .phase2 li, .phase2 h3, .note').forEach(el=>{
+    el.setAttribute('contenteditable','true');
+  });
+  // 2) añadir una caja de nota a cada paso
+  document.querySelectorAll('.step').forEach(step=>{
+    const nb=document.createElement('div');
+    nb.className='note-box';
+    nb.setAttribute('contenteditable','true');
+    step.appendChild(nb);
+  });
+  // 3) una nota general al final de la zona de pasos
+  const flow=document.querySelector('.flow');
+  const gen=document.createElement('div');
+  gen.className='step';gen.style.maxWidth='640px';gen.style.marginTop='24px';gen.style.borderLeftColor='var(--petroleo)';
+  gen.innerHTML='<h3 contenteditable="true">Notas generales</h3><div class="note-box" contenteditable="true"></div>';
+  flow.appendChild(gen);
+
+  // guardado
+  let isDirty=false;
+  const setStatus=t=>document.getElementById('status').textContent=t;
+  const dirty=()=>{isDirty=true;setStatus('Cambios sin guardar…');};
+  const editables=()=>document.querySelectorAll('[contenteditable]');
+  editables().forEach(el=>el.addEventListener('input',dirty));
+
+  function save(){
+    const data={};
+    editables().forEach((el,i)=>data[i]=el.innerHTML);
+    localStorage.setItem(KEY,JSON.stringify(data));
+    isDirty=false;setStatus('✔ Guardado en este navegador · '+new Date().toLocaleTimeString('es-ES'));
+  }
+  function load(){
+    const raw=localStorage.getItem(KEY);if(!raw)return;
+    try{
+      const data=JSON.parse(raw);const els=editables();
+      Object.entries(data).forEach(([i,h])=>{if(els[i])els[i].innerHTML=h;});
+      setStatus('✔ Cargadas tus notas guardadas');
+    }catch(e){}
+  }
+  function resetAll(){
+    if(confirm('¿Descartar las notas guardadas y volver al boceto original?')){
+      localStorage.removeItem(KEY);location.reload();
+    }
+  }
+  window.addEventListener('beforeunload',e=>{if(isDirty){e.preventDefault();e.returnValue='';}});
+  load();
+</script>
+</body>
+</html>
