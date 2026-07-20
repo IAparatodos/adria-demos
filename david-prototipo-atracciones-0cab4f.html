@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoja de toma de datos — Atracciones de niños (BORRADOR)</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--turquesa:#4dd2d0;--petroleo:#3f6f7b;--profundo:#102e35;--bg:#f4f6f7;--mut:#6b7280;--soft:#e9f7f6;--line:#dbe2e4;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);font-family:"Poppins","Segoe UI",Arial,sans-serif;color:var(--profundo);padding:28px 14px;}
+  .wrap{max-width:880px;margin:0 auto;}
+  .card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;box-shadow:0 6px 24px rgba(16,46,53,.06);}
+  .head{background:var(--petroleo);border-bottom:4px solid var(--turquesa);color:#fff;padding:22px 26px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:8px;}
+  .head h1{margin:0;font-size:20px;font-weight:700;}
+  .head .exp{font-size:13px;opacity:.92;}
+  .draft{background:#fff4d6;border-bottom:1px solid #f0e2b0;color:#7a5b00;font-size:12.5px;padding:10px 26px;}
+  .sec{padding:18px 26px;border-bottom:1px solid #f0f3f4;}
+  .sec h2{font-size:14px;color:var(--petroleo);margin:0 0 14px;text-transform:uppercase;letter-spacing:.4px;border-left:3px solid var(--turquesa);padding-left:9px;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;}
+  .grid.three{grid-template-columns:1fr 1fr 1fr;}
+  .f{display:flex;flex-direction:column;gap:4px;}
+  .f.full{grid-column:1 / -1;}
+  label{font-size:12px;font-weight:600;color:var(--mut);}
+  input,select,textarea{font-family:inherit;font-size:13.5px;color:var(--profundo);border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:#fbfdfd;width:100%;}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--turquesa);box-shadow:0 0 0 3px rgba(77,210,208,.18);}
+  textarea{min-height:64px;resize:vertical;}
+  table{width:100%;border-collapse:collapse;}
+  th,td{font-size:13px;text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);}
+  th{color:var(--mut);font-size:11.5px;text-transform:uppercase;letter-spacing:.3px;}
+  .estado{display:flex;gap:14px;}
+  .estado label{font-weight:500;color:var(--profundo);display:flex;gap:4px;align-items:center;font-size:12.5px;}
+  .firma{height:70px;border:1px dashed var(--line);border-radius:8px;background:#fbfdfd;}
+  .bar{padding:16px 26px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  button{background:var(--turquesa);color:var(--profundo);font-weight:600;font-family:inherit;font-size:14px;border:none;border-radius:9px;padding:10px 18px;cursor:pointer;}
+  button.s{background:#fff;border:1.5px solid var(--petroleo);color:var(--petroleo);}
+  .hint{font-size:12px;color:var(--mut);margin:0;}
+  .foot{padding:12px 26px;font-size:11px;color:#9aa3a7;border-top:1px solid #eef1f2;}
+  @media print{body{background:#fff;padding:0;} .card{box-shadow:none;border:none;} .bar{display:none;} .draft{background:#fff;color:#7a5b00;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<form class="card">
+  <div class="head">
+    <h1>Hoja de toma de datos · ATRACCIONES DE NIÑOS</h1>
+    <div class="exp">Expediente nº <input style="width:120px;display:inline-block;padding:3px 8px;" placeholder="____"></div>
+  </div>
+  <div class="draft">⚠️ <b>BORRADOR</b> — campos provisionales basados en inspección de seguridad de atracciones infantiles. A validar con David y con un acta/certificado real de ejemplo (y la normativa que aplique).</div>
+
+  <div class="sec">
+    <h2>Datos de la inspección</h2>
+    <div class="grid three">
+      <div class="f"><label>Fecha</label><input type="date"></div>
+      <div class="f"><label>Técnico inspector</label><input placeholder="Nombre del técnico"></div>
+      <div class="f"><label>Ubicación / recinto</label><input placeholder="Feria, parque, localidad"></div>
+      <div class="f"><label>Tipo de inspección</label><select><option value="">—</option><option>Inicial (tras montaje)</option><option>Periódica</option><option>Extraordinaria</option></select></div>
+      <div class="f"><label>Normativa de referencia</label><input placeholder="p. ej. UNE-EN 13814 / a confirmar"></div>
+      <div class="f"><label>Nº de acta</label><input></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Datos de la atracción</h2>
+    <div class="grid">
+      <div class="f"><label>Nombre / tipo de atracción</label><input placeholder="Camas elásticas, hinchable, tiovivo…"></div>
+      <div class="f"><label>Fabricante</label><input></div>
+      <div class="f"><label>Año de fabricación</label><input type="number"></div>
+      <div class="f"><label>Nº de serie</label><input></div>
+      <div class="f"><label>Titular / operador</label><input></div>
+      <div class="f"><label>Contacto operador</label><input></div>
+      <div class="f"><label>Capacidad (nº de niños)</label><input type="number"></div>
+      <div class="f"><label>Edad / altura recomendada</label><input placeholder="p. ej. 3-12 años"></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Verificación de seguridad</h2>
+    <table>
+      <tr><th>Punto de inspección</th><th style="width:230px;">Estado</th></tr>
+      <tr><td>Anclajes / lastre / estabilidad</td><td><div class="estado"><label><input type="radio" name="a1">Apto</label><label><input type="radio" name="a1">No apto</label><label><input type="radio" name="a1">N/A</label></div></td></tr>
+      <tr><td>Estructura / soldaduras</td><td><div class="estado"><label><input type="radio" name="a2">Apto</label><label><input type="radio" name="a2">No apto</label><label><input type="radio" name="a2">N/A</label></div></td></tr>
+      <tr><td>Elementos de retención (barras, cinturones)</td><td><div class="estado"><label><input type="radio" name="a3">Apto</label><label><input type="radio" name="a3">No apto</label><label><input type="radio" name="a3">N/A</label></div></td></tr>
+      <tr><td>Vallado / cerramiento perimetral</td><td><div class="estado"><label><input type="radio" name="a4">Apto</label><label><input type="radio" name="a4">No apto</label><label><input type="radio" name="a4">N/A</label></div></td></tr>
+      <tr><td>Superficie de impacto / amortiguación</td><td><div class="estado"><label><input type="radio" name="a5">Apto</label><label><input type="radio" name="a5">No apto</label><label><input type="radio" name="a5">N/A</label></div></td></tr>
+      <tr><td>Instalación eléctrica / toma de tierra</td><td><div class="estado"><label><input type="radio" name="a6">Apto</label><label><input type="radio" name="a6">No apto</label><label><input type="radio" name="a6">N/A</label></div></td></tr>
+      <tr><td>Parada de emergencia</td><td><div class="estado"><label><input type="radio" name="a7">Apto</label><label><input type="radio" name="a7">No apto</label><label><input type="radio" name="a7">N/A</label></div></td></tr>
+      <tr><td>Señalización y normas de uso</td><td><div class="estado"><label><input type="radio" name="a8">Apto</label><label><input type="radio" name="a8">No apto</label><label><input type="radio" name="a8">N/A</label></div></td></tr>
+    </table>
+  </div>
+
+  <div class="sec">
+    <h2>Mediciones</h2>
+    <div class="grid three">
+      <div class="f"><label>Altura de caída libre (mm)</label><input type="number"></div>
+      <div class="f"><label>Distancias de seguridad (mm)</label><input type="number"></div>
+      <div class="f"><label>Holguras / aberturas (mm)</label><input type="number"></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Defectos, fotos y observaciones</h2>
+    <div class="grid">
+      <div class="f full"><label>Defectos detectados (con gravedad: leve / grave / muy grave)</label><textarea></textarea></div>
+      <div class="f full"><label>Fotos adjuntas (descripción / nº)</label><input placeholder="p. ej. 1-Anclaje, 2-Retención, 3-Vista general…"></div>
+      <div class="f full"><label>Observaciones</label><textarea></textarea></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Resultado y firmas</h2>
+    <div class="grid">
+      <div class="f full"><label>Resultado</label><select><option value="">—</option><option>Apto</option><option>Apto con condiciones (subsanar)</option><option>No apto</option></select></div>
+      <div class="f"><label>Firma del técnico inspector</label><div class="firma"></div></div>
+      <div class="f"><label>Firma del operador</label><div class="firma"></div></div>
+    </div>
+  </div>
+
+  <div class="bar">
+    <button type="button" onclick="window.print()">Imprimir / Guardar PDF</button>
+    <button type="reset" class="s">Vaciar</button>
+    <p class="hint">Formulario editable. Imprime o guarda en PDF al terminar.</p>
+  </div>
+  <div class="foot">INGESERVICE VALENCIA S.L.P. · CIF B56174709 · c/ Raval 57, 46240 Carlet (Valencia) · Plantilla Código AdrIA · BORRADOR a validar</div>
+</form>
+</div>
+</body>
+</html>
