@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configuración de Hermes · Guía Detallada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --turq:#4dd2d0; --turq-d:#33b3b1; --petr:#3f6f7b; --petr-d:#2d5560;
+  --deep:#0e2329; --deep2:#081619; --paper:#f4fbfb; --white:#fff;
+  --ink:#12262b; --ink-soft:#5a7278; --line:#dcecec; --line-d:rgba(77,210,208,.20);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Poppins',-apple-system,sans-serif;background:#050d0f;color:var(--ink);-webkit-font-smoothing:antialiased;overflow:hidden}
+.deck{position:fixed;inset:0}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;padding:5.4vh 6vw 6vh;opacity:0;transition:opacity .35s ease;overflow-y:auto}
+.slide.active{display:flex;opacity:1}
+.slide.light{background:var(--paper);color:var(--ink)}
+.slide.dark{background:radial-gradient(130% 120% at 80% -10%,var(--petr),var(--deep) 55%,var(--deep2));color:#e9fbfb}
+.slide.turq{background:linear-gradient(135deg,var(--turq),var(--petr));color:#04181a}
+.kicker{font-size:clamp(10px,1.05vw,14px);font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--petr);margin-bottom:clamp(8px,1.4vh,16px);display:flex;align-items:center;gap:11px}
+.slide.dark .kicker{color:var(--turq)}
+.slide.turq .kicker{color:#05201f}
+.kicker::before{content:'';width:clamp(22px,2.6vw,40px);height:3px;border-radius:2px;background:currentColor}
+h1{font-weight:800;letter-spacing:-.03em;line-height:1.02;font-size:clamp(34px,6vw,84px)}
+h2{font-weight:800;letter-spacing:-.02em;line-height:1.05;font-size:clamp(24px,3.6vw,52px);margin-bottom:clamp(4px,1vh,10px)}
+.sub{font-size:clamp(13px,1.35vw,19px)}
+.lead{font-weight:300;color:var(--ink-soft);line-height:1.4}
+.slide.dark .lead{color:#a9d5d5}
+.accent{color:var(--turq-d)} .slide.dark .accent{color:var(--turq)}
+.chip{display:inline-block;font-size:clamp(9px,.9vw,12px);font-weight:700;letter-spacing:.04em;padding:3px 10px;border-radius:100px;background:rgba(63,111,123,.14);color:var(--petr);margin-left:8px;vertical-align:middle}
+.slide.dark .chip{background:rgba(77,210,208,.16);color:var(--turq)}
+.rows{display:grid;gap:clamp(9px,1.2vh,15px);margin-top:clamp(12px,2vh,24px)}
+.rows.two{grid-template-columns:1fr 1fr;gap:clamp(9px,1vw,16px)}
+.row{border-radius:14px;padding:clamp(11px,1.3vw,20px) clamp(13px,1.5vw,24px);background:var(--white);border:1px solid var(--line);box-shadow:0 6px 20px rgba(18,38,43,.05)}
+.slide.dark .row{background:rgba(77,210,208,.06);border-color:var(--line-d);box-shadow:none}
+.row .top{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:4px}
+.row h3{font-size:clamp(13px,1.35vw,20px);font-weight:700;letter-spacing:-.01em}
+.row .val{font-family:'Poppins';font-size:clamp(10px,1vw,13px);font-weight:700;color:var(--turq-d);background:rgba(77,210,208,.12);padding:2px 9px;border-radius:7px}
+.slide.dark .row .val{color:var(--turq)}
+.row p{font-size:clamp(11px,1.12vw,15px);color:var(--ink-soft);line-height:1.38}
+.slide.dark .row p{color:#a9d5d5}
+.row .ex{margin-top:5px;font-size:clamp(10px,1.05vw,14px);line-height:1.35;color:var(--petr);font-weight:500}
+.slide.dark .row .ex{color:#7fd6d5}
+.row .ex b{color:var(--turq-d);font-weight:700} .slide.dark .row .ex b{color:var(--turq)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.2vw,20px);margin-top:clamp(14px,2.4vh,30px)}
+.card{border-radius:16px;padding:clamp(14px,1.6vw,26px);background:var(--white);border:1px solid var(--line);box-shadow:0 8px 24px rgba(18,38,43,.06)}
+.slide.dark .card{background:rgba(77,210,208,.06);border-color:var(--line-d);box-shadow:none}
+.card .num{width:clamp(30px,2.7vw,44px);height:clamp(30px,2.7vw,44px);border-radius:11px;background:linear-gradient(135deg,var(--turq),var(--petr));color:#04181a;font-weight:900;font-size:clamp(14px,1.5vw,20px);display:flex;align-items:center;justify-content:center;margin-bottom:11px}
+.card h3{font-size:clamp(14px,1.5vw,21px);font-weight:700;margin-bottom:5px}
+.card p{font-size:clamp(11px,1.15vw,15px);color:var(--ink-soft);line-height:1.4}
+.slide.dark .card p{color:#a9d5d5}
+.foot{position:fixed;left:6vw;right:6vw;bottom:1.9vh;display:flex;align-items:center;gap:14px;font-size:clamp(10px,.95vw,13px);font-weight:600;letter-spacing:.04em;pointer-events:none;z-index:5}
+.foot .brand{color:var(--petr)} .slide-dark-active .foot .brand{color:var(--turq)}
+.foot .cnt{color:var(--ink-soft)}
+.bar{position:fixed;left:0;top:0;height:4px;background:linear-gradient(90deg,var(--turq),var(--petr));width:0;transition:width .35s ease;z-index:8}
+.navz{position:fixed;top:0;bottom:0;width:12vw;z-index:4;cursor:pointer}
+.navz.l{left:0} .navz.r{right:0}
+.hint{position:fixed;right:1.8vw;bottom:1.9vh;font-size:11px;color:#5a7278;z-index:6;font-weight:600}
+kbd{background:rgba(77,210,208,.2);border-radius:4px;padding:1px 6px;font-family:inherit;font-weight:800}
+.tag{display:inline-flex;gap:7px;flex-wrap:wrap;margin-top:clamp(14px,2.4vh,28px)}
+.tag span{font-size:clamp(10px,1.05vw,14px);font-weight:600;padding:5px 13px;border-radius:100px;background:rgba(63,111,123,.12);color:var(--petr)}
+.slide.dark .tag span{background:rgba(77,210,208,.1);color:#bfeaea}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-thumb{background:rgba(77,210,208,.35);border-radius:8px}
+@media(max-width:820px){.rows.two,.grid3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="deck" id="deck">
+
+  <!-- 0 · Portada -->
+  <section class="slide dark">
+    <div class="kicker">Hermes · Panel de configuración</div>
+    <div style="margin:auto 0">
+      <h1>Configuración de Hermes</h1>
+      <p class="lead" style="margin-top:18px;font-size:clamp(15px,1.7vw,24px)">Guía detallada de cada pestaña y cada función,<br>con ejemplos de uso del día a día.</p>
+      <div class="tag">
+        <span>Model</span><span>Chat</span><span>Appearance</span><span>Workspace</span><span>Safety</span>
+        <span>Memory &amp; Context</span><span>Voice</span><span>Advanced</span><span>Notifications</span>
+        <span>Providers</span><span>Gateway</span><span>Tools &amp; Keys</span><span>Archived Chats</span>
+      </div>
+      <p class="lead" style="margin-top:26px;font-size:clamp(12px,1.2vw,16px);opacity:.7">Generated by código AdrIA</p>
+    </div>
+  </section>
+
+  <!-- 1 · MODEL -->
+  <section class="slide light">
+    <div class="kicker">01 · Model</div>
+    <h2>Model <span class="chip">Modelo principal y auxiliares</span></h2>
+    <p class="lead sub">Define el cerebro de Hermes: el modelo que responde y los modelos de apoyo para tareas concretas.</p>
+    <div class="rows two">
+      <div class="row"><div class="top"><h3>Proveedor + Modelo</h3><span class="val">GitHub Copilot · gpt-4.1</span></div><p>El modelo principal para sesiones nuevas. Puedes cambiarlo en caliente desde el selector del chat.</p><p class="ex"><b>Ejemplo:</b> pon Claude para redactar y cambia a gpt-4.1 cuando programes, sin reiniciar nada.</p></div>
+      <div class="row"><div class="top"><h3>Apply / Defaults · Fast</h3><span class="val">toggle</span></div><p>«Apply» guarda el modelo para nuevas sesiones. «Fast» prioriza velocidad sobre profundidad.</p><p class="ex"><b>Ejemplo:</b> activa Fast para respuestas rápidas en tareas simples del día a día.</p></div>
+      <div class="row"><div class="top"><h3>Auxiliary models</h3><span class="val">Set to main · Change</span></div><p>Asigna un modelo distinto a cada tarea de apoyo: Vision, Web extract, Compression, Skills hub, Approval, MCP, Title gen y Curator.</p><p class="ex"><b>Ejemplo:</b> usa un modelo barato para generar títulos y otro potente para análisis de imágenes.</p></div>
+      <div class="row"><div class="top"><h3>Mixture of Agents</h3><span class="val">presets</span></div><p>Crea presets con varios modelos que actúan combinados bajo el proveedor «Mixture of Agents». El agregador es el modelo que decide.</p><p class="ex"><b>Ejemplo:</b> combina 3 modelos para comparar respuestas en decisiones críticas.</p></div>
+    </div>
+  </section>
+
+  <!-- 2 · CHAT -->
+  <section class="slide dark">
+    <div class="kicker">02 · Chat</div>
+    <h2>Chat <span class="chip">Comportamiento del asistente</span></h2>
+    <div class="rows two">
+      <div class="row"><div class="top"><h3>Personality</h3><span class="val">None</span></div><p>Estilo del asistente por defecto en sesiones nuevas.</p><p class="ex"><b>Ejemplo:</b> elige un tono «conciso» para trabajo y «amistoso» para uso personal.</p></div>
+      <div class="row"><div class="top"><h3>Timezone</h3><span class="val">Not set</span></div><p>Zona horaria que usa Hermes cuando necesita la hora local. En blanco usa la del sistema.</p><p class="ex"><b>Ejemplo:</b> fíjala si viajas y quieres que los recordatorios respeten tu hora de casa.</p></div>
+      <div class="row"><div class="top"><h3>Reasoning Blocks</h3><span class="val">off</span></div><p>Muestra las secciones de razonamiento cuando el modelo las proporciona.</p><p class="ex"><b>Ejemplo:</b> actívalo si quieres ver «cómo piensa» el modelo al depurar un problema.</p></div>
+      <div class="row"><div class="top"><h3>Image Attachments</h3><span class="val">Auto</span></div><p>Controla cómo se envían las imágenes adjuntas al modelo.</p><p class="ex"><b>Ejemplo:</b> déjalo en Auto; fuérzalo si un modelo concreto no procesa bien las imágenes.</p></div>
+    </div>
+  </section>
+
+  <!-- 3 · APPEARANCE -->
+  <section class="slide light">
+    <div class="kicker">03 · Appearance</div>
+    <h2>Appearance <span class="chip">Preferencias visuales del escritorio</span></h2>
+    <div class="rows two">
+      <div class="row"><div class="top"><h3>Language</h3><span class="val">English</span></div><p>Idioma de la interfaz de escritorio.</p><p class="ex"><b>Ejemplo:</b> cámbialo a Español para toda la app.</p></div>
+      <div class="row"><div class="top"><h3>Theme</h3><span class="val">Light · Dark · System</span></div><p>Paletas de escritorio: Midnight, Nous, Ember, Mono, Cyberpunk y Slate. Cada perfil guarda su propio tema.</p><p class="ex"><b>Ejemplo:</b> Cyberpunk (verde matrix) para grabar vídeo, Mono para concentrarte.</p></div>
+      <div class="row"><div class="top"><h3>Window Translucency</h3><span class="val">0%</span></div><p>Transparencia de la ventana para ver el escritorio detrás. Solo macOS y Windows.</p><p class="ex"><b>Ejemplo:</b> sube un poco para un look «glass» sin perder legibilidad.</p></div>
+      <div class="row"><div class="top"><h3>Tool Call Display</h3><span class="val">Product · Technical</span></div><p>«Product» oculta el payload crudo de las herramientas; «Technical» muestra entrada/salida completas.</p><p class="ex"><b>Ejemplo:</b> Technical al depurar; Product para una demo limpia.</p></div>
+      <div class="row"><div class="top"><h3>Inline Embeds</h3><span class="val">Ask · Always · Off</span></div><p>Previsualizaciones ricas de YouTube, X, etc. «Ask» pide permiso, «Always» carga solo, «Off» deja enlaces planos.</p><p class="ex"><b>Ejemplo:</b> Off si te preocupa la privacidad o el consumo de datos.</p></div>
+      <div class="row"><div class="top"><h3>Pet</h3><span class="val">Off · On</span></div><p>Mascota petdex animada que flota sobre la app y reacciona: corre al ejecutar, celebra al acertar y se enfada con errores.</p><p class="ex"><b>Ejemplo:</b> actívala para un toque divertido durante tareas largas.</p></div>
+    </div>
+  </section>
+
+  <!-- 4 · WORKSPACE -->
+  <section class="slide dark">
+    <div class="kicker">04 · Workspace</div>
+    <h2>Workspace <span class="chip">Ejecución y archivos</span></h2>
+    <div class="rows two">
+      <div class="row"><div class="top"><h3>Working Directory</h3><span class="val">.</span></div><p>Carpeta de proyecto por defecto para el trabajo con herramientas y terminal.</p><p class="ex"><b>Ejemplo:</b> apúntala a tu repo para que los comandos se ejecuten ahí directamente.</p></div>
+      <div class="row"><div class="top"><h3>Code Execution Mode</h3><span class="val">Project</span></div><p>Qué tan estrictamente se limita la ejecución de código al proyecto actual.</p><p class="ex"><b>Ejemplo:</b> Project para aislar cada repo y evitar tocar archivos fuera.</p></div>
+      <div class="row"><div class="top"><h3>Persistent Shell</h3><span class="val">on</span></div><p>Mantiene el estado del shell entre comandos cuando el backend lo soporta.</p><p class="ex"><b>Ejemplo:</b> actívalo para conservar un venv activado o variables exportadas.</p></div>
+      <div class="row"><div class="top"><h3>Environment Passthrough</h3><span class="val">comma-separated</span></div><p>Variables de entorno que se pasan a la ejecución de herramientas.</p><p class="ex"><b>Ejemplo:</b> añade <b>API_URL,DEBUG</b> para que tus scripts las reciban.</p></div>
+      <div class="row"><div class="top"><h3>File Read Limit</h3><span class="val">100000</span></div><p>Máximo de caracteres que Hermes puede leer en una sola petición de archivo.</p><p class="ex"><b>Ejemplo:</b> súbelo si trabajas con logs o CSV muy grandes.</p></div>
+    </div>
+  </section>
+
+  <!-- 5 · SAFETY -->
+  <section class="slide light">
+    <div class="kicker">05 · Safety</div>
+    <h2>Safety <span class="chip">Seguridad y aprobaciones</span></h2>
+    <div class="rows two">
+      <div class="row"><div class="top"><h3>Approval Mode</h3><span class="val">Manual</span></div><p>Cómo gestiona Hermes los comandos que requieren aprobación explícita.</p><p class="ex"><b>Ejemplo:</b> Manual para revisar cada comando peligroso antes de ejecutarlo.</p></div>
+      <div class="row"><div class="top"><h3>Approval Timeout</h3><span class="val">60</span></div><p>Segundos que espera un aviso de aprobación antes de expirar.</p><p class="ex"><b>Ejemplo:</b> súbelo si sueles tardar en revisar antes de aprobar.</p></div>
+      <div class="row"><div class="top"><h3>Confirm MCP Reloads</h3><span class="val">on</span></div><p>Pide confirmación al recargar servidores MCP.</p><p class="ex"><b>Ejemplo:</b> déjalo activo para evitar recargas accidentales de tus integraciones.</p></div>
+      <div class="row"><div class="top"><h3>Command Allowlist</h3><span class="val">comma-separated</span></div><p>Lista de comandos permitidos sin pedir aprobación.</p><p class="ex"><b>Ejemplo:</b> añade <b>ls,git status</b> para no aprobar comandos inofensivos.</p></div>
+      <div class="row"><div class="top"><h3>Redact Secrets</h3><span class="val">on</span></div><p>Oculta secretos detectados del contenido visible para el modelo cuando es posible.</p><p class="ex"><b>Ejemplo:</b> mantenlo activo para que tus API keys no lleguen al modelo.</p></div>
+      <div class="row"><div class="top"><h3>Allow / Browser Private URLs</h3><span class="val">off · off</span></div><p>Permite acceder a URLs privadas (IPs internas, localhost) desde herramientas y navegador.</p><p class="ex"><b>Ejemplo:</b> actívalo solo si necesitas que Hermes lea tu servidor local.</p></div>
+      <div class="row"><div class="top"><h3>Local Browser For Private URLs</h3><span class="val">on</span></div><p>Usa el navegador local para abrir URLs privadas.</p><p class="ex"><b>Ejemplo:</b> útil para probar un panel corriendo en tu propia máquina.</p></div>
+      <div class="row"><div class="top"><h3>File Checkpoints</h3><span class="val">off</span></div><p>Crea snapshots de rollback antes de editar archivos.</p><p class="ex"><b>Ejemplo:</b> actívalo para poder deshacer ediciones masivas si algo sale mal.</p></div>
+    </div>
+  </section>
+
+  <!-- 6 · MEMORY & CONTEXT -->
+  <section class="slide dark">
+    <div class="kicker">06 · Memory &amp; Context</div>
+    <h2>Memory &amp; Context <span class="chip">Memoria y contexto largo</span></h2>
+    <div class="rows two">
+      <div class="row"><div class="top"><h3>Persistent Memory</h3><span class="val">on</span></div><p>Guarda memorias duraderas que ayudan en sesiones futuras.</p><p class="ex"><b>Ejemplo:</b> Hermes recuerda tus preferencias sin que las repitas cada vez.</p></div>
+      <div class="row"><div class="top"><h3>User Profile</h3><span class="val">on</span></div><p>Mantiene un perfil compacto de tus preferencias.</p><p class="ex"><b>Ejemplo:</b> guarda tu rol, idioma y estilo de respuesta favorito.</p></div>
+      <div class="row"><div class="top"><h3>Memory / Profile Budget</h3><span class="val">2200 · 1375</span></div><p>Máximo de caracteres reservados para memoria y para el perfil.</p><p class="ex"><b>Ejemplo:</b> súbelos si quieres que recuerde más contexto a largo plazo.</p></div>
+      <div class="row"><div class="top"><h3>Memory Provider</h3><span class="val">(none)</span></div><p>Plugin proveedor de memoria (almacenamiento externo).</p><p class="ex"><b>Ejemplo:</b> conéctalo a un backend si quieres memoria compartida entre equipos.</p></div>
+      <div class="row"><div class="top"><h3>Context Engine</h3><span class="val">Compressor</span></div><p>Estrategia para gestionar conversaciones largas cerca del límite de contexto.</p><p class="ex"><b>Ejemplo:</b> Compressor resume lo viejo para no perder el hilo en chats largos.</p></div>
+      <div class="row"><div class="top"><h3>Auto-Compression</h3><span class="val">on</span></div><p>Resume el contexto antiguo cuando la conversación crece.</p><p class="ex"><b>Ejemplo:</b> déjalo activo en sesiones de trabajo largas.</p></div>
+      <div class="row"><div class="top"><h3>Compression Threshold / Target</h3><span class="val">0.5 · 0.2</span></div><p>Umbral de llenado que dispara la compresión y objetivo al que reduce.</p><p class="ex"><b>Ejemplo:</b> baja el umbral a 0.4 para comprimir antes en equipos con poca RAM de contexto.</p></div>
+      <div class="row"><div class="top"><h3>Protected Recent Messages</h3><span class="val">20</span></div><p>Mensajes recientes que nunca se comprimen.</p><p class="ex"><b>Ejemplo:</b> súbelo si necesitas que recuerde íntegro lo último que hablasteis.</p></div>
+    </div>
+  </section>
+
+  <!-- 7 · VOICE -->
+  <section class="slide light">
+    <div class="kicker">07 · Voice</div>
+    <h2>Voice <span class="chip">Voz y transcripción</span></h2>
+    <div class="rows two">
+      <div class="row"><div class="top"><h3>Text-To-Speech Provider</h3><span class="val">Edge</span></div><p>Motor que convierte texto en voz (Edge, ElevenLabs, OpenAI...).</p><p class="ex"><b>Ejemplo:</b> Edge es gratis; cambia a ElevenLabs para voces más naturales.</p></div>
+      <div class="row"><div class="top"><h3>Speech To Text</h3><span class="val">on</span></div><p>Activa la transcripción de voz local o vía proveedor.</p><p class="ex"><b>Ejemplo:</b> actívalo para dictar mensajes en vez de escribirlos.</p></div>
+      <div class="row"><div class="top"><h3>Echo Transcripts</h3><span class="val">on</span></div><p>Publica en el chat la transcripción cruda de tus mensajes de voz.</p><p class="ex"><b>Ejemplo:</b> útil para revisar que te ha entendido bien al dictar.</p></div>
+      <div class="row"><div class="top"><h3>Speech-To-Text Provider</h3><span class="val">Local</span></div><p>Backend que transcribe: local (privado) o en la nube.</p><p class="ex"><b>Ejemplo:</b> Local para que tu voz no salga de tu equipo.</p></div>
+      <div class="row"><div class="top"><h3>Read Responses Aloud</h3><span class="val">off</span></div><p>Lee automáticamente en voz alta las respuestas del asistente.</p><p class="ex"><b>Ejemplo:</b> actívalo para escuchar respuestas mientras haces otra cosa.</p></div>
+      <div class="row"><div class="top"><h3>Edge Voice</h3><span class="val">en-US-AriaNeural</span></div><p>Voz concreta del motor Edge.</p><p class="ex"><b>Ejemplo:</b> cámbiala a una voz en español para narración natural.</p></div>
+      <div class="row"><div class="top"><h3>Local Transcription Model</h3><span class="val">Base</span></div><p>Modelo Whisper local (Base, Small, Medium...).</p><p class="ex"><b>Ejemplo:</b> sube a un modelo mayor si tu audio tiene ruido o acentos.</p></div>
+      <div class="row"><div class="top"><h3>Transcription Language</h3><span class="val">Not set</span></div><p>Idioma forzado de transcripción. En blanco autodetecta.</p><p class="ex"><b>Ejemplo:</b> fíjalo en «es» para mejorar la precisión en español.</p></div>
+      <div class="row"><div class="top"><h3>Voice Shortcut</h3><span class="val">ctrl+b</span></div><p>Atajo de teclado para empezar a grabar voz.</p><p class="ex"><b>Ejemplo:</b> reasígnalo si choca con otro atajo que ya uses.</p></div>
+      <div class="row"><div class="top"><h3>Max Recording Length</h3><span class="val">120</span></div><p>Duración máxima de grabación en segundos.</p><p class="ex"><b>Ejemplo:</b> súbelo si dictas notas de voz largas.</p></div>
+    </div>
+  </section>
+
+  <!-- 8 · ADVANCED (a) -->
+  <section class="slide dark">
+    <div class="kicker">08 · Advanced · Ejecución</div>
+    <h2>Advanced <span class="chip">Backend, límites y recursos</span></h2>
+    <div class="rows two">
+      <div class="row"><div class="top"><h3>Enabled Toolsets</h3><span class="val">hermes-cli</span></div><p>Conjuntos de herramientas activados para el agente.</p><p class="ex"><b>Ejemplo:</b> limita los toolsets para reducir el coste de tokens del sistema.</p></div>
+      <div class="row"><div class="top"><h3>Execution Backend</h3><span class="val">Local</span></div><p>Backend donde se ejecuta el terminal (Local, Docker, Modal, Daytona, Singularity).</p><p class="ex"><b>Ejemplo:</b> usa Docker para aislar la ejecución del sistema real.</p></div>
+      <div class="row"><div class="top"><h3>Command Timeout</h3><span class="val">180</span></div><p>Segundos máximos por comando de terminal.</p><p class="ex"><b>Ejemplo:</b> súbelo para builds o instalaciones largas.</p></div>
+      <div class="row"><div class="top"><h3>Docker / Modal / Daytona / Singularity Image</h3><span class="val">nikolaik/python-nodejs</span></div><p>Imagen de contenedor usada según el backend elegido.</p><p class="ex"><b>Ejemplo:</b> cambia la imagen si tu proyecto necesita otras dependencias.</p></div>
+      <div class="row"><div class="top"><h3>Terminal Output Limit</h3><span class="val">50000</span></div><p>Máximo de caracteres capturados de la salida de terminal.</p><p class="ex"><b>Ejemplo:</b> súbelo si un comando genera logs muy extensos.</p></div>
+      <div class="row"><div class="top"><h3>File Page / Line Length Limit</h3><span class="val">2000 · 2000</span></div><p>Líneas por página al leer archivos y longitud máxima por línea.</p><p class="ex"><b>Ejemplo:</b> ajústalos para archivos con líneas muy largas (minificados).</p></div>
+      <div class="row"><div class="top"><h3>Checkpoint Limit</h3><span class="val">20</span></div><p>Número máximo de checkpoints de rollback guardados.</p><p class="ex"><b>Ejemplo:</b> súbelo si quieres más historial para deshacer.</p></div>
+      <div class="row"><div class="top"><h3>Max Agent Steps</h3><span class="val">60</span></div><p>Tope de turnos con herramientas antes de que Hermes pare la ejecución.</p><p class="ex"><b>Ejemplo:</b> súbelo para tareas complejas que requieren muchos pasos.</p></div>
+    </div>
+  </section>
+
+  <!-- 9 · ADVANCED (b) -->
+  <section class="slide dark">
+    <div class="kicker">08 · Advanced · API y subagentes</div>
+    <h2>Advanced <span class="chip">API, subagentes y actualización</span></h2>
+    <div class="rows two">
+      <div class="row"><div class="top"><h3>API Retries</h3><span class="val">3</span></div><p>Reintentos ante fallos transitorios de la API.</p><p class="ex"><b>Ejemplo:</b> súbelo si tu conexión es inestable.</p></div>
+      <div class="row"><div class="top"><h3>Service Tier</h3><span class="val">—</span></div><p>Nivel de servicio de la API (OpenAI/Anthropic).</p><p class="ex"><b>Ejemplo:</b> elige un tier prioritario si necesitas menor latencia.</p></div>
+      <div class="row"><div class="top"><h3>Tool-Use Enforcement</h3><span class="val">auto</span></div><p>Cómo se obliga al modelo a usar herramientas.</p><p class="ex"><b>Ejemplo:</b> déjalo en auto; fuérzalo si un modelo ignora las tools.</p></div>
+      <div class="row"><div class="top"><h3>Subagent Model / Provider</h3><span class="val">Not set</span></div><p>Modelo y proveedor para los subagentes delegados. En blanco heredan del principal.</p><p class="ex"><b>Ejemplo:</b> asigna un modelo barato a los subagentes para ahorrar.</p></div>
+      <div class="row"><div class="top"><h3>Subagent Turn Limit</h3><span class="val">50</span></div><p>Máximo de turnos por subagente.</p><p class="ex"><b>Ejemplo:</b> bájalo para que los subagentes no se extiendan demasiado.</p></div>
+      <div class="row"><div class="top"><h3>Parallel Subagents</h3><span class="val">3</span></div><p>Cuántos subagentes pueden trabajar en paralelo.</p><p class="ex"><b>Ejemplo:</b> súbelo para investigar varios temas a la vez.</p></div>
+      <div class="row"><div class="top"><h3>Subagent Timeout</h3><span class="val">0</span></div><p>Tiempo máximo por subagente (0 = sin límite).</p><p class="ex"><b>Ejemplo:</b> pon un límite para cortar subagentes que se atascan.</p></div>
+      <div class="row"><div class="top"><h3>Subagent Reasoning Effort</h3><span class="val">(none)</span></div><p>Esfuerzo de razonamiento para subagentes delegados.</p><p class="ex"><b>Ejemplo:</b> súbelo para subagentes que resuelven tareas difíciles.</p></div>
+      <div class="row"><div class="top"><h3>In-App Update Local Changes</h3><span class="val">Stash</span></div><p>Al autoactualizarse, conserva tus cambios locales (stash) o los descarta (discard).</p><p class="ex"><b>Ejemplo:</b> Stash si has tocado el código fuente y no quieres perderlo.</p></div>
+    </div>
+  </section>
+
+  <!-- 10 · NOTIFICATIONS -->
+  <section class="slide light">
+    <div class="kicker">09 · Notifications</div>
+    <h2>Notifications <span class="chip">Avisos nativos del escritorio</span></h2>
+    <p class="lead sub">Notificaciones del sistema (distintas de los avisos internos). Son locales de cada equipo.</p>
+    <div class="rows two">
+      <div class="row"><div class="top"><h3>Enable notifications</h3><span class="val">on</span></div><p>Interruptor maestro. Desactívalo para silenciar todo lo de abajo.</p><p class="ex"><b>Ejemplo:</b> apágalo en una reunión para no recibir avisos.</p></div>
+      <div class="row"><div class="top"><h3>Approval needed</h3><span class="val">on</span></div><p>Un comando espera tu aprobación o rechazo.</p><p class="ex"><b>Ejemplo:</b> te avisa mientras estás en otra ventana.</p></div>
+      <div class="row"><div class="top"><h3>Input needed</h3><span class="val">on</span></div><p>Hermes hizo una pregunta o necesita una contraseña o secreto.</p><p class="ex"><b>Ejemplo:</b> no te pierdes una petición de dato en tareas largas.</p></div>
+      <div class="row"><div class="top"><h3>Response ready</h3><span class="val">on</span></div><p>Un turno terminó mientras Hermes estaba en segundo plano.</p><p class="ex"><b>Ejemplo:</b> te avisa cuando termina una respuesta larga.</p></div>
+      <div class="row"><div class="top"><h3>Turn failed</h3><span class="val">on</span></div><p>Un turno terminó con error.</p><p class="ex"><b>Ejemplo:</b> reaccionas rápido si un proceso falla desatendido.</p></div>
+      <div class="row"><div class="top"><h3>Background task finished</h3><span class="val">on</span></div><p>Un comando de terminal en segundo plano se completó.</p><p class="ex"><b>Ejemplo:</b> te avisa cuando acaba un build largo.</p></div>
+      <div class="row"><div class="top"><h3>Completion Sound</h3><span class="val">Two-note comfort</span></div><p>Sonido al terminar un turno. Puedes previsualizarlo con «Preview».</p><p class="ex"><b>Ejemplo:</b> elige un sonido suave para no sobresaltarte.</p></div>
+      <div class="row"><div class="top"><h3>Send test notification</h3><span class="val">botón</span></div><p>Envía una notificación de prueba. Solo saltan si Hermes está en segundo plano.</p><p class="ex"><b>Ejemplo:</b> úsalo para comprobar que tu SO permite los avisos.</p></div>
+    </div>
+  </section>
+
+  <!-- 11 · PROVIDERS -->
+  <section class="slide dark">
+    <div class="kicker">10 · Providers</div>
+    <h2>Providers <span class="chip">Cuentas y API keys</span></h2>
+    <div class="grid3">
+      <div class="card"><div class="num">A</div><h3>Accounts</h3><p>Conecta cuentas por suscripción sin copiar API keys: Hermes hace el login en el navegador por ti. Conectados: <b>Nous Portal, OpenAI (ChatGPT), Anthropic OAuth</b>.</p></div>
+      <div class="card"><div class="num">B</div><h3>Otros proveedores</h3><p>MiniMax, Qwen Code, xAI Grok, Anthropic API Key, GitHub Copilot (ACP), OpenRouter... Algunos abren verificación en el navegador; otros piden login en tu terminal.</p></div>
+      <div class="card"><div class="num">C</div><h3>API keys</h3><p>Pega claves de OpenRouter, Anthropic, xAI, DeepSeek, MiniMax, OpenCode, NVIDIA NIM, Ollama Cloud, LM Studio, Xiaomi MiMo, Arcee AI, GMI Cloud...</p></div>
+    </div>
+    <div class="rows" style="margin-top:clamp(10px,1.6vh,20px)">
+      <div class="row"><div class="top"><h3>¿Cuándo usar cada uno?</h3></div><p class="ex"><b>Ejemplo:</b> conecta tu suscripción de ChatGPT en <b>Accounts</b> para no gestionar claves; usa <b>API keys</b> (p. ej. OpenRouter) para acceder a cientos de modelos con una sola clave.</p></div>
+    </div>
+  </section>
+
+  <!-- 12 · GATEWAY -->
+  <section class="slide light">
+    <div class="kicker">11 · Gateway</div>
+    <h2>Gateway <span class="chip">Conexión del backend</span></h2>
+    <p class="lead sub">Hermes Desktop arranca su propio gateway local por defecto. Usa uno remoto para controlar un backend en otra máquina o tras un proxy.</p>
+    <div class="rows two">
+      <div class="row"><div class="top"><h3>Applies to</h3><span class="val">All profiles · perfiles</span></div><p>Elige a qué perfiles aplica esta conexión. «All profiles» es la conexión por defecto para los que no tienen override.</p><p class="ex"><b>Ejemplo:</b> da a un perfil concreto su propio host remoto.</p></div>
+      <div class="row"><div class="top"><h3>Local gateway</h3><span class="val">por defecto</span></div><p>Arranca un backend privado en localhost. Funciona sin conexión.</p><p class="ex"><b>Ejemplo:</b> ideal para uso normal y offline en tu propio equipo.</p></div>
+      <div class="row"><div class="top"><h3>Remote gateway</h3><span class="val">OAuth / token</span></div><p>Conecta este escritorio a un backend remoto. Los alojados usan OAuth o usuario/contraseña; los self-hosted un token de sesión.</p><p class="ex"><b>Ejemplo:</b> controla desde tu portátil un Hermes corriendo en un servidor.</p></div>
+      <div class="row"><div class="top"><h3>Remote URL</h3><span class="val">https://gateway…</span></div><p>URL base del backend remoto. Admite prefijos de ruta (ej. /hermes).</p><p class="ex"><b>Ejemplo:</b> pega la URL de tu servidor y pulsa «Test remote».</p></div>
+      <div class="row"><div class="top"><h3>Save / Test / Diagnostics</h3><span class="val">Open logs</span></div><p>Prueba el remoto, guarda para el próximo reinicio o guarda y reconecta. «Open logs» abre desktop.log si el gateway falla.</p><p class="ex"><b>Ejemplo:</b> revisa los logs si la conexión remota no arranca.</p></div>
+    </div>
+  </section>
+
+  <!-- 13 · TOOLS & KEYS -->
+  <section class="slide dark">
+    <div class="kicker">12 · Tools &amp; Keys</div>
+    <h2>Tools &amp; Keys <span class="chip">Claves de herramientas y ajustes</span></h2>
+    <div class="grid3">
+      <div class="card"><div class="num">1</div><h3>Tools</h3><p>Claves de servicios externos: <b>Brave Search, Browser Use, Browserbase, Camofox, ElevenLabs, EXA, FAL, Firecrawl</b>... y el motor de navegador del agente.</p></div>
+      <div class="card"><div class="num">2</div><h3>Settings</h3><p>Ajustes avanzados: <b>Gateway Proxy, Sudo Password, SMS/WeCom allowed users y home channel, Raft Profile, prompts efímeros</b>...</p></div>
+      <div class="card"><div class="num">3</div><h3>Opcionales vs claves</h3><p>Cada fila indica si es una <b>API key</b> a pegar, una <b>URL</b> (https://…) o un campo <b>Optional</b> que puedes dejar vacío.</p></div>
+    </div>
+    <div class="rows" style="margin-top:clamp(10px,1.6vh,20px)">
+      <div class="row"><div class="top"><h3>Ejemplos del día a día</h3></div><p class="ex"><b>Firecrawl / EXA:</b> pégalas para búsqueda y extracción web potentes. <b>FAL:</b> para generar imágenes. <b>ElevenLabs:</b> para voces TTS premium. <b>Sudo Password:</b> para comandos que requieren privilegios en tu equipo.</p></div>
+    </div>
+  </section>
+
+  <!-- 14 · ARCHIVED CHATS -->
+  <section class="slide light">
+    <div class="kicker">13 · Archived Chats</div>
+    <h2>Archived Chats <span class="chip">Carpeta por defecto y archivado</span></h2>
+    <div class="rows two">
+      <div class="row"><div class="top"><h3>Default project directory</h3><span class="val">Not set</span></div><p>Carpeta donde arrancan las sesiones nuevas. En blanco usa tu carpeta de inicio (/Users/adrihosan).</p><p class="ex"><b>Ejemplo:</b> apúntala a tu carpeta de proyectos para empezar siempre ahí.</p></div>
+      <div class="row"><div class="top"><h3>Archived sessions</h3><span class="val">Ctrl/⌘ + click</span></div><p>Los chats archivados se ocultan de la barra lateral pero conservan todos sus mensajes. Archiva con Ctrl/⌘-click sobre un chat.</p><p class="ex"><b>Ejemplo:</b> archiva conversaciones terminadas para tener la barra limpia sin perderlas.</p></div>
+    </div>
+    <div class="rows" style="margin-top:clamp(10px,1.6vh,20px)">
+      <div class="row"><div class="top"><h3>Estado actual</h3><span class="val">Nothing archived</span></div><p>Cuando no hay nada archivado, verás «Archive a chat to hide it here».</p></div>
+    </div>
+  </section>
+
+  <!-- 15 · Cierre -->
+  <section class="slide turq">
+    <div class="kicker">Resumen</div>
+    <div style="margin:auto 0">
+      <h2 style="font-size:clamp(28px,4.4vw,64px);color:#fff">13 pestañas, control total</h2>
+      <p class="lead" style="color:#06282a;font-weight:400;font-size:clamp(14px,1.6vw,22px);max-width:60ch">Desde el modelo que responde hasta la seguridad, la voz, los subagentes y las integraciones: cada opción de Hermes está a un clic para adaptarlo a tu flujo diario.</p>
+      <p class="lead" style="color:#06282a;margin-top:22px;font-weight:600">Generated by código AdrIA</p>
+    </div>
+  </section>
+
+</div>
+<div class="foot">
+  <span class="brand">HERMES · AdrIA</span>
+  <span style="flex:1"></span>
+  <span class="cnt"><b id="cur">1</b> / <span id="tot">16</span></span>
+</div>
+<div class="hint"><kbd>→</kbd> avanzar · <kbd>F</kbd> pantalla completa</div>
+<div class="navz l" id="navL"></div>
+<div class="navz r" id="navR"></div>
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const bar=document.getElementById('bar'),cur=document.getElementById('cur');
+  document.getElementById('tot').textContent=slides.length;
+  let i=0;
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,idx)=>s.classList.toggle('active',idx===i));
+    slides[i].scrollTop=0;
+    bar.style.width=((i+1)/slides.length*100)+'%';
+    cur.textContent=i+1;
+    document.body.classList.toggle('slide-dark-active',slides[i].classList.contains('dark')||slides[i].classList.contains('turq'));
+  }
+  const next=()=>show(i+1),prev=()=>show(i-1);
+  document.getElementById('navR').onclick=next;
+  document.getElementById('navL').onclick=prev;
+  addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();next();}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){prev();}
+    else if(e.key==='Home'){show(0);}
+    else if(e.key==='End'){show(slides.length-1);}
+    else if(e.key==='f'||e.key==='F'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}
+  });
+  show(0);
+</script>
+</body>
+</html>
