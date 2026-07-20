@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chuleta · Comandos de Hermes (uso diario)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --turq:#4dd2d0; --turq-d:#2ba7a5; --petr:#3f6f7b; --deep:#0e2329;
+    --bg:#f4fbfb; --surface:#fff; --ink:#12262b; --muted:#5a7278; --line:#d7ecec;
+    --him:#c98a2b; --code:#0e1320;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Poppins',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;padding:30px 20px 60px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto}
+  .head{background:linear-gradient(135deg,var(--deep),var(--petr));color:#fff;border-radius:16px;padding:26px 30px;margin-bottom:22px;position:relative;overflow:hidden}
+  .head::before{content:'';position:absolute;top:-60px;right:-40px;width:220px;height:220px;background:radial-gradient(circle,rgba(77,210,208,.30),transparent 70%);border-radius:50%}
+  .head .meta{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--turq);margin-bottom:8px}
+  .head h1{font-size:24px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+  .head h1 span{color:var(--turq)}
+  .head p{font-size:13.5px;color:rgba(255,255,255,.82);max-width:600px}
+
+  .sec{margin-top:26px}
+  .sec-h{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--petr);margin-bottom:14px}
+  .sec-h .badge{font-size:10px;font-weight:800;letter-spacing:.04em;padding:3px 10px;border-radius:100px;background:rgba(77,210,208,.16);color:var(--turq-d);text-transform:none;letter-spacing:0}
+  .sec-h::after{content:'';flex:1;height:1px;background:var(--line)}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .grid.two{grid-template-columns:repeat(2,1fr)}
+  .cmd{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:14px 16px;box-shadow:0 3px 10px rgba(18,38,43,.04)}
+  .cmd.star{border-color:rgba(77,210,208,.5);background:linear-gradient(180deg,#fff,#f0faf9)}
+  .cmd code{display:inline-block;font-family:'Courier New',monospace;font-weight:800;font-size:15px;color:#fff;background:var(--turq-d);padding:2px 10px;border-radius:7px;margin-bottom:7px}
+  .cmd.term code{background:var(--petr)}
+  .cmd p{font-size:13px;color:var(--ink);line-height:1.38}
+  .cmd p b{color:var(--deep)}
+
+  .box{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--turq);border-radius:12px;padding:16px 20px;margin-top:14px}
+  .box h4{font-size:13px;font-weight:800;color:var(--turq-d);margin-bottom:8px;letter-spacing:.02em}
+  .box .four{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:8px}
+  .box .four div{text-align:center;font-size:12.5px}
+  .box .four .w{font-weight:800;color:var(--deep);display:block;margin-bottom:2px}
+  .box p{font-size:12.5px;color:var(--muted)}
+  .box p code,.cmd p code{font-family:'Courier New',monospace;font-weight:700;font-size:.9em;color:var(--turq-d);background:rgba(77,210,208,.14);padding:1px 6px;border-radius:5px}
+
+  .checklist{background:#eef6ec;border:1px solid #cfe6c8;border-left:4px solid #1f9d6b;border-radius:12px;padding:14px 20px;margin-top:14px}
+  .checklist h4{font-size:13px;font-weight:800;color:#1f7d55;margin-bottom:8px}
+  .checklist ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:5px 20px}
+  .checklist li{font-size:13px;display:flex;gap:8px}
+  .checklist li::before{content:'☐';color:#1f9d6b;font-weight:800}
+
+  .foot{text-align:center;margin-top:30px;font-size:11.5px;color:var(--muted)}
+  @media print{body{background:#fff;padding:0}.cmd,.box,.checklist{box-shadow:none;page-break-inside:avoid}.head{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:680px){.grid,.grid.two,.box .four,.checklist ul{grid-template-columns:1fr 1fr}}
+  @media(max-width:440px){.grid,.grid.two,.box .four,.checklist ul{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="head">
+    <div class="meta">Curso Inicio a Hermes · Clase 2 · Descargable</div>
+    <h1>Chuleta de <span>comandos</span> de Hermes</h1>
+    <p>Los que de verdad usarás cada día. No hay que memorizarlos todos: con los seis de arriba vas sobrado. Imprímela o tenla a mano las primeras semanas.</p>
+  </header>
+
+  <!-- LOS 6 DEL DÍA A DÍA -->
+  <div class="sec">
+    <div class="sec-h">Los 6 gestos del día a día <span class="badge">empieza por aquí</span></div>
+    <div class="grid">
+      <div class="cmd star"><code>/new</code><p>Empieza una conversación <b>limpia</b>, sin arrastrar lo anterior.</p></div>
+      <div class="cmd star"><code>/model</code><p>Cambia de <b>modelo</b> (el "cerebro") según la tarea o el presupuesto.</p></div>
+      <div class="cmd star"><code>/undo</code><p><b>Deshaz</b> el último paso si se ha ido por otro lado.</p></div>
+      <div class="cmd star"><code>/retry</code><p>Que lo <b>reintente</b>, a veces con otro enfoque.</p></div>
+      <div class="cmd star"><code>/compress</code><p><b>Resume</b> una charla ya larga para seguir sin perder el hilo.</p></div>
+      <div class="cmd star"><code>/usage</code><p>Cuánto llevas <b>gastado</b>. Para no llevarte sustos.</p></div>
+    </div>
+  </div>
+
+  <!-- MÁS COMANDOS DEL CHAT -->
+  <div class="sec">
+    <div class="sec-h">Más comandos del chat</div>
+    <div class="grid">
+      <div class="cmd"><code>/reset</code><p>Borra el contexto y <b>empieza de cero</b> (más a fondo que <code>/new</code>).</p></div>
+      <div class="cmd"><code>/personality</code><p>Cambia el <b>tono</b> del asistente (varios estilos disponibles).</p></div>
+      <div class="cmd"><code>/insights</code><p>Resumen de lo aprendido / <b>patrones</b> de tus sesiones.</p></div>
+      <div class="cmd"><code>/commands</code><p>La <b>lista completa</b> de comandos disponibles.</p></div>
+      <div class="cmd"><code>/help</code><p>Ayuda rápida dentro del chat.</p></div>
+      <div class="cmd"><code>/stop</code><p><b>Detiene</b> una respuesta o proceso en marcha.</p></div>
+    </div>
+  </div>
+
+  <!-- DESDE LA TERMINAL -->
+  <div class="sec">
+    <div class="sec-h">Desde la terminal <span class="badge">para configurar</span></div>
+    <div class="grid two">
+      <div class="cmd term"><code>hermes model</code><p>Elegir y cambiar el <b>modelo por defecto</b> y el proveedor.</p></div>
+      <div class="cmd term"><code>hermes tools</code><p><b>Activar/desactivar</b> herramientas (web, visión, voz…).</p></div>
+      <div class="cmd term"><code>hermes doctor</code><p><b>Diagnóstico</b>: comprueba que todo está bien configurado.</p></div>
+      <div class="cmd term"><code>hermes gateway</code><p>Arrancar la <b>pasarela</b> (Telegram y otros canales — clase 4).</p></div>
+      <div class="cmd term"><code>hermes update</code><p><b>Actualizar</b> Hermes a la última versión.</p></div>
+      <div class="cmd term"><code>hermes setup</code><p>Volver a la <b>configuración inicial</b> (proveedor, perfil…).</p></div>
+    </div>
+  </div>
+
+  <!-- BONUS: COMO PEDIR BIEN -->
+  <div class="sec">
+    <div class="sec-h">Bonus · cómo pedirle bien las cosas</div>
+    <div class="box">
+      <h4>La fórmula de una buena petición</h4>
+      <div class="four">
+        <div><span class="w">🎯 Objetivo</span>qué quieres</div>
+        <div><span class="w">📄 Contexto</span>para qué / para quién</div>
+        <div><span class="w">📐 Formato</span>cómo lo quieres</div>
+        <div><span class="w">🚫 Restricción</span>qué evitar / límite</div>
+      </div>
+      <p><b>Flojo:</b> <code>"hazme un texto"</code> &nbsp;→&nbsp; <b>Mejor:</b> <code>"redáctame un email de seguimiento para un cliente de reformas, tono cercano, máx. 120 palabras"</code></p>
+    </div>
+    <div class="checklist">
+      <h4>Antes de pedirle algo a Hermes</h4>
+      <ul>
+        <li>¿Estoy en la <b>carpeta correcta</b> del proyecto?</li>
+        <li>¿Mi proyecto tiene <b>contexto</b> (<code>.hermes.md</code>)?</li>
+        <li>¿He dicho <b>objetivo y formato</b>?</li>
+        <li>¿Me sirve <b>este modelo</b> o cambio con <code>/model</code>?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot">Chuleta de la Clase 2 · Curso Inicio a Hermes · Guarda esto a mano las primeras semanas.</div>
+
+</div>
+</body>
+</html>
