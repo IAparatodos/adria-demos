@@ -209,8 +209,14 @@ n8n start</code></pre>
 <h2>Bloque 4 · Su Google Drive <span class="t">~15 min</span></h2>
 <div class="card">
   <label class="chk"><input type="checkbox"><span>Crear la <strong>carpeta raíz de camiones</strong> en el Drive de David (p. ej. <code>camiones / vehiculos</code>). <strong>Copiar su ID</strong> de la URL.</span></label>
-  <label class="chk"><input type="checkbox"><span>Subir <code>plantilla_camion.xlsx</code> con <strong>ese nombre exacto</strong>.</span></label>
-  <label class="chk"><input type="checkbox"><span><strong>Comprobar que no hay dos</strong>: el sistema la busca por nombre en TODO el Drive y aborta si encuentra más de una. Buscar «plantilla_camion» en Drive y confirmar que sale una sola.</span></label>
+  <label class="chk"><input type="checkbox"><span>Subir <code>plantilla_camion.xlsx</code> (nombre exacto) <strong>DENTRO de esa carpeta raíz</strong>, junto a donde irán las carpetas de los camiones.</span></label>
+</div>
+<div class="nota">
+  <strong>Ya NO se busca en todo el Drive</strong> (arreglado 21-jul): la plantilla se busca solo
+  <strong>dentro de la carpeta raíz de camiones</strong>. Así, si David tiene por casualidad otro
+  <code>plantilla_camion.xlsx</code> en cualquier otra parte de su Drive, no interfiere. Lo único que
+  importa: que <strong>en la carpeta raíz haya una sola</strong> <code>plantilla_camion.xlsx</code> (si
+  hay dos ahí dentro, aborta y avisa).
 </div>
 <div class="nota">Las carpetas de cada camión <strong>no</strong> hay que crearlas: la pasada 1 crea la carpeta y sus cinco subcarpetas (<code>01-entrada</code> … <code>05-archivos-generados</code>) en cuanto llega una fila nueva del formulario.</div>
 
