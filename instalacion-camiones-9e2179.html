@@ -49,7 +49,10 @@
   label.chk input:checked + span{opacity:.45;text-decoration:line-through}
   .peq{font-size:.86rem;color:var(--gris)}
   .reset{background:var(--profundo);color:#eef7f7;border:0;border-radius:8px;padding:8px 16px;font-family:inherit;font-size:.82rem;cursor:pointer;font-weight:600}
+  .tabla-scroll{overflow-x:auto;margin:12px 0}
   table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;background:var(--card);border-radius:10px;overflow:hidden}
+  .tabla-scroll table{margin:0;min-width:520px}
+  h3{font-size:1rem;font-weight:700;color:var(--petroleo);margin:20px 0 4px}
   th{background:var(--profundo);color:#eef7f7;text-align:left;padding:9px 12px;font-size:.82rem}
   td{padding:9px 12px;border-top:1px solid var(--borde);vertical-align:top}
   footer{margin-top:50px;padding-top:18px;border-top:2px solid var(--turquesa);font-size:.82rem;color:var(--gris)}
@@ -159,6 +162,48 @@ n8n start</code></pre>
   <label class="chk"><input type="checkbox"><span>Verificar el <strong>Sheets del formulario</strong> en los nodos «Leer respuestas» y «Marcar…»: documento <code>145eJS3RRduoHq0a1MKPHCBDq22EyB98Ty4W1we-bI88</code>, hoja <code>2002729600</code>. Como el formulario es suyo, no debería cambiar.</span></label>
   <label class="chk"><input type="checkbox"><span>Comprobar que la hoja tiene las columnas <strong>TRAMITADO · COC · FOTOS</strong> (si Ricardo insertó ayer las de observaciones, confirmar que no se han descolocado).</span></label>
   <label class="chk"><input type="checkbox"><span>En el orquestador, revisar que los <strong>3 nodos Execute Workflow apuntan a los workflows importados</strong> (los IDs cambian al importar).</span></label>
+</div>
+
+<h2>TABLA DE IDs A MODIFICAR <span class="t">todo lo que hay que tocar dentro de los workflows, sin dejarse nada</span></h2>
+
+<div class="stop">
+  <strong>Trampa nº1:</strong> el ID de tu carpeta de Drive (<code>13kbEFxarF0u6BCcj2Y_Ku8A_o6gy6w49</code>)
+  viene <strong>metido a fuego en las pasadas 2 y 3</strong>, no como placeholder. Si solo cambias la
+  pasada 1 (que sí avisa), <strong>las pasadas 2 y 3 seguirían leyendo de TU Drive sin decir nada</strong>
+  y David no tramitaría sus camiones. Hay que cambiar las TRES.
+</div>
+
+<h3>1 · Credenciales (reasignar en los nodos que las usan)</h3>
+<div class="tabla-scroll"><table>
+  <tr><th>Credencial</th><th>ID actual (tuyo)</th><th>En qué workflows</th><th>Acción</th></tr>
+  <tr><td>Google Drive account</td><td><code>MPqvX0UUeGwbKW2L</code></td><td>1, 2 y 3</td><td>Reasignar a la de David</td></tr>
+  <tr><td>Google Sheets account</td><td><code>qDwtBmCSDTj3lDEL</code></td><td>1, 2 y 3</td><td>Reasignar a la de David</td></tr>
+  <tr><td>Anthropic account</td><td><code>RVQjGD6zT0hsquT0</code></td><td>solo 2 (COC)</td><td>Reasignar a la de David</td></tr>
+</table></div>
+
+<h3>2 · Carpeta raíz de camiones — nodo <code>Config raíz de camiones</code></h3>
+<div class="tabla-scroll"><table>
+  <tr><th>Workflow</th><th>Qué trae ahora</th><th>Poner</th></tr>
+  <tr><td>1 · Generar Excel</td><td><code>PON_AQUI_EL_ID_DE_LA_CARPETA_RAIZ</code> (avisa si no se cambia)</td><td>ID carpeta raíz de David</td></tr>
+  <tr><td>2 · COC</td><td><code>13kbEFxarF0u6BCcj2Y_Ku8A_o6gy6w49</code> ⚠️ tu Drive, <strong>NO avisa</strong></td><td>ID carpeta raíz de David</td></tr>
+  <tr><td>3 · Fotos</td><td><code>13kbEFxarF0u6BCcj2Y_Ku8A_o6gy6w49</code> ⚠️ tu Drive, <strong>NO avisa</strong></td><td>ID carpeta raíz de David</td></tr>
+</table></div>
+<p class="peq">El ID de la carpeta se saca de su URL en Drive: <code>drive.google.com/drive/folders/<b>ESTE-TROZO</b></code>.</p>
+
+<h3>3 · Orquestador — nodos Execute Workflow (los IDs cambian al importar)</h3>
+<div class="tabla-scroll"><table>
+  <tr><th>Nodo</th><th>Apunta ahora a (tu n8n)</th><th>Poner</th></tr>
+  <tr><td>1 - Excel del vehiculo</td><td><code>jWMoWNbAM4wnbPlO</code></td><td>ID del «1 · Generar Excel» importado en el n8n de David</td></tr>
+  <tr><td>2 - COC</td><td><code>Xkt8U5BwdCr0nafN</code></td><td>ID del «2 · Extraer COC» importado</td></tr>
+  <tr><td>3 - Fotos</td><td><code>V6av4IVb1wX48Vrz</code></td><td>ID del «3 · Insertar fotos» importado</td></tr>
+</table></div>
+
+<h3>4 · Sheets del formulario — <span style="color:var(--verde)">esto NO se cambia</span></h3>
+<div class="nota" style="margin-bottom:0">
+  Los nodos «Leer respuestas» y «Marcar…» apuntan a <code>145eJS3RRduoHq0a1MKPHCBDq22EyB98Ty4W1we-bI88</code>
+  (hoja <code>2002729600</code>). Es <strong>el formulario de David</strong>, así que el ID se queda igual.
+  Solo hay que asegurarse de que la credencial de Google Sheets de David tiene acceso a ese formulario
+  (lo tendrá, es suyo). El modelo de Claude (<code>claude-sonnet-5</code>) tampoco se toca.
 </div>
 
 <h2>Bloque 6 · Prueba real, antes de cantar victoria <span class="t">~20 min</span></h2>
