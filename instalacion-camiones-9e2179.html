@@ -265,6 +265,28 @@
   <tr><td>Google Sheets account</td><td><code>qDwtBmCSDTj3lDEL</code></td><td>1, 2 y 3</td><td>Reasignar a la de David</td></tr>
   <tr><td>Anthropic account</td><td><code>RVQjGD6zT0hsquT0</code></td><td>solo 2 (COC)</td><td>Reasignar a la de David</td></tr>
 </table></div>
+<div class="stop">
+  ⚠️ <strong>La credencial hay que ponerla en CADA nodo, uno por uno.</strong> Al importar, n8n deja
+  nodos «sin credencial» y saltan de uno en uno («Node does not have any credentials set»). Son
+  <strong>20 nodos de Drive + 5 de Sheets + 1 de Anthropic</strong>. Repásalos con esta lista y marca:
+</div>
+<p><strong>Pasada 1 · Generar Excel</strong></p>
+<ul>
+  <li><strong>Google Drive</strong> (9): <code>Drive: carpetas de camión</code> · <code>Drive: subcarpetas del camión</code> · <code>Drive: archivos en 04-excel</code> · <code>Drive: buscar plantilla</code> · <code>Descargar plantilla</code> · <code>Subir Excel a 04-excel</code> · <code>Crear carpeta del camión</code> · <code>Crear subcarpetas</code> · <code>Sobrescribir Excel existente</code></li>
+  <li><strong>Google Sheets</strong> (2): <code>Leer respuestas (Google Sheets)</code> · <code>Marcar TRAMITADO=Sí y reabrir COC/FOTOS</code></li>
+</ul>
+<p><strong>Pasada 2 · COC</strong></p>
+<ul>
+  <li><strong>Google Drive</strong> (6): <code>Drive: carpetas de camión</code> · <code>Drive: subcarpetas</code> · <code>Drive: archivos</code> · <code>Descargar PDF</code> · <code>Descargar Excel del vehículo</code> · <code>Actualizar Excel en Drive</code></li>
+  <li><strong>Google Sheets</strong> (2): <code>Leer respuestas (Google Sheets)</code> · <code>Marcar COC = Sí</code></li>
+  <li><strong>Anthropic</strong> (1): <code>Claude — extraer campos del COC</code></li>
+</ul>
+<p><strong>Pasada 3 · Fotos</strong></p>
+<ul>
+  <li><strong>Google Drive</strong> (5): <code>Drive: carpetas de camión</code> · <code>Drive: subcarpetas</code> · <code>Drive: archivos</code> · <code>Descargar archivos</code> · <code>Actualizar Excel en Drive</code></li>
+  <li><strong>Google Sheets</strong> (2): <code>Leer respuestas (Google Sheets)</code> · <code>Marcar FOTOS = Sí</code></li>
+</ul>
+<div class="nota" style="margin-bottom:0">Truco: al asignar la credencial en un nodo, n8n suele ofrecer aplicarla a los demás nodos del mismo tipo. Aun así, <strong>abre cada workflow y comprueba que ningún nodo tiene el icono de credencial en rojo</strong> antes de probar.</div>
 
 <h3>2 · Carpeta raíz de camiones — nodo <code>Config raíz de camiones</code></h3>
 <div class="tabla-scroll"><table>
