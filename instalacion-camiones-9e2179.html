@@ -106,10 +106,29 @@
 <h2>Bloque 2 · Node.js + n8n <span class="t">~20 min</span></h2>
 <div class="card">
   <label class="chk"><input type="checkbox"><span>Instalar <strong>Node.js LTS</strong> (siguiente-siguiente).</span></label>
-  <label class="chk"><input type="checkbox"><span>Instalar n8n y arrancarlo:</span></label>
-  <pre><code>npm install -g n8n
-n8n start</code></pre>
-  <label class="chk"><input type="checkbox"><span>Abrir <code>http://localhost:5678</code> y crear la cuenta de propietario. <strong>Apunta usuario y contraseña</strong> en la ficha del cliente.</span></label>
+  <label class="chk"><input type="checkbox"><span>Instalar n8n:</span></label>
+  <pre><code>npm install -g n8n</code></pre>
+  <label class="chk"><input type="checkbox"><span>Abrir <code>http://localhost:5678</code> (tras arrancar n8n, paso de abajo) y crear la cuenta de propietario. <strong>Apunta usuario y contraseña</strong> en la ficha del cliente.</span></label>
+</div>
+
+<div class="stop">
+  ⚠️ <strong>PASO CRÍTICO — sin esto los 3 workflows dan «Module 'jszip' is disallowed» y NO funciona nada.</strong>
+  Los nodos de código manipulan el Excel con la librería <code>jszip</code>, y n8n bloquea por seguridad
+  las librerías externas salvo que se autoricen. <strong>Se autoriza con una variable de entorno, ANTES de arrancar n8n.</strong>
+  <p style="margin:10px 0 4px">En una terminal (CMD) de Windows:</p>
+  <pre><code>setx NODE_FUNCTION_ALLOW_EXTERNAL jszip</code></pre>
+  <ul style="margin-bottom:0">
+    <li><strong>Cerrar esa terminal y abrir una NUEVA</strong> (setx no afecta a la que ya está abierta).</li>
+    <li>Comprobar que quedó: <code>echo %NODE_FUNCTION_ALLOW_EXTERNAL%</code> → debe imprimir <code>jszip</code>.</li>
+    <li>Arrancar n8n en esa terminal nueva: <code>n8n start</code></li>
+  </ul>
+</div>
+<div class="nota">
+  <strong>No hay que instalar jszip</strong> — ya viene con n8n. El error dice «disallowed» (prohibido),
+  no «not found» (no está): solo hay que permitirlo. · Con <code>setx</code> la variable es
+  <strong>permanente</strong> y sobrevive a reinicios; por eso tu n8n del despacho funciona (la tienes
+  puesta). · Si tras esto SIGUE fallando, es que el task runner de n8n no heredó la variable: reinicia
+  el equipo (no solo n8n) para que la tome, o ponla en las Variables de entorno del sistema por la interfaz gráfica.
 </div>
 <div class="nota">Es el mismo montaje que tienes en el despacho (n8n global por npm), así que no hay sorpresas: es lo que está probado.</div>
 
