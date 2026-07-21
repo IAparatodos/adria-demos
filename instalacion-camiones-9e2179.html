@@ -130,6 +130,19 @@ n8n start</code></pre>
   <label class="chk"><input type="checkbox"><span>Ídem credencial <strong>Google Sheets OAuth2</strong>.</span></label>
   <label class="chk"><input type="checkbox"><span>Credencial <strong>Anthropic API</strong>: pegar la key que se sacó David.</span></label>
 </div>
+<div class="nota">
+  <strong>¿Hace falta ngrok? NO.</strong> En tu despacho usas ngrok para que Claude Code hable con tu
+  n8n en remoto — eso es una comodidad tuya, no del sistema. Aquí <strong>no se necesita</strong>:
+  <ul style="margin-bottom:0">
+    <li><strong>Para el login de Google:</strong> Google acepta <code>localhost</code> como redirección.
+      David da al «Connect» desde el navegador de su propia máquina y el circuito se cierra en local.
+      Solo hay que tener registrada la URI <code>http://localhost:5678/rest/oauth2-credential/callback</code> (paso de arriba).</li>
+    <li><strong>Para que el sistema funcione:</strong> n8n <em>llama</em> a Google cada 15 min (salida),
+      Google nunca entra en el n8n de David. No hay webhooks entrantes. Su n8n no necesita ser
+      accesible desde internet.</li>
+  </ul>
+  Solo montarías ngrok en su equipo si algún día quieres administrarle el n8n en remoto (opcional, para después).
+</div>
 
 <h2>Bloque 3 bis · VALIDAR SU PLANTILLA <span class="t">~15 min · el riesgo nº1</span></h2>
 <div class="stop">
