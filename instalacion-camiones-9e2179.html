@@ -113,22 +113,69 @@ n8n start</code></pre>
 </div>
 <div class="nota">Es el mismo montaje que tienes en el despacho (n8n global por npm), así que no hay sorpresas: es lo que está probado.</div>
 
-<h2>Bloque 3 · Credenciales <span class="t">~40-60 min · AQUÍ ES DONDE SE VA EL TIEMPO</span></h2>
+<h2>Bloque 3 · Credenciales de Google — PASO A PASO <span class="t">~40-60 min · AQUÍ ES DONDE SE VA EL TIEMPO</span></h2>
 
 <div class="avisa">
-  <strong>El OAuth de Google es la parte delicada</strong>, y ya te mordió con el correo el 14 de julio:
-  si dejas la app OAuth <strong>«en pruebas», los tokens caducan a los 7 días</strong> y el sistema
-  deja de funcionar solo la semana que viene, sin avisar. <strong>Publícala en producción.</strong>
+  <strong>Todo esto se hace con la cuenta de David y en su navegador.</strong> Un solo cliente OAuth
+  sirve para Drive y Sheets a la vez. Los <strong>3 tropiezos</strong> que hacen fracasar esto están
+  marcados con ⚠️ abajo — léelos antes de empezar.
 </div>
+
+<h3>Paso 1 · Crear el proyecto</h3>
 <div class="card">
-  <label class="chk"><input type="checkbox"><span>En <strong>Google Cloud Console</strong> (con la cuenta de David): crear proyecto.</span></label>
-  <label class="chk"><input type="checkbox"><span><strong>Habilitar dos APIs</strong>: Google Drive API y Google Sheets API.</span></label>
-  <label class="chk"><input type="checkbox"><span>Pantalla de consentimiento OAuth → <strong>publicar en PRODUCCIÓN</strong> (no dejar en «Testing»).</span></label>
-  <label class="chk"><input type="checkbox"><span>Crear credencial <strong>ID de cliente OAuth → Aplicación web</strong>, con esta URI de redirección:</span></label>
+  <label class="chk"><input type="checkbox"><span>Abrir <code>console.cloud.google.com</code> logueado con la cuenta de David. Aceptar términos si es la primera vez.</span></label>
+  <label class="chk"><input type="checkbox"><span>Arriba, selector de proyecto → <strong>Proyecto nuevo</strong> → nombre <code>camiones-n8n</code> → Crear. Esperar unos segundos y <strong>seleccionarlo</strong> en el selector.</span></label>
+</div>
+
+<h3>Paso 2 · Habilitar las dos APIs</h3>
+<div class="card">
+  <label class="chk"><input type="checkbox"><span>Ir a <code>console.cloud.google.com/apis/library</code>.</span></label>
+  <label class="chk"><input type="checkbox"><span>Buscar <strong>«Google Drive API»</strong> → entrar → botón <strong>Habilitar</strong>.</span></label>
+  <label class="chk"><input type="checkbox"><span>Buscar <strong>«Google Sheets API»</strong> → entrar → botón <strong>Habilitar</strong>. <span class="peq">⚠️ Tropiezo 1: si olvidas Sheets, el barrido falla al leer el formulario. Tienen que estar las DOS.</span></span></label>
+</div>
+
+<h3>Paso 3 · Pantalla de consentimiento OAuth</h3>
+<div class="card">
+  <label class="chk"><input type="checkbox"><span>Ir a <code>console.cloud.google.com/apis/credentials/consent</code>.</span></label>
+  <label class="chk"><input type="checkbox"><span>Tipo de usuario: <strong>Externo</strong> (David tiene Gmail normal). Crear. <span class="peq">Si tuviera Google Workspace, «Interno» — más simple y sin caducidad; pero casi seguro es Externo.</span></span></label>
+  <label class="chk"><input type="checkbox"><span>Rellenar lo obligatorio: <strong>Nombre de la app</strong> (<code>Camiones n8n</code>), <strong>correo de asistencia</strong> (el de David) y, abajo del todo, <strong>correo del desarrollador</strong> (el de David otra vez). Guardar y continuar.</span></label>
+  <label class="chk"><input type="checkbox"><span>Pantallas de <strong>Permisos</strong> y <strong>Usuarios de prueba</strong>: no toques nada, dale a Guardar y continuar en las dos. Terminar.</span></label>
+</div>
+<div class="stop">
+  ⚠️ <strong>Tropiezo 2 — el del correo del 14-jul.</strong> Al terminar, la app queda «En pruebas» y
+  <strong>los tokens caducan a los 7 días</strong>: el sistema se pararía solo la semana que viene sin
+  avisar. En la misma pantalla de consentimiento hay un botón <strong>«PUBLICAR APP» → Confirmar</strong>.
+  Déjala <strong>«En producción»</strong>. No hace falta que Google la verifique (ver tropiezo 3).
+</div>
+
+<h3>Paso 4 · Crear el cliente OAuth</h3>
+<div class="card">
+  <label class="chk"><input type="checkbox"><span>Ir a <code>console.cloud.google.com/apis/credentials</code>.</span></label>
+  <label class="chk"><input type="checkbox"><span><strong>Crear credenciales → ID de cliente de OAuth</strong>.</span></label>
+  <label class="chk"><input type="checkbox"><span>Tipo de aplicación: <strong>Aplicación web</strong> (no «Escritorio»). Nombre: <code>n8n local</code>.</span></label>
+  <label class="chk"><input type="checkbox"><span>En <strong>URIs de redirección autorizados → Añadir URI</strong>, pegar EXACTA (con http, el puerto y sin barra final):</span></label>
   <pre><code>http://localhost:5678/rest/oauth2-credential/callback</code></pre>
-  <label class="chk"><input type="checkbox"><span>En n8n, credencial <strong>Google Drive OAuth2</strong>: pegar client ID y secret, «Connect» → <strong>aquí hace falta David</strong> para dar al login con su cuenta.</span></label>
-  <label class="chk"><input type="checkbox"><span>Ídem credencial <strong>Google Sheets OAuth2</strong>.</span></label>
-  <label class="chk"><input type="checkbox"><span>Credencial <strong>Anthropic API</strong>: pegar la key que se sacó David.</span></label>
+  <label class="chk"><input type="checkbox"><span>Crear. Se abre un cuadro con el <strong>ID de cliente</strong> y el <strong>Secreto de cliente</strong>: <strong>cópialos</strong> (o «Descargar JSON»). Los necesitas en el paso 5.</span></label>
+</div>
+
+<h3>Paso 5 · Conectar en n8n (Drive y Sheets)</h3>
+<div class="card">
+  <label class="chk"><input type="checkbox"><span>En n8n: <strong>Credentials → Add credential → «Google Drive OAuth2 API»</strong>.</span></label>
+  <label class="chk"><input type="checkbox"><span>Pegar <strong>Client ID</strong> y <strong>Client Secret</strong> del paso 4. <span class="peq">Comprueba que la «OAuth Redirect URL» que muestra n8n coincide con la que registraste; si tu n8n no está en localhost:5678, usa la que muestre n8n.</span></span></label>
+  <label class="chk"><input type="checkbox"><span>Botón <strong>«Sign in with Google» / Connect</strong> → se abre el login de Google. <strong>Aquí entra David</strong>: elige su cuenta y acepta los permisos.</span></label>
+  <label class="chk"><input type="checkbox"><span>Repetir con <strong>«Google Sheets OAuth2 API»</strong> usando el <strong>MISMO</strong> Client ID y Secret. Connect otra vez con David.</span></label>
+  <label class="chk"><input type="checkbox"><span>Credencial <strong>Anthropic API</strong>: pegar la key que se sacó David en <code>console.anthropic.com</code>.</span></label>
+</div>
+<div class="stop">
+  ⚠️ <strong>Tropiezo 3 — la pantalla que asusta.</strong> Al conectar saldrá
+  <strong>«Google no ha verificado esta aplicación»</strong>. Es normal (app propia, sin verificar).
+  <strong>NO le deis a «Volver».</strong> Pulsad <strong>«Configuración avanzada» → «Ir a Camiones n8n (no seguro)»</strong>
+  → y ahí sí, aceptar los permisos. Sin este paso, la conexión no se completa.
+</div>
+<div class="nota" style="margin-bottom:0">
+  <strong>Cómo saber que quedó bien:</strong> en n8n, la credencial muestra <strong>«Connected»</strong>
+  en verde. Si más adelante volviera a pedir login sin motivo, es que la app se quedó «En pruebas»
+  (volver al paso 3 y publicarla).
 </div>
 <div class="nota">
   <strong>¿Hace falta ngrok? NO.</strong> En tu despacho usas ngrok para que Claude Code hable con tu
