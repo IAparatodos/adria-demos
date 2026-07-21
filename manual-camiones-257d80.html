@@ -124,7 +124,7 @@
 
   <h2 id="carpeta">2 · La carpeta de cada camión</h2>
   <p>Cada camión tiene <strong>una carpeta propia</strong> dentro de la carpeta raíz de camiones, y dentro van siempre las mismas cinco subcarpetas:</p>
-  <div class="arbol"><b>CARROCERO-CLIENTE</b>   <i>(ejemplo: LLUCH-ECOFÉRETROS)</i>
+  <div class="arbol"><b>CARROCERO-CLIENTE-IDENTIFICADOR</b>   <i>(ejemplo: LLUCH-ECOFÉRETROS-F118)</i>
 ├── <b>01-entrada</b>              <i>← aquí dejas el PDF del COC / ficha técnica</i>
 ├── <b>02-fotos</b>                <i>← aquí dejas las fotos del vehículo</i>
 ├── <b>03-calculos-trailerwin</b>  <i>← tus cálculos, el sistema no los toca</i>
@@ -132,13 +132,14 @@
 └── <b>05-archivos-generados</b>   <i>← documentos finales</i></div>
 
   <div class="avisa">
-    <strong>El nombre de la carpeta es lo que empareja el camión con su fila del formulario.</strong> El sistema busca el carrocero y el cliente del formulario dentro del nombre de la carpeta. Por eso:
+    <strong>El nombre de la carpeta es lo que empareja el camión con su fila del formulario</strong>, y por eso lleva tres partes: carrocero, cliente final y un <strong>identificador único de ese camión</strong> (el número de bastidor cuando el formulario lo tenga; mientras tanto, <code>F</code> + el número de fila del formulario).
     <ul style="margin-bottom:0">
-      <li>El nombre debe contener <strong>el carrocero y el cliente final</strong>, escritos como en el formulario (acentos, guiones y mayúsculas dan igual).</li>
-      <li><strong>No puede haber dos carpetas que encajen con la misma fila.</strong> Si las hay, el sistema se detiene y no procesa ese camión — prefiere parar antes que meter datos en el expediente equivocado.</li>
+      <li><strong>Por qué el identificador.</strong> Sin él, dos camiones distintos del mismo carrocero para el mismo cliente compartirían carpeta y el segundo pisaría el expediente del primero. En tu histórico eso pasa nueve veces (CONGRUAL para TETMA sale cuatro).</li>
+      <li><strong>El nombre tiene que coincidir exacto</strong> con el que espera el sistema. Lo más cómodo, con diferencia: <strong>no crear tú la carpeta</strong> y dejar que la cree la pasada 1.</li>
+      <li><strong>Si no encuentra la carpeta, no inventa:</strong> deja el camión pendiente y lo dice, en vez de meter datos en el expediente equivocado.</li>
     </ul>
   </div>
-  <div class="nota" style="margin-bottom:0">Si no creas tú la carpeta, no pasa nada: <strong>la pasada 1 la crea sola</strong> con sus cinco subcarpetas en cuanto le llega la fila del formulario. Lo más cómodo es dejar que la cree él y luego ir soltando ahí el COC y las fotos.</div>
+  <div class="nota" style="margin-bottom:0">Si no creas tú la carpeta, no pasa nada: <strong>la pasada 1 la crea sola</strong>, con el nombre correcto y sus cinco subcarpetas, en cuanto le llega la fila del formulario. Lo más cómodo es dejar que la cree él y luego ir soltando ahí el COC y las fotos.</div>
 
   <h2 id="fotos">3 · Las fotos: nombres exactos</h2>
   <p>Esta es <strong>la parte donde más fácil es equivocarse</strong>, y la única que depende al 100% de ti. El sistema coloca cada foto en su hueco <strong>por el nombre del archivo</strong>. Si el nombre no lo reconoce, la foto no se inserta (te avisa, pero no la coloca).</p>
@@ -146,7 +147,7 @@
   <table>
     <tr><th>Llama al archivo…</th><th>Y va a…</th><th>También vale</th></tr>
     <tr><td><code>placa-fabricante.jpg</code></td><td>Placa de fabricante de 1ª fase</td><td>cualquier nombre con <em>placa</em></td></tr>
-    <tr><td><code>placa-fabricante-2-fase.jpg</code></td><td>Placa de fabricante de 2ª fase</td><td><em>placa</em> + un <em>2</em> (ej. <em>placa 2ª fase</em>)</td></tr>
+    <tr><td><code>placa-fabricante-2-fase.jpg</code></td><td>Placa de fabricante de 2ª fase</td><td><em>placa</em> + <em>2ª fase</em> / <em>fase 2</em> / <em>segunda fase</em></td></tr>
     <tr><td><code>bastidor.jpg</code></td><td>Número de bastidor / VIN</td><td><em>vin</em></td></tr>
     <tr><td><code>reformado.jpg</code></td><td>Croquis del reformado <em>(se coloca en dos sitios)</em></td><td><em>croquis</em></td></tr>
     <tr><td><code>reparto.jpg</code></td><td>Reparto de pesos</td><td>—</td></tr>
@@ -165,8 +166,8 @@
   <h3>Cuatro reglas para no fallar</h3>
   <ul>
     <li><strong>Formatos:</strong> <code>.jpg</code>, <code>.jpeg</code> o <code>.png</code>. Nada de HEIC del iPhone ni PDF.</li>
-    <li><strong>Una foto por hueco.</strong> Si hay dos que encajan en el mismo sitio, no es predecible cuál gana.</li>
-    <li><strong>Cuidado con los duplicados de Drive.</strong> Un archivo llamado <code>placa-fabricante (2).jpg</code> tiene "placa" y un "2", así que <strong>se iría al hueco de la placa de 2ª fase</strong>. Si subes una foto dos veces, borra la copia antes de que pase el sistema.</li>
+    <li><strong>Una foto por hueco.</strong> Si hay dos que encajan en el mismo sitio (por ejemplo <code>trasera.jpg</code> y <code>trasera-2.jpg</code>), <strong>el sistema no inserta ninguna</strong>: se detiene y te dice qué dos fotos se pelean por el mismo hueco. Borra o renombra una y en la siguiente pasada entra.</li>
+    <li><strong>Los duplicados de Drive ya no molestan.</strong> Un archivo llamado <code>placa-fabricante (2).jpg</code> se trata como lo que es —una copia de la placa normal— y va a su hueco de siempre. Para la placa de 2ª fase, el nombre tiene que decir <em>fase</em>: <code>placa-fabricante-2-fase.jpg</code>, <code>placa 2ª fase.jpg</code> o <code>placa fabricante segunda fase.jpg</code>.</li>
     <li><strong>Los acentos y las mayúsculas dan igual</strong> (<code>REFORMADO.JPG</code> funciona), pero las palabras clave de la tabla tienen que estar.</li>
   </ul>
   <div class="ok" style="margin-bottom:0"><strong>Truco:</strong> renombra las fotos en el móvil justo después de hacerlas, antes de subirlas. Es más rápido que hacerlo luego en Drive y evita que se te cuele una foto sin colocar.</div>
@@ -175,7 +176,7 @@
   <div class="card">
     <ul>
       <li><strong>Dónde:</strong> el PDF va en <code>01-entrada</code>, dentro de la carpeta del camión. El nombre del archivo <strong>da igual</strong>.</li>
-      <li><strong>Cuántos:</strong> deja <strong>un solo PDF</strong>. Si hay varios, el sistema usa el primero por orden alfabético y te lo avisa — pero es mejor no jugársela.</li>
+      <li><strong>Cuántos:</strong> <strong>un solo PDF</strong>. Si hay dos o más, el sistema <strong>no procesa</strong> ese camión y te dice cuáles ha encontrado: prefiere esperar a que mires tú antes que leer el documento equivocado.</li>
       <li><strong>Qué conviene que lleve:</strong> lo ideal es <strong>el COC y la ficha técnica española juntos</strong> en el mismo PDF. Cuando tiene los dos, contrasta uno con otro para resolver las dudas de lectura del escaneo (el clásico 1 que parece L, o el 5 que parece 8), y en caso de conflicto manda la ficha española.</li>
       <li><strong>Calidad:</strong> es un escaneo y se lee como tal. Cuanto más limpio, menos campos dudosos. Si una cifra está borrosa, el sistema <strong>no se la inventa</strong>: escribe <code>---</code> y tú la completas.</li>
     </ul>
@@ -265,9 +266,9 @@
     <tr><th>Síntoma</th><th>Causa más probable</th><th>Solución</th></tr>
     <tr><td>No se genera nada</td><td>La columna ya está en «Sí»</td><td>Bórralo para que lo repita</td></tr>
     <tr><td>Se detiene y avisa</td><td>Hay dos Excel en <code>04-excel</code> del mismo camión</td><td>Deja solo uno</td></tr>
-    <tr><td>No encuentra la carpeta</td><td>El nombre no contiene el carrocero o el cliente tal y como están en el formulario</td><td>Renombra la carpeta</td></tr>
-    <tr><td>Se detiene sin hacer nada</td><td>Dos carpetas encajan con la misma fila</td><td>Renombra o retira la que sobre</td></tr>
-    <tr><td>El COC no se procesa</td><td>No hay PDF en <code>01-entrada</code>, o el Excel base aún no existe</td><td>Sube el PDF / espera a la pasada 1</td></tr>
+    <tr><td>No encuentra la carpeta</td><td>La creaste a mano y su nombre no coincide exacto con <em>carrocero-cliente-identificador</em></td><td>Renómbrala, o bórrala y deja que la cree la pasada 1</td></tr>
+    <tr><td>El COC no se procesa</td><td>No hay PDF en <code>01-entrada</code>, hay <strong>más de uno</strong>, o el Excel base aún no existe</td><td>Deja un solo PDF / espera a la pasada 1</td></tr>
+    <tr><td>No inserta ninguna foto</td><td>Dos fotos van al mismo hueco</td><td>Borra o renombra una de las dos</td></tr>
     <tr><td>Faltan fotos en el Excel</td><td>Nombres no reconocidos</td><td>Renómbralas según la tabla del punto 3</td></tr>
   </table>
   </div>
@@ -277,7 +278,7 @@
   <div class="card">
     <ul style="margin-bottom:0">
       <li><strong>La foto de la placa de 2ª fase:</strong> aún no teníamos ningún ejemplo tuyo con esa foto puesta, así que hemos elegido su sitio junto al cuadro del formato de placa. <strong>Confírmanos si va ahí</strong> o prefieres otra posición.</li>
-      <li><strong>El nombre de las carpetas:</strong> hoy usamos <em>carrocero + cliente</em>. Si tenéis número de expediente, sería más robusto meterlo también — ¿lo añadimos al formulario?</li>
+      <li><strong>El número de bastidor en el formulario:</strong> hoy el identificador de la carpeta es el número de fila del formulario, que funciona pero no dice nada a simple vista. Con el <strong>bastidor</strong> como campo del formulario, la carpeta pasa a llamarse <em>carrocero-cliente-bastidor</em>: única para siempre y reconocible de un vistazo. Es el cambio que más recomendamos.</li>
       <li><strong>Los nombres de las fotos:</strong> ¿los de la tabla del punto 3 te encajan, o los llamáis de otra forma en el día a día? Se adaptan en cinco minutos.</li>
       <li><strong>Las observaciones:</strong> ¿dónde quieres que aparezcan en el Excel?</li>
       <li><strong>Dos datos del IVECO de prueba</strong> que no nos cuadran y queremos entender: la fecha de homologación y la longitud, donde tu expediente y el COC escaneado no dicen lo mismo.</li>
