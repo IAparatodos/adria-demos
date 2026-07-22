@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>BMR · Recorrido de la app y roles · 22 jul 2026 · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="BMR · Recorrido de la app y roles · Código AdrIA">
+<meta property="og:description" content="Resumen de la reunión Bego · Rafa · Ricardo: un solo embudo hacia la app, medición y fechas de agosto.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/bmr-reunion-app-72406c.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BMR · Recorrido de la app y roles · Código AdrIA">
+<meta name="twitter:description" content="Resumen de la reunión Bego · Rafa · Ricardo: un solo embudo hacia la app, medición y fechas de agosto.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#4dd2d0; --accent-dim:rgba(77,210,208,.14); --accent-border:rgba(77,210,208,.35);
+    --petroleo:#3f6f7b; --profundo:#0b2229; --profundo-2:#102e35;
+    --texto:#e7f4f4; --texto-dim:#9db9be; --linea:rgba(157,185,190,.18);
+    --verde:#2ecc71; --ambar:#f0a830; --rojo:#e8705f;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Poppins',-apple-system,sans-serif;background:var(--profundo);color:var(--texto);line-height:1.65;font-size:16px}
+  .container{max-width:900px;margin:0 auto;padding:0 22px}
+
+  .hero{padding:clamp(48px,8vw,86px) 0 clamp(34px,5vw,52px);border-bottom:1px solid var(--linea);background:radial-gradient(1200px 400px at 15% -10%,rgba(77,210,208,.14),transparent 60%)}
+  .marca{font-weight:800;font-size:.95rem;color:var(--accent);letter-spacing:.3px;margin-bottom:20px}
+  .marca span{color:#fff}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent);border-radius:20px;padding:4px 14px;font-size:.72rem;letter-spacing:.7px;text-transform:uppercase;font-weight:700;margin-bottom:16px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  .hero h1{font-size:clamp(1.55rem,4.4vw,2.5rem);font-weight:800;letter-spacing:-.8px;line-height:1.18}
+  .hero .subtitle{margin-top:14px;color:var(--texto-dim);font-size:clamp(.95rem,2vw,1.06rem);max-width:64ch}
+  .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+  .meta span{background:rgba(255,255,255,.04);border:1px solid var(--linea);border-radius:9px;padding:5px 12px;font-size:.8rem;color:var(--texto-dim)}
+
+  nav.nav-timeline{position:sticky;top:0;z-index:30;background:rgba(11,34,41,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea);display:flex;gap:6px;overflow-x:auto;padding:11px 22px;scrollbar-width:none}
+  nav.nav-timeline::-webkit-scrollbar{display:none}
+  .nav-item{flex:0 0 auto;cursor:pointer;border:1px solid var(--linea);border-radius:20px;padding:5px 13px;font-size:.78rem;color:var(--texto-dim);white-space:nowrap;transition:.15s;background:transparent;font-family:'Poppins',sans-serif}
+  .nav-item:hover{color:var(--texto);border-color:var(--accent-border)}
+  .nav-item.active{background:var(--accent-dim);border-color:var(--accent-border);color:var(--accent);font-weight:600}
+  .nav-num{font-weight:800;margin-right:5px}
+
+  .section{padding:clamp(38px,6vw,62px) 0;border-bottom:1px solid var(--linea)}
+  .section-num{display:flex;align-items:center;gap:10px;font-size:.72rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px}
+  .section-num .line{width:32px;height:2px;background:var(--accent);display:inline-block}
+  .time-badge{background:rgba(255,255,255,.05);border:1px solid var(--linea);border-radius:8px;padding:2px 9px;color:var(--texto-dim);font-weight:500;letter-spacing:.3px;text-transform:none}
+  .section h2{font-size:clamp(1.2rem,3vw,1.65rem);font-weight:800;letter-spacing:-.4px;line-height:1.25}
+  .lead{color:var(--texto-dim);margin-top:12px;max-width:68ch}
+
+  .tp-list{margin-top:26px;display:flex;flex-direction:column;gap:10px}
+  .tp{background:rgba(255,255,255,.035);border:1px solid var(--linea);border-radius:14px;padding:16px 18px;display:flex;gap:14px;cursor:pointer;transition:.18s}
+  .tp:hover{border-color:var(--accent-border);background:rgba(77,210,208,.05)}
+  .tp-icon{flex:0 0 auto;font-size:1.15rem;line-height:1.4}
+  .tp-title{font-weight:600;color:#fff}
+  .tp-desc{color:var(--texto-dim);font-size:.92rem;margin-top:3px}
+  .tp-detail{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--texto-dim);font-size:.93rem}
+  .tp.open .tp-detail{max-height:640px;margin-top:12px}
+  .tp-detail p{margin-bottom:9px}
+  .tp-quote{border-left:3px solid var(--accent);padding:8px 14px;background:rgba(77,210,208,.07);border-radius:0 10px 10px 0;color:var(--texto);font-style:italic;margin:10px 0}
+  .tp-quote small{display:block;font-style:normal;color:var(--texto-dim);margin-top:5px;font-size:.78rem}
+  .ts{display:inline-block;font-size:.75rem;color:var(--accent);border:1px solid var(--accent-border);border-radius:7px;padding:1px 8px;margin-top:4px}
+  .chevron{margin-left:auto;color:var(--texto-dim);font-size:.8rem;transition:.25s;flex:0 0 auto}
+  .tp.open .chevron{transform:rotate(90deg);color:var(--accent)}
+
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:24px}
+  .col{background:rgba(255,255,255,.035);border:1px solid var(--linea);border-radius:14px;padding:18px 20px}
+  .col h3{font-size:1rem;font-weight:700;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .col ul{margin-left:18px}
+  .col li{margin-bottom:9px;font-size:.92rem;color:var(--texto-dim)}
+  .col li b{color:#fff;font-weight:600}
+
+  .tl{margin-top:26px;position:relative;padding-left:26px}
+  .tl:before{content:'';position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--linea)}
+  .tl-item{position:relative;margin-bottom:20px}
+  .tl-item:before{content:'';position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--profundo);border:2px solid var(--accent)}
+  .tl-item.warn:before{border-color:var(--ambar)}
+  .tl-fecha{font-weight:700;color:#fff;font-size:.95rem}
+  .tl-txt{color:var(--texto-dim);font-size:.92rem}
+
+  .abierto{background:rgba(240,168,48,.07);border:1px solid rgba(240,168,48,.3);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+  .abierto b{color:var(--ambar)}
+  .abierto p{color:var(--texto-dim);font-size:.92rem;margin-top:4px}
+
+  footer{padding:34px 0 46px;text-align:center;color:var(--texto-dim);font-size:.82rem}
+  footer .fm{color:var(--accent);font-weight:700;margin-bottom:6px}
+
+  .fade-in{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .fade-in.visible{opacity:1;transform:none}
+  @media(max-width:600px){ .tp{padding:14px} .container{padding:0 16px} nav.nav-timeline{padding:9px 16px} }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="container">
+    <div class="marca">Código Adr<span>IA</span></div>
+    <div class="hero-badge"><span class="dot"></span> Reunión de trabajo · BMR</div>
+    <h1>Un solo camino hacia la app:<br>recorrido, datos y fechas</h1>
+    <p class="subtitle">Begoña, Rafa y Ricardo alinean el embudo único hacia la App BMR, cómo se van a conectar la app y el CRM, y qué queda hecho antes de agosto.</p>
+    <div class="meta">
+      <span>📅 Miércoles 22 de julio de 2026</span>
+      <span>⏱ 51 minutos</span>
+      <span>📋 7 temas</span>
+      <span>👥 Begoña · Rafa · Ricardo</span>
+    </div>
+  </div>
+</div>
+
+<nav class="nav-timeline" id="nav">
+  <button class="nav-item active" onclick="ir('s1')"><span class="nav-num">1</span> Radiografía</button>
+  <button class="nav-item" onclick="ir('s2')"><span class="nav-num">2</span> Puerta rota</button>
+  <button class="nav-item" onclick="ir('s3')"><span class="nav-num">3</span> El recorrido</button>
+  <button class="nav-item" onclick="ir('s4')"><span class="nav-num">4</span> Test 2 y pago</button>
+  <button class="nav-item" onclick="ir('s5')"><span class="nav-num">5</span> Datos y eventos</button>
+  <button class="nav-item" onclick="ir('s6')"><span class="nav-num">6</span> Limpieza</button>
+  <button class="nav-item" onclick="ir('s7')"><span class="nav-num">7</span> Fechas</button>
+  <button class="nav-item" onclick="ir('acuerdos')"><span class="nav-num">✅</span> Acuerdos</button>
+  <button class="nav-item" onclick="ir('abiertos')"><span class="nav-num">⚠️</span> Abierto</button>
+</nav>
+
+<!-- 1 -->
+<div class="section" id="s1">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-num"><span class="line"></span> Tema 1 <span class="time-badge">⏱ 00:00 – 10:00</span></div>
+      <h2>🔍 Radiografía técnica antes de empezar</h2>
+      <p class="lead">Los primeros diez minutos, Ricardo y Rafa a solas: qué hay montado de verdad, qué mide hoy el negocio y dónde están los agujeros. Coinciden en el diagnóstico sin haberlo hablado antes.</p>
+    </div>
+    <div class="tp-list fade-in">
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">🧩</div>
+        <div class="tp-content">
+          <div class="tp-title">Rafa hizo la aplicación móvil, y solo eso</div>
+          <div class="tp-desc">Todo lo que rodea a la app (páginas, enlaces, la versión de escritorio) lo hicieron otros y él no lo ha visto.</div>
+          <div class="tp-detail">
+            <p>Rafa construyó la primera versión de la app móvil y sigue trabajando en ella con Bego. La web, las landings y los enlaces que apuntan a la app los montaron equipos anteriores, sin avisarle.</p>
+            <p>Consecuencia práctica: cuando algo falla «en la app» hay que distinguir si es la aplicación o el envoltorio que la rodea. Casi todo lo que estaba roto era lo segundo.</p>
+            <span class="ts">02:22 – 04:10</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">📉</div>
+        <div class="tp-content">
+          <div class="tp-title">No hay medición: ni píxel en la web, ni eventos más allá de los pagos</div>
+          <div class="tp-desc">Lo único que se registra hoy es lo que manda Stripe cuando alguien compra o se suscribe.</div>
+          <div class="tp-detail">
+            <p>La app no tiene píxel instalado y la web tampoco. El único evento existente es el de compra/suscripción que dispara Stripe, así que se sabe <em>que</em> alguien ha comprado, pero no por dónde entró: si vino de Instagram, de YouTube, de WhatsApp o de un enlace suelto.</p>
+            <div class="tp-quote">«No hay píxel porque básicamente no había nadie que se encargara de usar los datos.»<small>Rafa · 04:33</small></div>
+            <div class="tp-quote">«El principal problema que tienes es la medición.»<small>Ricardo · 05:56</small></div>
+            <span class="ts">04:12 – 05:51</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">🩺</div>
+        <div class="tp-content">
+          <div class="tp-title">Aviso de Rafa: la app roza el terreno de los datos de salud</div>
+          <div class="tp-desc">Por eso no metió medición estándar. No es una negativa: es una cautela que hay que resolver bien.</div>
+          <div class="tp-detail">
+            <p>Rafa señala que, según cómo estén redactadas las preguntas y qué se recoja, la información de la app puede entrar en la categoría de datos de salud. Meter un píxel que capture ese contenido directamente podría dar problemas.</p>
+            <p>Su postura: «no hay problema en hacerlo», pero hay que decidir <b>qué se envía y qué no</b> antes de instalar nada. Queda como punto abierto.</p>
+            <span class="ts">04:47 – 05:14</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">💬</div>
+        <div class="tp-content">
+          <div class="tp-title">Consultas de clientes que se quedan sin respuesta</div>
+          <div class="tp-desc">Ricardo mandó dos mensajes de prueba por Instagram y nadie contestó en dos días. En el CRM pasa lo mismo con los leads.</div>
+          <div class="tp-detail">
+            <p>El canal de Instagram funciona muy bien captando, pero la conversación muere ahí: hay automatizaciones parciales por palabra clave que derivan a WhatsApp Business, y ese WhatsApp se contesta cuando se puede.</p>
+            <div class="tp-quote">«Es una pena la cantidad de dinero que se está perdiendo por ahí.»<small>Begoña · 43:31</small></div>
+            <span class="ts">07:07 · 42:35 – 44:47</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="section" id="s2">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-num"><span class="line"></span> Tema 2 <span class="time-badge">⏱ 17:30 – 20:40</span></div>
+      <h2>🖥️ La puerta de la app en escritorio está rota</h2>
+      <p class="lead">Compartiendo pantalla: quien llega a la app desde un ordenador se encuentra un muro. Y nadie de los tres sabe quién montó esa página.</p>
+    </div>
+    <div class="tp-list fade-in">
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">🚧</div>
+        <div class="tp-content">
+          <div class="tp-title">En escritorio solo sale «disponible en móvil» y ningún botón funciona</div>
+          <div class="tp-desc">Ni «Únete», ni el acceso, ni la vuelta atrás. Callejón sin salida.</div>
+          <div class="tp-detail">
+            <p>La página que se sirve en escritorio se limita a avisar de que la app es móvil, con botones que no hacen nada y sin forma de volver. Quien entra por ordenador —históricamente el canal con mejor conversión— se pierde entero.</p>
+            <p>Ni Rafa ni Bego saben quién la hizo: es herencia de algún equipo anterior.</p>
+            <span class="ts">18:14 – 19:05</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">🎯</div>
+        <div class="tp-content">
+          <div class="tp-title">Decisión: ahí va la landing de la app, no un aviso</div>
+          <div class="tp-desc">Rafa está haciendo una nueva versión de la landing y se la pasa a Ricardo en HTML.</div>
+          <div class="tp-detail">
+            <p>En lugar de un muro, esa URL servirá la landing de venta de la app. Quien quiera acceder desde escritorio recibirá una indicación clara de continuar en el móvil, pero sin quedarse encerrado.</p>
+            <p>Rafa pasa la nueva landing en <b>HTML</b> (formato acordado) y Ricardo la adapta para que sirva también como página de captación medible.</p>
+            <span class="ts">19:05 – 20:45 · 34:20 – 34:38</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">📐</div>
+        <div class="tp-content">
+          <div class="tp-title">Imágenes cortadas en pantallas grandes</div>
+          <div class="tp-desc">Parte de la web no es adaptable: en monitores anchos los textos quedan «decapitados».</div>
+          <div class="tp-detail">
+            <p>Varias secciones son imágenes fijas sin versión adaptable, así que se recortan según el tamaño de la pantalla. Entra en la lista de arreglos de la web.</p>
+            <span class="ts">20:01 – 20:40</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="section" id="s3">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-num"><span class="line"></span> Tema 3 <span class="time-badge">⏱ 12:20 – 16:00 · 35:00 – 35:40</span></div>
+      <h2>🎯 El recorrido: todo el mundo entra por el test y acaba en la app</h2>
+      <p class="lead">Begoña expone el flujo completo. La palabra que repite es simplificación: un solo camino, una sola oferta, ninguna encrucijada para quien llega.</p>
+    </div>
+    <div class="tp-list fade-in">
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">📣</div>
+        <div class="tp-content">
+          <div class="tp-title">Todos los canales apuntan al mismo sitio: el test</div>
+          <div class="tp-desc">Instagram, TikTok y YouTube con un CTA único: «diagnostica tu mente».</div>
+          <div class="tp-detail">
+            <p>En Instagram el CTA será por palabra clave («test») a través de la automatización de mensajes. Begoña ya está encaminando entrevistas y pódcast hacia el mismo mensaje: la importancia de entrenar la mente.</p>
+            <p>En la web sí se quedan los demás productos —por si alguien entra de rebote y compra el Gimnasio—, pero <b>la comunicación en redes irá solo a la app</b>.</p>
+            <div class="tp-quote">«Lo ideal es no dejarle a la gente que elija.»<small>Begoña · 23:00</small></div>
+            <span class="ts">22:46 – 23:44</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">🧪</div>
+        <div class="tp-content">
+          <div class="tp-title">Test 1: el imán, corto y amable (ya está hecho)</div>
+          <div class="tp-desc">Pocas preguntas, cuatro resultados posibles, un único vídeo de respuesta para todos.</div>
+          <div class="tp-detail">
+            <p>Begoña ya tiene escrito el test y sus resultados. La promesa es un diagnóstico gratuito del estado de la mente. La respuesta llega en texto y en vídeo: se grabará <b>un solo vídeo horizontal</b>, emocional, que parece personalizado aunque sea el mismo para los cuatro perfiles.</p>
+            <p>Estructura del mensaje: refuerzo positivo → lo que se puede mejorar → la solución. Y la solución es siempre la misma: la app.</p>
+            <p>Se lo pasará a Rafa y a Ricardo para que lo revisen y le den su opinión antes de publicarlo.</p>
+            <span class="ts">13:10 – 14:27 · 29:27 – 31:57</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">🚪</div>
+        <div class="tp-content">
+          <div class="tp-title">La landing de la app es el punto de conversión (197 €)</div>
+          <div class="tp-desc">El vídeo del resultado lleva a la landing; ahí se decide todo.</div>
+          <div class="tp-detail">
+            <p>Dos caminos posibles: quien paga entra en la app; quien no paga ha dejado su correo en el test y pasa a la lista de recuperación.</p>
+            <span class="ts">35:01 – 35:40</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">📊</div>
+        <div class="tp-content">
+          <div class="tp-title">Test 2 dentro de la app: 50 preguntas para conseguir datos</div>
+          <div class="tp-desc">La excusa es personalizar el entrenamiento. La finalidad declarada es tener datos para los siguientes productos.</div>
+          <div class="tp-detail">
+            <p>Se responde ya dentro de la app, después de pagar. Begoña lo dice sin rodeos: quien acaba de pagar 197 € y recibe «necesito conocerte para personalizar tus ejercicios» responde; alguien que aún no ha pagado, no.</p>
+            <div class="tp-quote">«El segundo test tiene que ser muy bueno para recoger muchos datos y luego crear productos personalizados.»<small>Begoña · 14:27</small></div>
+            <span class="ts">14:27 – 15:00 · 33:13 – 33:37</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">📈</div>
+        <div class="tp-content">
+          <div class="tp-title">Venta del siguiente escalón desde dentro de la app</div>
+          <div class="tp-desc">A las dos o tres semanas, con tono de progreso y no de venta, más un correo en paralelo.</div>
+          <div class="tp-detail">
+            <p>La idea: cuando el usuario lleva un tiempo entrenando, la app le devuelve un reconocimiento de su evolución y le sugiere el paso natural siguiente (un plan superior). Genérico por dentro, personal por fuera.</p>
+            <p>Rafa lo ve viable como banner o CTA dentro de la app y aporta el matiz técnico: lo difícil no es mostrarlo, es acertar con el momento y mantener la lógica simple. Añade que el correo, además, «toda la vida funciona» — se hará por los dos canales.</p>
+            <span class="ts">25:09 – 27:45</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="section" id="s4">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-num"><span class="line"></span> Tema 4 <span class="time-badge">⏱ 28:30 – 33:40</span></div>
+      <h2>❓ El debate de la reunión: ¿el test largo antes o después de pagar?</h2>
+      <p class="lead">Rafa pone sobre la mesa la única objeción de fondo del día. Se resuelve en cinco minutos y con acuerdo explícito.</p>
+    </div>
+    <div class="tp-list fade-in">
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">🤔</div>
+        <div class="tp-content">
+          <div class="tp-title">La duda: ¿cuánta gente se pierde por pedirle pagar antes de conocerla?</div>
+          <div class="tp-desc">Y si las preguntas del test corto bastan para saber qué venderle a cada uno.</div>
+          <div class="tp-detail">
+            <div class="tp-quote">«¿Qué peligro hay en que el segundo formulario esté después de un pago? ¿Cuánta gente perderemos?»<small>Rafa · 28:31</small></div>
+            <span class="ts">28:31 – 29:11</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">✅</div>
+        <div class="tp-content">
+          <div class="tp-title">La respuesta: 50 preguntas sin pagar no las hace nadie</div>
+          <div class="tp-desc">Cada test tiene una función distinta y no compiten.</div>
+          <div class="tp-detail">
+            <div class="tp-quote">«50 preguntas a alguien que no ha pagado es una fricción tan grande que no lo hace nadie.»<small>Begoña · 29:27</small></div>
+            <p><b>Reparto acordado:</b> las preguntas del <b>test 1</b> son las que determinan el primer producto que se le puede vender (y hoy ese producto es siempre el mismo: la app). Las del <b>test 2</b> sirven para mejorar la experiencia dentro y para decidir el siguiente producto.</p>
+            <p>Rafa lo da por cerrado: «me queda claro».</p>
+            <span class="ts">29:27 – 33:37</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5 -->
+<div class="section" id="s5">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-num"><span class="line"></span> Tema 5 <span class="time-badge">⏱ 21:10 – 22:00 · 24:15 – 25:10 · 33:40 – 34:40</span></div>
+      <h2>🔗 Dónde se juntan la app y el resto del negocio</h2>
+      <p class="lead">El punto de unión técnico entre Rafa y Ricardo: qué datos salen de la app, en qué formato y hacia dónde.</p>
+    </div>
+    <div class="tp-list fade-in">
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">🗄️</div>
+        <div class="tp-content">
+          <div class="tp-title">La base de datos de la app es Neon, y Rafa puede dar acceso</div>
+          <div class="tp-desc">Trabaja con conectores y agentes, así que la vía de acceso ya existe.</div>
+          <div class="tp-detail">
+            <p>Con acceso a esa base se puede montar un análisis propio de las respuestas del test 2 y convertirlas en criterio de producto, en vez de dejarlas guardadas sin usar.</p>
+            <span class="ts">21:29 – 22:29</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">📥</div>
+        <div class="tp-content">
+          <div class="tp-title">Rafa crea la tabla del test 2 y abre la comunicación de esos datos</div>
+          <div class="tp-desc">Del test 1 no necesita nada: le llegará un enlace con parámetros de origen y el enlace de compra.</div>
+          <div class="tp-detail">
+            <p>Reparto limpio: el test 1 vive fuera (lo monta Ricardo, con seguimiento de origen); el test 2 vive dentro de la app (lo monta Rafa, guarda las respuestas y las pone a disposición de Ricardo).</p>
+            <span class="ts">24:16 – 24:50 · 33:37 – 34:01</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">⚡</div>
+        <div class="tp-content">
+          <div class="tp-title">Tabla de eventos: qué avisa la app al resto del sistema</div>
+          <div class="tp-desc">Compra, alta de suscripción, cancelación… Rafa prepara el listado y lo manda a Ricardo.</div>
+          <div class="tp-detail">
+            <p>Es la pieza que hoy falta para que el CRM sepa quién es cliente, quién ha renovado y quién se ha ido, y para poder dejar de anunciarle la app a quien ya la tiene.</p>
+            <p>Ricardo pide además el <b>listado de clientes ya dados de alta</b> para marcarlos en el CRM y limpiar de golpe una parte grande del desorden.</p>
+            <span class="ts">33:57 – 34:20 · 39:11 – 39:25</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">💬</div>
+        <div class="tp-content">
+          <div class="tp-title">Canal de trabajo: grupo de WhatsApp los tres + correo para lo técnico</div>
+          <div class="tp-desc">Begoña crea el grupo; Rafa pasa su correo profesional para documentación y listados.</div>
+          <div class="tp-detail">
+            <p>Acuerdo práctico: las conversaciones y las fechas, en el grupo; los archivos, tablas y especificaciones, por correo — en el grupo se pierden.</p>
+            <span class="ts">48:49 – 50:03</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 6 -->
+<div class="section" id="s6">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-num"><span class="line"></span> Tema 6 <span class="time-badge">⏱ 39:25 – 48:50</span></div>
+      <h2>🧹 Qué se apaga y qué sigue vivo</h2>
+      <p class="lead">La limpieza del CRM con una frontera que Begoña deja muy clara: lo que muere son los embudos de lanzamientos pasados, no las rutas orgánicas que siguen vendiendo.</p>
+    </div>
+    <div class="tp-list fade-in">
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">🔥</div>
+        <div class="tp-content">
+          <div class="tp-title">Fuera: embudos de lanzamientos prescritos y el low ticket</div>
+          <div class="tp-desc">Objetivo declarado: que quede un solo embudo y apunte al test.</div>
+          <div class="tp-detail">
+            <div class="tp-quote">«Lo que yo quiero es eliminar embudos y que quede uno solo hacia el test.»<small>Begoña · 46:20</small></div>
+            <p>Del low ticket de enero-febrero: «ese no lo quiero ni en pintura». También se va lo que quedó de una colaboración de afiliación ajena a su catálogo.</p>
+            <span class="ts">46:11 – 46:28 · 47:55 – 48:04</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">🌱</div>
+        <div class="tp-content">
+          <div class="tp-title">Se queda: la ruta orgánica que vende sola</div>
+          <div class="tp-desc">Alguien la ve en un pódcast, entra por la descripción y compra un curso. Eso no se toca.</div>
+          <div class="tp-detail">
+            <div class="tp-quote">«Esa ruta obviamente tiene que seguir estando viva. Cuando yo digo campañas me refiero a embudos que se crearon para un lanzamiento o para un low ticket.»<small>Begoña · 47:01</small></div>
+            <p>Matiz importante para la limpieza: los enlaces de las descripciones de YouTube y de entrevistas siguen operativos y siguen generando ventas por Hotmart. Lo que hace falta ahí es <b>etiquetar esos enlaces</b> para saber de dónde vienen las ventas, no apagarlos.</p>
+            <span class="ts">46:43 – 48:49</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">📋</div>
+        <div class="tp-content">
+          <div class="tp-title">Método acordado: lista de «esto fuera / esto se queda» antes de tocar nada</div>
+          <div class="tp-desc">Ricardo analiza y propone; Begoña valida elemento a elemento.</div>
+          <div class="tp-detail">
+            <p>Nada se apaga por criterio propio: primero el listado, después la ejecución. Begoña: «me parece bien».</p>
+            <span class="ts">47:00 – 47:42</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">🤖</div>
+        <div class="tp-content">
+          <div class="tp-title">Instagram y los mensajes sin atender: informe primero, automatización después</div>
+          <div class="tp-desc">Ricardo analiza qué está preguntando la gente y Begoña decide a dónde llevar cada tipo de consulta.</div>
+          <div class="tp-detail">
+            <p>Método en dos pasos: se extrae qué se pregunta realmente en los mensajes acumulados, Begoña aporta el criterio profesional de qué responder y a dónde derivar, y a partir de ahí se automatiza por partes. Se asume que siempre quedará una porción manual.</p>
+            <span class="ts">43:37 – 45:38</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">📨</div>
+        <div class="tp-content">
+          <div class="tp-title">Campaña de relanzamiento de la app a la base existente</div>
+          <div class="tp-desc">Hay muchos contactos dormidos en el CRM y en Instagram: son el primer público del lanzamiento.</div>
+          <div class="tp-detail">
+            <p>Acordado para la segunda mitad de agosto, cuando la app ya esté actualizada y Rafa vuelva a estar operativo.</p>
+            <span class="ts">39:25 – 39:41 · 41:38 – 42:14</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 7 -->
+<div class="section" id="s7">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-num"><span class="line"></span> Tema 7 <span class="time-badge">⏱ 36:00 – 42:15</span></div>
+      <h2>🗓️ Fechas: la ventana es agosto</h2>
+      <p class="lead">El calendario lo marcan dos lanzamientos externos y una ausencia. Todo lo que depende de Rafa tiene que estar hecho antes del 1 de agosto.</p>
+    </div>
+    <div class="tp-list fade-in">
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">⏳</div>
+        <div class="tp-content">
+          <div class="tp-title">Por qué corre prisa: septiembre y octubre ya están ocupados</div>
+          <div class="tp-desc">Línea de neurosuplementación el 7 de septiembre y libro con Planeta en octubre, con evento.</div>
+          <div class="tp-detail">
+            <p>Begoña quiere la app lanzada «en agosto como mucho» para no solapar con esos dos frentes. Del libro sale además un encargo nuevo: una página web fija y duradera para enlazar desde la edición.</p>
+            <span class="ts">36:08 – 36:57 · 16:20 – 17:00</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">✈️</div>
+        <div class="tp-content">
+          <div class="tp-title">Rafa: disponible hasta el 1 de agosto, después solo para emergencias</div>
+          <div class="tp-desc">Una semana por Europa con otro proyecto y luego vacaciones: vuelve el 15 de agosto.</div>
+          <div class="tp-detail">
+            <p>Lo dice él mismo: sin bloqueos por su parte, lo que quede de julio puede sacar el formulario del test 2, el banner interno, la tabla de eventos y la versión nueva del gimnasio. Ante una urgencia en agosto responde en pocas horas, pero no puede dedicarse al proyecto.</p>
+            <p>De ahí el orden acordado: primero todo lo que dependa de él, después lo que depende de Ricardo y Begoña.</p>
+            <span class="ts">37:13 – 39:01 · 41:12 – 41:31</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+
+      <div class="tp" onclick="this.classList.toggle('open')">
+        <div class="tp-icon">🧑‍🔬</div>
+        <div class="tp-content">
+          <div class="tp-title">Fase 0 con los usuarios que ya están dentro (unos 700)</div>
+          <div class="tp-desc">Se les regala la mejora antes que a nadie y se les pide el test 2. Prueba real antes de abrir la puerta.</div>
+          <div class="tp-detail">
+            <p>Idea de Begoña, aceptada por los tres: usar a los usuarios actuales de la app como grupo piloto. Se les anuncia la novedad como un regalo por ser los primeros, se recoge su feedback sobre los entrenamientos nuevos y, de paso, empiezan a alimentar la base de datos con las respuestas del test 2.</p>
+            <p>Doble ventaja: se detectan fallos con gente que ya confía, y el lanzamiento posterior sale sobre terreno probado.</p>
+            <span class="ts">37:23 – 38:39</span>
+          </div>
+        </div>
+        <div class="chevron">▶</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ACUERDOS -->
+<div class="section" id="acuerdos">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-num"><span class="line"></span> Acuerdos</div>
+      <h2>✅ Quién hace qué</h2>
+      <p class="lead">Lo comprometido en voz alta durante la reunión, por persona.</p>
+    </div>
+    <div class="cols fade-in">
+      <div class="col">
+        <h3>💜 Begoña</h3>
+        <ul>
+          <li><b>Crea el grupo de WhatsApp</b> de los tres para el lanzamiento de la app.</li>
+          <li><b>Pasa el test 1</b> (preguntas y resultados) a Rafa y a Ricardo para que lo revisen.</li>
+          <li><b>Pasa las preguntas del test 2</b> (recogida de datos) para validarlas antes de montarlas.</li>
+          <li><b>Graba el vídeo</b> de resultado del test 1 (horizontal, uno para todos los perfiles).</li>
+          <li><b>Redacta los correos</b> a los usuarios actuales anunciando la mejora.</li>
+          <li><b>Valida la lista</b> de qué embudos se apagan y cuáles siguen.</li>
+          <li><b>Aporta el criterio</b> sobre qué responder en los mensajes de Instagram.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>🛠️ Rafa</h3>
+        <ul>
+          <li><b>Landing nueva de la app en HTML</b> a Ricardo, para sustituir la página rota de escritorio.</li>
+          <li><b>Tabla de eventos</b> de la app (compra, alta, cancelación) documentada y enviada.</li>
+          <li><b>Tabla del test 2</b> en la base de datos + acceso a los resultados.</li>
+          <li><b>Versión 2 del gimnasio</b> y los entrenamientos nuevos.</li>
+          <li><b>Banner/CTA dentro de la app</b> para la venta del siguiente escalón.</li>
+          <li><b>Listado de clientes de alta</b> para marcarlos en el CRM.</li>
+          <li>Pasa su <b>correo profesional</b> como canal para lo técnico.</li>
+          <li>Todo ello <b>antes del 1 de agosto</b>.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>⚙️ Ricardo</h3>
+        <ul>
+          <li><b>Este informe</b> de la reunión y el cuestionario de negocio para Begoña.</li>
+          <li><b>Monta el test 1</b> fuera de la app, con medición de origen desde el primer clic.</li>
+          <li><b>Adapta la landing</b> que pase Rafa y la deja medible.</li>
+          <li><b>Análisis del CRM</b> con la lista «esto fuera / esto se queda» para que Bego valide.</li>
+          <li><b>Limpieza</b> del CRM y de las automatizaciones obsoletas.</li>
+          <li><b>Informe de las consultas</b> de Instagram y propuesta de automatización por partes.</li>
+          <li><b>Etiquetado de enlaces</b> (origen) para pódcast, entrevistas y descripciones de YouTube.</li>
+          <li><b>Campaña de relanzamiento</b> a la base existente, a mitad de agosto.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl fade-in" style="margin-top:34px">
+      <div class="tl-item">
+        <div class="tl-fecha">Hasta el 31 de julio</div>
+        <div class="tl-txt">Rafa cierra todo lo suyo. Se activa la fase 0 con los ~700 usuarios actuales: correo de anuncio, mejora disponible y test 2 para empezar a recoger datos.</div>
+      </div>
+      <div class="tl-item warn">
+        <div class="tl-fecha">1 – 15 de agosto</div>
+        <div class="tl-txt">Rafa fuera (proyecto en Europa + vacaciones), disponible solo para emergencias. Ricardo trabaja todo agosto: limpieza, test 1, landing y medición.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-fecha">Mitad / tercera semana de agosto</div>
+        <div class="tl-txt">Campaña de relanzamiento de la app a la base de contactos, con Rafa ya operativo por si surge algo técnico.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-fecha">7 de septiembre</div>
+        <div class="tl-txt">Salida de la línea de neurosuplementación (frente externo).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-fecha">Octubre</div>
+        <div class="tl-txt">Libro con Planeta y evento. Necesita una página web fija que quede enlazada de forma permanente.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABIERTOS -->
+<div class="section" id="abiertos">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-num"><span class="line"></span> Pendiente</div>
+      <h2>⚠️ Lo que quedó abierto</h2>
+      <p class="lead">Cinco decisiones que no se cerraron y conviene resolver en el grupo antes de que bloqueen a alguien.</p>
+    </div>
+    <div class="fade-in">
+      <div class="abierto"><b>1 · Datos de salud y medición</b><p>Antes de instalar píxel o eventos hay que definir qué información sale de la app y cuál no. Aviso de Rafa, sin resolver: es una decisión de criterio, no técnica.</p></div>
+      <div class="abierto"><b>2 · Dominio de la página del libro</b><p>¿.es o .com? Begoña necesita darle a la editorial una dirección que no cambie nunca, porque el libro circulará durante años.</p></div>
+      <div class="abierto"><b>3 · El momento exacto de la venta dentro de la app</b><p>¿Dos semanas, tres, un mes? ¿Según progreso real o por tiempo? Rafa avisa de que acertar el momento es lo que decide si funciona.</p></div>
+      <div class="abierto"><b>4 · Qué se hace con el resto de productos en la web</b><p>Se quedan publicados para quien entre de rebote, pero desaparecen de la comunicación. Falta decidir si alguno se retira del todo.</p></div>
+      <div class="abierto"><b>5 · Qué responde el sistema en Instagram</b><p>Depende del informe de consultas y del criterio que aporte Begoña. Hasta entonces, los mensajes siguen acumulándose.</p></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p class="fm">Código AdrIA · Automatiza con cabeza</p>
+    <p>BMR · Recorrido de la app y roles · miércoles 22 de julio de 2026 · 11:30 (hora peninsular) · 51 min</p>
+    <p style="font-size:.75rem;margin-top:8px">Documento privado para Begoña del Campo y Rafael Blanquer · enlace no listado · codigoadria.com</p>
+  </div>
+</footer>
+
+<script>
+  function ir(id){ document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'}); }
+  var obs = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); }); }, {threshold:.08});
+  document.querySelectorAll('.fade-in').forEach(function(el){ obs.observe(el); });
+  var secciones = document.querySelectorAll('.section');
+  var items = document.querySelectorAll('.nav-item');
+  window.addEventListener('scroll', function(){
+    var actual = '';
+    secciones.forEach(function(s){ if (window.scrollY >= s.offsetTop - 140) actual = s.id; });
+    items.forEach(function(it, i){
+      it.classList.toggle('active', secciones[i] && secciones[i].id === actual);
+    });
+  });
+</script>
+</body>
+</html>
