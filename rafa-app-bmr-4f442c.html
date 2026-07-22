@@ -15,6 +15,8 @@
 <meta name="twitter:title" content="App BMR · Lo que falta por definir · Código AdrIA">
 <meta name="twitter:description" content="Especificación de los eventos, datos y accesos que la app debe entregar antes del 1 de agosto.">
 <meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23102e35'/><text x='32' y='45' font-family='Poppins,Helvetica,Arial' font-size='32' font-weight='700' text-anchor='middle' fill='%234dd2d0'>cA</text></svg>">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -93,7 +95,7 @@
 
   <div class="intro">
     <p>Gracias por la reunión — con lo que contaste ya tengo el mapa. Esto no es un cuestionario: es <strong>la especificación concreta de lo que acordaste entregar</strong>, con mi propuesta ya escrita en cada punto para que solo tengas que confirmar o corregir.</p>
-    <p>Son <strong>8 bloques</strong>. Donde hay una tabla o un ejemplo, es mi propuesta de partida: cámbiala sin problema, tú sabes lo que cuesta cada cosa. Lo marcado <span class="tag" style="margin-left:0">bloquea</span> me impide avanzar mientras no esté.</p>
+    <p>Son <strong>7 bloques</strong>. Donde hay una tabla o un ejemplo, es mi propuesta de partida: cámbiala sin problema, tú sabes lo que cuesta cada cosa. Lo marcado <span class="tag" style="margin-left:0">bloquea</span> me impide avanzar mientras no esté.</p>
     <p class="aviso">⏱️ 10 minutos. Se guarda solo en tu navegador; al final pulsas «Copiar todo» y me lo mandas al correo.</p>
   </div>
 
@@ -103,7 +105,7 @@
       <li>La app no tiene píxel y los únicos eventos existentes son los de Stripe (compra / suscripción).</li>
       <li>La base de datos es <b>Neon</b> y trabajas con conectores y agentes.</li>
       <li>Hoy no llega nada al CRM cuando alguien se da de alta, renueva o cancela.</li>
-      <li>Tú entregas: landing nueva en HTML, tabla del test 2 + acceso, tabla de eventos, banner interno, V2 del gimnasio y el listado de clientes — todo antes del 1 de agosto.</li>
+      <li>Tú entregas: <b>la landing nueva en HTML</b> (yo la dejo medible y sustituyo con ella el muro de escritorio), tabla del test 2 + acceso, tabla de eventos, banner interno, V2 del gimnasio y el listado de clientes — todo antes del 1 de agosto.</li>
       <li>El test 1 lo monto yo fuera de la app; a ti te llega un enlace con parámetros de origen y el enlace de compra.</li>
     </ul>
   </div>
@@ -225,43 +227,23 @@
   </div>
 
   <!-- 6 -->
-  <h2>6 · La landing y la página de escritorio</h2>
-  <div class="bloque-sub">Lo acordado: me pasas la nueva landing en HTML y yo la dejo medible y sustituyo el muro de escritorio.</div>
-
-  <div class="q" data-n="9">
-    <div class="qhead"><span class="num">09</span><div class="qtext">Cuando me la pases: ¿dónde se aloja al final, cuál va a ser la URL definitiva y el botón de compra a dónde apunta?</div></div>
-    <div class="prop"><b>Mi propuesta:</b> me mandas HTML + imágenes, yo le añado la medición y te la devuelvo. La URL definitiva la eliges tú; solo necesito que el botón de compra sea un enlace que <b>admita parámetros</b> (para que el origen llegue hasta Stripe).
-      <div class="porque">Por qué: si el enlace de compra los descarta, se pierde la atribución justo en el último paso — el único que importa de verdad.</div>
-    </div>
-    <textarea placeholder="Alojamiento, URL final, cómo funciona el botón de compra…"></textarea>
-  </div>
-
-  <div class="q" data-n="10">
-    <div class="qhead"><span class="num">10</span><div class="qtext">¿Sabes quién controla la URL donde hoy vive el muro de «disponible en móvil»? ¿Puedo tocarla yo o depende de otro?</div></div>
-    <div class="prop"><b>Mi propuesta:</b> si nadie la reclama, la asumo yo y la sustituyo por la landing. Solo necesito saber dónde está alojada para no romperte nada al hacerlo.
-      <div class="porque">Por qué: en la reunión nadie sabía quién la había puesto, y es la primera pantalla que ve todo el que llega desde un ordenador.</div>
-    </div>
-    <textarea placeholder="Tu respuesta…"></textarea>
-  </div>
-
-  <!-- 7 -->
-  <h2>7 · Listado de clientes actuales</h2>
+  <h2>6 · Listado de clientes actuales</h2>
   <div class="bloque-sub">Con esto marco en el CRM quién ya es cliente y se limpia de golpe una parte grande del desorden.</div>
 
-  <div class="q critica" data-n="11">
-    <div class="qhead"><span class="num">11</span><div class="qtext">¿Me pasas la exportación de usuarios con estos campos?<span class="tag">bloquea</span></div></div>
+  <div class="q critica" data-n="9">
+    <div class="qhead"><span class="num">09</span><div class="qtext">¿Me pasas la exportación de usuarios con estos campos?<span class="tag">bloquea</span></div></div>
     <div class="prop"><b>Mi propuesta:</b> un CSV con <code>email · fecha_alta · estado_suscripcion · fecha_fin · importe · plataforma_pago</code>. Un envío puntual ahora; después ya llega todo por los eventos.
       <div class="porque">Por qué: es lo que convierte «tenemos 32.000 contactos» en «tenemos X clientes y 31.000 y pico que no lo son» — y evita que la campaña de agosto le ofrezca la app a quien ya la paga.</div>
     </div>
     <textarea placeholder="Tu respuesta…"></textarea>
   </div>
 
-  <!-- 8 -->
-  <h2>8 · Orden de entrega</h2>
+  <!-- 7 -->
+  <h2>7 · Orden de entrega</h2>
   <div class="bloque-sub">Te vas el 1 de agosto. Te propongo un orden para que lo que me bloquea salga primero.</div>
 
-  <div class="q" data-n="12">
-    <div class="qhead"><span class="num">12</span><div class="qtext">¿Te encaja este orden, y necesitas algo de mí o de Bego para no quedarte parado?</div></div>
+  <div class="q" data-n="10">
+    <div class="qhead"><span class="num">10</span><div class="qtext">¿Te encaja este orden, y necesitas algo de mí o de Bego para no quedarte parado?</div></div>
     <div class="prop"><b>Mi propuesta de prioridad:</b>
       <br><b>1.</b> Tabla de eventos + vía de envío · <b>2.</b> Listado de clientes · <b>3.</b> Landing en HTML · <b>4.</b> Tabla del test 2 + acceso a Neon · <b>5.</b> Banner interno · <b>6.</b> V2 del gimnasio.
       <div class="porque">Por qué: los tres primeros me desbloquean a mí y puedo avanzar durante tu ausencia; el banner y la V2 son tuyos de principio a fin y no dependen de nadie más.</div>
@@ -276,7 +258,7 @@
 </div>
 
 <div class="barra">
-  <div class="prog">Respondidas <b><span id="hechas">0</span> de 12</b> · se guarda solo en tu navegador</div>
+  <div class="prog">Respondidas <b><span id="hechas">0</span> de 10</b> · se guarda solo en tu navegador</div>
   <div class="btns">
     <button class="sec" id="limpiar">Borrar todo</button>
     <button id="copiar">Copiar todo</button>
