@@ -15,6 +15,8 @@
 <meta name="twitter:title" content="BMR · Las preguntas que faltan · Código AdrIA">
 <meta name="twitter:description" content="Cuestionario editable para cerrar las decisiones de limpieza, medición y venta que no salieron en la reunión.">
 <meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23102e35'/><text x='32' y='45' font-family='Poppins,Helvetica,Arial' font-size='32' font-weight='700' text-anchor='middle' fill='%234dd2d0'>cA</text></svg>">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -88,7 +90,7 @@
 
   <div class="intro">
     <p>Como te dije en la reunión, este es el cuestionario que necesito que me rellenes. Ya he auditado el motor entero —CRM, ManyChat, Meta, dominios y todas las landings— y ya tengo lo que las herramientas podían contarme. <strong>Lo que queda son decisiones que solo puedes tomar tú.</strong></p>
-    <p>Van <strong>18 preguntas en 7 bloques</strong>. En casi todas te dejo <strong>mi propuesta ya escrita</strong>: si te vale, pulsa «Me vale» y a la siguiente. Si no, escríbeme por qué — <em>me interesa más donde me lleves la contraria que donde estés de acuerdo</em>.</p>
+    <p>Van <strong>19 preguntas en 7 bloques</strong>. En casi todas te dejo <strong>mi propuesta ya escrita</strong>: si te vale, pulsa «Me vale» y a la siguiente. Si no, escríbeme por qué — <em>me interesa más donde me lleves la contraria que donde estés de acuerdo</em>.</p>
     <p>Se guarda solo en tu móvil según escribes, así que puedes ir a trozos. Cuando acabes (o cuando quieras mandarme lo que lleves), pulsa <strong>«Copiar todo»</strong> y me lo pegas por WhatsApp.</p>
     <p class="aviso">⏱️ 15-20 minutos. Las marcadas <span class="tag" style="margin-left:0">clave</span> me bloquean el trabajo de esta semana — si solo puedes con unas pocas, que sean esas.</p>
   </div>
@@ -269,15 +271,25 @@
   </div>
 
   <!-- ============ BLOQUE 6 ============ -->
-  <h2>6 · El libro de Planeta</h2>
-  <div class="bloque-sub">Salió al final de la reunión y tiene fecha: octubre. Es lo único con una decisión irreversible.</div>
+  <h2>6 · Dominios, hosting y el libro de Planeta</h2>
+  <div class="bloque-sub">Preguntaste en la reunión si tu dominio es el .es o el .com. He mirado los dos y hay algo que no sabías.</div>
 
   <div class="q critica" data-n="17">
-    <div class="qhead"><span class="num">17</span><div class="qtext">La página que le des a la editorial se queda impresa para siempre. ¿Qué dirección usamos y qué tiene que haber en ella?<span class="tag">clave</span></div></div>
-    <div class="prop"><b>Mi propuesta:</b> <b>begomentalreset.com</b> (el .com, sin subdominios raros) y, dentro, una página fija dedicada al libro. Nunca un subdominio de una herramienta ni una landing de campaña: esas mueren y el libro no.
-      <div class="porque">Por qué: es la única decisión de hoy que no se puede rectificar. Un enlace roto dentro de un libro que va a circular años es un agujero permanente.</div>
+    <div class="qhead"><span class="num">17</span><div class="qtext">Tienes <b>dos webs vivas a la vez</b>: begomentalreset.<b>com</b> y begomentalreset.<b>es</b>. ¿Nos quedamos con el .com y redirigimos el .es?<span class="tag">clave</span></div></div>
+    <div class="prop"><b>Lo que he comprobado hoy:</b> el <b>.es existe, está publicado y responde</b>. Es una web antigua tuya, hecha con otro constructor, con la propuesta de hace tiempo (sesiones individuales y orientación inicial) y todavía con un texto de plantilla sin sustituir («Add your promotional text…»). No está en la cuenta de Hostinger a la que tengo acceso, donde solo aparecen el .com y el de la app — así que <b>vive en otro sitio o en otra cuenta</b>.
+      <br><br><b>Mi propuesta:</b> nos quedamos con <b>begomentalreset.com</b> como único dominio de la marca —es donde está la web real y de donde cuelgan todos tus embudos— y el <b>.es se redirige entero al .com</b>. Ni se borra ni se deja morir: redirigido conserva a quien llegue por él y desaparece la web duplicada. Y la página del libro de Planeta va en el .com, en una dirección fija dedicada.
+      <div class="porque">Por qué: hoy tienes dos versiones distintas de ti misma compitiendo en Google, y la vieja da peor imagen que ninguna. Además, la del libro es la única decisión de todo esto que luego no se puede rectificar: ese enlace se imprime.</div>
     </div>
-    <textarea placeholder="Dominio: … · Qué debe contener la página: …"></textarea>
+    <textarea placeholder="¿Nos quedamos con el .com? · ¿Quién tiene el .es y dónde está alojado? · Qué debe contener la página del libro…"></textarea>
+    <div class="acciones"><button class="ok" data-ok>Me vale</button></div>
+  </div>
+
+  <div class="q critica" data-n="18">
+    <div class="qhead"><span class="num">18</span><div class="qtext">Para tocar dominios y web necesito acceso propio a Hostinger: ¿me generas el <b>token de API</b> o me das acceso con tu usuario?<span class="tag">clave</span></div></div>
+    <div class="prop"><b>Mi propuesta:</b> entras en tu panel de Hostinger → Herramientas de desarrollo → API, generas un token y me lo pasas por WhatsApp. Lo guardo cifrado en tu ficha y solo se usa para dominios, DNS y web. Si prefieres no generar token, sirve que me des acceso completo (hoy tengo uno de colaborador que <b>no</b> deja entrar en la sección de API ni en varias cosas de dominios).
+      <div class="porque">Por qué: la redirección del .es, los subdominios que hay que apagar y el correo (que hoy está repartido en cuatro plataformas y sin protección contra suplantación) se tocan ahí. Con el acceso limitado que tengo puedo mirar, pero no arreglar. Y también necesito el <b>acceso a la app</b> que quedó pendiente, para verla por dentro como la ve un cliente.</div>
+    </div>
+    <textarea placeholder="Token / acceso: … · Acceso a la app: …"></textarea>
     <div class="acciones"><button class="ok" data-ok>Me vale</button></div>
   </div>
 
@@ -285,8 +297,8 @@
   <h2>7 · Límites</h2>
   <div class="bloque-sub">Una sola pregunta, pero es la que evita los disgustos.</div>
 
-  <div class="q critica" data-n="18">
-    <div class="qhead"><span class="num">18</span><div class="qtext">¿Qué no debo tocar nunca sin preguntarte antes, y qué te haría perder la confianza en este proyecto?<span class="tag">clave</span></div></div>
+  <div class="q critica" data-n="19">
+    <div class="qhead"><span class="num">19</span><div class="qtext">¿Qué no debo tocar nunca sin preguntarte antes, y qué te haría perder la confianza en este proyecto?<span class="tag">clave</span></div></div>
     <div class="prop"><b>Mi propuesta:</b> mi regla por defecto es: <b>nada que envíe mensajes a tu gente, nada que toque precios o pagos y nada que se publique con tu cara sale sin tu visto bueno explícito</b>. El resto (ordenar, medir, documentar) lo hago y te lo cuento.
       <div class="porque">Por qué: quiero avanzar rápido en lo interno sin que te enteres nunca por un tercero de algo que salió a tu nombre.</div>
     </div>
@@ -301,7 +313,7 @@
 </div>
 
 <div class="barra">
-  <div class="prog">Respondidas <b><span id="hechas">0</span> de 18</b> · se guarda solo en tu móvil</div>
+  <div class="prog">Respondidas <b><span id="hechas">0</span> de 19</b> · se guarda solo en tu móvil</div>
   <div class="btns">
     <button class="sec" id="limpiar">Borrar todo</button>
     <button id="copiar">Copiar todo</button>
