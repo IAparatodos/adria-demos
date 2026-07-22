@@ -1,0 +1,292 @@
+<title>Montar el servidor · Sistema de expedientes de camiones · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Montar el servidor · Código AdrIA">
+<meta property="og:description" content="Los 7 pasos para dejar el sistema de camiones funcionando 24/7, sin tocar una terminal.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/manual-hosting-ingeservice-951927.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Montar el servidor · Código AdrIA">
+<meta name="twitter:description" content="Los 7 pasos para dejar el sistema de camiones funcionando 24/7, sin tocar una terminal.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+
+<style>
+  :root{
+    --turquesa:#4dd2d0; --petroleo:#3f6f7b; --profundo:#102e35; --tinta:#16333b;
+    --gris:#5a7078; --card:#ffffff; --borde:#dde8ea; --fondo:#f4f9f9;
+    --verde:#1e8449; --ambar:#b9770e; --rojo:#a93226;
+  }
+  *{box-sizing:border-box}
+  body{
+    font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--fondo); color:var(--tinta); line-height:1.65;
+    margin:0; padding:0 18px 70px;
+  }
+  .wrap{max-width:820px;margin:0 auto}
+
+  header{
+    background:linear-gradient(135deg,var(--profundo),var(--petroleo));
+    color:#fff;border-radius:0 0 18px 18px;padding:38px 30px 30px;
+    margin:0 -18px 30px;
+  }
+  header .marca{
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--turquesa);font-weight:600;margin-bottom:10px;
+  }
+  header h1{font-size:29px;line-height:1.25;margin:0 0 12px;font-weight:600}
+  header p{margin:0;opacity:.92;font-size:15px}
+  header .meta{margin-top:16px;font-size:13px;opacity:.75}
+
+  h2{
+    font-size:19px;margin:38px 0 14px;padding-bottom:9px;
+    border-bottom:2px solid var(--turquesa);color:var(--profundo);font-weight:600;
+  }
+  h3{font-size:15px;margin:22px 0 8px;color:var(--petroleo);font-weight:600}
+  p{margin:0 0 13px}
+
+  section{
+    background:var(--card);border:1px solid var(--borde);border-radius:12px;
+    padding:22px 24px;margin-bottom:16px;
+  }
+  section > h2:first-child{margin-top:0}
+
+  .nota{
+    border-left:4px solid var(--turquesa);background:#eafafa;
+    padding:13px 17px;border-radius:0 8px 8px 0;margin:15px 0;font-size:14.5px;
+  }
+  .aviso{
+    border-left:4px solid var(--ambar);background:#fdf6e8;
+    padding:13px 17px;border-radius:0 8px 8px 0;margin:15px 0;font-size:14.5px;
+  }
+  .stop{
+    border-left:4px solid var(--rojo);background:#fdeeec;
+    padding:13px 17px;border-radius:0 8px 8px 0;margin:15px 0;font-size:14.5px;
+  }
+  .ok{
+    border-left:4px solid var(--verde);background:#eaf6ee;
+    padding:13px 17px;border-radius:0 8px 8px 0;margin:15px 0;font-size:14.5px;
+  }
+
+  table{width:100%;border-collapse:collapse;margin:15px 0;font-size:14.5px}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--borde);vertical-align:top}
+  th{background:#eef6f7;color:var(--profundo);font-weight:600}
+  td.campo{font-weight:600;color:var(--petroleo);white-space:nowrap}
+
+  code{
+    background:#eef4f5;padding:2px 6px;border-radius:4px;
+    font-family:'SF Mono',Menlo,Consolas,monospace;font-size:13px;color:var(--profundo);
+  }
+  .clave{
+    background:var(--profundo);color:#c7f3f2;padding:15px 17px;border-radius:9px;
+    font-family:'SF Mono',Menlo,Consolas,monospace;font-size:12.5px;
+    word-break:break-all;line-height:1.6;margin:13px 0;position:relative;
+  }
+  button.copiar{
+    background:var(--turquesa);color:var(--profundo);border:0;border-radius:7px;
+    padding:9px 17px;font-family:inherit;font-weight:600;font-size:14px;cursor:pointer;
+    margin-bottom:6px;
+  }
+  button.copiar:hover{background:#3cbdbb}
+  button.copiar.hecho{background:var(--verde);color:#fff}
+
+  ol.pasos{counter-reset:paso;list-style:none;padding:0;margin:0}
+  ol.pasos > li{
+    counter-increment:paso;position:relative;padding:0 0 4px 46px;margin-bottom:26px;
+  }
+  ol.pasos > li::before{
+    content:counter(paso);position:absolute;left:0;top:-2px;
+    width:32px;height:32px;border-radius:50%;
+    background:var(--turquesa);color:var(--profundo);
+    font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;
+  }
+  ol.pasos > li > h3{margin-top:3px}
+
+  ul{margin:0 0 13px;padding-left:20px}
+  li{margin-bottom:6px}
+
+  footer{
+    text-align:center;font-size:12.5px;color:var(--gris);
+    margin-top:40px;padding-top:22px;border-top:1px solid var(--borde);
+  }
+  a{color:var(--petroleo)}
+
+  @media(max-width:640px){
+    header{padding:30px 22px 26px}
+    header h1{font-size:23px}
+    section{padding:18px 17px}
+    table{font-size:13.5px}
+    th,td{padding:8px 9px}
+  }
+  @media print{
+    body{background:#fff}
+    section{break-inside:avoid;box-shadow:none}
+    button.copiar{display:none}
+  }
+</style>
+
+<div class="wrap">
+
+<header>
+<meta name="robots" content="noindex, nofollow">
+  <div class="marca">Código AdrIA · INGESERVICE VALENCIA</div>
+  <h1>Montar el servidor del sistema<br>de expedientes de camiones</h1>
+  <p>Siete pasos, todos desde el navegador. No hace falta instalar nada ni tocar una terminal.</p>
+  <div class="meta">22 de julio de 2026 · Tiempo estimado: 20 minutos</div>
+</header>
+
+<section>
+  <h2>Qué vamos a hacer y por qué</h2>
+  <p>Ahora mismo el sistema de camiones vive <strong>en tu ordenador</strong>. Eso significa que solo funciona cuando el equipo está encendido, que depende de tu conexión a internet, y que cada cambio obliga a una sesión de control remoto como la del martes.</p>
+  <p>La alternativa es un <strong>servidor propio</strong>: un ordenador pequeño encendido las 24 horas en un centro de datos alemán, con una conexión estable. El sistema corre allí, tú sigues trabajando igual —tu formulario, tu Drive, tus Excel— pero el motor deja de depender de tu equipo.</p>
+
+  <table>
+    <tr><th>Lo que cambia</th><th>Antes (tu ordenador)</th><th>Después (servidor)</th></tr>
+    <tr><td class="campo">Disponibilidad</td><td>Solo con el equipo encendido</td><td>24 horas, todos los días</td></tr>
+    <tr><td class="campo">Cortes de red</td><td>Paran el proceso</td><td>No le afectan</td></tr>
+    <tr><td class="campo">Arrancar el programa</td><td>A mano cada vez</td><td>Solo, sin intervención</td></tr>
+    <tr><td class="campo">Cambios y arreglos</td><td>Sesión de control remoto</td><td>Los hacemos en remoto, sin molestarte</td></tr>
+  </table>
+
+  <div class="nota">
+    <strong>El servidor es tuyo.</strong> Se contrata con tu cuenta y tu tarjeta, y los datos son tuyos. Nosotros solo entramos a administrarlo, igual que un electricista entra en tu nave: la nave sigue siendo tuya. Si algún día dejamos de trabajar juntos, nos quitas el acceso y el sistema sigue funcionando.
+  </div>
+</section>
+
+<section>
+  <h2>Lo que cuesta</h2>
+  <table>
+    <tr><th>Concepto</th><th>Importe</th></tr>
+    <tr><td class="campo">Servidor</td><td>~5,50 € al mes</td></tr>
+    <tr><td class="campo">Copias de seguridad automáticas</td><td>~1,10 € al mes</td></tr>
+    <tr><td class="campo">Dirección IP</td><td>~0,50 € al mes</td></tr>
+    <tr><td class="campo"><strong>Total</strong></td><td><strong>~7 € al mes</strong> + IVA</td></tr>
+  </table>
+  <p>Se factura una vez al mes por lo consumido. Si algún día das de baja el servidor, deja de cobrarse ese mismo día. No hay permanencia ni cuota de alta.</p>
+</section>
+
+<section>
+  <h2>Los siete pasos</h2>
+
+  <ol class="pasos">
+
+    <li>
+      <h3>Crear la cuenta en Hetzner</h3>
+      <p>Entra en <a href="https://www.hetzner.com/cloud">hetzner.com/cloud</a> y date de alta. Es un proveedor alemán, de los más veteranos de Europa.</p>
+      <div class="aviso">
+        <strong>Puede pedirte verificar tu identidad</strong> (DNI o una tarjeta) antes de dejarte crear el primer servidor. A veces es inmediato y a veces tarda unas horas. Si te lo pide, hazlo y espera — no es un problema, es su control antifraude habitual.
+      </div>
+    </li>
+
+    <li>
+      <h3>Activar la verificación en dos pasos</h3>
+      <p>En cuanto entres, el panel te avisará de que no tienes activado el <strong>2FA</strong>. Actívalo con Google Authenticator o similar.</p>
+      <p>No te lo saltes: esa cuenta va a contener la infraestructura donde se tramitan tus expedientes. Son dos minutos.</p>
+    </li>
+
+    <li>
+      <h3>Crear el servidor</h3>
+      <p>Pulsa <strong>Create Server</strong> y rellena así:</p>
+      <table>
+        <tr><th>Apartado</th><th>Qué eliges</th></tr>
+        <tr><td class="campo">Location</td><td><strong>Falkenstein</strong> o <strong>Nuremberg</strong> (Alemania). Si no hay disponibilidad, Helsinki</td></tr>
+        <tr><td class="campo">Image</td><td><strong>Ubuntu</strong>, versión <strong>24.04</strong></td></tr>
+        <tr><td class="campo">Type</td><td>Pestaña <strong>Shared vCPU</strong> → el modelo de <strong>2 vCPU y 4 GB de RAM</strong> (suele llamarse CX22 o CX23, ~5,50 €/mes)</td></tr>
+        <tr><td class="campo">Networking</td><td>Marca <strong>las dos casillas</strong>: Public IPv4 y Public IPv6</td></tr>
+        <tr><td class="campo">Backups</td><td><strong>Actívalo.</strong> Es la copia de seguridad automática del servidor entero</td></tr>
+        <tr><td class="campo">Volumes, Firewalls, Placement</td><td>No toques nada, los configuramos nosotros</td></tr>
+        <tr><td class="campo">Name</td><td><code>camiones-ingeservice</code></td></tr>
+      </table>
+      <div class="stop">
+        <strong>Importante: marca Public IPv4.</strong> Si eliges "IPv6 only" para ahorrar medio euro, ni tú ni nosotros podremos conectarnos desde una red española normal. Es el error más común.
+      </div>
+    </li>
+
+    <li>
+      <h3>Pegar nuestra llave de acceso</h3>
+      <p>En el apartado <strong>SSH Keys</strong>, pulsa <strong>Add SSH Key</strong> y pega este texto tal cual, entero, en una sola línea:</p>
+      <button class="copiar" onclick="copiar(this)">Copiar la llave</button>
+      <div class="clave" id="clave">ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFoQfQImCD4wxFKPLTU4oIY5T+XBy5qVX8AV6zVv5ehV codigoadria-ingeservice-20260722</div>
+      <p>Ponle de nombre <code>codigo-adria</code>.</p>
+      <div class="nota">
+        Esto es una <strong>llave pública</strong>: sirve para abrir tu servidor, pero no vale para nada más y no revela ninguna contraseña. La mitad privada —la que de verdad abre— está en el ordenador de Ricardo y no sale de ahí. Es el método estándar y es más seguro que una contraseña, porque no se puede adivinar.
+      </div>
+    </li>
+
+    <li>
+      <h3>Crear y comprar</h3>
+      <p>Pulsa <strong>Create &amp; Buy now</strong>. El servidor tarda menos de un minuto en estar listo.</p>
+    </li>
+
+    <li>
+      <h3>Enviarnos la dirección IP</h3>
+      <p>Cuando aparezca en la lista, verás una <strong>IPv4</strong>: cuatro números separados por puntos, algo parecido a <code>78.47.120.15</code>.</p>
+      <p>Mándanosla por WhatsApp o correo. Es lo único que necesitamos.</p>
+      <div class="ok">
+        Con eso <strong>terminas tú</strong>. A partir de aquí seguimos nosotros en remoto, sin que tengas que estar delante ni dejarnos el ordenador.
+      </div>
+    </li>
+
+    <li>
+      <h3>Lo que haremos nosotros</h3>
+      <ul>
+        <li>Preparar y blindar el servidor (cortafuegos, actualizaciones, acceso restringido)</li>
+        <li>Instalar el sistema con los <strong>siete arreglos</strong> de la última revisión</li>
+        <li>Conectar tus credenciales de Google, con la <strong>cuenta de empresa</strong></li>
+        <li>Poner en marcha el ciclo automático y comprobarlo con un camión real</li>
+        <li>Pasarte la dirección web para entrar a ver cómo va todo</li>
+      </ul>
+      <p>Calculamos media jornada de trabajo, y no necesitamos nada de ti mientras tanto.</p>
+    </li>
+
+  </ol>
+</section>
+
+<section>
+  <h2>Dudas que suelen salir</h2>
+
+  <h3>¿Tengo que aprender a manejar un servidor?</h3>
+  <p>No. Tú entrarás a la misma pantalla de siempre, pero desde una dirección web en vez de desde tu ordenador. Todo lo demás —formulario, Drive, Excel— sigue igual.</p>
+
+  <h3>¿Y si un día quiero dejarlo?</h3>
+  <p>Das de baja el servidor desde el panel y deja de cobrarse. Los expedientes están en tu Google Drive, no en el servidor, así que no se pierde nada.</p>
+
+  <h3>¿Dónde están mis datos?</h3>
+  <p>Los expedientes siguen en tu Google Drive, como hasta ahora. El servidor solo ejecuta el proceso. Y está en Alemania, dentro de la Unión Europea.</p>
+
+  <h3>¿Qué pasa si el servidor se estropea?</h3>
+  <p>Por eso activamos las copias automáticas del paso 3. Se restaura desde la copia del día anterior.</p>
+
+  <h3>¿Podéis entrar cuando queráis?</h3>
+  <p>Podemos entrar a administrarlo, sí — es lo que permite arreglarte cosas sin pedirte una sesión remota. El acceso se quita en un clic desde tu panel cuando quieras.</p>
+</section>
+
+<section>
+  <h2>Antes de empezar, avísanos si…</h2>
+  <ul>
+    <li>Hetzner te pide verificación de identidad y tarda — dínoslo y esperamos</li>
+    <li>No encuentras el modelo de 2 vCPU y 4 GB en la ubicación elegida — prueba otra o pregúntanos</li>
+    <li>Te pide algo que no aparece en este manual — <strong>no lo rellenes a ojo</strong>, pregúntanos antes</li>
+  </ul>
+  <div class="aviso">
+    Mejor una llamada de dos minutos que un servidor mal configurado. Si algo no cuadra con lo que pone aquí, para y pregunta.
+  </div>
+</section>
+
+<footer>
+  Código AdrIA · codigoadria.com · ricardo@codigoadria.com · 96 195 71 36<br>
+  Documento preparado para INGESERVICE VALENCIA S.L.P. · 22 de julio de 2026
+</footer>
+
+</div>
+
+<script>
+function copiar(btn){
+  const txt = document.getElementById('clave').textContent.trim();
+  navigator.clipboard.writeText(txt).then(()=>{
+    const antes = btn.textContent;
+    btn.textContent = '✓ Copiada';
+    btn.classList.add('hecho');
+    setTimeout(()=>{ btn.textContent = antes; btn.classList.remove('hecho'); }, 2200);
+  });
+}
+</script>
