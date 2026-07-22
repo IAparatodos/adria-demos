@@ -15,6 +15,8 @@
 <meta name="twitter:title" content="BMR · Recorrido de la app y roles · Código AdrIA">
 <meta name="twitter:description" content="Resumen de la reunión Bego · Rafa · Ricardo: un solo embudo hacia la app, medición y fechas de agosto.">
 <meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23102e35'/><text x='32' y='45' font-family='Poppins,Helvetica,Arial' font-size='32' font-weight='700' text-anchor='middle' fill='%234dd2d0'>cA</text></svg>">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -40,7 +42,7 @@
   .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
   .meta span{background:rgba(255,255,255,.04);border:1px solid var(--linea);border-radius:9px;padding:5px 12px;font-size:.8rem;color:var(--texto-dim)}
 
-  nav.nav-timeline{position:sticky;top:0;z-index:30;background:rgba(11,34,41,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea);display:flex;gap:6px;overflow-x:auto;padding:11px 22px;scrollbar-width:none}
+  nav.nav-timeline{position:sticky;top:0;z-index:30;background:rgba(11,34,41,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea);display:flex;justify-content:center;gap:6px;overflow-x:auto;padding:11px 22px;scrollbar-width:none}
   nav.nav-timeline::-webkit-scrollbar{display:none}
   .nav-item{flex:0 0 auto;cursor:pointer;border:1px solid var(--linea);border-radius:20px;padding:5px 13px;font-size:.78rem;color:var(--texto-dim);white-space:nowrap;transition:.15s;background:transparent;font-family:'Poppins',sans-serif}
   .nav-item:hover{color:var(--texto);border-color:var(--accent-border)}
@@ -93,6 +95,7 @@
 
   .fade-in{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
   .fade-in.visible{opacity:1;transform:none}
+  @media(max-width:900px){ nav.nav-timeline{justify-content:flex-start} }
   @media(max-width:600px){ .tp{padding:14px} .container{padding:0 16px} nav.nav-timeline{padding:9px 16px} }
 </style>
 </head>
