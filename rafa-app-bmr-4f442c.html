@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>App BMR · Preguntas técnicas para Rafa · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="App BMR · Preguntas técnicas · Código AdrIA">
+<meta property="og:description" content="Medición, cobro y conexión con el CRM de la App BMR: lo que necesitamos saber para no romper nada.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/rafa-app-bmr-4f442c.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="App BMR · Preguntas técnicas · Código AdrIA">
+<meta name="twitter:description" content="Medición, cobro y conexión con el CRM de la App BMR: lo que necesitamos saber para no romper nada.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --turquesa:#4dd2d0; --petroleo:#3f6f7b; --profundo:#102e35;
+    --tinta:#16333b; --gris:#5a7078; --card:#ffffff; --borde:#dde8ea; --fondo:#f4f9f9;
+    --verde:#1e8449; --ambar:#b9770e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Poppins',-apple-system,sans-serif;background:var(--fondo);color:var(--tinta);line-height:1.6;font-size:16px}
+  .wrap{max-width:820px;margin:0 auto;padding:0 20px 120px}
+  header{background:var(--profundo);color:#eef7f7;padding:48px 20px 40px;border-bottom:4px solid var(--turquesa)}
+  header .inner{max-width:820px;margin:0 auto}
+  .marca{font-weight:800;font-size:1rem;letter-spacing:.3px;color:var(--turquesa);margin-bottom:16px}
+  .marca span{color:#fff}
+  header h1{font-size:1.7rem;font-weight:800;letter-spacing:-.5px;line-height:1.25}
+  header .sub{margin-top:12px;opacity:.82;font-size:.9rem}
+  .badge{display:inline-block;background:rgba(77,210,208,.15);border:1px solid var(--turquesa);color:var(--turquesa);border-radius:20px;padding:3px 14px;font-size:.72rem;letter-spacing:.6px;text-transform:uppercase;margin-bottom:14px;font-weight:600}
+  .intro{background:var(--card);border:1px solid var(--borde);border-radius:14px;padding:22px 24px;margin:28px 0 8px;box-shadow:0 1px 3px rgba(16,46,53,.05)}
+  .intro p{margin-bottom:10px}
+  .intro p:last-child{margin-bottom:0}
+  h2{font-size:1.18rem;font-weight:800;color:var(--profundo);margin:38px 0 6px;border-left:5px solid var(--turquesa);padding-left:12px}
+  .bloque-sub{padding-left:17px;font-size:.86rem;color:var(--gris);margin-bottom:14px}
+  .q{background:var(--card);border:1px solid var(--borde);border-radius:14px;padding:20px 22px;margin-bottom:14px;box-shadow:0 1px 3px rgba(16,46,53,.05)}
+  .q.critica{border-left:5px solid var(--ambar)}
+  .qhead{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+  .num{flex:0 0 auto;background:var(--profundo);color:var(--turquesa);font-weight:800;font-size:.82rem;border-radius:8px;padding:3px 9px;margin-top:2px}
+  .qtext{font-weight:600;font-size:1.02rem;color:var(--profundo)}
+  .tag{display:inline-block;font-size:.65rem;letter-spacing:.5px;text-transform:uppercase;font-weight:700;color:var(--ambar);border:1px solid var(--ambar);border-radius:12px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+  .porque{background:#e8f7f7;border-left:4px solid var(--turquesa);border-radius:0 10px 10px 0;padding:11px 15px;margin:10px 0;font-size:.88rem;color:var(--petroleo)}
+  .porque b{color:var(--profundo)}
+  .chips{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 8px}
+  .chip{font-family:'Poppins',sans-serif;cursor:pointer;border:1px solid var(--borde);background:#fff;color:var(--petroleo);border-radius:20px;padding:5px 13px;font-size:.8rem;font-weight:500;transition:.15s}
+  .chip:hover{border-color:var(--turquesa);color:var(--profundo);background:#f0fbfb}
+  textarea{width:100%;min-height:70px;border:1px solid var(--borde);border-radius:10px;padding:12px 14px;font-family:'Poppins',sans-serif;font-size:.95rem;color:var(--tinta);background:#fcfefe;resize:vertical;line-height:1.5}
+  textarea:focus{outline:none;border-color:var(--turquesa);box-shadow:0 0 0 3px rgba(77,210,208,.18);background:#fff}
+  code{background:#e8f2f2;border-radius:5px;padding:1px 6px;font-size:.85em;color:var(--petroleo);font-weight:500}
+  .barra{position:fixed;left:0;right:0;bottom:0;background:var(--profundo);color:#eef7f7;padding:12px 20px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;box-shadow:0 -2px 12px rgba(16,46,53,.2);z-index:20}
+  .barra .prog{font-size:.85rem}
+  .barra .prog b{color:var(--turquesa)}
+  .barra .btns{display:flex;gap:8px}
+  .barra button{font-family:'Poppins',sans-serif;cursor:pointer;background:var(--turquesa);border:none;color:var(--profundo);font-weight:700;padding:9px 16px;border-radius:9px;font-size:.82rem}
+  .barra button.sec{background:transparent;border:1px solid var(--turquesa);color:var(--turquesa)}
+  footer{margin-top:48px;padding-top:20px;border-top:2px solid var(--turquesa);font-size:.8rem;color:var(--gris)}
+  footer .fmarca{font-weight:700;color:var(--profundo)}
+  .aviso{font-size:.8rem;color:var(--gris);margin-top:10px}
+  @media(max-width:600px){
+    header h1{font-size:1.28rem}
+    .wrap{padding:0 14px 140px}
+    .q{padding:16px}
+    .qtext{font-size:.97rem}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="inner">
+    <div class="marca">Código Adr<span>IA</span></div>
+    <span class="badge">App BMR · Preguntas técnicas</span>
+    <h1>Rafa, esto es lo que necesito saber<br>de la app antes de tocar nada</h1>
+    <div class="sub">Bego Mental Reset · 22 de julio de 2026 · Ricardo Hoyos · Código AdrIA</div>
+  </div>
+</header>
+<div class="wrap">
+
+  <div class="intro">
+    <p>Encantado, Rafa. Contexto en dos líneas: Begoña nos ha encargado <strong>ordenar y medir su ecosistema</strong> (CRM, anuncios, web y landings) y montar después un embudo cuyo destino final es <strong>la app</strong>. Yo no vengo a tocar tu código: vengo a saber qué hay para no romperlo y para poder medir de verdad de dónde salen las altas.</p>
+    <p>Son <strong>14 preguntas</strong>. Muchas se contestan pulsando una de las opciones que te dejo; el resto, dos líneas y sobra. Se guarda solo en tu navegador según escribes, y al terminar pulsas <strong>«Copiar todo»</strong> y me lo pegas por donde te venga bien.</p>
+    <p class="aviso">⏱️ 10 minutos. Las marcadas <span class="tag" style="margin-left:0">clave</span> son las que condicionan la arquitectura entera — si solo puedes con unas pocas, que sean esas. Si algo no aplica, escribe «no aplica» y seguimos.</p>
+  </div>
+
+  <!-- BLOQUE 1 -->
+  <h2>1 · Qué es la app por dentro</h2>
+  <div class="bloque-sub">Determina qué se puede medir sin pasar por revisión de tienda.</div>
+
+  <div class="q critica" data-n="1">
+    <div class="qhead"><span class="num">01</span><div class="qtext">¿Qué es la App BMR técnicamente y en qué plataformas está?<span class="tag">clave</span></div></div>
+    <div class="porque"><b>Por qué lo pregunto:</b> si es web/PWA puedo medir con píxel y analítica de forma directa; si es nativa en tiendas, la medición va por SDK y por eventos de servidor, que es otro mundo y otros plazos.</div>
+    <div class="chips">
+      <button class="chip">Web app / PWA</button>
+      <button class="chip">Nativa iOS + Android</button>
+      <button class="chip">Híbrida (React Native / Flutter / Ionic)</button>
+      <button class="chip">Solo web, sin tiendas</button>
+    </div>
+    <textarea placeholder="Stack, plataformas, dónde está alojada…"></textarea>
+  </div>
+
+  <div class="q" data-n="2">
+    <div class="qhead"><span class="num">02</span><div class="qtext">¿En qué dominios o URLs vive todo lo relacionado con la app (acceso de usuarios, página de venta, panel de administración)?</div></div>
+    <div class="porque"><b>Por qué lo pregunto:</b> en los dominios de Bego hay varios subdominios activos que aún no sabemos a qué apuntan, y quiero descartar que alguno sea tuyo antes de proponer apagar nada. También hemos visto publicada una versión antigua o «legacy» — dime si sigue en uso o se puede jubilar.</div>
+    <textarea placeholder="URLs de la app, panel, página de venta, versión antigua…"></textarea>
+  </div>
+
+  <!-- BLOQUE 2 -->
+  <h2>2 · Cómo se cobra</h2>
+  <div class="bloque-sub">Es la pregunta que más condiciona el embudo. Si el cobro pasa por las tiendas, casi nada de lo estándar aplica.</div>
+
+  <div class="q critica" data-n="3">
+    <div class="qhead"><span class="num">03</span><div class="qtext">Los 197 €/año, ¿dónde se cobran exactamente?<span class="tag">clave</span></div></div>
+    <div class="porque"><b>Por qué lo pregunto:</b> si el pago es <b>compra dentro de la app</b> (App Store / Google Play), no hay píxel ni webhook estándar, Apple y Google se llevan su comisión y la atribución publicitaria se rompe. Si es un checkout web (Stripe/Hotmart), todo esto es sencillo. Cambia el diseño completo del embudo.</div>
+    <div class="chips">
+      <button class="chip">Stripe (checkout web)</button>
+      <button class="chip">Hotmart</button>
+      <button class="chip">Compra dentro de la app (Apple / Google)</button>
+      <button class="chip">Mixto</button>
+    </div>
+    <textarea placeholder="Pasarela, quién la gestiona, si hay más de una vía…"></textarea>
+  </div>
+
+  <div class="q" data-n="4">
+    <div class="qhead"><span class="num">04</span><div class="qtext">¿Cómo funciona la renovación anual y qué pasa cuando alguien no renueva o cancela? ¿Hay periodo de prueba o acceso gratuito de algún tipo?</div></div>
+    <div class="porque"><b>Por qué lo pregunto:</b> el embudo del test necesita saber qué le podemos ofrecer a alguien que acaba de hacerlo: si existe prueba, la puerta de entrada es distinta (y mucho mejor).</div>
+    <textarea placeholder="Renovación automática o manual, prueba, qué ocurre al vencer…"></textarea>
+  </div>
+
+  <div class="q critica" data-n="5">
+    <div class="qhead"><span class="num">05</span><div class="qtext">¿Dónde se ve el número real de suscriptores activos, altas, bajas y renovaciones? ¿Nos puedes dar acceso de solo lectura?<span class="tag">clave</span></div></div>
+    <div class="porque"><b>Por qué lo pregunto:</b> es la métrica que define si nuestro trabajo funciona. Sin línea base de partida no hay forma de demostrar resultados ni de detectar una caída a tiempo.</div>
+    <textarea placeholder="Panel, base de datos, exportación… y qué acceso es viable"></textarea>
+  </div>
+
+  <!-- BLOQUE 3 -->
+  <h2>3 · Medición</h2>
+  <div class="bloque-sub">Hoy, desde fuera, no vemos ningún evento de compra llegando a Meta.</div>
+
+  <div class="q critica" data-n="6">
+    <div class="qhead"><span class="num">06</span><div class="qtext">¿Hay píxel de Meta y/o Google Analytics puestos hoy? ¿En qué páginas exactamente y quién los instaló?<span class="tag">clave</span></div></div>
+    <div class="porque"><b>Por qué lo pregunto:</b> el píxel de Bego existe y funciona, pero no lo vemos en las páginas donde pasa el tráfico importante. Antes de añadir nada quiero saber qué hay ya puesto para no duplicar eventos (duplicar es peor que no medir: infla los datos y engaña a la optimización).</div>
+    <div class="chips">
+      <button class="chip">Píxel de Meta sí</button>
+      <button class="chip">Google Analytics sí</button>
+      <button class="chip">Ninguno</button>
+      <button class="chip">No lo sé / lo puso otro</button>
+    </div>
+    <textarea placeholder="Qué hay, en qué páginas, con qué identificador…"></textarea>
+  </div>
+
+  <div class="q critica" data-n="7">
+    <div class="qhead"><span class="num">07</span><div class="qtext">¿Se dispara algún evento de compra con valor y moneda? ¿Y es solo desde el navegador o hay envío desde servidor (Conversions API)?<span class="tag">clave</span></div></div>
+    <div class="porque"><b>Por qué lo pregunto:</b> con los bloqueadores y los consentimientos de iOS, el píxel de navegador pierde una parte grande de las conversiones. Lo fiable hoy es enviar la compra desde servidor. Si no lo hay, es de lo primero que propondré montar contigo.</div>
+    <div class="chips">
+      <button class="chip">Sí, evento de compra con valor</button>
+      <button class="chip">Solo navegador</button>
+      <button class="chip">Hay envío desde servidor</button>
+      <button class="chip">No hay eventos</button>
+    </div>
+    <textarea placeholder="Eventos existentes y cómo se envían…"></textarea>
+  </div>
+
+  <div class="q" data-n="8">
+    <div class="qhead"><span class="num">08</span><div class="qtext">¿La app pide consentimiento de cookies o seguimiento (el aviso de iOS incluido)? ¿Dónde se guardan los datos de los usuarios?</div></div>
+    <div class="porque"><b>Por qué lo pregunto:</b> parte de la auditoría es dejar la parte legal en orden. Necesito saber qué se recoge y con qué permiso antes de proponer añadir un solo píxel más.</div>
+    <textarea placeholder="Consentimiento, proveedor, ubicación de los datos…"></textarea>
+  </div>
+
+  <!-- BLOQUE 4 -->
+  <h2>4 · Conexión con el CRM (GoHighLevel)</h2>
+  <div class="bloque-sub">Hoy no sabemos si un comprador de la app queda marcado como tal en el CRM. Sospechamos que no.</div>
+
+  <div class="q critica" data-n="9">
+    <div class="qhead"><span class="num">09</span><div class="qtext">Cuando alguien se da de alta, compra, renueva o cancela, ¿le llega algo a GoHighLevel?<span class="tag">clave</span></div></div>
+    <div class="porque"><b>Por qué lo pregunto:</b> si el CRM no sabe quién es cliente de la app, Bego le está mandando publicidad de la app a gente que ya la tiene, y no puede hablarle distinto a quien ya paga. Es de los arreglos con más retorno inmediato.</div>
+    <div class="chips">
+      <button class="chip">Sí, por webhook</button>
+      <button class="chip">Sí, vía Zapier / Make</button>
+      <button class="chip">No llega nada</button>
+      <button class="chip">No lo sé</button>
+    </div>
+    <textarea placeholder="Qué se envía, cuándo y por qué vía…"></textarea>
+  </div>
+
+  <div class="q critica" data-n="10">
+    <div class="qhead"><span class="num">10</span><div class="qtext">¿Qué dato identifica a la misma persona en la app y en el CRM? ¿El email de registro de la app es el mismo con el que está en la base de datos de Bego?<span class="tag">clave</span></div></div>
+    <div class="porque"><b>Por qué lo pregunto:</b> sin un identificador común no se pueden cruzar las dos bases: ni medición, ni públicos de retargeting, ni saber cuántos de sus 32.000 contactos ya son clientes.</div>
+    <textarea placeholder="Email, teléfono, id interno…"></textarea>
+  </div>
+
+  <div class="q" data-n="11">
+    <div class="qhead"><span class="num">11</span><div class="qtext">¿Puedes exportar (o darnos acceso de lectura a) la lista de usuarios de la app con su email y su fecha de alta?</div></div>
+    <div class="porque"><b>Por qué lo pregunto:</b> con eso etiquetamos en el CRM quién ya es cliente y limpiamos de un plumazo una parte grande del desorden. Solo lectura, y trabajamos siempre dentro de las cuentas de Bego.</div>
+    <textarea placeholder="Sí / no / con qué condiciones…"></textarea>
+  </div>
+
+  <!-- BLOQUE 5 -->
+  <h2>5 · Atribución: saber de dónde viene cada alta</h2>
+  <div class="bloque-sub">Para el embudo del test necesitamos poder seguir a la persona desde que hace el test hasta que se da de alta.</div>
+
+  <div class="q" data-n="12">
+    <div class="qhead"><span class="num">12</span><div class="qtext">¿Los enlaces con parámetros de campaña (<code>utm_source</code> y compañía) sobreviven al registro? ¿Se puede llegar al alta con datos ya rellenados o con un enlace directo desde fuera?</div></div>
+    <div class="porque"><b>Por qué lo pregunto:</b> es la diferencia entre poder decir «estas 40 altas vienen del test» o quedarnos otra vez en «han subido las altas, no sabemos por qué».</div>
+    <textarea placeholder="Cómo se comportan los parámetros y qué enlaces admite la app…"></textarea>
+  </div>
+
+  <!-- BLOQUE 6 -->
+  <h2>6 · Cómo trabajamos juntos</h2>
+  <div class="bloque-sub">Para no pisarnos ni generarte trabajo sorpresa.</div>
+
+  <div class="q" data-n="13">
+    <div class="qhead"><span class="num">13</span><div class="qtext">¿Quién controla el repositorio y el despliegue? ¿Hay entorno de pruebas? ¿Qué plazo y qué coste tiene un cambio pequeño (añadir un script de medición o un webhook)?</div></div>
+    <div class="porque"><b>Por qué lo pregunto:</b> quiero saber si lo que proponga es media hora tuya o una semana con revisión de tienda, para plantearlo de forma realista a Bego y no comprometer plazos con tu tiempo.</div>
+    <textarea placeholder="Repo, despliegue, entorno de pruebas, plazos, coste…"></textarea>
+  </div>
+
+  <div class="q" data-n="14">
+    <div class="qhead"><span class="num">14</span><div class="qtext">¿Qué tienes ya comprometido con Bego y para cuándo? ¿Y hay algo de la app que te preocupe y que nosotros deberíamos saber?</div></div>
+    <div class="porque"><b>Por qué lo pregunto:</b> si tú estás con la actualización de la «gimnasia de la mente», no tiene sentido que yo pida cosas la misma semana. Y si hay algo frágil, prefiero saberlo por ti antes que descubrirlo rompiéndolo.</div>
+    <textarea placeholder="Tu backlog, prioridades, avisos…"></textarea>
+  </div>
+
+  <footer>
+    <span class="fmarca">Código AdrIA</span> · Automatiza con cabeza · ricardo@codigoadria.com · codigoadria.com<br>
+    Preguntas técnicas App BMR · 22 de julio de 2026 · Documento privado (enlace no listado)
+  </footer>
+</div>
+
+<div class="barra">
+  <div class="prog">Respondidas <b><span id="hechas">0</span> de 14</b> · se guarda solo en tu navegador</div>
+  <div class="btns">
+    <button class="sec" id="limpiar">Borrar todo</button>
+    <button id="copiar">Copiar todo</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY = 'rafa-app-bmr-2026-07-22';
+  var qs = Array.prototype.slice.call(document.querySelectorAll('.q'));
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){ saved = {}; }
+
+  function contar(){
+    var n = qs.filter(function(q){ return q.querySelector('textarea').value.trim() !== ''; }).length;
+    document.getElementById('hechas').textContent = n;
+  }
+  function guardar(){
+    var data = {};
+    qs.forEach(function(q){ data[q.dataset.n] = q.querySelector('textarea').value; });
+    try { localStorage.setItem(KEY, JSON.stringify(data)); } catch(e){}
+    contar();
+  }
+
+  qs.forEach(function(q){
+    var ta = q.querySelector('textarea');
+    if (saved[q.dataset.n]) ta.value = saved[q.dataset.n];
+    ta.addEventListener('input', guardar);
+    q.querySelectorAll('.chip').forEach(function(chip){
+      chip.addEventListener('click', function(){
+        var v = ta.value.trim();
+        ta.value = v ? v + ' · ' + chip.textContent : chip.textContent;
+        guardar();
+        ta.focus();
+      });
+    });
+  });
+  contar();
+
+  function texto(){
+    var out = ['RESPUESTAS DE RAFA — App BMR (22 jul 2026)', ''];
+    qs.forEach(function(q){
+      var t = q.querySelector('.qtext').textContent.replace(/clave$/,'').trim();
+      var r = q.querySelector('textarea').value.trim();
+      out.push(q.dataset.n + '. ' + t);
+      out.push('→ ' + (r || '(sin responder)'));
+      out.push('');
+    });
+    return out.join('\n');
+  }
+
+  document.getElementById('copiar').addEventListener('click', function(){
+    var btn = this, txt = texto();
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = txt; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch(e){}
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).catch(fallback);
+    } else { fallback(); }
+    var antes = btn.textContent;
+    btn.textContent = '¡Copiado! Pégamelo y listo';
+    setTimeout(function(){ btn.textContent = antes; }, 2600);
+  });
+
+  document.getElementById('limpiar').addEventListener('click', function(){
+    if (!confirm('¿Borrar todas las respuestas de este dispositivo?')) return;
+    qs.forEach(function(q){ q.querySelector('textarea').value = ''; });
+    try { localStorage.removeItem(KEY); } catch(e){}
+    contar();
+  });
+})();
+</script>
+</body>
+</html>
