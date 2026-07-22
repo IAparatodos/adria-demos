@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>App BMR · Preguntas técnicas para Rafa · Código AdrIA</title>
+<title>App BMR · Lo que falta por definir · Código AdrIA</title>
 <meta property="og:type" content="website">
-<meta property="og:title" content="App BMR · Preguntas técnicas · Código AdrIA">
-<meta property="og:description" content="Medición, cobro y conexión con el CRM de la App BMR: lo que necesitamos saber para no romper nada.">
+<meta property="og:title" content="App BMR · Lo que falta por definir · Código AdrIA">
+<meta property="og:description" content="Especificación de los eventos, datos y accesos que la app debe entregar antes del 1 de agosto.">
 <meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
 <meta property="og:url" content="https://iaparatodos.github.io/adria-demos/rafa-app-bmr-4f442c.html">
 <meta property="og:site_name" content="Código AdrIA">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="App BMR · Preguntas técnicas · Código AdrIA">
-<meta name="twitter:description" content="Medición, cobro y conexión con el CRM de la App BMR: lo que necesitamos saber para no romper nada.">
+<meta name="twitter:title" content="App BMR · Lo que falta por definir · Código AdrIA">
+<meta name="twitter:description" content="Especificación de los eventos, datos y accesos que la app debe entregar antes del 1 de agosto.">
 <meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,9 +26,9 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Poppins',-apple-system,sans-serif;background:var(--fondo);color:var(--tinta);line-height:1.6;font-size:16px}
-  .wrap{max-width:820px;margin:0 auto;padding:0 20px 120px}
+  .wrap{max-width:840px;margin:0 auto;padding:0 20px 120px}
   header{background:var(--profundo);color:#eef7f7;padding:48px 20px 40px;border-bottom:4px solid var(--turquesa)}
-  header .inner{max-width:820px;margin:0 auto}
+  header .inner{max-width:840px;margin:0 auto}
   .marca{font-weight:800;font-size:1rem;letter-spacing:.3px;color:var(--turquesa);margin-bottom:16px}
   .marca span{color:#fff}
   header h1{font-size:1.7rem;font-weight:800;letter-spacing:-.5px;line-height:1.25}
@@ -45,14 +45,24 @@
   .num{flex:0 0 auto;background:var(--profundo);color:var(--turquesa);font-weight:800;font-size:.82rem;border-radius:8px;padding:3px 9px;margin-top:2px}
   .qtext{font-weight:600;font-size:1.02rem;color:var(--profundo)}
   .tag{display:inline-block;font-size:.65rem;letter-spacing:.5px;text-transform:uppercase;font-weight:700;color:var(--ambar);border:1px solid var(--ambar);border-radius:12px;padding:1px 8px;margin-left:6px;vertical-align:middle}
-  .porque{background:#e8f7f7;border-left:4px solid var(--turquesa);border-radius:0 10px 10px 0;padding:11px 15px;margin:10px 0;font-size:.88rem;color:var(--petroleo)}
-  .porque b{color:var(--profundo)}
+  .prop{background:#e8f7f7;border-left:4px solid var(--turquesa);border-radius:0 10px 10px 0;padding:12px 16px;margin:10px 0;font-size:.92rem}
+  .prop b{color:var(--petroleo)}
+  .porque{font-size:.84rem;color:var(--gris);margin-top:6px}
+  pre{background:var(--profundo);color:#d8f2f2;border-radius:10px;padding:14px 16px;overflow-x:auto;font-size:.8rem;line-height:1.5;margin:10px 0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.86rem}
+  th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--borde);vertical-align:top}
+  th{color:var(--petroleo);font-weight:700;font-size:.76rem;text-transform:uppercase;letter-spacing:.4px}
+  td code{background:#e8f2f2;border-radius:4px;padding:1px 5px;font-size:.86em;color:var(--petroleo);font-family:ui-monospace,Menlo,monospace}
+  .tabla-wrap{overflow-x:auto}
   .chips{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 8px}
   .chip{font-family:'Poppins',sans-serif;cursor:pointer;border:1px solid var(--borde);background:#fff;color:var(--petroleo);border-radius:20px;padding:5px 13px;font-size:.8rem;font-weight:500;transition:.15s}
   .chip:hover{border-color:var(--turquesa);color:var(--profundo);background:#f0fbfb}
   textarea{width:100%;min-height:70px;border:1px solid var(--borde);border-radius:10px;padding:12px 14px;font-family:'Poppins',sans-serif;font-size:.95rem;color:var(--tinta);background:#fcfefe;resize:vertical;line-height:1.5}
   textarea:focus{outline:none;border-color:var(--turquesa);box-shadow:0 0 0 3px rgba(77,210,208,.18);background:#fff}
-  code{background:#e8f2f2;border-radius:5px;padding:1px 6px;font-size:.85em;color:var(--petroleo);font-weight:500}
+  .cerrado{background:#eaf6ef;border:1px solid #bfe3cd;border-radius:14px;padding:18px 22px;margin:14px 0 8px}
+  .cerrado h3{font-size:.95rem;color:var(--verde);font-weight:700;margin-bottom:8px}
+  .cerrado ul{margin-left:20px}
+  .cerrado li{font-size:.89rem;color:var(--gris);margin-bottom:5px}
   .barra{position:fixed;left:0;right:0;bottom:0;background:var(--profundo);color:#eef7f7;padding:12px 20px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;box-shadow:0 -2px 12px rgba(16,46,53,.2);z-index:20}
   .barra .prog{font-size:.85rem}
   .barra .prog b{color:var(--turquesa)}
@@ -74,165 +84,199 @@
 <header>
   <div class="inner">
     <div class="marca">Código Adr<span>IA</span></div>
-    <span class="badge">App BMR · Preguntas técnicas</span>
-    <h1>Rafa, esto es lo que necesito saber<br>de la app antes de tocar nada</h1>
+    <span class="badge">App BMR · Especificación</span>
+    <h1>Rafa, esto es lo que necesito<br>de la app antes del 1 de agosto</h1>
     <div class="sub">Bego Mental Reset · 22 de julio de 2026 · Ricardo Hoyos · Código AdrIA</div>
   </div>
 </header>
 <div class="wrap">
 
   <div class="intro">
-    <p>Encantado, Rafa. Contexto en dos líneas: Begoña nos ha encargado <strong>ordenar y medir su ecosistema</strong> (CRM, anuncios, web y landings) y montar después un embudo cuyo destino final es <strong>la app</strong>. Yo no vengo a tocar tu código: vengo a saber qué hay para no romperlo y para poder medir de verdad de dónde salen las altas.</p>
-    <p>Son <strong>14 preguntas</strong>. Muchas se contestan pulsando una de las opciones que te dejo; el resto, dos líneas y sobra. Se guarda solo en tu navegador según escribes, y al terminar pulsas <strong>«Copiar todo»</strong> y me lo pegas por donde te venga bien.</p>
-    <p class="aviso">⏱️ 10 minutos. Las marcadas <span class="tag" style="margin-left:0">clave</span> son las que condicionan la arquitectura entera — si solo puedes con unas pocas, que sean esas. Si algo no aplica, escribe «no aplica» y seguimos.</p>
+    <p>Gracias por la reunión — con lo que contaste ya tengo el mapa. Esto no es un cuestionario: es <strong>la especificación concreta de lo que acordaste entregar</strong>, con mi propuesta ya escrita en cada punto para que solo tengas que confirmar o corregir.</p>
+    <p>Son <strong>8 bloques</strong>. Donde hay una tabla o un ejemplo, es mi propuesta de partida: cámbiala sin problema, tú sabes lo que cuesta cada cosa. Lo marcado <span class="tag" style="margin-left:0">bloquea</span> me impide avanzar mientras no esté.</p>
+    <p class="aviso">⏱️ 10 minutos. Se guarda solo en tu navegador; al final pulsas «Copiar todo» y me lo mandas al correo.</p>
   </div>
 
-  <!-- BLOQUE 1 -->
-  <h2>1 · Qué es la app por dentro</h2>
-  <div class="bloque-sub">Determina qué se puede medir sin pasar por revisión de tienda.</div>
+  <div class="cerrado">
+    <h3>✅ Lo que ya quedó claro en la reunión (no lo repregunto)</h3>
+    <ul>
+      <li>La app no tiene píxel y los únicos eventos existentes son los de Stripe (compra / suscripción).</li>
+      <li>La base de datos es <b>Neon</b> y trabajas con conectores y agentes.</li>
+      <li>Hoy no llega nada al CRM cuando alguien se da de alta, renueva o cancela.</li>
+      <li>Tú entregas: landing nueva en HTML, tabla del test 2 + acceso, tabla de eventos, banner interno, V2 del gimnasio y el listado de clientes — todo antes del 1 de agosto.</li>
+      <li>El test 1 lo monto yo fuera de la app; a ti te llega un enlace con parámetros de origen y el enlace de compra.</li>
+    </ul>
+  </div>
+
+  <!-- 1 -->
+  <h2>1 · Eventos: qué me avisa la app y con qué campos</h2>
+  <div class="bloque-sub">Es la pieza que hoy falta para que el CRM sepa quién es cliente. Sin esto, Bego le sigue anunciando la app a quien ya la tiene.</div>
 
   <div class="q critica" data-n="1">
-    <div class="qhead"><span class="num">01</span><div class="qtext">¿Qué es la App BMR técnicamente y en qué plataformas está?<span class="tag">clave</span></div></div>
-    <div class="porque"><b>Por qué lo pregunto:</b> si es web/PWA puedo medir con píxel y analítica de forma directa; si es nativa en tiendas, la medición va por SDK y por eventos de servidor, que es otro mundo y otros plazos.</div>
-    <div class="chips">
-      <button class="chip">Web app / PWA</button>
-      <button class="chip">Nativa iOS + Android</button>
-      <button class="chip">Híbrida (React Native / Flutter / Ionic)</button>
-      <button class="chip">Solo web, sin tiendas</button>
+    <div class="qhead"><span class="num">01</span><div class="qtext">¿Te encajan estos 6 eventos, o hay alguno que no puedas emitir?<span class="tag">bloquea</span></div></div>
+    <div class="prop"><b>Mi propuesta:</b> estos seis cubren todo el ciclo de vida sin meterte trabajo extra.</div>
+    <div class="tabla-wrap">
+      <table>
+        <tr><th>Evento</th><th>Cuándo se dispara</th></tr>
+        <tr><td><code>user_registered</code></td><td>alta de cuenta en la app (haya pagado o no)</td></tr>
+        <tr><td><code>subscription_started</code></td><td>primer pago confirmado por Stripe</td></tr>
+        <tr><td><code>subscription_renewed</code></td><td>renovación anual cobrada</td></tr>
+        <tr><td><code>subscription_cancelled</code></td><td>el usuario cancela (aunque siga con acceso hasta la fecha fin)</td></tr>
+        <tr><td><code>subscription_expired</code></td><td>termina el acceso de verdad</td></tr>
+        <tr><td><code>survey_completed</code></td><td>completa el test 2 de 50 preguntas</td></tr>
+      </table>
     </div>
-    <textarea placeholder="Stack, plataformas, dónde está alojada…"></textarea>
+    <div class="porque">Por qué: sin distinguir «cancela» de «expira» no se puede intentar recuperar a nadie a tiempo, que es donde está el dinero de la renovación.</div>
+    <textarea placeholder="Encajan / cambiaría… / no puedo emitir…"></textarea>
   </div>
 
-  <div class="q" data-n="2">
-    <div class="qhead"><span class="num">02</span><div class="qtext">¿En qué dominios o URLs vive todo lo relacionado con la app (acceso de usuarios, página de venta, panel de administración)?</div></div>
-    <div class="porque"><b>Por qué lo pregunto:</b> en los dominios de Bego hay varios subdominios activos que aún no sabemos a qué apuntan, y quiero descartar que alguno sea tuyo antes de proponer apagar nada. También hemos visto publicada una versión antigua o «legacy» — dime si sigue en uso o se puede jubilar.</div>
-    <textarea placeholder="URLs de la app, panel, página de venta, versión antigua…"></textarea>
+  <div class="q critica" data-n="2">
+    <div class="qhead"><span class="num">02</span><div class="qtext">¿Y estos campos en cada evento?<span class="tag">bloquea</span></div></div>
+    <div class="prop"><b>Mi propuesta:</b> JSON plano, un envío por evento. Lo mínimo imprescindible está en negrita; el resto, si lo tienes a mano.</div>
+    <pre>{
+  "event": "subscription_started",
+  "occurred_at": "2026-08-14T10:22:31Z",   // ISO 8601 UTC
+  "email": "persona@correo.com",           // en minúsculas, sin espacios
+  "app_user_id": "usr_8842",
+  "amount": 197.00,
+  "currency": "EUR",
+  "payment_provider": "stripe",
+  "stripe_subscription_id": "sub_1P...",
+  "utm": { "source": "instagram", "medium": "bio", "campaign": "test-julio" }
+}</pre>
+    <div class="porque">Por qué: <b>email</b> y <b>occurred_at</b> son obligatorios (sin ellos no puedo cruzar nada); los UTM son los que permiten decir «estas altas vienen del test» en vez de «han subido las altas y no sabemos por qué».</div>
+    <textarea placeholder="Campos que sí puedes mandar / los que no…"></textarea>
   </div>
-
-  <!-- BLOQUE 2 -->
-  <h2>2 · Cómo se cobra</h2>
-  <div class="bloque-sub">Es la pregunta que más condiciona el embudo. Si el cobro pasa por las tiendas, casi nada de lo estándar aplica.</div>
 
   <div class="q critica" data-n="3">
-    <div class="qhead"><span class="num">03</span><div class="qtext">Los 197 €/año, ¿dónde se cobran exactamente?<span class="tag">clave</span></div></div>
-    <div class="porque"><b>Por qué lo pregunto:</b> si el pago es <b>compra dentro de la app</b> (App Store / Google Play), no hay píxel ni webhook estándar, Apple y Google se llevan su comisión y la atribución publicitaria se rompe. Si es un checkout web (Stripe/Hotmart), todo esto es sencillo. Cambia el diseño completo del embudo.</div>
+    <div class="qhead"><span class="num">03</span><div class="qtext">¿Cómo me los haces llegar?<span class="tag">bloquea</span></div></div>
+    <div class="prop"><b>Mi propuesta:</b> <b>webhook</b> — un POST a una URL que te paso, con reintento si respondo algo distinto de 200. Es lo que permite reaccionar en el momento (correo de bienvenida, aviso de cancelación). Si te resulta más cómodo, me vale también una <b>tabla en Neon</b> que yo consulte cada pocos minutos, aunque pierdo la inmediatez.</div>
     <div class="chips">
-      <button class="chip">Stripe (checkout web)</button>
-      <button class="chip">Hotmart</button>
-      <button class="chip">Compra dentro de la app (Apple / Google)</button>
-      <button class="chip">Mixto</button>
+      <button class="chip">Webhook (POST a tu URL)</button>
+      <button class="chip">Tabla en Neon que consultas tú</button>
+      <button class="chip">Las dos cosas</button>
     </div>
-    <textarea placeholder="Pasarela, quién la gestiona, si hay más de una vía…"></textarea>
+    <div class="porque">Por qué: prefiero adaptarme a cómo trabajas tú antes que imponerte una arquitectura. Lo que no puede pasar es que quede en «ya lo exporto cuando me lo pidas».</div>
+    <textarea placeholder="Tu respuesta…"></textarea>
   </div>
 
-  <div class="q" data-n="4">
-    <div class="qhead"><span class="num">04</span><div class="qtext">¿Cómo funciona la renovación anual y qué pasa cuando alguien no renueva o cancela? ¿Hay periodo de prueba o acceso gratuito de algún tipo?</div></div>
-    <div class="porque"><b>Por qué lo pregunto:</b> el embudo del test necesita saber qué le podemos ofrecer a alguien que acaba de hacerlo: si existe prueba, la puerta de entrada es distinta (y mucho mejor).</div>
-    <textarea placeholder="Renovación automática o manual, prueba, qué ocurre al vencer…"></textarea>
+  <!-- 2 -->
+  <h2>2 · El identificador común</h2>
+  <div class="bloque-sub">Sin una llave compartida, la app y el CRM son dos negocios distintos.</div>
+
+  <div class="q critica" data-n="4">
+    <div class="qhead"><span class="num">04</span><div class="qtext">¿Puedo usar el email como llave? ¿Es siempre el mismo que el del pago en Stripe?<span class="tag">bloquea</span></div></div>
+    <div class="prop"><b>Mi propuesta:</b> email normalizado (minúsculas, sin espacios) como llave principal, y guardo tu <code>app_user_id</code> como campo secundario en el CRM para casos raros.
+      <div class="porque">Por qué: si alguien paga con un correo y se registra con otro, aparecerá como dos personas distintas y todas las cuentas saldrán mal. Necesito saber si eso puede pasar.</div>
+    </div>
+    <textarea placeholder="Tu respuesta…"></textarea>
   </div>
 
-  <div class="q critica" data-n="5">
-    <div class="qhead"><span class="num">05</span><div class="qtext">¿Dónde se ve el número real de suscriptores activos, altas, bajas y renovaciones? ¿Nos puedes dar acceso de solo lectura?<span class="tag">clave</span></div></div>
-    <div class="porque"><b>Por qué lo pregunto:</b> es la métrica que define si nuestro trabajo funciona. Sin línea base de partida no hay forma de demostrar resultados ni de detectar una caída a tiempo.</div>
-    <textarea placeholder="Panel, base de datos, exportación… y qué acceso es viable"></textarea>
+  <!-- 3 -->
+  <h2>3 · Acceso a Neon</h2>
+  <div class="bloque-sub">Dijiste que podías darlo. Aquí solo concreto el alcance para que sea cómodo y seguro para ti.</div>
+
+  <div class="q" data-n="5">
+    <div class="qhead"><span class="num">05</span><div class="qtext">¿Me creas un usuario de <b>solo lectura</b> limitado a las tablas que necesito?</div></div>
+    <div class="prop"><b>Mi propuesta:</b> un rol de solo lectura con acceso a <b>usuarios</b>, <b>suscripciones</b> y <b>respuestas del test 2</b>. Nada de escritura y nada del resto de la base. Si prefieres darme acceso a través de tu conector en vez de una cadena de conexión, también me sirve.
+      <div class="porque">Por qué: solo necesito leer para analizar. Cuanto más acotado esté, menos riesgo asumes tú y menos tienes que revisar después.</div>
+    </div>
+    <textarea placeholder="Vía de acceso y tablas incluidas…"></textarea>
   </div>
 
-  <!-- BLOQUE 3 -->
-  <h2>3 · Medición</h2>
-  <div class="bloque-sub">Hoy, desde fuera, no vemos ningún evento de compra llegando a Meta.</div>
+  <!-- 4 -->
+  <h2>4 · El test 2 y sus respuestas</h2>
+  <div class="bloque-sub">Es la data que Bego quiere para decidir los productos siguientes. Cómo se guarde ahora decide si dentro de tres meses es explotable o un montón de texto.</div>
 
-  <div class="q critica" data-n="6">
-    <div class="qhead"><span class="num">06</span><div class="qtext">¿Hay píxel de Meta y/o Google Analytics puestos hoy? ¿En qué páginas exactamente y quién los instaló?<span class="tag">clave</span></div></div>
-    <div class="porque"><b>Por qué lo pregunto:</b> el píxel de Bego existe y funciona, pero no lo vemos en las páginas donde pasa el tráfico importante. Antes de añadir nada quiero saber qué hay ya puesto para no duplicar eventos (duplicar es peor que no medir: infla los datos y engaña a la optimización).</div>
+  <div class="q" data-n="6">
+    <div class="qhead"><span class="num">06</span><div class="qtext">¿Guardamos una fila por respuesta en vez de un bloque por usuario?</div></div>
+    <div class="prop"><b>Mi propuesta:</b> tabla larga: <code>app_user_id · question_id · answer_value · answered_at</code>, con un <b>diccionario de preguntas aparte</b> (id estable, texto, dimensión a la que pertenece).
+      <div class="porque">Por qué: con id estable, cuando Bego cambie el texto de una pregunta el histórico sigue siendo comparable. Si se guarda todo en un bloque por usuario, cualquier análisis por dimensión hay que reconstruirlo a mano.</div>
+    </div>
     <div class="chips">
-      <button class="chip">Píxel de Meta sí</button>
-      <button class="chip">Google Analytics sí</button>
-      <button class="chip">Ninguno</button>
-      <button class="chip">No lo sé / lo puso otro</button>
+      <button class="chip">Fila por respuesta (propuesta)</button>
+      <button class="chip">Un registro por usuario</button>
     </div>
-    <textarea placeholder="Qué hay, en qué páginas, con qué identificador…"></textarea>
+    <textarea placeholder="Tu respuesta…"></textarea>
   </div>
 
-  <div class="q critica" data-n="7">
-    <div class="qhead"><span class="num">07</span><div class="qtext">¿Se dispara algún evento de compra con valor y moneda? ¿Y es solo desde el navegador o hay envío desde servidor (Conversions API)?<span class="tag">clave</span></div></div>
-    <div class="porque"><b>Por qué lo pregunto:</b> con los bloqueadores y los consentimientos de iOS, el píxel de navegador pierde una parte grande de las conversiones. Lo fiable hoy es enviar la compra desde servidor. Si no lo hay, es de lo primero que propondré montar contigo.</div>
-    <div class="chips">
-      <button class="chip">Sí, evento de compra con valor</button>
-      <button class="chip">Solo navegador</button>
-      <button class="chip">Hay envío desde servidor</button>
-      <button class="chip">No hay eventos</button>
+  <div class="q" data-n="7">
+    <div class="qhead"><span class="num">07</span><div class="qtext">Cuando Bego te pase las 50 preguntas, ¿me pasas el diccionario final con sus identificadores?</div></div>
+    <div class="prop"><b>Mi propuesta:</b> me lo mandas en el mismo correo (hoja de cálculo o JSON, da igual) cuando lo montes, para que yo prepare el análisis antes de que empiecen a llegar respuestas de la fase 0.
+      <div class="porque">Por qué: los ~700 usuarios de la fase 0 responden a finales de julio, y tú te vas el 1 de agosto. Quiero poder mirar esos datos sin tener que preguntarte nada.</div>
     </div>
-    <textarea placeholder="Eventos existentes y cómo se envían…"></textarea>
+    <textarea placeholder="Tu respuesta…"></textarea>
   </div>
 
-  <div class="q" data-n="8">
-    <div class="qhead"><span class="num">08</span><div class="qtext">¿La app pide consentimiento de cookies o seguimiento (el aviso de iOS incluido)? ¿Dónde se guardan los datos de los usuarios?</div></div>
-    <div class="porque"><b>Por qué lo pregunto:</b> parte de la auditoría es dejar la parte legal en orden. Necesito saber qué se recoge y con qué permiso antes de proponer añadir un solo píxel más.</div>
-    <textarea placeholder="Consentimiento, proveedor, ubicación de los datos…"></textarea>
-  </div>
+  <!-- 5 -->
+  <h2>5 · Datos de salud: la decisión que dejamos abierta</h2>
+  <div class="bloque-sub">Lo planteaste tú y nadie lo cerró. Te propongo una regla y, si te encaja, la damos por norma del proyecto.</div>
 
-  <!-- BLOQUE 4 -->
-  <h2>4 · Conexión con el CRM (GoHighLevel)</h2>
-  <div class="bloque-sub">Hoy no sabemos si un comprador de la app queda marcado como tal en el CRM. Sospechamos que no.</div>
-
-  <div class="q critica" data-n="9">
-    <div class="qhead"><span class="num">09</span><div class="qtext">Cuando alguien se da de alta, compra, renueva o cancela, ¿le llega algo a GoHighLevel?<span class="tag">clave</span></div></div>
-    <div class="porque"><b>Por qué lo pregunto:</b> si el CRM no sabe quién es cliente de la app, Bego le está mandando publicidad de la app a gente que ya la tiene, y no puede hablarle distinto a quien ya paga. Es de los arreglos con más retorno inmediato.</div>
-    <div class="chips">
-      <button class="chip">Sí, por webhook</button>
-      <button class="chip">Sí, vía Zapier / Make</button>
-      <button class="chip">No llega nada</button>
-      <button class="chip">No lo sé</button>
+  <div class="q critica" data-n="8">
+    <div class="qhead"><span class="num">08</span><div class="qtext">¿Te vale esta frontera entre lo que sale fuera y lo que se queda dentro?<span class="tag">bloquea</span></div></div>
+    <div class="prop"><b>Mi propuesta:</b>
+      <br>· <b>Nunca sale de la app</b> el contenido de las respuestas ni nada que describa el estado psicológico de una persona.
+      <br>· <b>Sí sale</b> el hecho de que ocurrió algo (registro, compra, test completado) con su importe y su origen, sin contenido.
+      <br>· Las respuestas del test 2 se quedan en Neon y se analizan <b>en agregado</b>, no persona a persona.
+      <br>· El test 2 lleva su aviso de consentimiento explícito antes de la primera pregunta.
+      <div class="porque">Por qué: con esa frontera, Meta y la analítica reciben lo que necesitan para medir y optimizar, y ningún dato sensible sale del sistema. Si ves que aun así hay algo que no debería salir, dímelo y lo quito.</div>
     </div>
-    <textarea placeholder="Qué se envía, cuándo y por qué vía…"></textarea>
+    <textarea placeholder="Vale / matizaría…"></textarea>
   </div>
 
-  <div class="q critica" data-n="10">
-    <div class="qhead"><span class="num">10</span><div class="qtext">¿Qué dato identifica a la misma persona en la app y en el CRM? ¿El email de registro de la app es el mismo con el que está en la base de datos de Bego?<span class="tag">clave</span></div></div>
-    <div class="porque"><b>Por qué lo pregunto:</b> sin un identificador común no se pueden cruzar las dos bases: ni medición, ni públicos de retargeting, ni saber cuántos de sus 32.000 contactos ya son clientes.</div>
-    <textarea placeholder="Email, teléfono, id interno…"></textarea>
+  <!-- 6 -->
+  <h2>6 · La landing y la página de escritorio</h2>
+  <div class="bloque-sub">Lo acordado: me pasas la nueva landing en HTML y yo la dejo medible y sustituyo el muro de escritorio.</div>
+
+  <div class="q" data-n="9">
+    <div class="qhead"><span class="num">09</span><div class="qtext">Cuando me la pases: ¿dónde se aloja al final, cuál va a ser la URL definitiva y el botón de compra a dónde apunta?</div></div>
+    <div class="prop"><b>Mi propuesta:</b> me mandas HTML + imágenes, yo le añado la medición y te la devuelvo. La URL definitiva la eliges tú; solo necesito que el botón de compra sea un enlace que <b>admita parámetros</b> (para que el origen llegue hasta Stripe).
+      <div class="porque">Por qué: si el enlace de compra los descarta, se pierde la atribución justo en el último paso — el único que importa de verdad.</div>
+    </div>
+    <textarea placeholder="Alojamiento, URL final, cómo funciona el botón de compra…"></textarea>
   </div>
 
-  <div class="q" data-n="11">
-    <div class="qhead"><span class="num">11</span><div class="qtext">¿Puedes exportar (o darnos acceso de lectura a) la lista de usuarios de la app con su email y su fecha de alta?</div></div>
-    <div class="porque"><b>Por qué lo pregunto:</b> con eso etiquetamos en el CRM quién ya es cliente y limpiamos de un plumazo una parte grande del desorden. Solo lectura, y trabajamos siempre dentro de las cuentas de Bego.</div>
-    <textarea placeholder="Sí / no / con qué condiciones…"></textarea>
+  <div class="q" data-n="10">
+    <div class="qhead"><span class="num">10</span><div class="qtext">¿Sabes quién controla la URL donde hoy vive el muro de «disponible en móvil»? ¿Puedo tocarla yo o depende de otro?</div></div>
+    <div class="prop"><b>Mi propuesta:</b> si nadie la reclama, la asumo yo y la sustituyo por la landing. Solo necesito saber dónde está alojada para no romperte nada al hacerlo.
+      <div class="porque">Por qué: en la reunión nadie sabía quién la había puesto, y es la primera pantalla que ve todo el que llega desde un ordenador.</div>
+    </div>
+    <textarea placeholder="Tu respuesta…"></textarea>
   </div>
 
-  <!-- BLOQUE 5 -->
-  <h2>5 · Atribución: saber de dónde viene cada alta</h2>
-  <div class="bloque-sub">Para el embudo del test necesitamos poder seguir a la persona desde que hace el test hasta que se da de alta.</div>
+  <!-- 7 -->
+  <h2>7 · Listado de clientes actuales</h2>
+  <div class="bloque-sub">Con esto marco en el CRM quién ya es cliente y se limpia de golpe una parte grande del desorden.</div>
+
+  <div class="q critica" data-n="11">
+    <div class="qhead"><span class="num">11</span><div class="qtext">¿Me pasas la exportación de usuarios con estos campos?<span class="tag">bloquea</span></div></div>
+    <div class="prop"><b>Mi propuesta:</b> un CSV con <code>email · fecha_alta · estado_suscripcion · fecha_fin · importe · plataforma_pago</code>. Un envío puntual ahora; después ya llega todo por los eventos.
+      <div class="porque">Por qué: es lo que convierte «tenemos 32.000 contactos» en «tenemos X clientes y 31.000 y pico que no lo son» — y evita que la campaña de agosto le ofrezca la app a quien ya la paga.</div>
+    </div>
+    <textarea placeholder="Tu respuesta…"></textarea>
+  </div>
+
+  <!-- 8 -->
+  <h2>8 · Orden de entrega</h2>
+  <div class="bloque-sub">Te vas el 1 de agosto. Te propongo un orden para que lo que me bloquea salga primero.</div>
 
   <div class="q" data-n="12">
-    <div class="qhead"><span class="num">12</span><div class="qtext">¿Los enlaces con parámetros de campaña (<code>utm_source</code> y compañía) sobreviven al registro? ¿Se puede llegar al alta con datos ya rellenados o con un enlace directo desde fuera?</div></div>
-    <div class="porque"><b>Por qué lo pregunto:</b> es la diferencia entre poder decir «estas 40 altas vienen del test» o quedarnos otra vez en «han subido las altas, no sabemos por qué».</div>
-    <textarea placeholder="Cómo se comportan los parámetros y qué enlaces admite la app…"></textarea>
-  </div>
-
-  <!-- BLOQUE 6 -->
-  <h2>6 · Cómo trabajamos juntos</h2>
-  <div class="bloque-sub">Para no pisarnos ni generarte trabajo sorpresa.</div>
-
-  <div class="q" data-n="13">
-    <div class="qhead"><span class="num">13</span><div class="qtext">¿Quién controla el repositorio y el despliegue? ¿Hay entorno de pruebas? ¿Qué plazo y qué coste tiene un cambio pequeño (añadir un script de medición o un webhook)?</div></div>
-    <div class="porque"><b>Por qué lo pregunto:</b> quiero saber si lo que proponga es media hora tuya o una semana con revisión de tienda, para plantearlo de forma realista a Bego y no comprometer plazos con tu tiempo.</div>
-    <textarea placeholder="Repo, despliegue, entorno de pruebas, plazos, coste…"></textarea>
-  </div>
-
-  <div class="q" data-n="14">
-    <div class="qhead"><span class="num">14</span><div class="qtext">¿Qué tienes ya comprometido con Bego y para cuándo? ¿Y hay algo de la app que te preocupe y que nosotros deberíamos saber?</div></div>
-    <div class="porque"><b>Por qué lo pregunto:</b> si tú estás con la actualización de la «gimnasia de la mente», no tiene sentido que yo pida cosas la misma semana. Y si hay algo frágil, prefiero saberlo por ti antes que descubrirlo rompiéndolo.</div>
-    <textarea placeholder="Tu backlog, prioridades, avisos…"></textarea>
+    <div class="qhead"><span class="num">12</span><div class="qtext">¿Te encaja este orden, y necesitas algo de mí o de Bego para no quedarte parado?</div></div>
+    <div class="prop"><b>Mi propuesta de prioridad:</b>
+      <br><b>1.</b> Tabla de eventos + vía de envío · <b>2.</b> Listado de clientes · <b>3.</b> Landing en HTML · <b>4.</b> Tabla del test 2 + acceso a Neon · <b>5.</b> Banner interno · <b>6.</b> V2 del gimnasio.
+      <div class="porque">Por qué: los tres primeros me desbloquean a mí y puedo avanzar durante tu ausencia; el banner y la V2 son tuyos de principio a fin y no dependen de nadie más.</div>
+    </div>
+    <textarea placeholder="Encaja / cambiaría el orden… / necesito de vosotros…"></textarea>
   </div>
 
   <footer>
     <span class="fmarca">Código AdrIA</span> · Automatiza con cabeza · ricardo@codigoadria.com · codigoadria.com<br>
-    Preguntas técnicas App BMR · 22 de julio de 2026 · Documento privado (enlace no listado)
+    Especificación técnica App BMR · 22 de julio de 2026 · Documento privado (enlace no listado)
   </footer>
 </div>
 
 <div class="barra">
-  <div class="prog">Respondidas <b><span id="hechas">0</span> de 14</b> · se guarda solo en tu navegador</div>
+  <div class="prog">Respondidas <b><span id="hechas">0</span> de 12</b> · se guarda solo en tu navegador</div>
   <div class="btns">
     <button class="sec" id="limpiar">Borrar todo</button>
     <button id="copiar">Copiar todo</button>
@@ -241,7 +285,7 @@
 
 <script>
 (function(){
-  var KEY = 'rafa-app-bmr-2026-07-22';
+  var KEY = 'rafa-app-bmr-2026-07-22-v2';
   var qs = Array.prototype.slice.call(document.querySelectorAll('.q'));
   var saved = {};
   try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){ saved = {}; }
@@ -273,9 +317,9 @@
   contar();
 
   function texto(){
-    var out = ['RESPUESTAS DE RAFA — App BMR (22 jul 2026)', ''];
+    var out = ['RESPUESTAS DE RAFA — App BMR · especificación (22 jul 2026)', ''];
     qs.forEach(function(q){
-      var t = q.querySelector('.qtext').textContent.replace(/clave$/,'').trim();
+      var t = q.querySelector('.qtext').textContent.replace(/bloquea$/,'').trim();
       var r = q.querySelector('textarea').value.trim();
       out.push(q.dataset.n + '. ' + t);
       out.push('→ ' + (r || '(sin responder)'));
@@ -297,7 +341,7 @@
       navigator.clipboard.writeText(txt).catch(fallback);
     } else { fallback(); }
     var antes = btn.textContent;
-    btn.textContent = '¡Copiado! Pégamelo y listo';
+    btn.textContent = '¡Copiado! Mándamelo al correo';
     setTimeout(function(){ btn.textContent = antes; }, 2600);
   });
 
