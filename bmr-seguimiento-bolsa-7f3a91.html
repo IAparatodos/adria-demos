@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BMR · Seguimiento de la bolsa de 20 horas</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Seguimiento de la bolsa de horas · Código AdrIA">
+<meta property="og:description" content="Desglose por fecha, tarea y resultado, saldo disponible y alcance del trabajo restante.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/bmr-seguimiento-bolsa-7f3a91.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Seguimiento de la bolsa de horas · Código AdrIA">
+<meta name="twitter:description" content="Desglose por fecha, tarea y resultado, saldo disponible y alcance del trabajo restante.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root{
+    --turquesa:#4dd2d0; --petroleo:#1a6c7a; --verde:#102e35;
+    --tinta:#0e1a1e; --gris:#5b6b70; --borde:#e2eaec; --fondo:#f5f8f9; --panel:#ffffff;
+    --ambar:#b8791a; --rojo:#a8402f;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{--tinta:#e9f2f3;--gris:#94a9af;--borde:#20343a;--fondo:#0a1316;--panel:#101e22;
+          --ambar:#e0a441;--rojo:#e08472}
+  }
+  :root[data-theme="light"]{--tinta:#0e1a1e;--gris:#5b6b70;--borde:#e2eaec;--fondo:#f5f8f9;--panel:#fff;--ambar:#b8791a;--rojo:#a8402f}
+  :root[data-theme="dark"]{--tinta:#e9f2f3;--gris:#94a9af;--borde:#20343a;--fondo:#0a1316;--panel:#101e22;--ambar:#e0a441;--rojo:#e08472}
+  *{box-sizing:border-box}
+  body{margin:0;padding:40px 16px 64px;background:var(--fondo);color:var(--tinta);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:1000px;margin:0 auto}
+
+  header{border-bottom:2px solid var(--turquesa);padding-bottom:22px;margin-bottom:32px}
+  .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--petroleo);font-weight:700}
+  h1{font-size:clamp(24px,4vw,34px);line-height:1.2;margin:8px 0 6px;letter-spacing:-.02em}
+  .sub{color:var(--gris);font-size:15px}
+
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:34px}
+  .kpi{background:var(--panel);border:1px solid var(--borde);border-radius:14px;padding:18px 20px}
+  .kpi .lab{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--gris);font-weight:700}
+  .kpi .val{font-size:30px;font-weight:700;letter-spacing:-.02em;margin-top:6px;line-height:1.1}
+  .kpi .note{font-size:13px;color:var(--gris);margin-top:4px}
+  .kpi.saldo{border-color:var(--turquesa);box-shadow:inset 0 0 0 1px var(--turquesa)}
+  .kpi.saldo .val{color:var(--petroleo)}
+
+  h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--petroleo);
+     margin:40px 0 14px;font-weight:700}
+  h2:first-of-type{margin-top:0}
+
+  .tablabox{background:var(--panel);border:1px solid var(--borde);border-radius:14px;overflow:hidden}
+  .scroll{overflow-x:auto}
+  table{border-collapse:collapse;width:100%;min-width:760px;font-size:14.5px}
+  th{background:var(--verde);color:#eaf6f6;text-align:left;padding:12px 14px;font-size:11.5px;
+     letter-spacing:.09em;text-transform:uppercase;font-weight:700;white-space:nowrap}
+  td{padding:13px 14px;border-top:1px solid var(--borde);vertical-align:top}
+  td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:600}
+  td.cero{color:var(--rojo)}
+  .fecha{white-space:nowrap;font-weight:700}
+  .ev{color:var(--gris);font-size:13px;line-height:1.5;display:block;margin-top:4px}
+  tr.total td{border-top:2px solid var(--verde);background:rgba(77,210,208,.10);font-weight:700;font-size:15px}
+  .preventa td{color:var(--gris)}
+  .badge{display:inline-block;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+    background:var(--turquesa);color:var(--verde);border-radius:4px;padding:2px 6px;font-weight:700;margin-left:6px}
+
+  .nota{background:var(--panel);border:1px solid var(--borde);border-left:4px solid var(--turquesa);
+    border-radius:0 12px 12px 0;padding:18px 22px;margin-top:18px}
+  .nota p{margin:0 0 10px}
+  .nota p:last-child{margin:0}
+  .nota b{color:var(--petroleo)}
+
+  ol.pasos{padding-left:0;list-style:none;counter-reset:p;margin:0}
+  ol.pasos li{counter-increment:p;background:var(--panel);border:1px solid var(--borde);border-radius:12px;
+    padding:16px 20px 16px 56px;position:relative;margin-bottom:10px}
+  ol.pasos li::before{content:counter(p);position:absolute;left:18px;top:16px;width:24px;height:24px;
+    background:var(--petroleo);color:#fff;border-radius:50%;display:grid;place-items:center;
+    font-size:13px;font-weight:700}
+  ol.pasos .t{font-weight:600}
+  ol.pasos .h{float:right;font-variant-numeric:tabular-nums;font-weight:700;color:var(--petroleo);margin-left:12px}
+  ol.pasos .d{color:var(--gris);font-size:13.5px;margin-top:4px;display:block}
+  .alerta{border-left-color:var(--ambar)}
+  .alerta b{color:var(--ambar)}
+
+  footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--borde);
+    color:var(--gris);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Código AdrIA · BEGO Mental Reset</div>
+    <h1>Seguimiento de la bolsa de 20 horas</h1>
+    <div class="sub">Desglose de horas por fecha, tarea y resultado · Actualizado el 27 de julio de 2026</div>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi">
+      <div class="lab">Bolsa contratada</div>
+      <div class="val">20 h 00 m</div>
+      <div class="note">Bono 1 · 1.500 €</div>
+    </div>
+    <div class="kpi">
+      <div class="lab">Imputado a la bolsa</div>
+      <div class="val">9 h 08 m</div>
+      <div class="note">46 % de la bolsa</div>
+    </div>
+    <div class="kpi saldo">
+      <div class="lab">Saldo disponible</div>
+      <div class="val">10 h 52 m</div>
+      <div class="note">A fecha de hoy</div>
+    </div>
+    <div class="kpi">
+      <div class="lab">Tiempo real dedicado</div>
+      <div class="val">37 h 15 m</div>
+      <div class="note">+ 4 h de preventa no facturadas</div>
+    </div>
+  </div>
+
+  <h2>Desglose por fecha</h2>
+  <div class="tablabox"><div class="scroll">
+  <table>
+    <thead>
+      <tr>
+        <th style="width:92px">Fecha</th>
+        <th>Tarea y resultado</th>
+        <th style="width:100px">Tiempo real</th>
+        <th style="width:110px">Imputado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="preventa">
+        <td class="fecha">15/07</td>
+        <td><b>Kick-off y propuesta</b> <span class="badge">Preventa</span>
+          <span class="ev">Reunión inicial y transcripción · propuesta de colaboración · análisis del informe del conector OpenAI de GHL · snapshot de la comunidad orgánica.</span></td>
+        <td class="num">4 h 00 m</td>
+        <td class="num cero">0 m</td>
+      </tr>
+      <tr>
+        <td class="fecha">16/07</td>
+        <td><b>Brief del embudo y arranque</b>
+          <span class="ev">Dossier de proyecto · brief del embudo test → App (verbatim de tus decisiones) · tres respuestas técnicas largas por WhatsApp (embudo, plazos, accesos) · facturación.</span></td>
+        <td class="num">2 h 30 m</td>
+        <td class="num cero">0 m</td>
+      </tr>
+      <tr>
+        <td class="fecha">17/07</td>
+        <td><b>Reconocimiento de Meta y ManyChat · accesos</b>
+          <span class="ev">Recon de la cuenta de Meta y del píxel · recon de ManyChat · análisis del audio de Pablo sobre el píxel · alta de la conexión técnica con GHL y cascada de accesos (ManyChat, Hostinger, Facebook) · refacturación sin IVA.</span></td>
+        <td class="num">3 h 00 m</td>
+        <td class="num cero">0 m</td>
+      </tr>
+      <tr>
+        <td class="fecha">18/07</td>
+        <td><b>Barrido de todas las URLs</b>
+          <span class="ev">Revisión completa de webs y landings a petición tuya tras detectarse landings rotas.</span></td>
+        <td class="num">2 h 00 m</td>
+        <td class="num cero">0 m</td>
+      </tr>
+      <tr>
+        <td class="fecha">19/07</td>
+        <td><b>Auditoría del motor: volcado y análisis</b>
+          <span class="ev">Volcado completo de GoHighLevel (contactos, oportunidades, workflows, embudos, etiquetas, campos, pipelines, calendarios) · análisis de la tripa del CRM · informe de situación · informe resumido para ti · auditoría pública de webs y landings en PDF · worklist web consolidada · revisión de DNS en Hostinger · pasada de navegador con evidencias.</span></td>
+        <td class="num">5 h 30 m</td>
+        <td class="num cero">0 m</td>
+      </tr>
+      <tr>
+        <td class="fecha">20/07</td>
+        <td><b>Preparación de la reunión</b>
+          <span class="ev">Encargo de grabación y convocatoria de la reunión con Rafa.</span></td>
+        <td class="num">0 h 15 m</td>
+        <td class="num cero">0 m</td>
+      </tr>
+      <tr>
+        <td class="fecha">22/07</td>
+        <td><b>Reunión con Rafa · cuestionario · especificación técnica</b>
+          <span class="ev">Reunión (52 min) y transcripción · resumen de la reunión en HTML y PDF · cuestionario de 19 preguntas de decisión · especificación técnica enviada a Rafa (eventos de compra, renovación y baja, esquema del test 2, acceso a Neon, regla de datos de salud) · lectura y análisis de tus dos documentos (test gratuito y mapa de implementación).</span></td>
+        <td class="num">6 h 00 m</td>
+        <td class="num">1 h 30 m</td>
+      </tr>
+      <tr>
+        <td class="fecha">23/07</td>
+        <td><b>ManyChat: auditoría e integración con el CRM</b>
+          <span class="ev">Informe de ManyChat (isla de 7.436 contactos y 1.887 conversaciones sin atender) · plan de integración ManyChat ↔ GHL · cuestionario de respuestas de DM con tu voz (HTML y PDF) · feedback a tus dos documentos · revisión del test inicial de onboarding.</span></td>
+        <td class="num">5 h 00 m</td>
+        <td class="num">0 h 38 m</td>
+      </tr>
+      <tr>
+        <td class="fecha">24/07</td>
+        <td><b>Documentación del sistema y arquitectura de etiquetado</b>
+          <span class="ev">Manual de trabajo BMR · guía de GoHighLevel · arquitectura de captación · ciclo de vida de la etiqueta · guía de etiquetas · piloto DM → CRM · estado del proyecto · inventario de los 151 workflows agrupados · reglas del sistema · auditoría de la huella del agente de IA en el CRM y lista de supresión · segundo volcado completo de GHL · revisión técnica de la landing del Retiro.</span></td>
+        <td class="num">8 h 00 m</td>
+        <td class="num">4 h 01 m</td>
+      </tr>
+      <tr>
+        <td class="fecha">—</td>
+        <td><b>Corpus de voz de marca</b>
+          <span class="ev">Descarga y transcripción de 25 vídeos del canal de YouTube, normalizados y fechados, como base para redactar con tu tono sin que tú fueras el cuello de botella.</span></td>
+        <td class="num">2 h 00 m</td>
+        <td class="num cero">0 m</td>
+      </tr>
+      <tr>
+        <td class="fecha">26/07</td>
+        <td><b>Copia de seguridad de GoHighLevel</b>
+          <span class="ev">Exportación completa de la configuración y la base de contactos (50 MB), entregada por enlace de Drive.</span></td>
+        <td class="num">1 h 51 m</td>
+        <td class="num">1 h 51 m</td>
+      </tr>
+      <tr>
+        <td class="fecha">27/07</td>
+        <td><b>Preparación de la entrega y revisión del CRM</b>
+          <span class="ev">Preparación del envío de la copia de seguridad y de todos los archivos del proyecto · revisión del estado de GHL.</span></td>
+        <td class="num">1 h 08 m</td>
+        <td class="num">1 h 08 m</td>
+      </tr>
+      <tr class="total">
+        <td>Total</td>
+        <td>37 h 15 m dedicadas al proyecto (41 h 15 m contando la preventa)</td>
+        <td class="num">37 h 15 m</td>
+        <td class="num">9 h 08 m</td>
+      </tr>
+    </tbody>
+  </table>
+  </div></div>
+
+  <div class="nota">
+    <p><b>Sobre la diferencia entre las dos columnas.</b> El tiempo real dedicado al proyecto supera en unas
+    28 horas lo imputado a la bolsa. Esa diferencia <b>no se factura ni se descuenta del saldo</b>: se asumió
+    en su momento porque entendíamos esta colaboración como un proyecto de recorrido largo, en el que el
+    trabajo de fondo —entender el negocio, auditarlo y dejarlo documentado— se amortizaría en las fases
+    siguientes.</p>
+    <p>Se detalla aquí únicamente porque pediste el desglose con fecha, tiempo, tarea y resultado, y porque
+    ayuda a dimensionar con realismo lo que cabe en las horas que quedan. Todo lo listado está entregado y
+    es verificable archivo por archivo en el material que se te ha enviado.</p>
+  </div>
+
+  <h2>Qué cabe en el saldo de 10 h 52 m</h2>
+
+  <ol class="pasos">
+    <li><span class="h">≈ 1 h</span><span class="t">Copia de seguridad y fotografía inicial</span>
+      <span class="d">El grueso está hecho (26/07). Queda cerrar la exportación de oportunidades y dejar registradas las cifras de partida.</span></li>
+    <li><span class="h">15–18 h</span><span class="t">Revisión de las automatizaciones antiguas</span>
+      <span class="d">136 workflows activos, uno a uno. La API de GoHighLevel solo devuelve identificador, nombre, estado y fechas: <b>no expone disparadores, acciones ni dependencias</b>. Obliga a abrir cada workflow en la interfaz a mano. Es el punto que no cabe en el saldo.</span></li>
+    <li><span class="h">2–3 h</span><span class="t">Revisión de etiquetas</span>
+      <span class="d">197 etiquetas con recuento de contactos, uso, duplicados y obsoletas. Automatizable en su mayor parte.</span></li>
+    <li><span class="h">3–4 h</span><span class="t">Higiene de la base de contactos</span>
+      <span class="d">Lotes de duplicados, rebotes, correos inválidos, bajas, contactos de prueba y compradores mal clasificados, para tu aprobación previa.</span></li>
+    <li><span class="h">2–3 h</span><span class="t">Oportunidades y pipeline heredado</span>
+      <span class="d">Inventario de las oportunidades falsas o sin trazabilidad e identificación del workflow que las genera.</span></li>
+    <li><span class="h">2–3 h</span><span class="t">Documentación final</span>
+      <span class="d">Cifras, nombres, identificadores y evidencias, separando ejecutado, propuestas pendientes, riesgos y asuntos abiertos.</span></li>
+  </ol>
+
+  <div class="nota alerta">
+    <p><b>La lista completa son 26–32 horas y el saldo es de 10 h 52 m.</b> Con el orden que has marcado, la
+    bolsa se agota dentro del punto 2 y no se llegaría a etiquetas, contactos ni oportunidades.</p>
+    <p><b>Propuesta:</b> hacer el punto 2 en modo triaje —los 136 workflows clasificados en tus cinco
+    categorías, más la identificación dirigida de los que están generando oportunidades falsas, que es lo
+    que de verdad molesta— y con ello dar tiempo a los puntos 3, 4, 5 y 6. Si prefieres el punto 2
+    exhaustivo, consume la bolsa entera y el resto queda sin empezar. <b>Dime cuál de las dos y arranco.</b></p>
+  </div>
+
+  <div class="nota">
+    <p><b>Un asunto abierto que conviene dejar por escrito.</b> El protocolo de riesgo de ManyChat —qué pasa
+    cuando alguien escribe en crisis— tiene decidido el canal de aviso (WhatsApp Business) pero <b>no el
+    destinatario</b>. ManyChat queda fuera de este alcance, así que lo señalamos aquí para que no se pierda:
+    conviene cerrarlo antes de que la automatización siga respondiendo mensajes sensibles.</p>
+  </div>
+
+  <footer>
+    <span>Código AdrIA · Ricardo Hoyos</span>
+    <span>Documento privado · actualizado el 27/07/2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
