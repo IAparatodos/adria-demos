@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual de Código AdrIA OS · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Manual de Código AdrIA OS · Código AdrIA">
+<meta property="og:description" content="Tu equipo de IA instalado en tu negocio: qué hace, cómo funciona, cómo usarlo.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/manual-codigoadria-os.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Manual de Código AdrIA OS · Código AdrIA">
+<meta name="twitter:description" content="Tu equipo de IA instalado en tu negocio: qué hace, cómo funciona, cómo usarlo.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#4dd2d0; --brand-deep:#3f6f7b; --brand-soft:rgba(77,210,208,.12);
+  --ink:#10222a; --charcoal:#1e3038; --steel:#5a6d75; --muted:#8a9aa1;
+  --canvas:#ffffff; --surface:#f5f8f8; --surface-soft:#fafcfc;
+  --hairline:#e3eaea; --hairline-soft:#eef3f3;
+  --dark:#0f1e24; --on-dark:#eaf4f4; --on-dark-muted:#9db4ba;
+  --ok:#1ba673;
+  --r-sm:6px; --r-md:8px; --r-lg:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',-apple-system,sans-serif;color:var(--ink);background:var(--canvas);font-size:16px;line-height:1.6}
+code,pre{font-family:'JetBrains Mono','SF Mono',Menlo,monospace}
+
+.layout{display:flex;min-height:100vh}
+.sidebar{width:280px;flex-shrink:0;background:var(--surface-soft);border-right:1px solid var(--hairline);position:sticky;top:0;height:100vh;overflow-y:auto;padding:24px 16px 48px}
+.main{flex:1;min-width:0}
+.prose{max-width:820px;margin:0 auto;padding:48px 40px 96px}
+
+.side-brand{display:flex;align-items:center;gap:10px;padding:4px 12px 18px;border-bottom:1px solid var(--hairline);margin-bottom:14px}
+.side-brand .dot{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--brand-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px;flex-shrink:0}
+.side-brand b{font-size:14px;line-height:1.25;display:block}
+.side-brand small{font-size:11px;color:var(--steel);display:block}
+.search-box{margin:14px 8px 16px;position:relative}
+.search-box input{width:100%;height:36px;border:1px solid var(--hairline);border-radius:var(--r-md);background:#fff;padding:0 12px 0 32px;font-family:inherit;font-size:13px;color:var(--ink);outline:none}
+.search-box input:focus{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+.search-box svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;stroke:var(--muted)}
+.nav-section{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--steel);padding:16px 12px 6px}
+.nav a{display:block;font-size:13.5px;color:var(--steel);text-decoration:none;padding:6px 12px;border-radius:var(--r-sm);border-left:2px solid transparent}
+.nav a:hover{background:var(--surface);color:var(--ink)}
+.nav a.active{background:var(--brand-soft);color:var(--brand-deep);font-weight:500;border-left:2px solid var(--brand)}
+.nav a.hidden-by-search{display:none}
+.nav-section.hidden-by-search{display:none}
+
+.hero{background:linear-gradient(150deg,var(--dark) 0%,#173540 55%,var(--brand-deep) 100%);color:var(--on-dark);border-radius:16px;padding:48px 44px;margin-bottom:48px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-70px;top:-70px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(77,210,208,.35),transparent 70%)}
+.hero .kicker{font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--brand);margin-bottom:14px}
+.hero h1{font-size:clamp(28px,4.4vw,44px);font-weight:700;line-height:1.12;letter-spacing:-1px;margin-bottom:14px}
+.hero p,.prose .hero p{font-size:17px;color:#e7f2f2;max-width:560px}
+
+.prose h2{font-size:28px;font-weight:600;letter-spacing:-.5px;line-height:1.25;margin:64px 0 8px;padding-top:16px;border-top:1px solid var(--hairline)}
+.prose h2:first-of-type{margin-top:0}
+.prose h3{font-size:20px;font-weight:600;margin:36px 0 10px}
+.prose p{margin:12px 0;color:var(--charcoal)}
+.prose ul,.prose ol{margin:12px 0 12px 22px;color:var(--charcoal)}
+.prose li{margin:6px 0}
+.lead{font-size:17.5px;color:var(--steel)}
+.prose a{color:var(--brand-deep);text-decoration:underline;text-decoration-color:rgba(63,111,123,.35)}
+.prose strong{color:var(--ink)}
+code:not(pre code){background:var(--surface);border:1px solid var(--hairline);border-radius:4px;padding:2px 6px;font-size:13px;color:var(--brand-deep)}
+pre{background:var(--dark);color:var(--on-dark);border-radius:var(--r-md);padding:16px 18px;font-size:13.5px;line-height:1.55;overflow-x:auto;margin:16px 0}
+blockquote{border-left:3px solid var(--brand);background:var(--surface-soft);padding:14px 18px;border-radius:0 var(--r-md) var(--r-md) 0;margin:16px 0;color:var(--charcoal);font-size:15px}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:20px 0}
+.card{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--r-lg);padding:20px}
+.card h4{margin:0 0 6px;font-size:15px}
+.card p{margin:0;font-size:13.5px;color:var(--steel)}
+.card .emoji{font-size:24px;margin-bottom:8px;display:block}
+.callout{display:flex;gap:12px;border:1px solid var(--hairline);border-radius:var(--r-lg);padding:16px 18px;margin:18px 0;background:var(--surface-soft);font-size:14.5px}
+.callout .ico{flex-shrink:0;font-size:18px;line-height:1.4}
+.callout.brand{background:var(--brand-soft);border-color:rgba(77,210,208,.4)}
+.callout.dark{background:var(--dark);border-color:var(--dark);color:var(--on-dark)}
+.callout.dark b{color:var(--brand)}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+th{text-align:left;font-size:11.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--steel);padding:10px 12px;border-bottom:2px solid var(--hairline);background:var(--surface-soft)}
+td{padding:11px 12px;border-bottom:1px solid var(--hairline-soft);vertical-align:top;color:var(--charcoal)}
+tr:hover td{background:var(--surface-soft)}
+.table-wrap{overflow-x:auto;border:1px solid var(--hairline);border-radius:var(--r-lg);margin:18px 0}
+.table-wrap table{margin:0}
+.step{display:flex;gap:14px;margin:14px 0}
+.step .n{width:28px;height:28px;border-radius:50%;background:var(--brand-deep);color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step p{margin:0}
+.faq{border:1px solid var(--hairline);border-radius:var(--r-lg);margin:12px 0;overflow:hidden}
+.faq summary{cursor:pointer;padding:15px 18px;font-weight:600;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:20px;color:var(--brand-deep);font-weight:400}
+.faq[open] summary::after{content:"–"}
+.faq .body{padding:0 18px 16px;font-size:14.5px;color:var(--charcoal)}
+.kbd{display:inline-block;background:var(--surface);border:1px solid var(--hairline);border-bottom-width:2px;border-radius:5px;padding:1px 7px;font-size:12.5px;font-family:'JetBrains Mono',monospace;color:var(--brand-deep)}
+.footer{border-top:1px solid var(--hairline);margin-top:72px;padding-top:24px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.cta-band{background:var(--dark);color:var(--on-dark);border-radius:16px;padding:36px;margin:48px 0 0;text-align:center}
+.cta-band h3{font-size:22px;margin:0 0 8px;color:#fff}
+.cta-band p{color:var(--on-dark-muted);margin:0 0 20px}
+.cta-band a{display:inline-block;background:var(--brand);color:var(--dark);font-weight:600;font-size:15px;text-decoration:none;border-radius:999px;padding:12px 28px}
+
+.menu-btn{display:none}
+@media (max-width:980px){
+  .layout{display:block}
+  .sidebar{position:fixed;left:0;top:0;z-index:50;transform:translateX(-100%);transition:transform .25s ease;width:290px;box-shadow:0 0 40px rgba(0,0,0,.15)}
+  .sidebar.open{transform:translateX(0)}
+  .menu-btn{display:flex;position:fixed;bottom:20px;right:20px;z-index:60;width:52px;height:52px;border-radius:50%;background:var(--brand-deep);color:#fff;border:none;align-items:center;justify-content:center;font-size:20px;box-shadow:0 8px 24px rgba(15,30,36,.3);cursor:pointer}
+  .prose{padding:28px 20px 80px}
+  .hero{padding:32px 24px}
+  .prose h2{margin-top:48px}
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+<aside class="sidebar" id="sidebar">
+  <div class="side-brand">
+    <div class="dot">A</div>
+    <div><b>Código AdrIA OS</b><small>Manual del usuario</small></div>
+  </div>
+  <div class="search-box">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input type="text" id="navSearch" placeholder="Buscar sección…">
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav-section">Empezar</div>
+    <a href="#que-es">Qué es</a>
+    <a href="#que-hace">Qué hace por ti</a>
+    <a href="#como-funciona">Cómo funciona</a>
+    <div class="nav-section">Puesta en marcha</div>
+    <a href="#instalacion">Instalación</a>
+    <a href="#primeros-dias">Tus primeros días</a>
+    <a href="#dia-a-dia">Una jornada normal</a>
+    <div class="nav-section">Capacidades</div>
+    <a href="#skills">Las skills</a>
+    <a href="#loops">Automatiza lo repetitivo</a>
+    <a href="#multicliente">Si trabajas con clientes</a>
+    <a href="#comandos">Comandos útiles</a>
+    <div class="nav-section">Tranquilidad</div>
+    <a href="#datos">Tus datos</a>
+    <a href="#actualizaciones">Actualizaciones</a>
+    <a href="#soporte">Soporte</a>
+    <a href="#faq">Preguntas frecuentes</a>
+  </nav>
+</aside>
+
+<button class="menu-btn" id="menuBtn" aria-label="Menú">☰</button>
+
+<main class="main">
+<div class="prose">
+
+<div class="hero">
+  <div class="kicker">Manual del usuario</div>
+  <h1>Tu equipo de IA,<br>instalado en tu negocio</h1>
+  <p>Código AdrIA OS convierte Claude en un asistente que conoce tu negocio, recuerda lo que decidís juntos, escribe con tu voz. Este manual te explica qué hace, cómo funciona, cómo sacarle partido.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="que-es">Qué es</h2>
+<p class="lead">Un <strong>sistema operativo agéntico</strong>: una capa que se instala sobre Claude Code — la herramienta profesional de Anthropic — para que deje de ser "un chat" con el que empiezas de cero cada vez, para convertirse en <strong>un colaborador que conoce tu negocio</strong>.</p>
+<p>La diferencia con cualquier chat de IA se resume en tres cosas:</p>
+<div class="card-grid">
+  <div class="card"><span class="emoji">🧠</span><h4>Recuerda</h4><p>Tus decisiones, tus proyectos, tus preferencias — entre sesiones, con fecha. Mañana no le repites nada.</p></div>
+  <div class="card"><span class="emoji">✍️</span><h4>Escribe como tú</h4><p>Captura tu voz real de marca. Lo que sale no suena a IA genérica: suena a ti — pasa un filtro que lo garantiza.</p></div>
+  <div class="card"><span class="emoji">⚙️</span><h4>Trabaja con método</h4><p>37 skills curadas: procedimientos probados para marketing, estrategia, automatización. No improvisa: sigue el método.</p></div>
+</div>
+
+<div class="callout brand"><div class="ico">💎</div><div><b>Transparencia total:</b> el sistema base es software libre (licencia MIT) — puedes verlo entero en GitHub. Lo que te damos es que funcione en tu negocio desde el primer día: instalación a medida, formación para exprimirlo, soporte con actualizaciones curadas cada mes.</div></div>
+
+<!-- ============================================================ -->
+<h2 id="que-hace">Qué hace por ti</h2>
+<p>Ejemplos reales de lo que le pides en castellano, tal cual:</p>
+<div class="table-wrap"><table>
+<tr><th>Le dices…</th><th>Y hace…</th></tr>
+<tr><td>«Escríbeme el post de LinkedIn sobre la reunión del martes»</td><td>Lo redacta con tu voz, en el formato de la plataforma, pasando el filtro anti-texto-de-IA</td></tr>
+<tr><td>«¿Qué decidimos sobre los precios en marzo?»</td><td>Te responde citando el archivo, la fecha — si no lo sabe, te lo dice en vez de inventar</td></tr>
+<tr><td>«Convierte este vídeo en contenido para toda la semana»</td><td>Saca 5-8 piezas adaptadas a cada red desde una sola grabación</td></tr>
+<tr><td>«Analiza a mi competencia»</td><td>Estudia sus webs, encuentra tu hueco, te propone ángulos de posicionamiento</td></tr>
+<tr><td>«Cada lunes prepárame el informe del cliente»</td><td>Lo convierte en un proceso repetible con control de calidad — tú solo apruebas</td></tr>
+<tr><td>«Recuerda esto para la próxima»</td><td>Lo apunta en su memoria de trabajo — la próxima sesión lo tiene presente</td></tr>
+</table></div>
+
+<!-- ============================================================ -->
+<h2 id="como-funciona">Cómo funciona (sin jerga)</h2>
+<p>Tres piezas trabajan juntas debajo del capó:</p>
+<div class="step"><div class="n">1</div><p><strong>La memoria (Sinapsis).</strong> Un motor que guarda tu contexto en tu propia máquina, en archivos que puedes abrir y leer. Aprende de cada corrección que le haces: los patrones se consolidan solos con el uso. No gasta tu plan de Claude en recordar — la memoria funciona aparte, en milisegundos.</p></div>
+<div class="step"><div class="n">2</div><p><strong>Tu contexto de marca.</strong> Tu voz (con tres registros: formal, divulgativo, cercano), tu posicionamiento, tu cliente ideal, tus objetivos, tu diario de decisiones. Se captura en el onboarding — el sistema lo consulta antes de escribir una sola línea con tu nombre.</p></div>
+<div class="step"><div class="n">3</div><p><strong>Las skills.</strong> Procedimientos curados que el sistema sigue paso a paso — con controles de calidad al final. Solo se cargan las que necesitas en cada momento, así tu plan de Claude rinde mucho más (~90% menos consumo de contexto).</p></div>
+
+<!-- ============================================================ -->
+<h2 id="instalacion">Instalación</h2>
+<p>La instalación te la hacemos nosotros (remota o presencial). Para que sepas qué hace falta:</p>
+<ul>
+  <li><strong>Plan Pro o Max de Claude</strong> (Anthropic). Es tu única suscripción de IA necesaria: no hacen falta claves de API aparte.</li>
+  <li>Un ordenador con macOS o Windows. Las herramientas técnicas (Git, Node) las dejamos instaladas nosotros.</li>
+  <li>15-20 minutos contigo para el arranque: el sistema te entrevista (conversación, no formulario) para conocer tu negocio.</li>
+</ul>
+<p>La instalación se <strong>verifica sola</strong>, fase a fase: el sistema no se da por instalado hasta que cada comprobación pasa de verdad. Si algo se interrumpe a mitad, se retoma exactamente donde quedó — sin rehacer nada.</p>
+<div class="callout brand"><div class="ico">🎁</div><div><b>Tu primer entregable, el primer día:</b> al terminar el arranque, el sistema analiza tu web o LinkedIn — te genera un informe de posicionamiento con 3 ganchos de contenido + un plan para la semana. Sales de la instalación con algo tuyo en la mano.</div></div>
+
+<!-- ============================================================ -->
+<h2 id="primeros-dias">Tus primeros días</h2>
+<div class="step"><div class="n">1</div><p><strong>Día 1 — el arranque.</strong> Onboarding + tu primer entregable. Configura tu voz de marca (~10 min más): desde ese momento todo lo que escriba suena a ti.</p></div>
+<div class="step"><div class="n">2</div><p><strong>Días 2-5 — el tour.</strong> Está en la carpeta <code>curso/</code>, dentro de tu propio sistema: cinco sesiones de 20-30 minutos que te enseñan a operarlo con <strong>tareas reales de tu negocio</strong>. Ábrelo y dile a Claude <i>"vamos con el día 2"</i>. A tu ritmo: se puede pausar, retomar y repetir.</p>
+<p style="margin-top:10px">Día 2 tu voz · día 3 tu primer trabajo real · día 4 tus clientes · día 5 la rutina. Cada día termina con algo hecho, no con algo leído. <strong>Si en la instalación ya configuramos tu voz, empieza directamente por el día 3.</strong></p></div>
+<div class="step"><div class="n">3</div><p><strong>Cuando tengas 25 minutos</strong> — <span class="kbd">/deep-dive</span>: la entrevista profunda. Cuanto más te conoce, más finas son sus propuestas.</p></div>
+
+<!-- ============================================================ -->
+<h2 id="dia-a-dia">Una jornada normal</h2>
+<div class="table-wrap"><table>
+<tr><th>Momento</th><th>Qué haces</th></tr>
+<tr><td>Al empezar</td><td><span class="kbd">/start-here</span> — te recibe con lo que dejaste pendiente: «Dejaste X a medias, ¿sigues con eso o cambiamos?»</td></tr>
+<tr><td>Durante el día</td><td>Le pides trabajo en castellano. Cada entregable se guarda en su carpeta — nada se pierde en el chat</td></tr>
+<tr><td>Algo que no debe olvidar</td><td>«Recuerda esto» — apuntado. Disponible mañana, la semana que viene, en marzo</td></tr>
+<tr><td>Duda sobre el pasado</td><td><span class="kbd">/recuerda</span> qué decidimos sobre… — respuesta con fuente + fecha</td></tr>
+<tr><td>Al cerrar</td><td><span class="kbd">/wrap-up</span> — resumen del día, deja preparada la sesión de mañana. Si has tocado varias cosas, remata con <span class="kbd">/eod</span>: guarda el día entero de una vez. Él mismo te lo sugiere cuando toca</td></tr>
+</table></div>
+<blockquote>La regla de oro: <strong>trabaja siempre desde su carpeta</strong>. El sistema vive en una carpeta de tu ordenador — abrir Claude Code ahí dentro es lo que activa toda su memoria.</blockquote>
+
+<!-- ============================================================ -->
+<h2 id="skills">Las skills: qué sabe hacer</h2>
+<p><strong>17 activas de fábrica + 20 en la biblioteca</strong>, listas para activar cuando las necesites (así el sistema va ligero). Las más usadas:</p>
+
+<h3>Marca + contenido</h3>
+<div class="table-wrap"><table>
+<tr><th>Skill</th><th>Qué te da</th></tr>
+<tr><td><strong>Voz de marca</strong></td><td>Captura cómo escribes de verdad, con 3 registros. La base de todo lo demás</td></tr>
+<tr><td><strong>Posicionamiento</strong></td><td>Análisis de competidores + el hueco donde diferenciarte</td></tr>
+<tr><td><strong>Cliente ideal</strong></td><td>A quién vendes, qué le duele, con qué palabras hablarle</td></tr>
+<tr><td><strong>Copywriting</strong> <span class="kbd">biblioteca</span></td><td>Posts, emails, landings — con tu voz, con variaciones para elegir</td></tr>
+<tr><td><strong>Reaprovechar contenido</strong> <span class="kbd">biblioteca</span></td><td>Un vídeo o artículo → 5-8 piezas para toda la semana</td></tr>
+</table></div>
+
+<h3>Estrategia + decisiones</h3>
+<div class="table-wrap"><table>
+<tr><th>Skill</th><th>Qué te da</th></tr>
+<tr><td><strong>Seis sombreros</strong> <span class="kbd">biblioteca</span></td><td>Analiza una decisión difícil desde 6 ángulos, sin sesgos</td></tr>
+<tr><td><strong>Cognito</strong> <span class="kbd">biblioteca</span></td><td>7 modos de pensamiento (estratega, abogado del diablo, auditor…) según la fase</td></tr>
+<tr><td><strong>Investigación profunda</strong> <span class="kbd">biblioteca</span></td><td>Informes con fuentes verificadas y contrastadas</td></tr>
+<tr><td><strong>Recomendador de stack</strong> <span class="kbd">biblioteca</span></td><td>Qué tecnología usar para tu proyecto, con el porqué de cada elección</td></tr>
+</table></div>
+
+<h3>Calidad — el sello de la casa</h3>
+<p>Dos filtros vigilan todo lo que sale con tu nombre: el <strong>humanizador</strong> (detecta + elimina los tics de texto-de-IA) y el <strong>verificador</strong> (voz, formato, longitud, datos). Si algo no pasa el corte, no sale.</p>
+<p>¿Necesitas algo que no está? Pregúntale «¿hay una skill para…?» — la encuentra en la biblioteca o <strong>crea una a tu medida</strong>. El sistema crece contigo.</p>
+
+<!-- ============================================================ -->
+<h2 id="loops">Automatiza lo repetitivo, sin sustos</h2>
+<p>Lo que haces cada semana (el informe, el triaje de correos, el contenido, las propuestas) se convierte en un <strong>proceso que el sistema ejecuta por ti — con control de calidad + tu aprobación</strong>.</p>
+<p>La autonomía se gana con datos, nunca por defecto:</p>
+<div class="step"><div class="n">1</div><p><strong>Al principio, propone — tú apruebas antes.</strong> Todo proceso nuevo empieza así.</p></div>
+<div class="step"><div class="n">2</div><p><strong>Cuando lleva 10 resultados aprobados sin retocar</strong>, puede pasar a ejecutar — tú revisas después.</p></div>
+<div class="step"><div class="n">3</div><p><strong>Solo lo de bajo riesgo</strong> llega a funcionar con auditoría por muestreo — tras 20 resultados más con ≥90% a la primera.</p></div>
+<div class="callout dark"><div class="ico">🔒</div><div><b>Límites que nunca se cruzan solos:</b> nada que salga a un cliente tuyo o se publique con tu marca, nada de dinero (precios, cobros), nada irreversible, ningún compromiso de fechas — SIEMPRE pasa por ti. La decisión de dar más autonomía es tuya, siempre.</div></div>
+
+<!-- ============================================================ -->
+<h2 id="multicliente">Si trabajas con clientes</h2>
+<p>Cada cliente tuyo tiene su propio espacio: su voz, su contexto, sus proyectos — <strong>separados por diseño</strong>. Entras en la carpeta del cliente y el sistema escribe con LA VOZ de ese cliente, no con la tuya. Nada se mezcla. Hay plantillas preparadas para agencias, consultores, formadores, freelance.</p>
+
+<!-- ============================================================ -->
+<h2 id="comandos">Comandos útiles (chuleta)</h2>
+<div class="table-wrap"><table>
+<tr><th>Comando</th><th>Para qué</th></tr>
+<tr><td><span class="kbd">/start-here</span></td><td>Empezar el día: contexto + pendientes + propuesta</td></tr>
+<tr><td><span class="kbd">/wrap-up</span></td><td>Cerrar <strong>este proyecto</strong>: resumen + preparar mañana</td></tr>
+<tr><td><span class="kbd">/eod</span></td><td>Cerrar <strong>el día entero</strong>, con todo lo que hayas tocado hoy — aunque fueran varios clientes. <span class="kbd">/eod --quick</span> lo genera solo</td></tr>
+<tr><td><span class="kbd">/recuerda</span></td><td>Preguntar a la memoria (responde con fuente)</td></tr>
+<tr><td><span class="kbd">/aprende</span></td><td>Guardar cómo has hecho algo para que la próxima vez arranque desde ahí</td></tr>
+<tr><td><span class="kbd">/skills</span></td><td>Ver + activar skills de la biblioteca</td></tr>
+<tr><td><span class="kbd">/loops</span></td><td>Estado de tus procesos automatizados</td></tr>
+<tr><td><span class="kbd">/add-client</span></td><td>Dar de alta un cliente con su espacio propio</td></tr>
+<tr><td><span class="kbd">/doctor</span></td><td>Chequeo de salud del sistema, con arreglos propuestos</td></tr>
+<tr><td><span class="kbd">/backup</span></td><td>Copia de seguridad de todos tus datos</td></tr>
+<tr><td><span class="kbd">/actualiza</span> · <span class="kbd">/restaura</span></td><td>Traer la última versión · deshacerla si algo no gusta</td></tr>
+<tr><td><span class="kbd">/install-status</span></td><td>Ver el estado de la instalación, sin tocar nada</td></tr>
+</table></div>
+
+<!-- ============================================================ -->
+<h2 id="datos">Tus datos: en tu máquina, bajo tu control</h2>
+<ul>
+  <li><strong>Todo vive en tu ordenador</strong>, en archivos de texto que puedes abrir, leer, copiar. No hay una nube nuestra con tus datos.</li>
+  <li><strong>Copias de seguridad</strong> a TU iCloud, Drive o Dropbox con <span class="kbd">/backup</span> — se conservan las últimas 7. <strong>Las lanzas tú</strong>: no se hacen solas. La primera la dejamos hecha el día de la instalación; a partir de ahí, un <span class="kbd">/backup</span> de vez en cuando y antes de cada actualización.</li>
+  <li><strong>Lo que sí es automático</strong>: antes de cada actualización el sistema hace una copia previa por su cuenta, sin que tengas que pedirla. Si algo se rompe, <span class="kbd">/restaura</span> vuelve atrás.</li>
+  <li><strong>Las actualizaciones jamás tocan tus datos</strong>: tu contexto, tus proyectos, tus clientes quedan intactos, siempre, con copia previa automática.</li>
+  <li><strong>Credenciales protegidas</strong>: las claves van en un archivo local que nunca sale de tu máquina.</li>
+  <li><strong>Complementos auditados</strong>: cualquier skill externa pasa un escáner de seguridad antes de instalarse; los conectores se montan en modo lectura al empezar.</li>
+  <li><strong>Permisos con freno de mano</strong>: leer archivos sensibles como tus claves está bloqueado, y los comandos que podrían saltárselo te piden confirmación antes de ejecutarse. Publicar, enviar correos a tus clientes o tocar algo en producción pasa siempre por tu visto bueno.</li>
+</ul>
+<div class="callout"><div class="ico">🔌</div><div><b>Viene con un complemento de OpenAI activado</b> (Codex, para tareas de programación). Es opcional y se puede quitar — dínoslo y lo retiramos. Un aviso honesto por si lo usas: <b>Codex no pide permiso antes de actuar; Claude sí</b>. Si vas a tocar cosas de tu negocio con él, tenlo presente.</div></div>
+
+<!-- ============================================================ -->
+<h2 id="actualizaciones">Actualizaciones</h2>
+<p>El sistema mejora cada mes: skills nuevas, mejoras del motor, correcciones — curadas antes de llegarte. Actualizar es decirle <strong>«actualízate»</strong> (o <span class="kbd">/actualiza</span>): copia de seguridad automática, se trae lo nuevo, tus datos intactos. ¿Algo no te gusta? <span class="kbd">/restaura</span> lo deshace entero.</p>
+<p>¿Quieres cambiar cómo se comporta una skill? Díselo («a partir de ahora, esta skill siempre…»): la personalización se guarda aparte — <strong>sobrevive a todas las actualizaciones</strong>.</p>
+
+<!-- ============================================================ -->
+<h2 id="soporte">Soporte</h2>
+<div class="card-grid">
+  <div class="card"><span class="emoji">📬</span><h4>soporte@codigoadria.com</h4><p>Respuesta en menos de 48 h laborables</p></div>
+  <div class="card"><span class="emoji">🩺</span><h4>/doctor</h4><p>Ante cualquier rareza, pásalo primero: diagnostica + propone el arreglo</p></div>
+  <div class="card"><span class="emoji">📖</span><h4>codigoadria.com/soporte/</h4><p>El manual en la web, con el detalle de comandos</p></div>
+</div>
+<p>Si escribes a soporte, cuéntanos qué pediste, qué esperabas, qué pasó — si puedes, pega el reporte de <span class="kbd">/doctor</span>. Con eso resolvemos casi todo a la primera.</p>
+
+<!-- ============================================================ -->
+<h2 id="faq">Preguntas frecuentes</h2>
+
+<details class="faq"><summary>¿Necesito saber programar?</summary><div class="body">No. Hablas con el sistema en castellano, como con un colaborador. La parte técnica (instalación, conectores, actualizaciones) es nuestra.</div></details>
+
+<details class="faq"><summary>¿Qué necesito pagar aparte?</summary><div class="body">Solo tu plan Pro o Max de Claude (Anthropic) — tu suscripción de IA de trabajo. Sin claves de API extra para lo esencial. Algunas skills opcionales (transcripción de vídeo, análisis web avanzado) usan servicios con planes gratuitos de sobra para empezar; si alguna vez conviene uno de pago, te lo diremos antes.</div></details>
+
+<details class="faq"><summary>¿Mis datos entrenan alguna IA?</summary><div class="body">Tu contexto vive en tu máquina. Las consultas a Claude van por tu cuenta de Anthropic, con sus garantías de privacidad de los planes de pago. Nosotros no vemos ni almacenamos tus datos.</div></details>
+
+<details class="faq"><summary>¿Puede publicar o enviar algo sin que me entere?</summary><div class="body">No. Todo lo que sale de tu negocio — publicaciones, correos a clientes, dinero, compromisos — pasa SIEMPRE por tu aprobación. Es una regla del sistema, no una promesa.</div></details>
+
+<details class="faq"><summary>¿Se me olvida cómo iba algo — dónde miro?</summary><div class="body">Pregúntaselo al propio sistema: «¿cómo iba lo de…?» o <span class="kbd">/recuerda</span>. Ese es el punto: la memoria es suya, tú solo preguntas.</div></details>
+
+<details class="faq"><summary>¿Qué pasa si dejo de pagar el soporte?</summary><div class="body">El sistema es tuyo, sigue funcionando: es software libre instalado en tu máquina. Dejas de recibir skills nuevas, actualizaciones curadas, el canal de soporte — nada de lo tuyo desaparece.</div></details>
+
+<details class="faq"><summary>¿Sirve para mi equipo?</summary><div class="body">Sí — cada persona puede operar el sistema, la memoria del negocio es compartida en la carpeta. Para configuraciones de equipo más finas, hablamos: se diseña según cómo trabajéis.</div></details>
+
+<div class="cta-band">
+  <h3>¿Dudas? Escríbenos.</h3>
+  <p>soporte@codigoadria.com · respuesta en menos de 48 h</p>
+  <a href="https://www.codigoadria.com/soporte/">Ir a la página de soporte</a>
+</div>
+
+<div class="footer">
+  <span>Manual de Código AdrIA OS · julio 2026</span>
+  <span>Cortesía <strong style="color:var(--brand-deep)">Código AdrIA</strong></span>
+</div>
+
+</div>
+</main>
+</div>
+
+<script>
+const sb=document.getElementById('sidebar'),btn=document.getElementById('menuBtn');
+btn.addEventListener('click',()=>sb.classList.toggle('open'));
+document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>sb.classList.remove('open')));
+const links=[...document.querySelectorAll('.nav a')];
+const targets=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));}})},{rootMargin:'-15% 0px -75% 0px'});
+targets.forEach(t=>io.observe(t));
+document.getElementById('navSearch').addEventListener('input',function(){
+  const q=this.value.trim().toLowerCase();
+  document.querySelectorAll('.nav a').forEach(a=>{a.classList.toggle('hidden-by-search',q&&!a.textContent.toLowerCase().includes(q));});
+  document.querySelectorAll('.nav-section').forEach(s=>{
+    let el=s.nextElementSibling,any=false;
+    while(el&&!el.classList.contains('nav-section')){if(el.tagName==='A'&&!el.classList.contains('hidden-by-search'))any=true;el=el.nextElementSibling;}
+    s.classList.toggle('hidden-by-search',q&&!any);
+  });
+});
+</script>
+</body>
+</html>
