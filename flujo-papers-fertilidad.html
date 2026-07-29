@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Papers al día — el flujo completo · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Papers al día — el flujo completo · Código AdrIA">
+<meta property="og:description" content="Los papers más citados de tu tema, con citas reales de PubMed. Gratis y sin registros.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/flujo-papers-fertilidad.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Papers al día — el flujo completo · Código AdrIA">
+<meta name="twitter:description" content="Los papers más citados de tu tema, con citas reales de PubMed. Gratis y sin registros.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--turq:#4dd2d0;--turq-d:#2bb3b1;--petr:#3f6f7b;--prof:#102e35;--soft:#eef9f9;--text:#1f2d31;--muted:#6b7b80;--border:#dde6e6}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',-apple-system,sans-serif;color:var(--text);background:#fff;font-size:16px;line-height:1.6}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 80px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--prof);margin-bottom:34px}
+.brand .dot{width:14px;height:14px;border-radius:4px;background:var(--turq)}
+h1{color:var(--prof);font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:10px}
+.lead{font-size:18px;color:var(--muted);margin-bottom:26px}
+h2{color:var(--prof);font-size:22px;font-weight:800;margin:38px 0 10px}
+p{margin-bottom:12px}
+b{color:var(--prof)}
+.tldr{background:rgba(77,210,208,.10);border:1px solid rgba(77,210,208,.45);border-left:4px solid var(--turq);border-radius:12px;padding:16px 20px;margin:0 0 8px}
+code{font-family:'JetBrains Mono',Menlo,monospace;background:var(--soft);border:1px solid var(--border);border-radius:6px;padding:1px 7px;font-size:14px}
+pre{font-family:'JetBrains Mono',Menlo,monospace;background:#0f1e24;color:#eaf4f4;border-radius:12px;padding:16px 18px;font-size:13.5px;line-height:1.55;overflow-x:auto;margin:10px 0 6px}
+pre .c{color:#7fe0a0}
+.btn{display:inline-block;background:var(--turq);color:var(--prof);font-weight:700;padding:12px 22px;border-radius:10px;text-decoration:none;font-size:15px;border:none;cursor:pointer;font-family:'Poppins',sans-serif}
+.btn.ghost{background:#fff;border:2px solid var(--turq);color:var(--turq-d)}
+.ok{color:#1ba673;font-weight:600;font-size:14px;margin-left:10px;visibility:hidden}
+.step{display:flex;gap:14px;margin:14px 0}
+.step .n{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--prof);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.card{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin:14px 0}
+.warn{background:#fff8ec;border:1px solid #f2dcae;border-left:4px solid #e8b64c;border-radius:12px;padding:14px 18px;margin:14px 0;font-size:15px}
+.cta{background:linear-gradient(135deg,var(--prof),#1a3f48);color:#fff;border-radius:16px;padding:26px;text-align:center;margin:44px 0 0}
+.cta h3{color:#fff;font-size:20px;margin-bottom:8px}
+.cta p{color:rgba(255,255,255,.85);font-size:15px;max-width:480px;margin:0 auto 16px}
+.foot{margin-top:44px;color:var(--muted);font-size:13.5px;border-top:1px solid var(--border);padding-top:16px}
+details{border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:10px 0}
+summary{font-weight:700;color:var(--prof);cursor:pointer}
+</style>
+</head>
+<body><div class="wrap">
+<div class="brand"><div class="dot"></div>Código AdrIA</div>
+
+<h1>Papers al día 🔬<br>El flujo completo, montado</h1>
+<div class="lead">El que enseño en el reel: los estudios <b>más citados</b> de cualquier tema de reproducción asistida, con citas reales de PubMed + iCite (NIH). Gratis, sin registros y sin inventarse nada.</div>
+
+<div class="tldr"><b>En corto:</b> es un pequeño programa que le pides un tema («sperm DNA fragmentation IVF») y te devuelve el top de estudios ordenados por <b>citación real</b>, cada uno con su PMID, DOI y enlace para comprobarlo. Lo que antes eran 40 pestañas un domingo, en un minuto y ordenado.</div>
+
+<h2>Por qué esto y no pegarlo en ChatGPT</h2>
+<p>Un chatbot a pelo <b>se inventa las citas</b>, no prioriza y no distingue un estudio potente de uno flojo. Este flujo va directo a las fuentes: <b>PubMed</b> (el estándar biomédico) y <b>iCite del NIH</b> (citas reales por PMID). Cada resultado es un enlace que puedes abrir y verificar. Ese es el punto.</p>
+
+<h2>Cómo montarlo (5 minutos, una sola vez)</h2>
+
+<div class="step"><div class="n">1</div><div><b>Descarga el script</b> — botón derecho → «Guardar enlace como…» → guárdalo como <code>papers.py</code> en tu carpeta de Descargas.<br><a class="btn" style="margin-top:8px" href="https://raw.githubusercontent.com/IAparatodos/adria-demos/main/flujo-papers/papers.py" download="papers.py">⬇️ Descargar papers.py</a></div></div>
+
+<div class="step"><div class="n">2</div><div><b>Comprueba que tienes Python</b> (los Mac lo traen de serie).<br>· <b>Mac</b>: abre la app <b>Terminal</b> y escribe <code>python3 --version</code><br>· <b>Windows</b>: abre <b>Símbolo del sistema</b> y escribe <code>py -3 --version</code>. Si no lo tienes: <a href="https://www.python.org/downloads/">python.org/downloads</a> (marca «Add to PATH» al instalar).</div></div>
+
+<div class="step"><div class="n">3</div><div><b>Ejecuta tu primera búsqueda</b> — en esa misma ventana:
+<pre><span class="c"># Mac</span>
+cd ~/Downloads
+python3 papers.py "sperm DNA fragmentation IVF pregnancy" --n 8
+
+<span class="c"># Windows</span>
+cd %USERPROFILE%\Downloads
+py -3 papers.py "sperm DNA fragmentation IVF pregnancy" --n 8</pre>
+</div></div>
+
+<p>Y ya está. Te devuelve algo así por cada estudio:</p>
+<pre>#1  🔹 312 citas · 2021 · Fertility and Sterility
+    Sperm DNA fragmentation and its impact on IVF outcomes…
+    García-López et al.   ·   https://pubmed.ncbi.nlm.nih.gov/XXXXXXXX/
+    doi:10.1016/…
+    TL;DR (abstract real): …</pre>
+
+<h2>Trucos</h2>
+<div class="card">
+<p>· El tema <b>en inglés</b> rinde mucho mejor en PubMed.</p>
+<p>· <code>--years 2019-2026</code> acota el periodo · <code>--n 10</code> cuántos quieres · <code>--json salida.json</code> lo guarda en un archivo.</p>
+<p>· Ejemplos que funcionan bien: <code>"endometrial receptivity implantation failure"</code> · <code>"PGT-A aneuploidy screening outcomes"</code> · <code>"time-lapse embryo selection"</code></p>
+<p>· Opcional: una API key gratuita de NCBI sube el límite de peticiones (<code>export NCBI_API_KEY=xxxx</code>). Sin ella también funciona.</p>
+</div>
+
+<div class="warn"><b>La regla anti-humo:</b> el «TL;DR» que muestra es el <b>abstract real recortado</b>, no un resumen generado. La IA busca y ordena; la lectura clínica y la implicación para tu caso las pones tú. Ese trabajo no se delega — y justo por eso este flujo sí sirve en ciencia.</div>
+
+<details><summary>¿Prefieres copiar el código a mano?</summary>
+<p style="margin-top:10px">Pega esto en un editor de texto plano y guárdalo como <code>papers.py</code>. Es el mismo archivo del botón de arriba.</p>
+<p><a class="btn ghost" href="https://raw.githubusercontent.com/IAparatodos/adria-demos/main/flujo-papers/papers.py">Ver el código completo</a></p>
+</details>
+
+<div class="cta">
+<h3>¿Te gustaría tener cosas así en tu clínica o laboratorio?</h3>
+<p>Esto es una muestra pequeña de lo que monto: sistemas de IA que buscan, ordenan y redactan — siempre con fuentes reales y con el criterio clínico en manos del profesional. Si quieres verlo aplicado a tu día a día, escríbeme por Instagram o por la web.</p>
+<a class="btn" href="https://www.codigoadria.com/">codigoadria.com</a>
+</div>
+
+<div class="foot">Ricardo Hoyos · biólogo · Código AdrIA — IA práctica y sin tecnicismos. Este flujo usa las APIs públicas de NCBI (PubMed e iCite); respeta sus límites de uso.</div>
+</div></body>
+</html>
