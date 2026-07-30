@@ -1,0 +1,226 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Las tres llaves del servidor · Sistema de expedientes de camiones · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Las tres llaves del servidor · Código AdrIA">
+<meta property="og:description" content="Cómo sacar las tres credenciales que le faltan al servidor, paso a paso.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/manual-credenciales-ingeservice.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Las tres llaves del servidor · Código AdrIA">
+<meta name="twitter:description" content="Cómo sacar las tres credenciales que le faltan al servidor, paso a paso.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+
+<style>
+  :root{
+    --turquesa:#4dd2d0; --petroleo:#3f6f7b; --profundo:#102e35; --tinta:#16333b;
+    --gris:#5a7078; --card:#ffffff; --borde:#dde8ea; --fondo:#f4f9f9;
+    --verde:#1e8449; --ambar:#b9770e; --rojo:#a93226;
+  }
+  *{box-sizing:border-box}
+  body{
+    font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--fondo); color:var(--tinta); line-height:1.65;
+    margin:0; padding:0 18px 70px;
+  }
+  .wrap{max-width:820px;margin:0 auto}
+  header{
+    background:linear-gradient(135deg,var(--profundo),var(--petroleo));
+    color:#fff;border-radius:0 0 18px 18px;padding:38px 30px 30px;
+    margin:0 -18px 30px;
+  }
+  header .marca{
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--turquesa);font-weight:600;margin-bottom:10px;
+  }
+  header h1{font-size:29px;line-height:1.25;margin:0 0 12px;font-weight:600}
+  header p{margin:0;opacity:.92;font-size:15px}
+  header .meta{margin-top:16px;font-size:13px;opacity:.75}
+  h2{
+    font-size:19px;margin:38px 0 14px;padding-bottom:9px;
+    border-bottom:2px solid var(--turquesa);color:var(--profundo);font-weight:600;
+  }
+  h3{font-size:15px;margin:22px 0 8px;color:var(--petroleo);font-weight:600}
+  p{margin:0 0 13px}
+  section{
+    background:var(--card);border:1px solid var(--borde);border-radius:12px;
+    padding:22px 24px;margin-bottom:16px;
+  }
+  section > h2:first-child{margin-top:0}
+  .nota{
+    border-left:4px solid var(--turquesa);background:#eafafa;
+    padding:13px 17px;border-radius:0 8px 8px 0;margin:15px 0;font-size:14.5px;
+  }
+  .aviso{
+    border-left:4px solid var(--ambar);background:#fdf6e8;
+    padding:13px 17px;border-radius:0 8px 8px 0;margin:15px 0;font-size:14.5px;
+  }
+  .stop{
+    border-left:4px solid var(--rojo);background:#fdeeec;
+    padding:13px 17px;border-radius:0 8px 8px 0;margin:15px 0;font-size:14.5px;
+  }
+  .ok{
+    border-left:4px solid var(--verde);background:#eaf6ee;
+    padding:13px 17px;border-radius:0 8px 8px 0;margin:15px 0;font-size:14.5px;
+  }
+  table{width:100%;border-collapse:collapse;margin:15px 0;font-size:14.5px}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--borde);vertical-align:top}
+  th{background:#eef6f7;color:var(--profundo);font-weight:600}
+  td.campo{font-weight:600;color:var(--petroleo);white-space:nowrap}
+  code{
+    background:#eef4f5;padding:2px 6px;border-radius:4px;
+    font-family:'SF Mono',Menlo,Consolas,monospace;font-size:13px;color:var(--profundo);
+  }
+  ol.pasos{counter-reset:paso;list-style:none;padding:0;margin:0}
+  ol.pasos > li{
+    counter-increment:paso;position:relative;padding:0 0 4px 46px;margin-bottom:26px;
+  }
+  ol.pasos > li::before{
+    content:counter(paso);position:absolute;left:0;top:-2px;
+    width:32px;height:32px;border-radius:50%;
+    background:var(--turquesa);color:var(--profundo);
+    font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;
+  }
+  ol.pasos > li > h3{margin-top:3px}
+  ul{margin:0 0 13px;padding-left:20px}
+  li{margin-bottom:6px}
+  footer{
+    text-align:center;font-size:12.5px;color:var(--gris);
+    margin-top:40px;padding-top:22px;border-top:1px solid var(--borde);
+  }
+  a{color:var(--petroleo)}
+  .pill{
+    display:inline-block;background:#eef6f7;color:var(--profundo);border:1px solid var(--borde);
+    border-radius:99px;padding:2px 12px;font-size:13px;font-weight:600;margin-right:6px;
+  }
+  @media(max-width:640px){
+    header{padding:30px 22px 26px}
+    header h1{font-size:23px}
+    section{padding:18px 17px}
+    table{font-size:13.5px}
+    th,td{padding:8px 9px}
+  }
+</style>
+
+<div class="wrap">
+
+<header>
+<meta name="robots" content="noindex, nofollow">
+  <div class="marca">Código AdrIA · INGESERVICE VALENCIA</div>
+  <h1>Las tres llaves que le faltan<br>al servidor</h1>
+  <p>El servidor ya está montado y el sistema cargado. Solo le faltan las tres autorizaciones que son tuyas: dos códigos de Google y una clave de Claude. Aquí tienes dónde sacarlas, paso a paso.</p>
+  <div class="meta">30 de julio de 2026 · Tiempo estimado: 15 minutos · Todo desde el navegador de tu ordenador</div>
+</header>
+
+<section>
+  <h2>Qué vamos a hacer y por qué</h2>
+  <p>El sistema de camiones necesita permiso para tocar <strong>tu</strong> Drive, <strong>tus</strong> hojas de cálculo y <strong>tu</strong> cuenta de Claude (la inteligencia artificial que lee los COC). Esos permisos funcionan con "llaves" digitales que <strong>solo tú puedes sacar</strong>, porque las cuentas son tuyas — por eso te pedimos esto a ti y no lo hacemos nosotros directamente.</p>
+  <table>
+    <tr><th>Llave</th><th>De dónde sale</th><th>Para qué la usa el sistema</th></tr>
+    <tr><td class="campo">Clave de Claude</td><td>console.anthropic.com</td><td>Leer los COC escaneados y sacar los datos</td></tr>
+    <tr><td class="campo">ID de cliente de Google</td><td rowspan="2">console.cloud.google.com</td><td rowspan="2">Entrar en tu Drive y tus hojas de cálculo (los dos códigos van juntos)</td></tr>
+    <tr><td class="campo">Secreto de cliente de Google</td></tr>
+  </table>
+  <div class="nota"><strong>Buena noticia:</strong> los dos códigos de Google ya existen — los creamos juntos el día de la instalación en tu ordenador (21 de julio). Solo hay que ir a donde están y copiarlos. No vas a crear nada nuevo.</div>
+</section>
+
+<section>
+  <h2>Antes de empezar, ten a mano</h2>
+  <ul>
+    <li>Tu <strong>ordenador</strong> (mejor que el móvil, las pantallas se ven enteras).</li>
+    <li>La contraseña de tu <strong>cuenta de Google</strong> de siempre (la personal, la del Drive de los camiones).</li>
+    <li>El acceso al correo con el que <strong>compraste Claude</strong> el otro día.</li>
+    <li>El <strong>móvil</strong> cerca, por si Google o Anthropic te mandan un código de verificación.</li>
+  </ul>
+  <div class="aviso"><strong>Regla de oro:</strong> estas llaves son como las de tu nave. Mándaselas <strong>solo a Ricardo por WhatsApp</strong> y a nadie más. Si alguien más te las pidiera por correo o teléfono, no las des.</div>
+</section>
+
+<section>
+  <h2>Parte 1 · La clave de Claude</h2>
+  <p><span class="pill">~5 minutos</span> Es una clave nueva que empieza por <code>sk-ant-</code>. La creas tú y me la pasas.</p>
+  <ol class="pasos">
+    <li>
+      <h3>Entra en la consola de Anthropic</h3>
+      <p>Abre en el navegador: <strong><a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a></strong></p>
+      <p>Inicia sesión con el <strong>mismo correo con el que compraste Claude</strong>. Es normal que en vez de contraseña te mande un enlace o un código al correo: ábrelo y sigue.</p>
+    </li>
+    <li>
+      <h3>Busca "API Keys" (claves API)</h3>
+      <p>Una vez dentro, mira el menú de la izquierda (o arriba a la derecha, según la pantalla) y pincha en <strong>API Keys</strong>. Verás una lista, puede que con alguna clave ya creada del día de la instalación — da igual, vamos a hacer una nueva para el servidor.</p>
+    </li>
+    <li>
+      <h3>Crea la clave</h3>
+      <p>Pincha el botón <strong>Create Key</strong> (crear clave). Cuando te pida un nombre, escribe: <code>servidor</code>. Confirma.</p>
+    </li>
+    <li>
+      <h3>Cópiala AHORA — solo se enseña una vez</h3>
+      <p>Te aparecerá la clave completa, un chorizo largo que empieza por <code>sk-ant-</code>. Pincha el <strong>botón de copiar</strong> que hay al lado.</p>
+      <div class="stop"><strong>Importante:</strong> esa pantalla es la única vez que la clave se ve entera. Si la cierras sin copiarla, no pasa nada grave: se borra esa clave y se crea otra. Pero mejor copiarla a la primera.</div>
+    </li>
+    <li>
+      <h3>Mándamela</h3>
+      <p>Pégala en un WhatsApp a Ricardo, tal cual. Nada más — de guardarla en el servidor me encargo yo.</p>
+    </li>
+  </ol>
+  <div class="ok"><strong>Listo el primero.</strong> Si en algún paso la pantalla no se parece a lo que describo, mándame una foto de lo que ves y te digo dónde pinchar.</div>
+</section>
+
+<section>
+  <h2>Parte 2 · Los dos códigos de Google</h2>
+  <p><span class="pill">~10 minutos</span> Son dos códigos que van en pareja: el <strong>ID de cliente</strong> (largo, termina en <code>.apps.googleusercontent.com</code>) y el <strong>Secreto de cliente</strong> (más corto, suele empezar por <code>GOCSPX-</code>). Ya existen desde el día de la instalación; solo hay que copiarlos.</p>
+  <ol class="pasos">
+    <li>
+      <h3>Entra en la consola de Google Cloud</h3>
+      <p>Abre: <strong><a href="https://console.cloud.google.com" target="_blank">console.cloud.google.com</a></strong></p>
+      <p>Si te pide iniciar sesión, usa <strong>tu cuenta de Google de siempre</strong> (la personal, la misma del Drive de los camiones). Si te sale alguna pantalla de bienvenida o de aceptar condiciones, acéptala y sigue.</p>
+    </li>
+    <li>
+      <h3>Comprueba el proyecto</h3>
+      <p>Arriba del todo, a la izquierda, junto al logo de "Google Cloud", hay un <strong>desplegable con un nombre de proyecto</strong>. Pínchalo y mira la lista: debería aparecer el proyecto que creamos el 21 de julio (probablemente es el único que hay). Selecciónalo.</p>
+      <div class="nota">¿No hay ningún proyecto, o hay varios y no sabes cuál? <strong>Para aquí</strong> y mándame una foto del desplegable — te digo cuál es en un minuto.</div>
+    </li>
+    <li>
+      <h3>Ve a "APIs y servicios → Credenciales"</h3>
+      <p>Pincha el <strong>menú de las tres rayas</strong> (☰, arriba a la izquierda) → <strong>APIs y servicios</strong> → <strong>Credenciales</strong>. Si te aparece en inglés: <strong>APIs &amp; Services → Credentials</strong>.</p>
+    </li>
+    <li>
+      <h3>Abre la credencial que ya existe</h3>
+      <p>En esa pantalla hay una tabla que se llama <strong>"IDs de cliente de OAuth 2.0"</strong>. Dentro habrá una fila (creada el 21 de julio). Pincha en <strong>su nombre</strong> (el texto azul) para abrirla.</p>
+    </li>
+    <li>
+      <h3>Copia el ID de cliente</h3>
+      <p>En el panel que se abre, arriba a la derecha, verás <strong>"ID de cliente"</strong>: un texto muy largo que termina en <code>.apps.googleusercontent.com</code>. Pincha su <strong>icono de copiar</strong> (dos cuadraditos) y pégalo en el WhatsApp a Ricardo.</p>
+    </li>
+    <li>
+      <h3>Copia el Secreto de cliente</h3>
+      <p>Justo debajo está el <strong>"Secreto de cliente"</strong> (client secret). Si aparece tapado con puntitos, pincha el <strong>icono del ojo</strong> para verlo. Cópialo con su icono de copiar y pégalo también en el WhatsApp, en un mensaje aparte.</p>
+      <div class="aviso">Si en vez del secreto ves un aviso de que "ya no se puede ver" o solo salen los últimos 4 caracteres: no pasa nada, es una novedad de Google. Mándame una foto de esa pantalla y lo resolvemos juntos en dos minutos (se genera un secreto nuevo con un clic, sin romper nada).</div>
+    </li>
+  </ol>
+  <div class="ok"><strong>Con esto ya está todo lo que puedes sacar tú solo.</strong> Tres mensajes en el WhatsApp de Ricardo: la clave <code>sk-ant-…</code>, el ID largo y el secreto.</div>
+</section>
+
+<section>
+  <h2>Parte 3 · El último paso lo hacemos juntos (10 minutos)</h2>
+  <p>Cuando tenga las tres llaves, las dejo puestas en el servidor. Solo quedará una cosa que <strong>requiere que estés tú</strong>: darle a "Continuar con Google" para autorizar el acceso a tu Drive y a tus hojas — te pedirá tu contraseña de Google y puede que un código al móvil, y eso solo lo puedes hacer tú.</p>
+  <p>Son dos clics, por teléfono o por control remoto como otras veces. <strong>Cuando me mandes las llaves, cuadramos el momento</strong> — con eso el sistema queda funcionando en el servidor, 24 horas, sin depender de tu ordenador.</p>
+</section>
+
+<section>
+  <h2>Si te atascas</h2>
+  <table>
+    <tr><th>Qué pasa</th><th>Qué hacer</th></tr>
+    <tr><td class="campo">No recuerdo la contraseña</td><td>Usa el "¿Has olvidado la contraseña?" de Google o Anthropic — el proceso de recuperación es seguro. Y si te lías, me avisas.</td></tr>
+    <tr><td class="campo">La pantalla no se parece</td><td>Foto por WhatsApp de lo que ves y te digo dónde pinchar. Estas webs cambian el diseño cada poco.</td></tr>
+    <tr><td class="campo">Me pide un código</td><td>Es la verificación normal (al móvil o al correo). Métela y sigue.</td></tr>
+    <tr><td class="campo">Algo en inglés</td><td>Los nombres en inglés equivalentes están indicados en cada paso. Ante la duda, foto y te guío.</td></tr>
+  </table>
+  <div class="nota">Y si prefieres que lo hagamos todo juntos por control remoto, como el día de la instalación, dímelo y listo — esto no corre más prisa que tu comodidad.</div>
+</section>
+
+<footer>
+  Código AdrIA · Ricardo Hoyos · preparado para David (INGESERVICE VALENCIA S.L.P.) · 30 de julio de 2026
+</footer>
+
+</div>
