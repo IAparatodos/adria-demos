@@ -94,6 +94,18 @@
     display:inline-block;background:#eef6f7;color:var(--profundo);border:1px solid var(--borde);
     border-radius:99px;padding:2px 12px;font-size:13px;font-weight:600;margin-right:6px;
   }
+  .cmd{
+    position:relative;background:#0f2429;color:#d7f4f2;border-radius:8px;
+    padding:14px 92px 14px 16px;margin:10px 0 14px;
+    font-family:'SF Mono',Menlo,Consolas,monospace;font-size:13px;line-height:1.5;
+    overflow-x:auto;white-space:pre;
+  }
+  .cmd button{
+    position:absolute;top:9px;right:9px;border:0;border-radius:6px;
+    background:var(--turquesa);color:var(--profundo);font-weight:600;
+    font-size:12px;padding:5px 12px;cursor:pointer;font-family:inherit;
+  }
+  .cmd button:active{transform:scale(.96)}
   @media(max-width:640px){
     header{padding:30px 22px 26px}
     header h1{font-size:23px}
@@ -110,7 +122,7 @@
   <div class="marca">Código AdrIA · INGESERVICE VALENCIA</div>
   <h1>Las tres llaves que le faltan<br>al servidor</h1>
   <p>El servidor ya está montado y el sistema cargado. Solo le faltan las tres autorizaciones que son tuyas: dos códigos de Google y una clave de Claude. Aquí tienes dónde sacarlas, paso a paso.</p>
-  <div class="meta">30 de julio de 2026 · Tiempo estimado: 15 minutos · Todo desde el navegador de tu ordenador</div>
+  <div class="meta">Actualizado 31 de julio de 2026 · Partes 1 y 2: ~15 min desde tu navegador · Parte 3: la sesión de hoy a las 09:00, juntos</div>
 </header>
 
 <section>
@@ -202,9 +214,37 @@
 </section>
 
 <section>
-  <h2>Parte 3 · El último paso lo hacemos juntos (10 minutos)</h2>
-  <p>Cuando tenga las tres llaves, las dejo puestas en el servidor. Solo quedará una cosa que <strong>requiere que estés tú</strong>: darle a "Continuar con Google" para autorizar el acceso a tu Drive y a tus hojas — te pedirá tu contraseña de Google y puede que un código al móvil, y eso solo lo puedes hacer tú.</p>
-  <p>Son dos clics, por teléfono o por control remoto como otras veces. <strong>Cuando me mandes las llaves, cuadramos el momento</strong> — con eso el sistema queda funcionando en el servidor, 24 horas, sin depender de tu ordenador.</p>
+  <h2>Parte 3 · La sesión de hoy: encendemos el servidor juntos</h2>
+  <p><span class="pill">31 de julio · 09:00</span> Con las tres llaves en la mano, yo las dejo puestas en el servidor. Después viene el paso que <strong>solo puedes hacer tú</strong>: darle a "Continuar con Google" para autorizar el acceso a tu Drive y a tus hojas. Para eso tu navegador tiene que "ver" el servidor un momento, y lo conseguimos abriendo un <strong>pasadizo temporal desde tu ordenador</strong> con tres comandos.</p>
+  <div class="nota">Lo haremos <strong>juntos por control remoto</strong>, como el día de la instalación — los comandos están aquí para tenerlos a mano y por si se corta la conexión. Se escriben en <strong>PowerShell</strong>: botón derecho sobre el menú Inicio de Windows → <strong>"Terminal"</strong> (o "Windows PowerShell").</div>
+  <ol class="pasos">
+    <li>
+      <h3>Crear tu llave de acceso (solo la primera vez)</h3>
+      <div class="cmd">ssh-keygen -t ed25519 -f "$env:USERPROFILE\.ssh\ingeservice" -N '""'<button onclick="copiar(this)">Copiar</button></div>
+      <p>Si pregunta algo, pulsa <strong>Enter</strong> y sigue. Esto crea una llave digital que se queda en tu ordenador — no es ninguna de las tres de arriba, es solo para abrir el pasadizo.</p>
+    </li>
+    <li>
+      <h3>Enseñar la parte pública de la llave y mandármela</h3>
+      <div class="cmd">type "$env:USERPROFILE\.ssh\ingeservice.pub"<button onclick="copiar(this)">Copiar</button></div>
+      <p>Saldrá una línea que empieza por <code>ssh-ed25519</code>. Me la pegas entera por WhatsApp — con ella doy de alta tu ordenador en el servidor. (Esta parte es pública, no pasa nada por mandarla.)</p>
+    </li>
+    <li>
+      <h3>Abrir el pasadizo</h3>
+      <div class="cmd">ssh -i "$env:USERPROFILE\.ssh\ingeservice" -N -L 5678:localhost:5678 david-tunel@49.13.235.125<button onclick="copiar(this)">Copiar</button></div>
+      <p>La primera vez preguntará algo como <em>"Are you sure you want to continue connecting?"</em> → escribe <code>yes</code> y Enter.</p>
+      <div class="ok"><strong>La ventana se queda quieta, sin escribir nada más. Eso es que va bien.</strong> Déjala abierta mientras dure la sesión — es el pasadizo.</div>
+    </li>
+    <li>
+      <h3>Abrir el sistema en tu navegador</h3>
+      <p>Con la ventana anterior abierta, entra en: <strong><a href="http://localhost:5678" target="_blank">http://localhost:5678</a></strong></p>
+      <p>Ahí ponemos las llaves juntos y haces los dos <strong>"Continuar con Google"</strong> (uno para Drive, otro para las hojas). Como tu sesión de Google ya está iniciada en tu navegador, será darle a un botón — como mucho un código al móvil.</p>
+    </li>
+    <li>
+      <h3>La prueba de fuego y el relevo</h3>
+      <p>Rellenas el formulario de <strong>un camión de verdad</strong> y vemos el expediente crearse solo. Después apagamos los flujos de tu ordenador: desde ese momento todo corre en el servidor, <strong>24 horas al día, con tu PC apagado</strong>.</p>
+      <p>Al terminar, cierras la ventana negra del pasadizo y listo.</p>
+    </li>
+  </ol>
 </section>
 
 <section>
@@ -220,7 +260,17 @@
 </section>
 
 <footer>
-  Código AdrIA · Ricardo Hoyos · preparado para David (INGESERVICE VALENCIA S.L.P.) · 30 de julio de 2026
+  Código AdrIA · Ricardo Hoyos · preparado para David (INGESERVICE VALENCIA S.L.P.) · 30 de julio de 2026 · actualizado 31 de julio con los pasos de la sesión
 </footer>
 
 </div>
+
+<script>
+function copiar(btn){
+  var texto = btn.parentNode.childNodes[0].textContent;
+  navigator.clipboard.writeText(texto).then(function(){
+    var t = btn.textContent; btn.textContent = '✓ Copiado';
+    setTimeout(function(){ btn.textContent = t; }, 1800);
+  });
+}
+</script>
