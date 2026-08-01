@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cronometrar la ovulación en una inseminación · Gómez-Palomares et al., 2005</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ganar 24 horas para que maduren más folículos · Código AdrIA">
+<meta property="og:description" content="El estudio de Gómez-Palomares (2005) en visual: 38 % de embarazo frente al 14 % del control.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/antagonista-gnrh-inseminacion.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ganar 24 horas para que maduren más folículos · Código AdrIA">
+<meta name="twitter:description" content="El estudio de Gómez-Palomares (2005) en visual: 38 % de embarazo frente al 14 % del control.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta name="description" content="El estudio de J.L. Gómez-Palomares en Human Reproduction (2005), contado en visual: qué preguntó, qué midió, qué encontró y qué dejó abierto.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181a;
+    --ink-soft:#3a4448;
+    --ink-mute:#6d797e;
+    --canvas:#ffffff;
+    --parchment:#f4f7f7;
+    --tile-dark:#16242a;
+    --tile-darker:#101c21;
+    --hairline:#e2e9e9;
+    --brand:#4dd2d0;
+    --brand-deep:#0e9c99;
+    --brand-slate:#3f6f7b;
+    --serie-a:#0e9c99;
+    --serie-b:#6b5ea8;
+    --serie-a-dark:#4dd2d0;
+    --serie-b-dark:#a99cf0;
+    --radius-card:18px;
+    --radius-pill:9999px;
+    --shadow-object:0 3px 30px rgba(16,28,33,.14);
+    --max:1120px;
+    --max-read:760px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--canvas);
+    color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:17px;
+    line-height:1.55;
+    font-weight:400;
+    letter-spacing:-.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+  section{padding:88px 24px}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .read{max-width:var(--max-read);margin:0 auto}
+  h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.028em;line-height:1.08}
+  h1{font-size:clamp(2.1rem,6vw,3.7rem)}
+  h2{font-size:clamp(1.6rem,4vw,2.5rem)}
+  h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.3}
+  p{margin:0 0 1.15em}
+  p:last-child{margin-bottom:0}
+  .eyebrow{
+    font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--brand-deep);margin:0 0 20px
+  }
+  .lead{font-size:clamp(1.1rem,2.4vw,1.42rem);font-weight:300;line-height:1.45;color:var(--ink-soft)}
+
+  /* ---------- portada ---------- */
+  .hero{
+    background:var(--tile-dark);color:#fff;padding:96px 24px 84px;
+    background-image:radial-gradient(120% 90% at 12% 0%,rgba(77,210,208,.16) 0%,transparent 58%);
+  }
+  .hero .eyebrow{color:var(--brand)}
+  .hero h1{color:#fff;max-width:16ch}
+  .hero .original{
+    margin-top:26px;padding-left:18px;border-left:2px solid rgba(77,210,208,.5);
+    font-size:1rem;font-weight:300;color:#c9d6d9;font-style:italic;max-width:52ch
+  }
+  .authors{margin-top:34px;font-size:.95rem;color:#9fb0b5;line-height:1.7;max-width:60ch}
+  .authors .first{color:#fff;font-weight:600}
+  .meta-row{
+    margin-top:36px;display:flex;flex-wrap:wrap;gap:10px
+  }
+  .chip{
+    display:inline-flex;align-items:center;gap:7px;
+    border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-pill);
+    padding:8px 16px;font-size:.83rem;color:#dfe9eb;white-space:nowrap
+  }
+  .chip b{color:#fff;font-weight:600}
+
+  /* ---------- destacado numérico ---------- */
+  .headline-figure{
+    background:var(--parchment);
+  }
+  .figure-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin-top:44px
+  }
+  .stat{
+    background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);
+    padding:26px 24px
+  }
+  .stat .num{
+    font-size:clamp(2.2rem,5vw,2.9rem);font-weight:600;letter-spacing:-.04em;line-height:1;
+    color:var(--ink)
+  }
+  .stat .num small{font-size:.42em;font-weight:500;letter-spacing:-.01em;color:var(--ink-mute);margin-left:4px}
+  .stat .num.compact{font-size:clamp(1.7rem,3.6vw,2.15rem)}
+  .stat .label{margin-top:12px;font-size:.92rem;color:var(--ink-soft);line-height:1.4}
+  .stat .foot{margin-top:10px;font-size:.78rem;color:var(--ink-mute)}
+  .stat.accent{border-color:rgba(14,156,153,.35);background:linear-gradient(180deg,rgba(14,156,153,.06),transparent 70%)}
+  .stat.accent .num{color:var(--brand-deep)}
+
+  /* ---------- gráfico ---------- */
+  .chart-card{
+    background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);
+    padding:32px 28px;margin-top:40px
+  }
+  .chart-title{font-size:1.05rem;font-weight:600;letter-spacing:-.02em;margin:0}
+  .chart-sub{font-size:.87rem;color:var(--ink-mute);margin:6px 0 0}
+  .legend{display:flex;flex-wrap:wrap;gap:18px;margin:22px 0 30px}
+  .legend span{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--ink-soft)}
+  .swatch{width:12px;height:12px;border-radius:3px;flex:none}
+  .swatch.a{background:var(--serie-a)}
+  .swatch.b{background:var(--serie-b)}
+
+  .bars{display:flex;flex-direction:column;gap:26px}
+  .bar-group .bar-name{font-size:.9rem;color:var(--ink-soft);margin-bottom:12px}
+  .bar-row{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .bar-row:last-child{margin-bottom:0}
+  .bar-track{flex:1;height:26px;background:#eef3f3;border-radius:4px;overflow:hidden}
+  .bar-fill{
+    height:100%;border-radius:0 4px 4px 0;
+    transition:width .9s cubic-bezier(.22,.8,.3,1)
+  }
+  .bar-fill.a{background:var(--serie-a)}
+  .bar-fill.b{background:var(--serie-b)}
+  .bar-val{
+    font-variant-numeric:tabular-nums;font-size:.95rem;font-weight:600;color:var(--ink);
+    min-width:88px;text-align:right;letter-spacing:-.02em
+  }
+  .bar-val small{display:block;font-weight:400;font-size:.74rem;color:var(--ink-mute);letter-spacing:0}
+  .p-tag{
+    display:inline-block;margin-top:14px;font-size:.78rem;color:var(--ink-mute);
+    background:#eef3f3;border-radius:var(--radius-pill);padding:5px 12px
+  }
+  .p-tag.sig{background:rgba(14,156,153,.12);color:var(--brand-deep);font-weight:500}
+
+  /* ---------- tabla ---------- */
+  details.table-view{margin-top:26px;border-top:1px solid var(--hairline);padding-top:18px}
+  details.table-view summary{
+    cursor:pointer;font-size:.87rem;color:var(--brand-deep);font-weight:500;list-style:none
+  }
+  details.table-view summary::-webkit-details-marker{display:none}
+  details.table-view summary::before{content:"▸ ";transition:none}
+  details.table-view[open] summary::before{content:"▾ "}
+  .tbl-scroll{overflow-x:auto;margin-top:16px}
+  table{border-collapse:collapse;width:100%;font-size:.87rem;min-width:460px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hairline)}
+  th{font-weight:600;color:var(--ink-soft);font-size:.8rem;letter-spacing:.02em}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+
+  /* ---------- pasos del método ---------- */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;margin-top:44px;background:var(--hairline);border-radius:var(--radius-card);overflow:hidden}
+  .step{background:var(--canvas);padding:28px 24px}
+  .step .n{
+    display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;
+    border-radius:50%;background:var(--brand-deep);color:#fff;font-size:.85rem;font-weight:600;margin-bottom:16px
+  }
+  .step h3{margin-bottom:8px}
+  .step p{font-size:.92rem;color:var(--ink-soft);margin:0}
+
+  /* ---------- tile oscuro: letra pequeña ---------- */
+  .dark{background:var(--tile-darker);color:#e8eef0}
+  .dark h2{color:#fff}
+  .dark .eyebrow{color:var(--brand)}
+  .dark .lead{color:#b3c3c7}
+  .caveats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:44px}
+  .caveat{
+    border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-card);padding:26px 24px;
+    background:rgba(255,255,255,.03)
+  }
+  .caveat h3{color:#fff;margin-bottom:10px}
+  .caveat p{font-size:.92rem;color:#a9bbc0;margin:0}
+  .quote{
+    margin:56px auto 0;max-width:var(--max-read);padding:30px 0 0;border-top:1px solid rgba(255,255,255,.16)
+  }
+  .quote p{font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:300;line-height:1.5;color:#dbe6e8;font-style:italic}
+  .quote cite{display:block;margin-top:14px;font-size:.85rem;color:#8ea3a8;font-style:normal}
+
+  /* ---------- cierre ---------- */
+  .closing{background:var(--parchment);text-align:center}
+  .closing .cite-block{
+    max-width:var(--max-read);margin:36px auto 0;padding:24px;background:var(--canvas);
+    border:1px solid var(--hairline);border-radius:var(--radius-card);
+    font-size:.88rem;color:var(--ink-soft);text-align:left;line-height:1.6
+  }
+  .closing a{color:var(--brand-deep);text-decoration:none;border-bottom:1px solid rgba(14,156,153,.35)}
+  footer{
+    background:var(--canvas);border-top:1px solid var(--hairline);
+    padding:40px 24px;text-align:center;font-size:.82rem;color:var(--ink-mute)
+  }
+  footer .brand{color:var(--brand-deep);font-weight:600}
+
+  @media (max-width:640px){
+    section{padding:64px 20px}
+    .hero{padding:76px 20px 64px}
+    .bar-val{min-width:74px;font-size:.88rem}
+    .chart-card{padding:24px 18px}
+  }
+
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ink:#eef3f4;--ink-soft:#b9c7cb;--ink-mute:#8b9ca1;
+      --canvas:#0f1719;--parchment:#141f22;--hairline:#25353a;
+      --serie-a:var(--serie-a-dark);--serie-b:var(--serie-b-dark);
+    }
+    .stat.accent{background:linear-gradient(180deg,rgba(77,210,208,.08),transparent 70%);border-color:rgba(77,210,208,.3)}
+    .stat.accent .num{color:var(--brand)}
+    .eyebrow,.step .n{color:#0f1719}
+    .eyebrow{color:var(--brand);background:none}
+    .step .n{background:var(--brand)}
+    .bar-track{background:#1d2b2f}
+    .p-tag{background:#1d2b2f}
+    .p-tag.sig{background:rgba(77,210,208,.14);color:var(--brand)}
+    details.table-view summary,.closing a,footer .brand{color:var(--brand)}
+    .closing a{border-bottom-color:rgba(77,210,208,.4)}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Human Reproduction · Vol. 20, N.º 2 · 2005</p>
+    <h1>Ganar 24 horas para que maduren más folículos</h1>
+    <p class="original">«Timing ovulation for intrauterine insemination with a GnRH antagonist»</p>
+    <p class="authors">
+      <span class="first">J.L. Gómez-Palomares</span>, B. Juliá, B. Acevedo-Martín, M. Martínez-Burgos,
+      E.R. Hernández, E. Ricciarelli · Clínica FIV Madrid + Unidad de Reproducción, Hospital Severo Ochoa
+    </p>
+    <div class="meta-row">
+      <span class="chip">Estudio <b>prospectivo aleatorizado</b></span>
+      <span class="chip"><b>82</b> parejas · 2 centros</span>
+      <span class="chip">doi <b>10.1093/humrep/deh602</b></span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="read">
+    <p class="eyebrow">La pregunta</p>
+    <h2>Un protocolo que se saboteaba a sí mismo</h2>
+    <p class="lead" style="margin-top:24px">
+      En una inseminación con estimulación, la práctica estándar dispara la hCG en cuanto el folículo
+      líder alcanza los 18 mm. Da igual cómo vayan los demás.
+    </p>
+    <p>
+      El resultado es una paradoja conocida: se estimula para conseguir varios folículos, pero se corta
+      cuando solo uno está listo. El ciclo se vuelve monofolicular justo cuando hacen falta al menos dos
+      folículos maduros para una tasa de embarazo aceptable.
+    </p>
+    <p>
+      ¿Por qué no se espera? Porque esperar tiene un precio: el estradiol sube, provoca un pico
+      espontáneo de LH, llega la luteinización prematura. El propio artículo lo cuantifica —
+      <strong>el 24 % de los ciclos de inseminación sufren luteinización prematura no deseada</strong>,
+      con la cancelación y el coste emocional que eso arrastra.
+    </p>
+    <p>
+      De ahí la hipótesis: si el antagonista de la GnRH ya bloquea ese pico de LH en fecundación in vitro,
+      ¿serviría para comprar tiempo en una inseminación? Tiempo para que el pelotón alcance al líder.
+    </p>
+  </div>
+</section>
+
+<section class="headline-figure">
+  <div class="wrap">
+    <p class="eyebrow">Los resultados</p>
+    <h2>Más folículos maduros, más embarazos</h2>
+
+    <div class="figure-grid">
+      <div class="stat accent">
+        <div class="num">38 %</div>
+        <div class="label">Embarazo clínico con antagonista</div>
+        <div class="foot">15 de 39 ciclos</div>
+      </div>
+      <div class="stat">
+        <div class="num">14 %</div>
+        <div class="label">Embarazo clínico en el grupo control</div>
+        <div class="foot">6 de 41 ciclos</div>
+      </div>
+      <div class="stat">
+        <div class="num">2,4 <small>vs 1,7</small></div>
+        <div class="label">Folículos maduros ≥ 16 mm el día de la hCG</div>
+        <div class="foot">P = 0,02</div>
+      </div>
+      <div class="stat">
+        <div class="num compact" style="white-space:nowrap">+100‑150 €</div>
+        <div class="label">Sobrecoste por ciclo del antagonista</div>
+        <div class="foot">Calculado por los autores</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <p class="chart-title">Lo que cambió, comparado con lo que no</p>
+      <p class="chart-sub">Grupo antagonista (n = 40) frente a grupo control (n = 42). Medias del artículo.</p>
+
+      <div class="legend">
+        <span><i class="swatch a"></i> Con antagonista (ganirelix)</span>
+        <span><i class="swatch b"></i> Control</span>
+      </div>
+
+      <div class="bars">
+        <div class="bar-group">
+          <div class="bar-name">Tasa de embarazo clínico</div>
+          <div class="bar-row">
+            <div class="bar-track"><div class="bar-fill a" style="width:76%"></div></div>
+            <div class="bar-val">38 %<small>15/39</small></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-track"><div class="bar-fill b" style="width:28%"></div></div>
+            <div class="bar-val">14 %<small>6/41</small></div>
+          </div>
+          <span class="p-tag sig">P = 0,01 · diferencia significativa</span>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-name">Folículos maduros ≥ 16 mm</div>
+          <div class="bar-row">
+            <div class="bar-track"><div class="bar-fill a" style="width:80%"></div></div>
+            <div class="bar-val">2,4<small>± 1,4</small></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-track"><div class="bar-fill b" style="width:57%"></div></div>
+            <div class="bar-val">1,7<small>± 1,2</small></div>
+          </div>
+          <span class="p-tag sig">P = 0,02 · diferencia significativa</span>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-name">FSH total consumida (UI)</div>
+          <div class="bar-row">
+            <div class="bar-track"><div class="bar-fill a" style="width:78%"></div></div>
+            <div class="bar-val">707<small>± 240</small></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-track"><div class="bar-fill b" style="width:73%"></div></div>
+            <div class="bar-val">657<small>± 194</small></div>
+          </div>
+          <span class="p-tag">Sin diferencia significativa</span>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-name">Días de estimulación</div>
+          <div class="bar-row">
+            <div class="bar-track"><div class="bar-fill a" style="width:76%"></div></div>
+            <div class="bar-val">7,6<small>± 1,9</small></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-track"><div class="bar-fill b" style="width:66%"></div></div>
+            <div class="bar-val">6,6<small>± 1,8</small></div>
+          </div>
+          <span class="p-tag">Sin diferencia significativa</span>
+        </div>
+      </div>
+
+      <details class="table-view">
+        <summary>Ver los datos en tabla</summary>
+        <div class="tbl-scroll">
+          <table>
+            <thead>
+              <tr><th>Variable</th><th class="num">Antagonista</th><th class="num">Control</th><th class="num">P</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Pacientes</td><td class="num">40</td><td class="num">42</td><td class="num">—</td></tr>
+              <tr><td>Edad (años)</td><td class="num">33,9 ± 2,6</td><td class="num">32,1 ± 3,3</td><td class="num">NS</td></tr>
+              <tr><td>Ampollas de antagonista</td><td class="num">1,8 ± 0,7</td><td class="num">—</td><td class="num">—</td></tr>
+              <tr><td>FSH total (UI)</td><td class="num">707 ± 240</td><td class="num">657 ± 194</td><td class="num">NS</td></tr>
+              <tr><td>Días de estimulación</td><td class="num">7,6 ± 1,9</td><td class="num">6,6 ± 1,8</td><td class="num">NS</td></tr>
+              <tr><td>Folículos ≥ 16 mm</td><td class="num">2,4 ± 1,4</td><td class="num">1,7 ± 1,2</td><td class="num">0,02</td></tr>
+              <tr><td>Estradiol (pg/ml)</td><td class="num">428 ± 154</td><td class="num">598 ± 167</td><td class="num">NS</td></tr>
+              <tr><td>Embarazo total</td><td class="num">15/39</td><td class="num">7/41</td><td class="num">0,03</td></tr>
+              <tr><td>Embarazo clínico</td><td class="num">38 % (15/39)</td><td class="num">14 % (6/41)</td><td class="num">0,01</td></tr>
+              <tr><td>Gestación única</td><td class="num">93 % (14/15)</td><td class="num">100 % (6/6)</td><td class="num">NS</td></tr>
+              <tr><td>Gestación múltiple</td><td class="num">6,6 % (1/15)</td><td class="num">0 % (0/6)</td><td class="num">NS</td></tr>
+              <tr><td>Abortos</td><td class="num">0</td><td class="num">0</td><td class="num">NS</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">El método</p>
+    <h2>Cómo se hizo, en cuatro pasos</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h3>Aleatorización</h3>
+        <p>82 parejas con esterilidad primaria o secundaria de ≥ 12 meses, mujeres de 18 a 38 años, repartidas por lista informática entre dos centros. Enero a junio de 2003.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3>Estimulación igual para todas</h3>
+        <p>FSH recombinante, 100 UI diarias durante cinco días, con ajuste por ecografía el día 6. Idéntica en ambos grupos.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3>El antagonista entra en escena</h3>
+        <p>Solo en el grupo de estudio: 0,25 mg de ganirelix diarios en cuanto el folículo líder llegaba a 16 mm o el estradiol superaba 300 pg/ml, hasta el día de la hCG.</p>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <h3>Disparo tardío</h3>
+        <p>hCG con folículos de 20 mm (frente a los 18‑20 mm del control) e inseminación 36‑38 horas después. Fase lútea sostenida con progesterona en ambos grupos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <p class="eyebrow">La letra pequeña</p>
+    <h2>Lo que el propio estudio se encarga de matizar</h2>
+    <p class="lead" style="margin-top:22px;max-width:60ch">
+      La parte más honesta del artículo no son los resultados: son las advertencias que los acompañan.
+    </p>
+
+    <div class="caveats">
+      <div class="caveat">
+        <h3>El mérito quizá no sea del fármaco</h3>
+        <p>Los autores lo escriben sin rodeos: el aumento de embarazos «probablemente no está relacionado con el antagonista en sí», sino con que da tiempo al clínico a producir más folículos ovulatorios.</p>
+      </div>
+      <div class="caveat">
+        <h3>Es preliminar, con muestra pequeña</h3>
+        <p>82 parejas. Los propios firmantes califican sus resultados de preliminares por el tamaño de la serie.</p>
+      </div>
+      <div class="caveat">
+        <h3>El riesgo múltiple no desaparece</h3>
+        <p>La única gestación no única del estudio —un trillizo— ocurrió en el grupo del antagonista. Más folículos maduros significa también más riesgo de múltiple: el equilibrio lo tiene que poner el clínico.</p>
+      </div>
+      <div class="caveat">
+        <h3>Con reglas de seguridad puestas</h3>
+        <p>La inseminación se cancelaba siempre que aparecían más de cuatro folículos de 16‑20 mm. Un ciclo se reconvirtió a FIV por respuesta excesiva; otro se canceló en el grupo control.</p>
+      </div>
+    </div>
+
+    <blockquote class="quote">
+      <p>«En conclusión, añadir el antagonista de la GnRH a los ciclos de estimulación‑inseminación aumentó significativamente las tasas de embarazo en nuestras pacientes. Puesto que ese aumento parece relacionado con el número de folículos, los clínicos deben equilibrar este beneficio frente al riesgo de gestación múltiple.»</p>
+      <cite>Gómez-Palomares et al., Human Reproduction 2005;20(2):368‑372</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="read">
+    <p class="eyebrow">Para citarlo</p>
+    <h2>El artículo original</h2>
+    <div class="cite-block">
+      Gómez-Palomares JL, Juliá B, Acevedo-Martín B, Martínez-Burgos M, Hernández ER, Ricciarelli E.
+      <em>Timing ovulation for intrauterine insemination with a GnRH antagonist.</em>
+      Human Reproduction. 2005;20(2):368‑372.
+      <br><a href="https://doi.org/10.1093/humrep/deh602">doi.org/10.1093/humrep/deh602</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Pieza visual elaborada sobre el artículo original, sin añadir datos ni interpretaciones ajenas al texto.<br>
+  Cortesía <span class="brand">Código AdrIA</span>
+</footer>
+
+<script>
+  // Las barras entran animadas al aparecer: el ancho vive en el HTML, aquí solo se retiene y se suelta.
+  (function () {
+    var fills = Array.prototype.slice.call(document.querySelectorAll('.bar-fill'));
+    if (!fills.length) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+
+    fills.forEach(function (el) {
+      el.dataset.w = el.style.width;
+      el.style.width = '0%';
+    });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        requestAnimationFrame(function () { el.style.width = el.dataset.w; });
+        io.unobserve(el);
+      });
+    }, { threshold: 0.25 });
+
+    fills.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
