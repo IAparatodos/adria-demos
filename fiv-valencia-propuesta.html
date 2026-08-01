@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Una demo preparada para FIV Valencia · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Una demo preparada para FIV Valencia · Código AdrIA">
+<meta property="og:description" content="Lo que viviría una paciente vuestra en la web a las once de la noche. Vídeo de 84 s.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/fiv-valencia-propuesta.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Una demo preparada para FIV Valencia · Código AdrIA">
+<meta name="twitter:description" content="Lo que viviría una paciente vuestra en la web a las once de la noche. Vídeo de 84 s.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#4dd2d0;--brand-deep:#0e9c99;--petroleo:#3f6f7b;--profundo:#102e35;
+    --ink:#14181a;--ink-soft:#424d52;--ink-mute:#78868b;
+    --canvas:#fff;--parchment:#f4f7f7;--hairline:#e2e9e9;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--parchment);color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:48px 20px 72px}
+  .eyebrow{font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--brand-deep);margin:0 0 14px}
+  h1{margin:0 0 16px;font-size:clamp(1.6rem,4.4vw,2.3rem);font-weight:600;
+    letter-spacing:-.03em;line-height:1.14}
+  .entradilla{margin:0 0 32px;color:var(--ink-soft);font-size:1.02rem;max-width:60ch}
+  video{width:100%;display:block;border-radius:16px;background:#000;
+    box-shadow:0 12px 40px rgba(16,46,53,.18)}
+  .pie-video{margin:12px 0 36px;font-size:.82rem;color:var(--ink-mute);text-align:center}
+  .caja{background:var(--canvas);border:1px solid var(--hairline);border-radius:18px;
+    padding:30px 28px;margin-bottom:22px}
+  .caja h2{margin:0 0 14px;font-size:1.12rem;font-weight:600;letter-spacing:-.02em}
+  .caja p{margin:0 0 16px;color:var(--ink-soft);font-size:.96rem}
+  .caja p:last-of-type{margin-bottom:22px}
+  ul{margin:0 0 22px;padding:0;list-style:none}
+  li{display:flex;gap:11px;font-size:.95rem;color:var(--ink-soft);margin-bottom:10px}
+  li::before{content:"";flex:0 0 6px;height:6px;margin-top:9px;border-radius:50%;background:var(--brand-deep)}
+  .btn{display:inline-block;border-radius:999px;padding:15px 32px;font-weight:600;
+    font-size:1rem;text-decoration:none;transition:transform .12s ease}
+  .btn:active{transform:scale(.97)}
+  .btn-primario{background:var(--brand-deep);color:#fff}
+  .btn-secundario{background:transparent;color:var(--brand-deep);border:1px solid var(--hairline);margin-left:10px}
+  .nota{background:rgba(14,156,153,.07);border-left:3px solid var(--brand-deep);
+    border-radius:0 10px 10px 0;padding:15px 18px;font-size:.88rem;color:var(--ink-soft)}
+  footer{margin-top:42px;text-align:center;font-size:.8rem;color:var(--ink-mute)}
+  footer b{color:var(--brand-deep)}
+  @media (max-width:520px){ .btn-secundario{margin:12px 0 0;display:block;text-align:center} }
+  @media (prefers-color-scheme:dark){
+    :root{--ink:#eef3f4;--ink-soft:#bcc9cd;--ink-mute:#8b9ca1;
+      --canvas:#131d20;--parchment:#0e1618;--hairline:#26363b}
+    .eyebrow,footer b,.btn-secundario{color:var(--brand)}
+    .btn-primario{background:var(--brand);color:#0e1618}
+    .nota{border-left-color:var(--brand)}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Preparado para FIV Valencia</p>
+  <h1>Lo que viviría una paciente vuestra a las once de la noche</h1>
+  <p class="entradilla">
+    Ochenta y cuatro segundos. Empieza en vuestra propia lista de precios, que es donde
+    empieza ella.
+  </p>
+
+  <video controls preload="metadata" playsinline
+         poster="https://iaparatodos.github.io/adria-demos/media/propuesta-fiv-valencia-poster.jpg">
+    <source src="https://iaparatodos.github.io/adria-demos/media/propuesta-fiv-valencia.mp4" type="video/mp4">
+    Tu navegador no puede reproducir el vídeo.
+    <a href="https://iaparatodos.github.io/adria-demos/media/propuesta-fiv-valencia.mp4">Descárgalo aquí</a>.
+  </video>
+  <p class="pie-video">Si no se ve, pulsa el botón de descarga del reproductor.</p>
+
+  <div class="caja">
+    <h2>Y esto es la demo, para que la probéis vosotros</h2>
+    <p>
+      Está montada con vuestra marca. Entrad como si fuerais esa paciente: hace seis
+      preguntas y devuelve una preparación que se lleva en PDF a la consulta.
+    </p>
+    <ul>
+      <li>Su historia resumida y ordenada, para que en consulta no se vaya media hora reconstruyéndola</li>
+      <li>Las preguntas que os debería hacer</li>
+      <li>Qué informes traer</li>
+      <li>Y qué significan las palabras que va a oír, dejando claro qué <b>no</b> mide cada prueba</li>
+    </ul>
+    <a class="btn btn-primario" href="https://fiv-valencia.vercel.app/?d=18008">Probar la demo</a>
+    <a class="btn btn-secundario" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3bKmewinGStVqF6OXCHhZRLZ6sBSDOF36eeFuzyTR9ZWs1GjM2sOR9WcFHy8-EoGkdjvXu7wMr">Reservar 30 minutos</a>
+  </div>
+
+  <div class="nota">
+    <b>No diagnostica, no pronostica y no da un solo porcentaje.</b> En eso he sido
+    especialmente cuidadoso: el diagnóstico es vuestro, y esa parte no la toca nadie.
+    La demo es cerrada — no guarda ningún dato — y caduca el 31 de agosto.
+  </div>
+
+  <footer>Cortesía <b>Código AdrIA</b> · Ricardo Hoyos · Adrihosan, S.L.</footer>
+</div>
+</body>
+</html>
