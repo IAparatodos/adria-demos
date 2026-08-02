@@ -1,0 +1,213 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt · Convertir un paper en una ficha visual · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="El prompt de las fichas de papers · Código AdrIA">
+<meta property="og:description" content="Convierte un artículo científico en una página visual legible, sin inventar un solo dato.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/prompt-ficha-paper.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="El prompt de las fichas de papers · Código AdrIA">
+<meta name="twitter:description" content="Convierte un artículo científico en una página visual legible, sin inventar un solo dato.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181a; --ink-soft:#3a4448; --ink-mute:#6d797e;
+    --canvas:#ffffff; --parchment:#f4f7f7; --tile-dark:#16242a;
+    --hairline:#e2e9e9; --brand:#4dd2d0; --brand-deep:#0e9c99;
+    --radius:16px; --max:900px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--canvas);color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:16px;line-height:1.6;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+  header{background:var(--tile-dark);color:#fff;padding:44px 0 52px;
+    background-image:radial-gradient(120% 90% at 12% 0%,rgba(77,210,208,.16) 0%,transparent 58%)}
+  .brandbar{display:flex;align-items:center;gap:12px;margin-bottom:34px}
+  .brandbar img{height:38px;width:auto;display:block}
+  .brandbar .name{font-size:.95rem;font-weight:600;letter-spacing:-.01em;color:#fff}
+  .brandbar .name span{display:block;font-size:.74rem;font-weight:400;letter-spacing:.02em;color:#9fb0b5}
+  .signature{
+    margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;
+    background:var(--parchment);border:1px solid var(--hairline);border-radius:var(--radius);padding:18px 22px
+  }
+  .signature img{height:34px;width:auto;display:block}
+  .signature p{margin:0;font-size:.9rem;color:var(--ink-soft)}
+  .signature a{color:var(--brand-deep);font-weight:600;text-decoration:none}
+  .signature a:hover{text-decoration:underline}
+  header h1{margin:0;font-size:clamp(1.8rem,4.5vw,2.6rem);font-weight:600;letter-spacing:-.03em;line-height:1.1;max-width:20ch}
+  .eyebrow{font-size:.76rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin:0 0 16px}
+  header p{color:#c9d6d9;font-weight:300;max-width:62ch;margin:18px 0 0}
+  section{padding:46px 0}
+  h2{font-size:1.35rem;font-weight:600;letter-spacing:-.02em;margin:0 0 14px}
+  .note{background:var(--parchment);border:1px solid var(--hairline);border-radius:var(--radius);padding:20px 22px;color:var(--ink-soft);font-size:.94rem}
+  .note b{color:var(--ink)}
+  .block{border:1px solid var(--hairline);border-radius:var(--radius);overflow:hidden;margin-top:18px}
+  .block-head{display:flex;align-items:center;justify-content:space-between;gap:14px;
+    background:var(--parchment);padding:14px 18px;border-bottom:1px solid var(--hairline)}
+  .block-head h3{margin:0;font-size:.95rem;font-weight:600;letter-spacing:-.01em}
+  .copy{
+    border:0;border-radius:9999px;background:var(--brand-deep);color:#fff;
+    font-family:inherit;font-size:.83rem;font-weight:600;padding:9px 18px;cursor:pointer;
+    transition:background .2s,transform .1s;white-space:nowrap
+  }
+  .copy:hover{background:#0b8582}
+  .copy:active{transform:scale(.97)}
+  .copy.ok{background:#14181a}
+  pre{
+    margin:0;padding:22px;white-space:pre-wrap;word-wrap:break-word;
+    font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:.85rem;line-height:1.65;color:var(--ink-soft);
+    max-height:none
+  }
+  ul{margin:12px 0 0;padding-left:20px;color:var(--ink-soft)}
+  li{margin-bottom:8px}
+  footer{border-top:1px solid var(--hairline);padding:26px 0 50px;color:var(--ink-mute);font-size:.85rem}
+  .brand{color:var(--brand-deep);font-weight:600}
+</style>
+
+<header>
+  <div class="wrap">
+    <div class="brandbar">
+      <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      <span class="name">Código AdrIA<span>IA aplicada al trabajo real</span></span>
+    </div>
+    <p class="eyebrow">Ficha de paper · La receta</p>
+    <h1>El prompt para convertir un paper en una página visual</h1>
+    <p>El mismo con el que se hizo la ficha del artículo de Gómez-Palomares (2005). Funciona con cualquier artículo científico: se le pasa el PDF o el texto completo y devuelve un HTML autocontenido.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="note">
+      <b>Cómo se usa:</b> abre Claude (también vale ChatGPT o Gemini), adjunta el PDF del artículo o pega el texto completo,
+      y debajo pega el prompt. Devuelve un archivo <b>.html</b> que se abre en cualquier navegador y se puede compartir por enlace.
+      <br><br>
+      <b>La regla que lo hace fiable:</b> el prompt le prohíbe explícitamente aportar datos, contexto o interpretaciones que no
+      estén en el artículo. Si una cifra no aparece en el texto, no aparece en la ficha. Aun así, <b>revisa siempre las cifras
+      contra el original antes de compartir nada</b>: la IA maqueta, el criterio lo pones tú.
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>El prompt</h2>
+    <div class="block">
+      <div class="block-head">
+        <h3>Prompt completo — pégalo junto al PDF del artículo</h3>
+        <button class="copy" data-target="p1">Copiar</button>
+      </div>
+      <pre id="p1">Te paso un artículo científico completo. Quiero que lo conviertas en una página web de una sola pieza (un único archivo HTML autocontenido) que permita a un profesional del sector entender el estudio entero en tres minutos, sin haberlo leído.
+
+REGLA NÚMERO UNO, INNEGOCIABLE
+No añadas ni un dato, ni una cifra, ni un contexto, ni una interpretación que no esté literalmente en el artículo. Nada de conocimiento externo, nada de "se sabe que", nada de comparar con otros estudios. Si un dato que te pediría la estructura no está en el texto, omite ese bloque y dímelo al final. Cada porcentaje, cada n, cada valor de p y cada intervalo tiene que poder señalarse en el artículo original.
+Antes de escribir el HTML, hazme una lista de las cifras que vas a usar indicando en qué parte del artículo aparece cada una (tabla, sección, página). Espero a que la revise. Solo después generas el HTML.
+
+ESTRUCTURA DE LA PÁGINA (en este orden)
+
+1. PORTADA, sobre fondo oscuro
+   - Revista, volumen, número y año.
+   - Un titular corto EN CASTELLANO que capture el hallazgo en lenguaje humano, no el título académico. Máximo 8 palabras. No uses palabras de márketing ni signos de exclamación.
+   - Debajo, el título original del artículo en su idioma, en cursiva y entre comillas.
+   - Autores completos, con el primer firmante destacado, y los centros donde se hizo.
+   - Tres etiquetas con lo esencial: tipo de estudio (ensayo aleatorizado, cohorte, metaanálisis...), tamaño de la muestra y DOI.
+
+2. LA PREGUNTA
+   Explica en 3 o 4 párrafos qué problema clínico real motivó el estudio y por qué era un problema. Escríbelo como se lo contarías a un colega tomando un café: frases cortas, sin jerga innecesaria, sin voz pasiva. Si el artículo cuantifica ese problema (por ejemplo, un porcentaje de fracaso o de complicaciones), esa cifra va aquí en negrita. Cierra el bloque con la hipótesis del estudio formulada como pregunta.
+
+3. LOS RESULTADOS
+   - Cuatro tarjetas numéricas grandes con los cuatro datos que más importan. En cada una: el número enorme, una frase corta de qué es, y debajo en pequeño el detalle que lo respalda (el "15 de 39 ciclos" o el valor de p). Destaca visualmente la más importante.
+   - Debajo, un gráfico de barras horizontales hecho solo con HTML y CSS (nada de librerías externas, nada de imágenes) comparando los dos grupos en las 3 o 4 variables clave. Cada par de barras lleva su valor numérico a la derecha, su desviación estándar en pequeño, y una etiqueta que diga si la diferencia fue estadísticamente significativa y con qué p. Incluye también alguna variable donde NO hubiera diferencia: cuenta tanto como las que sí.
+   - Las barras deben entrar animadas al aparecer en pantalla, con una transición suave. Respeta prefers-reduced-motion.
+
+4. EL MÉTODO, EN CUATRO PASOS
+   Cuatro tarjetas numeradas que reconstruyan cómo se hizo el estudio: a quién se reclutó y con qué criterios, qué recibieron todos por igual, qué recibió solo el grupo de estudio y con qué umbral exacto, y cómo se midió el desenlace. Con las dosis, los milímetros, las horas y las fechas concretas que dé el artículo.
+
+5. LA LETRA PEQUEÑA, sobre fondo oscuro
+   La sección más importante y la que casi nadie hace. Recoge las limitaciones que reconocen LOS PROPIOS AUTORES, no las que se te ocurran a ti: tamaño muestral, factores de confusión, efectos adversos, casos que se salieron del protocolo, mecanismos que ellos mismos ponen en duda. Cuatro tarjetas. Si los autores matizan su propio hallazgo, cítalos entre comillas.
+   Cierra con una cita textual de la conclusión del artículo, entrecomillada y con su referencia completa debajo.
+
+6. PARA CITARLO
+   La referencia bibliográfica completa en formato Vancouver y el enlace DOI clicable.
+
+7. PIE
+   Una línea que diga que la pieza se ha elaborado sobre el artículo original sin añadir datos ni interpretaciones ajenas al texto.
+
+TONO
+Castellano neutro, profesional pero cálido. Frases cortas. Voz activa. Cero lenguaje comercial, cero adjetivos vacíos ("revolucionario", "innovador"), cero emojis. Escribe como un divulgador que respeta a su lector: no simplifiques el dato, simplifica la frase. Puedes usar una imagen o una metáfora por sección si aclara algo, nunca si solo adorna.
+
+DISEÑO
+Un único archivo HTML con todo el CSS dentro de una etiqueta <style>. Sin frameworks, sin CDN, sin dependencias externas salvo la fuente de Google Fonts (usa Poppins). Sistema de diseño coherente: define los colores como variables CSS al principio, mantén una escala tipográfica de tres tamaños, deja aire generoso entre secciones (unos 88px), esquinas redondeadas suaves y una sola sombra sutil. Alterna fondo claro y fondo oscuro entre secciones para marcar el ritmo. El texto de lectura, a un máximo de unos 760px de ancho; los bloques de datos pueden ser más anchos. Todo tiene que verse bien en móvil: rejillas que se reordenan solas, nada de scroll horizontal.
+
+Cuando termines, dime qué datos del artículo has dejado fuera y por qué.</pre>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Si te lo piden por privado</h2>
+    <div class="block">
+      <div class="block-head">
+        <h3>Mensaje de acompañamiento</h3>
+        <button class="copy" data-target="p2">Copiar</button>
+      </div>
+      <pre id="p2">Te paso el prompt tal cual lo uso. Se lo pegas a Claude (o a ChatGPT) junto con el PDF del paper y te devuelve un archivo .html que abres en el navegador.
+
+Dos cosas que hacen que salga bien y no sea humo:
+
+1. Le prohíbo expresamente meter cualquier dato que no esté en el artículo. Nada de "se sabe que", nada de comparar con otros estudios. Si el dato no está en el texto, no sale en la ficha.
+2. Antes de maquetar nada, le obligo a listarme las cifras que va a usar y dónde aparece cada una. Ahí es donde se cazan los inventos. Yo lo reviso y solo entonces le doy paso.
+
+Aun así, contrasta siempre los números con el original antes de compartir la ficha con nadie. La IA maqueta y ordena; el criterio clínico y la responsabilidad siguen siendo tuyos. Eso no se delega.
+
+Si te atascas con algo, dime y lo miramos.</pre>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Lo que marca la diferencia</h2>
+    <ul>
+      <li><b>La lista de cifras antes de maquetar.</b> Es la compuerta anti-alucinación: obliga al modelo a señalar de dónde sale cada número antes de poder escribir una sola línea de HTML.</li>
+      <li><b>La sección de limitaciones.</b> Con las advertencias de los propios autores, no las del modelo. Es lo que convierte la ficha en algo defendible ante un profesional.</li>
+      <li><b>Incluir variables sin diferencia significativa.</b> Enseñar solo lo que salió bien es lo que hace que una ficha huela a folleto.</li>
+      <li><b>Un archivo único, sin dependencias.</b> Se abre en cualquier navegador, se manda por WhatsApp y sigue funcionando dentro de cinco años.</li>
+    </ul>
+
+    <div class="signature">
+      <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      <p>Receta de la casa, compartida sin contrapartida. Más cosas como esta en
+        <a href="https://www.codigoadria.com">codigoadria.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Cortesía <span class="brand">Código AdrIA</span> · <a href="https://www.codigoadria.com" style="color:var(--ink-mute)">codigoadria.com</a>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = document.getElementById(btn.dataset.target).innerText;
+      navigator.clipboard.writeText(text).then(function () {
+        var original = btn.textContent;
+        btn.textContent = 'Copiado';
+        btn.classList.add('ok');
+        setTimeout(function () { btn.textContent = original; btn.classList.remove('ok'); }, 1800);
+      });
+    });
+  });
+</script>
