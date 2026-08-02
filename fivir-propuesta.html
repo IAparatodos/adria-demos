@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Una demo con la marca de FIVIR · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Una demo con la marca de FIVIR · Código AdrIA">
+<meta property="og:description" content="87 segundos: qué pasaría si vuestro formulario devolviera algo al instante.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/fivir-propuesta.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Una demo con la marca de FIVIR · Código AdrIA">
+<meta name="twitter:description" content="87 segundos: qué pasaría si vuestro formulario devolviera algo al instante.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --turquesa:#4dd2d0;--petroleo:#3f6f7b;--profundo:#102e35;
+    --ink:#14181a;--ink-soft:#48545a;--ink-mute:#7b898f;
+    --canvas:#fff;--parchment:#f3f7f8;--hairline:#e3eaec;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--parchment);color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.62;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:46px 20px 76px}
+  .eyebrow{font-size:.73rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--petroleo);margin:0 0 12px}
+  h1{margin:0 0 14px;font-size:clamp(1.6rem,4.4vw,2.3rem);font-weight:600;letter-spacing:-.03em;line-height:1.14}
+  .lede{margin:0 0 30px;color:var(--ink-soft);font-size:1.02rem;max-width:62ch}
+
+  .marco{background:var(--profundo);border-radius:20px;padding:12px;margin-bottom:14px;
+    box-shadow:0 22px 60px rgba(16,46,53,.20)}
+  video{display:block;width:100%;border-radius:12px;background:#000}
+  .pie{margin:0 0 34px;font-size:.83rem;color:var(--ink-mute);text-align:center}
+
+  .botones{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px}
+  a.btn{display:inline-block;text-decoration:none;border-radius:999px;padding:15px 30px;
+    font-weight:600;font-size:.98rem;transition:transform .12s ease}
+  a.btn:active{transform:scale(.97)}
+  a.primario{background:var(--turquesa);color:var(--profundo)}
+  a.secundario{background:transparent;color:var(--petroleo);border:1.5px solid var(--petroleo)}
+
+  .card{background:var(--canvas);border:1px solid var(--hairline);border-radius:18px;
+    padding:26px 26px;margin-bottom:18px}
+  .card h2{margin:0 0 14px;font-size:1.06rem;font-weight:600;letter-spacing:-.02em}
+  ul{margin:0;padding:0;list-style:none}
+  li{position:relative;padding-left:22px;margin-bottom:9px;font-size:.95rem;color:var(--ink-soft)}
+  li::before{content:'';position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;
+    background:var(--turquesa)}
+  li:last-child{margin-bottom:0}
+  li b{color:var(--ink);font-weight:600}
+
+  .nota{background:rgba(63,111,123,.07);border-left:3px solid var(--petroleo);
+    border-radius:0 12px 12px 0;padding:16px 18px;font-size:.9rem;color:var(--ink-soft);margin-bottom:18px}
+  footer{margin-top:40px;text-align:center;font-size:.82rem;color:var(--ink-mute)}
+  footer b{color:var(--petroleo)}
+  @media (prefers-color-scheme:dark){
+    :root{--ink:#eef4f5;--ink-soft:#c0cdd1;--ink-mute:#8b9ca1;
+      --canvas:#141e21;--parchment:#0d1618;--hairline:#26363b;--petroleo:#7fb0bd}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Para Instituto FIVIR</p>
+  <h1>Vuestro formulario ya lo pregunta todo. Esto es lo que pasaría si devolviera algo.</h1>
+  <p class="lede">Ochenta y siete segundos. Empieza en vuestra web, con la paciente que
+  rellena las nueve casillas a las once y media de la noche.</p>
+
+  <div class="marco">
+    <video controls preload="metadata" playsinline
+           poster="https://iaparatodos.github.io/adria-demos/media/fivir-propuesta-poster.jpg">
+      <source src="https://iaparatodos.github.io/adria-demos/media/fivir-propuesta.mp4" type="video/mp4">
+      Tu navegador no reproduce el vídeo. Puedes descargarlo
+      <a href="https://iaparatodos.github.io/adria-demos/media/fivir-propuesta.mp4">aquí</a>.
+    </video>
+  </div>
+  <p class="pie">87 segundos · con sonido</p>
+
+  <div class="botones">
+    <a class="btn primario" href="https://fivir.vercel.app/?d=18009" target="_blank" rel="noopener">Probar la demo</a>
+    <a class="btn secundario" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3bKmewinGStVqF6OXCHhZRLZ6sBSDOF36eeFuzyTR9ZWs1GjM2sOR9WcFHy8-EoGkdjvXu7wMr" target="_blank" rel="noopener">Reservar 30 minutos</a>
+  </div>
+
+  <div class="card">
+    <h2>Qué hace la demo</h2>
+    <ul>
+      <li>Hace <b>vuestras mismas preguntas</b>: las nueve casillas de "Elige cuál es tu caso", la edad y para quién es el tratamiento.</li>
+      <li>Devuelve <b>al instante</b> la situación de la paciente ordenada, para que la lea y reconozca.</li>
+      <li>Le prepara <b>las preguntas que conviene haceros</b> en la primera consulta, adaptadas a su caso.</li>
+      <li>Le dice <b>qué informes llevar</b> y le traduce las siglas que va a oír.</li>
+      <li>Se lo lleva <b>en PDF</b> para sacarlo delante del médico.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Qué NO hace</h2>
+    <ul>
+      <li>No da <b>porcentajes ni pronósticos</b>. Ninguno.</li>
+      <li>No dice <b>qué tratamiento</b> necesita. Eso lo decidís vosotros, en consulta.</li>
+      <li>No pone <b>precios</b>, porque no los publicáis. Ni tasas de éxito, ni horarios.</li>
+      <li>No inventa nada sobre vosotros: solo lo que está en <b>vuestra web</b>.</li>
+    </ul>
+  </div>
+
+  <div class="nota">
+    Es una demo: la captura de datos es <b>simulada</b> y no se guarda nada de lo que escriba
+    quien la pruebe. Si os encaja, en la reunión vemos dónde irían esos datos de verdad y con
+    qué política de privacidad — la vuestra.
+  </div>
+
+  <footer>
+    Ricardo Hoyos · <b>Código AdrIA</b>
+  </footer>
+</div>
+</body>
+</html>
