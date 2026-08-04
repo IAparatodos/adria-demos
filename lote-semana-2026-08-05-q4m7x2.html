@@ -288,212 +288,190 @@ details[open] summary{margin-bottom:14px}
         </section></div></div></div></details></article>
 <article class="pieza">
 <div class="meta"><span class="chip chip-ecommerce">ecommerce</span><span class="destino">Galería de prompts</span></div>
-<h3>Los productos con los que pierdes dinero cada vez que vendes</h3><p class="excerpt">Le das tu lista de productos con costes y ventas y te calcula el margen
-        de verdad, con el envío, la pasarela y las devoluciones dentro. Salen a
-        la luz las referencias que se venden mucho y no dejan nada, y qué hacer
-        con cada una sin espantar al cliente.</p>
+<h3>El Excel del proveedor, convertido en catálogo importable</h3><p class="excerpt">Le das ese listado que te manda el proveedor —nombres a medias, medidas
+        en tres formatos, categorías inventadas— y te lo deja normalizado: cada
+        columna donde va, los atributos separados, los duplicados marcados y los
+        huecos señalados en vez de rellenados a lo loco.</p>
 <details><summary>Ver el prompt completo y el ejemplo de respuesta</summary>
 <div class="dosc"><div class="col"><h4>Lo que se copia</h4><div class="cuerpo"><section>
           <h4>Contexto</h4>
           <p style="display: inline">
-            Actúa como responsable de márgenes de una tienda online pequeña.
-            Sabes que el margen que sale en el panel de la tienda es una
-            fantasía: no descuenta el envío que regalas, ni la comisión de la
-            pasarela, ni el producto que vuelve y ya no se puede vender como
-            nuevo. Tu trabajo es enseñarme el número que queda de verdad en
-            caja, aunque duela.
+            Actúa como responsable de catálogo de una tienda online. Sabes que un
+            listado de proveedor nunca viene limpio: mezcla el atributo dentro
+            del nombre, cambia la unidad a mitad del archivo y usa categorías que
+            solo tienen sentido en su fábrica. Tu obsesión es que cada dato viva
+            en su campo, porque de eso dependen los filtros, el buscador y que un
+            cliente encuentre lo que busca.
           </p>
 
           <h4>Datos de entrada</h4>
           <ul>
-            <li>Lista de productos: referencia, PVP, coste de compra, unidades vendidas en el periodo</li>
-            <li>Peso o volumen de cada uno, si lo tengo, y qué me cobra el transportista</li>
-            <li>A partir de qué importe regalo los gastos de envío</li>
-            <li>Comisión de la pasarela de pago y de cualquier marketplace donde venda</li>
-            <li>Porcentaje de devoluciones, general o por producto</li>
-            <li>Qué coste de embalaje tiene cada tipo de pedido</li>
+            <li>El listado del proveedor pegado tal cual, con sus cabeceras originales</li>
+            <li>La estructura de mi tienda: campos, categorías y atributos que ya uso</li>
+            <li>Cómo formo yo el SKU y el nombre de producto</li>
+            <li>Mi regla de precio: margen fijo, por familia o tarifa propia</li>
+            <li>Si vendo por unidad, por caja o por metro cuadrado</li>
           </ul>
 
           <h4>Tarea</h4>
           <ol>
             <li>
-              Antes de conclusiones, enséñame la <strong>fórmula del margen
-              real</strong> que vas a usar y de dónde sale cada sumando, con mis
-              cifras. Si me falta un dato para completarla, párate y pídemelo.
+              Antes de tocar nada, dime <strong>qué has entendido de cada columna
+              del proveedor</strong> y a qué campo mío la vas a mandar. Si alguna
+              no encaja en ninguno, dilo. No sigas hasta que te confirme el mapeo.
             </li>
             <li>
-              Calcula por referencia: margen bruto, margen tras envío, margen
-              tras pasarela y embalaje, y margen tras devoluciones. Cuatro
-              columnas, para que se vea en qué escalón se evapora el dinero.
+              Saca de dentro del nombre los atributos que estén escondidos:
+              medida, color, acabado, espesor, cantidad por caja. Cada uno a su
+              columna, y el nombre limpio en la suya.
             </li>
             <li>
-              Clasifica cada producto en cuatro cajones:
-              <strong>gana</strong> (margen sano),
-              <strong>aguanta</strong> (poco margen pero arrastra ventas),
-              <strong>sangra</strong> (margen negativo real) y
-              <strong>estorba</strong> (ni vende ni deja margen).
+              Normaliza unidades y formatos: todas las medidas en la misma
+              notación, decimales con coma, pesos en kg, nada de «aprox.» ni de
+              texto dentro de campos numéricos.
             </li>
             <li>
-              Para los que sangran, dame las tres salidas posibles con su pega:
-              subir precio, cambiar el umbral de envío gratis o dejar de
-              venderlo. Di cuál recomiendas y por qué en ese caso concreto.
+              Encaja cada producto en <strong>mis</strong> categorías, no en las
+              del proveedor. Si uno no encaja en ninguna, mándalo a una lista
+              aparte para que decida yo.
             </li>
             <li>
-              Calcula el <strong>umbral de envío gratis</strong> que me
-              convendría según mi ticket medio y mi coste de transporte real.
+              Marca los <strong>duplicados y casi duplicados</strong>: misma
+              referencia escrita de otra forma, mismo producto con dos códigos,
+              variantes que en realidad deberían ser un producto con opciones.
             </li>
             <li>
-              Termina con el efecto de tus propuestas: cuánto margen mensual gano
-              si aplico solo los tres cambios más rentables.
+              Señala los <strong>huecos que bloquean la publicación</strong>: sin
+              peso no puedes calcular el porte, sin imagen no se puede subir, sin
+              EAN no puedes ir a marketplaces.
+            </li>
+            <li>
+              Genera el nombre de producto y el SKU con mi regla, y calcula el
+              PVP con mi margen. Enséñame la cuenta de tres ejemplos antes de
+              aplicarlo a todo.
             </li>
           </ol>
 
           <h4>Salida esperada</h4>
           <ul>
-            <li>La fórmula usada, escrita con mis números, antes de la tabla</li>
-            <li>Tabla por referencia con los cuatro márgenes y el cajón asignado</li>
-            <li>Ficha corta de los que sangran, con la decisión recomendada</li>
-            <li>Un umbral de envío gratis con la cuenta que lo justifica</li>
-            <li>Lista de datos que te faltan, si los hay</li>
+            <li>El mapeo de columnas propuesto, para que lo apruebe antes de nada</li>
+            <li>Tabla normalizada lista para importar, en CSV con mis cabeceras</li>
+            <li>Lista de duplicados y casi duplicados, con qué hacer con cada uno</li>
+            <li>Lista de productos bloqueados por falta de dato, con qué falta exactamente</li>
+            <li>Productos que no encajan en ninguna categoría mía</li>
           </ul>
 
           <h4>Reglas</h4>
           <ul>
             <li>
-              Ni un porcentaje inventado. Si no te he dado la tasa de
-              devoluciones de un producto, usa la general y dilo, o pregúntame.
+              No inventes ni un dato: si el proveedor no da el peso, la celda va
+              vacía y el producto a la lista de bloqueados. Nunca estimes un peso
+              «típico».
             </li>
             <li>
-              No propongas subidas de precio a ojo: cada subida lleva su
-              justificación y el riesgo de perder ventas que estimas.
+              No traduzcas ni maquilles los nombres técnicos que el cliente usa
+              para buscar. «Porcelánico rectificado» se queda como está.
             </li>
             <li>
-              Nada de «optimizar la estrategia de pricing». Quiero: esta
-              referencia, este precio nuevo, este motivo.
+              No inventes categorías nuevas por tu cuenta: propónmelas aparte y
+              espera.
             </li>
             <li>
-              Si un producto sangra pero es el que atrae al cliente, dilo y no
-              recomiendes matarlo por número.
+              Si una fila tiene algo raro que no sabes resolver, no la descartes
+              en silencio: sácala a la lista de revisión con el motivo.
             </li>
           </ul>
         </section></div></div>
 <div class="col resp"><h4>Ejemplo de respuesta</h4><div class="cuerpo"><section>
-          <h4>La fórmula, con tus números</h4>
-          <p>
-            Margen real = PVP − coste de compra − transporte real − comisión de
-            pasarela (1,4 % + 0,25 €) − embalaje − pérdida por devolución. La
-            pérdida por devolución la calculo como el porcentaje de devoluciones
-            × (transporte de vuelta 4,90 € + 30 % del coste del producto, que es
-            lo que pierdes al revenderlo como saldo). Si tu proveedor te acepta
-            el retorno íntegro, dímelo y bajo ese 30 % a cero.
-          </p>
-
-          <h4>Margen por referencia — junio y julio</h4>
+          <h4>Mapeo propuesto — Tarifa Cerámicas Nules, agosto 2026 (412 filas)</h4>
           <table>
             <thead>
-              <tr>
-                <th>Referencia</th>
-                <th>Uds</th>
-                <th>Bruto</th>
-                <th>Tras envío</th>
-                <th>Tras pasarela</th>
-                <th>Tras devoluciones</th>
-                <th>Cajón</th>
-              </tr>
+              <tr><th>Columna del proveedor</th><th>Va a</th><th>Nota</th></tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Saco cemento cola 25 kg</td>
-                <td>412</td>
-                <td>3,80 €</td>
-                <td>−2,60 €</td>
-                <td>−3,17 €</td>
-                <td>−3,31 €</td>
-                <td>SANGRA</td>
-              </tr>
-              <tr>
-                <td>Plato ducha resina 120×80</td>
-                <td>96</td>
-                <td>78,00 €</td>
-                <td>61,00 €</td>
-                <td>58,20 €</td>
-                <td>44,90 €</td>
-                <td>GANA</td>
-              </tr>
-              <tr>
-                <td>Perfil aluminio 2,5 m</td>
-                <td>238</td>
-                <td>6,10 €</td>
-                <td>1,20 €</td>
-                <td>0,55 €</td>
-                <td>0,10 €</td>
-                <td>AGUANTA</td>
-              </tr>
-              <tr>
-                <td>Grifo monomando lavabo</td>
-                <td>144</td>
-                <td>21,40 €</td>
-                <td>17,90 €</td>
-                <td>16,80 €</td>
-                <td>12,30 €</td>
-                <td>GANA</td>
-              </tr>
-              <tr>
-                <td>Kit rejuntado 5 kg</td>
-                <td>18</td>
-                <td>4,20 €</td>
-                <td>−1,10 €</td>
-                <td>−1,70 €</td>
-                <td>−1,74 €</td>
-                <td>ESTORBA</td>
-              </tr>
+              <tr><td>COD_ART</td><td>sku_proveedor</td><td>Tu SKU lo genero aparte</td></tr>
+              <tr><td>DESCRIPCION</td><td>nombre + 4 atributos</td><td>Lleva medida, acabado y caja metidos dentro</td></tr>
+              <tr><td>FAMILIA</td><td>—</td><td>Sus familias no son tus categorías: mapeo manual abajo</td></tr>
+              <tr><td>PVP_TARIFA</td><td>precio_coste</td><td>Ojo: viene sin IVA, tu columna de coste también, correcto</td></tr>
+              <tr><td>M2_CAJA</td><td>atributo_m2_caja</td><td>Clave para el precio por m², no la pierdas</td></tr>
+              <tr><td>OBS</td><td>—</td><td>Texto libre suyo («pdte reposición», «fin serie»). No se importa, pero lo he leído</td></tr>
+            </tbody>
+          </table>
+          <p>
+            No hay columna de peso ni de EAN en todo el archivo. Eso afecta a las
+            412 filas: sin peso no puedes calcular portes automáticos. Antes de
+            seguir, ¿lo pides tú al proveedor o prefieres publicar con porte
+            manual?
+          </p>
+
+          <h4>Cómo queda una fila</h4>
+          <p>
+            Original: <code>PORC. ROBLE NAT. 20X120 RECT. CJ 1,44M2 - A/1ª</code>
+          </p>
+          <table>
+            <thead>
+              <tr><th>Campo</th><th>Valor</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Nombre</td><td>Porcelánico Roble Natural 20×120 rectificado</td></tr>
+              <tr><td>SKU</td><td>POR-ROB-20120-NAT</td></tr>
+              <tr><td>Categoría</td><td>Pavimentos &gt; Porcelánico efecto madera</td></tr>
+              <tr><td>Medida</td><td>20×120 cm</td></tr>
+              <tr><td>Acabado</td><td>Natural</td></tr>
+              <tr><td>Canto</td><td>Rectificado</td></tr>
+              <tr><td>m² por caja</td><td>1,44</td></tr>
+              <tr><td>Calidad</td><td>Primera</td></tr>
+              <tr><td>Coste</td><td>18,40 €/m²</td></tr>
+              <tr><td>PVP</td><td>27,60 €/m² (margen 50 % de tu familia «pavimentos»)</td></tr>
+              <tr><td>Peso</td><td><em>vacío — bloquea publicación</em></td></tr>
             </tbody>
           </table>
 
-          <h4>Los que sangran, uno a uno</h4>
-          <p>
-            <strong>Saco de cemento cola.</strong> Pierdes 3,31 € cada vez que
-            lo vendes suelto, y lo has vendido 412 veces: 1.363 € de agujero en
-            dos meses. El problema no es el precio, son los 25 kg viajando por
-            6,40 € cuando a ti te cuestan 9,80 €. Recomiendo
-            <strong>venta mínima de 4 sacos</strong> antes que subir el precio:
-            el que reforma nunca compra uno solo, y a partir de cuatro el
-            transporte por unidad baja a 3,10 € y el margen se pone en 1,90 €.
-            Subir el PVP un 15 % te dejaría fuera de mercado frente a Bricomart,
-            que lo tiene a 8,45 € y con recogida en tienda.
-          </p>
-          <p>
-            <strong>Kit de rejuntado.</strong> 18 unidades en dos meses y pierdes
-            en cada una. No tiene arreglo por precio. Recomiendo dejar de
-            venderlo suelto y meterlo como accesorio sugerido del plato de
-            ducha, que sí gana: ahí viaja en el mismo bulto y el transporte no
-            sube.
-          </p>
-
-          <h4>Tu umbral de envío gratis</h4>
-          <p>
-            Lo tienes en 49 €. Tu ticket medio es 62 € y tu coste de transporte
-            medio 7,40 €. Con el umbral en 49 €, uno de cada tres pedidos cruza
-            la línea justo por encima y te deja 4 € limpios antes de contar tu
-            tiempo. Súbelo a <strong>75 €</strong>: mantienes al cliente de
-            reforma, que compra por encima de eso casi siempre, y dejas de
-            regalar el porte al que solo quiere un sifón. Con los datos de estos
-            dos meses habrías ahorrado 1.140 €.
-          </p>
-
-          <h4>Si aplicas solo tres cosas</h4>
+          <h4>Duplicados y casi duplicados</h4>
           <ul>
-            <li>Mínimo de 4 sacos de cemento cola: +1.900 € al mes</li>
-            <li>Umbral de envío gratis a 75 €: +570 € al mes</li>
-            <li>Kit de rejuntado solo como accesorio: +31 € al mes y un dolor de cabeza menos</li>
+            <li>
+              <strong>Filas 88 y 301:</strong> <code>ROBLE NAT 20X120</code> y
+              <code>ROBLE NATURAL 20X120</code>. Mismo coste, mismos m²/caja. Es
+              el mismo producto con el código cambiado en la tarifa nueva.
+              Quédate con el de la fila 301 y guarda el otro código como
+              referencia antigua.
+            </li>
+            <li>
+              <strong>Filas 120 a 126:</strong> siete «productos» que son el mismo
+              porcelánico en siete colores. En tu tienda deberían ser
+              <strong>un producto con atributo color</strong>, no siete fichas
+              compitiendo entre ellas en Google. Te los dejo agrupados en una
+              pestaña aparte por si prefieres subirlos así.
+            </li>
+            <li>
+              <strong>Filas 210 y 211:</strong> mismo artículo en calidad primera
+              y segunda, con 6 € de diferencia. Son productos distintos de
+              verdad, no duplicados: los dejo separados, pero mete «2ª calidad»
+              en el nombre o te comes las devoluciones.
+            </li>
           </ul>
-          <p>Total estimado: <strong>2.500 € al mes</strong> sin tocar el precio de nada que se venda bien.</p>
 
-          <h4>Me faltan dos datos</h4>
+          <h4>Bloqueados por falta de dato</h4>
           <ul>
-            <li>La tasa de devolución del grifo: he usado tu media del 9 %, pero un grifo se devuelve más que un saco.</li>
-            <li>Si el proveedor de resina te acepta retornos. Si es que sí, el plato de ducha gana 9 € más por unidad de lo que aparece en la tabla.</li>
+            <li><strong>412 productos</strong> sin peso: no se puede calcular el porte.</li>
+            <li><strong>412 productos</strong> sin EAN: puedes publicar en tu web, pero no en marketplaces.</li>
+            <li><strong>38 productos</strong> sin m² por caja, todos de la familia de piezas especiales. Sin ese dato no sé si vendes por unidad o por metro.</li>
+            <li><strong>9 productos</strong> con «PDTE PRECIO» en la columna de tarifa. No pongo cero: quedan fuera hasta que el proveedor mande el precio.</li>
           </ul>
+
+          <h4>No sé dónde meterlos</h4>
+          <ul>
+            <li>Rodapiés a juego (14 refs): no tienes categoría de rodapié. ¿Van dentro de cada pavimento como accesorio o creamos categoría?</li>
+            <li>Perfilería de remate en PVC (6 refs): tienes «perfilería de aluminio», pero esto no es aluminio.</li>
+            <li>Muestrarios de 10×10 (22 refs): normalmente se regalan. ¿Los publico a 0 € o los dejo fuera del catálogo?</li>
+          </ul>
+
+          <h4>A revisar tú</h4>
+          <p>
+            Once filas llevan «FIN SERIE» en observaciones. No las he descartado
+            porque el descatalogado del proveedor a veces es stock que tú sí
+            quieres liquidar. Decide y te las paso en un lote aparte.
+          </p>
         </section></div></div></div></details></article>
 <article class="pieza gal">
 <div class="meta"><span class="chip chip-encuadre">encuadre</span><span class="destino">Recursos fotográficos</span></div>
@@ -1104,190 +1082,212 @@ details[open] summary{margin-bottom:14px}
         </section></div></div></div></details></article>
 <article class="pieza">
 <div class="meta"><span class="chip chip-ecommerce">ecommerce</span><span class="destino">Galería de prompts</span></div>
-<h3>El Excel del proveedor, convertido en catálogo importable</h3><p class="excerpt">Le das ese listado que te manda el proveedor —nombres a medias, medidas
-        en tres formatos, categorías inventadas— y te lo deja normalizado: cada
-        columna donde va, los atributos separados, los duplicados marcados y los
-        huecos señalados en vez de rellenados a lo loco.</p>
+<h3>Los productos con los que pierdes dinero cada vez que vendes</h3><p class="excerpt">Le das tu lista de productos con costes y ventas y te calcula el margen
+        de verdad, con el envío, la pasarela y las devoluciones dentro. Salen a
+        la luz las referencias que se venden mucho y no dejan nada, y qué hacer
+        con cada una sin espantar al cliente.</p>
 <details><summary>Ver el prompt completo y el ejemplo de respuesta</summary>
 <div class="dosc"><div class="col"><h4>Lo que se copia</h4><div class="cuerpo"><section>
           <h4>Contexto</h4>
           <p style="display: inline">
-            Actúa como responsable de catálogo de una tienda online. Sabes que un
-            listado de proveedor nunca viene limpio: mezcla el atributo dentro
-            del nombre, cambia la unidad a mitad del archivo y usa categorías que
-            solo tienen sentido en su fábrica. Tu obsesión es que cada dato viva
-            en su campo, porque de eso dependen los filtros, el buscador y que un
-            cliente encuentre lo que busca.
+            Actúa como responsable de márgenes de una tienda online pequeña.
+            Sabes que el margen que sale en el panel de la tienda es una
+            fantasía: no descuenta el envío que regalas, ni la comisión de la
+            pasarela, ni el producto que vuelve y ya no se puede vender como
+            nuevo. Tu trabajo es enseñarme el número que queda de verdad en
+            caja, aunque duela.
           </p>
 
           <h4>Datos de entrada</h4>
           <ul>
-            <li>El listado del proveedor pegado tal cual, con sus cabeceras originales</li>
-            <li>La estructura de mi tienda: campos, categorías y atributos que ya uso</li>
-            <li>Cómo formo yo el SKU y el nombre de producto</li>
-            <li>Mi regla de precio: margen fijo, por familia o tarifa propia</li>
-            <li>Si vendo por unidad, por caja o por metro cuadrado</li>
+            <li>Lista de productos: referencia, PVP, coste de compra, unidades vendidas en el periodo</li>
+            <li>Peso o volumen de cada uno, si lo tengo, y qué me cobra el transportista</li>
+            <li>A partir de qué importe regalo los gastos de envío</li>
+            <li>Comisión de la pasarela de pago y de cualquier marketplace donde venda</li>
+            <li>Porcentaje de devoluciones, general o por producto</li>
+            <li>Qué coste de embalaje tiene cada tipo de pedido</li>
           </ul>
 
           <h4>Tarea</h4>
           <ol>
             <li>
-              Antes de tocar nada, dime <strong>qué has entendido de cada columna
-              del proveedor</strong> y a qué campo mío la vas a mandar. Si alguna
-              no encaja en ninguno, dilo. No sigas hasta que te confirme el mapeo.
+              Antes de conclusiones, enséñame la <strong>fórmula del margen
+              real</strong> que vas a usar y de dónde sale cada sumando, con mis
+              cifras. Si me falta un dato para completarla, párate y pídemelo.
             </li>
             <li>
-              Saca de dentro del nombre los atributos que estén escondidos:
-              medida, color, acabado, espesor, cantidad por caja. Cada uno a su
-              columna, y el nombre limpio en la suya.
+              Calcula por referencia: margen bruto, margen tras envío, margen
+              tras pasarela y embalaje, y margen tras devoluciones. Cuatro
+              columnas, para que se vea en qué escalón se evapora el dinero.
             </li>
             <li>
-              Normaliza unidades y formatos: todas las medidas en la misma
-              notación, decimales con coma, pesos en kg, nada de «aprox.» ni de
-              texto dentro de campos numéricos.
+              Clasifica cada producto en cuatro cajones:
+              <strong>gana</strong> (margen sano),
+              <strong>aguanta</strong> (poco margen pero arrastra ventas),
+              <strong>sangra</strong> (margen negativo real) y
+              <strong>estorba</strong> (ni vende ni deja margen).
             </li>
             <li>
-              Encaja cada producto en <strong>mis</strong> categorías, no en las
-              del proveedor. Si uno no encaja en ninguna, mándalo a una lista
-              aparte para que decida yo.
+              Para los que sangran, dame las tres salidas posibles con su pega:
+              subir precio, cambiar el umbral de envío gratis o dejar de
+              venderlo. Di cuál recomiendas y por qué en ese caso concreto.
             </li>
             <li>
-              Marca los <strong>duplicados y casi duplicados</strong>: misma
-              referencia escrita de otra forma, mismo producto con dos códigos,
-              variantes que en realidad deberían ser un producto con opciones.
+              Calcula el <strong>umbral de envío gratis</strong> que me
+              convendría según mi ticket medio y mi coste de transporte real.
             </li>
             <li>
-              Señala los <strong>huecos que bloquean la publicación</strong>: sin
-              peso no puedes calcular el porte, sin imagen no se puede subir, sin
-              EAN no puedes ir a marketplaces.
-            </li>
-            <li>
-              Genera el nombre de producto y el SKU con mi regla, y calcula el
-              PVP con mi margen. Enséñame la cuenta de tres ejemplos antes de
-              aplicarlo a todo.
+              Termina con el efecto de tus propuestas: cuánto margen mensual gano
+              si aplico solo los tres cambios más rentables.
             </li>
           </ol>
 
           <h4>Salida esperada</h4>
           <ul>
-            <li>El mapeo de columnas propuesto, para que lo apruebe antes de nada</li>
-            <li>Tabla normalizada lista para importar, en CSV con mis cabeceras</li>
-            <li>Lista de duplicados y casi duplicados, con qué hacer con cada uno</li>
-            <li>Lista de productos bloqueados por falta de dato, con qué falta exactamente</li>
-            <li>Productos que no encajan en ninguna categoría mía</li>
+            <li>La fórmula usada, escrita con mis números, antes de la tabla</li>
+            <li>Tabla por referencia con los cuatro márgenes y el cajón asignado</li>
+            <li>Ficha corta de los que sangran, con la decisión recomendada</li>
+            <li>Un umbral de envío gratis con la cuenta que lo justifica</li>
+            <li>Lista de datos que te faltan, si los hay</li>
           </ul>
 
           <h4>Reglas</h4>
           <ul>
             <li>
-              No inventes ni un dato: si el proveedor no da el peso, la celda va
-              vacía y el producto a la lista de bloqueados. Nunca estimes un peso
-              «típico».
+              Ni un porcentaje inventado. Si no te he dado la tasa de
+              devoluciones de un producto, usa la general y dilo, o pregúntame.
             </li>
             <li>
-              No traduzcas ni maquilles los nombres técnicos que el cliente usa
-              para buscar. «Porcelánico rectificado» se queda como está.
+              No propongas subidas de precio a ojo: cada subida lleva su
+              justificación y el riesgo de perder ventas que estimas.
             </li>
             <li>
-              No inventes categorías nuevas por tu cuenta: propónmelas aparte y
-              espera.
+              Nada de «optimizar la estrategia de pricing». Quiero: esta
+              referencia, este precio nuevo, este motivo.
             </li>
             <li>
-              Si una fila tiene algo raro que no sabes resolver, no la descartes
-              en silencio: sácala a la lista de revisión con el motivo.
+              Si un producto sangra pero es el que atrae al cliente, dilo y no
+              recomiendes matarlo por número.
             </li>
           </ul>
         </section></div></div>
 <div class="col resp"><h4>Ejemplo de respuesta</h4><div class="cuerpo"><section>
-          <h4>Mapeo propuesto — Tarifa Cerámicas Nules, agosto 2026 (412 filas)</h4>
+          <h4>La fórmula, con tus números</h4>
+          <p>
+            Margen real = PVP − coste de compra − transporte real − comisión de
+            pasarela (1,4 % + 0,25 €) − embalaje − pérdida por devolución. La
+            pérdida por devolución la calculo como el porcentaje de devoluciones
+            × (transporte de vuelta 4,90 € + 30 % del coste del producto, que es
+            lo que pierdes al revenderlo como saldo). Si tu proveedor te acepta
+            el retorno íntegro, dímelo y bajo ese 30 % a cero.
+          </p>
+
+          <h4>Margen por referencia — junio y julio</h4>
           <table>
             <thead>
-              <tr><th>Columna del proveedor</th><th>Va a</th><th>Nota</th></tr>
+              <tr>
+                <th>Referencia</th>
+                <th>Uds</th>
+                <th>Bruto</th>
+                <th>Tras envío</th>
+                <th>Tras pasarela</th>
+                <th>Tras devoluciones</th>
+                <th>Cajón</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td>COD_ART</td><td>sku_proveedor</td><td>Tu SKU lo genero aparte</td></tr>
-              <tr><td>DESCRIPCION</td><td>nombre + 4 atributos</td><td>Lleva medida, acabado y caja metidos dentro</td></tr>
-              <tr><td>FAMILIA</td><td>—</td><td>Sus familias no son tus categorías: mapeo manual abajo</td></tr>
-              <tr><td>PVP_TARIFA</td><td>precio_coste</td><td>Ojo: viene sin IVA, tu columna de coste también, correcto</td></tr>
-              <tr><td>M2_CAJA</td><td>atributo_m2_caja</td><td>Clave para el precio por m², no la pierdas</td></tr>
-              <tr><td>OBS</td><td>—</td><td>Texto libre suyo («pdte reposición», «fin serie»). No se importa, pero lo he leído</td></tr>
+              <tr>
+                <td>Saco cemento cola 25 kg</td>
+                <td>412</td>
+                <td>3,80 €</td>
+                <td>−2,60 €</td>
+                <td>−3,17 €</td>
+                <td>−3,31 €</td>
+                <td>SANGRA</td>
+              </tr>
+              <tr>
+                <td>Plato ducha resina 120×80</td>
+                <td>96</td>
+                <td>78,00 €</td>
+                <td>61,00 €</td>
+                <td>58,20 €</td>
+                <td>44,90 €</td>
+                <td>GANA</td>
+              </tr>
+              <tr>
+                <td>Perfil aluminio 2,5 m</td>
+                <td>238</td>
+                <td>6,10 €</td>
+                <td>1,20 €</td>
+                <td>0,55 €</td>
+                <td>0,10 €</td>
+                <td>AGUANTA</td>
+              </tr>
+              <tr>
+                <td>Grifo monomando lavabo</td>
+                <td>144</td>
+                <td>21,40 €</td>
+                <td>17,90 €</td>
+                <td>16,80 €</td>
+                <td>12,30 €</td>
+                <td>GANA</td>
+              </tr>
+              <tr>
+                <td>Kit rejuntado 5 kg</td>
+                <td>18</td>
+                <td>4,20 €</td>
+                <td>−1,10 €</td>
+                <td>−1,70 €</td>
+                <td>−1,74 €</td>
+                <td>ESTORBA</td>
+              </tr>
             </tbody>
           </table>
+
+          <h4>Los que sangran, uno a uno</h4>
           <p>
-            No hay columna de peso ni de EAN en todo el archivo. Eso afecta a las
-            412 filas: sin peso no puedes calcular portes automáticos. Antes de
-            seguir, ¿lo pides tú al proveedor o prefieres publicar con porte
-            manual?
+            <strong>Saco de cemento cola.</strong> Pierdes 3,31 € cada vez que
+            lo vendes suelto, y lo has vendido 412 veces: 1.363 € de agujero en
+            dos meses. El problema no es el precio, son los 25 kg viajando por
+            6,40 € cuando a ti te cuestan 9,80 €. Recomiendo
+            <strong>venta mínima de 4 sacos</strong> antes que subir el precio:
+            el que reforma nunca compra uno solo, y a partir de cuatro el
+            transporte por unidad baja a 3,10 € y el margen se pone en 1,90 €.
+            Subir el PVP un 15 % te dejaría fuera de mercado frente a Bricomart,
+            que lo tiene a 8,45 € y con recogida en tienda.
+          </p>
+          <p>
+            <strong>Kit de rejuntado.</strong> 18 unidades en dos meses y pierdes
+            en cada una. No tiene arreglo por precio. Recomiendo dejar de
+            venderlo suelto y meterlo como accesorio sugerido del plato de
+            ducha, que sí gana: ahí viaja en el mismo bulto y el transporte no
+            sube.
           </p>
 
-          <h4>Cómo queda una fila</h4>
+          <h4>Tu umbral de envío gratis</h4>
           <p>
-            Original: <code>PORC. ROBLE NAT. 20X120 RECT. CJ 1,44M2 - A/1ª</code>
+            Lo tienes en 49 €. Tu ticket medio es 62 € y tu coste de transporte
+            medio 7,40 €. Con el umbral en 49 €, uno de cada tres pedidos cruza
+            la línea justo por encima y te deja 4 € limpios antes de contar tu
+            tiempo. Súbelo a <strong>75 €</strong>: mantienes al cliente de
+            reforma, que compra por encima de eso casi siempre, y dejas de
+            regalar el porte al que solo quiere un sifón. Con los datos de estos
+            dos meses habrías ahorrado 1.140 €.
           </p>
-          <table>
-            <thead>
-              <tr><th>Campo</th><th>Valor</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Nombre</td><td>Porcelánico Roble Natural 20×120 rectificado</td></tr>
-              <tr><td>SKU</td><td>POR-ROB-20120-NAT</td></tr>
-              <tr><td>Categoría</td><td>Pavimentos &gt; Porcelánico efecto madera</td></tr>
-              <tr><td>Medida</td><td>20×120 cm</td></tr>
-              <tr><td>Acabado</td><td>Natural</td></tr>
-              <tr><td>Canto</td><td>Rectificado</td></tr>
-              <tr><td>m² por caja</td><td>1,44</td></tr>
-              <tr><td>Calidad</td><td>Primera</td></tr>
-              <tr><td>Coste</td><td>18,40 €/m²</td></tr>
-              <tr><td>PVP</td><td>27,60 €/m² (margen 50 % de tu familia «pavimentos»)</td></tr>
-              <tr><td>Peso</td><td><em>vacío — bloquea publicación</em></td></tr>
-            </tbody>
-          </table>
 
-          <h4>Duplicados y casi duplicados</h4>
+          <h4>Si aplicas solo tres cosas</h4>
           <ul>
-            <li>
-              <strong>Filas 88 y 301:</strong> <code>ROBLE NAT 20X120</code> y
-              <code>ROBLE NATURAL 20X120</code>. Mismo coste, mismos m²/caja. Es
-              el mismo producto con el código cambiado en la tarifa nueva.
-              Quédate con el de la fila 301 y guarda el otro código como
-              referencia antigua.
-            </li>
-            <li>
-              <strong>Filas 120 a 126:</strong> siete «productos» que son el mismo
-              porcelánico en siete colores. En tu tienda deberían ser
-              <strong>un producto con atributo color</strong>, no siete fichas
-              compitiendo entre ellas en Google. Te los dejo agrupados en una
-              pestaña aparte por si prefieres subirlos así.
-            </li>
-            <li>
-              <strong>Filas 210 y 211:</strong> mismo artículo en calidad primera
-              y segunda, con 6 € de diferencia. Son productos distintos de
-              verdad, no duplicados: los dejo separados, pero mete «2ª calidad»
-              en el nombre o te comes las devoluciones.
-            </li>
+            <li>Mínimo de 4 sacos de cemento cola: +1.900 € al mes</li>
+            <li>Umbral de envío gratis a 75 €: +570 € al mes</li>
+            <li>Kit de rejuntado solo como accesorio: +31 € al mes y un dolor de cabeza menos</li>
           </ul>
+          <p>Total estimado: <strong>2.500 € al mes</strong> sin tocar el precio de nada que se venda bien.</p>
 
-          <h4>Bloqueados por falta de dato</h4>
+          <h4>Me faltan dos datos</h4>
           <ul>
-            <li><strong>412 productos</strong> sin peso: no se puede calcular el porte.</li>
-            <li><strong>412 productos</strong> sin EAN: puedes publicar en tu web, pero no en marketplaces.</li>
-            <li><strong>38 productos</strong> sin m² por caja, todos de la familia de piezas especiales. Sin ese dato no sé si vendes por unidad o por metro.</li>
-            <li><strong>9 productos</strong> con «PDTE PRECIO» en la columna de tarifa. No pongo cero: quedan fuera hasta que el proveedor mande el precio.</li>
+            <li>La tasa de devolución del grifo: he usado tu media del 9 %, pero un grifo se devuelve más que un saco.</li>
+            <li>Si el proveedor de resina te acepta retornos. Si es que sí, el plato de ducha gana 9 € más por unidad de lo que aparece en la tabla.</li>
           </ul>
-
-          <h4>No sé dónde meterlos</h4>
-          <ul>
-            <li>Rodapiés a juego (14 refs): no tienes categoría de rodapié. ¿Van dentro de cada pavimento como accesorio o creamos categoría?</li>
-            <li>Perfilería de remate en PVC (6 refs): tienes «perfilería de aluminio», pero esto no es aluminio.</li>
-            <li>Muestrarios de 10×10 (22 refs): normalmente se regalan. ¿Los publico a 0 € o los dejo fuera del catálogo?</li>
-          </ul>
-
-          <h4>A revisar tú</h4>
-          <p>
-            Once filas llevan «FIN SERIE» en observaciones. No las he descartado
-            porque el descatalogado del proveedor a veces es stock que tú sí
-            quieres liquidar. Decide y te las paso en un lote aparte.
-          </p>
         </section></div></div></div></details></article>
 <article class="pieza gal">
 <div class="meta"><span class="chip chip-encuadre">encuadre</span><span class="destino">Recursos fotográficos</span></div>
@@ -3218,7 +3218,9 @@ details[open] summary{margin-bottom:14px}
 <h3>Monocromo o blanco y negro</h3>
 <div class="galeria-split"><figure><img src="https://www.codigoadria.com/wp-content/uploads/2026/08/colores-monocromo-blanco-negro.jpg" alt="Monocromo o blanco y negro" loading="lazy"></figure>
 <div><h4>Prompt usado</h4><p class="mono">pure black and white monochrome photography, no colour anywhere in the frame, a man wearing a fedora hat and glasses looking out of a rain-streaked window, strong tonal contrast from deep blacks to bright whites, the full grey scale visible in the folds of his coat and the texture of the wall, classic reportage monochrome, high micro-contrast, deep shadows, ultra realistic black and white photograph, Leica M11 monochrom, 35mm lens, f/2.8, visible silver film grain, LoRA:@ricardoia.</p><h4>Descripción</h4><p class="desc">📖 El blanco y negro no es quitarle el color a una foto: es cambiar de idioma. Sin color, lo único que queda para construir la imagen son la luz, el contraste, la textura y la forma. Por eso una foto mediocre no mejora al pasarla a monocromo — se le ven las costuras. 🔑 Qué pide una buena foto en blanco y negro: contraste real (negros de verdad y blancos de verdad, no todo gris), textura que se pueda casi tocar, y una forma que se lea de un vistazo. Si la escena depende de que la camiseta era roja, no es una foto para monocromo. 💡 Truco: si tu cámara o tu móvil tiene modo monocromo en la pantalla, actívalo antes de disparar aunque guardes en color. Ver el mundo sin color mientras compones cambia lo que eliges encuadrar. ⚠️ El día nublado y plano, que es un problema en color, aquí es un aliado: da una escala de grises suave y limpia. Y la lluvia, mejor todavía — el agua dibuja.</p></div></div></article>
-</section></main><!--
+</section>
+</main>
+<!--
   FOOTER DE MARCA — OBLIGATORIO en todo HTML de Código AdrIA que se comparta en público.
   Pégalo justo antes de </body>. Autocontenido: CSS propio + SVG en línea, sin dependencias.
   Regla en CLAUDE.md raíz: "HTML público — marca y footer obligatorios".
