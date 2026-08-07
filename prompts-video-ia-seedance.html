@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los 4 prompts del vídeo con IA · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Los 4 prompts del vídeo con IA · Código AdrIA">
+<meta property="og:description" content="Los prompts exactos del vídeo. Manda la referencia, no el texto.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/prompts-video-ia-seedance.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Los 4 prompts del vídeo con IA · Código AdrIA">
+<meta name="twitter:description" content="Los prompts exactos del vídeo. Manda la referencia, no el texto.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--turquesa:#4dd2d0;--petroleo:#3f6f7b;--profundo:#102e35;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:var(--profundo);color:#eaf4f4;line-height:1.65;padding:0 16px 50px;}
+.wrap{max-width:720px;margin:0 auto;}
+header{padding:40px 0 6px;}
+.badge{display:inline-block;background:rgba(77,210,208,.15);color:var(--turquesa);border:1px solid var(--turquesa);border-radius:20px;padding:4px 14px;font-size:.75rem;font-weight:600;margin-bottom:14px;}
+h1{font-size:clamp(1.4rem,5vw,1.9rem);font-weight:800;line-height:1.25;}
+h1 span{color:var(--turquesa);}
+p{margin-bottom:12px;color:#d7e8e9;}
+.plano{display:flex;align-items:baseline;gap:10px;margin-top:28px;}
+.num{background:var(--turquesa);color:var(--profundo);border-radius:8px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;flex-shrink:0;}
+.plano h3{font-size:1rem;font-weight:700;color:#fff;}
+.plano span{color:#9fc3c6;font-weight:400;font-size:.85rem;}
+.promptbox{position:relative;background:#0a2026;border:1px solid rgba(77,210,208,.3);border-radius:12px;padding:18px 16px 16px;margin:10px 0 0;font-size:.87rem;color:#c9e6e6;white-space:pre-wrap;}
+.copybtn{position:absolute;top:10px;right:10px;background:var(--turquesa);color:var(--profundo);border:none;border-radius:8px;padding:5px 12px;font-family:'Poppins',sans-serif;font-weight:700;font-size:.75rem;cursor:pointer;}
+.copybtn:active{transform:scale(.96);}
+.tip{border-left:3px solid var(--turquesa);padding:10px 16px;background:rgba(77,210,208,.08);border-radius:0 10px 10px 0;margin:20px 0;font-size:.9rem;}
+footer{margin-top:44px;text-align:center;color:#9fc3c6;font-size:.85rem;}
+footer strong{color:var(--turquesa);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+<div class="badge">CÓDIGO ADRIA · VERSIÓN DEFINITIVA</div>
+<h1>Manda la referencia, <span>no el texto</span></h1>
+<p>Fuera la descripción del personaje. Si describes ropa y pelo, el prompt pelea contra tu imagen y el modelo intenta cuadrar dos versiones tuyas. Con @img1 basta: la cara, las gafas y la ropa salen de ahí.</p>
+<p>Queda solo lo que el texto sí controla mejor que una imagen: cámara, luz, acción y diálogo.</p>
+</header>
+
+<div class="plano"><div class="num">1</div><h3>El gancho <span>· 7 segundos</span></h3></div>
+<div class="promptbox" id="p1">Duración: 7 segundos.
+
+El protagonista es @img1. Movimiento de cámara como @vid1.
+
+Plano medio. Camina hacia cámara por una calle del centro de Valencia al atardecer, cámara en mano retrocediendo delante de él, edificios mediterráneos dorados al fondo.
+
+Habla a cámara todo el plano, con energía natural, sin silencios: "No soy un gurú de YouTube. Soy un tío con una tienda online de azulejos."<button class="copybtn" onclick="cp('p1',this)">Copiar</button></div>
+
+<div class="plano"><div class="num">2</div><h3>La credencial <span>· 8 segundos</span></h3></div>
+<div class="promptbox" id="p2">Duración: 8 segundos.
+
+CORTE A: nuevo plano de @img1, misma luz de atardecer, continuidad exacta con el plano anterior.
+
+Plano medio corto desde un ángulo distinto. Se detiene en el centro de la plaza y gesticula con la mano derecha mientras habla.
+
+Habla todo el plano, sin pausas: "Llevo ocho años metiendo inteligencia artificial en mi negocio. Todo lo que te cuento funciona en mi empresa antes de contártelo."<button class="copybtn" onclick="cp('p2',this)">Copiar</button></div>
+
+<div class="plano"><div class="num">3</div><h3>La promesa <span>· 9 segundos</span></h3></div>
+<div class="promptbox" id="p3">Duración: 9 segundos.
+
+CORTE A: nuevo plano de @img1, misma hora dorada, continuidad exacta.
+
+La cámara orbita despacio a su alrededor, contraluz de sol bajo entrando por detrás, destellos de lente suaves, fachadas desenfocadas.
+
+Habla todo el plano, marcando cada pausa con la mano: "Sin humo. Sin marketing. Sin lenguaje técnico. Lo que funciona, lo que falla, paso a paso."<button class="copybtn" onclick="cp('p3',this)">Copiar</button></div>
+
+<div class="plano"><div class="num">4</div><h3>El remate <span>· 6 segundos</span></h3></div>
+<div class="promptbox" id="p4">Duración: 6 segundos.
+
+CORTE A: primer plano de @img1, misma luz dorada, continuidad exacta. Cámara fija, ligerísimo push-in.
+
+Mirada directa a cámara, media sonrisa. Dice despacio, separando las dos palabras: "Esto es… Código Adria. Automatiza con cabeza."
+
+Mantiene la mirada dos segundos en silencio tras la última palabra. Sonido ambiente de calle suave, música electrónica minimalista de fondo, baja para no tapar la voz.<button class="copybtn" onclick="cp('p4',this)">Copiar</button></div>
+
+<div class="tip"><strong>Lo que arrastramos de las pruebas anteriores:</strong> sin ficha de voz (locuta menos), sin fonética inventada, "Código Adria" con mayúsculas normales, "metiendo" en vez de "automatizando". Todo eso se queda.</div>
+
+<footer><p><strong>Automatiza con cabeza</strong> · Código AdrIA</p></footer>
+</div>
+<script>
+function cp(id,btn){const t=document.getElementById(id).cloneNode(true);t.querySelector('button').remove();navigator.clipboard.writeText(t.textContent.trim()).then(()=>{btn.textContent='¡Copiado!';setTimeout(()=>btn.textContent='Copiar',1500);});}
+</script>
+</body>
+</html>
