@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PPOS frente a los análogos de GnRH · Martins &amp; Nastri, 2026</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="El progestágeno oral supera al antagonista · Código AdrIA">
+<meta property="og:description" content="Metaanálisis de 20 ensayos y 4430 mujeres: PPOS logra más recién nacidos vivos que el antagonista.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/ppos-vs-gnrh-metaanalisis.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="El progestágeno oral supera al antagonista · Código AdrIA">
+<meta name="twitter:description" content="Metaanálisis de 20 ensayos y 4430 mujeres: PPOS logra más recién nacidos vivos que el antagonista.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta name="description" content="La revisión sistemática y metaanálisis de Martins y Nastri (Ultrasound Obstet Gynecol, 2026) sobre PPOS frente a antagonistas y agonistas de GnRH, contada en visual: qué preguntaron, qué midieron, qué encontraron y qué dejaron abierto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181a;
+    --ink-soft:#3a4448;
+    --ink-mute:#6d797e;
+    --canvas:#ffffff;
+    --parchment:#f4f7f7;
+    --tile-dark:#16242a;
+    --tile-darker:#101c21;
+    --hairline:#e2e9e9;
+    --brand:#4dd2d0;
+    --brand-deep:#0e9c99;
+    --brand-slate:#3f6f7b;
+    --serie-a:#0e9c99;
+    --serie-b:#6b5ea8;
+    --serie-a-dark:#4dd2d0;
+    --serie-b-dark:#a99cf0;
+    --radius-card:18px;
+    --radius-pill:9999px;
+    --shadow-object:0 3px 30px rgba(16,28,33,.14);
+    --max:1120px;
+    --max-read:760px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--canvas);
+    color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:17px;
+    line-height:1.55;
+    font-weight:400;
+    letter-spacing:-.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+  section{padding:88px 24px}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .read{max-width:var(--max-read);margin:0 auto}
+  h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.028em;line-height:1.08}
+  h1{font-size:clamp(2.1rem,6vw,3.7rem)}
+  h2{font-size:clamp(1.6rem,4vw,2.5rem)}
+  h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.3}
+  p{margin:0 0 1.15em}
+  p:last-child{margin-bottom:0}
+  .eyebrow{
+    font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--brand-deep);margin:0 0 20px
+  }
+  .lead{font-size:clamp(1.1rem,2.4vw,1.42rem);font-weight:300;line-height:1.45;color:var(--ink-soft)}
+
+  /* ---------- barra de marca ---------- */
+  .brandbar{background:var(--tile-dark);padding:22px 24px 0}
+  .brandbar .wrap{display:flex;align-items:center}
+  .brandbar a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;transition:opacity .2s}
+  .brandbar a:hover{opacity:.78}
+  .brandbar img{height:34px;width:auto;display:block}
+  .brandbar span{font-size:.86rem;font-weight:500;color:#dfe9eb;letter-spacing:-.01em}
+
+  /* ---------- portada ---------- */
+  .hero{
+    background:var(--tile-dark);color:#fff;padding:56px 24px 84px;
+    background-image:radial-gradient(120% 90% at 12% 0%,rgba(77,210,208,.16) 0%,transparent 58%);
+  }
+  .hero .eyebrow{color:var(--brand)}
+  .hero h1{color:#fff;max-width:16ch}
+  .hero .original{
+    margin-top:26px;padding-left:18px;border-left:2px solid rgba(77,210,208,.5);
+    font-size:1rem;font-weight:300;color:#c9d6d9;font-style:italic;max-width:56ch
+  }
+  .authors{margin-top:34px;font-size:.95rem;color:#9fb0b5;line-height:1.7;max-width:60ch}
+  .authors .first{color:#fff;font-weight:600}
+  .meta-row{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
+  .chip{
+    display:inline-flex;align-items:center;gap:7px;
+    border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-pill);
+    padding:8px 16px;font-size:.83rem;color:#dfe9eb;white-space:nowrap
+  }
+  .chip b{color:#fff;font-weight:600}
+
+  /* ---------- destacado numérico ---------- */
+  .headline-figure{background:var(--parchment)}
+  .figure-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin-top:44px}
+  .stat{
+    background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);
+    padding:26px 24px
+  }
+  .stat .num{
+    font-size:clamp(2.2rem,5vw,2.9rem);font-weight:600;letter-spacing:-.04em;line-height:1;
+    color:var(--ink)
+  }
+  .stat .num small{font-size:.42em;font-weight:500;letter-spacing:-.01em;color:var(--ink-mute);margin-left:4px}
+  .stat .num.compact{font-size:clamp(1.7rem,3.6vw,2.15rem)}
+  .stat .label{margin-top:12px;font-size:.92rem;color:var(--ink-soft);line-height:1.4}
+  .stat .foot{margin-top:10px;font-size:.78rem;color:var(--ink-mute)}
+  .stat.accent{border-color:rgba(14,156,153,.35);background:linear-gradient(180deg,rgba(14,156,153,.06),transparent 70%)}
+  .stat.accent .num{color:var(--brand-deep)}
+
+  /* ---------- gráfico forest ---------- */
+  .chart-card{
+    background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);
+    padding:32px 28px;margin-top:40px
+  }
+  .chart-title{font-size:1.05rem;font-weight:600;letter-spacing:-.02em;margin:0}
+  .chart-sub{font-size:.87rem;color:var(--ink-mute);margin:6px 0 0}
+  .legend{display:flex;flex-wrap:wrap;gap:18px;margin:22px 0 8px}
+  .legend span{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--ink-soft)}
+  .swatch{width:12px;height:12px;border-radius:3px;flex:none}
+  .swatch.a{background:var(--serie-a)}
+  .swatch.b{background:var(--serie-b)}
+
+  .forest{margin-top:26px}
+  .f-row{margin-bottom:30px}
+  .f-row:last-child{margin-bottom:0}
+  .f-name{font-size:.9rem;color:var(--ink-soft);margin-bottom:12px}
+  .f-body{display:flex;align-items:center;gap:14px}
+  .f-track{
+    position:relative;flex:1;height:34px;background:#eef3f3;border-radius:4px;overflow:hidden
+  }
+  .f-null{
+    position:absolute;top:0;bottom:0;left:60.92%;width:2px;background:#c2d0d0;transform:translateX(-1px)
+  }
+  .f-ci{
+    position:absolute;top:50%;height:8px;margin-top:-4px;border-radius:4px;background:var(--serie-b);
+    opacity:.42;transition:width .9s cubic-bezier(.22,.8,.3,1)
+  }
+  .f-ci.sig{background:var(--serie-a);opacity:.34}
+  .f-dot{
+    position:absolute;top:50%;width:15px;height:15px;border-radius:50%;
+    background:var(--serie-b);border:2px solid var(--canvas);
+    transform:translate(-50%,-50%) scale(.4);opacity:0;
+    transition:transform .55s cubic-bezier(.22,1.4,.5,1) .25s,opacity .4s ease .25s
+  }
+  .f-dot.sig{background:var(--serie-a)}
+  .f-dot.show{transform:translate(-50%,-50%) scale(1);opacity:1}
+  .f-val{
+    font-variant-numeric:tabular-nums;font-size:.95rem;font-weight:600;color:var(--ink);
+    min-width:132px;text-align:right;letter-spacing:-.02em
+  }
+  .f-val small{display:block;font-weight:400;font-size:.74rem;color:var(--ink-mute);letter-spacing:0}
+  .f-axis{
+    position:relative;height:22px;margin-top:6px;margin-right:146px;
+    font-variant-numeric:tabular-nums;font-size:.72rem;color:var(--ink-mute)
+  }
+  .f-axis i{position:absolute;transform:translateX(-50%);font-style:normal}
+  .f-axis i.zero{color:var(--ink-soft);font-weight:600}
+  .f-hint{
+    display:flex;justify-content:space-between;margin-top:2px;margin-right:146px;
+    font-size:.74rem;color:var(--ink-mute)
+  }
+  .p-tag{
+    display:inline-block;margin-top:14px;font-size:.78rem;color:var(--ink-mute);
+    background:#eef3f3;border-radius:var(--radius-pill);padding:5px 12px
+  }
+  .p-tag.sig{background:rgba(14,156,153,.12);color:var(--brand-deep);font-weight:500}
+  .grade-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+  .grade{
+    display:inline-flex;align-items:center;gap:7px;border:1px solid var(--hairline);
+    border-radius:var(--radius-pill);padding:7px 14px;font-size:.79rem;color:var(--ink-mute)
+  }
+  .grade b{color:var(--ink-soft);font-weight:600}
+
+  /* ---------- tabla ---------- */
+  details.table-view{margin-top:26px;border-top:1px solid var(--hairline);padding-top:18px}
+  details.table-view summary{
+    cursor:pointer;font-size:.87rem;color:var(--brand-deep);font-weight:500;list-style:none
+  }
+  details.table-view summary::-webkit-details-marker{display:none}
+  details.table-view summary::before{content:"▸ "}
+  details.table-view[open] summary::before{content:"▾ "}
+  .tbl-scroll{overflow-x:auto;margin-top:16px}
+  table{border-collapse:collapse;width:100%;font-size:.87rem;min-width:560px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hairline)}
+  th{font-weight:600;color:var(--ink-soft);font-size:.8rem;letter-spacing:.02em}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  td.sig{color:var(--brand-deep);font-weight:600}
+
+  /* ---------- pasos del método ---------- */
+  .steps{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;margin-top:44px;
+    background:var(--hairline);border-radius:var(--radius-card);overflow:hidden
+  }
+  .step{background:var(--canvas);padding:28px 24px}
+  .step .n{
+    display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;
+    border-radius:50%;background:var(--brand-deep);color:#fff;font-size:.85rem;font-weight:600;margin-bottom:16px
+  }
+  .step h3{margin-bottom:8px}
+  .step p{font-size:.92rem;color:var(--ink-soft);margin:0}
+
+  /* ---------- tile oscuro: letra pequeña ---------- */
+  .dark{background:var(--tile-darker);color:#e8eef0}
+  .dark h2{color:#fff}
+  .dark .eyebrow{color:var(--brand)}
+  .dark .lead{color:#b3c3c7}
+  .caveats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:44px}
+  .caveat{
+    border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-card);padding:26px 24px;
+    background:rgba(255,255,255,.03)
+  }
+  .caveat h3{color:#fff;margin-bottom:10px}
+  .caveat p{font-size:.92rem;color:#a9bbc0;margin:0 0 .9em}
+  .caveat p:last-child{margin-bottom:0}
+  .caveat em{color:#cfdde0;font-style:italic}
+  .quote{margin:56px auto 0;max-width:var(--max-read);padding:30px 0 0;border-top:1px solid rgba(255,255,255,.16)}
+  .quote p{font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:300;line-height:1.5;color:#dbe6e8;font-style:italic}
+  .quote cite{display:block;margin-top:14px;font-size:.85rem;color:#8ea3a8;font-style:normal}
+
+  /* ---------- cierre ---------- */
+  .closing{background:var(--parchment);text-align:center}
+  .closing .cite-block{
+    max-width:var(--max-read);margin:36px auto 0;padding:24px;background:var(--canvas);
+    border:1px solid var(--hairline);border-radius:var(--radius-card);
+    font-size:.88rem;color:var(--ink-soft);text-align:left;line-height:1.6
+  }
+  .closing a{color:var(--brand-deep);text-decoration:none;border-bottom:1px solid rgba(14,156,153,.35)}
+  .honesty{
+    background:var(--canvas);border-top:1px solid var(--hairline);
+    padding:40px 24px;text-align:center;font-size:.82rem;color:var(--ink-mute)
+  }
+  .honesty .brand{color:var(--brand-deep);font-weight:600}
+
+  @media (max-width:640px){
+    section{padding:64px 20px}
+    .hero{padding:44px 20px 64px}
+    .chart-card{padding:24px 18px}
+    .f-val{min-width:104px;font-size:.86rem}
+    .f-axis,.f-hint{margin-right:118px}
+  }
+
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ink:#eef3f4;--ink-soft:#b9c7cb;--ink-mute:#8b9ca1;
+      --canvas:#0f1719;--parchment:#141f22;--hairline:#25353a;
+      --serie-a:var(--serie-a-dark);--serie-b:var(--serie-b-dark);
+    }
+    .stat.accent{background:linear-gradient(180deg,rgba(77,210,208,.08),transparent 70%);border-color:rgba(77,210,208,.3)}
+    .stat.accent .num{color:var(--brand)}
+    .step .n{background:var(--brand);color:#0f1719}
+    .eyebrow{color:var(--brand)}
+    .f-track{background:#1d2b2f}
+    .f-null{background:#3b4c51}
+    .p-tag{background:#1d2b2f}
+    .p-tag.sig{background:rgba(77,210,208,.14);color:var(--brand)}
+    details.table-view summary,.closing a,.honesty .brand,td.sig{color:var(--brand)}
+    .closing a{border-bottom-color:rgba(77,210,208,.4)}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .f-ci,.f-dot{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="wrap">
+    <a href="https://www.codigoadria.com">
+      <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      <span>Código AdrIA · papers legibles</span>
+    </a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Ultrasound in Obstetrics &amp; Gynecology · Vol. 68 · 2026</p>
+    <h1>El progestágeno oral supera al antagonista</h1>
+    <p class="original">«Progestogen-primed ovarian stimulation vs GnRH antagonists and/or agonists for women undergoing assisted reproduction: systematic review and meta-analysis»</p>
+    <p class="authors">
+      <span class="first">W. P. Martins</span>, C. O. Nastri · SEMEAR Fertilidade, Medicina Reproductiva,
+      Ribeirão Preto, Brasil
+    </p>
+    <div class="meta-row">
+      <span class="chip">Revisión sistemática y <b>metaanálisis</b></span>
+      <span class="chip"><b>20</b> ensayos aleatorizados · <b>4430</b> mujeres</span>
+      <span class="chip">doi <b>10.1002/uog.70267</b></span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="read">
+    <p class="eyebrow">La pregunta</p>
+    <h2>Quitar el pinchazo diario sin perder embarazos</h2>
+    <p class="lead" style="margin-top:24px">
+      Evitar el pico prematuro de LH durante la estimulación es la base de un ciclo de reproducción
+      asistida. Los análogos de GnRH lo consiguen, pero exigen inyecciones diarias y suben la factura
+      del tratamiento.
+    </p>
+    <p>
+      La estimulación con progestágenos (PPOS) aprovecha el efecto inhibidor natural de los
+      progestágenos orales sobre la liberación de gonadotropinas. Se toma por boca, elimina los
+      pinchazos y cuesta menos. La contrapartida está en el endometrio: el progestágeno lo hace
+      inservible para una transferencia en fresco, así que obliga a congelar todo y transferir después.
+    </p>
+    <p>
+      Esa obligación ha dejado de ser un problema en muchos casos. El freeze-all programado ya es
+      habitual por el test genético preimplantacional, por la preservación de la fertilidad, para
+      esquivar el síndrome de hiperestimulación en altas respondedoras y por los protocolos de inicio
+      aleatorio. En todos esos escenarios el PPOS no renuncia a nada.
+    </p>
+    <p>
+      Faltaba la respuesta que importa. La revisión Cochrane de 2023 solo incluía ensayos
+      aleatorizados, pero fragmentaba tanto las comparaciones que se quedó sin precisión:
+      <strong>RR 1,16 (IC95% 0,93–1,44)</strong> para el recién nacido vivo, un intervalo que no permite
+      concluir nada. Una revisión posterior ganó potencia estadística incluyendo estudios no
+      aleatorizados —y con ellos, riesgo de sesgo por confusión—, y además no comparaba con agonistas.
+    </p>
+    <p>
+      De ahí la pregunta de estos autores: si solo se admiten ensayos aleatorizados y se juntan todos
+      los progestágenos disponibles, ¿sale el PPOS a la altura de los análogos de GnRH en recién
+      nacidos vivos, o por debajo?
+    </p>
+  </div>
+</section>
+
+<section class="headline-figure">
+  <div class="wrap">
+    <p class="eyebrow">Los resultados</p>
+    <h2>Sale por encima, y no por poco margen</h2>
+
+    <div class="figure-grid">
+      <div class="stat accent">
+        <div class="num">1,13</div>
+        <div class="label">Riesgo relativo de recién nacido vivo, PPOS frente a antagonista</div>
+        <div class="foot">IC95% 1,02–1,25 · P = 0,02 · 8 ensayos, 2624 mujeres</div>
+      </div>
+      <div class="stat">
+        <div class="num">20</div>
+        <div class="label">Mujeres a tratar con PPOS para conseguir un nacimiento más</div>
+        <div class="foot">IC95% 11–157</div>
+      </div>
+      <div class="stat">
+        <div class="num">+0,88</div>
+        <div class="label">Ovocitos recuperados de más, en diferencia de medias</div>
+        <div class="foot">IC95% 0,27–1,50 · P = 0,005 · 16 estudios, 3652 mujeres</div>
+      </div>
+      <div class="stat">
+        <div class="num">0</div>
+        <div class="label">Casos de OHSS moderado o grave, en los dos grupos</div>
+        <div class="foot">10 ensayos, 3155 mujeres</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <p class="chart-title">Lo que cambia y lo que no: PPOS frente al antagonista de GnRH</p>
+      <p class="chart-sub">
+        Riesgo relativo con su intervalo de confianza del 95 %. La línea vertical marca el 1,0:
+        si el intervalo la cruza, no hay diferencia demostrada entre los dos protocolos.
+      </p>
+
+      <div class="legend">
+        <span><i class="swatch a"></i> Diferencia significativa</span>
+        <span><i class="swatch b"></i> Sin diferencia significativa</span>
+      </div>
+
+      <div class="forest">
+
+        <div class="f-row">
+          <div class="f-name">Recién nacido vivo · 8 ensayos, 2624 mujeres</div>
+          <div class="f-body">
+            <div class="f-track">
+              <div class="f-null"></div>
+              <div class="f-ci sig" style="left:62.24%;width:13.52%"></div>
+              <div class="f-dot sig" style="left:69.05%"></div>
+            </div>
+            <div class="f-val">RR 1,13<small>1,02 – 1,25</small></div>
+          </div>
+          <span class="p-tag sig">P = 0,02 · I² = 0 % · favorece al PPOS</span>
+        </div>
+
+        <div class="f-row">
+          <div class="f-name">Gestación clínica · 11 ensayos, 2625 mujeres</div>
+          <div class="f-body">
+            <div class="f-track">
+              <div class="f-null"></div>
+              <div class="f-ci" style="left:57.51%;width:13.28%"></div>
+              <div class="f-dot" style="left:64.16%"></div>
+            </div>
+            <div class="f-val">RR 1,05<small>0,95 – 1,16</small></div>
+          </div>
+          <span class="p-tag">P = 0,34 · I² = 14 % · sin diferencia</span>
+        </div>
+
+        <div class="f-row">
+          <div class="f-name">Aborto por gestación clínica · 8 estudios, 912 mujeres</div>
+          <div class="f-body">
+            <div class="f-track">
+              <div class="f-null"></div>
+              <div class="f-ci" style="left:31.25%;width:37.80%"></div>
+              <div class="f-dot" style="left:50.12%"></div>
+            </div>
+            <div class="f-val">RR 0,85<small>0,64 – 1,13</small></div>
+          </div>
+          <span class="p-tag">P = 0,26 · I² = 0 % · sin diferencia</span>
+        </div>
+
+        <div class="f-row">
+          <div class="f-name">Cancelación de la punción · 13 estudios, 3371 mujeres</div>
+          <div class="f-body">
+            <div class="f-track">
+              <div class="f-null"></div>
+              <div class="f-ci" style="left:3.24%;width:87.67%"></div>
+              <div class="f-dot" style="left:47.73%"></div>
+            </div>
+            <div class="f-val">RR 0,82<small>0,42 – 1,57</small></div>
+          </div>
+          <span class="p-tag">P = 0,55 · I² = 0 % · sin diferencia</span>
+        </div>
+
+        <div class="f-axis" aria-hidden="true">
+          <i style="left:14.84%">0,5</i>
+          <i style="left:41.79%">0,75</i>
+          <i class="zero" style="left:60.92%">1,0</i>
+          <i style="left:87.88%">1,5</i>
+        </div>
+        <div class="f-hint">
+          <span>← favorece al antagonista</span>
+          <span>favorece al PPOS →</span>
+        </div>
+      </div>
+
+      <div class="grade-row">
+        <span class="grade">Certeza GRADE · recién nacido vivo: <b>moderada</b></span>
+        <span class="grade">Ovocitos recuperados y cancelación: <b>baja</b></span>
+        <span class="grade">OHSS moderado/grave: <b>muy baja</b></span>
+      </div>
+
+      <details class="table-view">
+        <summary>Ver todos los desenlaces de la comparación con el antagonista</summary>
+        <div class="tbl-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Desenlace</th>
+                <th class="num">Estudios (n)</th>
+                <th class="num">Efecto (IC95%)</th>
+                <th class="num">P</th>
+                <th class="num">I²</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Recién nacido vivo</td><td class="num">8 (2624)</td><td class="num sig">RR 1,13 (1,02–1,25)</td><td class="num sig">0,02</td><td class="num">0 %</td></tr>
+              <tr><td>Recién nacido vivo acumulado</td><td class="num">4 (1934)</td><td class="num">RR 1,06 (0,97–1,17)</td><td class="num">0,21</td><td class="num">0 %</td></tr>
+              <tr><td>Gestación clínica</td><td class="num">11 (2625)</td><td class="num">RR 1,05 (0,95–1,16)</td><td class="num">0,34</td><td class="num">14 %</td></tr>
+              <tr><td>Gestación clínica acumulada</td><td class="num">2 (688)</td><td class="num">RR 1,07 (0,93–1,24)</td><td class="num">0,34</td><td class="num">0 %</td></tr>
+              <tr><td>Aborto por gestación clínica</td><td class="num">8 (912)</td><td class="num">RR 0,85 (0,64–1,13)</td><td class="num">0,26</td><td class="num">0 %</td></tr>
+              <tr><td>Gestación múltiple</td><td class="num">5 (890)</td><td class="num">RR 1,15 (0,60–2,20)</td><td class="num">0,67</td><td class="num">30 %</td></tr>
+              <tr><td>Pico prematuro de LH</td><td class="num">12 (3178)</td><td class="num">RR 0,49 (0,05–4,94)</td><td class="num">0,54</td><td class="num">74 %</td></tr>
+              <tr><td>Cancelación de la punción</td><td class="num">13 (3371)</td><td class="num">RR 0,82 (0,42–1,57)</td><td class="num">0,55</td><td class="num">0 %</td></tr>
+              <tr><td>Ovocitos recuperados</td><td class="num">16 (3652)</td><td class="num sig">DM +0,88 (0,27–1,50)</td><td class="num sig">0,005</td><td class="num">60 %</td></tr>
+              <tr><td>Ovocitos MII</td><td class="num">14 (2542)</td><td class="num">DM +0,64 (−0,01–1,28)</td><td class="num">0,05</td><td class="num">50 %</td></tr>
+              <tr><td>Embriones totales</td><td class="num">12 (3202)</td><td class="num sig">DM +0,40 (0,05–0,74)</td><td class="num sig">0,02</td><td class="num">56 %</td></tr>
+              <tr><td>Blastocistos</td><td class="num">5 (1373)</td><td class="num">DM +0,22 (−0,13–0,56)</td><td class="num">0,22</td><td class="num">0 %</td></tr>
+              <tr><td>Blastocistos euploides</td><td class="num">1 (240)</td><td class="num">DM −0,03 (−0,22–0,16)</td><td class="num">0,75</td><td class="num">—</td></tr>
+              <tr><td>Días de estimulación</td><td class="num">15 (3578)</td><td class="num">DM −0,10 (−0,26–0,06)</td><td class="num">0,23</td><td class="num">58 %</td></tr>
+              <tr><td>Dosis total de gonadotropinas</td><td class="num">11 (2637)</td><td class="num">DM −16,70 UI (−78,24–44,84)</td><td class="num">0,59</td><td class="num">55 %</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:.8rem;color:var(--ink-mute);margin-top:14px">
+          RR: riesgo relativo. DM: diferencia de medias. Todos los datos proceden de las figuras 3 a 6 y
+          de las figuras suplementarias S1 a S11 del artículo.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">El método</p>
+    <h2>Cómo se hizo, en cuatro pasos</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h3>Qué se buscó</h3>
+        <p>
+          PubMed, Scopus y Web of Science, más ClinicalTrials.gov y la plataforma ICTRP de la OMS, desde
+          el origen hasta el 11 de noviembre de 2025, sin restricción de idioma, revisando además a mano
+          las listas de referencias. De 1384 registros identificados quedaron 1236 tras quitar duplicados,
+          234 se leyeron a texto completo y 20 ensayos entraron en el análisis. Protocolo registrado en
+          PROSPERO (CRD420251177263) e informe según PRISMA 2020.
+        </p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3>Quién entraba</h3>
+        <p>
+          Mujeres en estimulación ovárica para FIV o ICSI con ovocitos propios, para donación de ovocitos
+          o para preservación de la fertilidad. Cualquier respuesta ovárica esperada —baja, normal o
+          alta— según la definiera cada estudio. Los 20 ensayos se publicaron entre 2018 y 2025 en ocho
+          países, nueve de ellos en China, y reunieron 4430 participantes.
+        </p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3>Qué se comparaba</h3>
+        <p>
+          Cualquier progestágeno (acetato de medroxiprogesterona, dydrogesterona, progesterona
+          micronizada, desogestrel), a cualquier dosis, pauta y vía, siempre con gonadotropinas. Enfrente,
+          antagonistas de GnRH (cetrorelix, ganirelix) en 17 ensayos, agonistas (leuprolide, triptorelina)
+          en 2 y la combinación de ambos en 1. Los progestágenos se agruparon para ganar potencia, con
+          análisis de subgrupos por tipo; las tres comparaciones se analizaron por separado.
+        </p>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <h3>Cómo se midió</h3>
+        <p>
+          Desenlace principal: tasa de recién nacido vivo por mujer aleatorizada, con la gestación
+          evolutiva como sustituto cuando el ensayo no informaba del nacimiento. Metaanálisis de efectos
+          aleatorios, riesgo relativo para variables dicotómicas y diferencia de medias para las
+          continuas, con I² &gt; 50 % como heterogeneidad sustancial y P &lt; 0,05 como umbral. El riesgo de
+          sesgo se evaluó con RoB 2, la fiabilidad de cada ensayo con la herramienta INSPECT-SR y la
+          certeza de la evidencia con GRADE.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <p class="eyebrow">La letra pequeña</p>
+    <h2>Lo que los propios autores ponen en duda</h2>
+    <p class="lead" style="margin-top:24px;max-width:60ch">
+      Esta sección no la escribe el titular: la escriben ellos, en el apartado de limitaciones.
+    </p>
+
+    <div class="caveats">
+      <div class="caveat">
+        <h3>Ningún ensayo estaba cegado</h3>
+        <p>
+          Es imposible cegar una pastilla frente a una inyección diaria, y hacerlo exigiría un diseño de
+          doble simulación con pinchazos de placebo, con el problema ético que eso arrastra. Por eso
+          bajaron un nivel la certeza de casi todos los desenlaces.
+        </p>
+        <p>
+          Ellos mismos matizan que el recién nacido vivo es un desenlace duro y objetivo:
+          <em>«el riesgo real de que la falta de cegamiento influyera en la tasa de recién nacido vivo es
+          probablemente insignificante»</em>.
+        </p>
+      </div>
+      <div class="caveat">
+        <h3>El beneficio se mueve en el filo</h3>
+        <p>
+          El RR 1,13 (P = 0,02) es el análisis principal. En los análisis de sensibilidad, al excluir el
+          ensayo con alto riesgo de sesgo, el resultado queda justo en el límite: RR 1,11 (1,00–1,23),
+          <strong>P = 0,05</strong>. Y en el mejor escenario, con solo los dos ensayos cuya única pega era
+          el diseño abierto (1024 mujeres), deja de ser significativo: RR 1,16 (0,97–1,38), P = 0,11.
+        </p>
+        <p>
+          Su lectura: <em>«la magnitud del beneficio detectado puede estar influida por la calidad de los
+          estudios o por características concretas de la población»</em>.
+        </p>
+      </div>
+      <div class="caveat">
+        <h3>Ningún ensayo con bajo riesgo de sesgo</h3>
+        <p>
+          Ninguno de los 20 alcanzó un riesgo global bajo: 13 quedaron con «algunas dudas» y 7 en riesgo
+          alto, sobre todo por análisis por protocolo que excluían participantes aleatorizadas y por falta
+          de registro prospectivo. La herramienta INSPECT-SR detectó además dudas serias de fiabilidad
+          en 5 de ellos.
+        </p>
+        <p>
+          En los ovocitos recuperados hubo heterogeneidad sustancial (I² = 60 %), que los subgrupos
+          atribuyen al tipo de progestágeno y a poblaciones distintas.
+        </p>
+      </div>
+      <div class="caveat">
+        <h3>Frente a los agonistas casi no hay datos</h3>
+        <p>
+          La comparación con agonistas de GnRH descansa en 2 ensayos y 353 mujeres, y la del régimen
+          combinado agonista + antagonista en uno solo de 209 participantes, publicado como resumen y con
+          alto riesgo de sesgo. Certeza baja y muy baja: no hay diferencias, pero tampoco potencia para
+          verlas.
+        </p>
+        <p>
+          En seguridad pasa algo parecido: cero casos de OHSS moderado o grave en ambos grupos confirma
+          que los dos protocolos son seguros en un contexto de freeze-all, pero impide calcular un riesgo
+          relativo preciso.
+        </p>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p>
+        «La evidencia sólida actual, de certeza moderada, indica que el PPOS se asocia a una tasa de
+        recién nacido vivo significativamente más alta que el protocolo con antagonista de GnRH en el
+        primer ciclo de transferencia embrionaria, junto con un mayor número de ovocitos recuperados.»
+      </p>
+      <cite>Martins WP, Nastri CO. Conclusiones, pág. 200. Traducción del original en inglés.</cite>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <p class="eyebrow">Para citarlo</p>
+    <h2>La referencia completa</h2>
+    <div class="cite-block">
+      Martins WP, Nastri CO. Progestogen-primed ovarian stimulation vs GnRH antagonists and/or agonists
+      for women undergoing assisted reproduction: systematic review and meta-analysis.
+      <em>Ultrasound Obstet Gynecol.</em> 2026;68:188–201.
+      doi:<a href="https://doi.org/10.1002/uog.70267">10.1002/uog.70267</a>
+      <br><br>
+      Publicado en línea el 9 de julio de 2026 · © International Society of Ultrasound in Obstetrics and
+      Gynecology · <a href="https://doi.org/10.1002/uog.70267">Leer el artículo original</a>
+    </div>
+  </div>
+</section>
+
+<div class="honesty">
+  Ficha elaborada sobre el artículo original, sin añadir datos ni interpretaciones ajenas al texto.
+  Cada cifra de esta página se puede señalar en el artículo. · <span class="brand">Código AdrIA</span>
+</div>
+
+<style>
+  .ca-foot{
+    background:#102e35;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal-brand span{font-size:.86rem;font-weight:500;color:#dfe9eb}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Fichas como esta salen de un flujo con verificación de cifras, no de pedirle un resumen a un
+          chat. En la comunidad enseñamos cómo se monta: lo que funciona y lo que no.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+        <span>Código AdrIA</span>
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  // Las barras del forest entran animadas al aparecer: la geometría vive en el HTML,
+  // aquí solo se retiene el ancho del intervalo y se suelta al entrar en pantalla.
+  (function () {
+    var rows = Array.prototype.slice.call(document.querySelectorAll('.f-row'));
+    if (!rows.length) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduce || !('IntersectionObserver' in window)) {
+      rows.forEach(function (row) {
+        var dot = row.querySelector('.f-dot');
+        if (dot) dot.classList.add('show');
+      });
+      return;
+    }
+
+    rows.forEach(function (row) {
+      var ci = row.querySelector('.f-ci');
+      if (!ci) return;
+      ci.dataset.w = ci.style.width;
+      ci.style.width = '0%';
+    });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var row = entry.target;
+        var ci = row.querySelector('.f-ci');
+        var dot = row.querySelector('.f-dot');
+        requestAnimationFrame(function () {
+          if (ci) ci.style.width = ci.dataset.w;
+          if (dot) dot.classList.add('show');
+        });
+        io.unobserve(row);
+      });
+    }, { threshold: 0.35 });
+
+    rows.forEach(function (row) { io.observe(row); });
+  })();
+</script>
+</body>
+</html>
