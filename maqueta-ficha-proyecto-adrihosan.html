@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maqueta · Ficha de proyecto Adrihosan</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="https://www.adrihosan.com/favicon.ico">
+<meta name="theme-color" content="#12333c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1d1e;           /* texto principal */
+  --body:#4a5356;          /* texto secundario */
+  --muted:#7b8589;         /* metadatos */
+  --canvas:#ffffff;
+  --parchment:#f5f6f5;     /* losa alterna, al estilo Apple */
+  --deep:#12333c;          /* teal oscuro Adrihosan */
+  --accent:#4dd2d0;        /* turquesa: SOLO acento, nunca texto grande */
+  --accent-ink:#12727a;    /* turquesa legible sobre blanco (4.6:1) */
+  --line:#e4e7e7;
+  --r:14px;
+  --maxw:1200px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden}  /* el desbordamiento, resuelto */
+body{
+  font-family:'Poppins',system-ui,-apple-system,sans-serif;
+  color:var(--ink);background:var(--canvas);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--accent-ink)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.narrow{max-width:68ch}
+
+/* ---- escala tipográfica única: nada por encima del H1 ---- */
+h1{font-size:clamp(2rem,5.2vw,3.25rem);line-height:1.08;letter-spacing:-.022em;font-weight:600;margin:0}
+h2{font-size:clamp(1.35rem,2.7vw,1.85rem);line-height:1.2;letter-spacing:-.014em;font-weight:600;margin:0}
+h3{font-size:1.0625rem;line-height:1.3;font-weight:600;margin:0}
+p{margin:0 0 1.1em}
+.lead{font-size:1.1875rem;line-height:1.6;color:var(--body)}
+.kicker{font-size:.75rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+
+/* ---- aviso de maqueta (no forma parte del diseño) ---- */
+#nota{background:#fff8e1;border-bottom:1px solid #f0e0a8;font-size:.875rem;line-height:1.55;color:#5c4a12}
+#nota .wrap{padding-top:14px;padding-bottom:14px}
+#nota b{color:#3d3108}
+#nota ul{margin:8px 0 0;padding-left:18px}
+#nota li{margin:3px 0}
+#nota button{float:right;background:none;border:1px solid #d8c88c;color:#5c4a12;border-radius:99px;
+  padding:3px 12px;font:inherit;font-size:.8rem;cursor:pointer;margin-left:12px}
+
+/* ---- cabecera ---- */
+header.top{border-bottom:1px solid var(--line);background:#fff}
+header.top .wrap{display:flex;align-items:center;gap:28px;height:70px}
+.logo{font-weight:600;font-size:1.4rem;letter-spacing:-.03em}
+.logo i{color:var(--accent);font-style:normal}
+nav.menu{display:none;gap:22px;font-size:.875rem;color:var(--body)}
+@media(min-width:900px){nav.menu{display:flex}}
+
+.migas{font-size:.8125rem;color:var(--muted);padding:18px 0 0}
+.migas a{color:var(--muted);text-decoration:none}
+
+/* ---- hero ---- */
+.hero{padding:26px 0 0}
+.hero-img{aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;background:var(--parchment)}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+.hero-txt{padding:34px 0 0}
+
+/* ---- tira de datos: aquí vive el campo Ubicación ---- */
+.meta{display:flex;flex-wrap:wrap;gap:0;margin:26px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.meta div{flex:1 1 140px;padding:16px 20px 16px 0}
+.meta dt{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.meta dd{margin:0;font-weight:500;font-size:.9375rem}
+
+/* ---- galería: proporciones fijas, cero recortes accidentales ---- */
+section{padding:64px 0}
+@media(min-width:768px){section{padding:88px 0}}
+.galeria{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:768px){
+  .galeria{grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr}
+  .galeria a:first-child{grid-row:span 2}
+}
+.galeria a{display:block;border-radius:var(--r);overflow:hidden;background:var(--parchment);aspect-ratio:4/3}
+.galeria a:first-child{aspect-ratio:3/4}
+@media(min-width:768px){.galeria a:first-child{aspect-ratio:auto;height:100%}}
+.galeria img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.galeria a:hover img{transform:scale(1.03)}
+
+/* ---- losa alterna (el cambio de fondo ES el separador) ---- */
+.losa{background:var(--parchment)}
+
+/* ---- materiales: fichas de producto reales ---- */
+.prods{display:grid;gap:18px;grid-template-columns:1fr;margin-top:34px}
+@media(min-width:640px){.prods{grid-template-columns:repeat(3,1fr)}}
+.prod{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.prod .ph{aspect-ratio:1;background:var(--parchment)}
+.prod .ph img{width:100%;height:100%;object-fit:cover}
+.prod .in{padding:16px 16px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.prod h3{font-size:.9375rem;font-weight:500;line-height:1.35}
+.prod .precio{font-size:1.125rem;font-weight:600;margin-top:auto}
+.prod .precio small{font-size:.75rem;font-weight:400;color:var(--muted)}
+.btn{display:inline-block;text-align:center;background:var(--deep);color:#fff;text-decoration:none;
+  padding:11px 18px;border-radius:99px;font-size:.875rem;font-weight:500;min-height:44px;line-height:22px}
+.btn:hover{background:#0c262d}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+
+/* ---- detalle a dos columnas ---- */
+.duo{display:grid;gap:34px;grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.duo{grid-template-columns:1fr 1fr;gap:56px}}
+.duo img{border-radius:var(--r);aspect-ratio:4/3;object-fit:cover;width:100%}
+
+/* ---- relacionados ---- */
+.rel{display:grid;gap:18px;grid-template-columns:1fr;margin-top:34px}
+@media(min-width:640px){.rel{grid-template-columns:repeat(3,1fr)}}
+.rel a{text-decoration:none;color:inherit}
+.rel .ph{aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;background:var(--parchment);margin-bottom:12px}
+.rel .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.rel a:hover img{transform:scale(1.03)}
+.rel h3{font-size:.9375rem;font-weight:500}
+.rel span{font-size:.8125rem;color:var(--muted)}
+
+/* ---- cierre: UN solo CTA ---- */
+.cierre{background:var(--deep);color:#fff;text-align:center}
+.cierre h2{color:#fff}
+.cierre p{color:#c3d3d7;margin:14px auto 26px;max-width:52ch}
+.cierre .btn{background:var(--accent);color:#0d2a31;font-weight:600}
+.cierre .btn:hover{background:#3cc0be}
+
+footer.pie{background:#0c262d;color:#8fa8ae;font-size:.8125rem;text-align:center;padding:30px 20px}
+</style>
+</head>
+<body>
+
+<div id="nota"><div class="wrap">
+  <button onclick="document.getElementById('nota').style.display='none'">ocultar</button>
+  <b>MAQUETA — no es la web real.</b> Así quedaría la plantilla de ficha de proyecto, con el contenido
+  real de <i>Arquefi Progreso</i>. Cambia respecto a la actual:
+  <ul>
+    <li>Sin desplazamiento horizontal y sin fotos cortadas por el borde.</li>
+    <li>Una sola escala tipográfica: nada más grande que el título. Pesos 500/600, no 700.</li>
+    <li>Turquesa solo como acento. Los titulares, en negro tinta.</li>
+    <li>Tira de datos con la <b>Ubicación</b> (el campo que hoy está relleno en 49 de 54 proyectos y no se imprime).</li>
+    <li>Los materiales, como fichas de producto con precio. Hoy son enlaces de texto.</li>
+    <li>Un CTA final en vez de dos, y fuera el dibujo de líneas.</li>
+  </ul>
+  <b>Aviso:</b> este proyecto concreto tiene el campo Ubicación <b>vacío</b>. He puesto "Villena, Alicante"
+  porque aparece en el propio texto del proyecto; no es un dato inventado, pero tampoco sale de la ficha.
+</div></div>
+
+<header class="top"><div class="wrap">
+  <div class="logo">Adr<i>ih</i>osan</div>
+  <nav class="menu"><span>TIENDA</span><span>ESCAPARATE</span><span>BLOG</span><span>CONTACTO</span><span>PROYECTOS</span></nav>
+</div></header>
+
+<div class="wrap migas"><a href="#">Inicio</a> › <a href="#">Proyectos</a> › <a href="#">Baños</a> › Arquefi Progreso</div>
+
+<div class="wrap hero">
+  <div class="hero-img">
+    <img src="https://www.adrihosan.com/wp-content/uploads/2023/07/proyecto-arquefi-bano-adrihosan.jpg"
+         alt="Baño minimalista del proyecto Arquefi Progreso con mampara de perfilería negra">
+  </div>
+  <div class="hero-txt narrow">
+    <p class="kicker">Proyectos · Baños</p>
+    <h1>Proyecto Arquefi Progreso</h1>
+    <p class="lead" style="margin-top:20px">Líneas puras y volúmenes en blanco para que el foco caiga en
+      el detalle de la pieza: azulejo Eclipse en la ducha, rectificado mate en el resto y grifería negra empotrada.</p>
+  </div>
+  <dl class="meta">
+    <div><dt>Ubicación</dt><dd>Villena, Alicante</dd></div>
+    <div><dt>Categoría</dt><dd>Baños</dd></div>
+    <div><dt>Estudio</dt><dd>Arquefi</dd></div>
+    <div><dt>Materiales</dt><dd>3 productos</dd></div>
+  </dl>
+</div>
+
+<section><div class="wrap">
+  <div class="narrow">
+    <p>En este baño <a href="#">Arquefi</a> ha hecho que sus clientes se sientan cómodos con un cuarto de baño
+    de líneas muy puras y minimalistas. Para el alicatado de la ducha se ha optado por unos volúmenes en blanco
+    para, siguiendo con los colores puros, desviar el foco visual hasta el detalle de la pieza.</p>
+    <p>El mueble de baño está confeccionado totalmente a medida, pero puedes encontrar muebles muy similares
+    en nuestra sección de <a href="#">muebles de baño suspendidos</a>. Para la mampara se ha optado por unos
+    fijos de ducha con perfilería negra, que ofrecen la privacidad deseada en la zona del baño.</p>
+  </div>
+  <div class="galeria" style="margin-top:44px">
+    <a href="#"><img src="https://www.adrihosan.com/wp-content/uploads/2023/07/proyecto-arquefi-bano-adrihosan-9.jpg" alt="Mueble de baño contemporáneo de Adrihosan"></a>
+    <a href="#"><img src="https://www.adrihosan.com/wp-content/uploads/2023/08/Proyecto-Arquefi-bano-Adrihosan-11.jpg" alt="Baño moderno con azulejos Adrihosan"></a>
+    <a href="#"><img src="https://www.adrihosan.com/wp-content/uploads/2023/07/proyecto-arquefi-bano-adrihosan-7.jpg" alt="Combinación de muebles y azulejos Adrihosan"></a>
+  </div>
+</div></section>
+
+<section class="losa"><div class="wrap">
+  <p class="kicker">Materiales de este proyecto</p>
+  <h2>Lo que se ha usado, y lo puedes comprar</h2>
+  <div class="prods">
+    <article class="prod">
+      <div class="ph"><img src="https://www.adrihosan.com/wp-content/uploads/2023/04/pavimento-porcelanico-eclipse-white.jpg" alt="Azulejo porcelánico Eclipse White"></div>
+      <div class="in">
+        <h3>Azulejo porcelánico Eclipse White 33 × 33 cm</h3>
+        <div class="precio">19,90 € <small>/ m²</small></div>
+        <a class="btn" href="#">Ver producto</a>
+      </div>
+    </article>
+    <article class="prod">
+      <div class="ph"><img src="https://www.adrihosan.com/wp-content/uploads/2018/09/Revestimiento-pasta-blanca-rectificado-white-30-90-cm-Adrihosan.png" alt="Azulejo rectificado blanco mate 30x90"></div>
+      <div class="in">
+        <h3>Azulejo pasta blanca rectificado blanco mate 30 × 90 cm</h3>
+        <div class="precio">19,90 € <small>/ m²</small></div>
+        <a class="btn" href="#">Ver producto</a>
+      </div>
+    </article>
+    <article class="prod">
+      <div class="ph"><img src="https://www.adrihosan.com/wp-content/uploads/2023/08/grifo-de-bano-empotrado-etna-negro-2.jpg" alt="Grifo de lavabo Etna empotrado negro mate"></div>
+      <div class="in">
+        <h3>Grifo de lavabo Etna empotrado monomando negro mate</h3>
+        <div class="precio">61,90 €</div>
+        <a class="btn" href="#">Ver producto</a>
+      </div>
+    </article>
+  </div>
+</div></section>
+
+<section><div class="wrap duo">
+  <div>
+    <p class="kicker">El detalle</p>
+    <h2>Perfilería negra sobre volúmenes en blanco</h2>
+    <p style="margin-top:18px;color:var(--body)">La grifería elegida es el best seller de la casa: el Etna
+    empotrado en negro mate. Sobre el blanco del alicatado, es lo único que corta, y por eso funciona.</p>
+    <a class="btn ghost" href="#">Ver la serie Etna</a>
+  </div>
+  <img src="https://www.adrihosan.com/wp-content/uploads/2023/07/proyecto-arquefi-bano-adrihosan-11.jpg" alt="Baño minimalista con azulejos Adrihosan">
+</div></section>
+
+<section class="losa"><div class="wrap">
+  <p class="kicker">Más proyectos de baños</p>
+  <div class="rel">
+    <a href="#"><div class="ph"><img src="https://www.adrihosan.com/wp-content/uploads/2026/03/FOTO-CENTRO-ESCAMA.jpg" alt="Ducha con azulejo escama"></div>
+      <h3>Ducha con inspiración marina</h3><span>Valencia — L'Eixample</span></a>
+    <a href="#"><div class="ph"><img src="https://www.adrihosan.com/wp-content/uploads/2026/03/cocina-moderna-blanca-l-encimera-negra1140.jpg" alt="Cocina moderna blanca"></div>
+      <h3>Una cocina que vuelve a cobrar vida</h3><span>Llíria — Valencia</span></a>
+    <a href="#"><div class="ph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/12/ChatGPT-Image-22-dic-2025-11_28_21.jpg" alt="Proyecto hotelero con encimeras Solid Surface"></div>
+      <h3>Proyecto hotelero con encimeras Solid Surface</h3><span>Sabadell</span></a>
+  </div>
+</div></section>
+
+<section class="cierre"><div class="wrap">
+  <h2>¿Un baño así en tu casa?</h2>
+  <p>Cuéntanos qué tienes en mente. Si estás cerca de Villena o Alicante, te damos el servicio integral.</p>
+  <a class="btn" href="#">Hablar con nosotros</a>
+</div></section>
+
+<footer class="pie">Maqueta de trabajo · Adrihosan · las fotos y los precios son reales, los enlaces no funcionan</footer>
+
+</body>
+</html>
