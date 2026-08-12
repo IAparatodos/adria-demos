@@ -35,6 +35,10 @@ img{max-width:100%;display:block}
 a{color:var(--accent-ink)}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
 .narrow{max-width:68ch}
+/* prosa del proyecto: ancho completo del contenedor, ahora y para los parrafos que se anadan */
+.prosa{max-width:none}
+.prosa p{line-height:1.75;margin-bottom:1.3em}
+.prosa p:last-child{margin-bottom:0}
 
 /* ---- escala tipográfica única: nada por encima del H1 ---- */
 h1{font-size:clamp(2rem,5.2vw,3.25rem);line-height:1.08;letter-spacing:-.022em;font-weight:600;margin:0}
@@ -180,7 +184,7 @@ footer.pie{background:#0c262d;color:#8fa8ae;font-size:.8125rem;text-align:center
 </div>
 
 <section><div class="wrap">
-  <div class="narrow">
+  <div class="prosa">
     <p>En este baño <a href="#">Arquefi</a> ha hecho que sus clientes se sientan cómodos con un cuarto de baño
     de líneas muy puras y minimalistas. Para el alicatado de la ducha se ha optado por unos volúmenes en blanco
     para, siguiendo con los colores puros, desviar el foco visual hasta el detalle de la pieza.</p>
