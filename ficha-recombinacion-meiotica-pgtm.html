@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recombinación meiótica en PGT-M · Iversen et al., F&amp;S Reports 2026</title>
+<link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+<meta name="theme-color" content="#102e35">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Recombinación meiótica en 4 de 13 embriones · Código AdrIA">
+<meta property="og:description" content="Primer caso descrito en humanos: dos variantes ligadas al X en cis se separaron en el 31 % de los embriones.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/og-recombinacion-pgtm.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ficha visual del caso: 4 de 13 embriones con una sola de las dos variantes maternas ligadas al X.">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/ficha-recombinacion-meiotica-pgtm.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Recombinación meiótica en 4 de 13 embriones · Código AdrIA">
+<meta name="twitter:description" content="Primer caso descrito en humanos: dos variantes ligadas al X en cis se separaron en el 31 % de los embriones.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/og-recombinacion-pgtm.jpg">
+<meta name="description" content="El caso de Iversen et al. en F&S Reports (2026), contado en visual: qué se buscaba, cómo se hizo el PGT-M, qué salió en los 13 embriones y qué limitaciones reconocen los autores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181a; --ink-soft:#3a4448; --ink-mute:#6d797e;
+    --canvas:#ffffff; --parchment:#f4f7f7;
+    --tile-dark:#16242a; --tile-darker:#101c21;
+    --hairline:#e2e9e9;
+    --brand:#4dd2d0; --brand-deep:#0e9c99; --brand-slate:#3f6f7b;
+    --serie-a:#0e9c99; --serie-b:#6b5ea8;
+    --serie-a-dark:#4dd2d0; --serie-b-dark:#a99cf0;
+    --grid-none:#0e9c99; --grid-both:#c0473f; --grid-split:#5b6fd8;
+    --radius-card:18px; --radius-pill:9999px;
+    --shadow-object:0 3px 30px rgba(16,28,33,.14);
+    --max:1120px; --max-read:760px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--canvas);color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:17px;line-height:1.55;font-weight:400;letter-spacing:-.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+  section{padding:88px 24px}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .read{max-width:var(--max-read);margin:0 auto}
+  h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.028em;line-height:1.08}
+  h1{font-size:clamp(2.1rem,6vw,3.7rem)}
+  h2{font-size:clamp(1.6rem,4vw,2.5rem)}
+  h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.3}
+  p{margin:0 0 1.15em}
+  p:last-child{margin-bottom:0}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-deep);margin:0 0 20px}
+  .lead{font-size:clamp(1.1rem,2.4vw,1.42rem);font-weight:300;line-height:1.45;color:var(--ink-soft)}
+
+  /* ---------- barra de marca ---------- */
+  .brandbar{background:var(--tile-dark);padding:18px 24px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .brandbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brandbar img{height:34px;width:auto;display:block}
+  .brandbar .serie{font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#7c9299}
+
+  /* ---------- portada ---------- */
+  .hero{
+    background:var(--tile-dark);color:#fff;padding:84px 24px;
+    background-image:radial-gradient(120% 90% at 12% 0%,rgba(77,210,208,.16) 0%,transparent 58%);
+  }
+  .hero .eyebrow{color:var(--brand)}
+  .hero h1{color:#fff;max-width:17ch}
+  .hero .original{margin-top:26px;padding-left:18px;border-left:2px solid rgba(77,210,208,.5);font-size:1rem;font-weight:300;color:#c9d6d9;font-style:italic;max-width:56ch}
+  .authors{margin-top:34px;font-size:.95rem;color:#9fb0b5;line-height:1.7;max-width:62ch}
+  .authors .first{color:#fff;font-weight:600}
+  .meta-row{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
+  .chip{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-pill);padding:8px 16px;font-size:.83rem;color:#dfe9eb;white-space:nowrap}
+  .chip b{color:#fff;font-weight:600}
+  .chip a{color:#dfe9eb;text-decoration:none;border-bottom:1px solid rgba(223,233,235,.4)}
+  .chip.warn{border-color:rgba(255,196,84,.4);color:#ffd894}
+  .chip.warn b{color:#ffd894}
+
+  /* ---------- destacado numérico ---------- */
+  .headline-figure{background:var(--parchment)}
+  .figure-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin-top:44px}
+  .stat{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);padding:26px 24px}
+  .stat .num{font-size:clamp(2.2rem,5vw,2.9rem);font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--ink)}
+  .stat .num small{font-size:.42em;font-weight:500;letter-spacing:-.01em;color:var(--ink-mute);margin-left:4px}
+  .stat .label{margin-top:12px;font-size:.92rem;color:var(--ink-soft);line-height:1.4}
+  .stat .foot{margin-top:10px;font-size:.78rem;color:var(--ink-mute)}
+  .stat.accent{border-color:rgba(14,156,153,.35);background:linear-gradient(180deg,rgba(14,156,153,.06),transparent 70%)}
+  .stat.accent .num{color:var(--brand-deep)}
+
+  /* ---------- rejilla de embriones ---------- */
+  .chart-card{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);padding:32px 28px;margin-top:40px}
+  .chart-title{font-size:1.05rem;font-weight:600;letter-spacing:-.02em;margin:0}
+  .chart-sub{font-size:.87rem;color:var(--ink-mute);margin:6px 0 0}
+  .legend{display:flex;flex-wrap:wrap;gap:18px;margin:22px 0 30px}
+  .legend span{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--ink-soft)}
+  .swatch{width:12px;height:12px;border-radius:3px;flex:none}
+  .swatch.none{background:var(--grid-none)}
+  .swatch.both{background:var(--grid-both)}
+  .swatch.split{background:var(--grid-split)}
+
+  .egrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px}
+  .emb{border:1px solid var(--hairline);border-radius:12px;padding:14px 14px 12px;background:var(--canvas);border-left-width:5px}
+  .emb.none{border-left-color:var(--grid-none)}
+  .emb.both{border-left-color:var(--grid-both)}
+  .emb.split{border-left-color:var(--grid-split);background:rgba(91,111,216,.05)}
+  .emb .id{font-size:.86rem;font-weight:600;color:var(--ink);letter-spacing:-.02em}
+  .emb .id span{font-weight:400;color:var(--ink-mute);font-size:.78rem;margin-left:5px}
+  .emb dl{margin:10px 0 0;font-size:.76rem;line-height:1.5}
+  .emb dt{color:var(--ink-mute);float:left;clear:left;margin-right:5px}
+  .emb dd{margin:0;color:var(--ink-soft)}
+  .emb .ploidy{margin-top:9px;padding-top:8px;border-top:1px solid var(--hairline);font-size:.72rem;color:var(--ink-mute)}
+
+  .bars{display:flex;flex-direction:column;gap:26px;margin-top:8px}
+  .bar-group .bar-name{font-size:.9rem;color:var(--ink-soft);margin-bottom:12px}
+  .bar-row{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .bar-row:last-child{margin-bottom:0}
+  .bar-track{flex:1;height:26px;background:#eef3f3;border-radius:4px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:0 4px 4px 0;transition:width .9s cubic-bezier(.22,.8,.3,1)}
+  .bar-fill.a{background:var(--serie-a)}
+  .bar-fill.b{background:var(--serie-b)}
+  .bar-val{font-variant-numeric:tabular-nums;font-size:.95rem;font-weight:600;color:var(--ink);min-width:96px;text-align:right;letter-spacing:-.02em}
+  .bar-val small{display:block;font-weight:400;font-size:.74rem;color:var(--ink-mute);letter-spacing:0}
+  .p-tag{display:inline-block;margin-top:14px;font-size:.78rem;color:var(--ink-mute);background:#eef3f3;border-radius:var(--radius-pill);padding:5px 12px}
+  .p-tag.sig{background:rgba(14,156,153,.12);color:var(--brand-deep);font-weight:500}
+
+  /* ---------- pasos del método ---------- */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;margin-top:44px;background:var(--hairline);border-radius:var(--radius-card);overflow:hidden}
+  .step{background:var(--canvas);padding:28px 24px}
+  .step .n{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--brand-deep);color:#fff;font-size:.85rem;font-weight:600;margin-bottom:16px}
+  .step h3{margin-bottom:8px}
+  .step p{font-size:.92rem;color:var(--ink-soft);margin:0 0 .9em}
+
+  /* ---------- nota de corrección ---------- */
+  .nota-adria{
+    margin-top:14px;border-left:3px solid var(--brand-deep);background:rgba(14,156,153,.06);
+    border-radius:0 10px 10px 0;padding:12px 14px;font-size:.8rem;line-height:1.5;color:var(--ink-soft)
+  }
+  .nota-adria b{color:var(--brand-deep);font-weight:600}
+
+
+  .tint{background:var(--parchment)}
+
+  /* ---------- cita destacada en claro ---------- */
+  .pull{margin:38px 0 0;padding:22px 0 0;border-top:1px solid var(--hairline)}
+  .pull p{font-size:clamp(1.02rem,2.2vw,1.24rem);font-weight:300;line-height:1.5;color:var(--ink-soft);font-style:italic;margin:0}
+  .pull cite{display:block;margin-top:12px;font-size:.83rem;color:var(--ink-mute);font-style:normal}
+
+  /* ---------- glosario ---------- */
+  .glos{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:44px}
+  .gitem{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);padding:22px 22px}
+  .gitem h3{font-size:1rem;margin-bottom:9px}
+  .gitem p{font-size:.88rem;color:var(--ink-soft);margin:0;line-height:1.55}
+
+  /* ---------- tile oscuro ---------- */
+  .dark{background:var(--tile-darker);color:#e8eef0}
+  .dark h2{color:#fff}
+  .dark .eyebrow{color:var(--brand)}
+  .dark .lead{color:#b3c3c7}
+  .caveats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:44px}
+  .caveat{border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-card);padding:26px 24px;background:rgba(255,255,255,.03)}
+  .caveat h3{color:#fff;margin-bottom:10px}
+  .caveat p{font-size:.92rem;color:#a9bbc0;margin:0}
+  .quote{margin:56px auto 0;max-width:var(--max-read);padding:30px 0 0;border-top:1px solid rgba(255,255,255,.16)}
+  .quote p{font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:300;line-height:1.5;color:#dbe6e8;font-style:italic}
+  .quote cite{display:block;margin-top:14px;font-size:.85rem;color:#8ea3a8;font-style:normal}
+
+  /* ---------- cierre ---------- */
+  .closing{background:var(--canvas);text-align:center}
+  .closing .cite-block{max-width:var(--max-read);margin:36px auto 0;padding:24px;background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);font-size:.88rem;color:var(--ink-soft);text-align:left;line-height:1.6}
+  .closing a{color:var(--brand-deep);text-decoration:none;border-bottom:1px solid rgba(14,156,153,.35)}
+  .honesty{background:var(--canvas);border-top:1px solid var(--hairline);padding:40px 24px;text-align:center;font-size:.82rem;color:var(--ink-mute);line-height:1.7}
+  .honesty .brand{color:var(--brand-deep);font-weight:600}
+  .honesty .read{max-width:640px}
+
+  @media (max-width:640px){
+    section{padding:64px 20px}
+    .hero{padding:64px 20px}
+    .bar-val{min-width:82px;font-size:.88rem}
+    .chart-card{padding:24px 18px}
+    .egrid{grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:10px}
+  }
+
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ink:#eef3f4;--ink-soft:#b9c7cb;--ink-mute:#8b9ca1;
+      --canvas:#0f1719;--parchment:#141f22;--hairline:#25353a;
+      --serie-a:var(--serie-a-dark);--serie-b:var(--serie-b-dark);
+      --grid-none:#4dd2d0;--grid-both:#e0736a;--grid-split:#8f9ff0;
+    }
+    .stat.accent{background:linear-gradient(180deg,rgba(77,210,208,.08),transparent 70%);border-color:rgba(77,210,208,.3)}
+    .stat.accent .num{color:var(--brand)}
+    .eyebrow{color:var(--brand)}
+    .step .n{background:var(--brand);color:#0f1719}
+    .bar-track{background:#1d2b2f}
+    .p-tag{background:#1d2b2f}
+    .p-tag.sig{background:rgba(77,210,208,.14);color:var(--brand)}
+    .emb.split{background:rgba(143,159,240,.08)}
+    .nota-adria{background:rgba(77,210,208,.08)}
+    .nota-adria b{color:var(--brand)}
+    .closing a,.honesty .brand{color:var(--brand)}
+    .closing a{border-bottom-color:rgba(77,210,208,.4)}
+  }
+</style>
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="wrap">
+    <a href="https://www.codigoadria.com" target="_blank" rel="noopener">
+      <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+    </a>
+    <span class="serie">Papers legibles</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">F&amp;S Reports · 2026 · Caso clínico</p>
+    <h1>Recombinación meiótica en 4 de 13 embriones</h1>
+    <p class="original">«Meiotic Recombination Observed through Preimplantation Genetic Testing for Two X-linked Conditions: First Reported Case in Humans»</p>
+    <p class="authors">
+      <span class="first">Anna Iversen</span> y <span class="first">Sara K. Gerber</span> (co-primeras firmas), Solmaz Chamanara, Kajal Verma, Sophia Adelson, Cindy Yang y Christina G. Tise.<br>
+      Genética Médica y Genética Perinatal · Endocrinología Reproductiva e Infertilidad · Patología. Stanford University School of Medicine, Stanford, California.
+    </p>
+    <div class="meta-row">
+      <span class="chip">Diseño <b>Caso clínico</b></span>
+      <span class="chip">Muestra <b>13 embriones</b></span>
+      <span class="chip">DOI <b><a href="https://doi.org/10.1016/j.xfre.2026.08.001" target="_blank" rel="noopener">10.1016/j.xfre.2026.08.001</a></b></span>
+      <span class="chip warn">Versión <b>Journal Pre-proof</b></span>
+    </div>
+  </div>
+</header>
+
+<section class="tint">
+  <div class="read">
+    <p class="eyebrow">Antes de entrar</p>
+    <h2>Qué es el crossing over y qué hizo en este caso</h2>
+    <p class="lead" style="margin-top:26px">Esta sección explica, con las definiciones que da el propio artículo, lo que hace falta saber para leer el resto. Quien ya trabaje con PGT-M puede saltarla.</p>
+
+    <p style="margin-top:28px"><b>La recombinación meiótica</b>, o <i>crossing over</i>, es el proceso por el que los cromosomas homólogos intercambian material genético y crean combinaciones nuevas de alelos en la descendencia. Es parte del funcionamiento normal de la meiosis. Ocurre en la mayoría de los cromosomas, incluido el X, y es más frecuente en la meiosis femenina que en la masculina.</p>
+
+    <p>Esta madre tenía <b>dos variantes patogénicas distintas en el mismo cromosoma X</b>, la misma copia: una en <i>OTC</i> y una deleción que se lleva por delante <i>STS</i>. Eso es lo que quiere decir que estén <b>en <i>cis</i></b>. Su hijo las heredó las dos a la vez, y murió a los tres días.</p>
+
+    <p>El <b>PGT-M</b> biopsia el trofoectodermo de cada embrión para buscar la variante familiar y transferir después los embriones aparentemente no afectados. Cuando la variante no se puede leer directamente, se lee <b>por ligamiento</b>: se miran marcadores de ADN situados muy cerca de ella y se da por hecho que marcador y variante se heredan juntos. Aquí la deleción de <i>STS</i> solo se podía leer así.</p>
+
+    <p>Ahí está el problema que enseña este caso. Si entre la variante y su marcador ocurre un <i>crossing over</i>, el embrión puede heredar la variante patogénica sin heredar el patrón de marcadores esperado. En palabras del artículo, eso da <b>un falso negativo: un embrión afectado clasificado como no afectado</b>.</p>
+
+    <blockquote class="pull">
+      <p>«En este contexto, la recombinación no es una complicación rara, sino un evento biológico probable.»</p>
+      <cite>Iversen, Gerber et al., discusión del artículo</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section>
+  <div class="read">
+    <p class="eyebrow">La pregunta</p>
+    <h2>Dos variantes en el mismo cromosoma, ¿se heredan siempre juntas?</h2>
+    <p class="lead" style="margin-top:26px">Cuando una paciente porta dos variantes patogénicas en el mismo cromosoma, el PGT-M se apoya en un supuesto: que las dos viajarán juntas al embrión.</p>
+    <p style="margin-top:28px">Ese supuesto es la base del análisis por ligamiento, considerado el patrón de referencia del PGT-M porque sortea el <i>allele dropout</i>, la amplificación preferente y el fallo de amplificación de uno de los dos alelos. El análisis por ligamiento evalúa marcadores de ADN situados muy cerca de la variante causante y presume que ambos se coheredarán.</p>
+    <p>El supuesto se debilita con la distancia. La probabilidad de que dos loci del mismo haplotipo parental se separen por recombinación meiótica crece conforme aumenta la distancia genómica entre ellos. Un centimorgan corresponde a una probabilidad aproximada del 1 % de recombinación y equivale, de forma aproximada, a un millón de pares de bases.</p>
+    <p>Una mujer de 35 años acudió a consejo genético preconcepcional tras descubrir que era heterocigota para una variante en <i>OTC</i>, gen ligado al X asociado al déficit de ornitina transcarbamilasa. Su hijo había fallecido a los tres días de vida por una crisis hiperamoniémica: tenía déficit de OTC y déficit de sulfatasa esteroidea. Ninguna de las dos variantes salió en el cribado de portadores.</p>
+    <p>Las dos quedaron confirmadas en <i>cis</i> en el haplotipo materno. Y las separan unos 31 millones de pares de bases. <b>¿Se heredan juntas a esa distancia?</b></p>
+  </div>
+</section>
+
+<section class="headline-figure">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">Los resultados</p>
+      <h2>Cuatro embriones rompieron el ligamiento</h2>
+    </div>
+
+    <div class="figure-grid">
+      <div class="stat">
+        <div class="num">13</div>
+        <div class="label">Embriones creados y analizados</div>
+        <div class="foot">PGT-A y PGT-M para las dos variantes maternas</div>
+      </div>
+      <div class="stat">
+        <div class="num">9 <small>69 %</small></div>
+        <div class="label">Con las dos variantes o con ninguna</div>
+        <div class="foot">Lo esperable si viajan juntas, como indica el <i>cis</i></div>
+      </div>
+      <div class="stat accent">
+        <div class="num">4 <small>31 %</small></div>
+        <div class="label">Con una sola de las dos variantes</div>
+        <div class="foot">Recombinación meiótica entre <i>OTC</i> y <i>STS</i></div>
+      </div>
+      <div class="stat">
+        <div class="num">31 <small>cM</small></div>
+        <div class="label">Distancia entre <i>OTC</i> y <i>STS</i> (unos 31 Mb)</div>
+        <div class="foot">Predice un 31 % de recombinación</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <p class="chart-title">Lo esperado por la distancia y lo observado en los embriones</p>
+      <p class="chart-sub">La frecuencia observada coincide con la que predice la separación entre los dos genes.</p>
+      <div class="bars" style="margin-top:28px">
+        <div class="bar-group">
+          <div class="bar-name">Recombinación esperada según la distancia (31 cM)</div>
+          <div class="bar-row">
+            <div class="bar-track"><div class="bar-fill a" style="width:31%"></div></div>
+            <div class="bar-val">31 %<small>~31 Mb</small></div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-name">Recombinación observada en los embriones</div>
+          <div class="bar-row">
+            <div class="bar-track"><div class="bar-fill b" style="width:31%"></div></div>
+            <div class="bar-val">31 %<small>4 de 13</small></div>
+          </div>
+          <span class="p-tag sig">La coincidencia sostiene la recombinación frente a un error de genotipado repetido</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <p class="chart-title">Los trece embriones, uno a uno</p>
+      <p class="chart-sub">Resultado de PGT-M para la deleción materna de Xp22.31 (<i>STS</i>) y para la variante materna de <i>OTC</i>, más el resultado de PGT-A. Tabla 1 del artículo.</p>
+      <div class="legend">
+        <span><i class="swatch none"></i> Ninguna variante detectada</span>
+        <span><i class="swatch both"></i> Las dos detectadas</span>
+        <span><i class="swatch split"></i> Solo una: recombinación</span>
+      </div>
+      <div class="egrid">
+        <div class="emb both"><div class="id">#1 <span>F</span></div><dl><dt>STS</dt><dd>Portadora</dd><dt>OTC</dt><dd>Portadora</dd></dl><div class="ploidy">Euploide</div></div>
+        <div class="emb none"><div class="id">#2 <span>M</span></div><dl><dt>STS</dt><dd>Bajo riesgo</dd><dt>OTC</dt><dd>Bajo riesgo</dd></dl><div class="ploidy">Mosaico alto: trisomía 21</div></div>
+        <div class="emb none"><div class="id">#3 <span>F</span></div><dl><dt>STS</dt><dd>Bajo riesgo</dd><dt>OTC</dt><dd>Bajo riesgo</dd></dl><div class="ploidy">Euploide · transferido</div></div>
+        <div class="emb none"><div class="id">#4 <span>M</span></div><dl><dt>STS</dt><dd>Bajo riesgo</dd><dt>OTC</dt><dd>Bajo riesgo</dd></dl><div class="ploidy">Euploide</div></div>
+        <div class="emb split"><div class="id">#5 <span>M</span></div><dl><dt>STS</dt><dd>Bajo riesgo</dd><dt>OTC</dt><dd>En riesgo</dd></dl><div class="ploidy">Euploide</div></div>
+        <div class="emb split"><div class="id">#6 <span>F</span></div><dl><dt>STS</dt><dd>Bajo riesgo</dd><dt>OTC</dt><dd>Portadora</dd></dl><div class="ploidy">Mosaico bajo: monosomía 7</div></div>
+        <div class="emb none"><div class="id">#7 <span>M</span></div><dl><dt>STS</dt><dd>Bajo riesgo</dd><dt>OTC</dt><dd>Bajo riesgo</dd></dl><div class="ploidy">Euploide</div></div>
+        <div class="emb both"><div class="id">#8 <span>F</span></div><dl><dt>STS</dt><dd>Portadora</dd><dt>OTC</dt><dd>Portadora</dd></dl><div class="ploidy">Euploide</div></div>
+        <div class="emb none"><div class="id">#9 <span>F</span></div><dl><dt>STS</dt><dd>Bajo riesgo</dd><dt>OTC</dt><dd>Bajo riesgo</dd></dl><div class="ploidy">Euploide</div></div>
+        <div class="emb both"><div class="id">#10 <span>F</span></div><dl><dt>STS</dt><dd>Portadora</dd><dt>OTC</dt><dd>Portadora</dd></dl><div class="ploidy">Aneuploide: trisomía 4</div></div>
+        <div class="emb split"><div class="id">#11 <span>F</span></div><dl><dt>STS</dt><dd>Bajo riesgo</dd><dt>OTC</dt><dd>Portadora</dd></dl><div class="ploidy">Mosaico bajo: trisomía 9</div></div>
+        <div class="emb split"><div class="id">#12 <span>M</span></div><dl><dt>STS</dt><dd>Bajo riesgo</dd><dt>OTC</dt><dd>En riesgo</dd></dl><div class="ploidy">Aneuploide: monosomía parcial 1q21.2q44 (99 Mb)</div></div>
+        <div class="emb none"><div class="id">#13 <span>F</span></div><dl><dt>STS</dt><dd>Bajo riesgo</dd><dt>OTC</dt><dd>Bajo riesgo</dd></dl><div class="ploidy">Euploide</div></div>
+      </div>
+      <p class="chart-sub" style="margin-top:22px">«Bajo riesgo» indica que el embrión no es ni portadora heterocigota ni varón hemicigoto. «Portadora» indica mujer heterocigota prevista. «En riesgo» indica varón hemicigoto para la variante evaluada y previsiblemente afectado.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">El método</p>
+      <h2>De la muerte del primer hijo al embrión transferido</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="n">1</span>
+        <h3>El diagnóstico llegó después</h3>
+        <p>El embarazo del hijo cursó con cribado de portadores negativo para <i>OTC</i> y estriol bajo en el cribado sérico materno. Un FISH materno identificó la deleción Xp22.3 de <i>STS</i>, que explicaba el estriol. Se ofreció amniocentesis y se rechazó.</p>
+        <p>El niño nació a las 37 semanas por cesárea iterativa, con lesiones cutáneas compatibles con ictiosis ligada al X. A las 45 horas de vida hizo distrés respiratorio y parada cardiaca. El estudio bioquímico mostró amonio por encima de 900 µmol/L (referencia 55-107), ácido orótico urinario muy elevado y citrulina plasmática descendida, 5 µmol/L (referencia 1-45). La secuenciación de genoma identificó la variante materna <i>OTC</i> c.788A&gt;G (p.Asp263Gly). La resonancia mostró daño neurológico extenso. Falleció a los tres días de vida.</p>
+        <div class="nota-adria"><b>Corrección de AdrIA:</b> el <i>pre-proof</i> imprime estos dos valores en «mM». A esas concentraciones la unidad correcta es µmol/L, que es la que figura arriba. Es el único punto de toda la ficha en el que no se reproduce el original literalmente.</div>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <h3>Confirmar las dos variantes y su fase</h3>
+        <p>Al revisar el cribado de portadores negativo se confirmó la variante familiar de <i>OTC</i>: el laboratorio la había clasificado como VUS según las guías ACMG vigentes entonces y, por eso, no la informó.</p>
+        <p>Un microarray cromosómico caracterizó la deleción materna como la recurrente de 1,6 Mb en Xp22.31, que abarca por completo cuatro genes codificantes (<i>STS</i>, <i>PUDP</i>, <i>PNPLA4</i> y <i>VCX</i>), de los cuales solo <i>STS</i> se asocia a una enfermedad conocida. El laboratorio de secuenciación no había informado la deleción en el hijo; se reanalizó usando el ADN materno como control positivo. Quedaron confirmadas ambas variantes en el niño en hemicigosis y en <i>cis</i> en el haplotipo materno.</p>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <h3>FIV con PGT-M sobre trece embriones</h3>
+        <p>Se amplificó el genoma completo de cada muestra embrionaria con el kit Ion SingleSeq (Thermo Fisher Scientific).</p>
+        <p>Para la variante de <i>OTC</i> se hizo análisis directo e indirecto por PCR fluorescente: genotipado de la variante patogénica y análisis de marcadores polimórficos ligados, leídos por análisis de fragmentos en un secuenciador automático. Para la deleción de Xp22.31 solo fue posible el análisis indirecto, por amplificación de marcadores polimórficos ligados. Los trece embriones se estudiaron además con PGT-A.</p>
+      </div>
+      <div class="step">
+        <span class="n">4</span>
+        <h3>La cuenta de la distancia</h3>
+        <p><i>OTC</i> está en Xp11.4 (X:38.327.684-38.422.928, GRCh38) y <i>STS</i> en Xp22.31 (X:7.147.290-7.354.641). Los separan unos 31 millones de pares de bases, aproximadamente 31 centimorgan, lo que predice un 31 % de recombinación entre ambos.</p>
+        <p>La frecuencia observada fue de 4 embriones sobre 13, un 31 %. Esa correspondencia es lo que sostiene la recombinación meiótica como explicación frente a un resultado de PGT-M repetidamente inexacto por error de genotipado.</p>
+        <p>Se transfirió el embrión #3, femenino, euploide y de bajo riesgo por PGT-M para las dos variantes maternas. La paciente rechazó la confirmación prenatal por biopsia corial o amniocentesis. Nació una niña sana a las 39 semanas por cesárea iterativa, con cribado neonatal negativo, que sigue creciendo y desarrollándose sin incidencias.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">La letra pequeña</p>
+      <h2>Lo que los autores reconocen que este caso no puede demostrar</h2>
+      <p class="lead" style="margin-top:24px">Las cuatro limitaciones de abajo son las que señalan los propios autores en la discusión, no lecturas añadidas.</p>
+    </div>
+    <div class="caveats">
+      <div class="caveat">
+        <h3>Tamaño muestral: trece embriones</h3>
+        <p>Los autores señalan el tamaño muestral reducido (n=13) como limitación, porque acota la estimación de la frecuencia de recombinación.</p>
+      </div>
+      <div class="caveat">
+        <h3>No hubo confirmación prenatal</h3>
+        <p>Se ofreció biopsia corial y amniocentesis para confirmar el resultado del PGT-M y la paciente las rechazó, lo que restringe la validación del desenlace tras la transferencia. Hasta la fecha no se ha realizado ninguna prueba confirmatoria.</p>
+      </div>
+      <div class="caveat">
+        <h3>La deleción no admitía detección directa</h3>
+        <p>La deleción de 1,6 Mb de <i>STS</i> resultó incompatible con los métodos de detección directa, así que se analizó por ligamiento con marcadores polimórficos. Los autores apuntan al valor de técnicas de mayor resolución, como arrays de SNP o NGS basado en los puntos de rotura de la CNV.</p>
+      </div>
+      <div class="caveat">
+        <h3>El cribado de portadores no vio ninguna de las dos</h3>
+        <p>Ni la variante de <i>OTC</i> ni la deleción de <i>STS</i> aparecieron en el cribado preconcepcional: la primera se clasificó como VUS y la segunda no estaba en el panel inicial. Los autores plantean que los laboratorios valoren informar VUS en condiciones ligadas al X en mujeres.</p>
+      </div>
+    </div>
+    <blockquote class="quote">
+      <p>«La recombinación meiótica puede dar resultados inesperados cuando se usa PGT-M para cribar embriones frente a varias enfermedades monogénicas con variantes situadas en el mismo cromosoma. Detectar variantes ligadas, en lugar de genotipar directamente, puede llevar a un resultado falso negativo.»</p>
+      <cite>Iversen, Gerber et al., F&amp;S Reports 2026 · Conclusión del artículo</cite>
+    </blockquote>
+  </div>
+</section>
+
+
+
+<section>
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">Qué proponen los autores</p>
+      <h2>Lo que este caso les lleva a recomendar</h2>
+      <p class="lead" style="margin-top:24px">Recogido de la discusión del artículo. Son sus recomendaciones, no conclusiones nuestras.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="n">1</span>
+        <h3>Analizar cada variante en todos los embriones</h3>
+        <p>Cuando existe sospecha de varias variantes causantes en el mismo cromosoma, debe analizarse cada variante en todos los embriones, y la interpretación del riesgo debe hacerse a partir del resultado de todas ellas, no de una sola.</p>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <h3>Detección directa siempre que se pueda</h3>
+        <p>El análisis por ligamiento por sí solo puede no detectar la recombinación y clasificar mal embriones afectados. Cuando es posible, la detección directa de la variante reduce ese riesgo. Para las CNV, los autores apuntan a arrays de SNP o a NGS basado en los puntos de rotura, capaces de detectar directamente deleciones pequeñas.</p>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <h3>Ofrecer diagnóstico prenatal de confirmación</h3>
+        <p>ASRM ya ha reconocido que la recombinación meiótica puede suponer una limitación técnica del PGT-M, y por eso recomienda ofrecer diagnóstico prenatal de confirmación en las gestaciones tras transferencia de embriones estudiados con PGT-M. Se suma otra razón: no se dispone de valores predictivos positivo y negativo para las sondas individualizadas de PGT-M.</p>
+      </div>
+      <div class="step">
+        <span class="n">4</span>
+        <h3>Contarlo en el consejo genético</h3>
+        <p>Los autores señalan que asesores genéticos y genetistas deberían informar a las familias de la posibilidad de eventos de recombinación capaces de alterar los patrones de herencia esperados, para garantizar un consentimiento informado en la decisión reproductiva.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="headline-figure">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">Las palabras</p>
+      <h2>Glosario, con la definición que da el artículo</h2>
+      <p class="lead" style="margin-top:24px">Ninguna definición es nuestra. Todas están en el texto original.</p>
+    </div>
+    <div class="glos">
+      <div class="gitem"><h3>Recombinación meiótica (<i>crossing over</i>)</h3><p>El proceso por el que los cromosomas homólogos intercambian material genético y crean combinaciones nuevas de alelos en la descendencia.</p></div>
+      <div class="gitem"><h3>En <i>cis</i></h3><p>Dos variantes situadas en el mismo cromosoma y en el mismo haplotipo parental.</p></div>
+      <div class="gitem"><h3>Hemicigoto</h3><p>Presencia de una variante en el único cromosoma X que tiene un individuo XY.</p></div>
+      <div class="gitem"><h3>PGT-M</h3><p>Biopsia del trofoectodermo de cada embrión para obtener ADN y analizar la variante familiar causante de enfermedad, y transferir después de forma selectiva los embriones aparentemente no afectados.</p></div>
+      <div class="gitem"><h3>Análisis por ligamiento</h3><p>Evaluación de marcadores de ADN situados muy cerca de la variante causante, presumiendo que ambos se coheredarán. Se considera el patrón de referencia del PGT-M porque sortea el <i>allele dropout</i>, la amplificación preferente y el fallo de amplificación de uno de los dos alelos.</p></div>
+      <div class="gitem"><h3>Centimorgan (cM)</h3><p>Distancia genómica que corresponde a una probabilidad aproximada del 1 % de recombinación meiótica, equivalente de forma aproximada a un millón de pares de bases.</p></div>
+      <div class="gitem"><h3>Falso negativo en PGT-M</h3><p>Un embrión que hereda la variante patogénica pero no el patrón de marcadores esperado, y que se clasifica por error como no afectado.</p></div>
+      <div class="gitem"><h3>VUS</h3><p>Variante de significado incierto. Las guías ACMG recomiendan que el cribado de portadores informe variantes patogénicas y probablemente patogénicas; informar VUS solo se considera apropiado en la pareja reproductiva de un portador identificado.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="read">
+    <p class="eyebrow">Para citarlo</p>
+    <h2>El artículo original</h2>
+    <div class="cite-block">
+      Iversen A, Gerber SK, Chamanara S, Verma K, Adelson S, Yang C, Tise CG.
+      <em>Meiotic Recombination Observed through Preimplantation Genetic Testing for Two X-linked Conditions: First Reported Case in Humans.</em>
+      F&amp;S Reports. 2026. <span style="color:var(--ink-mute)">(Journal Pre-proof; recibido 13 abr 2026, aceptado 3 ago 2026.)</span>
+      <br><a href="https://doi.org/10.1016/j.xfre.2026.08.001" target="_blank" rel="noopener">doi.org/10.1016/j.xfre.2026.08.001</a>
+    </div>
+  </div>
+</section>
+
+<div class="honesty">
+  <div class="read">
+    Pieza visual elaborada sobre el artículo original, sin añadir datos ni interpretaciones ajenas al texto.
+    Todas las cifras se verificaron contra su tabla o sección antes de maquetar.
+    La única intervención sobre el original está marcada como <b>corrección de AdrIA</b> en el método.
+    Es un resumen con enlace al artículo, no un sustituto: la lectura completa está en el DOI.<br>
+    Cortesía de <span class="brand">Código AdrIA</span>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var fills = Array.prototype.slice.call(document.querySelectorAll('.bar-fill'));
+    if (!fills.length) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    fills.forEach(function (el) { el.dataset.w = el.style.width; el.style.width = '0%'; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        requestAnimationFrame(function () { el.style.width = el.dataset.w; });
+        io.unobserve(el);
+      });
+    }, { threshold: 0.25 });
+    fills.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+<!--
+  FOOTER DE MARCA — OBLIGATORIO en todo HTML de Código AdrIA que se comparta en público.
+  Pégalo justo antes de </body>. Autocontenido: CSS propio + SVG en línea, sin dependencias.
+  Regla en CLAUDE.md raíz: "HTML público — marca y footer obligatorios".
+
+  Estructura (patrón Stripe: banda de cierre + columnas + fila legal):
+    1. Banda de cierre con UNA sola llamada a la acción rellena (la comunidad).
+    2. Tres columnas de enlaces: empezar / seguir / la casa.
+    3. Fila legal con logo enlazado + copyright.
+
+  Enlaces oficiales (verificados 2-ago-2026):
+  - Comunidad Telegram (alta): https://forms.gle/LQUSEfZZ9m8R5e8f6
+  - Curso:     https://www.codigoadria.com/curso-automatizaciones/
+  - Academia:  https://www.codigoadria.com/academia/
+  - YouTube:   https://www.youtube.com/@codigoadria?sub_confirmation=1
+  - LinkedIn:  https://www.linkedin.com/in/ricardohoyosperez/
+  - Instagram: https://www.instagram.com/ricardohoyos1/  ← el PERSONAL (decisión de Ricardo)
+
+  Adapta SOLO el texto de .ca-cta-sub al contenido de la página. El resto no se toca.
+  En la CABECERA de la página, el logo SIEMPRE enlazado a https://www.codigoadria.com.
+
+  ⚠️ Si la página tiene bloques <pre> con ejemplos de código, escapa las etiquetas
+  (&lt;style&gt;, &lt;script&gt;): una etiqueta cruda se interpreta de verdad, se traga
+  el resto del documento y revienta este footer.
+-->
+<style>
+  .ca-foot{
+    background:#102e35;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal-brand span{font-size:.86rem;font-weight:500;color:#dfe9eb}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Esta pieza es parte de la serie «papers legibles»: cada cifra se verifica contra su
+          tabla o su sección del artículo original antes de maquetarla. Las siguientes se
+          publican en la comunidad.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+        <span>Código AdrIA</span>
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
