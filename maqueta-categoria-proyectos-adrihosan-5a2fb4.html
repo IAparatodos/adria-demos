@@ -1,0 +1,338 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Categoría de Proyectos Adrihosan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{--ink:#102E35;--turq:#4DD2D0;--green:#1a6c7a;--line:#e6ecec;--gray:#767676;--r:16px;--maxw:1200px}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+img{max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* chrome de la maqueta */
+.bar{position:sticky;top:0;z-index:80;background:var(--ink);color:#fff;padding:11px 24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.bar b{font-weight:600;font-size:15px}
+.bar .m{font-size:12.5px;color:#8fb6bd;font-weight:300}
+.tg{margin-left:auto;display:flex;background:rgba(255,255,255,.12);border-radius:999px;padding:4px;gap:4px}
+.tg button{font-family:inherit;font-size:13px;font-weight:500;border:0;background:transparent;color:#cfe6ea;padding:8px 16px;border-radius:999px;cursor:pointer}
+.tg button[aria-pressed=true]{background:var(--turq);color:var(--ink);font-weight:600}
+.lbl{background:#f4f7f7;border-block:1px solid #e3eaea;padding:11px 0}
+.lbl .wrap{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.lbl b{font-size:12px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--green);white-space:nowrap}
+.lbl p{margin:0;font-size:13.5px;font-weight:300;color:#5d6b6d;line-height:1.55;max-width:84ch}
+body.sn .lbl{display:none}
+.warn{background:#fff6f6;border-left:3px solid #e0a0a0;padding:12px 16px;font-size:13.5px;line-height:1.55;margin:18px 0;border-radius:0 8px 8px 0;color:#8a4a4a}
+
+/* ══ ACTUAL ══ */
+.oldhead{text-align:center;padding:54px 0 26px}
+.oldhead .k{font-size:17px;margin:0 0 6px}
+.oldhead h1{font-size:40px;font-weight:700;margin:0 0 26px}
+.oldprosa{max-width:1100px;margin:0 auto;text-align:center;font-size:17px;line-height:1.62;font-weight:300;color:#333}
+.oldprosa h2{font-size:29px;font-weight:700;margin:26px 0 14px}
+.oldprosa h3{font-size:19px;font-weight:700;margin:20px 0 8px}
+.oldlist{display:flex;flex-direction:column;gap:34px;margin:46px 0}
+.oldrow{display:grid;grid-template-columns:360px 1fr;gap:26px;align-items:start}
+.oldimg{width:360px;height:360px;overflow:hidden;background:#eef2f2}
+.oldimg img{width:100%;height:100%;object-fit:cover;display:block}
+.oldtxt h2{font-size:31px;font-weight:700;line-height:1.2;margin:0 0 8px}
+.oldubi{font-size:17px;font-weight:600;margin:0 0 12px;min-height:22px}
+.oldexc{font-size:16px;font-weight:300;line-height:1.6;color:#444;margin:0}
+
+/* ══ PROPUESTA ══ */
+.hero{position:relative;min-height:420px;display:flex;align-items:flex-end;overflow:hidden;background:var(--ink)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(16,46,53,.95) 0%,rgba(16,46,53,.8) 38%,rgba(16,46,53,.45) 68%,rgba(16,46,53,.25) 100%)}
+.hero .in{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px 46px}
+.hero .k{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--turq);margin:0 0 16px}
+.hero .k::before{content:"";width:26px;height:2px;background:var(--turq);border-radius:2px}
+.hero h1{font-size:clamp(34px,5vw,58px);font-weight:700;line-height:1.05;letter-spacing:-1.6px;color:#fff;margin:0}
+.hero .cnt{margin:14px 0 0;font-size:17px;font-weight:300;color:#cfe4e8}
+.migas{font-size:13px;color:#9fc4cb;margin:0 0 20px;font-weight:300}
+.migas a:hover{color:#fff}
+
+.chips{display:flex;gap:10px;flex-wrap:wrap;padding:26px 0 0}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-size:14.5px;font-weight:500;transition:.25s;background:#fff}
+.chip span{font-size:12.5px;font-weight:600;color:var(--green);background:#eef6f6;border-radius:999px;padding:2px 9px}
+.chip:hover{border-color:#bcd3d5;transform:translateY(-1px)}
+.chip-on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip-on span{background:rgba(255,255,255,.15);color:var(--turq)}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding:34px 0 0}
+.pcard{display:block;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff;transition:.3s}
+.pcard:hover{border-color:#cfdcdd;transform:translateY(-3px);box-shadow:0 12px 30px rgba(16,46,53,.09)}
+.pph{display:block;aspect-ratio:4/3;overflow:hidden;background:#eef2f2}
+.pph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.2,.7,.3,1)}
+.pcard:hover .pph img{transform:scale(1.06)}
+.pmeta{display:block;padding:20px 22px 24px}
+.pt{display:block;font-size:18px;font-weight:600;line-height:1.32;letter-spacing:-.3px}
+.pu{display:flex;align-items:center;gap:7px;margin:10px 0 0;font-size:13.5px;font-weight:300;color:var(--gray)}
+.pu::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--turq);flex:none}
+.pu-off{color:#b9c4c5;font-style:italic}
+.pu-off::before{background:#dfe6e6}
+
+.sec{padding:64px 0}
+.sec-h{margin:0 0 30px}
+.kick{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin:0 0 9px}
+h2.t{font-size:clamp(26px,3.2vw,38px);font-weight:700;letter-spacing:-1px;margin:0;line-height:1.12}
+
+/* prosa SEO al pie */
+.seo{background:#f7f9f9;border-top:1px solid var(--line);padding:60px 0}
+.seo .wrap{max-width:820px}
+.seo h2{font-size:24px;font-weight:700;letter-spacing:-.6px;margin:0 0 6px}
+.seo .in{font-size:15.5px;font-weight:300;line-height:1.72;color:#4a5658}
+.seo .in h2{font-size:20px;margin:26px 0 8px;color:var(--ink)}
+.seo .in h3{font-size:17px;font-weight:600;margin:20px 0 6px;color:var(--ink)}
+.seo .in p{margin:0 0 12px}
+.seo details{margin:14px 0 0}
+.seo summary{cursor:pointer;font-size:14.5px;font-weight:600;color:var(--green);list-style:none}
+.seo summary::-webkit-details-marker{display:none}
+.seo summary::after{content:" +"}
+.seo details[open] summary::after{content:" −"}
+
+.close{background:var(--ink);color:#fff;padding:70px 0;text-align:center}
+.close .k{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--turq);margin:0 0 14px}
+.close h2{font-size:clamp(28px,3.4vw,40px);font-weight:700;letter-spacing:-1px;margin:0}
+.close p{font-size:16.5px;font-weight:300;line-height:1.62;color:#cfe0e3;margin:16px auto 0;max-width:52ch}
+.close .btn{display:inline-block;margin:28px 0 0;background:var(--turq);color:var(--ink);font-size:15px;font-weight:600;padding:15px 32px;border-radius:999px}
+
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr 1fr}
+  .oldrow{grid-template-columns:1fr}
+  .oldimg{width:100%;height:280px}
+}
+@media(max-width:600px){
+  .grid{grid-template-columns:1fr}
+  .hero{min-height:340px}
+  .sec{padding:44px 0}
+}
+</style>
+
+<div class="bar">
+  <b>Adrihosan · /proyecto-categoria/banos/</b>
+  <span class="m">Maqueta 13 ago 2026 · 30 proyectos reales</span>
+  <div class="tg" role="group">
+    <button data-v="old" aria-pressed="false">Actual</button>
+    <button data-v="new" aria-pressed="true">Propuesta</button>
+    <button id="bn" aria-pressed="true">Notas</button>
+  </div>
+</div>
+
+<!-- ═══ ACTUAL ═══ -->
+<div class="v v-old" hidden>
+  <div class="lbl"><div class="wrap"><b>Actual</b><p>Título, luego <b>1.437 caracteres de prosa</b>, y solo entonces los proyectos: hay que bajar <b>dos pantallas</b> para ver el primero. El listado son 30 filas apiladas de 360 px de alto: <b>11.832 px</b> de scroll, sobre una página de 17.086. El extracto repite el título y se corta con «[…]».</p></div></div>
+  <div class="wrap">
+    <div class="oldhead"><p class="k">Proyectos:</p><h1>Baños</h1></div>
+    <div class="oldprosa">
+      <p>Disfruta con nosotros de los cuartos de baño de nuestros clientes.💡¡Ilumina tu imaginación! Explora nuestros proyectos y visualiza tu baño ideal.</p>
+      <h2>Proyectos Reales de Cuartos de Baño con Adrihosan</h2>
+      <p>¿Estás buscando inspiración para tu próximo proyecto de reforma de baño? En Adrihosan, nos enorgullece mostrar los proyectos reales realizados para nuestros clientes…</p>
+    </div>
+    <div class="warn">Aquí siguen otros ~900 caracteres de prosa antes del primer proyecto. En Cocinas son 2.486, con seis testimonios firmados por «Marta», «Paula», «Diego», «Lucía» y «Álvaro».</div>
+    <div class="oldlist">
+      <a class="oldrow" href="#">
+        <div class="oldimg"><img src="https://www.adrihosan.com/wp-content/uploads/2023/07/proyecto-arquefi-bano-adrihosan-9.jpg" alt="" loading="lazy"></div>
+        <div class="oldtxt"><h2>Proyecto Arquefi Progreso</h2><div class="oldubi"></div>
+        <p class="oldexc">Proyecto Arquefi Progreso En este baño Arquefi ha hecho que sus clientes se sientan cómodos con un cuarto de baño con líneas muy puras y minimalistas. […]</p></div>
+      </a>
+      <a class="oldrow" href="#">
+        <div class="oldimg"><img src="https://www.adrihosan.com/wp-content/uploads/2023/08/proyecto-reforma-arquefi-allure-adrihosan-3.jpg" alt="" loading="lazy"></div>
+        <div class="oldtxt"><h2>Proyecto Arquefi Allure</h2><div class="oldubi"></div>
+        <p class="oldexc">Proyecto Arquefi Allure (imitación mármol) En este baño Arquefi ha optado por todo un clásico un azulejo imitación mármol, en este caso el modelo Allu […]</p></div>
+      </a>
+      <a class="oldrow" href="#">
+        <div class="oldimg"><img src="https://www.adrihosan.com/wp-content/uploads/2023/09/piscina-con-azulejo-porcelanico-technic-blanco-2-768x768.jpg" alt="" loading="lazy"></div>
+        <div class="oldtxt"><h2>Proyecto Cañada</h2><div class="oldubi"></div>
+        <p class="oldexc">Proyecto Arquefi Cañada En esta piscina, nuestros amigos de Arquefi han hecho que cada chapuzón sea una experiencia de lujo. El pavimento porcelánico  […]</p></div>
+      </a>
+      <a class="oldrow" href="#">
+        <div class="oldimg"><img src="https://www.adrihosan.com/wp-content/uploads/2024/01/Elegante-Habitacion-con-Suelo-Porcelanico-Urban-White-de-Adrihosan-768x615.jpg" alt="" loading="lazy"></div>
+        <div class="oldtxt"><h2>Agroturismo Can Cantó de Marina</h2><div class="oldubi">Can Cantó de Marina - Mallorca</div>
+        <p class="oldexc">Proyecto Can Cantó de Marina Un Toque de Elegancia y Modernidad En Adrihosan, estamos orgullosos de presentar uno de nuestros proyectos más emblemátic […]</p></div>
+      </a>
+    </div>
+    <div class="warn">…y así hasta <b>30 filas</b>. Sin paginación: las 30 fotos se cargan de golpe.</div>
+  </div>
+</div>
+
+<!-- ═══ PROPUESTA ═══ -->
+<div class="v v-new">
+  <div class="lbl"><div class="wrap"><b>1 · Cabecera</b><p>El mismo lenguaje que la ficha y que /proyectos/: foto de la categoría al fondo, velo de marca, kicker, título grande y <b>el recuento real</b>. Las migas dejan de ser una franja gris aparte.</p></div></div>
+  <header class="hero">
+<meta name="robots" content="noindex, nofollow">
+    <img src="https://www.adrihosan.com/wp-content/uploads/2023/08/bano-porcelanico-madera-adrihosan-categoria.jpg" alt="Baños">
+    <div class="in">
+      <p class="migas"><a href="https://www.adrihosan.com/">Inicio</a> · <a href="https://www.adrihosan.com/proyectos/">Proyectos</a> · Baños</p>
+      <p class="k">Proyectos Adrihosan</p>
+      <h1>Baños</h1>
+      <p class="cnt">30 proyectos ejecutados</p>
+    </div>
+  </header>
+
+  <div class="lbl"><div class="wrap"><b>2 · Saltar de categoría <span style="color:#c0392b">· nuevo</span></b><p>Hoy, para pasar de Baños a Cocinas hay que volver atrás. Estas pastillas lo resuelven en un clic, y de paso enseñan cuánto hay en cada una.</p></div></div>
+  <div class="wrap"><div class="chips">
+      <a class="chip chip-on" href="https://www.adrihosan.com/proyecto-categoria/banos/">Baños<span>30</span></a>
+      <a class="chip" href="https://www.adrihosan.com/proyecto-categoria/suelos/">Suelos<span>19</span></a>
+      <a class="chip" href="https://www.adrihosan.com/proyecto-categoria/comercial/">Comercial<span>14</span></a>
+      <a class="chip" href="https://www.adrihosan.com/proyecto-categoria/piscinas/">Piscinas<span>5</span></a>
+      <a class="chip" href="https://www.adrihosan.com/proyecto-categoria/cocinas/">Cocinas<span>4</span></a>
+  </div></div>
+
+  <div class="lbl"><div class="wrap"><b>3 · Los proyectos</b><p>Rejilla de tres en vez de 30 filas apiladas. Foto, título y ubicación — fuera el extracto, que repetía el título y se cortaba a media frase. <b>De 11.832 px a unos 3.900</b>. Los tres proyectos sin ubicación se ven en gris: no es un adorno, es una lista de deberes.</p></div></div>
+  <div class="wrap"><div class="grid">
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2023/07/proyecto-arquefi-bano-adrihosan-9.jpg" alt="Proyecto Arquefi Progreso" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Proyecto Arquefi Progreso</span><span class="pu pu-off">Sin ubicación</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2023/08/proyecto-reforma-arquefi-allure-adrihosan-3.jpg" alt="Proyecto Arquefi Allure" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Proyecto Arquefi Allure</span><span class="pu pu-off">Sin ubicación</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2023/09/piscina-con-azulejo-porcelanico-technic-blanco-2-768x768.jpg" alt="Proyecto Cañada" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Proyecto Cañada</span><span class="pu pu-off">Sin ubicación</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2024/01/Elegante-Habitacion-con-Suelo-Porcelanico-Urban-White-de-Adrihosan-768x615.jpg" alt="Agroturismo Can Cantó de Marina" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Agroturismo Can Cantó de Marina</span><span class="pu">Can Cantó de Marina - Mallorca</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2024/09/bano-moderno-con-lavabo-doble-mueble-Kloe.jpg" alt="Renovación Contemporánea de un baño en Valencia" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Renovación Contemporánea de un baño en Valencia</span><span class="pu">Valencia Capital - Zona Malilla</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2024/09/Proyecto-bano-azulejo-metro-Adrihosan-768x615.jpg" alt="Baño minimalista con azulejo metro y ducha pizarra" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Baño minimalista con azulejo metro y ducha pizarra</span><span class="pu">Ruzafa - Valencia</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2024/10/bano-reforma-adrihosan-completo-3-768x402.jpg" alt="Proyecto de Reforma de Baño con Adrihosan" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Proyecto de Reforma de Baño con Adrihosan</span><span class="pu">Malilla (Valencia)</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2024/11/Bano-completo-con-paredes-calacatta-gold.jpg" alt="Proyecto Calacatta Gold: Baño con el sello distintivo de Adrihosan" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Proyecto Calacatta Gold: Baño con el sello distintivo de Adrihosan</span><span class="pu">Tarragona</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2024/11/Proyecto-Can-Canto-la-Marina-Adrihosan-4-.jpg" alt="Reinventando Espacios: Diseño que Une Exterior e Interior con Estilo Mediterráneo" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Reinventando Espacios: Diseño que Une Exterior e Interior con Estilo Mediterráneo</span><span class="pu">Mallorca</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2024/11/mampara-fija-riaza-con-bano-de-madera.jpg" alt="Proyecto Azulejo Eclipse Blanco: Renacimiento minimalista en un hogar contemporáneo" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Proyecto Azulejo Eclipse Blanco: Renacimiento minimalista en un hogar contemporáneo</span><span class="pu">Villena - Alicante</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/01/Lavabo-Hotel-Casual-Adrihosan-1-768x615.jpg" alt="HOTEL CASUAL" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">HOTEL CASUAL</span><span class="pu">Hotel Casual Lisboa - Portugal</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/02/proyecto-con-stravaganza-sassari-R-768x576.jpg" alt="Proyecto junto al decorador Nicolás" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Proyecto junto al decorador Nicolás</span><span class="pu">Cabañal - Valencia</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/02/proyecto-con-azulejo-tipo-metro-adrihosan-768x576.jpg" alt="Baño reformado con estilo atemporal" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Baño reformado con estilo atemporal</span><span class="pu">Valencia</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/02/bano-combinado-con-mampara-negra-768x576.jpg" alt="Reforma con Mampara Venecia" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Reforma con Mampara Venecia</span><span class="pu">Valencia</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/02/Proyecto-de-adrihosan-con-una-encimera-solid-surface-a-medida-768x576.jpg" alt="Proyecto Mueble de Baño a Medida" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Proyecto Mueble de Baño a Medida</span><span class="pu">Castellón de la Plana</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/03/Proyecto-Nur-exterior-768x576.jpg" alt="Proyecto Nur" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Proyecto Nur</span><span class="pu">Valencia</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/03/proyecto-con-azulejo-penny-glossy-768x576.jpg" alt="Diseño contemporáneo con Penny Glossy White como protagonista" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Diseño contemporáneo con Penny Glossy White como protagonista</span><span class="pu">Madrid</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/03/bano-con-azulejo-tipo-metro-blanco-y-ladakhi-cielo-768x576.jpg" alt="Reforma con pavimento Maori Ladakhi Cielo para un baño lleno de estilo" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Reforma con pavimento Maori Ladakhi Cielo para un baño lleno de estilo</span><span class="pu">Valencia</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/05/Suelo-imitacion-calacatta-768x584.jpg" alt="Transformación luminosa con porcelánico Calacatta" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Transformación luminosa con porcelánico Calacatta</span><span class="pu">Bétera - Valencia</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/05/Proyecto-reforma-Alicante-Valeup-768x615.jpg" alt="Reforma con esencia natural y armonía contemporánea" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Reforma con esencia natural y armonía contemporánea</span><span class="pu">Alicante Capital</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/06/DEFINITIVA-2-768x615.jpg" alt="Reforma con pavimiento porcelánico elegante." loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Reforma con pavimiento porcelánico elegante.</span><span class="pu">Alicante</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/06/Diseno-sin-titulo-2025-06-12T162632.776-768x615.jpg" alt="Reforma integral de baño y suelo imitación madera" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Reforma integral de baño y suelo imitación madera</span><span class="pu">Valeup - Alicante</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/06/Diseno-sin-titulo-768x615.jpg" alt="Renovación de baño que transforma la rutina diaria" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Renovación de baño que transforma la rutina diaria</span><span class="pu">Valencia, Picanya</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/10/banos-personalizados-revestimiento-marmol-moderno-768x615.jpg" alt="Baños con alma: la revolución de la personalización Adrihosan" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Baños con alma: la revolución de la personalización Adrihosan</span><span class="pu">España</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/11/Mueble-sinergy-Rebeca-768x615.jpg" alt="Transformación con esencia Adrihosan" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Transformación con esencia Adrihosan</span><span class="pu">El Cabañal - Valencia</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/12/Gemini_Generated_Image_tcxh8ctcxh8ctcxh-768x615.jpg" alt="Un baño renovado con hidráulico a medida" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Un baño renovado con hidráulico a medida</span><span class="pu">Oviedo - Asturias</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2026/03/cocina-moderna-blanca-l-encimera-negra1140-768x615.jpg" alt="Una cocina que vuelve a cobrar vida" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Una cocina que vuelve a cobrar vida</span><span class="pu">Lliria - Valencia</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/12/freepik__text-to-image__40823-1-1-768x615.jpg" alt="Una pieza personalizada que da vida al baño" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Una pieza personalizada que da vida al baño</span><span class="pu">Madrid - Casa de Campo</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2025/12/ChatGPT-Image-22-dic-2025-11_28_21.jpg" alt="Proyecto hotelero con encimeras Solid Surface" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Proyecto hotelero con encimeras Solid Surface</span><span class="pu">Sabadell, España</span></span>
+      </a>
+      <a class="pcard" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+        <span class="pph"><img src="https://www.adrihosan.com/wp-content/uploads/2026/03/FOTO-CENTRO-ESCAMA.jpg" alt="Proyecto: Ducha con inspiración marina" loading="lazy"></span>
+        <span class="pmeta"><span class="pt">Proyecto: Ducha con inspiración marina</span><span class="pu">Valencia - L`Eixample</span></span>
+      </a>
+  </div></div>
+
+  <div class="lbl"><div class="wrap"><b>4 · La prosa, al pie</b><p>Palabra por palabra la que hay hoy, pero después de los proyectos. Google la sigue leyendo igual y el visitante ya ha visto el trabajo. Los testimonios largos van plegados.</p></div></div>
+  <section class="seo"><div class="wrap">
+    <h2>Sobre nuestros baños</h2>
+    <div class="in">
+      <p>Disfruta con nosotros de los cuartos de baño de nuestros clientes. 💡 ¡Ilumina tu imaginación! Explora nuestros proyectos y visualiza tu baño ideal.</p>
+      <h2>Proyectos Reales de Cuartos de Baño con Adrihosan</h2>
+      <p>¿Estás buscando inspiración para tu próximo proyecto de reforma de baño? En Adrihosan, nos enorgullece mostrar los proyectos reales realizados para nuestros clientes…</p>
+      <details><summary>Ver testimonios de clientes</summary>
+        <p style="margin-top:12px">Aquí irían los testimonios que hoy están arriba, tal cual están escritos.</p>
+      </details>
+    </div>
+  </div></section>
+
+  <div class="lbl"><div class="wrap"><b>5 · Cierre</b><p>El mismo cierre que ya tiene /proyectos/, para que las dos páginas terminen igual.</p></div></div>
+  <section class="close"><div class="wrap">
+    <p class="k">Cuéntanos tu proyecto</p>
+    <h2>¡Comienza tu proyecto hoy!</h2>
+    <p>En Adrihosan te queremos ayudar a convertir tus ideas en realidad. Envíanos tus propuestas e ideas, juntos alcanzaremos el éxito.</p>
+    <a class="btn" href="https://www.adrihosan.com/contacto/">Contacto</a>
+  </div></section>
+</div>
+
+<script>
+const bs=[...document.querySelectorAll('.bar [data-v]')];
+function show(v){document.querySelectorAll('.v').forEach(e=>e.hidden=!e.classList.contains('v-'+v));
+ bs.forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===v));}
+bs.forEach(b=>b.onclick=()=>show(b.dataset.v));
+const h=(location.hash||'').replace('#','');if(['old','new'].includes(h))show(h);
+const n=document.getElementById('bn');
+n.onclick=()=>{const on=document.body.classList.toggle('sn');n.setAttribute('aria-pressed',String(!on))};
+</script>
