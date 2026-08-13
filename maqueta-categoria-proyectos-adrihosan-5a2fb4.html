@@ -99,6 +99,21 @@ h2.t{font-size:clamp(26px,3.2vw,38px);font-weight:700;letter-spacing:-1px;margin
 .close p{font-size:16.5px;font-weight:300;line-height:1.62;color:#cfe0e3;margin:16px auto 0;max-width:52ch}
 .close .btn{display:inline-block;margin:28px 0 0;background:var(--turq);color:var(--ink);font-size:15px;font-weight:600;padding:15px 32px;border-radius:999px}
 
+
+.fcierre{background:var(--ink);color:#fff;padding:72px 0}
+.fgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.fcierre .k{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--turq);margin:0 0 14px}
+.fcierre h2{font-size:clamp(26px,3vw,38px);font-weight:700;letter-spacing:-1px;line-height:1.12;margin:0}
+.fcierre p.tx{font-size:16.5px;font-weight:300;line-height:1.62;color:#cfe0e3;margin:16px 0 0;max-width:46ch}
+.fbox{display:flex;flex-direction:column;gap:14px}
+.fbox input,.fbox textarea{width:100%;border-radius:10px;border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);color:#fff;padding:15px 18px;font-size:15px;font-family:inherit}
+.fbox input::placeholder,.fbox textarea::placeholder{color:#9fc0c6}
+.fbox .leg{font-size:13px;font-weight:300;color:#9fc0c6;line-height:1.5;margin:2px 0 0}
+.fbox button{align-self:flex-start;border:0;border-radius:999px;background:var(--turq);color:var(--ink);
+  font:600 15px Poppins,system-ui;padding:15px 34px;cursor:pointer;min-width:210px}
+@media(max-width:900px){.fgrid{grid-template-columns:1fr;gap:34px}}
+
 @media(max-width:900px){
   .grid{grid-template-columns:1fr 1fr}
   .oldrow{grid-template-columns:1fr}
@@ -160,10 +175,10 @@ h2.t{font-size:clamp(26px,3.2vw,38px);font-weight:700;letter-spacing:-1px;margin
 
 <!-- ═══ PROPUESTA ═══ -->
 <div class="v v-new">
-  <div class="lbl"><div class="wrap"><b>1 · Cabecera</b><p>El mismo lenguaje que la ficha y que /proyectos/: foto de la categoría al fondo, velo de marca, kicker, título grande y <b>el recuento real</b>. Las migas dejan de ser una franja gris aparte.</p></div></div>
+  <div class="lbl"><div class="wrap"><b>1 · Cabecera</b><p>El mismo lenguaje que la ficha y que /proyectos/: foto al fondo, velo de marca, kicker, título grande y <b>el recuento real</b>. <b>Foto cambiada:</b> la que usan hoy las categorías mide 450×600 px y a pantalla completa se pixela; ésta es de 1.140×913, la mayor real que hay de baños en tu mediateca.</p></div></div>
   <header class="hero">
 <meta name="robots" content="noindex, nofollow">
-    <img src="https://www.adrihosan.com/wp-content/uploads/2023/08/bano-porcelanico-madera-adrihosan-categoria.jpg" alt="Baños">
+    <img src="https://www.adrihosan.com/wp-content/uploads/2025/10/banos-personalizados-revestimiento-marmol-moderno.jpg" alt="Baños">
     <div class="in">
       <p class="migas"><a href="https://www.adrihosan.com/">Inicio</a> · <a href="https://www.adrihosan.com/proyectos/">Proyectos</a> · Baños</p>
       <p class="k">Proyectos Adrihosan</p>
@@ -318,13 +333,22 @@ h2.t{font-size:clamp(26px,3.2vw,38px);font-weight:700;letter-spacing:-1px;margin
     </div>
   </div></section>
 
-  <div class="lbl"><div class="wrap"><b>5 · Cierre</b><p>El mismo cierre que ya tiene /proyectos/, para que las dos páginas terminen igual.</p></div></div>
-  <section class="close"><div class="wrap">
-    <p class="k">Cuéntanos tu proyecto</p>
-    <h2>¡Comienza tu proyecto hoy!</h2>
-    <p>En Adrihosan te queremos ayudar a convertir tus ideas en realidad. Envíanos tus propuestas e ideas, juntos alcanzaremos el éxito.</p>
-    <a class="btn" href="https://www.adrihosan.com/contacto/">Contacto</a>
-  </div></section>
+  <div class="lbl"><div class="wrap"><b>5 · Cierre con formulario</b><p>El mismo tratamiento que acabas de aprobar en /proyectos/: una sola columna de campos, fondo translúcido sobre la banda oscura y botón en píldora. Hoy la categoría ni siquiera tiene formulario — se acaba en un banner.</p></div></div>
+  <section class="fcierre"><div class="wrap"><div class="fgrid">
+    <div>
+      <p class="k">Cuéntanos tu proyecto</p>
+      <h2>¡Comienza tu proyecto hoy!</h2>
+      <p class="tx">En Adrihosan te queremos ayudar a convertir tus ideas en realidad. Envíanos tus propuestas e ideas, juntos alcanzaremos el éxito.</p>
+    </div>
+    <form class="fbox" onsubmit="return false">
+      <input type="text" placeholder="Nombre y apellidos">
+      <input type="tel" placeholder="Teléfono">
+      <input type="email" placeholder="Correo electrónico">
+      <textarea rows="3" placeholder="Cuéntanos tu proyecto"></textarea>
+      <p class="leg">Maqueta — aquí va tu formulario actual (Contact Form 7 nº 159519), sin tocarlo.</p>
+      <button type="button">Enviar propuesta</button>
+    </form>
+  </div></div></section>
 </div>
 
 <script>
