@@ -1,4 +1,3 @@
-<meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Listado de Proyectos Adrihosan</title>
@@ -7,50 +6,105 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#102E35;          /* doo-black-light — el oscuro de marca */
-  --turq:#4DD2D0;         /* doo-blue */
-  --green:#1a6c7a;        /* doo-green */
-  --gray-5:#F2F2F2;
-  --gray-6:#F6F6F6;
+  --ink:#102E35;        /* doo-black-light */
+  --turq:#4DD2D0;       /* doo-blue */
+  --green:#1a6c7a;      /* doo-green */
   --gray:#767676;
-  --white:#fff;
   --r:16px;
   --maxw:1200px;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+img{max-width:100%}
 
-/* ---------- chrome de la maqueta (NO forma parte del diseño) ---------- */
-.mock-bar{position:sticky;top:0;z-index:50;background:var(--ink);color:#fff;padding:14px 24px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+/* ---------- chrome de la maqueta (no forma parte del diseño) ---------- */
+.mock-bar{position:sticky;top:0;z-index:60;background:var(--ink);color:#fff;padding:12px 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 .mock-bar b{font-weight:600;font-size:15px;letter-spacing:-.2px}
 .mock-bar span{font-size:13px;color:#9fc4cb;font-weight:300}
 .toggle{margin-left:auto;display:flex;background:rgba(255,255,255,.12);border-radius:999px;padding:4px;gap:4px}
 .toggle button{font-family:inherit;font-size:13px;font-weight:500;border:0;background:transparent;color:#cfe6ea;padding:8px 18px;border-radius:999px;cursor:pointer;transition:.2s}
 .toggle button[aria-pressed=true]{background:var(--turq);color:var(--ink);font-weight:600}
-.note{background:#fffbe9;border-left:3px solid #e8c766;padding:14px 18px;margin:0 0 8px;font-size:14px;line-height:1.55;border-radius:0 8px 8px 0}
+.lbl{background:#f4f7f7;border-bottom:1px solid #e3eaea;padding:12px 0}
+.lbl .wrap{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.lbl b{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.lbl p{margin:0;font-size:13.5px;font-weight:300;color:#5d6b6d;line-height:1.5;max-width:76ch}
+.note{background:#fffbe9;border-left:3px solid #e8c766;padding:14px 18px;font-size:14px;line-height:1.55;border-radius:0 8px 8px 0;margin:24px 0 0}
 .note b{font-weight:600}
 
-/* ---------- cabecera de sección (común) ---------- */
+/* ============================================================
+   HERO — texto y foto son los que ya hay. Cambia el tratamiento.
+   ============================================================ */
+
+/* --- ACTUAL: dos columnas, todo centrado, foto flotando --- */
+.hero-old{display:flex;align-items:center;gap:0;background:#fff;padding:40px 0}
+.hero-old .col{flex-basis:50%;flex-grow:1}
+.hero-old .col:first-child{padding:0 40px}
+.hero-old h1{font-size:38px;font-weight:700;line-height:1.2;letter-spacing:-1px;text-align:center;margin:0 0 20px}
+.hero-old p{text-align:center;font-size:16px;font-weight:300;line-height:1.6;color:#333;margin:0 0 16px}
+.hero-old .btn-old{display:block;width:max-content;margin:24px auto 0;background:#7ad9d7;color:#fff;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:14px 34px;border-radius:4px;text-decoration:none}
+.hero-old img{display:block;width:100%;height:auto}
+
+/* --- A: cabecera envolvente, el lenguaje de la ficha interior --- */
+.hero-a{position:relative;min-height:560px;display:flex;align-items:center;overflow:hidden;background:var(--ink)}
+.hero-a img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:78% 46%}
+.hero-a::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,rgba(16,46,53,.97) 0%,rgba(16,46,53,.93) 30%,rgba(16,46,53,.78) 45%,rgba(16,46,53,.34) 64%,rgba(16,46,53,.06) 84%,rgba(16,46,53,0) 100%)}
+.hero-a .inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:72px 24px;width:100%}
+.hero-a .box{max-width:33rem}
+.hero-a .kick{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--turq);margin:0 0 20px}
+.hero-a .kick::before{content:"";width:26px;height:2px;background:var(--turq);border-radius:2px}
+.hero-a h1{font-size:clamp(32px,4.4vw,54px);font-weight:700;line-height:1.08;letter-spacing:-1.6px;color:#fff;margin:0}
+.hero-a .lead{font-size:18px;font-weight:300;line-height:1.62;color:#d7e6e9;margin:22px 0 0;max-width:44ch}
+.hero-a .aside{font-size:15px;font-weight:300;line-height:1.6;color:#b9d2d7;margin:12px 0 0;max-width:44ch}
+.hero-a .cta{display:inline-flex;align-items:center;gap:10px;margin:34px 0 0;background:var(--turq);color:var(--ink);font-size:15px;font-weight:600;padding:15px 30px;border-radius:999px;text-decoration:none;transition:.25s}
+.hero-a .cta:hover{background:#fff;transform:translateY(-2px)}
+.hero-a .cta::after{content:"↓";font-size:15px;transition:transform .25s}
+.hero-a .cta:hover::after{transform:translateY(3px)}
+
+/* --- B: split, foto a sangre y a toda la altura --- */
+.hero-b{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:520px;background:#f6f8f8}
+.hero-b .txt{display:flex;flex-direction:column;justify-content:center;padding:64px 56px 64px max(24px,calc((100vw - var(--maxw))/2 + 24px))}
+.hero-b .kick{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin:0 0 16px}
+.hero-b h1{font-size:clamp(30px,3.6vw,46px);font-weight:700;line-height:1.1;letter-spacing:-1.3px;margin:0}
+.hero-b .lead{font-size:17px;font-weight:300;line-height:1.62;color:#465356;margin:20px 0 0;max-width:42ch}
+.hero-b .aside{font-size:14.5px;font-weight:300;line-height:1.6;color:#78888b;margin:10px 0 0;max-width:42ch}
+.hero-b .cta{display:inline-flex;align-items:center;gap:10px;width:max-content;margin:30px 0 0;background:var(--ink);color:#fff;font-size:15px;font-weight:600;padding:15px 30px;border-radius:999px;text-decoration:none;transition:.25s}
+.hero-b .cta:hover{background:var(--green)}
+.hero-b .cta::after{content:"↓"}
+.hero-b .pic{position:relative;overflow:hidden;border-radius:var(--r) 0 0 var(--r)}
+.hero-b .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% 42%}
+
+@media(max-width:900px){
+  .hero-a{min-height:600px}
+  .hero-a img{object-position:66% 30%}
+  .hero-a::after{background:linear-gradient(to top,rgba(16,46,53,.96) 0%,rgba(16,46,53,.92) 46%,rgba(16,46,53,.62) 66%,rgba(16,46,53,.18) 84%,rgba(16,46,53,.02) 100%)}
+  .hero-a .inner{padding:48px 24px 40px;display:flex;align-items:flex-end;min-height:600px}
+  .hero-a h1{letter-spacing:-1px}
+  .hero-a .lead{font-size:16.5px;margin-top:18px}
+  .hero-b{grid-template-columns:1fr}
+  .hero-b .pic{height:280px;border-radius:0}
+  .hero-b .txt{padding:44px 24px}
+  .hero-old{flex-direction:column}
+  .hero-old .col:first-child{padding:0 24px 28px}
+}
+
+/* ============================================================
+   REJILLA DE CATEGORÍAS
+   ============================================================ */
 .sec{padding:64px 0 80px}
 .sec-head{margin:0 0 36px}
 .kicker{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin:0 0 10px}
 h2.t{font-size:clamp(30px,4vw,44px);font-weight:700;letter-spacing:-1px;margin:0;line-height:1.1}
 .sub{margin:12px 0 0;font-size:16px;font-weight:300;color:var(--gray);max-width:52ch;line-height:1.6}
 
-/* =========================================================
-   ANTES — reproducción fiel de lo que hay hoy en producción
-   ========================================================= */
-#antes .grid-old{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
-#antes .card-old{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:1/.95;display:block;text-decoration:none}
-#antes .card-old img{width:100%;height:100%;object-fit:cover;display:block}
-#antes .card-old .ttl{position:absolute;left:0;right:0;top:52%;transform:translateY(-50%);text-align:center;color:#fff;font-size:26px;font-weight:700;text-shadow:0 1px 2px rgba(0,0,0,.25)}
-#antes .card-old .vm{position:absolute;left:50%;transform:translateX(-50%);bottom:52px;background:#7ad9d7;color:#fff;font-size:13px;font-weight:600;letter-spacing:.06em;padding:12px 40px;border-radius:4px}
-#antes .hueco{border:2px dashed #e0a0a0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#c06a6a;font-size:13px;font-weight:500;text-align:center;padding:20px;line-height:1.5}
+.grid-old{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.card-old{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:1/.95;display:block;text-decoration:none}
+.card-old img{width:100%;height:100%;object-fit:cover;display:block}
+.card-old .ttl{position:absolute;left:0;right:0;top:52%;transform:translateY(-50%);text-align:center;color:#fff;font-size:26px;font-weight:700;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.card-old .vm{position:absolute;left:50%;transform:translateX(-50%);bottom:52px;background:#7ad9d7;color:#fff;font-size:13px;font-weight:600;letter-spacing:.06em;padding:12px 40px;border-radius:4px}
+.hueco{border:2px dashed #e0a0a0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#c06a6a;font-size:13px;font-weight:500;text-align:center;padding:20px;line-height:1.5}
 
-/* =========================================================
-   DESPUÉS — mosaico ponderado
-   ========================================================= */
 .mosaic{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
 .tile{position:relative;display:block;overflow:hidden;border-radius:var(--r);text-decoration:none;background:var(--ink);isolation:isolate}
 .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.2,.7,.3,1)}
@@ -58,20 +112,21 @@ h2.t{font-size:clamp(30px,4vw,44px);font-weight:700;letter-spacing:-1px;margin:0
 .tile .body{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:26px 26px 24px;color:#fff}
 .tile .rule{width:32px;height:3px;background:var(--turq);border-radius:2px;margin:0 0 14px;transition:width .45s cubic-bezier(.2,.7,.3,1)}
 .tile h3{margin:0;font-size:22px;font-weight:600;letter-spacing:-.4px;line-height:1.15}
-.tile .count{margin:6px 0 0;font-size:13.5px;font-weight:400;color:#bfe0e4;letter-spacing:.01em}
+.tile .count{margin:6px 0 0;font-size:13.5px;font-weight:400;color:#bfe0e4}
 .tile.lg h3{font-size:30px;letter-spacing:-.8px}
 .tile.lg .body{padding:32px 32px 30px}
 .tile.lg .rule{width:44px}
-
-/* pesos reales: Baños 30 · Suelos 19 · Comercial 14 · Piscinas 5 · Cocinas 4 */
 .tile.a{grid-column:span 7;height:420px}
 .tile.b{grid-column:span 5;height:420px}
 .tile.c,.tile.d,.tile.e{grid-column:span 4;height:290px}
-
 .tile:hover img,.tile:focus-visible img{transform:scale(1.05)}
 .tile:hover .rule,.tile:focus-visible .rule{width:64px}
 .tile:hover::after{opacity:.88}
 .tile:focus-visible{outline:3px solid var(--turq);outline-offset:3px}
+
+.tally{margin:22px 0 0;display:flex;flex-wrap:wrap;gap:8px 28px;align-items:baseline;border-top:1px solid #e8ecec;padding-top:20px}
+.tally .big{font-size:15px;font-weight:600}
+.tally .small{font-size:14px;font-weight:300;color:var(--gray)}
 
 @media(max-width:900px){
   .tile.a,.tile.b{grid-column:span 12;height:340px}
@@ -82,35 +137,36 @@ h2.t{font-size:clamp(30px,4vw,44px);font-weight:700;letter-spacing:-1px;margin:0
   .sec{padding:44px 0 56px}
   .tile.a,.tile.b{height:280px}
   .tile.c,.tile.d,.tile.e{grid-column:span 12;height:230px}
-  .tile .body{padding:22px}
-  .tile.lg .body{padding:24px}
-  #antes .grid-old{grid-template-columns:1fr;gap:24px}
+  .tile .body,.tile.lg .body{padding:22px}
+  .grid-old{grid-template-columns:1fr;gap:24px}
 }
-
-/* barra de resumen bajo el mosaico */
-.tally{margin:22px 0 0;display:flex;flex-wrap:wrap;gap:8px 28px;align-items:baseline;border-top:1px solid #e8ecec;padding-top:20px}
-.tally .big{font-size:15px;font-weight:600}
-.tally .small{font-size:14px;font-weight:300;color:var(--gray)}
 </style>
 
 <div class="mock-bar">
   <b>Adrihosan · /proyectos/</b>
-  <span>Maqueta del listado — 13 ago 2026. Sin cambios de contenido: mismos textos, mismas fotos, mismos enlaces.</span>
-  <div class="toggle" role="group" aria-label="Comparar versiones">
-    <button id="bAntes" aria-pressed="false">Antes</button>
-    <button id="bDespues" aria-pressed="true">Después</button>
+  <span>Maqueta — 13 ago 2026. Mismos textos, misma foto, mismos enlaces. Solo cambia el tratamiento.</span>
+  <div class="toggle" role="group" aria-label="Ver versión">
+    <button data-v="old" aria-pressed="false">Actual</button>
+    <button data-v="a" aria-pressed="true">Hero A</button>
+    <button data-v="b" aria-pressed="false">Hero B</button>
   </div>
 </div>
 
-<!-- ============ ANTES ============ -->
-<section id="antes" class="sec" hidden>
-  <div class="wrap">
-    <div class="note">
-      <b>Así está hoy en producción.</b> Cinco tarjetas en una rejilla de tres: la segunda fila queda coja
-      con un hueco muerto a la derecha. El título va en blanco directamente sobre la foto, sin nada que lo
-      proteja, y en Baños casi no se lee. El botón «Ver más» repite lo que ya hace la tarjeta entera.
-      Y en ningún sitio se dice cuántos proyectos hay dentro.
+<!-- ══════════ ACTUAL ══════════ -->
+<div class="v v-old" hidden>
+  <div class="lbl"><div class="wrap"><b>Actual</b><p>La foto va en una columna a media altura, con franjas blancas arriba y abajo. El texto está centrado dentro de su mitad, así que nada ancla la vista. Titular y foto compiten en vez de sumar.</p></div></div>
+  <div class="hero-old">
+    <div class="col">
+      <h1>Historias de éxito de nuestros clientes</h1>
+      <p>Descubre cómo nuestros clientes han transformado sus hogares con nuestros productos.</p>
+      <p>🌟 Sumérgete en mundos de diseño únicos y encuentra la inspiración que buscas.</p>
+      <a class="btn-old" href="#proyectos">Descubre más</a>
     </div>
+    <div class="col">
+      <img src="https://www.adrihosan.com/wp-content/uploads/2023/07/imagen-familia-primera-landing.jpg" alt="imagen familia primera landing | Adrihosan">
+    </div>
+  </div>
+  <section class="sec"><div class="wrap">
     <div class="sec-head"><h2 class="t">Proyectos</h2></div>
     <div class="grid-old">
       <a class="card-old" href="#"><img src="https://www.adrihosan.com/wp-content/uploads/2023/05/siracusamulticolorambiente.jpg" alt="Suelos"><div class="ttl">Suelos</div><div class="vm">VER MÁS</div></a>
@@ -120,51 +176,78 @@ h2.t{font-size:clamp(30px,4vw,44px);font-weight:700;letter-spacing:-1px;margin:0
       <a class="card-old" href="#"><img src="https://www.adrihosan.com/wp-content/uploads/2026/04/Proyecto-cocina-suelo-hexagonal-negro-adrihosan.jpg" alt="Cocinas"><div class="ttl">Cocinas</div><div class="vm">VER MÁS</div></a>
       <div class="hueco">Hueco muerto<br>de la rejilla de 3</div>
     </div>
+    <div class="note"><b>El hueco no es cosa de esta maqueta:</b> está así en producción. Cinco tarjetas no caben en una rejilla de tres.</div>
+  </div></section>
+</div>
+
+<!-- ══════════ HERO A ══════════ -->
+<div class="v v-a">
+  <div class="lbl"><div class="wrap"><b>Hero A · envolvente</b><p>La misma foto pasa a ocupar toda la cabecera, con el velo oscuro de marca cayendo desde la izquierda. El texto se alinea a la izquierda y se lee sobre el velo. Es el mismo lenguaje que la ficha de proyecto: cabecera oscura, kicker en versalitas, titular grande.</p></div></div>
+  <header class="hero-a">
+<meta name="robots" content="noindex, nofollow">
+    <img src="https://www.adrihosan.com/wp-content/uploads/2023/07/imagen-familia-primera-landing.jpg" alt="imagen familia primera landing | Adrihosan">
+    <div class="inner"><div class="box">
+      <p class="kick">Proyectos Adrihosan</p>
+      <h1>Historias de éxito de nuestros clientes</h1>
+      <p class="lead">Descubre cómo nuestros clientes han transformado sus hogares con nuestros productos.</p>
+      <p class="aside">🌟 Sumérgete en mundos de diseño únicos y encuentra la inspiración que buscas.</p>
+      <a class="cta" href="#proyectos">Descubre más</a>
+    </div></div>
+  </header>
+</div>
+
+<!-- ══════════ HERO B ══════════ -->
+<div class="v v-b" hidden>
+  <div class="lbl"><div class="wrap"><b>Hero B · split a sangre</b><p>Mantiene las dos columnas, pero la foto llena su mitad de arriba abajo y sangra hasta el borde derecho. El texto se alinea a la izquierda y el botón pasa a oscuro. Más conservador: se parece a lo de ahora, sin las franjas blancas.</p></div></div>
+  <header class="hero-b">
+    <div class="txt">
+      <p class="kick">Proyectos Adrihosan</p>
+      <h1>Historias de éxito de nuestros clientes</h1>
+      <p class="lead">Descubre cómo nuestros clientes han transformado sus hogares con nuestros productos.</p>
+      <p class="aside">🌟 Sumérgete en mundos de diseño únicos y encuentra la inspiración que buscas.</p>
+      <a class="cta" href="#proyectos">Descubre más</a>
+    </div>
+    <div class="pic"><img src="https://www.adrihosan.com/wp-content/uploads/2023/07/imagen-familia-primera-landing.jpg" alt="imagen familia primera landing | Adrihosan"></div>
+  </header>
+</div>
+
+<!-- ══════════ MOSAICO (común a A y B) ══════════ -->
+<section class="sec v v-a v-b" id="proyectos"><div class="wrap">
+  <div class="sec-head">
+    <p class="kicker">54 proyectos ejecutados</p>
+    <h2 class="t">Proyectos</h2>
+    <p class="sub">El mosaico se reparte según el peso real de cada categoría: los baños mandan porque son treinta.</p>
   </div>
-</section>
-
-<!-- ============ DESPUÉS ============ -->
-<section id="despues" class="sec">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="kicker">54 proyectos ejecutados</p>
-      <h2 class="t">Proyectos</h2>
-      <p class="sub">El mosaico se reparte según el peso real de cada categoría: los baños mandan porque son treinta.</p>
-    </div>
-
-    <div class="mosaic">
-      <a class="tile lg a" href="https://www.adrihosan.com/proyecto-categoria/banos/">
-        <img src="https://www.adrihosan.com/wp-content/uploads/2023/08/bano-porcelanico-madera-adrihosan-categoria.jpg" alt="Baño con porcelánico imitación madera">
-        <div class="body"><div class="rule"></div><h3>Baños</h3><p class="count">30 proyectos</p></div>
-      </a>
-      <a class="tile lg b" href="https://www.adrihosan.com/proyecto-categoria/suelos/">
-        <img src="https://www.adrihosan.com/wp-content/uploads/2023/05/siracusamulticolorambiente.jpg" alt="Ambiente con azulejo Siracusa multicolor">
-        <div class="body"><div class="rule"></div><h3>Suelos</h3><p class="count">19 proyectos</p></div>
-      </a>
-      <a class="tile c" href="https://www.adrihosan.com/proyecto-categoria/comercial/">
-        <img src="https://www.adrihosan.com/wp-content/uploads/2023/10/peluqueria-eddie-moon-azulejo-metro.jpg" alt="Peluquería Eddie Moon con azulejo metro">
-        <div class="body"><div class="rule"></div><h3>Comercial</h3><p class="count">14 proyectos</p></div>
-      </a>
-      <a class="tile d" href="https://www.adrihosan.com/proyecto-categoria/piscinas/">
-        <img src="https://www.adrihosan.com/wp-content/uploads/2022/06/azulejo-aspen-greenn-30-x-60-adrihosan-mykonos-5.jpg" alt="Piscina con azulejo Aspen Green">
-        <div class="body"><div class="rule"></div><h3>Piscinas</h3><p class="count">5 proyectos</p></div>
-      </a>
-      <a class="tile e" href="https://www.adrihosan.com/proyecto-categoria/cocinas/">
-        <img src="https://www.adrihosan.com/wp-content/uploads/2026/04/Proyecto-cocina-suelo-hexagonal-negro-adrihosan.jpg" alt="Cocina con suelo hexagonal negro">
-        <div class="body"><div class="rule"></div><h3>Cocinas</h3><p class="count">4 proyectos</p></div>
-      </a>
-    </div>
-
-    <div class="tally">
-      <span class="big">54 proyectos en 5 categorías</span>
-      <span class="small">Los recuentos se leen solos de la base de datos: si mañana subes un baño, la tarjeta dirá 31.</span>
-    </div>
+  <div class="mosaic">
+    <a class="tile lg a" href="https://www.adrihosan.com/proyecto-categoria/banos/">
+      <img src="https://www.adrihosan.com/wp-content/uploads/2023/08/bano-porcelanico-madera-adrihosan-categoria.jpg" alt="Baño con porcelánico imitación madera">
+      <div class="body"><div class="rule"></div><h3>Baños</h3><p class="count">30 proyectos</p></div></a>
+    <a class="tile lg b" href="https://www.adrihosan.com/proyecto-categoria/suelos/">
+      <img src="https://www.adrihosan.com/wp-content/uploads/2023/05/siracusamulticolorambiente.jpg" alt="Ambiente con azulejo Siracusa multicolor">
+      <div class="body"><div class="rule"></div><h3>Suelos</h3><p class="count">19 proyectos</p></div></a>
+    <a class="tile c" href="https://www.adrihosan.com/proyecto-categoria/comercial/">
+      <img src="https://www.adrihosan.com/wp-content/uploads/2023/10/peluqueria-eddie-moon-azulejo-metro.jpg" alt="Peluquería Eddie Moon con azulejo metro">
+      <div class="body"><div class="rule"></div><h3>Comercial</h3><p class="count">14 proyectos</p></div></a>
+    <a class="tile d" href="https://www.adrihosan.com/proyecto-categoria/piscinas/">
+      <img src="https://www.adrihosan.com/wp-content/uploads/2022/06/azulejo-aspen-greenn-30-x-60-adrihosan-mykonos-5.jpg" alt="Piscina con azulejo Aspen Green">
+      <div class="body"><div class="rule"></div><h3>Piscinas</h3><p class="count">5 proyectos</p></div></a>
+    <a class="tile e" href="https://www.adrihosan.com/proyecto-categoria/cocinas/">
+      <img src="https://www.adrihosan.com/wp-content/uploads/2026/04/Proyecto-cocina-suelo-hexagonal-negro-adrihosan.jpg" alt="Cocina con suelo hexagonal negro">
+      <div class="body"><div class="rule"></div><h3>Cocinas</h3><p class="count">4 proyectos</p></div></a>
   </div>
-</section>
+  <div class="tally">
+    <span class="big">54 proyectos en 5 categorías</span>
+    <span class="small">Los recuentos saldrían leídos de la base de datos: si mañana subes un baño, la tarjeta dirá 31 sola.</span>
+  </div>
+</div></section>
 
 <script>
-const a=document.getElementById('bAntes'),d=document.getElementById('bDespues'),
-      sa=document.getElementById('antes'),sd=document.getElementById('despues');
-function set(v){sa.hidden=v;sd.hidden=!v;d.setAttribute('aria-pressed',v);a.setAttribute('aria-pressed',!v);}
-a.onclick=()=>set(false); d.onclick=()=>set(true);
+const btns=[...document.querySelectorAll('.mock-bar [data-v]')];
+function show(v){
+  document.querySelectorAll('.v').forEach(el=>{el.hidden=!el.classList.contains('v-'+v)});
+  btns.forEach(b=>b.setAttribute('aria-pressed', b.dataset.v===v));
+}
+btns.forEach(b=>b.onclick=()=>show(b.dataset.v));
+const h=(location.hash||'').replace('#','');
+if(['old','a','b'].includes(h))show(h);
 </script>
