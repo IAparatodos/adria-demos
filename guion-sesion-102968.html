@@ -40,9 +40,9 @@
   .meta{margin-top:14px;color:#b9d4d6;font-size:.95rem;position:relative;z-index:1}
 
   main{padding:0 0 40px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 26px;
-    margin:-32px 0 22px;box-shadow:0 8px 28px rgba(16,46,53,.07)}
-  .card + .card{margin-top:22px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 26px;
+    margin:22px 0;box-shadow:0 8px 28px rgba(16,46,53,.07)}
+  .card:first-child{margin-top:-28px;padding-top:34px}
 
   .step{display:flex;gap:18px;align-items:flex-start;margin-bottom:14px}
   .num{flex:0 0 42px;height:42px;border-radius:12px;background:var(--ink);color:#fff;
@@ -83,6 +83,9 @@
   .pre button{position:absolute;right:10px;top:10px;background:var(--turq);color:#06282c;border:0;
     border-radius:8px;padding:6px 12px;font:600 .78rem/1 'Poppins',sans-serif;cursor:pointer}
 
+  .done-tag{display:inline-block;background:var(--turq-soft);color:var(--ok);border-radius:6px;
+    padding:2px 9px;font-size:.76rem;font-weight:600;letter-spacing:.04em;margin-right:4px}
+
   .check{list-style:none;padding:0}
   .check li{padding-left:28px;position:relative}
   .check li::before{content:"☐";position:absolute;left:4px;font-size:1.1rem;color:var(--turq)}
@@ -108,9 +111,8 @@
 
   <div class="card">
     <h2 style="margin-top:0">Antes de conectar</h2>
-    <p>Dos cosas, y la primera no es opcional:</p>
+    <p><span class="done-tag">✓ Listo</span> <strong>El tour arreglado ya está publicado</strong> en el repo del que tira su máquina (14-ago). Su <code>/actualiza</code> se lo traerá solo. No hay nada que preparar por ese lado.</p>
     <ul class="check">
-      <li><strong>Mergear el PR #1 de <code>IAparatodos/codigoadria-os</code></strong>. Es el repo del que tira su máquina. Si no está en <code>main</code>, <code>/actualiza</code> no le trae el tour arreglado y el bloque 3 se cae.</li>
       <li>Tener a mano este guion y la sesión de Claude Code abierta en su carpeta del OS.</li>
     </ul>
     <div class="say">
