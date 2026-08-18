@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La IA dentro de Adrihosan · Código AdrIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#4dd2d0;
+    --primary-deep:#2ea9a7;
+    --secondary:#3f6f7b;
+    --ink:#0f2429;
+    --ink-soft:#40595f;
+    --muted:#7b9096;
+    --canvas:#ffffff;
+    --surface:#f4f8f8;
+    --hairline:#dfe9ea;
+    --tint-a:#e6f8f7;
+    --tint-b:#eef4f0;
+    --tint-c:#fdf3e6;
+    --tint-d:#f1eefb;
+    --warn:#b4501f;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--surface);color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    line-height:1.55;letter-spacing:-.01em;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+  /* cabecera */
+  .top{background:var(--canvas);border-bottom:1px solid var(--hairline)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:16px;padding-bottom:16px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+  .brand img{height:34px;width:auto;display:block}
+  .brand span{font-weight:600;font-size:15px}
+  .top .meta{font-size:13px;color:var(--muted);text-align:right}
+
+  /* hero */
+  .hero{background:linear-gradient(180deg,#0f2b31 0%,#14383f 100%);color:#fff;padding:56px 0 60px}
+  .kicker{
+    display:inline-block;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--primary);margin:0 0 14px
+  }
+  .hero h1{
+    margin:0 0 16px;font-size:clamp(30px,6vw,50px);font-weight:600;line-height:1.08;letter-spacing:-.03em;
+  }
+  .hero p{margin:0;max-width:60ch;color:#cfe2e4;font-size:clamp(15px,2.2vw,18px)}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .fact{
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+    border-radius:999px;padding:7px 14px;font-size:13px;color:#eaf6f6
+  }
+
+  /* secciones */
+  main{padding:44px 0 8px}
+  .lead{
+    background:var(--canvas);border:1px solid var(--hairline);border-left:4px solid var(--primary);
+    border-radius:14px;padding:20px 22px;margin:0 0 34px
+  }
+  .lead p{margin:0;color:var(--ink-soft);font-size:16px}
+  .lead strong{color:var(--ink)}
+
+  .card{
+    background:var(--canvas);border:1px solid var(--hairline);border-radius:18px;
+    padding:26px 24px;margin:0 0 18px
+  }
+  .card .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:30px;height:30px;border-radius:9px;background:var(--tint-a);color:var(--secondary);
+    font-size:14px;font-weight:600;margin-bottom:12px
+  }
+  .card h2{
+    margin:0 0 6px;font-size:clamp(19px,3.2vw,24px);font-weight:600;letter-spacing:-.02em;line-height:1.2
+  }
+  .card .sub{margin:0 0 16px;color:var(--muted);font-size:14.5px}
+  .card ul{margin:0;padding-left:0;list-style:none}
+  .card li{
+    position:relative;padding:0 0 0 26px;margin:0 0 11px;color:var(--ink-soft);font-size:15.5px
+  }
+  .card li::before{
+    content:"";position:absolute;left:6px;top:.62em;width:7px;height:7px;border-radius:2px;
+    background:var(--primary)
+  }
+  .card li strong{color:var(--ink);font-weight:600}
+  .card li ul{margin-top:9px}
+  .card li li::before{background:var(--hairline)}
+
+  /* variantes de tinte */
+  .t-b .num{background:var(--tint-b)}
+  .t-c .num{background:var(--tint-c)}
+  .t-d .num{background:var(--tint-d)}
+
+  /* bloque de límites */
+  .limits{background:#fff7ef;border:1px solid #f2ddc6;border-radius:18px;padding:26px 24px;margin:26px 0 18px}
+  .limits h2{margin:0 0 6px;font-size:clamp(19px,3.2vw,24px);font-weight:600;letter-spacing:-.02em;color:#7a3d12}
+  .limits .sub{margin:0 0 16px;font-size:14.5px;color:#a2622f}
+  .limits ul{margin:0;padding-left:0;list-style:none}
+  .limits li{position:relative;padding-left:26px;margin-bottom:11px;color:#5d3413;font-size:15.5px}
+  .limits li::before{content:"";position:absolute;left:6px;top:.55em;width:9px;height:2px;background:var(--warn)}
+
+  /* preguntas */
+  .ask{background:#0f2b31;color:#fff;border-radius:18px;padding:30px 24px;margin:26px 0 40px}
+  .ask h2{margin:0 0 6px;font-size:clamp(19px,3.2vw,24px);font-weight:600;letter-spacing:-.02em}
+  .ask .sub{margin:0 0 18px;color:#a9c8cb;font-size:14.5px}
+  .ask ol{margin:0;padding-left:20px;color:#dcecec;font-size:15.5px}
+  .ask li{margin-bottom:10px}
+
+  .foot-note{
+    text-align:center;color:var(--muted);font-size:13px;padding:0 0 40px
+  }
+
+  @media (min-width:720px){
+    .cards-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .cards-2 .card{margin:0}
+  }
+  @media print{
+    body{background:#fff}
+    .hero{background:#0f2b31 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .card,.limits,.ask{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="https://www.codigoadria.com">
+      <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      <span>Código AdrIA</span>
+    </a>
+    <div class="meta">GOT Ortopedia · sesión 1<br>19 de agosto de 2026</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker">Caso real, no diapositivas</p>
+    <h1>La IA que ya trabaja dentro de Adrihosan</h1>
+    <p>
+      Adrihosan es una tienda de materiales de construcción: azulejo, baldosa hidráulica, platos de ducha.
+      Tienda física en Valencia, tienda online, clientes que escriben por WhatsApp a cualquier hora.
+      Todo lo que hay en esta página está funcionando hoy en ese negocio. Es lo que se enseña en la formación.
+    </p>
+    <div class="facts">
+      <span class="fact">Tienda física + ecommerce</span>
+      <span class="fact">WooCommerce</span>
+      <span class="fact">Pipedrive como CRM</span>
+      <span class="fact">WhatsApp como canal principal</span>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <div class="lead">
+    <p>
+      La idea de fondo: <strong>la IA no sustituye a nadie del equipo, le quita de encima lo repetitivo</strong>.
+      Mirar, ordenar, escribir el primer borrador, avisar de lo que se está enfriando. Lo que sí es del equipo
+      (atender, aconsejar, cerrar la venta) sigue siendo del equipo.
+    </p>
+  </div>
+
+  <section class="card">
+    <div class="num">1</div>
+    <h2>El WhatsApp de la tienda, revisado cada mañana</h2>
+    <p class="sub">El canal por donde entra la mayoría de consultas. Nadie se queda sin respuesta por olvido.</p>
+    <ul>
+      <li><strong>Lista de conversaciones sin contestar</strong> con nombre, teléfono, cuántas horas llevan esperando.</li>
+      <li><strong>Qué pide exactamente cada uno</strong>: producto, medida, enlace del artículo. No un "tienes 4 pendientes", sino qué quiere cada persona.</li>
+      <li><strong>Aviso de la ventana de 24 horas</strong> de WhatsApp: si se cierra, ya no se puede escribir el primero.</li>
+      <li><strong>Ánimo del cliente puntuado de -2 a +2</strong> según cómo escribe, con el motivo en una línea. Los enfadados salen marcados arriba como rescate prioritario.</li>
+      <li><strong>Termómetro de hoy, la semana, el mes</strong>, para ver si la atención mejora o empeora.</li>
+      <li>Distingue el fin de semana: no marca como urgencia lo que se atiende el lunes.</li>
+    </ul>
+  </section>
+
+  <section class="card t-b">
+    <div class="num">2</div>
+    <h2>Lo hablado con un cliente acaba en su ficha</h2>
+    <p class="sub">Nada se queda en el móvil de una persona.</p>
+    <ul>
+      <li>Cada día, las conversaciones de clientes se vuelcan a <strong>su ficha del CRM</strong> (Pipedrive) como nota.</li>
+      <li>Solo lo que importa: decisiones, encargos, fechas, precios, accesos. Los saludos se quedan fuera.</li>
+      <li>Si un día nadie cierra la jornada a mano, <strong>a las 22:00 se hace solo</strong>.</li>
+      <li>Los correos a clientes se dejan <strong>redactados dentro de la ficha</strong>, listos para revisar. Los envía una persona, nunca la máquina.</li>
+    </ul>
+  </section>
+
+  <section class="card t-c">
+    <div class="num">3</div>
+    <h2>Las tarifas de proveedores, cazadas al vuelo</h2>
+    <p class="sub">Llegan por WhatsApp o correo, en PDF, y se pierden.</p>
+    <ul>
+      <li>Detecta la <strong>tarifa nueva</strong> en cuanto entra, la registra con proveedor, fecha, archivo.</li>
+      <li>Si no sabe de quién es, lo marca <strong>"por identificar"</strong> en vez de inventárselo.</li>
+      <li>Manda un aviso al móvil: <strong>confirmas o descartas con un botón</strong>, el registro se actualiza solo.</li>
+      <li>Informe de tarifas pendientes de revisar, para que ninguna quede sin aplicar al precio de venta.</li>
+    </ul>
+  </section>
+
+  <div class="cards-2">
+    <section class="card t-d">
+      <div class="num">4</div>
+      <h2>Alta de producto en la tienda online</h2>
+      <p class="sub">Catálogo grande, reglas de venta complicadas.</p>
+      <ul>
+        <li>Producto nuevo dado de alta <strong>con sus reglas reales</strong>: venta por metro cuadrado que se cobra por caja, descuento al llevar palet.</li>
+        <li>Los textos se escriben para esa pieza. <strong>Prohibido clonar la ficha del producto hermano</strong>.</li>
+        <li>Todo texto pasa un <strong>control de "esto huele a IA"</strong> antes de publicarse; si no llega a nota, se reescribe.</li>
+        <li>Fotos subidas, recortadas, asignadas por script.</li>
+        <li>Marcas de fabricante corregidas en bloque, feed generado para Google Shopping.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <div class="num">5</div>
+      <h2>SEO, para que te encuentren sin pagar</h2>
+      <p class="sub">Trabajo de hormiga, categoría a categoría.</p>
+      <ul>
+        <li>Se mira <strong>qué escribe la gente en Google</strong> para llegar a esa categoría (datos reales de Search Console).</li>
+        <li>Se reescribe título, descripción, textos, <strong>preguntas frecuentes visibles</strong> marcadas para que Google las lea.</li>
+        <li>El cambio pasa revisión, se publica, <strong>se verifica en la web en vivo</strong>, se avisa a Google para que lo vuelva a rastrear.</li>
+        <li>Enlaces internos entre categorías relacionadas.</li>
+        <li>Diagnóstico técnico: se detectaron <strong>unas mil direcciones inexistentes</strong> que Google indexaba por un error de redirección, con el arreglo escrito para el desarrollador.</li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="card t-b">
+    <div class="num">6</div>
+    <h2>Publicidad que sabe lo que vale un cliente</h2>
+    <p class="sub">El problema clásico del negocio con tienda física.</p>
+    <ul>
+      <li>La venta se cierra por WhatsApp, por teléfono o en el mostrador, así que <strong>Google veía cero euros</strong> en la mayoría de los anuncios que sí funcionaban.</li>
+      <li>Con los datos del CRM se calcula <strong>lo que vale de verdad un clic de WhatsApp</strong> y se le pasa ese valor a la campaña.</li>
+      <li>Resultado: la puja automática deja de optimizar a ciegas: sabe qué anuncio trae clientes reales.</li>
+      <li>Mismo tratamiento en las campañas de Meta, con diagnóstico de qué campaña se lleva el dinero.</li>
+    </ul>
+  </section>
+
+  <section class="card t-c">
+    <div class="num">7</div>
+    <h2>Contenido: vídeo, redes, correo</h2>
+    <p class="sub">Lo que sostiene la marca cuando no estás vendiendo.</p>
+    <ul>
+      <li>Reels con guion, subtítulos incrustados, locución generada, imágenes de apoyo creadas cuando no hay material grabado.</li>
+      <li>Vídeos de YouTube con <strong>títulos reescritos para búsqueda</strong>, descripción, etiquetas, idioma correcto.</li>
+      <li><strong>La newsletter nace de una nota de voz</strong>: se dicta la idea, llega escrita para revisar. No se envía sola.</li>
+      <li>Goteo de publicaciones: si la cola baja de tres días, redacta el lote de la semana <strong>esperando el visto bueno</strong>.</li>
+      <li>Los artículos del blog pasan una lista de comprobación fija antes de publicarse.</li>
+    </ul>
+  </section>
+
+  <section class="card t-d">
+    <div class="num">8</div>
+    <h2>Cómo está montado por dentro</h2>
+    <p class="sub">Esto es lo que separa un juguete de un sistema.</p>
+    <ul>
+      <li><strong>Cada tarea repetida se convierte en un circuito</strong> con su disparador, sus pasos, su verificación, su punto de parada.</li>
+      <li><strong>Compuerta humana</strong>: el circuito prepara, la persona aprueba. Cuanto más delicado, antes se para a preguntar.</li>
+      <li>Lo que sabe el negocio <strong>vive en archivos</strong>, no en la cabeza del que pregunta ni en un chat perdido.</li>
+      <li>Se verifica siempre contra la fuente: si no se ha comprobado, se marca como hipótesis, no como hecho.</li>
+      <li>Los trabajos delicados los revisa <strong>un segundo revisor independiente</strong> antes de darlos por buenos.</li>
+    </ul>
+  </section>
+
+  <section class="limits">
+    <h2>Lo que la IA no hace sola aquí</h2>
+    <p class="sub">Dicho antes de que lo preguntéis, porque es la parte que da confianza.</p>
+    <ul>
+      <li>Los correos a clientes los manda una persona. La máquina solo los deja escritos.</li>
+      <li>Nada sale publicado en redes, ni sale una newsletter, sin que alguien dé el visto bueno.</li>
+      <li>Las ventas se cierran hablando: precio, plazos, negociación, eso sigue siendo del equipo.</li>
+      <li>La web en producción no se toca sin que el cambio pase revisión antes.</li>
+      <li>Cuando un dato no se puede comprobar, queda marcado como pendiente. Inventarlo no es una opción.</li>
+    </ul>
+  </section>
+
+  <section class="ask">
+    <h2>Lo que necesitamos saber de vosotros hoy</h2>
+    <p class="sub">Esta sesión es toma de datos. La formación se diseña después, con vuestras respuestas.</p>
+    <ol>
+      <li>¿Cuántos sois, qué hace cada uno en el día a día?</li>
+      <li>¿Por dónde os entran los clientes: mostrador, teléfono, WhatsApp, web, prescripción médica?</li>
+      <li>¿Qué tarea repetís todos los días que más tiempo os come?</li>
+      <li>¿Quién lleva la tienda online, las redes, los presupuestos, los proveedores?</li>
+      <li>¿Qué herramientas usáis ya: programa de gestión, WhatsApp Business, hojas de cálculo?</li>
+      <li>¿Qué habéis probado de IA hasta ahora, qué os funcionó, qué no?</li>
+      <li>¿Qué preferís: formación presencial en Tenerife, en directo por videollamada, grabada?</li>
+    </ol>
+  </section>
+
+  <p class="foot-note">Documento de trabajo para la sesión del 19 de agosto de 2026 · Código AdrIA</p>
+
+</main>
+
+<!--
+  FOOTER DE MARCA — OBLIGATORIO en todo HTML de Código AdrIA que se comparta en público.
+  Pégalo justo antes de </body>. Autocontenido: CSS propio + SVG en línea, sin dependencias.
+  Regla en CLAUDE.md raíz: "HTML público — marca y footer obligatorios".
+
+  Estructura (patrón Stripe: banda de cierre + columnas + fila legal):
+    1. Banda de cierre con UNA sola llamada a la acción rellena (la comunidad).
+    2. Tres columnas de enlaces: empezar / seguir / la casa.
+    3. Fila legal con logo enlazado + copyright.
+
+  Enlaces oficiales (verificados 2-ago-2026):
+  - Comunidad Telegram (alta): https://forms.gle/LQUSEfZZ9m8R5e8f6
+  - Curso:     https://www.codigoadria.com/curso-automatizaciones/
+  - Academia:  https://www.codigoadria.com/academia/
+  - YouTube:   https://www.youtube.com/@codigoadria?sub_confirmation=1
+  - LinkedIn:  https://www.linkedin.com/in/ricardohoyosperez/
+  - Instagram: https://www.instagram.com/ricardohoyos1/  ← el PERSONAL (decisión de Ricardo)
+
+  Adapta SOLO el texto de .ca-cta-sub al contenido de la página. El resto no se toca.
+  En la CABECERA de la página, el logo SIEMPRE enlazado a https://www.codigoadria.com.
+
+  ⚠️ Si la página tiene bloques <pre> con ejemplos de código, escapa las etiquetas
+  (&lt;style&gt;, &lt;script&gt;): una etiqueta cruda se interpreta de verdad, se traga
+  el resto del documento y revienta este footer.
+-->
+<style>
+  .ca-foot{
+    background:#102e35;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal-brand span{font-size:.86rem;font-weight:500;color:#dfe9eb}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Si esta receta te ha servido, en la comunidad compartimos muchas más:
+          flujos que funcionan, lo que no funciona, sin postureo.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+        <span>Código AdrIA</span>
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
