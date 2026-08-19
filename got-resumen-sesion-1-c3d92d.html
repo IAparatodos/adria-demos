@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resumen de la sesión 1 · Ortopedia GOT · Código AdrIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#4dd2d0;
+    --primary-deep:#2ea9a7;
+    --secondary:#3f6f7b;
+    --ink:#0f2429;
+    --ink-soft:#40595f;
+    --muted:#7b9096;
+    --canvas:#ffffff;
+    --surface:#f4f8f8;
+    --hairline:#dfe9ea;
+    --tint-a:#e6f8f7;
+    --tint-b:#eef4f0;
+    --tint-c:#fdf3e6;
+    --tint-d:#f1eefb;
+    --warn:#b4501f;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--surface);color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    line-height:1.55;letter-spacing:-.01em;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+  /* cabecera */
+  .top{background:var(--canvas);border-bottom:1px solid var(--hairline)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:16px;padding-bottom:16px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+  .brand img{height:34px;width:auto;display:block}
+  .brand span{font-weight:600;font-size:15px}
+  .top .meta{font-size:13px;color:var(--muted);text-align:right}
+
+  /* hero */
+  .hero{background:linear-gradient(180deg,#0f2b31 0%,#14383f 100%);color:#fff;padding:56px 0 60px}
+  .kicker{
+    display:inline-block;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--primary);margin:0 0 14px
+  }
+  .hero h1{
+    margin:0 0 16px;font-size:clamp(30px,6vw,50px);font-weight:600;line-height:1.08;letter-spacing:-.03em;
+  }
+  .hero p{margin:0;max-width:60ch;color:#cfe2e4;font-size:clamp(15px,2.2vw,18px)}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .fact{
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+    border-radius:999px;padding:7px 14px;font-size:13px;color:#eaf6f6
+  }
+
+  /* secciones */
+  main{padding:44px 0 8px}
+  .lead{
+    background:var(--canvas);border:1px solid var(--hairline);border-left:4px solid var(--primary);
+    border-radius:14px;padding:20px 22px;margin:0 0 34px
+  }
+  .lead p{margin:0;color:var(--ink-soft);font-size:16px}
+  .lead strong{color:var(--ink)}
+
+  .card{
+    background:var(--canvas);border:1px solid var(--hairline);border-radius:18px;
+    padding:26px 24px;margin:0 0 18px
+  }
+  .card .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:30px;height:30px;border-radius:9px;background:var(--tint-a);color:var(--secondary);
+    font-size:14px;font-weight:600;margin-bottom:12px
+  }
+  .card h2{
+    margin:0 0 6px;font-size:clamp(19px,3.2vw,24px);font-weight:600;letter-spacing:-.02em;line-height:1.2
+  }
+  .card .sub{margin:0 0 16px;color:var(--muted);font-size:14.5px}
+  .card ul{margin:0;padding-left:0;list-style:none}
+  .card li{
+    position:relative;padding:0 0 0 26px;margin:0 0 11px;color:var(--ink-soft);font-size:15.5px
+  }
+  .card li::before{
+    content:"";position:absolute;left:6px;top:.62em;width:7px;height:7px;border-radius:2px;
+    background:var(--primary)
+  }
+  .card li strong{color:var(--ink);font-weight:600}
+  .card li ul{margin-top:9px}
+  .card li li::before{background:var(--hairline)}
+
+  /* variantes de tinte */
+  .t-b .num{background:var(--tint-b)}
+  .t-c .num{background:var(--tint-c)}
+  .t-d .num{background:var(--tint-d)}
+
+  /* bloque de límites */
+  .limits{background:#fff7ef;border:1px solid #f2ddc6;border-radius:18px;padding:26px 24px;margin:26px 0 18px}
+  .limits h2{margin:0 0 6px;font-size:clamp(19px,3.2vw,24px);font-weight:600;letter-spacing:-.02em;color:#7a3d12}
+  .limits .sub{margin:0 0 16px;font-size:14.5px;color:#a2622f}
+  .limits ul{margin:0;padding-left:0;list-style:none}
+  .limits li{position:relative;padding-left:26px;margin-bottom:11px;color:#5d3413;font-size:15.5px}
+  .limits li::before{content:"";position:absolute;left:6px;top:.55em;width:9px;height:2px;background:var(--warn)}
+
+  /* preguntas */
+  .ask{background:#0f2b31;color:#fff;border-radius:18px;padding:30px 24px;margin:26px 0 40px}
+  .ask h2{margin:0 0 6px;font-size:clamp(19px,3.2vw,24px);font-weight:600;letter-spacing:-.02em}
+  .ask .sub{margin:0 0 18px;color:#a9c8cb;font-size:14.5px}
+  .ask ol{margin:0;padding-left:20px;color:#dcecec;font-size:15.5px}
+  .ask li{margin-bottom:10px}
+
+  .foot-note{
+    text-align:center;color:var(--muted);font-size:13px;padding:0 0 40px
+  }
+
+  @media (min-width:720px){
+    .cards-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .cards-2 .card{margin:0}
+  }
+  @media print{
+    body{background:#fff}
+    .hero{background:#0f2b31 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .card,.limits,.ask{break-inside:avoid}
+  }
+</style>
+<style>
+  .ask ol{padding-left:22px}
+  .ask ol li strong{color:#fff}
+  .card em,.lead em{font-style:normal;background:var(--tint-a);border-radius:4px;padding:0 4px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="https://www.codigoadria.com">
+      <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      <span>Código AdrIA</span>
+    </a>
+    <div class="meta">GOT Ortopedia · sesión 1<br>19 de agosto de 2026</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker">Toma de datos</p>
+    <h1>Lo que sacamos de la primera sesión</h1>
+    <p>Dos horas mirando por dentro cómo trabajáis hoy. Aquí queda por escrito lo que vimos, por dónde vamos a empezar, qué necesitamos de vosotros para poder seguir.</p>
+    <div class="facts">
+      <span class="fact">19 de agosto · 2 h 05 min</span>
+      <span class="fact">José · Paula · Michelle</span>
+      <span class="fact">Herramienta elegida: Claude</span>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <div class="lead">
+    <p>La sesión era para escuchar, no para vender nada. Salió una foto bastante clara: <strong>el trabajo repetitivo está concentrado en la parte de entrenamientos, en los cobros, en la facturación</strong>. Casi todo lo que se hace hoy a mano se puede automatizar, pero hay un orden. Y antes de tocar una sola herramienta hay que ordenar los datos.</p>
+  </div>
+
+  <div class="card">
+    <span class="num">1</span>
+    <h2>Dónde se va el tiempo hoy</h2>
+    <p class="sub">Lo que apareció al repasar el día a día, tal cual nos lo contasteis.</p>
+    <ul>
+      <li><strong>Un entrenamiento a mano por cada cliente, cada semana.</strong> Cuando entran varias personas nuevas el mismo día, la tarde se va entera en eso.</li>
+      <li><strong>Dos sistemas para lo mismo.</strong> Los personalizados viven en AimHarder, los genéricos en una hoja de Google. Diez meses de trabajo acumulados en el Excel que todavía no han pasado a la aplicación.</li>
+      <li><strong>Los ejercicios no se dejan volcar.</strong> La aplicación no guarda un ejercicio sin imagen, así que la migración se quedó parada.</li>
+      <li><strong>Los cobros llegan sin nombre.</strong> El TPV manda una transferencia agregada al banco: entra un importe que no está casado con ningún cliente concreto.</li>
+      <li><strong>Factura por factura, a mano.</strong> Cada operación cobrada hay que volver a escribirla en el programa de gestión.</li>
+      <li><strong>Perseguir pagos pendientes de memoria.</strong> Igual que avisar a quien se le está acabando el bono: si no te acuerdas tú, no se avisa.</li>
+      <li><strong>El seguimiento de cada paciente vive en la cabeza de Paula.</strong> Funciona con veinte personas. Con cien, no.</li>
+    </ul>
+  </div>
+
+  <div class="card t-b">
+    <span class="num">2</span>
+    <h2>Por dónde vamos a empezar</h2>
+    <p class="sub">Ordenado por lo que más tiempo devuelve con menos esfuerzo.</p>
+    <ul>
+      <li><strong>Entrenamientos por patología, no por persona.</strong> En vez de montar uno para cada cliente, se crean plantillas: dolor de tobillo, cervicales, rodilla, columna. Cada una con su progresión semana a semana. Después, al dar de alta a alguien se le marca la patología <em>y el sistema le asigna solo el calendario completo</em>. Los casos raros se retocan a mano, que serán los menos.</li>
+      <li><strong>Volcar el Excel a la aplicación.</strong> Los diez meses de ejercicios pasan de golpe. Lo de la imagen obligatoria se resuelve poniendo el logo de la ortopedia o generando una imagen de cada ejercicio.</li>
+      <li><strong>Avisos que ya no dependen de acordarse.</strong> Cuando a alguien le queden dos clases, le llega un mensaje para renovar. Cada mañana, la lista de quien tiene un pago pendiente.</li>
+      <li><strong>El parte de la mañana.</strong> A primera hora, quién viene hoy, qué necesita cada uno, qué conviene tener preparado antes de que crucen la puerta.</li>
+      <li><strong>Seguimiento del paciente por escrito.</strong> Cuatro o cinco preguntas después de la sesión, guardadas en su ficha. Sirve para ver la evolución, da confianza al cliente, cubre las espaldas el día que Paula no esté.</li>
+      <li><strong>El puente con la facturación.</strong> Es el más goloso, pero depende de una respuesta que todavía no tenemos. Va aquí abajo.</li>
+    </ul>
+  </div>
+
+  <div class="card t-c">
+    <span class="num">3</span>
+    <h2>El nudo está en la facturación</h2>
+    <p class="sub">Lo único que hoy bloquea la parte más rentable del proyecto.</p>
+    <ul>
+      <li><strong>Lo que queremos montar</strong>: cada vez que entre un pago por la aplicación de entrenamientos, que se cree solo el cliente en el programa de gestión con su factura, forma de pago tarjeta, fecha del día. Se acabó reescribir cobros.</li>
+      <li><strong>Lo que falta para poder hacerlo</strong>: saber si Ortogest tiene API. Hemos mirado por fuera lo que publican, y no hay nada documentado.</li>
+      <li><strong>Cómo se pide</strong>: no hace falta que os abran el programa entero. Basta con dos cosas, <em>crear cliente</em> y <em>crear factura</em>. Puesto así, rara vez ponen pegas. Puede que lo cobren; aun así sale a cuenta.</li>
+      <li><strong>Si dicen que no</strong>: hay un plan B. La IA puede manejar el programa por pantalla, como lo haríais vosotros. Funciona, pero es más lento, más frágil. Merece la pena intentar la vía buena primero.</li>
+      <li><strong>Quién llama</strong>: tiene que ser alguien de GOT, que la licencia es vuestra. En agosto puede que no haya nadie al otro lado, así que si no cogen, en septiembre.</li>
+    </ul>
+  </div>
+
+  <div class="card t-d">
+    <span class="num">4</span>
+    <h2>La regla que manda sobre todo lo demás</h2>
+    <p class="sub">Si os quedáis con una sola idea de la sesión, que sea esta.</p>
+    <ul>
+      <li><strong>Primero los datos, después la herramienta.</strong> Una automatización montada sobre datos desordenados devuelve resultados desordenados. Da igual lo buena que sea la IA.</li>
+      <li><strong>Invertir para ahorrar.</strong> Dedicar veinte horas a dejar los ejercicios bien nombrados, las patologías definidas, las progresiones escritas, es lo que hace que luego se ahorren sesenta al año.</li>
+      <li><strong>El esqueleto lo ponéis vosotros.</strong> Qué patologías existen, qué toca la primera semana, qué la segunda: eso no lo puede inventar una máquina. Sale de vuestro criterio profesional.</li>
+      <li><strong>Prueba, error, otra vez.</strong> Nada sale perfecto a la primera. Cuanto mejor sea la información de partida, menos vueltas hacen falta.</li>
+    </ul>
+  </div>
+
+  <div class="limits">
+    <h2>Cuidado con los datos de pacientes</h2>
+    <p class="sub">Trabajáis en un sector sensible. Esto no es una recomendación, es la línea roja del proyecto.</p>
+    <ul>
+      <li>Automatizar <strong>ejercicios, plantillas, entrenamientos genéricos</strong> no lleva información personal de nadie. Vía libre.</li>
+      <li>Todo lo que toque <strong>datos identificables de un paciente</strong> se queda dentro de la plataforma que ya usáis, o se procesa en local con el servidor que tiene montado José.</li>
+      <li>Nada de pegar historiales ni fichas personales en herramientas de fuera. Si hace falta procesarlos, se monta un modelo que corra en vuestra propia máquina.</li>
+    </ul>
+  </div>
+
+  <div class="ask">
+    <h2>Deberes hasta la próxima sesión</h2>
+    <p class="sub">Sin esto no se puede avanzar. Van por orden de urgencia.</p>
+    <ol>
+      <li><strong>Preguntar a Ortogest por la API</strong> de creación de clientes con facturación. Es lo que desbloquea la parte grande.</li>
+      <li><strong>Mandar por correo el acceso a AimHarder</strong>: usuario, contraseña, dirección de entrada. Para poder mirar la API por dentro.</li>
+      <li><strong>Compartir el Excel de los entrenamientos genéricos</strong>, con todas sus columnas tal como están.</li>
+      <li><strong>Pasar un ejemplo completo</strong> de entrenamiento genérico, para tenerlo de patrón.</li>
+      <li><strong>Crear un cliente de prueba</strong> en la aplicación, para trastear sin tocar a nadie real.</li>
+      <li><strong>Escribir las patologías</strong> que atendéis, con la progresión de cada una: semana 1, semana 2, semana 3.</li>
+      <li><strong>El vaciado</strong>: cada uno en su puesto, apuntad qué repetís cada día, qué se os olvida siempre, qué os está dando por saco. Esa lista es la materia prima de todo lo demás.</li>
+      <li><strong>Proponer horario</strong> para las próximas sesiones.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <h2>Cómo seguimos</h2>
+    <p class="sub">El bono son 20 horas. La sesión de hoy ya cuenta dentro.</p>
+    <ul>
+      <li><strong>Sesión 2, Claude de arriba abajo.</strong> Qué hace cada botón, cómo se organizan los chats, cómo se trabaja por proyectos, qué es la memoria. Sin tecnicismos: la idea es que perdáis el respeto a la herramienta.</li>
+      <li><strong>Sesión 3, ruegos y preguntas.</strong> Después de que hagáis el vaciado. Muchas dudas de ahora se resuelven solas en la sesión 2.</li>
+      <li><strong>Formato</strong>: unas 3 horas por día, unos 6 días. Por la tarde, a partir de las 16:00 hora canaria.</li>
+      <li><strong>Paula</strong> se incorpora el 7 de septiembre, a la vuelta de vacaciones. Sus horas se recuperan aparte, empezando desde cero: no pierde nada de lo que se avance mientras no está.</li>
+      <li><strong>José</strong> va bastante por delante del resto. Con servidor propio montado ya, a él le tocará material distinto.</li>
+    </ul>
+  </div>
+
+  <p class="foot-note">Resumen de la sesión del 19 de agosto de 2026 · Ortopedia GOT · Preparado por Ricardo Hoyos</p>
+
+</main>
+
+<!--
+  FOOTER DE MARCA — OBLIGATORIO en todo HTML de Código AdrIA que se comparta en público.
+  Pégalo justo antes de </body>. Autocontenido: CSS propio + SVG en línea, sin dependencias.
+  Regla en CLAUDE.md raíz: "HTML público — marca y footer obligatorios".
+
+  Estructura (patrón Stripe: banda de cierre + columnas + fila legal):
+    1. Banda de cierre con UNA sola llamada a la acción rellena (la comunidad).
+    2. Tres columnas de enlaces: empezar / seguir / la casa.
+    3. Fila legal con logo enlazado + copyright.
+
+  Enlaces oficiales (verificados 2-ago-2026):
+  - Comunidad Telegram (alta): https://forms.gle/LQUSEfZZ9m8R5e8f6
+  - Curso:     https://www.codigoadria.com/curso-automatizaciones/
+  - Academia:  https://www.codigoadria.com/academia/
+  - YouTube:   https://www.youtube.com/@codigoadria?sub_confirmation=1
+  - LinkedIn:  https://www.linkedin.com/in/ricardohoyosperez/
+  - Instagram: https://www.instagram.com/ricardohoyos1/  ← el PERSONAL (decisión de Ricardo)
+
+  Adapta SOLO el texto de .ca-cta-sub al contenido de la página. El resto no se toca.
+  En la CABECERA de la página, el logo SIEMPRE enlazado a https://www.codigoadria.com.
+
+  ⚠️ Si la página tiene bloques <pre> con ejemplos de código, escapa las etiquetas
+  (&lt;style&gt;, &lt;script&gt;): una etiqueta cruda se interpreta de verdad, se traga
+  el resto del documento y revienta este footer.
+-->
+<style>
+  .ca-foot{
+    background:#102e35;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal-brand span{font-size:.86rem;font-weight:500;color:#dfe9eb}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Automatizaciones como las de esta sesión se cuecen en la comunidad:
+          lo que funciona en negocios de verdad, lo que se queda en el intento,
+          sin postureo.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+        <span>Código AdrIA</span>
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
