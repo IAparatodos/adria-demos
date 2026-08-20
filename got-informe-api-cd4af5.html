@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qué se puede automatizar en GOT · Código AdrIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#4dd2d0; --primary-deep:#2ea9a7; --secondary:#3f6f7b;
+  --ink:#0f2429; --ink-soft:#40595f; --muted:#7b9096;
+  --canvas:#ffffff; --surface:#f4f8f8; --hairline:#dfe9ea;
+  --ok:#1c7d5a; --ok-bg:#e9f7f2; --ok-line:#c3e6d8;
+  --mid:#b4701f; --mid-bg:#fdf4e8; --mid-line:#f0dcc0;
+  --no:#a8422a; --no-bg:#fbeeea; --no-line:#f0d3ca;
+  --shadow:0 1px 2px rgba(15,36,41,.05), 0 10px 30px rgba(15,36,41,.06);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);
+  font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+  line-height:1.62;letter-spacing:-.01em}
+.wrap{max-width:800px;margin:0 auto;padding:0 20px}
+
+.top{background:var(--canvas);border-bottom:1px solid var(--hairline)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:16px;padding-bottom:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand img{height:34px;width:auto;display:block}
+.brand span{font-weight:600;font-size:15px}
+.top .meta{font-size:13px;color:var(--muted);text-align:right}
+
+.hero{background:linear-gradient(180deg,#0f2b31 0%,#14383f 100%);color:#fff;padding:54px 0 58px}
+.kicker{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--primary);margin:0 0 14px}
+.hero h1{margin:0 0 16px;font-size:clamp(29px,5.6vw,46px);font-weight:600;line-height:1.1;letter-spacing:-.03em}
+.hero p{margin:0;max-width:60ch;color:#cfe2e4;font-size:clamp(15px,2.2vw,17.5px);font-weight:300}
+
+main{padding:44px 0 20px}
+section{margin-bottom:46px}
+h2{font-size:clamp(22px,3.3vw,27px);letter-spacing:-.03em;font-weight:600;margin:0 0 12px;line-height:1.22}
+h3{font-size:18px;font-weight:600;letter-spacing:-.02em;margin:30px 0 8px}
+p{margin:0 0 15px;color:var(--ink-soft)}
+p strong,li strong{color:var(--ink);font-weight:600}
+ul.plain{margin:12px 0 18px;padding-left:20px;color:var(--ink-soft)}
+ul.plain li{margin-bottom:9px}
+
+.lead{font-size:17px;color:var(--ink-soft)}
+.lead strong{color:var(--ink)}
+
+.metafora{background:var(--canvas);border:1px solid var(--hairline);border-radius:14px;
+  padding:22px 24px;margin:20px 0;box-shadow:var(--shadow)}
+.metafora p:last-child{margin-bottom:0}
+
+.numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:22px 0 26px}
+.num{background:var(--canvas);border:1px solid var(--hairline);border-radius:13px;padding:18px 18px 16px}
+.num b{display:block;font-size:30px;font-weight:600;letter-spacing:-.04em;color:var(--secondary);line-height:1}
+.num span{display:block;font-size:13.5px;color:var(--muted);margin-top:7px;line-height:1.4}
+
+.ficha{border-radius:14px;padding:20px 22px;margin:16px 0;border:1px solid}
+.ficha h3{margin:0 0 4px;font-size:17.5px}
+.ficha .estado{font-size:11.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  display:block;margin-bottom:9px}
+.ficha p{margin-bottom:0;font-size:15px}
+.ficha p+p{margin-top:10px}
+.si{background:var(--ok-bg);border-color:var(--ok-line)}
+.si .estado{color:var(--ok)}
+.si h3{color:#12503c}
+.quiza{background:var(--mid-bg);border-color:var(--mid-line)}
+.quiza .estado{color:var(--mid)}
+.quiza h3{color:#6d4413}
+.nope{background:var(--no-bg);border-color:var(--no-line)}
+.nope .estado{color:var(--no)}
+.nope h3{color:#7a2f1c}
+
+.tablewrap{overflow-x:auto;margin:20px 0;border:1px solid var(--hairline);border-radius:12px;background:var(--canvas)}
+table{border-collapse:collapse;width:100%;font-size:14.6px;min-width:480px}
+th,td{text-align:left;padding:12px 15px;border-bottom:1px solid var(--hairline);vertical-align:top;color:var(--ink-soft)}
+th{background:var(--surface);font-weight:600;font-size:12.8px;color:var(--secondary)}
+td strong{color:var(--ink)}
+tr:last-child td{border-bottom:none}
+.pill{display:inline-block;border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600;white-space:nowrap}
+.pill.si{background:#d5efe5;color:var(--ok);border:0}
+.pill.quiza{background:#fae8cd;color:var(--mid);border:0}
+.pill.nope{background:#f6dcd4;color:var(--no);border:0}
+
+.deberes{background:#0f2b31;color:#fff;border-radius:16px;padding:26px 26px 22px;margin:26px 0}
+.deberes h3{color:#fff;margin:0 0 4px}
+.deberes p{color:#b8d0d3}
+.deberes ol{margin:16px 0 0;padding-left:20px;color:#dfe9eb}
+.deberes li{margin-bottom:14px}
+.deberes li:last-child{margin-bottom:0}
+.deberes b{color:var(--primary);font-weight:600}
+
+.nota{background:var(--canvas);border-left:3px solid var(--primary);border-radius:10px;
+  padding:15px 18px;margin:18px 0;font-size:14.6px;color:var(--ink-soft)}
+.nota b{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="https://www.codigoadria.com">
+      <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      <span>Código AdrIA</span>
+    </a>
+    <div class="meta">GOT Ortopedia<br>20 de agosto de 2026</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker">Informe técnico, contado en claro</p>
+    <h1>Qué podemos automatizar de verdad</h1>
+    <p>Hemos abierto la puerta trasera de AimHarder para ver qué deja hacer. Hay cosas que se pueden
+    montar esta misma semana, otras que dependen de una respuesta, otras que hoy son imposibles.
+    Aquí está todo, sin adornos.</p>
+  </div>
+</section>
+
+<main class="wrap">
+
+<section>
+<p class="lead">Resumen en dos líneas: <strong>AimHarder deja leer casi todo, pero no deja escribir
+casi nada.</strong> Podemos sacar información suya para trabajar con ella, pero no podemos dar de
+alta a un cliente ni asignarle una tarifa desde fuera. Eso cambia el plan, aunque no lo tumba.</p>
+</section>
+
+<section>
+<h2>Antes de nada: qué hemos mirado</h2>
+
+<div class="metafora">
+  <p>Los programas serios tienen una <strong>ventanilla trasera</strong> para que otros programas
+  hablen con ellos sin pasar por la pantalla. Es lo que los técnicos llaman una API. Vosotros
+  entráis por la puerta principal y hacéis clic; un programa nuestro entraría por la ventanilla y
+  pediría las cosas directamente.</p>
+  <p>Esa ventanilla es la que permitiría, por ejemplo, que al cobrar un bono se cree sola la factura
+  en Ortogest. Sin ventanilla, alguien tiene que teclearlo.</p>
+</div>
+
+<p>Lo que hemos hecho hoy es <strong>comprobar qué deja hacer esa ventanilla</strong>, en
+AimHarder y en Ortogest. En AimHarder no es teoría: hemos entrado de verdad con vuestro acceso y le
+hemos preguntado cosas. Esto es lo que contestó:</p>
+
+<div class="numeros">
+  <div class="num"><b>51</b><span>clientes en vuestra base</span></div>
+  <div class="num"><b>7</b><span>clases hoy, de 8:00 a 19:00</span></div>
+  <div class="num"><b>16</b><span>tarifas dadas de alta</span></div>
+  <div class="num"><b>11</b><span>clientes sin venir desde julio</span></div>
+</div>
+
+<p>La ventanilla funciona y responde bien. El problema no es el acceso: es <strong>lo que deja
+hacer una vez dentro</strong>.</p>
+</section>
+
+<section>
+<h2>La limitación que lo condiciona todo</h2>
+<p>AimHarder abre veintiséis puertecillas en esa ventanilla. <strong>Veintitrés son para mirar y
+solo tres para tocar</strong>, y las tres sirven para reservas de gente que no es cliente todavía.</p>
+
+<p>Traducido a vuestro día a día: <strong>podemos leer todo lo que hay dentro, pero no podemos meter
+nada.</strong> No se puede dar de alta a un cliente desde fuera, ni asignarle una tarifa, ni tocar
+un pago. Que es justo lo primero que hace Paula cuando entra alguien nuevo.</p>
+
+<div class="nota">
+  <b>Por qué importa esto más que ninguna otra cosa:</b> el proyecto nació con la idea de que el
+  alta y la factura se hicieran solas. La parte de «dar de alta» está cerrada por AimHarder, y la
+  parte de «facturar» depende de Ortogest, que todavía no ha contestado. El puente entero está en
+  el aire, y no por culpa nuestra.
+</div>
+</section>
+
+<section>
+<h2>Lo que se puede hacer ya</h2>
+
+<div class="ficha si">
+  <span class="estado">Se puede montar esta semana</span>
+  <h3>Recuperar a quien dejó de venir</h3>
+  <p>La ventanilla tiene una consulta que devuelve <strong>quién no ha reservado desde una fecha</strong>.
+  La hemos lanzado y salen <strong>once clientes</strong> que no aparecen desde el 1 de julio.</p>
+  <p>Once personas que un día pagaron y se descolgaron sin que nadie se diera cuenta. Esto se puede
+  convertir en un aviso semanal con la lista y un mensaje ya redactado para cada uno.</p>
+</div>
+
+<div class="ficha si">
+  <span class="estado">Se puede montar esta semana</span>
+  <h3>El parte de cada mañana</h3>
+  <p>Podemos leer las clases del día con su hora, su sala, sus plazas y quién las da, y cruzarlo con
+  la ficha de cada persona que viene, incluidas <strong>las notas internas</strong> que tengáis
+  puestas.</p>
+  <p>Resultado: un mensaje a primera hora con quién viene hoy, a qué hora, y lo que hay que tener
+  presente de cada uno. Sin abrir el programa ni repasar la agenda.</p>
+</div>
+
+<div class="ficha quiza">
+  <span class="estado">Se puede, con trabajo</span>
+  <h3>Avisar de que se acaba un bono</h3>
+  <p>AimHarder <strong>no guarda en ningún sitio cuántas sesiones le quedan a alguien</strong>. Hay
+  que reconstruirlo: mirar qué bono compró, mirar cuántas veces ha venido gastándolo, y restar.</p>
+  <p>Se puede hacer, y de hecho el número de sesiones lo sacamos del nombre de la tarifa
+  («Bono 10 sesiones»). Es un apaño que funciona, con una pega: <strong>el día que alguien renombre
+  una tarifa, deja de funcionar</strong>. Hemos preguntado a AimHarder si hay una forma más limpia.</p>
+</div>
+</section>
+
+<section>
+<h2>Lo que hoy no se puede</h2>
+<p>Nada de esto es un «no» para siempre. Es un «no con lo que AimHarder abre hoy».</p>
+
+<div class="ficha nope">
+  <span class="estado">Imposible por ahora</span>
+  <h3>Dar de alta clientes o asignar tarifas solo</h3>
+  <p>La ventanilla no lo permite. El alta y la tarifa se siguen haciendo a mano, como hasta ahora.
+  Hemos preguntado si piensan abrirlo.</p>
+</div>
+
+<div class="ficha nope">
+  <span class="estado">Imposible por ahora</span>
+  <h3>Entrenamientos, ejercicios, el Excel</h3>
+  <p>Esta es la peor noticia del informe. <strong>Los entrenamientos no existen en la ventanilla</strong>:
+  ni para leerlos ni para crearlos. Los diez meses de ejercicios de la hoja de cálculo no se pueden
+  volcar por esta vía.</p>
+  <p>Queda un plan B: un programa que maneje la pantalla como lo haría una persona, clic a clic.
+  Funciona, pero es lento y se rompe en cuanto AimHarder cambie una pantalla de sitio. Y sigue ahí
+  el problema de que el sistema no deja guardar un ejercicio sin imagen.</p>
+</div>
+
+<div class="ficha nope">
+  <span class="estado">Imposible por ahora</span>
+  <h3>El aviso diario de impagos</h3>
+  <p>No hay ningún dato que diga si alguien tiene un recibo pendiente o la cuenta bloqueada. Lo único
+  parecido es la fecha en que se dio de baja a alguien, que no es lo mismo.</p>
+</div>
+
+<div class="ficha nope">
+  <span class="estado">Imposible por ahora</span>
+  <h3>Guardar el seguimiento del paciente en su ficha</h3>
+  <p>Se pueden <strong>leer</strong> las notas de una ficha, pero no <strong>escribir</strong> en
+  ella. El historial de cómo evoluciona cada persona tendría que vivir fuera de AimHarder y
+  enlazarse a mano.</p>
+</div>
+</section>
+
+<section>
+<h2>Lo que depende de una respuesta</h2>
+
+<div class="ficha quiza">
+  <span class="estado">Pendiente de AimHarder</span>
+  <h3>El aviso automático cuando entra un pago</h3>
+  <p>Hemos encontrado algo prometedor. Cada tarifa tiene una casilla donde se puede poner una
+  dirección a la que AimHarder avisa <strong>después de una compra</strong>. En vuestras dieciséis
+  tarifas está vacía, o sea que nadie la ha usado nunca.</p>
+  <p>Si esa casilla avisa también cuando cobráis por TPV, <strong>es exactamente la pieza que nos
+  falta</strong>: en el momento en que entra un pago, nuestro sistema se entera y puede encadenar lo
+  siguiente. Es la pregunta más importante que les hemos hecho.</p>
+</div>
+
+<div class="ficha quiza">
+  <span class="estado">Pendiente de Sigest Ibérica</span>
+  <h3>Ortogest, el otro lado del puente</h3>
+  <p>De Ortogest no hay ninguna ventanilla pública documentada. No significa que no exista:
+  significa que, si existe, la abren solo a quien la pide.</p>
+  <p><strong>Esta llamada la tenéis que hacer vosotros</strong>, porque la licencia es vuestra. Y no
+  hace falta pedirles que abran el programa entero: basta con dos cosas, <strong>crear un cliente</strong>
+  y <strong>crear una factura</strong>. Es una petición pequeña y concreta, y probablemente la cobren.
+  Aun pagándola, sale a cuenta frente a las horas de picar facturas una a una.</p>
+</div>
+</section>
+
+<section>
+<h2>Dos cosas que hemos visto de paso</h2>
+
+<h3>Vuestro catálogo de tarifas está desordenado</h3>
+<p>Al listar las dieciséis tarifas aparecen <strong>duplicados con precios distintos</strong>: «8
+clases + 4 open» figura a 55 € y también a 40 €. Y hay tarifas repetidas con y sin número delante.
+Conviene ordenarlo antes de montar nada encima, porque cualquier automatización que cuente sesiones
+o precios va a heredar ese lío.</p>
+
+<h3>La llave de entrada caduca cada día</h3>
+<p>El acceso a la ventanilla funciona con una llave que <strong>vale veinticuatro horas</strong>, y
+otra llave maestra que sirve para pedir la siguiente. Lo importante: <strong>la llave maestra es de
+un solo uso</strong>. Cada vez que se usa, la anterior deja de valer.</p>
+<p>Lo hemos comprobado a propósito, y lo decimos por una razón práctica: si algún día alguien genera
+llaves nuevas desde AimHarder, <strong>lo que tengamos montado deja de funcionar hasta que nos
+paséis las nuevas</strong>. No es grave, pero conviene saberlo para no volverse loco buscando el fallo.</p>
+</section>
+
+<section>
+<h2>El resumen, de un vistazo</h2>
+<div class="tablewrap">
+<table>
+  <tr><th>Lo que queríamos</th><th>Cómo está</th><th>De quién depende</th></tr>
+  <tr><td><strong>Recuperar clientes descolgados</strong></td><td><span class="pill si">Se puede ya</span></td><td>De nosotros</td></tr>
+  <tr><td><strong>Parte de pacientes cada mañana</strong></td><td><span class="pill si">Se puede ya</span></td><td>De nosotros</td></tr>
+  <tr><td><strong>Aviso de fin de bono</strong></td><td><span class="pill quiza">Con apaño</span></td><td>De nosotros</td></tr>
+  <tr><td><strong>Aviso al entrar un pago</strong></td><td><span class="pill quiza">Por confirmar</span></td><td>De AimHarder</td></tr>
+  <tr><td><strong>Factura automática</strong></td><td><span class="pill quiza">Por confirmar</span></td><td>De Sigest / Ortogest</td></tr>
+  <tr><td><strong>Alta de cliente automática</strong></td><td><span class="pill nope">Hoy no</span></td><td>De AimHarder</td></tr>
+  <tr><td><strong>Volcar el Excel de ejercicios</strong></td><td><span class="pill nope">Hoy no</span></td><td>De AimHarder</td></tr>
+  <tr><td><strong>Aviso de impagos</strong></td><td><span class="pill nope">Hoy no</span></td><td>De AimHarder</td></tr>
+  <tr><td><strong>Seguimiento clínico en la ficha</strong></td><td><span class="pill nope">Hoy no</span></td><td>De AimHarder</td></tr>
+</table>
+</div>
+<p>De las nueve cosas que había sobre la mesa, <strong>dos se pueden montar ya</strong>, una con
+apaño, dos esperan respuesta de terceros y cuatro están cerradas por ahora. No es el resultado que
+esperábamos, pero es el real, y las dos que salen adelante se notan desde el primer día.</p>
+</section>
+
+<div class="deberes">
+  <h3>Lo que necesitamos de vosotros</h3>
+  <p>Tres cosas, por orden de lo que más desbloquea.</p>
+  <ol>
+    <li><b>Llamar a Sigest Ibérica</b> (954 127 837) y preguntar si pueden habilitar dos operaciones
+    en Ortogest: crear un cliente y crear una factura desde fuera del programa. La licencia es
+    vuestra, así que la pregunta tiene que salir de vosotros. En agosto puede que no haya nadie.</li>
+    <li><b>Decidir quién ordena las tarifas</b> duplicadas de AimHarder. Es media hora de trabajo y
+    evita problemas más adelante.</li>
+    <li><b>El Excel de los entrenamientos</b>, aunque por API no se pueda volcar. Nos sirve para ver
+    el volumen real y decidir si el plan B compensa.</li>
+  </ol>
+</div>
+
+<section>
+<div class="nota">
+  <b>Sobre los datos de vuestros pacientes.</b> La ficha que devuelve AimHarder trae NIF, número de
+  cuenta, dirección y teléfono. En las pruebas de hoy <strong>no hemos sacado ni un dato
+  personal</strong>: solo hemos contado cuántos hay y mirado cómo se llaman los campos. Todo lo que
+  se monte a partir de aquí seguirá la misma regla que acordamos en la primera reunión: lo que lleve
+  datos de pacientes, se queda en casa.
+</div>
+</section>
+
+</main>
+
+<style>
+  .ca-foot{
+    background:#102e35;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;margin-top:40px
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal-brand span{font-size:.86rem;font-weight:500;color:#dfe9eb}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Automatizaciones como las de esta sesión se cuecen en la comunidad:
+          lo que funciona en negocios de verdad, lo que se queda en el intento,
+          sin postureo.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+        <span>Código AdrIA</span>
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
