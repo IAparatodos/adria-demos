@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía de Claude · Ortopedia GOT · Código AdrIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#4dd2d0; --primary-deep:#2ea9a7; --secondary:#3f6f7b;
+  --ink:#0f2429; --ink-soft:#40595f; --muted:#7b9096;
+  --canvas:#ffffff; --surface:#f4f8f8; --hairline:#dfe9ea;
+  --tint-a:#e6f8f7; --tint-c:#fdf3e6; --warn:#b4501f; --ok:#1c7d5a;
+  --shadow:0 1px 2px rgba(15,36,41,.05), 0 10px 30px rgba(15,36,41,.07);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-padding-top:20px}
+body{margin:0;background:var(--surface);color:var(--ink);
+  font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+  line-height:1.6;letter-spacing:-.01em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* cabecera */
+.top{background:var(--canvas);border-bottom:1px solid var(--hairline)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 22px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand img{height:34px;width:auto;display:block}
+.brand span{font-weight:600;font-size:15px}
+.top .meta{font-size:13px;color:var(--muted);text-align:right}
+
+/* hero */
+.hero{background:linear-gradient(180deg,#0f2b31 0%,#14383f 100%);color:#fff;padding:54px 0 58px}
+.kicker{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--primary);margin:0 0 14px}
+.hero h1{margin:0 0 16px;font-size:clamp(30px,6vw,50px);font-weight:600;line-height:1.08;letter-spacing:-.03em}
+.hero p{margin:0;max-width:62ch;color:#cfe2e4;font-size:clamp(15px,2.2vw,18px);font-weight:300}
+
+/* layout */
+.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:44px;
+  max-width:1180px;margin:0 auto;padding:44px 22px 0;align-items:start}
+nav.toc{position:sticky;top:20px;background:var(--canvas);border:1px solid var(--hairline);
+  border-radius:14px;padding:18px 16px;max-height:calc(100vh - 40px);overflow-y:auto}
+.toc-label{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin:14px 0 7px}
+.toc-label:first-child{margin-top:0}
+.toc a{display:block;padding:6px 9px;margin:1px 0;border-radius:7px;text-decoration:none;
+  color:var(--ink-soft);font-size:13.5px;line-height:1.35;border-left:2px solid transparent}
+.toc a:hover{background:var(--surface);color:var(--ink)}
+.toc a.on{background:var(--tint-a);color:var(--ink);border-left-color:var(--primary-deep);font-weight:500}
+
+main{min-width:0;padding-bottom:90px}
+section{scroll-margin-top:20px;margin-bottom:52px}
+h2{font-size:clamp(23px,3.4vw,29px);letter-spacing:-.032em;font-weight:600;margin:0 0 8px;line-height:1.2}
+h2 .num{color:var(--primary-deep);font-variant-numeric:tabular-nums;margin-right:10px}
+h3{font-size:19px;font-weight:600;letter-spacing:-.02em;margin:32px 0 8px}
+h4{font-size:15.5px;font-weight:600;margin:22px 0 6px;color:var(--secondary)}
+p{margin:0 0 14px;color:var(--ink-soft)}
+main p strong,main li strong{color:var(--ink);font-weight:600}
+ul.plain{margin:10px 0 18px;padding-left:20px;color:var(--ink-soft)}
+ul.plain li{margin-bottom:8px}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:16px 0 22px}
+ol.steps>li{counter-increment:s;position:relative;padding:0 0 0 40px;margin-bottom:14px;color:var(--ink-soft)}
+ol.steps>li::before{content:counter(s);position:absolute;left:0;top:1px;width:26px;height:26px;
+  border-radius:8px;background:var(--secondary);color:#fff;font-size:13px;font-weight:600;
+  display:flex;align-items:center;justify-content:center}
+.ui{font-weight:600;color:var(--ink);background:var(--tint-a);border-radius:5px;padding:1px 6px;
+  white-space:nowrap;font-size:.95em}
+
+/* capturas con zonas tapadas */
+figure{margin:22px 0 26px}
+.shot{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--hairline);
+  box-shadow:var(--shadow);background:#0d1416;line-height:0}
+.shot img{display:block;width:100%;height:auto}
+.shot .mask{position:absolute;backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px);
+  background:rgba(120,140,145,.10)}
+figcaption{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.55}
+figcaption b{color:var(--ink-soft);font-weight:600}
+.privacy{font-size:12px;color:var(--muted);font-style:italic;margin-top:6px}
+
+/* cajas */
+.box{border-radius:12px;padding:16px 18px;margin:18px 0;font-size:14.8px;line-height:1.6}
+.box p{margin-bottom:0;color:inherit}
+.box p+p{margin-top:10px}
+.box .tag{font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  display:block;margin-bottom:6px}
+.tip{background:var(--tint-a);border-left:3px solid var(--primary-deep);color:#123c40}
+.tip .tag{color:var(--primary-deep)}
+.warn{background:var(--tint-c);border-left:3px solid var(--warn);color:#5d3115}
+.warn .tag{color:var(--warn)}
+
+/* prompts copiables */
+.prompt{position:relative;background:var(--canvas);border:1px solid var(--hairline);
+  border-radius:11px;padding:15px 100px 15px 17px;margin:12px 0 20px;
+  font-size:14.5px;line-height:1.62;color:var(--ink);white-space:pre-wrap}
+.prompt .copy{position:absolute;top:10px;right:10px;border:1px solid var(--hairline);
+  background:var(--surface);color:var(--secondary);border-radius:8px;padding:5px 12px;
+  font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer;transition:.15s}
+.prompt .copy:hover{background:var(--tint-a);border-color:var(--primary)}
+.prompt .copy.done{background:var(--primary);border-color:var(--primary);color:#0b2026}
+.gain{font-size:13.5px;color:var(--muted);margin:-12px 0 22px;padding-left:2px}
+.gain b{color:var(--secondary);font-weight:600}
+
+/* fórmula */
+.formula{background:linear-gradient(180deg,#0f2b31,#16414a);color:#fff;border-radius:16px;
+  padding:28px 26px;margin:22px 0 26px}
+.formula h3{color:#fff;margin:0 0 6px;font-size:20px}
+.formula .sub{color:#a9c6ca;font-size:14px;margin:0 0 22px;font-weight:300}
+.piece{display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;margin-bottom:18px}
+.piece .n{width:34px;height:34px;border-radius:10px;background:rgba(77,210,208,.16);
+  color:var(--primary);display:flex;align-items:center;justify-content:center;
+  font-weight:600;font-size:15px}
+.piece h4{margin:4px 0 3px;color:#fff;font-size:15.5px}
+.piece p{margin:0;color:#b8d0d3;font-size:14px}
+.piece .ej{display:block;margin-top:6px;color:var(--primary);font-size:13.5px;font-style:italic}
+
+/* comparativa */
+.vs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:20px 0 24px}
+.vs .col{border-radius:12px;padding:16px 18px;font-size:14.3px;line-height:1.6}
+.vs .bad{background:#fdf0ec;border:1px solid #f3d5cb;color:#6b3120}
+.vs .good{background:#e9f7f2;border:1px solid #c9e9dd;color:#14503c}
+.vs h4{margin:0 0 10px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.vs .bad h4{color:#b4501f}
+.vs .good h4{color:var(--ok)}
+.vs code{display:block;background:rgba(255,255,255,.65);border-radius:8px;padding:10px 12px;
+  font-family:inherit;font-size:13.8px;margin-bottom:10px}
+
+.tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--hairline);border-radius:11px;background:var(--canvas)}
+table{border-collapse:collapse;width:100%;font-size:14.4px;min-width:520px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--hairline);vertical-align:top;color:var(--ink-soft)}
+th{background:var(--surface);font-weight:600;font-size:12.8px;color:var(--secondary)}
+td strong{color:var(--ink)}
+tr:last-child td{border-bottom:none}
+
+@media (max-width:920px){
+  .layout{grid-template-columns:1fr;gap:24px;padding-top:26px}
+  nav.toc{position:static;max-height:none}
+  .prompt{padding:15px 17px 48px}
+  .prompt .copy{top:auto;bottom:10px;right:10px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="https://www.codigoadria.com">
+      <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      <span>Código AdrIA</span>
+    </a>
+    <div class="meta">GOT Ortopedia · guía de Claude<br>Agosto de 2026</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker">Formación · sesión 2</p>
+    <h1>Claude, explicado para usarlo mañana</h1>
+    <p>Esta guía no hay que leerla de una sentada. Está para abrirla cuando os haga falta:
+    cómo se pide bien una cosa, qué frases funcionan, dónde queda guardado lo que hace.
+    Si solo vais a mirar un apartado, que sea la fórmula del prompt perfecto.</p>
+  </div>
+</section>
+
+<div class="layout">
+
+<nav class="toc">
+  <div class="toc-label">Para empezar</div>
+  <a href="#entrar">Por dónde se entra</a>
+  <a href="#pantalla">El mapa de la pantalla</a>
+
+  <div class="toc-label">Lo importante</div>
+  <a href="#formula">La fórmula del prompt perfecto</a>
+  <a href="#corregir">Cuando no te convence</a>
+
+  <div class="toc-label">Ejemplos por tarea</div>
+  <a href="#mostrador">Mostrador y clientes</a>
+  <a href="#rehabilitacion">Rehabilitación</a>
+  <a href="#vender">Textos que venden</a>
+  <a href="#papeleo">Papeleo y organización</a>
+  <a href="#aprender">Entender algo difícil</a>
+
+  <div class="toc-label">Dónde queda todo</div>
+  <a href="#archivos">Los archivos que crea</a>
+  <a href="#proyectos">Proyectos: carpetas</a>
+  <a href="#ajustes">Que sepa quién eres</a>
+  <a href="#programado">Tareas solas</a>
+  <a href="#escritorio">La app del ordenador</a>
+
+  <div class="toc-label">Cuidado</div>
+  <a href="#nometer">Qué NO meter nunca</a>
+  <a href="#errores">Errores típicos</a>
+  <a href="#chuleta">La chuleta</a>
+</nav>
+
+<main>
+
+<!-- ================= -->
+<section id="entrar">
+<h2><span class="num">01</span>Por dónde se entra</h2>
+<p>Hay dos puertas a la misma casa. Se entra con la misma cuenta, se ve lo mismo y lo que
+hagáis en una aparece en la otra.</p>
+<div class="tablewrap">
+<table>
+  <tr><th>Puerta</th><th>Cómo se abre</th><th>Cuándo compensa</th></tr>
+  <tr><td><strong>El navegador</strong></td><td><strong>claude.ai</strong>, como cualquier página</td><td>Para empezar. No hay que instalar nada y funciona en cualquier ordenador.</td></tr>
+  <tr><td><strong>La aplicación</strong></td><td>Programa instalado en el ordenador</td><td>Si lo usáis a diario: se abre de un clic, no se cierra por error al limpiar pestañas.</td></tr>
+</table>
+</div>
+<p>Da igual por cuál empecéis. Elegid la que os resulte cómoda y usad esa.</p>
+</section>
+
+<!-- ================= -->
+<section id="pantalla">
+<h2><span class="num">02</span>El mapa de la pantalla</h2>
+<p>Solo hay dos zonas que importen: la <strong>columna de la izquierda</strong> para moverse
+por vuestras cosas, la <strong>caja del centro</strong> para hablar. Todo lo demás es decoración.</p>
+
+<figure>
+  <div class="shot">
+    <img src="got-guia-img/01-inicio.jpg" alt="Pantalla de inicio de Claude">
+    <span class="mask" style="left:0;top:28%;width:16.2%;height:72%"></span>
+  </div>
+  <figcaption><b>La primera pantalla.</b> Columna de la izquierda para moverse, caja del centro para escribir.</figcaption>
+  <p class="privacy">Las conversaciones de la columna van difuminadas: son de la cuenta desde la que se hicieron las capturas.</p>
+</figure>
+
+<div class="tablewrap">
+<table>
+  <tr><th>Lo que pone</th><th>Para qué sirve</th></tr>
+  <tr><td><span class="ui">Nuevo</span></td><td>Empezar una conversación de cero. El botón que más vais a usar.</td></tr>
+  <tr><td><span class="ui">Proyectos</span></td><td>Carpetas que se acuerdan de vuestro contexto. Explicado más abajo.</td></tr>
+  <tr><td><span class="ui">Artefactos</span></td><td>Todo lo que Claude ha construido: hojas, documentos, tablas.</td></tr>
+  <tr><td><span class="ui">Programado</span></td><td>Encargos que se repiten solos cada día o cada semana.</td></tr>
+  <tr><td>La lista de abajo</td><td>El historial. Igual que los chats de WhatsApp: lo de hoy arriba, lo viejo abajo. No se borra.</td></tr>
+  <tr><td>Vuestro nombre, abajo</td><td>La cuenta y los ajustes.</td></tr>
+</table>
+</div>
+
+<h3>La caja donde se escribe</h3>
+<ul class="plain">
+  <li><strong>El hueco de escribir</strong>: se le habla como a una persona, con frases normales.</li>
+  <li><strong>El <span class="ui">+</span></strong>: para adjuntar una foto, un PDF o un Excel.</li>
+  <li><strong><span class="ui">Chat</span> y <span class="ui">Cowork</span></strong>: empezad siempre por <span class="ui">Chat</span>. El otro es para trabajos largos.</li>
+  <li><strong>El nombre del modelo</strong>: dejadlo como viene. El que trae puesto está bien.</li>
+</ul>
+</section>
+
+<!-- ================= -->
+<section id="formula">
+<h2><span class="num">03</span>La fórmula del prompt perfecto</h2>
+<p>Un <em>prompt</em> es lo que le escribís. Y casi todo el resultado depende de eso: la misma
+herramienta responde una tontería o algo aprovechable según cómo se le pida.</p>
+<p>La diferencia se resume en cinco piezas. <strong>No hacen falta las cinco siempre</strong>, pero
+cuantas más pongáis, menos tendréis que corregir después.</p>
+
+<div class="formula">
+  <h3>Las cinco piezas</h3>
+  <p class="sub">Contadas en orden, salen solas. Sirve para cualquier cosa que le pidáis.</p>
+
+  <div class="piece">
+    <div class="n">1</div>
+    <div>
+      <h4>Quién eres</h4>
+      <p>Dónde trabajas y qué haces. Sin esto no sabe si le habla un médico, un comercial o un cliente.</p>
+      <span class="ej">«Trabajo en una ortopedia en Tenerife, atiendo el mostrador.»</span>
+    </div>
+  </div>
+
+  <div class="piece">
+    <div class="n">2</div>
+    <div>
+      <h4>Qué necesitas</h4>
+      <p>La tarea, empezando por un verbo: escribe, resume, ordena, compara, explica, traduce.</p>
+      <span class="ej">«Escríbeme un mensaje para avisar a un cliente.»</span>
+    </div>
+  </div>
+
+  <div class="piece">
+    <div class="n">3</div>
+    <div>
+      <h4>Para quién es</h4>
+      <p>Quién lo va a leer. No se escribe igual para un paciente de 80 años que para una mutua.</p>
+      <span class="ej">«Lo va a leer una señora mayor que no entiende de tecnicismos.»</span>
+    </div>
+  </div>
+
+  <div class="piece">
+    <div class="n">4</div>
+    <div>
+      <h4>Cómo lo quieres</h4>
+      <p>Formato, tono y longitud. Es la pieza que más cambia el resultado, la que casi nadie pone.</p>
+      <span class="ej">«Para WhatsApp, cercano, máximo cuatro líneas, sin emojis.»</span>
+    </div>
+  </div>
+
+  <div class="piece">
+    <div class="n">5</div>
+    <div>
+      <h4>Con qué límites</h4>
+      <p>Los datos que tiene que usar, lo que no puede decir, lo que hay que evitar.</p>
+      <span class="ej">«No prometas plazos de entrega ni des precios.»</span>
+    </div>
+  </div>
+</div>
+
+<h3>La misma petición, mal y bien</h3>
+<div class="vs">
+  <div class="col bad">
+    <h4>Así, no</h4>
+    <code>mensaje cliente bono</code>
+    <p>Sale un texto genérico, con un tono que no es el vuestro, que hay que reescribir entero.
+    Y da la sensación de que la herramienta no sirve.</p>
+  </div>
+  <div class="col good">
+    <h4>Así, sí</h4>
+    <code>Trabajo en una ortopedia y llevo la parte de rehabilitación. Escríbeme un mensaje para avisar a una clienta de que le quedan dos sesiones del bono. Lo va a leer por WhatsApp, tiene 70 años. Cercano, máximo cuatro líneas, sin presionar para que renueve, y que acabe preguntando si quiere que le reserve fechas.</code>
+    <p>Sale listo para enviar. Son treinta segundos más de escritura y diez minutos menos de corrección.</p>
+  </div>
+</div>
+
+<h3>La plantilla, para copiar tal cual</h3>
+<p>Rellenad los huecos entre corchetes. Si alguno no aplica, se borra esa línea.</p>
+<div class="prompt">Trabajo en [dónde] y me encargo de [qué].
+Necesito que [verbo: escribas / resumas / ordenes / compares] [qué exactamente].
+Lo va a leer [quién] y se lo voy a enviar por [dónde].
+Quiero que sea [tono] y que ocupe [longitud].
+Ten en cuenta que [dato importante] y no [lo que hay que evitar].</div>
+
+<div class="box tip">
+  <span class="tag">El truco que más se nota</span>
+  <p>Si no sabéis cómo pedir algo, <strong>pedidle que os lo pregunte</strong>. Funciona siempre:
+  «Quiero que me ayudes con X. Antes de empezar, hazme las preguntas que necesites para hacerlo bien.»
+  Os hará tres o cuatro preguntas, las contestáis, y el resultado sale a la primera.</p>
+</div>
+</section>
+
+<!-- ================= -->
+<section id="corregir">
+<h2><span class="num">04</span>Cuando la respuesta no te convence</h2>
+<p>Es la regla que más tiempo ahorra de toda la guía: <strong>no empecéis de cero</strong>.
+Si algo no os gusta, se lo decís ahí mismo y lo cambia, porque se acuerda de todo lo anterior.</p>
+
+<div class="tablewrap">
+<table>
+  <tr><th>Lo que falla</th><th>Lo que le decís</th></tr>
+  <tr><td>Demasiado largo</td><td>«Recórtalo a la mitad.»</td></tr>
+  <tr><td>Suena raro, no es vuestra forma de hablar</td><td>«Más natural, como hablaría yo con un cliente de toda la vida.»</td></tr>
+  <tr><td>Demasiado técnico</td><td>«Quítale las palabras técnicas, esto lo lee alguien sin formación sanitaria.»</td></tr>
+  <tr><td>No termina de encajar</td><td>«Dame tres versiones distintas y elijo.»</td></tr>
+  <tr><td>Se ha inventado un dato</td><td>«El precio no es ese, son X euros. Rehazlo con el dato correcto.»</td></tr>
+  <tr><td>Está bien pero le falta algo</td><td>«Perfecto, pero añade al final que pueden pasarse por la tienda a probarlo.»</td></tr>
+</table>
+</div>
+
+<figure>
+  <div class="shot">
+    <img src="got-guia-img/10-chat-respuesta.jpg" alt="Una respuesta con tres variantes y los botones de acción">
+    <span class="mask" style="left:0;top:28%;width:16.2%;height:72%"></span>
+  </div>
+  <figcaption><b>Una respuesta por dentro.</b> Cuando la petición admite varios tonos, ofrece opciones (A, B, C) para elegir. Debajo, los botones para copiar el texto, escucharlo o pedir que lo intente otra vez.</figcaption>
+</figure>
+</section>
+
+<!-- ================= -->
+<section id="mostrador">
+<h2><span class="num">05</span>Ejemplos: mostrador y clientes</h2>
+<p>Todos estos están escritos con las cinco piezas. Copiadlos, cambiad lo que esté entre
+corchetes y ya está.</p>
+
+<h4>Explicar un producto a alguien que no entiende</h4>
+<div class="prompt">Trabajo en una ortopedia y atiendo el mostrador. Explícame qué es [producto] y para qué sirve, como si se lo contara a un cliente de 75 años que entra por primera vez. Tres frases, sin palabras técnicas, y termina con la pregunta que yo le haría para saber si le encaja.</div>
+<p class="gain"><b>Sirve para:</b> tener la explicación clara antes de dársela, o para mandársela por escrito al hijo o hija que decide la compra.</p>
+
+<h4>Responder una reseña regular</h4>
+<div class="prompt">Somos una ortopedia. Nos han dejado esta reseña de tres estrellas: "[pega aquí la reseña]". Escríbeme una respuesta pública para Google: educada, que reconozca lo que dice sin ponernos a la defensiva, que invite a que nos llamen para arreglarlo. Máximo cuatro líneas y sin sonar a plantilla de empresa.</div>
+<p class="gain"><b>Sirve para:</b> contestar en un minuto y sin enfadarse, que es cuando salen mal.</p>
+
+<h4>Avisar de que se acaba un bono</h4>
+<div class="prompt">Llevo la parte de rehabilitación de una ortopedia. Escríbeme un WhatsApp para avisar a un cliente de que le quedan dos sesiones de su bono. Tono cercano, sin agobiar, máximo cuatro líneas, y que acabe ofreciéndole reservar ya las próximas fechas. Dame tres versiones con distinto nivel de insistencia.</div>
+<p class="gain"><b>Sirve para:</b> no depender de acordarse, y que el aviso no suene a cobro.</p>
+
+<h4>Decir que no tenemos algo, sin perder al cliente</h4>
+<div class="prompt">Un cliente pregunta por [producto] y no lo trabajamos. Escríbeme una respuesta para WhatsApp que le diga claramente que no lo tenemos, le proponga [alternativa que sí tenéis] explicando en una línea por qué puede servirle, y le ofrezca venir a probarlo. Breve, honesto, sin vender humo.</div>
+<p class="gain"><b>Sirve para:</b> que un «no lo tenemos» no termine la conversación.</p>
+
+<h4>Preparar una llamada incómoda</h4>
+<div class="prompt">Tengo que llamar a un cliente para [motivo: un retraso en su pedido / un cobro pendiente / una adaptación que no ha quedado bien]. Hazme un guion de llamada en tres pasos, con las frases exactas que puedo decir, qué preguntar y en qué momento callarme. Que la llamada dure dos o tres minutos.</div>
+<p class="gain"><b>Sirve para:</b> descolgar el teléfono sabiendo lo que vas a decir.</p>
+</section>
+
+<!-- ================= -->
+<section id="rehabilitacion">
+<h2><span class="num">06</span>Ejemplos: rehabilitación y entrenamientos</h2>
+
+<h4>Pasar una lista suelta a tabla ordenada</h4>
+<div class="prompt">Te paso una lista de ejercicios tal y como los tengo apuntados: [pega la lista]. Ordénamelos en una tabla con estas columnas: nombre del ejercicio, zona del cuerpo que trabaja, material que necesita y una descripción de una línea para el paciente. Si alguno está repetido con distinto nombre, únelo y dímelo.</div>
+<p class="gain"><b>Sirve para:</b> convertir años de notas dispersas en algo que se puede usar y volcar a otro sitio.</p>
+
+<h4>Explicarle un ejercicio al paciente por escrito</h4>
+<div class="prompt">Escríbeme las instrucciones de [ejercicio] para dárselas por escrito a un paciente que se lo lleva a casa. Máximo cinco pasos, lenguaje llano, y añade al final dos señales de que lo está haciendo mal y debería parar. Nada de terminología clínica.</div>
+<p class="gain"><b>Sirve para:</b> que en casa lo hagan como toca, sin llamarte cada dos días.</p>
+
+<h4>Una hoja de seguimiento</h4>
+<div class="prompt">Hazme una hoja de cálculo para llevar el control de los bonos de rehabilitación: cliente, teléfono, sesiones contratadas, consumidas, restantes y fecha de la última sesión. Que las restantes se calculen solas y que se vea de un vistazo a quién le queda una sesión o menos.</div>
+<p class="gain"><b>Sirve para:</b> dejar de llevar en la cabeza a quién se le acaba el bono. Genera el archivo listo para descargar.</p>
+
+<h4>Preparar la vuelta de vacaciones</h4>
+<div class="prompt">Te paso mis notas de cómo va cada paciente antes de mis vacaciones: [pega las notas]. Resúmemelo en una ficha por persona con: en qué punto está, qué toca la próxima sesión y qué hay que vigilar. Para que otra compañera pueda seguir sin mí.</div>
+<p class="gain"><b>Sirve para:</b> que el seguimiento no viva solo en la memoria de una persona.</p>
+</section>
+
+<!-- ================= -->
+<section id="vender">
+<h2><span class="num">07</span>Ejemplos: textos que venden</h2>
+
+<h4>Ficha de un producto para la web</h4>
+<div class="prompt">Somos una ortopedia con taller propio en Tenerife. Escríbeme la descripción de [producto] para nuestra web: qué problema resuelve, a quién le viene bien, en qué se nota la diferencia frente a uno básico y qué medidas o dudas conviene consultarnos antes de comprar. Entre 120 y 150 palabras, cercano, sin exagerar y sin prometer resultados médicos.</div>
+<p class="gain"><b>Sirve para:</b> tener fichas propias en vez de copiar la del fabricante.</p>
+
+<h4>Una publicación para redes</h4>
+<div class="prompt">Escríbeme una publicación para Instagram sobre [tema]. Que empiece con una situación que cualquiera reconozca, explique en dos frases cómo lo resolvemos y termine invitando a pasarse por la tienda o escribirnos. Tono cercano y canario, sin postureo, máximo 80 palabras, y sugiéreme qué foto haría falta.</div>
+<p class="gain"><b>Sirve para:</b> publicar sin quedarse en blanco delante de la pantalla.</p>
+
+<h4>Un cartel para la tienda</h4>
+<div class="prompt">Necesito el texto de un cartel A4 para el escaparate sobre [servicio]. Un titular de cinco palabras como mucho, tres líneas explicándolo y una llamada a la acción. Que se lea desde la calle y lo entienda alguien mayor.</div>
+<p class="gain"><b>Sirve para:</b> resolver el cartel en dos minutos.</p>
+</section>
+
+<!-- ================= -->
+<section id="papeleo">
+<h2><span class="num">08</span>Ejemplos: papeleo y organización</h2>
+
+<h4>Un correo largo, resumido</h4>
+<div class="prompt">Te pego un correo largo: [pégalo]. Dime en tres líneas qué me están pidiendo exactamente, si hay alguna fecha límite y qué tengo que hacer yo. Si hay algo que no queda claro, dímelo también.</div>
+<p class="gain"><b>Sirve para:</b> no leer tres veces el mismo correo para enterarte.</p>
+
+<h4>Reclamar un pago sin romper la relación</h4>
+<div class="prompt">Tengo una factura de [importe] vencida desde [fecha] de un cliente habitual. Escríbeme un correo cordial para reclamarla: que no suene a aviso legal, que ponga fácil el pago y que deje la puerta abierta a que nos digan si hay algún problema. Máximo seis líneas.</div>
+<p class="gain"><b>Sirve para:</b> cobrar sin perder al cliente.</p>
+
+<h4>Convertir notas de una reunión en tareas</h4>
+<div class="prompt">Estas son mis notas de una reunión, tal cual las tomé: [pégalas]. Sácame una lista de tareas: qué hay que hacer, quién lo hace y para cuándo. Lo que quedó sin decidir, ponlo aparte en un apartado de dudas.</div>
+<p class="gain"><b>Sirve para:</b> que lo hablado no se quede en un papel ilegible.</p>
+
+<h4>Comparar dos opciones antes de decidir</h4>
+<div class="prompt">Estoy dudando entre [opción A] y [opción B] para [para qué]. Hazme una tabla comparando lo que importa de verdad en cada una, dime cuál elegirías tú y por qué, y qué tendría que pasar para que la otra fuera la buena.</div>
+<p class="gain"><b>Sirve para:</b> decidir con la cabeza clara en vez de a ojo.</p>
+</section>
+
+<!-- ================= -->
+<section id="aprender">
+<h2><span class="num">09</span>Ejemplos: entender algo difícil</h2>
+<p>Esta es la parte que más se usa y de la que nadie habla: preguntar sin miedo a quedar mal.</p>
+
+<h4>Que te lo expliquen de verdad</h4>
+<div class="prompt">Explícame [lo que sea] como si tuviera doce años y no supiera nada del tema. Usa un ejemplo de la vida normal. Cuando termines, hazme dos preguntas para comprobar si lo he entendido.</div>
+
+<h4>Entender un documento que no hay quien lea</h4>
+<div class="prompt">Te paso un documento que no entiendo: [pégalo o adjúntalo con el botón +]. Dime en cristiano qué significa, qué implica para mí y si hay algo a lo que deba prestar atención especial. Márcame las partes importantes.</div>
+
+<h4>Aprender a hacer algo paso a paso</h4>
+<div class="prompt">Quiero aprender a [lo que sea] y parto de cero. Hazme una guía de pasos numerados, del primero al último, suponiendo que no sé nada. Avísame de los tres errores que comete todo el mundo la primera vez.</div>
+
+<div class="box tip">
+  <span class="tag">Recordad</span>
+  <p>No se cansa, no juzga y no se lo cuenta a nadie. Se le puede preguntar veinte veces lo mismo
+  hasta entenderlo. Es la mejor forma de empezar a cogerle soltura.</p>
+</div>
+</section>
+
+<!-- ================= -->
+<section id="archivos">
+<h2><span class="num">10</span>Los archivos que crea, dónde están</h2>
+<p>Cuando le pedís una hoja de cálculo, un documento o una tabla, no os lo escribe en el chat:
+<strong>fabrica un archivo de verdad</strong> que se puede descargar o mandar a Drive.</p>
+
+<figure>
+  <div class="shot">
+    <img src="got-guia-img/13-web-boton-artefactos.jpg" alt="Aparece un botón junto a Compartir tras generar un archivo">
+    <span class="mask" style="left:0;top:28%;width:16.2%;height:72%"></span>
+  </div>
+  <figcaption><b>En cuanto crea algo, aparece un botón nuevo</b> arriba a la derecha, al lado de <span class="ui">Compartir</span>. Antes de generar nada, ese botón no está.</figcaption>
+</figure>
+
+<figure>
+  <div class="shot">
+    <img src="got-guia-img/14-web-panel-artefactos.jpg" alt="Panel lateral con la lista de archivos generados">
+    <span class="mask" style="left:0;top:28%;width:16.2%;height:72%"></span>
+  </div>
+  <figcaption><b>Al pulsarlo se abre la lista</b> de todo lo creado en esa conversación, con su botón de descarga. En una charla larga se generan cuatro o cinco archivos: aquí están todos juntos.</figcaption>
+</figure>
+
+<div class="box warn">
+  <span class="tag">Dos sitios que se llaman igual</span>
+  <p>Ese panel se llama <strong>Artefactos</strong>, y en la columna de la izquierda hay otra sección
+  con el mismo nombre. No son lo mismo:</p>
+  <p>· El <strong>botón de arriba</strong> enseña lo creado <strong>en esa conversación</strong>.<br>
+  · La <strong>sección de la izquierda</strong> es la biblioteca de <strong>todo</strong> lo que habéis creado, en cualquier conversación.</p>
+</div>
+</section>
+
+<!-- ================= -->
+<section id="proyectos">
+<h2><span class="num">11</span>Proyectos: carpetas que se acuerdan</h2>
+<p>Un proyecto es una carpeta con memoria. Le metéis vuestros archivos y una nota de cómo
+trabajáis, y a partir de ahí <strong>ya no hay que explicárselo cada mañana</strong>.</p>
+
+<figure>
+  <div class="shot">
+    <img src="got-guia-img/03-dentro-proyecto.jpg" alt="Vista de dentro de un proyecto">
+    <span class="mask" style="left:0;top:28%;width:16.2%;height:72%"></span>
+  </div>
+  <figcaption><b>Dentro de un proyecto.</b> A la derecha: <span class="ui">Memoria</span> (lo que va aprendiendo), <span class="ui">Contexto</span> (los archivos que le subís) y <span class="ui">Programado</span> (tareas repetidas de esa carpeta).</figcaption>
+</figure>
+
+<h4>Se crea así</h4>
+<ol class="steps">
+  <li>Clic en <span class="ui">Proyectos</span>, en la columna de la izquierda.</li>
+  <li>Botón <span class="ui">Nuevo proyecto</span>, arriba a la derecha.</li>
+  <li>Nombre y dos líneas de descripción: quiénes sois y qué se hace en esa carpeta.</li>
+  <li>Arrastrar dentro los archivos que hagan falta.</li>
+  <li>Abrir las conversaciones <strong>dentro</strong> del proyecto, no fuera.</li>
+</ol>
+
+<div class="box tip">
+  <span class="tag">Qué poner en la descripción del proyecto</span>
+  <p>Es un prompt más, así que se rellena igual. Por ejemplo:</p>
+</div>
+<div class="prompt">Somos una ortopedia con taller propio en Tenerife. En esta carpeta trabajo la parte de rehabilitación: entrenamientos, seguimiento de pacientes y bonos de sesiones. Nuestros clientes son en su mayoría personas mayores o gente recuperándose de una lesión. Escribe siempre claro y sin tecnicismos, y si necesitas un dato que no tienes, pregúntamelo antes de inventarlo.</div>
+</section>
+
+<!-- ================= -->
+<section id="ajustes">
+<h2><span class="num">12</span>Que sepa quién eres</h2>
+<p>Hay un sitio donde se escribe una sola vez quién sois, y vale para todas las conversaciones
+que tengáis a partir de ese momento. Es el ajuste que más se nota y el que casi nadie toca.</p>
+
+<figure>
+  <div class="shot">
+    <img src="got-guia-img/06-ajustes-general.jpg" alt="Ajustes generales con el cuadro de instrucciones">
+    <span class="mask" style="left:33%;top:52.5%;width:45%;height:20.5%"></span>
+  </div>
+  <figcaption><b>Ajustes › General.</b> El cuadro <span class="ui">Instrucciones para Claude</span> es la chapa que se suelta una vez y no hay que repetir nunca más. Ahí también se cambia el tema claro u oscuro.</figcaption>
+  <p class="privacy">El contenido del cuadro va difuminado por ser de una cuenta real.</p>
+</figure>
+
+<p>Se llega por vuestro nombre, abajo del todo de la columna izquierda. Un ejemplo de lo que
+poner ahí:</p>
+<div class="prompt">Trabajo en una ortopedia en Tenerife. Atendemos sobre todo a personas mayores y a gente en recuperación. Escríbeme siempre en español de España, claro y directo, sin tecnicismos y sin florituras. Si te pido un texto para un cliente, que sea cercano pero profesional. Si te falta un dato para hacer bien lo que te pido, pregúntamelo en vez de inventártelo.</div>
+
+<h3>La memoria</h3>
+<figure>
+  <div class="shot">
+    <img src="got-guia-img/07-ajustes-memoria.jpg" alt="Ajustes de memoria">
+  </div>
+  <figcaption><b>Ajustes › Capacidades.</b> Aquí se decide si recuerda lo que habláis. En <span class="ui">Ver y gestionar memoria</span> se puede leer todo lo que ha guardado, editarlo o borrarlo. También se puede apagar del todo.</figcaption>
+</figure>
+</section>
+
+<!-- ================= -->
+<section id="programado">
+<h2><span class="num">13</span>Tareas que se hacen solas</h2>
+<p>Un encargo con horario: se configura una vez y se ejecuta solo. No hace falta tocarlo ahora,
+pero conviene saber que existe.</p>
+
+<figure>
+  <div class="shot">
+    <img src="got-guia-img/05-programado.jpg" alt="Pantalla de tareas programadas">
+    <span class="mask" style="left:0;top:28%;width:16.2%;height:72%"></span>
+    <span class="mask" style="left:33%;top:13%;width:50%;height:12%"></span>
+  </div>
+  <figcaption><b>Programado.</b> Abajo, las plantillas que vienen de fábrica: resumen diario, clasificación del correo, preparación de reuniones, revisión semanal de lo ocurrido.</figcaption>
+</figure>
+</section>
+
+<!-- ================= -->
+<section id="escritorio">
+<h2><span class="num">14</span>La aplicación del ordenador</h2>
+<p>Es la misma casa con otra puerta: los mismos proyectos, las mismas conversaciones, la misma
+memoria. Nada de lo aprendido se pierde al cambiar.</p>
+
+<figure>
+  <div class="shot">
+    <img src="got-guia-img/11-app-inicio.jpg" alt="La aplicación de escritorio">
+    <span class="mask" style="left:0;top:26%;width:16.5%;height:74%"></span>
+  </div>
+  <figcaption><b>La aplicación, en la pestaña <span class="ui">Inicio</span>.</b> Idéntica a la web. Arriba a la izquierda hay otra pestaña, <span class="ui">Code</span>: es para programar, no hace falta entrar ahí.</figcaption>
+</figure>
+
+<h4>Lo que aporta frente al navegador</h4>
+<ul class="plain">
+  <li>Se abre de un clic, sin buscar la pestaña entre veinte.</li>
+  <li>Se puede <strong>arrastrar un archivo</strong> del escritorio directamente a la ventana.</li>
+  <li>Tiene <strong>dictado</strong>: se le habla en vez de escribir. Si el teclado se os hace cuesta arriba, esto solo ya justifica instalarla.</li>
+</ul>
+
+<figure>
+  <div class="shot">
+    <img src="got-guia-img/15-app-salidas.jpg" alt="Panel de salidas con el archivo generado">
+    <span class="mask" style="left:0;top:26%;width:16.5%;height:74%"></span>
+  </div>
+  <figcaption><b>Los archivos, también aquí.</b> El panel de la derecha lista lo generado. En la aplicación se llama <span class="ui">Salidas</span> en vez de Artefactos, pero es exactamente lo mismo.</figcaption>
+</figure>
+</section>
+
+<!-- ================= -->
+<section id="nometer">
+<h2><span class="num">15</span>Qué NO meter nunca</h2>
+<p>Trabajáis con datos de salud, que son los más protegidos que hay. Esta es la parte
+aburrida de la guía, la que hay que leer entera.</p>
+
+<div class="box warn">
+  <span class="tag">Fuera de la herramienta</span>
+  <p>· <strong>Nombres de pacientes junto a su patología.</strong> Si necesitáis ayuda con un caso, quitad el nombre: «un paciente de 68 años con…» funciona igual de bien.<br>
+  · <strong>Informes médicos, recetas o partes de mutua con datos identificables.</strong><br>
+  · <strong>DNI, número de la seguridad social, direcciones o teléfonos</strong> en listados.<br>
+  · <strong>Contraseñas y accesos</strong> de cualquier programa vuestro.</p>
+</div>
+
+<div class="box tip">
+  <span class="tag">La regla fácil de recordar</span>
+  <p>Si lo que vais a pegar identifica a una persona concreta, <strong>quitad el nombre antes</strong>.
+  La respuesta va a ser igual de útil y os quitáis el problema de encima.</p>
+</div>
+
+<h4>Dos cosas más</h4>
+<ul class="plain">
+  <li><strong>Los datos se comprueban siempre.</strong> Para redactar es buenísimo; con cifras, precios, medidas, plazos y normativa se equivoca, y lo dice con la misma seguridad que cuando acierta. Si os da un dato, verificadlo antes de usarlo con un cliente.</li>
+  <li><strong>No sustituye un criterio profesional.</strong> Sirve para escribir, ordenar y explicar. La decisión clínica o técnica sigue siendo vuestra.</li>
+</ul>
+</section>
+
+<!-- ================= -->
+<section id="errores">
+<h2><span class="num">16</span>Errores típicos al empezar</h2>
+<div class="tablewrap">
+<table>
+  <tr><th>El error</th><th>La solución</th></tr>
+  <tr><td>Escribir tres palabras sueltas</td><td>Habladle como a alguien que acaba de entrar a trabajar con vosotros: no sabe nada de la casa, pero entiende todo lo que le expliquéis.</td></tr>
+  <tr><td>Empezar un chat nuevo cada vez que algo no sale</td><td>No hace falta. Corregidle ahí mismo: se acuerda de todo lo anterior.</td></tr>
+  <tr><td>Quedarse con la primera respuesta</td><td>La primera casi nunca es la buena. Pedidle que la ajuste dos veces.</td></tr>
+  <tr><td>Creerse los datos que da</td><td>Para redactar, de fiar. Para cifras y normativa, comprobad siempre.</td></tr>
+  <tr><td>Miedo a romper algo</td><td>Aquí no se rompe nada. Todo se borra y se vuelve a empezar.</td></tr>
+  <tr><td>No decir para quién es el texto</td><td>Es la pieza que más cambia el resultado. Decidlo siempre.</td></tr>
+</table>
+</div>
+</section>
+
+<!-- ================= -->
+<section id="chuleta">
+<h2><span class="num">17</span>La chuleta</h2>
+<p>Si os quedáis con una sola cosa de toda la guía, que sea esta.</p>
+<div class="prompt">LA FÓRMULA
+
+1. Quién eres        → «Trabajo en una ortopedia, atiendo el mostrador.»
+2. Qué necesitas     → «Escríbeme un mensaje para un cliente.»
+3. Para quién es     → «Lo lee una señora de 70 años.»
+4. Cómo lo quieres   → «Corto, cercano, para WhatsApp.»
+5. Con qué límites   → «Sin prometer plazos.»
+
+SI NO TE GUSTA
+No empieces de cero: díselo. «Más corto», «menos formal»,
+«dame tres versiones». Sigue la misma conversación.
+
+SI NO SABES CÓMO PEDIRLO
+«Quiero que me ayudes con X. Antes de empezar,
+hazme las preguntas que necesites para hacerlo bien.»
+
+DÓNDE ESTÁ CADA COSA
+Nuevo       → empezar una conversación
+Proyectos   → carpetas que recuerdan, con tus archivos dentro
+Artefactos  → todo lo que ha creado
+Programado  → encargos que se repiten solos
+Tu nombre   → ajustes y memoria
+
+LO QUE NO SE METE
+Nombres de pacientes, informes médicos, DNI, contraseñas.</div>
+</section>
+
+</main>
+</div>
+
+<style>
+  .ca-foot{
+    background:#102e35;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal-brand span{font-size:.86rem;font-weight:500;color:#dfe9eb}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Automatizaciones como las de esta sesión se cuecen en la comunidad:
+          lo que funciona en negocios de verdad, lo que se queda en el intento,
+          sin postureo.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+        <span>Código AdrIA</span>
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Botón de copiar en cada prompt.
+  document.querySelectorAll('.prompt').forEach(function(box){
+    var texto = box.textContent.trim();   // se guarda antes de meter el botón dentro
+    var btn = document.createElement('button');
+    btn.className = 'copy';
+    btn.type = 'button';
+    btn.textContent = 'Copiar';
+    btn.addEventListener('click', function(){
+      navigator.clipboard.writeText(texto).then(function(){
+        btn.textContent = 'Copiado';
+        btn.classList.add('done');
+        setTimeout(function(){ btn.textContent = 'Copiar'; btn.classList.remove('done'); }, 1800);
+      });
+    });
+    box.appendChild(btn);
+  });
+
+  // Índice: salto directo y marcado de la sección que se está leyendo.
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a[href^="#"]'));
+  var secciones = links.map(function(a){
+    return document.getElementById(a.getAttribute('href').slice(1));
+  }).filter(Boolean);
+
+  function marcar(activo){
+    links.forEach(function(l){ l.classList.toggle('on', l === activo); });
+  }
+
+  links.forEach(function(a){
+    a.addEventListener('click', function(e){
+      var destino = document.getElementById(a.getAttribute('href').slice(1));
+      if(!destino) return;
+      e.preventDefault();
+      window.scrollTo(0, destino.getBoundingClientRect().top + window.pageYOffset - 16);
+      history.replaceState(null, '', a.getAttribute('href'));
+      marcar(a);
+    });
+  });
+
+  window.addEventListener('scroll', function(){
+    var y = window.pageYOffset + 90, actual = null;
+    secciones.forEach(function(s){ if(s.offsetTop <= y) actual = s; });
+    if(actual) marcar(links[secciones.indexOf(actual)]);
+  }, {passive:true});
+})();
+</script>
+
+</body>
+</html>
