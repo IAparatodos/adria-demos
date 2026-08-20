@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resumen de la sesión 2 · Ortopedia GOT · Código AdrIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#4dd2d0;
+    --primary-deep:#2ea9a7;
+    --secondary:#3f6f7b;
+    --ink:#0f2429;
+    --ink-soft:#40595f;
+    --muted:#7b9096;
+    --canvas:#ffffff;
+    --surface:#f4f8f8;
+    --hairline:#dfe9ea;
+    --tint-a:#e6f8f7;
+    --tint-b:#eef4f0;
+    --tint-c:#fdf3e6;
+    --tint-d:#f1eefb;
+    --warn:#b4501f;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--surface);color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    line-height:1.55;letter-spacing:-.01em;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+  /* cabecera */
+  .top{background:var(--canvas);border-bottom:1px solid var(--hairline)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:16px;padding-bottom:16px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+  .brand img{height:34px;width:auto;display:block}
+  .brand span{font-weight:600;font-size:15px}
+  .top .meta{font-size:13px;color:var(--muted);text-align:right}
+
+  /* hero */
+  .hero{background:linear-gradient(180deg,#0f2b31 0%,#14383f 100%);color:#fff;padding:56px 0 60px}
+  .kicker{
+    display:inline-block;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--primary);margin:0 0 14px
+  }
+  .hero h1{
+    margin:0 0 16px;font-size:clamp(30px,6vw,50px);font-weight:600;line-height:1.08;letter-spacing:-.03em;
+  }
+  .hero p{margin:0;max-width:60ch;color:#cfe2e4;font-size:clamp(15px,2.2vw,18px)}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .fact{
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+    border-radius:999px;padding:7px 14px;font-size:13px;color:#eaf6f6
+  }
+
+  /* secciones */
+  main{padding:44px 0 8px}
+  .lead{
+    background:var(--canvas);border:1px solid var(--hairline);border-left:4px solid var(--primary);
+    border-radius:14px;padding:20px 22px;margin:0 0 34px
+  }
+  .lead p{margin:0;color:var(--ink-soft);font-size:16px}
+  .lead strong{color:var(--ink)}
+
+  .card{
+    background:var(--canvas);border:1px solid var(--hairline);border-radius:18px;
+    padding:26px 24px;margin:0 0 18px
+  }
+  .card .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:30px;height:30px;border-radius:9px;background:var(--tint-a);color:var(--secondary);
+    font-size:14px;font-weight:600;margin-bottom:12px
+  }
+  .card h2{
+    margin:0 0 6px;font-size:clamp(19px,3.2vw,24px);font-weight:600;letter-spacing:-.02em;line-height:1.2
+  }
+  .card .sub{margin:0 0 16px;color:var(--muted);font-size:14.5px}
+  .card ul{margin:0;padding-left:0;list-style:none}
+  .card li{
+    position:relative;padding:0 0 0 26px;margin:0 0 11px;color:var(--ink-soft);font-size:15.5px
+  }
+  .card li::before{
+    content:"";position:absolute;left:6px;top:.62em;width:7px;height:7px;border-radius:2px;
+    background:var(--primary)
+  }
+  .card li strong{color:var(--ink);font-weight:600}
+  .card li ul{margin-top:9px}
+  .card li li::before{background:var(--hairline)}
+
+  /* variantes de tinte */
+  .t-b .num{background:var(--tint-b)}
+  .t-c .num{background:var(--tint-c)}
+  .t-d .num{background:var(--tint-d)}
+
+  /* bloque de límites */
+  .limits{background:#fff7ef;border:1px solid #f2ddc6;border-radius:18px;padding:26px 24px;margin:26px 0 18px}
+  .limits h2{margin:0 0 6px;font-size:clamp(19px,3.2vw,24px);font-weight:600;letter-spacing:-.02em;color:#7a3d12}
+  .limits .sub{margin:0 0 16px;font-size:14.5px;color:#a2622f}
+  .limits ul{margin:0;padding-left:0;list-style:none}
+  .limits li{position:relative;padding-left:26px;margin-bottom:11px;color:#5d3413;font-size:15.5px}
+  .limits li::before{content:"";position:absolute;left:6px;top:.55em;width:9px;height:2px;background:var(--warn)}
+
+  /* preguntas */
+  .ask{background:#0f2b31;color:#fff;border-radius:18px;padding:30px 24px;margin:26px 0 40px}
+  .ask h2{margin:0 0 6px;font-size:clamp(19px,3.2vw,24px);font-weight:600;letter-spacing:-.02em}
+  .ask .sub{margin:0 0 18px;color:#a9c8cb;font-size:14.5px}
+  .ask ol{margin:0;padding-left:20px;color:#dcecec;font-size:15.5px}
+  .ask li{margin-bottom:10px}
+
+  .foot-note{
+    text-align:center;color:var(--muted);font-size:13px;padding:0 0 40px
+  }
+
+  @media (min-width:720px){
+    .cards-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .cards-2 .card{margin:0}
+  }
+  @media print{
+    body{background:#fff}
+    .hero{background:#0f2b31 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .card,.limits,.ask{break-inside:avoid}
+  }
+</style>
+<style>
+  .ask ol{padding-left:22px}
+  .ask ol li strong{color:#fff}
+  .card em,.lead em{font-style:normal;background:var(--tint-a);border-radius:4px;padding:0 4px}
+
+  /* plantilla para copiar */
+  .quote-box{
+    background:var(--tint-a);border:1px solid var(--hairline);border-radius:14px;
+    padding:18px 18px 14px;margin:18px 0
+  }
+  .quote-box p{margin:0 0 10px;font-size:14.5px;color:var(--ink-soft)}
+  .quote-box pre{
+    margin:0;white-space:pre-wrap;word-break:break-word;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:14px;line-height:1.7;color:var(--ink);background:#fff;
+    border:1px solid var(--hairline);border-radius:10px;padding:14px 14px
+  }
+
+  /* enlaces dentro del contenido */
+  main a{color:var(--primary-deep);text-decoration:none;border-bottom:1px solid var(--primary);
+    padding-bottom:1px;font-weight:500}
+  main a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="https://www.codigoadria.com">
+      <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      <span>Código AdrIA</span>
+    </a>
+    <div class="meta">GOT Ortopedia · sesión 2<br>20 de agosto de 2026</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker">Formación · sesión 2</p>
+    <h1>Claude, de arriba abajo</h1>
+    <p class="hero-sub">Lo que vimos ayer, lo que conviene tocar antes de nada y los deberes de cada uno.</p>
+    <div class="facts">
+      <span class="fact">20 de agosto · 2 h 55 min</span>
+      <span class="fact">José · Paula · Michelle</span>
+      <span class="fact">Guía completa al final</span>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <div class="lead">
+    <p>La sesión fue un recorrido por la herramienta entera: dónde está cada cosa, para qué sirve y qué conviene dejar apagado. <strong>Si os quedáis con dos ideas, que sean estas: trabajad por proyectos y pedid las cosas bien.</strong> Lo demás son botones, y los botones se aprenden tocándolos.</p>
+  </div>
+
+  <div class="card">
+    <span class="num">1</span>
+    <h2>Las tres puertas de entrada</h2>
+    <p class="sub">Son el mismo Claude, pero no hacen lo mismo. Elegid una y quedaos ahí.</p>
+    <ul>
+      <li><strong>La web (claude.ai)</strong>. Todo pasa en la nube. Es la que vais a usar Paula y Michelle, y con ella sobra para el día a día.</li>
+      <li><strong>La aplicación de escritorio</strong>. La misma, más la capacidad de abrir carpetas de vuestro propio ordenador. Cuando haga falta trabajar con archivos que no queréis subir a ningún sitio, es esta.</li>
+      <li><strong>Claude Code</strong>. Solo para programar. José.</li>
+      <li><strong>Ojo con mezclarlas</strong>: lo que configuráis en una no viaja a la otra. Un día pedís algo que ayer funcionaba y no aparece, y no es que se haya roto: es que estáis en otra puerta.</li>
+    </ul>
+  </div>
+
+  <div class="card t-b">
+    <span class="num">2</span>
+    <h2>Trabajad por proyectos</h2>
+    <p class="sub">Es lo que separa tener veinte chats sueltos de tener el trabajo ordenado.</p>
+    <ul>
+      <li><strong>Un proyecto es un cajón</strong>: agrupa los chats de un mismo tema y les da instrucciones propias. «En este proyecto hablamos de prótesis y se hace así.» No hay que repetirlo cada mañana.</li>
+      <li><strong>Cada proyecto tiene su memoria</strong>, separada de la general. Lo que se guarda dentro se queda dentro.</li>
+      <li><strong>Le podéis meter contexto</strong>: manuales, un Excel, una carpeta de Drive, una página de Notion. A partir de ahí responde con vuestros documentos, no con lo que se imagine.</li>
+      <li><strong>La memoria general se alimenta sola</strong>, pero también podéis dictársela: «recuerda que solo aceptamos pagos con tarjeta». Se revisa y se edita en los ajustes, y conviene mirarla de vez en cuando por si ha guardado cosas que no queréis.</li>
+    </ul>
+  </div>
+
+  <div class="card t-c">
+    <span class="num">3</span>
+    <h2>La fórmula del prompt</h2>
+    <p class="sub">Casi todo el resultado depende de esto. La misma herramienta os devuelve una tontería o algo aprovechable.</p>
+    <ul>
+      <li><strong>Quién eres</strong>. «Trabajo en una ortopedia en Tenerife y atiendo el mostrador.» Sin esto no sabe si habla un médico, un comercial o un cliente.</li>
+      <li><strong>Qué necesitas</strong>, empezando por un verbo. Escribe, resume, ordena, compara.</li>
+      <li><strong>Para quién es</strong>. No se escribe igual para una señora de 80 años que para una mutua.</li>
+      <li><strong>Cómo lo quieres</strong>. Tono, formato, longitud. Es la pieza que más cambia el resultado y la que casi nadie pone.</li>
+      <li><strong>Con qué límites</strong>. Qué datos usar, qué no decir. «No prometas plazos de entrega ni des precios.»</li>
+    </ul>
+    <div class="quote-box">
+      <p><strong>La plantilla, para copiar y pegar:</strong></p>
+      <pre>Trabajo en [dónde] y me encargo de [qué].
+Necesito que [escribas / resumas / ordenes / compares] [qué exactamente].
+Lo va a leer [quién] y se lo voy a enviar por [dónde].
+Quiero que sea [tono] y que ocupe [longitud].
+Ten en cuenta que [dato importante] y no [lo que hay que evitar].</pre>
+    </div>
+    <ul>
+      <li><strong>Si no sabéis por dónde empezar, dejad que pregunte él</strong>: «antes de empezar, hazme las preguntas que necesites para hacerlo bien». Funciona sorprendentemente bien.</li>
+      <li><strong>La primera versión no tiene por qué ser la buena.</strong> Demasiado largo, suena raro, no es vuestra forma de hablar: se dice y se rehace. Eso no es que falle, es cómo se trabaja.</li>
+      <li><strong>Pedid el nivel que necesitáis.</strong> El mismo informe explicado «a nivel de doctorado» o «para un niño de cinco años» son dos textos distintos, y los dos os pueden servir según a quién se lo llevéis.</li>
+    </ul>
+  </div>
+
+  <div class="card t-d">
+    <span class="num">4</span>
+    <h2>Lo que os puede quitar de encima</h2>
+    <p class="sub">De todo lo que vimos, esto es lo que se traduce en tiempo vuestro.</p>
+    <ul>
+      <li><strong>Papers y artículos</strong>. Cincuenta páginas en inglés convertidas en lo que os interesa, sin que se invente una sola cifra, y con el nivel de lenguaje que pidáis. Se puede dejar programado: cada lunes, lo nuevo de vuestro sector, al correo.</li>
+      <li><strong>Mensajes de siempre</strong>. Avisar de que ha llegado un encargo, recordar una cita, decirle a alguien que le quedan dos sesiones del bono. Bien escritos, con vuestro tono y sin sonar a robot.</li>
+      <li><strong>El correo, ordenado</strong>. Qué exige respuesta hoy, qué es papeleo, qué es ruido. Y os deja el borrador escrito: enviar lo seguís haciendo vosotros.</li>
+      <li><strong>El parte de la mañana</strong>. A primera hora, en un correo, lo que tenéis por delante.</li>
+      <li><strong>Papel escaneado</strong>. Lo que comentaba Michelle: escanear un montón de documentos seguidos y que cada uno acabe en la carpeta de su paciente, aunque estén escritos a mano. Hay que probarlo con vuestros papeles reales, pero se hace.</li>
+      <li><strong>Herramientas a medida</strong>. Un cotizador, un control de incidencias, un contador. Cosas pequeñas para uso interno que antes había que encargar.</li>
+    </ul>
+  </div>
+
+  <div class="limits">
+    <h2>Lo que hay que apagar antes de seguir</h2>
+    <p class="sub">Trabajáis con datos de pacientes. Esto no es una recomendación.</p>
+    <ul>
+      <li><strong>Que no entrenen el modelo con vuestros chats.</strong> Es un interruptor en Privacidad y tiene que estar apagado en todos los puestos. En la versión de empresa no está donde en la personal: se llega por <em>claude.ai/settings/data-privacy-controls</em>.</li>
+      <li><strong>El gestor de contraseñas del navegador, cerrado.</strong> Si le dais permiso para usarlo, y las claves del banco están guardadas en Chrome, tiene las llaves de todo. En administración y en cualquier puesto que toque cobros, ni tocarlo.</li>
+      <li><strong>Cuidado con dejarle carpetas abiertas.</strong> Cuando trabaja con archivos, ve todo lo que ese ordenador ve. Hay que comprobar puesto por puesto qué alcanza.</li>
+      <li><strong>El modo incógnito no os esconde del administrador.</strong> Significa que no queda en vuestro historial, nada más.</li>
+      <li><strong>Nada de historiales ni fichas personales en herramientas de fuera.</strong> Sigue siendo la línea roja del proyecto, igual que en la primera sesión.</li>
+    </ul>
+  </div>
+
+  <div class="ask">
+    <h2>Deberes hasta la próxima</h2>
+    <p class="sub">Los primeros son para los tres. Los últimos son de administración, y son de José.</p>
+    <ol>
+      <li><strong>Toquetead.</strong> En serio: abrid los ajustes y pulsad todos los botones. Es la única forma de perderle el miedo.</li>
+      <li><strong>Rellenad vuestro perfil</strong>: nombre, a qué os dedicáis y cómo queréis que os hable. Cambia bastante más de lo que parece.</li>
+      <li><strong>Comprobad la memoria</strong>: encendida, y echadle un ojo a lo que ya ha guardado de vosotros.</li>
+      <li><strong>Un documento con vuestras dudas.</strong> Cada uno el suyo, y me lo vais mandando por correo. Así llego a la próxima sesión con las respuestas preparadas en lugar de improvisar.</li>
+      <li><strong>El vaciado sigue pendiente</strong>: qué repetís cada día, qué se os olvida siempre, qué os está dando por saco. De ahí sale todo lo que automaticemos.</li>
+      <li><strong>Las dos instrucciones de organización</strong> que hay escritas, a mi correo, para unificarlas en una sola. Ahora mismo dicen cosas distintas.</li>
+      <li><strong>Verificar el dominio</strong> en el panel de la organización.</li>
+      <li><strong>Repasar puesto por puesto</strong>: entrenamiento del modelo apagado, memoria encendida, instrucciones puestas.</li>
+      <li><strong>Probar si respeta los permisos de carpeta</strong>: habilitarlo en un puesto e intentar abrir una carpeta a la que ese usuario no tendría que llegar. Es lo que decide qué se puede dejar abierto y qué no.</li>
+      <li><strong>Acordar con Nacho la política de permisos.</strong> Quién puede conectar el correo, quién puede tocar archivos, quién no. Por escrito, y que la firme quien manda: esa decisión no debería recaer en una sola persona.</li>
+    </ol>
+  </div>
+
+  <div class="card t-b">
+    <span class="num">5</span>
+    <h2>La guía, para consultarla cuando queráis</h2>
+    <p class="sub">Todo lo de la sesión, con las capturas de cada pantalla.</p>
+    <ul>
+      <li>Está aquí: <a href="https://iaparatodos.github.io/adria-demos/got-guia-claude-921a8e.html">guía de Claude para Ortopedia GOT</a>. Guardadla en marcadores.</li>
+      <li>No hace falta leerla de golpe. Sirve para cuando no recordéis dónde estaba aquel ajuste.</li>
+      <li>Dentro de la propia herramienta tenéis además la academia de Claude, con cursos completos en español.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <span class="num">6</span>
+    <h2>Cómo seguimos</h2>
+    <p class="sub">El bono son 20 horas y esta sesión ya cuenta dentro.</p>
+    <ul>
+      <li><strong>La fecha de la próxima la ponéis vosotros.</strong> Decidme qué día os viene bien y la cerramos.</li>
+      <li><strong>A partir de aquí podemos ir a lo concreto</strong>, puesto por puesto, en lugar de recorrer la herramienta entera. Ya sabéis dónde está cada cosa.</li>
+      <li><strong>Paula</strong>, sus horas van aparte y las acordamos ella y yo directamente.</li>
+      <li><strong>Lo de la aplicación de entrenamientos</strong> sigue en el aire: la que tenéis no deja escribir nada desde fuera. Estamos esperando respuesta suya y mirando la alternativa que me pasasteis. Os cuento en cuanto sepa.</li>
+    </ul>
+  </div>
+
+  <p class="foot-note">Resumen de la sesión del 20 de agosto de 2026 · Ortopedia GOT · Preparado por Ricardo Hoyos</p>
+
+</main>
+
+<!--
+  FOOTER DE MARCA — OBLIGATORIO en todo HTML de Código AdrIA que se comparta en público.
+  Pégalo justo antes de </body>. Autocontenido: CSS propio + SVG en línea, sin dependencias.
+  Regla en CLAUDE.md raíz: "HTML público — marca y footer obligatorios".
+
+  Estructura (patrón Stripe: banda de cierre + columnas + fila legal):
+    1. Banda de cierre con UNA sola llamada a la acción rellena (la comunidad).
+    2. Tres columnas de enlaces: empezar / seguir / la casa.
+    3. Fila legal con logo enlazado + copyright.
+
+  Enlaces oficiales (verificados 2-ago-2026):
+  - Comunidad Telegram (alta): https://forms.gle/LQUSEfZZ9m8R5e8f6
+  - Curso:     https://www.codigoadria.com/curso-automatizaciones/
+  - Academia:  https://www.codigoadria.com/academia/
+  - YouTube:   https://www.youtube.com/@codigoadria?sub_confirmation=1
+  - LinkedIn:  https://www.linkedin.com/in/ricardohoyosperez/
+  - Instagram: https://www.instagram.com/ricardohoyos1/  ← el PERSONAL (decisión de Ricardo)
+
+  Adapta SOLO el texto de .ca-cta-sub al contenido de la página. El resto no se toca.
+  En la CABECERA de la página, el logo SIEMPRE enlazado a https://www.codigoadria.com.
+
+  ⚠️ Si la página tiene bloques <pre> con ejemplos de código, escapa las etiquetas
+  (&lt;style&gt;, &lt;script&gt;): una etiqueta cruda se interpreta de verdad, se traga
+  el resto del documento y revienta este footer.
+-->
+<style>
+  .ca-foot{
+    background:#102e35;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal-brand span{font-size:.86rem;font-weight:500;color:#dfe9eb}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Automatizaciones como las de esta sesión se cuecen en la comunidad:
+          lo que funciona en negocios de verdad, lo que se queda en el intento,
+          sin postureo.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+        <span>Código AdrIA</span>
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
