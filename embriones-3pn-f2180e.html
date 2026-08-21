@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Embriones 3PN: del descarte automático a la evaluación · Alteri et al., 2026</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Embriones 3PN: del descarte a la evaluación · Código AdrIA">
+<meta property="og:description" content="Comentario en RBMO: la evidencia sobre embriones 3PN y el marco ético que proponen sus autores.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/embriones-3pn-f2180e.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Embriones 3PN: del descarte a la evaluación · Código AdrIA">
+<meta name="twitter:description" content="Comentario en RBMO: la evidencia sobre embriones 3PN y el marco ético que proponen sus autores.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta name="description" content="El Commentary de Alteri et al. en Reproductive BioMedicine Online (2026), contado en visual: qué dicen las guías sobre los embriones 3PN, qué hay publicado y qué marco proponen los autores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181a;
+    --ink-soft:#3a4448;
+    --ink-mute:#6d797e;
+    --canvas:#ffffff;
+    --parchment:#f4f7f7;
+    --tile-dark:#16242a;
+    --tile-darker:#101c21;
+    --hairline:#e2e9e9;
+    --brand:#4dd2d0;
+    --brand-deep:#0e9c99;
+    --brand-slate:#3f6f7b;
+    --serie-a:#0e9c99;
+    --serie-b:#6b5ea8;
+    --serie-a-dark:#4dd2d0;
+    --serie-b-dark:#a99cf0;
+    --radius-card:18px;
+    --radius-pill:9999px;
+    --shadow-object:0 3px 30px rgba(16,28,33,.14);
+    --max:1120px;
+    --max-read:760px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--canvas);
+    color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:17px;
+    line-height:1.55;
+    font-weight:400;
+    letter-spacing:-.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+  section{padding:88px 24px}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .read{max-width:var(--max-read);margin:0 auto}
+  h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.028em;line-height:1.08}
+  h1{font-size:clamp(2.1rem,6vw,3.7rem)}
+  h2{font-size:clamp(1.6rem,4vw,2.5rem)}
+  h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.3}
+  p{margin:0 0 1.15em}
+  p:last-child{margin-bottom:0}
+  .eyebrow{
+    font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--brand-deep);margin:0 0 20px
+  }
+  .lead{font-size:clamp(1.1rem,2.4vw,1.42rem);font-weight:300;line-height:1.45;color:var(--ink-soft)}
+
+  /* ---------- cabecera de marca ---------- */
+  .brandbar{
+    background:var(--tile-dark);padding:20px 24px 0;text-align:left
+  }
+  .brandbar .wrap{display:flex;align-items:center}
+  .brandbar img{height:40px;width:auto;display:block}
+
+  /* ---------- portada ---------- */
+  .hero{
+    background:var(--tile-dark);color:#fff;padding:56px 24px 84px;
+    background-image:radial-gradient(120% 90% at 12% 0%,rgba(77,210,208,.16) 0%,transparent 58%);
+  }
+  .hero .eyebrow{color:var(--brand)}
+  .hero h1{color:#fff;max-width:18ch}
+  .hero .original{
+    margin-top:26px;padding-left:18px;border-left:2px solid rgba(77,210,208,.5);
+    font-size:1rem;font-weight:300;color:#c9d6d9;font-style:italic;max-width:52ch
+  }
+  .authors{margin-top:34px;font-size:.95rem;color:#9fb0b5;line-height:1.7;max-width:64ch}
+  .authors .first{color:#fff;font-weight:600}
+  .meta-row{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
+  .chip{
+    display:inline-flex;align-items:center;gap:7px;
+    border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-pill);
+    padding:8px 16px;font-size:.83rem;color:#dfe9eb;white-space:nowrap
+  }
+  .chip b{color:#fff;font-weight:600}
+
+  /* ---------- destacado numérico ---------- */
+  .headline-figure{background:var(--parchment)}
+  .figure-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin-top:44px
+  }
+  .stat{
+    background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);
+    padding:26px 24px
+  }
+  .stat .num{
+    font-size:clamp(2.2rem,5vw,2.9rem);font-weight:600;letter-spacing:-.04em;line-height:1;
+    color:var(--ink)
+  }
+  .stat .num small{font-size:.42em;font-weight:500;letter-spacing:-.01em;color:var(--ink-mute);margin-left:4px}
+  .stat .num.compact{font-size:clamp(1.6rem,3.4vw,2.05rem)}
+  .stat .label{margin-top:12px;font-size:.92rem;color:var(--ink-soft);line-height:1.4}
+  .stat .foot{margin-top:10px;font-size:.78rem;color:var(--ink-mute)}
+  .stat.accent{border-color:rgba(14,156,153,.35);background:linear-gradient(180deg,rgba(14,156,153,.06),transparent 70%)}
+  .stat.accent .num{color:var(--brand-deep)}
+
+  /* ---------- gráfico ---------- */
+  .chart-card{
+    background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);
+    padding:32px 28px;margin-top:40px
+  }
+  .chart-title{font-size:1.05rem;font-weight:600;letter-spacing:-.02em;margin:0}
+  .chart-sub{font-size:.87rem;color:var(--ink-mute);margin:6px 0 0}
+  .bars{display:flex;flex-direction:column;gap:26px;margin-top:28px}
+  .bar-group .bar-name{font-size:.9rem;color:var(--ink-soft);margin-bottom:12px}
+  .bar-row{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .bar-row:last-child{margin-bottom:0}
+  .bar-track{flex:1;height:26px;background:#eef3f3;border-radius:4px;overflow:hidden;position:relative}
+  .bar-range{
+    position:absolute;top:0;height:100%;border-radius:4px;
+    transition:width .9s cubic-bezier(.22,.8,.3,1)
+  }
+  .bar-range.a{background:var(--serie-a)}
+  .bar-range.b{background:var(--serie-b)}
+  .bar-val{
+    font-variant-numeric:tabular-nums;font-size:.95rem;font-weight:600;color:var(--ink);
+    min-width:110px;text-align:right;letter-spacing:-.02em
+  }
+  .bar-val small{display:block;font-weight:400;font-size:.74rem;color:var(--ink-mute);letter-spacing:0}
+  .p-tag{
+    display:inline-block;margin-top:14px;font-size:.78rem;color:var(--ink-mute);
+    background:#eef3f3;border-radius:var(--radius-pill);padding:5px 12px
+  }
+  .p-tag.sig{background:rgba(14,156,153,.12);color:var(--brand-deep);font-weight:500}
+  .case-list{margin:28px 0 0;padding:0;list-style:none}
+  .case-list li{
+    padding:16px 0;border-top:1px solid var(--hairline);
+    font-size:.92rem;color:var(--ink-soft);line-height:1.5
+  }
+  .case-list li b{color:var(--ink)}
+
+  /* ---------- pasos ---------- */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;margin-top:44px;background:var(--hairline);border-radius:var(--radius-card);overflow:hidden}
+  .step{background:var(--canvas);padding:28px 24px}
+  .step .n{
+    display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;
+    border-radius:50%;background:var(--brand-deep);color:#fff;font-size:.85rem;font-weight:600;margin-bottom:16px
+  }
+  .step h3{margin-bottom:8px}
+  .step p{font-size:.92rem;color:var(--ink-soft);margin:0}
+
+  /* ---------- tile oscuro: letra pequeña ---------- */
+  .dark{background:var(--tile-darker);color:#e8eef0}
+  .dark h2{color:#fff}
+  .dark .eyebrow{color:var(--brand)}
+  .dark .lead{color:#b3c3c7}
+  .caveats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:44px}
+  .caveat{
+    border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-card);padding:26px 24px;
+    background:rgba(255,255,255,.03)
+  }
+  .caveat h3{color:#fff;margin-bottom:10px}
+  .caveat p{font-size:.92rem;color:#a9bbc0;margin:0}
+  .quote{
+    margin:56px auto 0;max-width:var(--max-read);padding:30px 0 0;border-top:1px solid rgba(255,255,255,.16)
+  }
+  .quote p{font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:300;line-height:1.5;color:#dbe6e8;font-style:italic}
+  .quote cite{display:block;margin-top:14px;font-size:.85rem;color:#8ea3a8;font-style:normal}
+
+  /* ---------- cierre ---------- */
+  .closing{background:var(--parchment);text-align:center}
+  .closing .cite-block{
+    max-width:var(--max-read);margin:36px auto 0;padding:24px;background:var(--canvas);
+    border:1px solid var(--hairline);border-radius:var(--radius-card);
+    font-size:.88rem;color:var(--ink-soft);text-align:left;line-height:1.6
+  }
+  .closing a{color:var(--brand-deep);text-decoration:none;border-bottom:1px solid rgba(14,156,153,.35)}
+
+  /* ---------- footer público ---------- */
+  .honesty{
+    background:var(--canvas);border-top:1px solid var(--hairline);
+    padding:36px 24px;text-align:center;font-size:.82rem;color:var(--ink-mute)
+  }
+  footer.publico{
+    background:var(--tile-dark);color:#c9d6d9;padding:52px 24px;font-size:.86rem
+  }
+  footer.publico .wrap{display:flex;flex-direction:column;gap:26px;align-items:center;text-align:center}
+  footer.publico img{height:34px;width:auto}
+  footer.publico .claim{color:#9fb0b5;max-width:52ch;line-height:1.6;margin:0}
+  footer.publico nav{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center}
+  footer.publico a{color:var(--brand);text-decoration:none}
+  footer.publico a:hover{text-decoration:underline}
+  footer.publico .legal{font-size:.78rem;color:#7c9096}
+  footer.publico .legal a{color:#9fb0b5}
+
+  @media (max-width:640px){
+    section{padding:64px 20px}
+    .hero{padding:48px 20px 64px}
+    .bar-val{min-width:90px;font-size:.88rem}
+    .chart-card{padding:24px 18px}
+  }
+
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ink:#eef3f4;--ink-soft:#b9c7cb;--ink-mute:#8b9ca1;
+      --canvas:#0f1719;--parchment:#141f22;--hairline:#25353a;
+      --serie-a:var(--serie-a-dark);--serie-b:var(--serie-b-dark);
+    }
+    .stat.accent{background:linear-gradient(180deg,rgba(77,210,208,.08),transparent 70%);border-color:rgba(77,210,208,.3)}
+    .stat.accent .num{color:var(--brand)}
+    .eyebrow{color:var(--brand)}
+    .step .n{background:var(--brand);color:#0f1719}
+    .bar-track{background:#1d2b2f}
+    .p-tag{background:#1d2b2f}
+    .p-tag.sig{background:rgba(77,210,208,.14);color:var(--brand)}
+    .closing a{color:var(--brand);border-bottom-color:rgba(77,210,208,.4)}
+  }
+</style>
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="wrap">
+    <a href="https://www.codigoadria.com" aria-label="Código AdrIA">
+      <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+    </a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Reproductive BioMedicine Online · En prensa · 2026 · Commentary</p>
+    <h1>Embriones 3PN: del descarte automático a la evaluación</h1>
+    <p class="original">«From morphology to molecular validation: ethical re-evaluation of 3PN-derived embryos»</p>
+    <p class="authors">
+      <span class="first">Alessandra Alteri</span>, Luisa Campagnolo, Francesca Gioia Klinger,
+      Ludovico Muzii, Roberto Poscia, Valerio Pisaturo ·
+      Saint Camillus International University, Universidad de Roma Tor Vergata, Sapienza y Policlinico Umberto I (Roma)
+    </p>
+    <div class="meta-row">
+      <span class="chip">Artículo de <b>opinión (Commentary)</b></span>
+      <span class="chip">Aceptado el <b>27 de julio de 2026</b></span>
+      <span class="chip">Sin <b>conflictos de interés</b> declarados</span>
+      <span class="chip">doi <b>10.1016/j.rbmo.2026.105888</b></span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="read">
+    <p class="eyebrow">La pregunta</p>
+    <h2>Una regla de laboratorio puesta a examen</h2>
+    <p class="lead" style="margin-top:24px">
+      Tras la fecundación se cuentan los pronúcleos. Dos es fecundación normal.
+      Tres (3PN) es fecundación anómala: se presume triploidía y el embrión se descarta.
+    </p>
+    <p>
+      Según los datos que recogen los autores, los cigotos 3PN aparecen en el
+      <strong>5,0–8,1 % de los ciclos de FIV convencional</strong> y en el
+      <strong>2,5–6,2 % tras ICSI</strong>. La política de exclusión sistemática está integrada en la mayoría de
+      protocolos de laboratorio y respaldada por las guías internacionales.
+    </p>
+    <p>
+      El motivo de fondo es el riesgo teórico de embarazo molar, con posible progresión a enfermedad trofoblástica
+      gestacional. Ese riesgo procede sobre todo de lo observado en concepciones naturales con triploidía de origen
+      paterno, y la decisión de descartar se toma con un único criterio: la morfología del cigoto.
+    </p>
+    <p>
+      La pregunta que plantea el artículo: cuando un test genético confirma que un embrión derivado de 3PN es
+      diploide y euploide, ¿sigue estando justificado descartarlo sin evaluación?
+    </p>
+  </div>
+</section>
+
+<section class="headline-figure">
+  <div class="wrap">
+    <p class="eyebrow">La evidencia</p>
+    <h2>Lo que hay publicado hasta la fecha</h2>
+
+    <div class="figure-grid">
+      <div class="stat accent">
+        <div class="num">0</div>
+        <div class="label">Casos publicados de mola tras transferir embriones 3PN confirmados diploides</div>
+        <div class="foot">«La literatura no contiene ningún caso», según la revisión de los autores</div>
+      </div>
+      <div class="stat">
+        <div class="num compact">85,7–100&nbsp;%</div>
+        <div class="label">Constitución diploide en blastocistos euploides derivados de 3PN, rango entre estudios</div>
+        <div class="foot">Revisión de Mayeur et al. (2025), citada en el artículo</div>
+      </div>
+      <div class="stat">
+        <div class="num compact">0–47,4&nbsp;%</div>
+        <div class="label">Tasa de euploidía en embriones derivados de 3PN, rango entre estudios</div>
+        <div class="foot">Misma revisión; la variabilidad entre estudios es amplia</div>
+      </div>
+      <div class="stat">
+        <div class="num compact">2016 → 2025</div>
+        <div class="label">Nacidos vivos publicados tras transferir embriones de fecundación atípica validados genéticamente</div>
+        <div class="foot">Yalcinkaya 2016 · Capalbo 2017 · Al Hashimi 2025 (1 nacido + 1 embarazo en curso)</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <p class="chart-title">Diploidía y euploidía en embriones 3PN: rangos entre estudios</p>
+      <p class="chart-sub">Rangos de la revisión de Mayeur et al. (2025) que citan los autores. No son medias: son los valores mínimo y máximo publicados.</p>
+      <div class="bars">
+        <div class="bar-group">
+          <div class="bar-name">Diploidía en blastocistos euploides derivados de 3PN</div>
+          <div class="bar-row">
+            <div class="bar-track"><div class="bar-range a" style="left:85.7%;width:14.3%"></div></div>
+            <div class="bar-val">85,7–100&nbsp;%</div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-name">Euploidía en embriones derivados de 3PN</div>
+          <div class="bar-row">
+            <div class="bar-track"><div class="bar-range b" style="left:0%;width:47.4%"></div></div>
+            <div class="bar-val">0–47,4&nbsp;%</div>
+          </div>
+        </div>
+      </div>
+      <span class="p-tag">Escala 0–100 %. La anchura de cada banda es el rango publicado entre estudios.</span>
+    </div>
+
+    <div class="chart-card">
+      <p class="chart-title">Las molas documentadas tras reproducción asistida</p>
+      <p class="chart-sub">Los casos publicados que repasan los autores implican otros orígenes, no cigotos 3PN.</p>
+      <ul class="case-list">
+        <li><b>Petignat et al., 2001</b> — mola con feto coexistente tras ICSI; los autores del caso atribuyeron el componente molar a un embrión derivado de 1PN.</li>
+        <li><b>Zhou et al., 2021</b> — primera mola completa confirmada tras transferir un embrión euploide; procedía de un cigoto monopronucleado (1PN).</li>
+        <li><b>Braga et al., 2023</b> — molas completas con feto normal coexistente tras reproducción asistida; gestaciones gemelares dicigóticas con fecundaciones separadas.</li>
+      </ul>
+      <span class="p-tag sig">En 3PN validados como diploides: ningún caso de mola publicado</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">El argumento</p>
+    <h2>Cómo se construye la propuesta, en cuatro pasos</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h3>Lo que dicen las guías</h3>
+        <p>SIERR y SIGU (2021): los embriones con 3PN o más se excluyen del uso clínico. El consenso ESHRE/ALPHA de Estambul (2025) reafirma la exclusión con los datos actuales, y matiza los cigotos 2.1PN: pueden ser diploides y su transferencia solo se contempla tras evaluación clínica rigurosa y consejo al paciente.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3>Lo que permite la genética</h3>
+        <p>La secuenciación masiva y los microarrays de SNP distinguen triploidía, diploidía y disomía uniparental, siempre que se apliquen protocolos adecuados de biopsia y validación. La morfología del cigoto deja de ser el único dato disponible.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3>El análisis ético</h3>
+        <p>Beneficencia: descartar un blastocisto validado puede ser una oportunidad perdida con baja reserva ovárica o pocos embriones. No maleficencia: gestionar la incertidumbre con protocolos, no prohibir por defecto. Justicia: sin sistemas de dos velocidades ni cobrar por lo experimental. Autonomía: consentimiento reforzado, con riesgos teóricos y alternativas sobre la mesa.</p>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <h3>El marco que proponen</h3>
+        <p>Cultivo a blastocisto + validación por PGT-A + supervisión de comité de ética + consentimiento ampliado + seguimiento a largo plazo. Todo dentro de marcos de investigación (Helsinki y Oviedo: base científica, revisión ética independiente, consentimiento robusto y recogida sistemática de datos), con registros nacionales de resultados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <p class="eyebrow">La letra pequeña</p>
+    <h2>Los límites que marcan los propios autores</h2>
+    <p class="lead" style="margin-top:22px;max-width:60ch">
+      El artículo acota su propia tesis en varios puntos.
+    </p>
+
+    <div class="caveats">
+      <div class="caveat">
+        <h3>«Extremadamente limitadas»</h3>
+        <p>Así califican los autores las observaciones favorables: son «extremadamente limitadas y no pueden interpretarse como evidencia de seguridad». La ausencia de molas publicadas no equivale a demostración de que no ocurran.</p>
+      </div>
+      <div class="caveat">
+        <h3>El riesgo real no se puede medir hoy</h3>
+        <p>Como los 3PN se excluyen sistemáticamente de la transferencia, la incidencia real de molas en este grupo no puede determinarse de forma empírica. La preocupación vigente se apoya en la extrapolación desde la concepción natural.</p>
+      </div>
+      <div class="caveat">
+        <h3>Sin datos en los registros</h3>
+        <p>Los datos sobre evaluación o uso de embriones 3PN no se recogen de forma rutinaria en los registros nacionales ni internacionales de reproducción asistida, probablemente por su exclusión histórica del uso clínico.</p>
+      </div>
+      <div class="caveat">
+        <h3>Solo uso investigacional regulado</h3>
+        <p>La vía propuesta es la evaluación condicional dentro de investigación regulada. Quedan sin responder la viabilidad práctica, el coste-efectividad y qué proporción de embriones superaría los criterios predefinidos de uso clínico.</p>
+      </div>
+    </div>
+
+    <blockquote class="quote">
+      <p>«De forma crucial, este marco está pensado para generar la evidencia necesaria para la futura evaluación de las guías, no para reemplazar ni eludir los estándares de cuidado existentes.»</p>
+      <cite>Alteri et al., Reproductive BioMedicine Online, en prensa (2026) · traducción de la conclusión original</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="read">
+    <p class="eyebrow">Para citarlo</p>
+    <h2>El artículo original</h2>
+    <div class="cite-block">
+      Alteri A, Campagnolo L, Klinger FG, Muzii L, Poscia R, Pisaturo V.
+      <em>From morphology to molecular validation: ethical re-evaluation of 3PN-derived embryos.</em>
+      Reprod Biomed Online. 2026;105888. En prensa.
+      <br><a href="https://doi.org/10.1016/j.rbmo.2026.105888">doi.org/10.1016/j.rbmo.2026.105888</a>
+    </div>
+  </div>
+</section>
+
+<div class="honesty">
+  Pieza visual elaborada sobre el artículo original, sin añadir datos ni interpretaciones ajenas al texto.
+</div>
+
+<footer class="publico">
+  <div class="wrap">
+    <a href="https://www.codigoadria.com" aria-label="Código AdrIA">
+      <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+    </a>
+    <p class="claim">Serie «papers legibles» de Código AdrIA: fichas elaboradas con verificación de cifras contra el artículo original.</p>
+    <nav>
+      <a href="https://www.codigoadria.com">codigoadria.com</a>
+      <a href="https://t.me/+l-LTIVJ7LlhiYjQ8">Comunidad en Telegram</a>
+      <a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatizaciones</a>
+      <a href="https://www.youtube.com/@codigoadria">YouTube</a>
+      <a href="https://www.linkedin.com/in/ricardohoyos/">LinkedIn</a>
+      <a href="https://x.com/ricardohoyos1">X</a>
+      <a href="https://www.instagram.com/fit_adria/">Instagram</a>
+    </nav>
+    <p class="legal">© Código AdrIA · <a href="https://www.codigoadria.com/politica-de-privacidad/">Política de privacidad</a></p>
+  </div>
+</footer>
+
+<script>
+  // Las bandas de rango entran animadas al aparecer; se respeta prefers-reduced-motion.
+  (function () {
+    var fills = Array.prototype.slice.call(document.querySelectorAll('.bar-range'));
+    if (!fills.length) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+
+    fills.forEach(function (el) {
+      el.dataset.w = el.style.width;
+      el.style.width = '0%';
+    });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        requestAnimationFrame(function () { el.style.width = el.dataset.w; });
+        io.unobserve(el);
+      });
+    }, { threshold: 0.25 });
+
+    fills.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
