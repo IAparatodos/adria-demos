@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ecografía transvaginal auto-operada en FIV: el piloto · Shavit et al., 2026</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ecografía auto-operada en FIV: el piloto · Código AdrIA">
+<meta property="og:description" content="Piloto en 10 pacientes: la paciente inserta la sonda y el sistema adquiere la imagen. Preprint, en visual.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/ecografia-autooperada-8728e8.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ecografía auto-operada en FIV: el piloto · Código AdrIA">
+<meta name="twitter:description" content="Piloto en 10 pacientes: la paciente inserta la sonda y el sistema adquiere la imagen. Preprint, en visual.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta name="description" content="El piloto de Shavit et al. (medRxiv, 2026) en visual: ecografía transvaginal auto-operada automatizada para monitorizar la estimulación ovárica. Qué se hizo, qué salió y qué queda por demostrar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181a;
+    --ink-soft:#3a4448;
+    --ink-mute:#6d797e;
+    --canvas:#ffffff;
+    --parchment:#f4f7f7;
+    --tile-dark:#16242a;
+    --tile-darker:#101c21;
+    --hairline:#e2e9e9;
+    --brand:#4dd2d0;
+    --brand-deep:#0e9c99;
+    --brand-slate:#3f6f7b;
+    --serie-a:#0e9c99;
+    --serie-b:#6b5ea8;
+    --serie-a-dark:#4dd2d0;
+    --serie-b-dark:#a99cf0;
+    --radius-card:18px;
+    --radius-pill:9999px;
+    --shadow-object:0 3px 30px rgba(16,28,33,.14);
+    --max:1120px;
+    --max-read:760px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--canvas);
+    color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:17px;
+    line-height:1.55;
+    font-weight:400;
+    letter-spacing:-.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+  section{padding:88px 24px}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .read{max-width:var(--max-read);margin:0 auto}
+  h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.028em;line-height:1.08}
+  h1{font-size:clamp(2.1rem,6vw,3.7rem)}
+  h2{font-size:clamp(1.6rem,4vw,2.5rem)}
+  h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.3}
+  p{margin:0 0 1.15em}
+  p:last-child{margin-bottom:0}
+  .eyebrow{
+    font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--brand-deep);margin:0 0 20px
+  }
+  .lead{font-size:clamp(1.1rem,2.4vw,1.42rem);font-weight:300;line-height:1.45;color:var(--ink-soft)}
+
+  /* ---------- cabecera de marca ---------- */
+  .brandbar{background:var(--tile-dark);padding:20px 24px 0}
+  .brandbar .wrap{display:flex;align-items:center}
+  .brandbar img{height:40px;width:auto;display:block}
+
+  /* ---------- aviso preprint ---------- */
+  .preprint-band{
+    background:#3d3320;color:#f2e4bf;padding:14px 24px;font-size:.86rem;line-height:1.5
+  }
+  .preprint-band .wrap{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+  .preprint-band b{color:#ffd98a;font-weight:600;white-space:nowrap}
+
+  /* ---------- portada ---------- */
+  .hero{
+    background:var(--tile-dark);color:#fff;padding:56px 24px 84px;
+    background-image:radial-gradient(120% 90% at 12% 0%,rgba(77,210,208,.16) 0%,transparent 58%);
+  }
+  .hero .eyebrow{color:var(--brand)}
+  .hero h1{color:#fff;max-width:18ch}
+  .hero .original{
+    margin-top:26px;padding-left:18px;border-left:2px solid rgba(77,210,208,.5);
+    font-size:1rem;font-weight:300;color:#c9d6d9;font-style:italic;max-width:52ch
+  }
+  .authors{margin-top:34px;font-size:.95rem;color:#9fb0b5;line-height:1.7;max-width:64ch}
+  .authors .first{color:#fff;font-weight:600}
+  .transparencia{
+    margin-top:18px;font-size:.85rem;color:#c8b891;max-width:64ch;line-height:1.6
+  }
+  .meta-row{margin-top:32px;display:flex;flex-wrap:wrap;gap:10px}
+  .chip{
+    display:inline-flex;align-items:center;gap:7px;
+    border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-pill);
+    padding:8px 16px;font-size:.83rem;color:#dfe9eb;white-space:nowrap
+  }
+  .chip b{color:#fff;font-weight:600}
+
+  /* ---------- destacado numérico ---------- */
+  .headline-figure{background:var(--parchment)}
+  .figure-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin-top:44px
+  }
+  .stat{
+    background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);
+    padding:26px 24px
+  }
+  .stat .num{
+    font-size:clamp(2.2rem,5vw,2.9rem);font-weight:600;letter-spacing:-.04em;line-height:1;
+    color:var(--ink)
+  }
+  .stat .num small{font-size:.42em;font-weight:500;letter-spacing:-.01em;color:var(--ink-mute);margin-left:4px}
+  .stat .num.compact{font-size:clamp(1.6rem,3.4vw,2.05rem)}
+  .stat .label{margin-top:12px;font-size:.92rem;color:var(--ink-soft);line-height:1.4}
+  .stat .foot{margin-top:10px;font-size:.78rem;color:var(--ink-mute)}
+  .stat.accent{border-color:rgba(14,156,153,.35);background:linear-gradient(180deg,rgba(14,156,153,.06),transparent 70%)}
+  .stat.accent .num{color:var(--brand-deep)}
+
+  /* ---------- gráfico ---------- */
+  .chart-card{
+    background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);
+    padding:32px 28px;margin-top:40px
+  }
+  .chart-title{font-size:1.05rem;font-weight:600;letter-spacing:-.02em;margin:0}
+  .chart-sub{font-size:.87rem;color:var(--ink-mute);margin:6px 0 0}
+  .legend{display:flex;flex-wrap:wrap;gap:18px;margin:22px 0 30px}
+  .legend span{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--ink-soft)}
+  .swatch{width:12px;height:12px;border-radius:3px;flex:none}
+  .swatch.a{background:var(--serie-a)}
+  .swatch.b{background:var(--serie-b)}
+  .bars{display:flex;flex-direction:column;gap:26px}
+  .bar-group .bar-name{font-size:.9rem;color:var(--ink-soft);margin-bottom:12px}
+  .bar-row{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .bar-row:last-child{margin-bottom:0}
+  .bar-track{flex:1;height:26px;background:#eef3f3;border-radius:4px;overflow:hidden}
+  .bar-fill{
+    height:100%;border-radius:0 4px 4px 0;
+    transition:width .9s cubic-bezier(.22,.8,.3,1)
+  }
+  .bar-fill.a{background:var(--serie-a)}
+  .bar-fill.b{background:var(--serie-b)}
+  .bar-val{
+    font-variant-numeric:tabular-nums;font-size:.95rem;font-weight:600;color:var(--ink);
+    min-width:110px;text-align:right;letter-spacing:-.02em
+  }
+  .bar-val small{display:block;font-weight:400;font-size:.74rem;color:var(--ink-mute);letter-spacing:0}
+  .p-tag{
+    display:inline-block;margin-top:14px;font-size:.78rem;color:var(--ink-mute);
+    background:#eef3f3;border-radius:var(--radius-pill);padding:5px 12px
+  }
+  .p-tag.sig{background:rgba(14,156,153,.12);color:var(--brand-deep);font-weight:500}
+  .agree-list{margin:28px 0 0;padding:0;list-style:none}
+  .agree-list li{
+    padding:16px 0;border-top:1px solid var(--hairline);
+    font-size:.92rem;color:var(--ink-soft);line-height:1.5
+  }
+  .agree-list li b{color:var(--ink)}
+
+  /* ---------- tabla ---------- */
+  details.table-view{margin-top:26px;border-top:1px solid var(--hairline);padding-top:18px}
+  details.table-view summary{
+    cursor:pointer;font-size:.87rem;color:var(--brand-deep);font-weight:500;list-style:none
+  }
+  details.table-view summary::-webkit-details-marker{display:none}
+  details.table-view summary::before{content:"▸ "}
+  details.table-view[open] summary::before{content:"▾ "}
+  .tbl-scroll{overflow-x:auto;margin-top:16px}
+  table{border-collapse:collapse;width:100%;font-size:.87rem;min-width:460px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hairline)}
+  th{font-weight:600;color:var(--ink-soft);font-size:.8rem;letter-spacing:.02em}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+
+  /* ---------- pasos ---------- */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;margin-top:44px;background:var(--hairline);border-radius:var(--radius-card);overflow:hidden}
+  .step{background:var(--canvas);padding:28px 24px}
+  .step .n{
+    display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;
+    border-radius:50%;background:var(--brand-deep);color:#fff;font-size:.85rem;font-weight:600;margin-bottom:16px
+  }
+  .step h3{margin-bottom:8px}
+  .step p{font-size:.92rem;color:var(--ink-soft);margin:0}
+
+  /* ---------- tile oscuro: letra pequeña ---------- */
+  .dark{background:var(--tile-darker);color:#e8eef0}
+  .dark h2{color:#fff}
+  .dark .eyebrow{color:var(--brand)}
+  .dark .lead{color:#b3c3c7}
+  .caveats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:44px}
+  .caveat{
+    border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-card);padding:26px 24px;
+    background:rgba(255,255,255,.03)
+  }
+  .caveat h3{color:#fff;margin-bottom:10px}
+  .caveat p{font-size:.92rem;color:#a9bbc0;margin:0}
+  .quote{
+    margin:56px auto 0;max-width:var(--max-read);padding:30px 0 0;border-top:1px solid rgba(255,255,255,.16)
+  }
+  .quote p{font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:300;line-height:1.5;color:#dbe6e8;font-style:italic}
+  .quote cite{display:block;margin-top:14px;font-size:.85rem;color:#8ea3a8;font-style:normal}
+
+  /* ---------- cierre ---------- */
+  .closing{background:var(--parchment);text-align:center}
+  .closing .cite-block{
+    max-width:var(--max-read);margin:36px auto 0;padding:24px;background:var(--canvas);
+    border:1px solid var(--hairline);border-radius:var(--radius-card);
+    font-size:.88rem;color:var(--ink-soft);text-align:left;line-height:1.6
+  }
+  .closing a{color:var(--brand-deep);text-decoration:none;border-bottom:1px solid rgba(14,156,153,.35)}
+
+  /* ---------- footer público ---------- */
+  .honesty{
+    background:var(--canvas);border-top:1px solid var(--hairline);
+    padding:36px 24px;text-align:center;font-size:.82rem;color:var(--ink-mute)
+  }
+  footer.publico{
+    background:var(--tile-dark);color:#c9d6d9;padding:52px 24px;font-size:.86rem
+  }
+  footer.publico .wrap{display:flex;flex-direction:column;gap:26px;align-items:center;text-align:center}
+  footer.publico img{height:34px;width:auto}
+  footer.publico .claim{color:#9fb0b5;max-width:52ch;line-height:1.6;margin:0}
+  footer.publico nav{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center}
+  footer.publico a{color:var(--brand);text-decoration:none}
+  footer.publico a:hover{text-decoration:underline}
+  footer.publico .legal{font-size:.78rem;color:#7c9096}
+  footer.publico .legal a{color:#9fb0b5}
+
+  @media (max-width:640px){
+    section{padding:64px 20px}
+    .hero{padding:48px 20px 64px}
+    .bar-val{min-width:90px;font-size:.88rem}
+    .chart-card{padding:24px 18px}
+  }
+
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ink:#eef3f4;--ink-soft:#b9c7cb;--ink-mute:#8b9ca1;
+      --canvas:#0f1719;--parchment:#141f22;--hairline:#25353a;
+      --serie-a:var(--serie-a-dark);--serie-b:var(--serie-b-dark);
+    }
+    .stat.accent{background:linear-gradient(180deg,rgba(77,210,208,.08),transparent 70%);border-color:rgba(77,210,208,.3)}
+    .stat.accent .num{color:var(--brand)}
+    .eyebrow{color:var(--brand)}
+    .step .n{background:var(--brand);color:#0f1719}
+    .bar-track{background:#1d2b2f}
+    .p-tag{background:#1d2b2f}
+    .p-tag.sig{background:rgba(77,210,208,.14);color:var(--brand)}
+    details.table-view summary,.closing a{color:var(--brand)}
+    .closing a{border-bottom-color:rgba(77,210,208,.4)}
+  }
+</style>
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="wrap">
+    <a href="https://www.codigoadria.com" aria-label="Código AdrIA">
+      <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+    </a>
+  </div>
+</div>
+
+<div class="preprint-band">
+  <div class="wrap">
+    <b>Preprint sin revisión por pares.</b>
+    <span>Enviado a Fertility and Sterility, en evaluación. El propio documento advierte: el contenido puede cambiar y no debe usarse para guiar la práctica clínica.</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">medRxiv · Preprint · Versión del 24 de junio de 2026</p>
+    <h1>Ecografía auto-operada para monitorizar la estimulación: el piloto</h1>
+    <p class="original">«Clinical Evaluation of Automated Self-Operated Transvaginal Ultrasound for Ovarian Stimulation Monitoring»</p>
+    <p class="authors">
+      <span class="first">Tal Shavit</span>, Pietro Bortoletto, Johanna Szychter, Sari Mendel,
+      Yael Corcos, John Petrozza, Nadia Prisant ·
+      Assuta Medical Center (Tel Aviv), Terra Fertility, Universidad de Tel Aviv, Fertility Centers of New England, Sheba Medical Center e IMMA health
+    </p>
+    <p class="transparencia">
+      Transparencia, declarada en el propio artículo: el estudio lo financia IMMA health, fabricante del dispositivo.
+      La autora de correspondencia es empleada, directiva y accionista de la empresa; otros firmantes declaran consultorías o participación accionarial.
+    </p>
+    <div class="meta-row">
+      <span class="chip">Piloto <b>observacional prospectivo</b></span>
+      <span class="chip"><b>10</b> pacientes · <b>19</b> exploraciones</span>
+      <span class="chip">doi <b>10.64898/2026.06.21.26356181</b></span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="read">
+    <p class="eyebrow">La pregunta</p>
+    <h2>La monitorización sigue dependiendo de la clínica</h2>
+    <p class="lead" style="margin-top:24px">
+      Durante la estimulación ovárica, cada decisión importante depende de ecografías transvaginales
+      repetidas, hechas en la clínica por personal entrenado.
+    </p>
+    <p>
+      Ese requisito pesa en los dos lados de la consulta. Para la paciente: distancia, desplazamientos,
+      cuadrar agendas y la incomodidad del propio procedimiento; los autores recuerdan que estas barreras
+      contribuyen al abandono del tratamiento incluso con buen pronóstico. Para el centro: salas de ecografía,
+      equipamiento de gama alta y profesionales dedicados a una tarea repetitiva y medible, en un momento de
+      demanda creciente de reproducción asistida.
+    </p>
+    <p>
+      Ya se había intentado trasladar la ecografía a la paciente: la telemonitorización SOET de Gerris y el
+      dispositivo domiciliario de Shufaro. En ambos casos, la paciente tenía que navegar la sonda con guía
+      anatómica en tiempo real.
+    </p>
+    <p>
+      La hipótesis de este piloto cambia el reparto de tareas: la paciente solo inserta y estabiliza la sonda,
+      y la imagen la adquiere una rotación motorizada controlada. Sin formación ecográfica, sin guía anatómica
+      en tiempo real. ¿Genera eso datos clínicamente interpretables para la monitorización?
+    </p>
+  </div>
+</section>
+
+<section class="headline-figure">
+  <div class="wrap">
+    <p class="eyebrow">Los resultados</p>
+    <h2>Qué salió de las 19 exploraciones</h2>
+
+    <div class="figure-grid">
+      <div class="stat accent">
+        <div class="num">94,7&nbsp;%</div>
+        <div class="label">Exploraciones con datos evaluables</div>
+        <div class="foot">18 de 19 intentos; el fallo fue un archivo de imagen corrupto</div>
+      </div>
+      <div class="stat">
+        <div class="num">88,9&nbsp;%</div>
+        <div class="label">Visualización de ambos ovarios</div>
+        <div class="foot">16 de 18 evaluables; parcial en 2 (11,1&nbsp;%)</div>
+      </div>
+      <div class="stat">
+        <div class="num">0</div>
+        <div class="label">Eventos adversos, lesiones vaginales, sangrados o infecciones</div>
+        <div class="foot">3 incidencias mecánicas no críticas del prototipo, sin daño ni pérdida de datos</div>
+      </div>
+      <div class="stat">
+        <div class="num compact">p&nbsp;=&nbsp;0,002</div>
+        <div class="label">Mejor experiencia global que con la ecografía estándar</div>
+        <div class="foot">Wilcoxon; 19 cuestionarios · las 10 participantes reutilizarían el sistema</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <p class="chart-title">Dispositivo frente a ecografía estándar</p>
+      <p class="chart-sub">Correlación de Spearman entre el recuento de folículos ≥ 14 mm en la última exploración antes del trigger y los ovocitos maduros recuperados.</p>
+
+      <div class="legend">
+        <span><i class="swatch a"></i> Dispositivo auto-operado (IMMA v2.3)</span>
+        <span><i class="swatch b"></i> Ecografía transvaginal estándar</span>
+      </div>
+
+      <div class="bars">
+        <div class="bar-group">
+          <div class="bar-name">Correlación con la recuperación de ovocitos maduros (ρ, escala 0–1)</div>
+          <div class="bar-row">
+            <div class="bar-track"><div class="bar-fill a" style="width:83%"></div></div>
+            <div class="bar-val">ρ&nbsp;=&nbsp;0,83<small>p&nbsp;=&nbsp;0,01</small></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-track"><div class="bar-fill b" style="width:80%"></div></div>
+            <div class="bar-val">ρ&nbsp;=&nbsp;0,80<small>p&nbsp;=&nbsp;0,02</small></div>
+          </div>
+          <span class="p-tag sig">Correlación fuerte con las dos modalidades</span>
+        </div>
+      </div>
+
+      <ul class="agree-list">
+        <li><b>Grosor endometrial:</b> correlación entre modalidades ρ&nbsp;=&nbsp;0,91 (p&nbsp;&lt;&nbsp;0,0001) en 15 pares; sesgo medio −0,21&nbsp;mm, sin diferencia significativa (p&nbsp;=&nbsp;0,33).</li>
+        <li><b>Categoría endometrial ≤&nbsp;7 / &gt;&nbsp;7&nbsp;mm:</b> acuerdo del 93&nbsp;% (14/15), κ&nbsp;≈&nbsp;0,85. El único caso discordante quedó pegado al umbral: 7,55&nbsp;mm con el dispositivo frente a 6,2&nbsp;mm con la estándar.</li>
+        <li><b>Distribución folicular por categorías</b> (10–13, 14–17 y &gt;&nbsp;17&nbsp;mm): sin diferencia significativa entre modalidades (p&nbsp;=&nbsp;0,099). La correlación de las medidas exactas fue moderada, con más variabilidad en los folículos grandes.</li>
+      </ul>
+
+      <details class="table-view">
+        <summary>Ver la tabla de factibilidad, seguridad y experiencia</summary>
+        <div class="tbl-scroll">
+          <table>
+            <thead>
+              <tr><th>Variable</th><th class="num">Resultado</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Participantes</td><td class="num">10</td></tr>
+              <tr><td>Exploraciones por participante (media, rango)</td><td class="num">1,9 (1–4)</td></tr>
+              <tr><td>Intentos de exploración</td><td class="num">19</td></tr>
+              <tr><td>Datasets evaluables</td><td class="num">18/19 (94,7&nbsp;%)</td></tr>
+              <tr><td>Visualización ovárica bilateral</td><td class="num">16/18 (88,9&nbsp;%)</td></tr>
+              <tr><td>Visualización parcial</td><td class="num">2/18 (11,1&nbsp;%)</td></tr>
+              <tr><td>Fallos atribuibles al manejo de la paciente</td><td class="num">0</td></tr>
+              <tr><td>Eventos adversos / efectos adversos del dispositivo</td><td class="num">0</td></tr>
+              <tr><td>Lesión vaginal, sangrado o infección</td><td class="num">0</td></tr>
+              <tr><td>Incidencias mecánicas no críticas del prototipo</td><td class="num">3</td></tr>
+              <tr><td>Confort (mediana, 0–10)</td><td class="num">8,7</td></tr>
+              <tr><td>Facilidad de uso (mediana, 0–10)</td><td class="num">8,9</td></tr>
+              <tr><td>Dispuestas a reutilizar el sistema</td><td class="num">10/10 (100&nbsp;%)</td></tr>
+              <tr><td>Mejor experiencia que la ecografía estándar</td><td class="num">p&nbsp;=&nbsp;0,002</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">El método</p>
+    <h2>Cómo se hizo, en cuatro pasos</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h3>Quiénes participaron</h3>
+        <p>10 mujeres de 18 a 40 años en estimulación ovárica (edad media 33,1 ± 5,1; IMC 22,1 ± 3,5): 4 por FIV/ICSI y 6 por preservación de fertilidad, incluidos ciclos oncológicos. Assuta Medical Center (Tel Aviv), abril–noviembre de 2025. Aprobación del Ministerio de Sanidad israelí MOH_2025-03-06_013959.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3>Primero, la referencia</h3>
+        <p>En cada visita, la monitorización estándar iba primero: ecografía transvaginal con un Voluson S10 Expert por dos ecografistas experimentados. Todas las decisiones clínicas del ciclo salieron de esa ecografía; la investigacional no se usó para decidir nada.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3>Después, el dispositivo</h3>
+        <p>Prototipo IMMA v2.3: sonda transvaginal con mecanismo externo de rotación motorizada. La paciente inserta y estabiliza la sonda; la rotación la controla un profesional sanitario supervisor. Sin formación ecográfica previa y sin guía anatómica en tiempo real, en un entorno tipo hogar supervisado.</p>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <h3>Qué se midió</h3>
+        <p>Primario: proporción de exploraciones con datos interpretables. Secundarios: visualización bilateral, seguridad, experiencia de la paciente, folículos por categorías (10–13, 14–17 y &gt;17 mm; los &lt;9 mm se excluyeron de la comparación) y grosor endometrial. Revisión de imagen ciega inicial con verificación posterior por médico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <p class="eyebrow">La letra pequeña</p>
+    <h2>Los límites que marcan los propios autores</h2>
+    <p class="lead" style="margin-top:22px;max-width:60ch">
+      El diseño responde a la factibilidad; los autores enumeran lo que queda por evaluar.
+    </p>
+
+    <div class="caveats">
+      <div class="caveat">
+        <h3>Preprint sin revisión por pares</h3>
+        <p>El manuscrito está en evaluación en Fertility and Sterility. El propio documento avisa: el contenido puede cambiar durante el proceso y no debe usarse para guiar la práctica clínica.</p>
+      </div>
+      <div class="caveat">
+        <h3>Financiación y conflictos de interés</h3>
+        <p>El estudio lo financia IMMA health, fabricante del dispositivo. La autora de correspondencia es empleada, directiva y accionista; otros autores declaran consultorías o acciones. Todo está declarado en el propio artículo.</p>
+      </div>
+      <div class="caveat">
+        <h3>10 pacientes, un centro, con supervisión</h3>
+        <p>Muestra pequeña y seleccionada, un único centro y condiciones supervisadas con un prototipo. El uso doméstico independiente no se evaluó.</p>
+      </div>
+      <div class="caveat">
+        <h3>No es un estudio de equivalencia</h3>
+        <p>Diseño exploratorio, sin cálculo de potencia ni objetivo de no inferioridad. El acuerdo en medidas foliculares exactas fue moderado y más variable en folículos grandes. Los autores piden estudios mayores: reproducibilidad, integración en el flujo de trabajo, selección de pacientes y condiciones descentralizadas reales.</p>
+      </div>
+    </div>
+
+    <blockquote class="quote">
+      <p>«Este estudio piloto prospectivo aporta evidencia clínica temprana que respalda la viabilidad de la ecografía transvaginal auto-operada automatizada durante la monitorización de la estimulación ovárica. Más allá de la viabilidad técnica, estos hallazgos respaldan seguir investigando las estrategias de adquisición operadas por la paciente en medicina reproductiva.»</p>
+      <cite>Shavit et al., medRxiv 2026 (preprint) · traducción de la conclusión original</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="read">
+    <p class="eyebrow">Para citarlo</p>
+    <h2>El artículo original</h2>
+    <div class="cite-block">
+      Shavit T, Bortoletto P, Szychter J, Mendel S, Corcos Y, Petrozza J, Prisant N.
+      <em>Clinical Evaluation of Automated Self-Operated Transvaginal Ultrasound for Ovarian Stimulation Monitoring.</em>
+      medRxiv [preprint]. 2026. Versión del 24 de junio de 2026.
+      <br><a href="https://doi.org/10.64898/2026.06.21.26356181">doi.org/10.64898/2026.06.21.26356181</a>
+    </div>
+  </div>
+</section>
+
+<div class="honesty">
+  Pieza visual elaborada sobre el artículo original, sin añadir datos ni interpretaciones ajenas al texto.
+</div>
+
+<footer class="publico">
+  <div class="wrap">
+    <a href="https://www.codigoadria.com" aria-label="Código AdrIA">
+      <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+    </a>
+    <p class="claim">Serie «papers legibles» de Código AdrIA: fichas elaboradas con verificación de cifras contra el artículo original.</p>
+    <nav>
+      <a href="https://www.codigoadria.com">codigoadria.com</a>
+      <a href="https://t.me/+l-LTIVJ7LlhiYjQ8">Comunidad en Telegram</a>
+      <a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatizaciones</a>
+      <a href="https://www.youtube.com/@codigoadria">YouTube</a>
+      <a href="https://www.linkedin.com/in/ricardohoyos/">LinkedIn</a>
+      <a href="https://x.com/ricardohoyos1">X</a>
+      <a href="https://www.instagram.com/fit_adria/">Instagram</a>
+    </nav>
+    <p class="legal">© Código AdrIA · <a href="https://www.codigoadria.com/politica-de-privacidad/">Política de privacidad</a></p>
+  </div>
+</footer>
+
+<script>
+  // Las barras entran animadas al aparecer; se respeta prefers-reduced-motion.
+  (function () {
+    var fills = Array.prototype.slice.call(document.querySelectorAll('.bar-fill'));
+    if (!fills.length) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+
+    fills.forEach(function (el) {
+      el.dataset.w = el.style.width;
+      el.style.width = '0%';
+    });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        requestAnimationFrame(function () { el.style.width = el.dataset.w; });
+        io.unobserve(el);
+      });
+    }, { threshold: 0.25 });
+
+    fills.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
