@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Informe ejecutivo · Cuaderno «Adrihosan SEO»</title>
+<style>
+  :root{
+    --verde:#102e35; --petroleo:#1a6c7a; --turquesa:#4dd2d0;
+    --tinta:#12252a; --gris:#5d7278; --linea:#dde6e8;
+    --fondo:#f4f8f8; --papel:#ffffff;
+    --rojo:#c0392b; --ambar:#c8860d; --verde-ok:#2b7a4b;
+    --serif:Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--sans);
+       font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:940px;margin:0 auto;padding:0 22px}
+
+  header{background:var(--verde);color:#eaf6f6;padding:54px 0 46px;
+         border-bottom:5px solid var(--turquesa)}
+  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+          color:var(--turquesa);font-weight:700;margin:0 0 14px}
+  h1{font-family:var(--serif);font-size:38px;line-height:1.15;margin:0 0 16px;font-weight:400}
+  h1 em{font-style:normal;color:var(--turquesa)}
+  .sub{font-size:17px;color:#a9c9cc;max-width:640px;margin:0}
+  .meta{display:flex;flex-wrap:wrap;gap:26px;margin-top:32px;
+        padding-top:22px;border-top:1px solid rgba(77,210,208,.28)}
+  .meta div{font-size:13px;color:#8fb3b7}
+  .meta strong{display:block;color:#eaf6f6;font-size:15px;font-weight:600;margin-top:3px}
+
+  .veredicto{background:var(--papel);border-left:5px solid var(--ambar);
+             padding:26px 28px;margin:38px 0 10px;border-radius:0 8px 8px 0;
+             box-shadow:0 1px 3px rgba(16,46,53,.07)}
+  .veredicto h2{margin:0 0 10px;font-size:13px;letter-spacing:.16em;
+                text-transform:uppercase;color:var(--ambar)}
+  .veredicto p{margin:0;font-size:19px;line-height:1.55;font-family:var(--serif)}
+
+  section{padding:44px 0 8px}
+  h2.sec{font-family:var(--serif);font-size:15px;letter-spacing:.16em;text-transform:uppercase;
+         color:var(--petroleo);margin:0 0 6px;font-weight:700}
+  h3.tit{font-family:var(--serif);font-size:27px;margin:0 0 20px;font-weight:400;line-height:1.25}
+  p.lead{font-size:17px;color:#3c565c;margin:0 0 26px;max-width:680px}
+
+  .barra{display:flex;height:44px;border-radius:6px;overflow:hidden;margin:0 0 14px;
+         box-shadow:0 1px 3px rgba(16,46,53,.1)}
+  .barra span{display:flex;align-items:center;justify-content:center;
+              color:#fff;font-size:13px;font-weight:700}
+  .b1{background:var(--gris);flex:9}
+  .b2{background:var(--petroleo);flex:6}
+  .b3{background:var(--turquesa);color:var(--verde);flex:3}
+  .b4{background:#b9c9cc;color:var(--verde);flex:3}
+  .leyenda{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+           gap:16px;margin:22px 0 0}
+  .leyenda article{background:var(--papel);border:1px solid var(--linea);
+                   border-radius:8px;padding:16px 18px}
+  .leyenda h4{margin:0 0 6px;font-size:14px;display:flex;align-items:center;gap:8px}
+  .punto{width:11px;height:11px;border-radius:50%;flex:none;display:inline-block}
+  .leyenda p{margin:0;font-size:13.5px;color:var(--gris);line-height:1.5}
+
+  .bloques{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+  .bloques article{background:var(--papel);border:1px solid var(--linea);border-radius:8px;
+                   padding:18px 20px;border-top:3px solid var(--turquesa)}
+  .bloques .n{font-family:var(--serif);font-size:13px;color:var(--turquesa);
+              font-weight:700;letter-spacing:.1em}
+  .bloques h4{margin:4px 0 8px;font-size:16px;line-height:1.35}
+  .bloques p{margin:0;font-size:14px;color:var(--gris);line-height:1.55}
+
+  .fila{background:var(--papel);border:1px solid var(--linea);border-radius:8px;
+        padding:20px 22px;margin-bottom:12px;display:grid;
+        grid-template-columns:78px 1fr;gap:20px;align-items:start}
+  .tag{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+       padding:5px 0;text-align:center;border-radius:4px;color:#fff;margin-top:3px}
+  .t-no{background:var(--rojo)} .t-ojo{background:var(--ambar)} .t-si{background:var(--verde-ok)}
+  .fila h4{margin:0 0 7px;font-size:16.5px;line-height:1.4}
+  .fila p{margin:0;font-size:14.5px;color:#48626a;line-height:1.6}
+  .fila p + p{margin-top:8px}
+  .fila b{color:var(--verde)}
+  .porque{display:block;margin-top:9px;padding-top:9px;border-top:1px dashed var(--linea);
+          font-size:13px;color:var(--gris)}
+  .porque em{font-style:normal;color:var(--petroleo);font-weight:700}
+
+  .vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:8px}
+  .via{background:var(--verde);color:#eaf6f6;border-radius:10px;padding:26px 24px}
+  .via .n{font-family:var(--serif);font-size:34px;color:var(--turquesa);line-height:1;margin:0 0 10px}
+  .via h4{margin:0 0 10px;font-size:18px;color:#fff;font-weight:600;line-height:1.35}
+  .via p{margin:0;font-size:14.5px;color:#a9c9cc;line-height:1.6}
+
+  .nota{background:var(--papel);border:1px solid var(--linea);border-left:4px solid var(--petroleo);
+        border-radius:0 8px 8px 0;padding:20px 24px;margin:34px 0 0}
+  .nota h4{margin:0 0 8px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--petroleo)}
+  .nota p{margin:0;font-size:14.5px;color:#48626a}
+  footer{margin-top:52px;padding:26px 0 46px;border-top:1px solid var(--linea);
+         font-size:12.5px;color:var(--gris);text-align:center}
+  footer b{color:var(--petroleo)}
+
+  @media(max-width:600px){
+    h1{font-size:29px} h3.tit{font-size:22px}
+    .fila{grid-template-columns:1fr;gap:12px}
+    .tag{width:78px}
+    .barra{height:auto;flex-direction:column}
+    .barra span{padding:9px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="kicker">Adrihosan · Informe ejecutivo · 24 agosto 2026</p>
+    <h1>Qué hay realmente dentro del cuaderno <em>«Adrihosan SEO»</em></h1>
+    <p class="sub">Lectura de las 21 fuentes del cuaderno de Gemini Notebook, del informe que genera a partir de ellas, y de qué parte de ese informe se puede ejecutar en la web tal y como está hoy.</p>
+    <div class="meta">
+      <div>Fuentes analizadas<strong>21</strong></div>
+      <div>Creado<strong>14 sep 2024</strong></div>
+      <div>Bloques del informe<strong>9</strong></div>
+      <div>Acciones ejecutables<strong>2 de 5</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="veredicto">
+    <h2>Veredicto en una frase</h2>
+    <p>El cuaderno no contiene datos de Adrihosan: contiene un curso de análisis de mercado de 2024 más material de SEO de 2026. El informe que sale de ahí es correcto como marco, pero sus recomendaciones concretas están escritas para un ecommerce genérico y tres de ellas chocan de frente con cómo funciona la casa.</p>
+  </div>
+
+  <section>
+    <h2 class="sec">01 · La materia prima</h2>
+    <h3 class="tit">Nueve de cada veintiuna fuentes son un curso, no un dato</h3>
+    <p class="lead">La composición del cuaderno explica por sí sola por qué el informe suena a manual. Casi la mitad del peso lo llevan los PDFs de un curso de análisis de mercado con IA; el material verdaderamente actual es el bloque de SEO 2026 y calidad.</p>
+
+    <div class="barra">
+      <span class="b1">Curso 2024 · 9</span>
+      <span class="b2">SEO 2026 · 6</span>
+      <span class="b3">Calidad · 3</span>
+      <span class="b4">Otros · 3</span>
+    </div>
+
+    <div class="leyenda">
+      <article>
+        <h4><i class="punto" style="background:#5d7278"></i>Curso de análisis con IA · 9</h4>
+        <p>Introducción, bases del análisis, demanda, buyer persona, propuesta de valor, activadores de compra, punto de dolor, competencia y un anexo de recursos. Material formativo de 2024.</p>
+      </article>
+      <article>
+        <h4><i class="punto" style="background:#1a6c7a"></i>SEO 2026 · 6</h4>
+        <p>Guía SEO 2026 de Berzerk, dos guías más de 2026, la documentación de Google sobre funciones generativas en la búsqueda, Schema Markup 101 y el impacto de la IA en el tráfico orgánico.</p>
+      </article>
+      <article>
+        <h4><i class="punto" style="background:#4dd2d0"></i>Calidad y auditoría · 3</h4>
+        <p>E-E-A-T in 2026, las <b>Quality Rater Guidelines</b> de Google y un checklist de auditoría de Apiary Digital. Es la parte con más recorrido del cuaderno.</p>
+      </article>
+      <article>
+        <h4><i class="punto" style="background:#b9c9cc"></i>Sueltos · 3</h4>
+        <p>Un COPYWRITING.txt pegado a mano, un «juntos.pdf» de contenido sin identificar y un vídeo de YouTube sobre convertir un logo en azulejo.</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">02 · Lo que produce</h2>
+    <h3 class="tit">Los nueve bloques del informe generado</h3>
+    <p class="lead">Cada bloque separa qué dicen las fuentes de cómo se aplicaría a una tienda de producto físico. El marco es sólido; lo discutible aparece cuando baja al ejemplo concreto.</p>
+
+    <div class="bloques">
+      <article><span class="n">01</span><h4>Resumen ejecutivo</h4><p>Mercado saturado, la IA como necesidad operativa y el E-E-A-T como diferenciador frente al contenido genérico.</p></article>
+      <article><span class="n">02</span><h4>Negocio y mercado con IA</h4><p>Modelo híbrido tienda-web, el email como activo propio ajeno a los algoritmos, análisis predictivo de nichos.</p></article>
+      <article><span class="n">03</span><h4>Demanda y keywords</h4><p>Separar consulta transaccional de informacional: la primera manda en la arquitectura, la segunda en el calendario editorial.</p></article>
+      <article><span class="n">04</span><h4>Buyer persona y activadores</h4><p>Reforma y mudanza como disparadores; distingue el comprador profesional del particular.</p></article>
+      <article><span class="n">05</span><h4>Propuesta de valor y dolores</h4><p>Precio, complejidad de elección y falta de confianza como los tres frenos de compra en producto complejo.</p></article>
+      <article><span class="n">06</span><h4>SEO copywriting</h4><p>Intención de búsqueda, CTR en resultados, retención, navegación interna y llamada a la acción.</p></article>
+      <article><span class="n">07</span><h4>E-E-A-T en la era de la IA</h4><p>La experiencia se demuestra, no se afirma. Distingue el lector-máquina del lector-humano. <b>El bloque más aprovechable.</b></p></article>
+      <article><span class="n">08</span><h4>Auditoría por capas</h4><p>Técnica (rastreo, Core Web Vitals, 404), contenidos (canibalización) y autoridad (perfil de enlaces).</p></article>
+      <article><span class="n">09</span><h4>Acciones inmediatas</h4><p>Cinco propuestas concretas. Es el apartado que hay que filtrar antes de tocar nada.</p></article>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">03 · El filtro</h2>
+    <h3 class="tit">Qué se ejecuta, qué se corrige y qué se descarta</h3>
+    <p class="lead">Las cinco acciones del informe, contrastadas contra lo que ya sabemos de la web y del negocio. El orden es por gravedad.</p>
+
+    <div class="fila">
+      <div class="tag t-no">Descartar</div>
+      <div>
+        <h4>«Añadir <b>Stock disponible</b> como modificador en los títulos»</h4>
+        <p>No hay almacén ni stock. Todo sale de fábrica, y por eso nunca se promete un plazo de entrega. Meter esa promesa en los títulos es crear una expectativa que la operativa no puede sostener.</p>
+        <span class="porque"><em>Por qué lo dice</em> — la fuente es un curso genérico de ecommerce, donde el stock propio se da por supuesto.</span>
+      </div>
+    </div>
+
+    <div class="fila">
+      <div class="tag t-no">Descartar</div>
+      <div>
+        <h4>«Revisar las 20 páginas con más impresiones y poco clic»</h4>
+        <p>Esa lista apunta justo donde no hay nada que rascar. El grueso de las impresiones no es clicable, y el porcentaje de clics global es un promedio que mezcla lo que compite de verdad con lo que solo ocupa sitio en los resultados.</p>
+        <p>La palanca real no es reescribir esos títulos: es decidir qué páginas deberían estar respondiendo a esas consultas.</p>
+        <span class="porque"><em>Por qué lo dice</em> — es el consejo estándar de manual, válido en una web donde toda página que aparece es una página que se puede clicar.</span>
+      </div>
+    </div>
+
+    <div class="fila">
+      <div class="tag t-ojo">Corregir</div>
+      <div>
+        <h4>«Usar modificadores de año (2024)» y ejemplos de título con jerga</h4>
+        <p>Dos arrastres de la fuente. El año está desfasado en dos ejercicios, y los títulos de ejemplo se escriben en el vocabulario del sector, no en el que teclea la gente. El criterio de la casa es el contrario: se usa la palabra real de las búsquedas.</p>
+        <span class="porque"><em>Recuperable</em> — la mecánica del consejo sirve; hay que cambiar el vocabulario de los ejemplos.</span>
+      </div>
+    </div>
+
+    <div class="fila">
+      <div class="tag t-ojo">Verificar</div>
+      <div>
+        <h4>Cifras y promesas de servicio que no son nuestras</h4>
+        <p>El informe da por buena una conversión media del 1% en España y propone garantías de envío y reemplazo como propuesta de valor. Ni el dato viene de nuestra analítica ni las garantías están contrastadas contra la política real.</p>
+        <span class="porque"><em>Regla</em> — grounded no es verificado: la IA cita bien sus fuentes, pero sus fuentes no son nuestros números.</span>
+      </div>
+    </div>
+
+    <div class="fila">
+      <div class="tag t-si">Ejecutable</div>
+      <div>
+        <h4>Contenido comparativo en fase de decisión</h4>
+        <p>Quien está a punto de elegir compara materiales y acabados antes de comprar. Ese contenido no existe hoy y responde a una consulta real, con intención clara y sin depender de ninguna promesa de servicio.</p>
+      </div>
+    </div>
+
+    <div class="fila">
+      <div class="tag t-si">Ejecutable</div>
+      <div>
+        <h4>Demostrar experiencia en las fichas y categorías</h4>
+        <p>El bloque 7 es el que aguanta el peso: fotos de obra real en vez de render de catálogo, textos firmados por alguien identificable, consejo técnico dentro de la categoría. Es exactamente lo que la IA no puede fabricar y lo que el evaluador de calidad busca.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">04 · Decisión</h2>
+    <h3 class="tit">Dos caminos con el cuaderno</h3>
+    <div class="vias">
+      <div class="via">
+        <p class="n">A</p>
+        <h4>Rehacerlo con fuentes nuestras</h4>
+        <p>Vaciar el curso y cargar los datos reales: rendimiento de búsqueda en vivo, doce meses de campañas, ventas por categoría. El informe pasaría de hablar de un ecommerce genérico a hablar de esta web, con sus números.</p>
+      </div>
+      <div class="via">
+        <p class="n">B</p>
+        <h4>Quedarse solo con el bloque 7</h4>
+        <p>Convertir el criterio de experiencia demostrada en una pauta aplicable a las fichas y categorías que ya se están tocando en los silos. Menos alcance, aplicable esta misma semana.</p>
+      </div>
+    </div>
+
+    <div class="nota">
+      <h4>Antes de publicar nada de aquí</h4>
+      <p>El texto del informe original sale con la voz de la herramienta, no con la de la casa. Cualquier fragmento que acabe en la web, en el blog o en un correo pasa antes por el filtro de voz de marca. Y todo número se contrasta contra su fuente antes de maquetarlo.</p>
+    </div>
+  </section>
+
+  <footer>
+    Generado desde el cuaderno <b>«Adrihosan SEO»</b> de Gemini Notebook · 21 fuentes · 24 de agosto de 2026<br>
+    Documento interno de trabajo · enlace no listado
+  </footer>
+
+</div>
+</body>
+</html>
