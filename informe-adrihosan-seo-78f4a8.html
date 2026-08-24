@@ -4,104 +4,102 @@
 <meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Informe ejecutivo · Cuaderno «Adrihosan SEO»</title>
+<title>Informe Estratégico de SEO y Análisis de Mercado con IA · Adrihosan</title>
 <style>
   :root{
     --verde:#102e35; --petroleo:#1a6c7a; --turquesa:#4dd2d0;
     --tinta:#12252a; --gris:#5d7278; --linea:#dde6e8;
     --fondo:#f4f8f8; --papel:#ffffff;
-    --rojo:#c0392b; --ambar:#c8860d; --verde-ok:#2b7a4b;
     --serif:Georgia,"Times New Roman",serif;
     --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--sans);
-       font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:940px;margin:0 auto;padding:0 22px}
+       font-size:16px;line-height:1.68;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:0 22px}
 
-  header{background:var(--verde);color:#eaf6f6;padding:54px 0 46px;
-         border-bottom:5px solid var(--turquesa)}
+  /* ---------- PORTADA ---------- */
+  header{background:var(--verde);color:#eaf6f6;padding:56px 0 46px;border-bottom:5px solid var(--turquesa)}
   .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;
           color:var(--turquesa);font-weight:700;margin:0 0 14px}
-  h1{font-family:var(--serif);font-size:38px;line-height:1.15;margin:0 0 16px;font-weight:400}
-  h1 em{font-style:normal;color:var(--turquesa)}
-  .sub{font-size:17px;color:#a9c9cc;max-width:640px;margin:0}
-  .meta{display:flex;flex-wrap:wrap;gap:26px;margin-top:32px;
-        padding-top:22px;border-top:1px solid rgba(77,210,208,.28)}
-  .meta div{font-size:13px;color:#8fb3b7}
+  h1{font-family:var(--serif);font-size:36px;line-height:1.18;margin:0 0 18px;font-weight:400}
+  .sub{font-size:16.5px;color:#a9c9cc;max-width:660px;margin:0}
+  .meta{display:flex;flex-wrap:wrap;gap:28px;margin-top:32px;padding-top:22px;
+        border-top:1px solid rgba(77,210,208,.28)}
+  .meta div{font-size:12.5px;color:#8fb3b7}
   .meta strong{display:block;color:#eaf6f6;font-size:15px;font-weight:600;margin-top:3px}
 
-  .veredicto{background:var(--papel);border-left:5px solid var(--ambar);
-             padding:26px 28px;margin:38px 0 10px;border-radius:0 8px 8px 0;
-             box-shadow:0 1px 3px rgba(16,46,53,.07)}
-  .veredicto h2{margin:0 0 10px;font-size:13px;letter-spacing:.16em;
-                text-transform:uppercase;color:var(--ambar)}
-  .veredicto p{margin:0;font-size:19px;line-height:1.55;font-family:var(--serif)}
+  /* ---------- ÍNDICE ---------- */
+  nav{background:var(--papel);border:1px solid var(--linea);border-radius:10px;
+      padding:22px 26px;margin:34px 0 8px}
+  nav h2{margin:0 0 14px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--petroleo)}
+  nav ol{margin:0;padding:0;list-style:none;counter-reset:i;
+         display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:6px 24px}
+  nav li{counter-increment:i;font-size:14.5px}
+  nav li::before{content:counter(i,decimal-leading-zero);font-family:var(--serif);
+                 color:var(--turquesa);font-weight:700;margin-right:9px;font-size:13px}
+  nav a{color:var(--tinta);text-decoration:none;border-bottom:1px solid transparent}
+  nav a:hover{border-bottom-color:var(--turquesa)}
 
-  section{padding:44px 0 8px}
-  h2.sec{font-family:var(--serif);font-size:15px;letter-spacing:.16em;text-transform:uppercase;
-         color:var(--petroleo);margin:0 0 6px;font-weight:700}
-  h3.tit{font-family:var(--serif);font-size:27px;margin:0 0 20px;font-weight:400;line-height:1.25}
-  p.lead{font-size:17px;color:#3c565c;margin:0 0 26px;max-width:680px}
+  /* ---------- SECCIONES ---------- */
+  section{padding:46px 0 6px;scroll-margin-top:20px}
+  .num{font-family:var(--serif);font-size:13px;letter-spacing:.18em;color:var(--petroleo);
+       font-weight:700;text-transform:uppercase;margin:0 0 6px}
+  h2.tit{font-family:var(--serif);font-size:28px;margin:0 0 22px;font-weight:400;line-height:1.25;
+         padding-bottom:14px;border-bottom:2px solid var(--turquesa)}
+  h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 12px;font-weight:700}
+  p{margin:0 0 15px}
+  ul{margin:0 0 15px;padding-left:20px}
+  li{margin-bottom:7px}
+  b,strong{color:var(--verde)}
 
-  .barra{display:flex;height:44px;border-radius:6px;overflow:hidden;margin:0 0 14px;
-         box-shadow:0 1px 3px rgba(16,46,53,.1)}
-  .barra span{display:flex;align-items:center;justify-content:center;
-              color:#fff;font-size:13px;font-weight:700}
-  .b1{background:var(--gris);flex:9}
-  .b2{background:var(--petroleo);flex:6}
-  .b3{background:var(--turquesa);color:var(--verde);flex:3}
-  .b4{background:#b9c9cc;color:var(--verde);flex:3}
-  .leyenda{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-           gap:16px;margin:22px 0 0}
-  .leyenda article{background:var(--papel);border:1px solid var(--linea);
-                   border-radius:8px;padding:16px 18px}
-  .leyenda h4{margin:0 0 6px;font-size:14px;display:flex;align-items:center;gap:8px}
-  .punto{width:11px;height:11px;border-radius:50%;flex:none;display:inline-block}
-  .leyenda p{margin:0;font-size:13.5px;color:var(--gris);line-height:1.5}
+  /* bloque FUENTES vs APLICACIÓN */
+  .card{background:var(--papel);border:1px solid var(--linea);border-radius:10px;
+        padding:24px 26px;margin-bottom:16px}
+  .card.fuentes{border-left:4px solid var(--petroleo)}
+  .card.fuentes h3{color:var(--petroleo)}
+  .card.aplica{border-left:4px solid var(--turquesa);background:#f0fbfb}
+  .card.aplica h3{color:#0f6f6d}
+  .card > :last-child{margin-bottom:0}
 
-  .bloques{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
-  .bloques article{background:var(--papel);border:1px solid var(--linea);border-radius:8px;
-                   padding:18px 20px;border-top:3px solid var(--turquesa)}
-  .bloques .n{font-family:var(--serif);font-size:13px;color:var(--turquesa);
-              font-weight:700;letter-spacing:.1em}
-  .bloques h4{margin:4px 0 8px;font-size:16px;line-height:1.35}
-  .bloques p{margin:0;font-size:14px;color:var(--gris);line-height:1.55}
+  .cita{background:var(--verde);color:#eaf6f6;border-radius:10px;padding:24px 28px;margin:0 0 16px}
+  .cita p{font-family:var(--serif);font-size:19px;line-height:1.5;margin:0;color:#e6f7f7}
+  .cita span{display:block;margin-top:12px;font-size:11px;letter-spacing:.16em;
+             text-transform:uppercase;color:var(--turquesa);font-weight:700;font-family:var(--sans)}
 
-  .fila{background:var(--papel);border:1px solid var(--linea);border-radius:8px;
-        padding:20px 22px;margin-bottom:12px;display:grid;
-        grid-template-columns:78px 1fr;gap:20px;align-items:start}
-  .tag{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
-       padding:5px 0;text-align:center;border-radius:4px;color:#fff;margin-top:3px}
-  .t-no{background:var(--rojo)} .t-ojo{background:var(--ambar)} .t-si{background:var(--verde-ok)}
-  .fila h4{margin:0 0 7px;font-size:16.5px;line-height:1.4}
-  .fila p{margin:0;font-size:14.5px;color:#48626a;line-height:1.6}
-  .fila p + p{margin-top:8px}
-  .fila b{color:var(--verde)}
-  .porque{display:block;margin-top:9px;padding-top:9px;border-top:1px dashed var(--linea);
-          font-size:13px;color:var(--gris)}
-  .porque em{font-style:normal;color:var(--petroleo);font-weight:700}
+  table{width:100%;border-collapse:collapse;margin:0 0 15px;font-size:14.5px}
+  th{background:var(--verde);color:#eaf6f6;text-align:left;padding:12px 14px;
+     font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+  td{padding:12px 14px;border-bottom:1px solid var(--linea);vertical-align:top;color:#3c565c}
+  tr:last-child td{border-bottom:none}
+  td:first-child{font-weight:600;color:var(--verde);width:33%}
+  .tabla-wrap{overflow-x:auto;border:1px solid var(--linea);border-radius:10px;
+              background:var(--papel);margin-bottom:16px}
+  .tabla-wrap table{margin:0}
 
-  .vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:8px}
-  .via{background:var(--verde);color:#eaf6f6;border-radius:10px;padding:26px 24px}
-  .via .n{font-family:var(--serif);font-size:34px;color:var(--turquesa);line-height:1;margin:0 0 10px}
-  .via h4{margin:0 0 10px;font-size:18px;color:#fff;font-weight:600;line-height:1.35}
-  .via p{margin:0;font-size:14.5px;color:#a9c9cc;line-height:1.6}
+  ol.pilares{counter-reset:p;list-style:none;padding:0;margin:0 0 15px}
+  ol.pilares li{counter-increment:p;position:relative;padding-left:40px;margin-bottom:11px}
+  ol.pilares li::before{content:counter(p);position:absolute;left:0;top:1px;
+        width:26px;height:26px;border-radius:50%;background:var(--turquesa);color:var(--verde);
+        font-family:var(--serif);font-weight:700;font-size:14px;
+        display:flex;align-items:center;justify-content:center}
 
-  .nota{background:var(--papel);border:1px solid var(--linea);border-left:4px solid var(--petroleo);
-        border-radius:0 8px 8px 0;padding:20px 24px;margin:34px 0 0}
-  .nota h4{margin:0 0 8px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--petroleo)}
-  .nota p{margin:0;font-size:14.5px;color:#48626a}
-  footer{margin-top:52px;padding:26px 0 46px;border-top:1px solid var(--linea);
-         font-size:12.5px;color:var(--gris);text-align:center}
+  /* acciones finales */
+  .accion{background:var(--papel);border:1px solid var(--linea);border-radius:10px;
+          padding:20px 24px;margin-bottom:12px;display:grid;grid-template-columns:46px 1fr;
+          gap:18px;align-items:start;border-top:3px solid var(--turquesa)}
+  .accion .n{font-family:var(--serif);font-size:30px;color:var(--turquesa);line-height:.95;font-weight:700}
+  .accion h4{margin:0 0 6px;font-size:16.5px;line-height:1.35}
+  .accion p{margin:0;font-size:14.5px;color:#48626a}
+
+  footer{margin-top:54px;padding:28px 0 48px;border-top:1px solid var(--linea);
+         font-size:12.5px;color:var(--gris);text-align:center;line-height:1.7}
   footer b{color:var(--petroleo)}
 
   @media(max-width:600px){
-    h1{font-size:29px} h3.tit{font-size:22px}
-    .fila{grid-template-columns:1fr;gap:12px}
-    .tag{width:78px}
-    .barra{height:auto;flex-direction:column}
-    .barra span{padding:9px 0}
+    h1{font-size:28px} h2.tit{font-size:22px}
+    .card{padding:20px 18px}
+    .accion{grid-template-columns:1fr;gap:8px}
   }
 </style>
 </head>
@@ -109,159 +107,310 @@
 
 <header>
   <div class="wrap">
-    <p class="kicker">Adrihosan · Informe ejecutivo · 24 agosto 2026</p>
-    <h1>Qué hay realmente dentro del cuaderno <em>«Adrihosan SEO»</em></h1>
-    <p class="sub">Lectura de las 21 fuentes del cuaderno de Gemini Notebook, del informe que genera a partir de ellas, y de qué parte de ese informe se puede ejecutar en la web tal y como está hoy.</p>
+    <p class="kicker">Adrihosan · Gemini Notebook · 24 agosto 2026</p>
+    <h1>Informe Estratégico de SEO y Análisis de Mercado con IA: Adrihosan</h1>
+    <p class="sub">Este documento sintetiza los principios fundamentales del análisis de mercado moderno, la optimización SEO avanzada y el uso de inteligencia artificial (IA) para potenciar un ecommerce de producto físico. Se basa exhaustivamente en la documentación técnica proporcionada para establecer una hoja de ruta estratégica.</p>
     <div class="meta">
-      <div>Fuentes analizadas<strong>21</strong></div>
-      <div>Creado<strong>14 sep 2024</strong></div>
-      <div>Bloques del informe<strong>9</strong></div>
-      <div>Acciones ejecutables<strong>2 de 5</strong></div>
+      <div>Cuaderno de origen<strong>Adrihosan SEO</strong></div>
+      <div>Fuentes<strong>21</strong></div>
+      <div>Formato<strong>Documento informativo</strong></div>
     </div>
   </div>
 </header>
 
 <div class="wrap">
 
-  <div class="veredicto">
-    <h2>Veredicto en una frase</h2>
-    <p>El cuaderno no contiene datos de Adrihosan: contiene un curso de análisis de mercado de 2024 más material de SEO de 2026. El informe que sale de ahí es correcto como marco, pero sus recomendaciones concretas están escritas para un ecommerce genérico y tres de ellas chocan de frente con cómo funciona la casa.</p>
-  </div>
+  <nav>
+    <h2>Contenido</h2>
+    <ol>
+      <li><a href="#s1">Resumen ejecutivo</a></li>
+      <li><a href="#s2">Fundamentos del negocio y análisis de mercado con IA</a></li>
+      <li><a href="#s3">Análisis de la demanda y estrategia de keywords</a></li>
+      <li><a href="#s4">El buyer persona y los activadores de compra</a></li>
+      <li><a href="#s5">Propuesta de valor y puntos de dolor</a></li>
+      <li><a href="#s6">SEO copywriting: de la retención a la conversión</a></li>
+      <li><a href="#s7">E-E-A-T y la autoridad en la era de la IA</a></li>
+      <li><a href="#s8">Guía de auditoría SEO empresarial</a></li>
+      <li><a href="#s9">Acciones inmediatas</a></li>
+    </ol>
+  </nav>
 
-  <section>
-    <h2 class="sec">01 · La materia prima</h2>
-    <h3 class="tit">Nueve de cada veintiuna fuentes son un curso, no un dato</h3>
-    <p class="lead">La composición del cuaderno explica por sí sola por qué el informe suena a manual. Casi la mitad del peso lo llevan los PDFs de un curso de análisis de mercado con IA; el material verdaderamente actual es el bloque de SEO 2026 y calidad.</p>
-
-    <div class="barra">
-      <span class="b1">Curso 2024 · 9</span>
-      <span class="b2">SEO 2026 · 6</span>
-      <span class="b3">Calidad · 3</span>
-      <span class="b4">Otros · 3</span>
-    </div>
-
-    <div class="leyenda">
-      <article>
-        <h4><i class="punto" style="background:#5d7278"></i>Curso de análisis con IA · 9</h4>
-        <p>Introducción, bases del análisis, demanda, buyer persona, propuesta de valor, activadores de compra, punto de dolor, competencia y un anexo de recursos. Material formativo de 2024.</p>
-      </article>
-      <article>
-        <h4><i class="punto" style="background:#1a6c7a"></i>SEO 2026 · 6</h4>
-        <p>Guía SEO 2026 de Berzerk, dos guías más de 2026, la documentación de Google sobre funciones generativas en la búsqueda, Schema Markup 101 y el impacto de la IA en el tráfico orgánico.</p>
-      </article>
-      <article>
-        <h4><i class="punto" style="background:#4dd2d0"></i>Calidad y auditoría · 3</h4>
-        <p>E-E-A-T in 2026, las <b>Quality Rater Guidelines</b> de Google y un checklist de auditoría de Apiary Digital. Es la parte con más recorrido del cuaderno.</p>
-      </article>
-      <article>
-        <h4><i class="punto" style="background:#b9c9cc"></i>Sueltos · 3</h4>
-        <p>Un COPYWRITING.txt pegado a mano, un «juntos.pdf» de contenido sin identificar y un vídeo de YouTube sobre convertir un logo en azulejo.</p>
-      </article>
+  <!-- 1 -->
+  <section id="s1">
+    <p class="num">01</p>
+    <h2 class="tit">Resumen ejecutivo</h2>
+    <div class="card">
+      <p>El mercado actual se caracteriza por «océanos rojos» de alta competencia donde la diferenciación es vital. Para un ecommerce de productos físicos (como azulejos y sanitarios), la inteligencia artificial ha dejado de ser una tendencia para convertirse en una necesidad operativa que permite:</p>
+      <ul>
+        <li><b>Procesar volúmenes masivos de datos</b> para identificar nichos desatendidos.</li>
+        <li><b>Optimizar el SEO copywriting</b> basándose en la intención de búsqueda y no solo en palabras clave.</li>
+        <li><b>Fortalecer el E-E-A-T</b> (Experiencia, Especialización, Autoridad y Confianza) para satisfacer tanto a los algoritmos de búsqueda como a los modelos de IA («scouts») y a los compradores humanos («closers»).</li>
+        <li><b>Maximizar la conversión</b>, que en España tiene un promedio del 1% para ecommerce, frente al 3% en EE. UU.</li>
+      </ul>
     </div>
   </section>
 
-  <section>
-    <h2 class="sec">02 · Lo que produce</h2>
-    <h3 class="tit">Los nueve bloques del informe generado</h3>
-    <p class="lead">Cada bloque separa qué dicen las fuentes de cómo se aplicaría a una tienda de producto físico. El marco es sólido; lo discutible aparece cuando baja al ejemplo concreto.</p>
+  <!-- 2 -->
+  <section id="s2">
+    <p class="num">02</p>
+    <h2 class="tit">Fundamentos del negocio y análisis de mercado con IA</h2>
 
-    <div class="bloques">
-      <article><span class="n">01</span><h4>Resumen ejecutivo</h4><p>Mercado saturado, la IA como necesidad operativa y el E-E-A-T como diferenciador frente al contenido genérico.</p></article>
-      <article><span class="n">02</span><h4>Negocio y mercado con IA</h4><p>Modelo híbrido tienda-web, el email como activo propio ajeno a los algoritmos, análisis predictivo de nichos.</p></article>
-      <article><span class="n">03</span><h4>Demanda y keywords</h4><p>Separar consulta transaccional de informacional: la primera manda en la arquitectura, la segunda en el calendario editorial.</p></article>
-      <article><span class="n">04</span><h4>Buyer persona y activadores</h4><p>Reforma y mudanza como disparadores; distingue el comprador profesional del particular.</p></article>
-      <article><span class="n">05</span><h4>Propuesta de valor y dolores</h4><p>Precio, complejidad de elección y falta de confianza como los tres frenos de compra en producto complejo.</p></article>
-      <article><span class="n">06</span><h4>SEO copywriting</h4><p>Intención de búsqueda, CTR en resultados, retención, navegación interna y llamada a la acción.</p></article>
-      <article><span class="n">07</span><h4>E-E-A-T en la era de la IA</h4><p>La experiencia se demuestra, no se afirma. Distingue el lector-máquina del lector-humano. <b>El bloque más aprovechable.</b></p></article>
-      <article><span class="n">08</span><h4>Auditoría por capas</h4><p>Técnica (rastreo, Core Web Vitals, 404), contenidos (canibalización) y autoridad (perfil de enlaces).</p></article>
-      <article><span class="n">09</span><h4>Acciones inmediatas</h4><p>Cinco propuestas concretas. Es el apartado que hay que filtrar antes de tocar nada.</p></article>
+    <div class="card fuentes">
+      <h3>¿Qué dicen las fuentes?</h3>
+      <p>El análisis de mercado con IA permite realizar predicciones, detectar tendencias emergentes y automatizar el monitoreo de competidores. Se destaca que el marketing digital ofrece una <b>medición precisa</b> y una <b>segmentación eficiente</b> (demográfica, por comportamiento e intereses) frente a la publicidad tradicional. Además, el <b>email marketing</b> se define como un «patrimonio» estratégico: un activo propio ajeno a los cambios de algoritmos de terceros.</p>
+    </div>
+
+    <div class="tabla-wrap">
+      <table>
+        <thead><tr><th>Elemento</th><th>Descripción según las fuentes</th></tr></thead>
+        <tbody>
+          <tr><td>Monetización</td><td>Transacción directa (tienda online) o formulario + proceso comercial (servicios personalizados).</td></tr>
+          <tr><td>IA en el mercado</td><td>Análisis predictivo, segmentación avanzada y detección de sentimientos.</td></tr>
+          <tr><td>Canales</td><td>Presencial, online o híbrido (tienda física con presencia web).</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card aplica">
+      <h3>Aplicación a Adrihosan (ecommerce de azulejos y sanitarios)</h3>
+      <ul>
+        <li><b>Modelo híbrido:</b> dado que los azulejos son productos táctiles y pesados, la estrategia debe integrar el tráfico online con la posible visita a showroom o la solicitud de muestras.</li>
+        <li><b>Email marketing:</b> utilizar la base de datos de correos para enviar contenido personalizado según la fase de reforma del cliente (ej. guías de instalación tras la compra).</li>
+        <li><b>Análisis de nichos:</b> usar IA para identificar «océanos azules», como tendencias específicas en baldosa hidráulica para nichos de decoración sostenible o reformas DIY (hazlo tú mismo).</li>
+      </ul>
     </div>
   </section>
 
-  <section>
-    <h2 class="sec">03 · El filtro</h2>
-    <h3 class="tit">Qué se ejecuta, qué se corrige y qué se descarta</h3>
-    <p class="lead">Las cinco acciones del informe, contrastadas contra lo que ya sabemos de la web y del negocio. El orden es por gravedad.</p>
+  <!-- 3 -->
+  <section id="s3">
+    <p class="num">03</p>
+    <h2 class="tit">Análisis de la demanda y estrategia de keywords</h2>
 
-    <div class="fila">
-      <div class="tag t-no">Descartar</div>
-      <div>
-        <h4>«Añadir <b>Stock disponible</b> como modificador en los títulos»</h4>
-        <p>No hay almacén ni stock. Todo sale de fábrica, y por eso nunca se promete un plazo de entrega. Meter esa promesa en los títulos es crear una expectativa que la operativa no puede sostener.</p>
-        <span class="porque"><em>Por qué lo dice</em> — la fuente es un curso genérico de ecommerce, donde el stock propio se da por supuesto.</span>
-      </div>
+    <div class="card fuentes">
+      <h3>¿Qué dicen las fuentes?</h3>
+      <p>El análisis de la demanda identifica qué busca la audiencia y cuánto está dispuesta a pagar. Las fuentes distinguen dos tipos críticos de palabras clave:</p>
+      <ol class="pilares">
+        <li><b>Transaccionales:</b> reflejan intención de compra directa (ej. «Comprar robot aspirador»).</li>
+        <li><b>Informacionales:</b> reflejan interés en aprender (ej. «Cómo usar un robot aspirador»).</li>
+      </ol>
     </div>
 
-    <div class="fila">
-      <div class="tag t-no">Descartar</div>
-      <div>
-        <h4>«Revisar las 20 páginas con más impresiones y poco clic»</h4>
-        <p>Esa lista apunta justo donde no hay nada que rascar. El grueso de las impresiones no es clicable, y el porcentaje de clics global es un promedio que mezcla lo que compite de verdad con lo que solo ocupa sitio en los resultados.</p>
-        <p>La palanca real no es reescribir esos títulos: es decidir qué páginas deberían estar respondiendo a esas consultas.</p>
-        <span class="porque"><em>Por qué lo dice</em> — es el consejo estándar de manual, válido en una web donde toda página que aparece es una página que se puede clicar.</span>
-      </div>
+    <div class="cita">
+      <p>«La información obtenida del análisis de la demanda impulsa estrategias dirigidas que generan mejores resultados y retornos de inversión (ROI).»</p>
+      <span>Cita clave</span>
     </div>
 
-    <div class="fila">
-      <div class="tag t-ojo">Corregir</div>
-      <div>
-        <h4>«Usar modificadores de año (2024)» y ejemplos de título con jerga</h4>
-        <p>Dos arrastres de la fuente. El año está desfasado en dos ejercicios, y los títulos de ejemplo se escriben en el vocabulario del sector, no en el que teclea la gente. El criterio de la casa es el contrario: se usa la palabra real de las búsquedas.</p>
-        <span class="porque"><em>Recuperable</em> — la mecánica del consejo sirve; hay que cambiar el vocabulario de los ejemplos.</span>
-      </div>
-    </div>
-
-    <div class="fila">
-      <div class="tag t-ojo">Verificar</div>
-      <div>
-        <h4>Cifras y promesas de servicio que no son nuestras</h4>
-        <p>El informe da por buena una conversión media del 1% en España y propone garantías de envío y reemplazo como propuesta de valor. Ni el dato viene de nuestra analítica ni las garantías están contrastadas contra la política real.</p>
-        <span class="porque"><em>Regla</em> — grounded no es verificado: la IA cita bien sus fuentes, pero sus fuentes no son nuestros números.</span>
-      </div>
-    </div>
-
-    <div class="fila">
-      <div class="tag t-si">Ejecutable</div>
-      <div>
-        <h4>Contenido comparativo en fase de decisión</h4>
-        <p>Quien está a punto de elegir compara materiales y acabados antes de comprar. Ese contenido no existe hoy y responde a una consulta real, con intención clara y sin depender de ninguna promesa de servicio.</p>
-      </div>
-    </div>
-
-    <div class="fila">
-      <div class="tag t-si">Ejecutable</div>
-      <div>
-        <h4>Demostrar experiencia en las fichas y categorías</h4>
-        <p>El bloque 7 es el que aguanta el peso: fotos de obra real en vez de render de catálogo, textos firmados por alguien identificable, consejo técnico dentro de la categoría. Es exactamente lo que la IA no puede fabricar y lo que el evaluador de calidad busca.</p>
-      </div>
+    <div class="card aplica">
+      <h3>Aplicación a Adrihosan</h3>
+      <p>El responsable de SEO debe estructurar el catálogo y el blog basándose en esta distinción:</p>
+      <ul>
+        <li><b>Keywords transaccionales (arquitectura SEO):</b> «azulejos baño modernos precio», «comprar baldosa hidráulica online», «sanitarios suspendidos compactos».</li>
+        <li><b>Keywords informacionales (calendario editorial):</b> «cómo colocar baldosa hidráulica», «mejores azulejos para cocinas pequeñas», «guía de mantenimiento de sanitarios de porcelana».</li>
+        <li><b>Herramientas:</b> utilizar el <i>Google Ads Keyword Planner</i> para volumen y <i>Semrush/Ahrefs</i> para analizar los enlaces de la competencia en el sector de la construcción.</li>
+      </ul>
     </div>
   </section>
 
-  <section>
-    <h2 class="sec">04 · Decisión</h2>
-    <h3 class="tit">Dos caminos con el cuaderno</h3>
-    <div class="vias">
-      <div class="via">
-        <p class="n">A</p>
-        <h4>Rehacerlo con fuentes nuestras</h4>
-        <p>Vaciar el curso y cargar los datos reales: rendimiento de búsqueda en vivo, doce meses de campañas, ventas por categoría. El informe pasaría de hablar de un ecommerce genérico a hablar de esta web, con sus números.</p>
-      </div>
-      <div class="via">
-        <p class="n">B</p>
-        <h4>Quedarse solo con el bloque 7</h4>
-        <p>Convertir el criterio de experiencia demostrada en una pauta aplicable a las fichas y categorías que ya se están tocando en los silos. Menos alcance, aplicable esta misma semana.</p>
+  <!-- 4 -->
+  <section id="s4">
+    <p class="num">04</p>
+    <h2 class="tit">El buyer persona y los activadores de compra</h2>
+
+    <div class="card fuentes">
+      <h3>¿Qué dicen las fuentes?</h3>
+      <p>El <b>buyer persona</b> es una representación semi-ficticia basada en datos reales, mientras que el <b>avatar</b> lo humaniza para conectar emocionalmente. Las fuentes señalan que el uso de IA (como ChatGPT) permite generar perfiles detallados en segundos.</p>
+      <p>Los <b>activadores de compra</b> son momentos decisivos internos o externos. Algunos ejemplos citados son:</p>
+      <ul>
+        <li>Cambio de circunstancias personales (mudanza, reforma).</li>
+        <li>Problemas específicos en el hogar (humedades, falta de espacio).</li>
+        <li>Épocas de descuentos (Black Friday).</li>
+      </ul>
+    </div>
+
+    <div class="card aplica">
+      <h3>Aplicación a Adrihosan</h3>
+      <ul>
+        <li><b>Activador de reforma:</b> el cliente de Adrihosan suele activarse por una mudanza o una reforma integral. La IA puede ayudar a predecir estos momentos analizando tendencias de búsqueda localizadas.</li>
+        <li><b>Segmentación de personas:</b>
+          <ul>
+            <li><i>Profesionales (B2B):</i> arquitectos que buscan especificaciones técnicas y rapidez de entrega.</li>
+            <li><i>Particulares (B2C):</i> dueños de casa preocupados por la estética y la durabilidad.</li>
+          </ul>
+        </li>
+        <li><b>Ratio de conversión:</b> con el 1% de media en España, el SEO debe enfocarse no solo en atraer tráfico, sino en reducir fricciones (puntos de dolor).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="s5">
+    <p class="num">05</p>
+    <h2 class="tit">Propuesta de valor y puntos de dolor</h2>
+
+    <div class="card fuentes">
+      <h3>¿Qué dicen las fuentes?</h3>
+      <p>La propuesta de valor responde a: <i>«¿Por qué debería comprarte a ti y no a la competencia?»</i>. Debe ser clara, relevante y diferenciada.</p>
+      <p>Los <b>puntos de dolor</b> son obstáculos que impiden la compra. En productos complejos, los más comunes son:</p>
+      <ul>
+        <li><b>Precio:</b> percepción de coste elevado.</li>
+        <li><b>Complejidad:</b> dificultad para entender o usar el producto.</li>
+        <li><b>Falta de confianza:</b> dudas sobre la calidad o las garantías.</li>
+      </ul>
+    </div>
+
+    <div class="tabla-wrap">
+      <table>
+        <thead><tr><th>Punto de dolor</th><th>Solución estratégica para Adrihosan</th></tr></thead>
+        <tbody>
+          <tr><td>Fragilidad / rotura</td><td>Garantías de envío seguro y política de reemplazo rápido de piezas dañadas.</td></tr>
+          <tr><td>Dificultad de elección</td><td>Herramientas interactivas (IA) para visualizar el azulejo en una foto del baño del cliente.</td></tr>
+          <tr><td>Precio de transporte</td><td>Transparencia total en los costes de envío por peso desde el inicio del checkout.</td></tr>
+          <tr><td>Instalación</td><td>Contenido educativo (videotutoriales) sobre la colocación de cada tipo de material.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section id="s6">
+    <p class="num">06</p>
+    <h2 class="tit">SEO copywriting: de la retención a la conversión</h2>
+
+    <div class="card fuentes">
+      <h3>¿Qué dicen las fuentes?</h3>
+      <p>El SEO copywriting busca un equilibrio híbrido: informar para los buscadores y persuadir para los humanos. Se basa en 5 pilares:</p>
+      <ol class="pilares">
+        <li><b>Intención de búsqueda:</b> responder exactamente a lo que el usuario espera.</li>
+        <li><b>CTR en SERPs:</b> usar «palabras de poder» (gratis, nuevo, guía, 2024) y meta-descripciones con verbos de acción.</li>
+        <li><b>Retención:</b> introducciones con técnicas como el <i>cliffhanger</i> o preguntas directas.</li>
+        <li><b>Navegación:</b> incentivar el movimiento por la web mediante enlaces internos.</li>
+        <li><b>Conversión:</b> CTAs (llamadas a la acción) claras con verbos en imperativo («Descubre», «Compra», «Solicita»).</li>
+      </ol>
+    </div>
+
+    <div class="card aplica">
+      <h3>Aplicación a Adrihosan</h3>
+      <ul>
+        <li><b>Titulares de ficha de producto:</b> en lugar de «Azulejo Blanco 20x20», usar «Azulejo Blanco Brillo 20x20: Ideal para Cocinas Luminosas | Envío Seguro».</li>
+        <li><b>Introducciones de categoría:</b> plantear el problema estético (baños antiguos) y ofrecer la solución con la nueva colección.</li>
+        <li><b>E-A-T en los textos:</b> incluir opiniones de expertos o arquitectos sobre la resistencia de los sanitarios de Adrihosan para generar credibilidad.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section id="s7">
+    <p class="num">07</p>
+    <h2 class="tit">E-E-A-T y la autoridad en la era de la IA (hacia 2026)</h2>
+
+    <div class="card fuentes">
+      <h3>¿Qué dicen las fuentes?</h3>
+      <p>El concepto <b>E-E-A-T</b> (Experiencia, Especialización, Autoridad, Confianza) es el «moat» (foso defensivo) contra el contenido genérico de IA. Google valora la <b>«lived experience»</b> (experiencia vivida): datos propietarios, capturas de pantalla de pruebas reales y frases como <i>«Cuando instalamos este modelo en 50 baños…»</i>.</p>
+      <p>En 2026, el comprador se divide en:</p>
+      <ul>
+        <li><b>Agentic viewer (IA):</b> busca señales técnicas, datos estructurados y autoridad semántica.</li>
+        <li><b>Human viewer (humano):</b> busca prueba social, UX y conexión emocional.</li>
+      </ul>
+    </div>
+
+    <div class="cita">
+      <p>«La experiencia debe ser demostrada, no afirmada. Si tu contenido parece generado sin visión vivida, carece de señales de Experiencia.»</p>
+      <span>Cita clave</span>
+    </div>
+
+    <div class="card aplica">
+      <h3>Aplicación a Adrihosan</h3>
+      <ul>
+        <li><b>Autoría real:</b> las fichas técnicas y artículos deben estar firmados por especialistas en interiorismo o técnicos de materiales de Adrihosan con perfiles verificables.</li>
+        <li><b>Prueba de experiencia:</b> publicar fotos reales de proyectos terminados con los materiales de la tienda, no solo renders de catálogo. Esto es «la moneda de cambio» que la IA no puede replicar.</li>
+        <li><b>Transparencia:</b> páginas de «quiénes somos» detalladas, contacto visible y políticas legales actualizadas.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section id="s8">
+    <p class="num">08</p>
+    <h2 class="tit">Guía de auditoría SEO empresarial</h2>
+    <div class="card">
+      <p>Para mantener el rendimiento, se propone una auditoría basada en capas:</p>
+    </div>
+
+    <div class="card fuentes">
+      <h3>1 · Auditoría técnica</h3>
+      <ul>
+        <li>Crawl con herramientas como <i>Screaming Frog</i>.</li>
+        <li>Verificar <i>Core Web Vitals</i> (la velocidad es un factor de castigo en el ranking).</li>
+        <li>Revisar errores 404 y cadenas de redirección.</li>
+      </ul>
+    </div>
+
+    <div class="card fuentes">
+      <h3>2 · Auditoría de contenidos</h3>
+      <ul>
+        <li>Identificar canibalización (varias páginas compitiendo por la misma keyword).</li>
+        <li>Optimizar el análisis <b>TF-IDF</b> para mejorar la relevancia semántica de términos como «porcelánico», «antideslizante» o «rectificado».</li>
+      </ul>
+    </div>
+
+    <div class="card fuentes">
+      <h3>3 · Auditoría de autoridad (backlinks)</h3>
+      <ul>
+        <li>Analizar perfiles de enlaces con <i>Majestic</i>.</li>
+        <li>Comparar la autoridad del dominio frente a competidores directos del sector.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 9 -->
+  <section id="s9">
+    <p class="num">09</p>
+    <h2 class="tit">Acciones inmediatas (insights accionables)</h2>
+
+    <div class="accion">
+      <div class="n">1</div>
+      <div>
+        <h4>Implementar E-A-T en fichas</h4>
+        <p>Añadir secciones de «consejo del experto» en cada categoría de azulejos, firmadas por un técnico real.</p>
       </div>
     </div>
 
-    <div class="nota">
-      <h4>Antes de publicar nada de aquí</h4>
-      <p>El texto del informe original sale con la voz de la herramienta, no con la de la casa. Cualquier fragmento que acabe en la web, en el blog o en un correo pasa antes por el filtro de voz de marca. Y todo número se contrasta contra su fuente antes de maquetarlo.</p>
+    <div class="accion">
+      <div class="n">2</div>
+      <div>
+        <h4>Optimizar el CTR</h4>
+        <p>Revisar los títulos de las 20 páginas que más impresiones tienen en Search Console pero bajo clic, añadiendo modificadores de año (2024) o beneficios (stock disponible).</p>
+      </div>
+    </div>
+
+    <div class="accion">
+      <div class="n">3</div>
+      <div>
+        <h4>Crear contenido de comparativa</h4>
+        <p>El usuario en fase comercial busca «azulejo pasta roja vs pasta blanca». Crear este contenido posiciona a Adrihosan como autoridad antes de la compra.</p>
+      </div>
+    </div>
+
+    <div class="accion">
+      <div class="n">4</div>
+      <div>
+        <h4>Uso de IA para personas</h4>
+        <p>Ejecutar prompts de ChatGPT para identificar los puntos de dolor específicos de «reformistas noveles» y adaptar el copy de las landing pages a sus miedos.</p>
+      </div>
+    </div>
+
+    <div class="accion">
+      <div class="n">5</div>
+      <div>
+        <h4>Revisión técnica</h4>
+        <p>Asegurar que todos los productos tienen <i>schema markup</i> de producto y reseñas para aparecer con fragmentos enriquecidos en Google.</p>
+      </div>
     </div>
   </section>
 
   <footer>
-    Generado desde el cuaderno <b>«Adrihosan SEO»</b> de Gemini Notebook · 21 fuentes · 24 de agosto de 2026<br>
-    Documento interno de trabajo · enlace no listado
+    Informe generado por <b>Gemini Notebook</b> desde el cuaderno «Adrihosan SEO» · 21 fuentes<br>
+    24 de agosto de 2026 · documento interno de trabajo · enlace no listado
   </footer>
 
 </div>
