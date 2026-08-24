@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guion · Conectar el asistente en toda la plantilla</title>
+<link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+<meta name="theme-color" content="#102e35">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Conectar el asistente en toda la plantilla · Código AdrIA">
+<meta property="og:description" content="Guion de reunión, archivos explicados y las seis formas de repartirlos. Probado en equipo real.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/og-guion-plantilla-2242bd.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Guion de reunión para desplegar el asistente de IA en toda una plantilla">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/guion-plantilla-2242bd.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Conectar el asistente en toda la plantilla · Código AdrIA">
+<meta name="twitter:description" content="Guion de reunión, archivos explicados y las seis formas de repartirlos. Probado en equipo real.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/og-guion-plantilla-2242bd.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --turq:#4dd2d0; --turq-deep:#2fa8a6; --slate:#3f6f7b; --navy:#102e35;
+    --ink:#16211f; --body:#4a5a5e; --muted:#7d8b8e;
+    --canvas:#f7f9f9; --surface:#ffffff; --tint:#f0f7f7;
+    --line:#e3eaea; --line-soft:#eef3f3;
+    --warn-bg:#fff6e8; --warn-line:#f0c98a; --warn-ink:#7a4c06;
+    --ok-bg:#eaf7f0; --ok-line:#9dd6b6; --ok-ink:#1c6b40;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--canvas); color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:17px; line-height:1.62; letter-spacing:-.01em;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:0 20px}
+
+  /* cabecera */
+  .top{background:var(--navy);padding:18px 0}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+  .logo-mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--turq),var(--slate));
+    display:grid;place-items:center;color:var(--navy);font-weight:700;font-size:15px}
+  .logo-txt{color:#fff;font-weight:600;font-size:15px;letter-spacing:-.02em}
+  .top .stamp{color:#8fb4bb;font-size:12.5px;font-weight:400}
+
+  /* hero */
+  .hero{background:var(--navy);color:#fff;padding:8px 0 44px}
+  .kicker{color:var(--turq);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin:0 0 14px}
+  .hero h1{font-size:clamp(28px,6vw,42px);line-height:1.14;font-weight:600;margin:0 0 16px;letter-spacing:-.03em}
+  .hero p{color:#c3d7db;font-size:17px;margin:0;max-width:60ch}
+  .hero .meta{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:rgba(77,210,208,.12);border:1px solid rgba(77,210,208,.3);color:#bdeceb;
+    padding:5px 12px;border-radius:999px;font-size:12.5px;font-weight:500}
+
+  /* indice */
+  .toc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin:-26px 0 40px;
+    box-shadow:0 6px 24px rgba(16,46,53,.07)}
+  .toc h2{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0 0 12px;font-weight:600}
+  .toc ol{margin:0;padding-left:20px;color:var(--body)}
+  .toc li{margin:5px 0}
+  .toc a{color:var(--slate);text-decoration:none;font-weight:500}
+  .toc a:hover{color:var(--turq-deep);text-decoration:underline}
+
+  /* secciones */
+  section{margin:0 0 52px}
+  h2.sec{font-size:clamp(22px,4.4vw,28px);font-weight:600;letter-spacing:-.025em;margin:0 0 6px;color:var(--ink)}
+  .sec-sub{color:var(--muted);font-size:15px;margin:0 0 24px}
+  h3{font-size:18px;font-weight:600;margin:32px 0 10px;letter-spacing:-.02em}
+  p{margin:0 0 14px;color:var(--body)}
+  strong{color:var(--ink);font-weight:600}
+  hr{border:0;border-top:1px solid var(--line);margin:44px 0}
+
+  /* bloque para decir en voz alta */
+  .say{background:var(--surface);border-left:3px solid var(--turq);border-radius:0 12px 12px 0;
+    padding:16px 20px;margin:14px 0;font-size:18px;line-height:1.58;color:var(--ink)}
+  .say + .say{margin-top:10px}
+  .note{color:var(--muted);font-size:14.5px;font-style:italic;margin:10px 0 18px;padding-left:14px;
+    border-left:2px solid var(--line)}
+
+  /* tarjetas */
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:14px 0}
+  .card h4{margin:0 0 4px;font-size:16.5px;font-weight:600;letter-spacing:-.02em}
+  .card .path{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--slate);
+    background:var(--tint);padding:3px 8px;border-radius:6px;display:inline-block;margin:0 0 12px;word-break:break-all}
+  .card p:last-child{margin-bottom:0}
+  .grid{display:grid;gap:12px}
+  @media(min-width:680px){.grid.two{grid-template-columns:1fr 1fr}}
+
+  .badge{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+    padding:3px 9px;border-radius:999px;margin-left:8px;vertical-align:middle}
+  .b-must{background:#e8f6f6;color:var(--turq-deep)}
+  .b-opt{background:#f1f0ee;color:var(--muted)}
+
+  /* avisos */
+  .warn{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:14px;padding:18px 20px;margin:16px 0}
+  .warn h4{margin:0 0 6px;font-size:16px;font-weight:600;color:var(--warn-ink)}
+  .warn p{color:#6b4a12;margin-bottom:0}
+  .ok{background:var(--ok-bg);border:1px solid var(--ok-line);border-radius:14px;padding:18px 20px;margin:16px 0}
+  .ok h4{margin:0 0 6px;font-size:16px;font-weight:600;color:var(--ok-ink)}
+  .ok p{color:#245c3c;margin-bottom:0}
+
+  /* codigo */
+  pre{background:var(--navy);color:#d8ecec;border-radius:12px;padding:16px 18px;overflow-x:auto;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.6;margin:14px 0}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;
+    background:var(--tint);padding:2px 6px;border-radius:5px;color:var(--slate)}
+  pre code{background:none;padding:0;color:inherit;font-size:inherit}
+
+  /* tabla */
+  .tw{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;min-width:540px;font-size:15px}
+  th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  th{background:var(--tint);font-weight:600;font-size:13.5px;color:var(--slate);letter-spacing:-.01em}
+  tr:last-child td{border-bottom:0}
+  td:first-child{font-weight:500;color:var(--ink)}
+
+  /* opciones numeradas */
+  .opt{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-soft)}
+  .opt:last-child{border-bottom:0}
+  .opt .n{flex:0 0 30px;height:30px;border-radius:9px;background:var(--tint);color:var(--slate);
+    display:grid;place-items:center;font-weight:600;font-size:14px}
+  .opt .b{flex:1;min-width:0}
+  .opt h4{margin:2px 0 6px;font-size:16.5px;font-weight:600;letter-spacing:-.02em}
+  .opt p{margin:0;font-size:15.5px}
+  .rec{color:var(--turq-deep);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+
+  /* faq */
+  details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:10px 0}
+  details[open]{border-color:var(--turq)}
+  summary{cursor:pointer;font-weight:500;color:var(--ink);list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"+ ";color:var(--turq-deep);font-weight:700}
+  details[open] summary::before{content:"– "}
+  details p{margin:12px 0 0}
+
+  @media print{
+    .top,.toc{display:none} body{background:#fff;font-size:11pt}
+    .hero{background:#fff;color:#000;padding:0 0 20px} .hero h1{color:#000} .hero p{color:#333}
+    section{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <a class="logo" href="https://www.codigoadria.com">
+      <span class="logo-mark">CA</span>
+      <span class="logo-txt">Código AdrIA</span>
+    </a>
+    <span class="stamp">Documento de trabajo</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="kicker">Guion de reunión</p>
+    <h1>Conectar el asistente en toda la plantilla sin tocar un solo ordenador</h1>
+    <p>Lo que hay que contar, en qué orden, sin una palabra técnica. Con la ficha de los archivos, las seis formas de repartirlos, y lo que salió al probarlo en un equipo real.</p>
+    <div class="meta">
+      <span class="chip">5 minutos hablando</span>
+      <span class="chip">Probado, no teórico</span>
+      <span class="chip">24 de agosto de 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <nav class="toc">
+    <h2>Lo que hay dentro</h2>
+    <ol>
+      <li><a href="#guion">El guion, bloque a bloque</a></li>
+      <li><a href="#preguntas">Las preguntas que te van a hacer</a></li>
+      <li><a href="#archivos">Los archivos, explicados</a></li>
+      <li><a href="#ventajas">Por qué un archivo gana al otro</a></li>
+      <li><a href="#repartir">Seis formas de repartirlos</a></li>
+      <li><a href="#prueba">La prueba: qué se encendió, qué se apagó</a></li>
+      <li><a href="#avisos">Los tres avisos antes de decir que sí</a></li>
+    </ol>
+  </nav>
+
+  <section id="guion">
+    <h2 class="sec">1 · El guion, bloque a bloque</h2>
+    <p class="sec-sub">Lo destacado se dice tal cual. Lo de gris son notas tuyas, no las leas.</p>
+
+    <h3>Abre por el problema, no por la solución</h3>
+    <div class="say">«Antes de nada, una pregunta: cuando le dais un programa nuevo a la plantilla, ¿va alguien equipo por equipo, o lo repartís desde algún sitio?»</div>
+    <p class="note">Su respuesta te coloca el resto de la conversación. Si dicen «lo reparte sistemas», tienen herramienta: vas al bloque de la opción 1 o 2. Si dicen «va Fulanito uno por uno», vas a la 5. Escucha antes de proponer.</p>
+    <div class="say">«Lo pregunto porque el asistente que os enseñé no sirve de nada si cada empleado tiene que configurarlo a mano. Eso es justo lo que hemos resuelto.»</div>
+
+    <h3>Qué pasaría sin esto</h3>
+    <div class="say">«Para que el asistente trabaje con vuestro sistema, hay que conectarlo. Si no hacemos nada, esa conexión la tiene que hacer cada empleado en su ordenador: abrir un archivo, pegar unos datos, guardar. Y encima, la primera vez el programa le pregunta “¿seguro que te fías de esta conexión?” y tiene que decir que sí.»</div>
+    <div class="say">«Con ochenta personas, eso son ochenta oportunidades de que alguien lo haga mal, diga que no sin leer, o llame diciendo que a él no le funciona.»</div>
+
+    <h3>Qué proponemos, en una frase</h3>
+    <div class="say">«Que la conexión venga puesta de fábrica. El empleado abre el programa y ya está conectado. No configura nada, no aprueba nada, ni se entera de que hay una conexión.»</div>
+    <div class="say">«Es la misma idea que el fondo de pantalla de la empresa o la impresora: nadie se la pone, aparece.»</div>
+
+    <h3>Si tienen informática propia o proveedor</h3>
+    <div class="say">«Es un archivo de configuración que se deja una vez en cada ordenador, en una carpeta protegida donde el usuario no puede tocarlo. Se reparte con la misma herramienta que ya usáis para instalar programas. Vuestro informático lo hace en una tarde y no vuelve a tocarlo.»</div>
+
+    <h3>Si dicen que no tienen nada de eso</h3>
+    <div class="say">«Tampoco pasa nada. Hay tres caminos y los tres son baratos.»</div>
+    <div class="say">«Si tenéis Microsoft 365 en la versión Business Premium, ya lleva incluida la herramienta que hace esto. La tenéis pagada aunque no la uséis.»</div>
+    <div class="say">«Si tenéis informático externo, él ya tiene su herramienta para instalaros cosas en remoto. Se hace por ahí y no compráis nada.»</div>
+    <div class="say">«Y si sois pocos equipos, honestamente: que entre alguien por control remoto y lo pegue. Media hora y listo. No merece la pena montar nada más.»</div>
+    <p class="note">Este bloque te compra credibilidad: les estás diciendo que no compren.</p>
+
+    <h3>Cierre</h3>
+    <div class="say">«Esto no os lo cuento de oídas: lo he montado y lo he probado en mi equipo antes de venir. Sé lo que se enciende, sé lo que se apaga, y sé qué tengo que preguntaros antes de tocar nada.»</div>
+    <div class="say">«La propuesta es empezar por un equipo de prueba. Lo dejamos funcionando en uno, lo veis con vuestros ojos, y si convence lo repartimos. Si algo falla, falla en un ordenador, no en ochenta.»</div>
+    <div class="say">«¿Con quién de vuestro equipo tendría que hablar para montarlo?»</div>
+  </section>
+
+  <hr>
+
+  <section id="preguntas">
+    <h2 class="sec">2 · Las preguntas que te van a hacer</h2>
+    <p class="sec-sub">Respuestas preparadas. Ábrelas si necesitas repasar.</p>
+
+    <details><summary>«¿Y si un empleado lo borra?»</summary>
+      <p>«No puede. Está en una carpeta que necesita permisos de administrador. Justo por eso lo ponemos ahí.»</p></details>
+    <details><summary>«¿Hay que reinstalar algo cuando cambie?»</summary>
+      <p>«No. Se cambia el archivo en un sitio y se reparte otra vez. Los empleados no hacen nada.»</p></details>
+    <details><summary>«¿Esto es seguro?»</summary>
+      <p>«Es más seguro que la alternativa. Ahora mismo cada uno se lo configuraría por su cuenta y ahí no controláis nada. Así, lo que se conecta lo decidís vosotros y nadie puede saltárselo.»</p></details>
+    <details><summary>«¿Cuánto cuesta?»</summary>
+      <p>«La configuración no tiene coste de licencia: es un archivo. Lo que cuesta es el rato de vuestro informático en repartirlo.»</p></details>
+    <details><summary>Algo que no sepas contestar</summary>
+      <p>«No te lo quiero contestar a ojo. Lo miro y te digo mañana.» — Con el cliente delante, esa frase vale más que inventarse una respuesta.</p></details>
+  </section>
+
+  <hr>
+
+  <section id="archivos">
+    <h2 class="sec">3 · Los archivos, explicados</h2>
+    <p class="sec-sub">Son cuatro. Dos los pone la empresa, dos los pone el usuario.</p>
+
+    <div class="card">
+      <h4>managed-mcp.json <span class="badge b-must">lo pone la empresa</span></h4>
+      <span class="path">C:\Program Files\ClaudeCode\ · macOS: /Library/Application Support/ClaudeCode/</span>
+      <p><strong>Qué es:</strong> la lista de conexiones que la empresa decide dar a todo el mundo. Mismo formato que el archivo de siempre, en una carpeta que solo toca un administrador.</p>
+      <p><strong>Qué hace:</strong> el empleado abre el programa y las conexiones ya están puestas y aprobadas. No pregunta nada.</p>
+      <p><strong>Detalle que importa:</strong> solo funciona como archivo. No se puede poner por el registro de Windows — eso solo vale para el archivo de ajustes de abajo.</p>
+    </div>
+
+    <div class="card">
+      <h4>managed-settings.json <span class="badge b-must">lo pone la empresa</span></h4>
+      <span class="path">misma carpeta que el anterior</span>
+      <p><strong>Qué es:</strong> los ajustes de política de la empresa. Aquí va un interruptor que <em>no es opcional</em> si la gente usa conexiones de su cuenta de Claude (correo, calendario, documentos):</p>
+      <pre><code>{ "allowAllClaudeAiMcps": true }</code></pre>
+      <p>Sin esa línea, en cuanto pones el archivo de arriba <strong>se apagan todas</strong>. Comprobado: con la línea puesta, las doce conexiones seguían vivas.</p>
+    </div>
+
+    <div class="card">
+      <h4>.mcp.json del proyecto <span class="badge b-opt">lo pone el usuario</span></h4>
+      <span class="path">dentro de la carpeta de trabajo</span>
+      <p><strong>Qué es:</strong> las conexiones que viajan dentro de una carpeta de trabajo, normalmente compartida por un equipo.</p>
+      <p><strong>Su pega:</strong> pide aprobación a cada persona la primera vez, y solo vale dentro de esa carpeta.</p>
+    </div>
+
+    <div class="card">
+      <h4>Ajustes de usuario <span class="badge b-opt">lo pone el usuario</span></h4>
+      <span class="path">carpeta personal de cada uno</span>
+      <p><strong>Qué es:</strong> las conexiones que alguien se monta para él, en todas sus carpetas. No se aprueban porque se las ha puesto él mismo.</p>
+      <p><strong>Su pega:</strong> son suyas. Nadie más las ve y la empresa no las controla.</p>
+    </div>
+  </section>
+
+  <hr>
+
+  <section id="ventajas">
+    <h2 class="sec">4 · Por qué un archivo gana al otro</h2>
+    <p class="sec-sub">Por dentro son idénticos. Lo que cambia es todo lo demás.</p>
+
+    <div class="tw">
+    <table>
+      <tr><th></th><th>Repartir el .mcp.json</th><th>managed-mcp.json</th></tr>
+      <tr><td>Aprobación del usuario</td><td>Sí, uno por uno</td><td>No, entra directo</td></tr>
+      <tr><td>Dónde funciona</td><td>Solo en esa carpeta</td><td>En todo el equipo, abra donde abra</td></tr>
+      <tr><td>Quién puede editarlo</td><td>El empleado</td><td>Solo un administrador</td></tr>
+      <tr><td>Cambiar una conexión</td><td>Avisar a 80 personas</td><td>Un cambio y se reparte</td></tr>
+      <tr><td>Si el empleado lo borra</td><td>Se queda sin nada, nadie se entera</td><td>No puede</td></tr>
+      <tr><td>Prioridad</td><td>La penúltima</td><td>Gana a todas</td></tr>
+    </table>
+    </div>
+
+    <p>El orden que sigue el programa para decidir de dónde saca cada conexión es: <strong>empresa → personal de la carpeta → carpeta compartida (solo si está aprobada) → usuario</strong>. La de empresa es la única que no pasa por ninguna aprobación.</p>
+
+    <div class="ok">
+      <h4>Cuándo NO hace falta nada de esto</h4>
+      <p>Si son pocos y todos trabajan sobre la misma carpeta compartida, el archivo de proyecto es la respuesta correcta: más simple, sin administrador, y la aprobación de una vez no molesta a cinco personas. No le vendas dominio a quien no lo necesita.</p>
+    </div>
+  </section>
+
+  <hr>
+
+  <section id="repartir">
+    <h2 class="sec">5 · Seis formas de repartirlos</h2>
+    <p class="sec-sub">La tarea real es «copiar un archivo a una carpeta protegida». Vale cualquier cosa capaz de ejecutar esto como administrador:</p>
+
+    <pre><code>New-Item -ItemType Directory -Force -Path "C:\Program Files\ClaudeCode" | Out-Null
+Copy-Item "\\servidor\despliegue\managed-mcp.json" "C:\Program Files\ClaudeCode\" -Force</code></pre>
+
+    <div class="card">
+      <div class="opt"><div class="n">1</div><div class="b">
+        <h4>Directiva de grupo (GPO)</h4>
+        <p>Si tienen dominio de Windows. Es el camino de casa: se reparte solo, esa misma noche, sin tocar equipos.</p></div></div>
+
+      <div class="opt"><div class="n">2</div><div class="b">
+        <h4>Microsoft Intune <span class="rec">· empieza por aquí</span></h4>
+        <p>Si usan <strong>Microsoft 365 Business Premium</strong>, va incluido en la licencia sin coste extra. Muchas empresas lo tienen pagado sin saberlo. No necesita dominio ni servidor.</p></div></div>
+
+      <div class="opt"><div class="n">3</div><div class="b">
+        <h4>La herramienta del informático externo</h4>
+        <p>Si tienen soporte contratado, ese proveedor ya tiene con qué instalarles software en remoto. La pregunta no es «¿tenéis directivas?», es <strong>«¿con qué nos instaláis vosotros el software?»</strong>. Cero herramientas nuevas.</p></div></div>
+
+      <div class="opt"><div class="n">4</div><div class="b">
+        <h4>Una herramienta ligera de despliegue</h4>
+        <p>Si no tienen absolutamente nada, hay opciones pensadas justo para esto y con modalidad gratuita en pocos equipos. Confirma el límite el día que vayáis a usarla: esos umbrales cambian cada temporada.</p></div></div>
+
+      <div class="opt"><div class="n">5</div><div class="b">
+        <h4>Script de inicio de sesión</h4>
+        <p>Si tienen dominio pero no usan directivas. Es la versión de andar por casa y lleva veinte años funcionando.</p></div></div>
+
+      <div class="opt"><div class="n">6</div><div class="b">
+        <h4>A mano, y sin complejos</h4>
+        <p>Menos de quince equipos: el informático entra por control remoto, lo pega y sale. Media hora en total. Montar infraestructura para doce personas es matar moscas a cañonazos.</p></div></div>
+    </div>
+
+    <p class="note">Si la empresa es de Mac, lo mismo con las herramientas de gestión de Apple, apuntando a la carpeta de sistema equivalente.</p>
+  </section>
+
+  <hr>
+
+  <section id="prueba">
+    <h2 class="sec">6 · La prueba: qué se encendió, qué se apagó</h2>
+    <p class="sec-sub">Montado en un equipo real el 24 de agosto de 2026. Esto no es teoría.</p>
+
+    <p>Se metió en el archivo de empresa una conexión llamada <code>prueba-gpo</code> que <strong>no existía en ningún archivo del usuario</strong>. Al abrir el programa:</p>
+
+    <pre><code>prueba-gpo:
+  Scope: Enterprise config (managed by your organization)
+  Status: Connected
+
+To remove this server, edit /Library/Application Support/ClaudeCode/managed-mcp.json</code></pre>
+
+    <p><strong>Eso es lo que verá su empleado:</strong> una conexión que él no ha puesto, funcionando, marcada como «gestionada por tu organización». Y si intenta quitarla, el programa le manda a un archivo al que no tiene acceso.</p>
+
+    <div class="ok">
+      <h4>Lo que sobrevivió</h4>
+      <p>Las quince conexiones que ya tenía el equipo y las doce de la cuenta personal (correo, calendario, documentos, y demás), gracias al interruptor del archivo de ajustes.</p>
+    </div>
+
+    <div class="warn">
+      <h4>Lo único que se cayó</h4>
+      <p>Una conexión que venía dentro de una <strong>extensión</strong> instalada. Las conexiones que llegan por extensiones sí se las lleva por delante la política, y el interruptor de arriba no las salva: hay que meterlas a mano en el archivo de la empresa.</p>
+    </div>
+  </section>
+
+  <hr>
+
+  <section id="avisos">
+    <h2 class="sec">7 · Los tres avisos antes de decir que sí</h2>
+    <p class="sec-sub">Dilos tú mañana. Es mejor que los descubran ellos el martes.</p>
+
+    <div class="warn">
+      <h4>1 · Cuando esto se activa, manda sobre todo lo demás</h4>
+      <p>Si alguien del equipo se había montado conexiones por su cuenta, dejan de funcionar. Hay que preguntar antes quién tiene algo montado — sobre todo extensiones.</p>
+    </div>
+
+    <div class="warn">
+      <h4>2 · Las contraseñas no van dentro del archivo</h4>
+      <p>Esa carpeta la puede <em>leer</em> cualquiera del equipo, aunque solo un administrador pueda escribir en ella. Si metes ahí las claves en texto plano, se las has repartido a toda la plantilla. Van aparte, por el canal seguro, y el archivo solo dice dónde buscarlas.</p>
+    </div>
+
+    <div class="warn">
+      <h4>3 · Empezad por un equipo de prueba</h4>
+      <p>Que la primera sorpresa aparezca en un ordenador, no en ochenta. Además os deja comprobar de golpe quién tenía qué montado.</p>
+    </div>
+  </section>
+
+</div>
+
+<style>
+  .ca-foot{
+    background:#102e35;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal-brand span{font-size:.86rem;font-weight:500;color:#dfe9eb}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Si esta receta te ha servido, en la comunidad compartimos muchas más:
+          flujos que funcionan, lo que no funciona, sin postureo.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+        <span>Código AdrIA</span>
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+
+</body>
+</html>
