@@ -304,12 +304,15 @@ details.avz .numgrid{margin-top:16px}
 
       <div class="step">
         <p class="slab">Acabado</p>
-        <h2>Revestimiento con la coronación</h2>
-        <p class="shint">La merma cubre cortes, roturas, piezas de remate. En vaso curvo conviene subirla.</p>
+        <h2>Material de más para los cortes</h2>
+        <p class="shint">Si pides justo los metros que mide el vaso, te quedas corto: al cortar
+        se parten piezas, los rincones obligan a despiezar, y conviene guardar unas cuantas por
+        si mañana hay que reponer alguna (esa serie puede no existir ya, o venir de otro tono).
+        Ese extra es lo que en el oficio se llama <strong>merma</strong>. Elige cuánto:</p>
         <div class="chips">
-          <label class="chip"><input type="radio" name="merma" value="5"><span>Merma 5%</span></label>
-          <label class="chip"><input type="radio" name="merma" value="10" checked><span>Merma 10%</span></label>
-          <label class="chip"><input type="radio" name="merma" value="15"><span>Merma 15%</span></label>
+          <label class="chip"><input type="radio" name="merma" value="5"><span>5% · vaso recto sencillo</span></label>
+          <label class="chip"><input type="radio" name="merma" value="10" checked><span>10% · lo normal</span></label>
+          <label class="chip"><input type="radio" name="merma" value="15"><span>15% · curvas, escalera o pieza grande</span></label>
         </div>
         <div class="numgrid dos" style="margin-top:16px">
           <div class="numfield"><label for="corona">Ancho de la coronación</label>
@@ -365,7 +368,7 @@ details.avz .numgrid{margin-top:16px}
       <h2>Material del catálogo para estos metros</h2>
       <span class="count" id="fecha-cat">precios del catálogo</span>
     </div>
-    <p class="picksub">Se calcula con los m² por caja de cada referencia: la cerámica se vende por m² pero se sirve en cajas enteras, así que lo que se pide siempre redondea hacia arriba.</p>
+    <p class="picksub">La cerámica se vende por m² pero se sirve en cajas enteras, así que se redondea hacia arriba: se pide la caja entera aunque sobre media. Los metros que verás en cada ficha ya llevan dentro el material de más para los cortes.</p>
     <div id="mat-vaso" class="grupo"></div>
     <div id="mat-corona" class="grupo"></div>
     <div id="mat-playa" class="grupo"></div>
@@ -381,7 +384,7 @@ details.avz .numgrid{margin-top:16px}
 <footer class="pie">
   <div class="wrap">
     <h3>Sobre estos números</h3>
-    <p>La calculadora aplica geometría sobre las medidas que introduces. No conoce tu terreno, ni la roca que pueda aparecer al excavar, ni el nivel freático, ni las armaduras que pida el proyecto, ni la solución de impermeabilización, ni las mermas reales del formato de pieza que elijas. Por eso el resultado es una <strong>estimación no vinculante</strong>: sirve para hacerse una idea del volumen de material antes de pedir precio, nada más.</p>
+    <p>La calculadora aplica geometría sobre las medidas que introduces. No conoce tu terreno, ni la roca que pueda aparecer al excavar, ni el nivel freático, ni las armaduras que pida el proyecto, ni la solución de impermeabilización, ni cuánto material se pierde de verdad al cortar el formato de pieza que elijas. Por eso el resultado es una <strong>estimación no vinculante</strong>: sirve para hacerse una idea del volumen de material antes de pedir precio, nada más.</p>
     <p><strong>El valor definitivo lo da el profesional que instala la piscina.</strong> Adrihosan no se hace responsable de pedidos, contrataciones o decisiones de obra tomadas únicamente a partir de este cálculo.</p>
     <p class="marca">Adrihosan · prototipo de calculadora, versión 1</p>
   </div>
@@ -459,7 +462,8 @@ details.avz .numgrid{margin-top:16px}
     $("mat-vaso").innerHTML = bloqueHTML(
       CATALOGO.vaso,
       "Revestimiento del vaso",
-      'Fondo con paredes: <strong>' + dec(revestir,1) + ' m²</strong> con la merma del ' + pct + '% ya dentro.',
+      'El vaso mide <strong>' + dec(revestir/(1+merma),1) + ' m²</strong> entre fondo y paredes. Con el ' + pct +
+      '% de material de más para los cortes, hay que comprar <strong>' + dec(revestir,1) + ' m²</strong>.',
       function(prod, i){
         var cajas = Math.ceil(revestir / prod.m2cj);
         var m2ped = cajas * prod.m2cj;
@@ -514,7 +518,8 @@ details.avz .numgrid{margin-top:16px}
     $("mat-playa").innerHTML = bloqueHTML(
       CATALOGO.playa,
       "Playa",
-      'Playa indicada: <strong>' + dec(playaDicha,1) + ' m²</strong>, que con la merma del ' + pct + '% son <strong>' + dec(playaM2,1) + ' m²</strong>.',
+      'Has indicado <strong>' + dec(playaDicha,1) + ' m²</strong> de playa. Con el ' + pct +
+      '% de material de más, hay que comprar <strong>' + dec(playaM2,1) + ' m²</strong>.',
       function(prod, i){
         var cajas = Math.ceil(playaM2 / prod.m2cj);
         var m2ped = cajas * prod.m2cj;
@@ -648,7 +653,7 @@ details.avz .numgrid{margin-top:16px}
     $("r-hor").firstChild.nodeValue = m3(hormigon);
     $("r-hor-s").textContent = cubas + (cubas === 1 ? " cuba de " : " cubas de ") + dec(capCuba,0) + " m³";
     $("r-rev").firstChild.nodeValue = m2(revestirMerma);
-    $("r-rev-s").textContent = m2(revestir) + " + " + Math.round(merma*100) + "% merma";
+    $("r-rev-s").textContent = m2(revestir) + " + " + m2(revestirMerma - revestir) + " de cortes";
     $("r-cor").firstChild.nodeValue = ml(corML);
     $("r-cor-s").textContent = m2(corM2) + " de pieza";
 
@@ -674,9 +679,14 @@ details.avz .numgrid{margin-top:16px}
     h += "<h3>Superficie a revestir</h3><div class='calcline'>";
     h += fila("Fondo = lámina × " + dec(factorRampa,3) + " (pendiente)", m2(fondo));
     h += fila("Paredes = perímetro × profundidad media", m2(paredes));
-    h += fila("Suma geométrica", m2(revestir));
-    h += fila("Con merma del " + Math.round(merma*100) + "%", m2(revestirMerma), "tot");
-    h += "</div><p>La merma cubre cortes, roturas, piezas de remate. En vaso curvo, en escalera o en formato grande sube; pídele el dato bueno a quien va a colocar.</p>";
+    h += fila("Lo que mide el vaso", m2(revestir));
+    h += fila("Material de más (" + Math.round(merma*100) + "%)", "+ " + m2(revestirMerma - revestir));
+    h += fila("Lo que hay que comprar", m2(revestirMerma), "tot");
+    h += "</div><p><strong>Por qué se compra de más:</strong> de esos " + m2(revestirMerma) +
+         " no llegan todos a la pared. Se parten piezas al cortarlas, los rincones y el borde " +
+         "obligan a despiezar, y conviene que sobren unas cuantas guardadas por si hay que " +
+         "reponer más adelante. Quien coloca sabe cuánto se le va de verdad con esa pieza: " +
+         "es la persona a la que preguntarle el porcentaje bueno.</p>";
 
     h += "<h3>Hormigón del vaso</h3><div class='calcline'>";
     h += fila("Solera: " + m2(areaSolera) + " × " + dec(eSolera) + " m", m3(volSolera));
@@ -700,8 +710,9 @@ details.avz .numgrid{margin-top:16px}
     if (playaM2 > 0){
       h += "<h3>Playa</h3><div class='calcline'>";
       h += fila("Superficie que has indicado", m2(playaDicha));
-      h += fila("Con merma del " + Math.round(merma*100) + "%", m2(playaM2), "tot");
-      h += "</div><p>Este dato no se calcula: lo pones tú. La calculadora solo le suma la merma y lo pasa a cajas.</p>";
+      h += fila("Material de más (" + Math.round(merma*100) + "%)", "+ " + m2(playaM2 - playaDicha));
+      h += fila("Lo que hay que comprar", m2(playaM2), "tot");
+      h += "</div><p>Este dato no se calcula: lo pones tú. La calculadora solo le suma el material de más para los cortes y lo pasa a cajas.</p>";
     }
 
     $("desglose").innerHTML = h;
