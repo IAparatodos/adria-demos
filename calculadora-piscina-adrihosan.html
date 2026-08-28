@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Calculadora del vaso de una piscina · Adrihosan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --turq:#4DD2D0; --turq-deep:#2C9A98; --turq-mist:#E8F8F8;
+  --petrol:#3F6F7B; --petrol-deep:#102E35;
+  --ink:#102E35; --body:#41565C; --muted:#6B8189; --faint:#90A3A9;
+  --paper:#FFF; --canvas:#F4F8F9; --mist:#EEF4F5;
+  --line:#E1EAEC; --line-2:#CCDBDF;
+  --gold:#C08A2E; --gold-bg:#FBF3E2;
+  --r-lg:20px; --r-md:14px; --r-sm:10px;
+  --shadow:0 1px 2px rgba(16,46,53,.04), 0 8px 24px -12px rgba(16,46,53,.14);
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--canvas);color:var(--body);
+  font-family:Poppins,system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+h1,h2,h3{color:var(--ink);margin:0;letter-spacing:-.02em;text-wrap:balance;font-weight:600}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* barra de prototipo */
+.proto{background:var(--gold-bg);color:var(--gold);border-bottom:1px solid #EBDCB8;
+  font-size:12.5px;font-weight:500;letter-spacing:.02em;padding:9px 0;text-align:center}
+
+/* hero */
+.hero{background:linear-gradient(115deg,var(--petrol-deep) 0%,var(--petrol) 62%,#4A818E 100%);
+  color:#FFF;padding:52px 0 116px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-140px;top:-120px;width:420px;height:420px;
+  border-radius:50%;background:rgba(77,210,208,.16);filter:blur(4px)}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{display:flex;align-items:center;gap:9px;margin:0 0 14px;font-size:12px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--turq)}
+.eyebrow .pip{width:7px;height:7px;border-radius:50%;background:var(--turq);flex:none;
+  box-shadow:0 0 0 4px rgba(77,210,208,.22)}
+.hero h1{color:#FFF;font-size:clamp(30px,4.4vw,46px);line-height:1.08;max-width:17ch}
+.hero .lead{color:rgba(255,255,255,.82);max-width:56ch;margin:16px 0 0;font-size:17px}
+
+/* rejilla */
+.layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(320px,1fr);gap:24px;
+  margin-top:-72px;position:relative;z-index:2;align-items:start}
+@media (max-width:940px){.layout{grid-template-columns:1fr;margin-top:-84px}}
+
+.panel{background:var(--paper);border-radius:var(--r-lg);box-shadow:var(--shadow);
+  border:1px solid var(--line);overflow:hidden}
+.step{padding:26px 28px}
+.step + .step{border-top:1px solid var(--line)}
+@media (max-width:560px){.step{padding:22px 18px}}
+.slab{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--turq-deep);margin:0 0 6px}
+.slab::after{content:"";flex:1;height:1px;background:var(--line)}
+.step h2{font-size:19px;line-height:1.3}
+.shint{margin:5px 0 16px;font-size:14.5px;color:var(--muted)}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;width:0;height:0}
+.chip span{display:inline-flex;align-items:center;justify-content:center;padding:11px 20px;
+  border:1px solid var(--line-2);border-radius:999px;background:var(--paper);color:var(--body);
+  font-size:15px;font-weight:500;cursor:pointer;transition:.15s;user-select:none;white-space:nowrap}
+.chip span:hover{border-color:var(--turq);background:var(--turq-mist);color:var(--ink)}
+.chip input:checked + span{background:var(--petrol-deep);border-color:var(--petrol-deep);color:#FFF}
+.chip input:focus-visible + span{outline:2px solid var(--turq-deep);outline-offset:2px}
+
+/* campos */
+.numgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.numgrid.dos{grid-template-columns:repeat(2,1fr)}
+@media (max-width:560px){.numgrid,.numgrid.dos{grid-template-columns:1fr}}
+.numfield{display:flex;flex-direction:column;gap:6px}
+.numfield label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.numfield .box{display:flex;align-items:center;border:1px solid var(--line-2);border-radius:var(--r-md);
+  background:var(--paper);transition:.15s;overflow:hidden}
+.numfield .box:focus-within{border-color:var(--turq);box-shadow:0 0 0 3px rgba(77,210,208,.2)}
+.numfield input{flex:1;min-width:0;height:52px;padding:0 0 0 15px;border:0;background:transparent;
+  color:var(--ink);font:inherit;font-size:17px;font-weight:500;font-variant-numeric:tabular-nums}
+.numfield input:focus{outline:none}
+.numfield .unit{padding:0 15px;font-size:14px;color:var(--faint);flex:none}
+.hidden{display:none !important}
+
+/* tarjetas de sistema */
+.sisgrid{display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:600px){.sisgrid{grid-template-columns:repeat(3,1fr)}}
+.sis{position:relative}
+.sis input{position:absolute;opacity:0;width:0;height:0}
+.sis span{display:flex;flex-direction:column;gap:3px;height:100%;padding:14px;
+  border:1px solid var(--line-2);border-radius:var(--r-md);background:var(--paper);cursor:pointer;transition:.15s}
+.sis span::before{content:"";width:26px;height:4px;border-radius:2px;background:var(--bar);margin-bottom:7px}
+.sis[data-s="gunitado"] span{--bar:var(--turq-deep)}
+.sis[data-s="bloque"] span{--bar:#2FA96B}
+.sis[data-s="armado"] span{--bar:#D98C3A}
+.sis span:hover{border-color:var(--turq)}
+.sis input:checked + span{border-color:var(--petrol-deep);background:var(--mist)}
+.sis input:focus-visible + span{outline:2px solid var(--turq-deep);outline-offset:2px}
+.sis b{font-size:14.5px;font-weight:600;color:var(--ink);line-height:1.3}
+.sis i{font-style:normal;font-size:12.5px;color:var(--muted)}
+
+/* avanzado */
+details.avz{border-top:1px solid var(--line);padding:18px 28px 24px}
+@media (max-width:560px){details.avz{padding:18px}}
+details.avz summary{cursor:pointer;font-size:12.5px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);list-style:none;display:flex;align-items:center;gap:8px}
+details.avz summary::-webkit-details-marker{display:none}
+details.avz summary::before{content:"+";width:20px;height:20px;border-radius:50%;background:var(--mist);
+  color:var(--petrol);display:flex;align-items:center;justify-content:center;font-size:14px;flex:none}
+details.avz[open] summary::before{content:"−"}
+details.avz .numgrid{margin-top:16px}
+
+/* carril */
+.rail{position:sticky;top:20px}
+@media (max-width:940px){.rail{position:static}}
+.rcard{background:linear-gradient(160deg,var(--petrol-deep),#1B454F);color:#FFF;border-radius:var(--r-lg);
+  padding:26px;box-shadow:0 18px 40px -22px rgba(16,46,53,.55)}
+.rlabel{margin:0;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--turq)}
+.big{font-size:clamp(30px,3.6vw,40px);font-weight:600;line-height:1.05;letter-spacing:-.03em;color:#FFF;
+  margin:10px 0 0;font-variant-numeric:tabular-nums}
+.wnote{font-size:13.5px;color:rgba(255,255,255,.72);margin:9px 0 0}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.12);
+  border-radius:var(--r-md);overflow:hidden;margin:22px 0 0}
+.fact{background:rgba(255,255,255,.05);padding:12px 13px}
+.fact dt{margin:0;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.fact dd{margin:3px 0 0;font-size:16px;font-weight:600;color:#FFF;font-variant-numeric:tabular-nums}
+.fact dd small{display:block;font-size:11.5px;font-weight:400;color:rgba(255,255,255,.6);margin-top:2px}
+
+/* aviso */
+.aviso{margin-top:18px;background:var(--gold-bg);border:1px solid #EBDCB8;border-left:3px solid var(--gold);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:16px 18px}
+.aviso b{display:block;color:var(--gold);font-size:12px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;margin-bottom:7px}
+.aviso p{font-size:13.5px;line-height:1.6;color:#7A5A1C}
+.aviso p + p{margin-top:8px}
+
+/* desglose */
+.audwrap{margin:44px 0 0}
+.toggle{display:inline-flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.toggle input{position:absolute;opacity:0;width:0;height:0}
+.toggle .track{width:38px;height:22px;border-radius:11px;background:var(--line-2);position:relative;transition:.16s;flex:none}
+.toggle .track::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;
+  background:#FFF;transition:.16s;box-shadow:0 1px 3px rgba(16,46,53,.3)}
+.toggle input:checked + .track{background:var(--turq)}
+.toggle input:checked + .track::after{transform:translateX(16px)}
+.toggle .lbl{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.audit{margin-top:18px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px}
+@media (max-width:560px){.audit{padding:20px 18px}}
+.audit h3{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--turq-deep);margin:0 0 12px}
+.audit h3:not(:first-child){margin-top:26px}
+.calcline{font-size:14.5px;line-height:1.9;overflow-x:auto;font-variant-numeric:tabular-nums}
+.calcline div{display:flex;justify-content:space-between;gap:20px;white-space:nowrap}
+.calcline .op{color:var(--muted)}
+.calcline .tot{border-top:1px solid var(--line-2);margin-top:8px;padding-top:8px;font-weight:600;color:var(--ink)}
+.audit p{font-size:14.5px;color:var(--body);margin:0 0 10px}
+.audit code{font-size:13px;background:var(--mist);padding:2px 6px;border-radius:5px;border:1px solid var(--line)}
+
+/* pie */
+.pie{margin:56px 0 0;background:var(--petrol-deep);color:rgba(255,255,255,.72);padding:36px 0 40px}
+.pie h3{color:#FFF;font-size:15px;margin-bottom:10px}
+.pie p{font-size:13.5px;line-height:1.65;max-width:78ch}
+.pie p + p{margin-top:10px}
+.pie .marca{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);
+  font-size:12px;letter-spacing:.04em;color:rgba(255,255,255,.5)}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+
+<div class="proto">Prototipo interno · fuera de adrihosan.com · pendiente de revisión</div>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow"><span class="pip"></span>Calculadora del vaso</p>
+    <h1>Los metros que pide tu piscina, antes de pedir material</h1>
+    <p class="lead">Dinos cómo va a ser el vaso. Te damos una estimación del agua que cabe, la tierra que hay que sacar, el hormigón del vaso, la superficie a revestir con su merma, más los metros de coronación.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="layout">
+
+    <form class="panel" id="form">
+
+      <div class="step">
+        <p class="slab">Forma</p>
+        <h2>Cómo es el vaso</h2>
+        <p class="shint">La forma decide cómo se miden la lámina de agua, el perímetro, las paredes.</p>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="forma" value="rect" checked><span>Rectangular</span></label>
+          <label class="chip"><input type="radio" name="forma" value="redonda"><span>Redonda</span></label>
+          <label class="chip"><input type="radio" name="forma" value="ovalada"><span>Ovalada</span></label>
+          <label class="chip"><input type="radio" name="forma" value="libre"><span>Otra forma</span></label>
+        </div>
+      </div>
+
+      <div class="step">
+        <p class="slab">Medidas</p>
+        <h2>Las dimensiones interiores</h2>
+        <p class="shint">Medidas del hueco de agua terminado, sin contar los muros ni la coronación.</p>
+
+        <div class="numgrid" id="g-rect">
+          <div class="numfield"><label for="largo">Largo</label>
+            <div class="box"><input type="number" id="largo" value="8" min="1" max="50" step="0.1"><span class="unit">m</span></div></div>
+          <div class="numfield"><label for="ancho">Ancho</label>
+            <div class="box"><input type="number" id="ancho" value="4" min="1" max="30" step="0.1"><span class="unit">m</span></div></div>
+        </div>
+
+        <div class="numgrid hidden" id="g-redonda">
+          <div class="numfield"><label for="diam">Diámetro</label>
+            <div class="box"><input type="number" id="diam" value="5" min="1" max="30" step="0.1"><span class="unit">m</span></div></div>
+        </div>
+
+        <div class="numgrid hidden" id="g-libre">
+          <div class="numfield"><label for="lamina">Lámina de agua</label>
+            <div class="box"><input type="number" id="lamina" value="32" min="1" step="0.1"><span class="unit">m²</span></div></div>
+          <div class="numfield"><label for="perim">Perímetro</label>
+            <div class="box"><input type="number" id="perim" value="24" min="1" step="0.1"><span class="unit">m</span></div></div>
+          <div class="numfield"><label for="mayor">Longitud mayor</label>
+            <div class="box"><input type="number" id="mayor" value="8" min="1" step="0.1"><span class="unit">m</span></div></div>
+        </div>
+
+        <div class="chips" style="margin-top:18px">
+          <label class="chip"><input type="radio" name="fondo" value="plano"><span>Fondo plano</span></label>
+          <label class="chip"><input type="radio" name="fondo" value="rampa" checked><span>Fondo inclinado</span></label>
+        </div>
+
+        <div class="numgrid dos" style="margin-top:14px" id="g-prof">
+          <div class="numfield"><label for="pmin" id="lb-pmin">Profundidad mínima</label>
+            <div class="box"><input type="number" id="pmin" value="1.2" min="0.3" max="5" step="0.05"><span class="unit">m</span></div></div>
+          <div class="numfield" id="f-pmax"><label for="pmax">Profundidad máxima</label>
+            <div class="box"><input type="number" id="pmax" value="1.8" min="0.3" max="5" step="0.05"><span class="unit">m</span></div></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <p class="slab">Construcción</p>
+        <h2>Con qué se levanta el vaso</h2>
+        <p class="shint">Fija los espesores de partida del muro, de la solera. Se pueden afinar más abajo.</p>
+        <div class="sisgrid">
+          <label class="sis" data-s="gunitado"><input type="radio" name="sistema" value="gunitado" data-muro="0.20" data-solera="0.25" checked>
+            <span><b>Hormigón proyectado</b><i>Gunitado · muro 20 cm · solera 25 cm</i></span></label>
+          <label class="sis" data-s="bloque"><input type="radio" name="sistema" value="bloque" data-muro="0.20" data-solera="0.20">
+            <span><b>Bloque de hormigón</b><i>Encofrado · muro 20 cm · solera 20 cm</i></span></label>
+          <label class="sis" data-s="armado"><input type="radio" name="sistema" value="armado" data-muro="0.25" data-solera="0.25">
+            <span><b>Hormigón armado</b><i>Encofrado · muro 25 cm · solera 25 cm</i></span></label>
+        </div>
+      </div>
+
+      <div class="step">
+        <p class="slab">Acabado</p>
+        <h2>Revestimiento con la coronación</h2>
+        <p class="shint">La merma cubre cortes, roturas, piezas de remate. En vaso curvo conviene subirla.</p>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="merma" value="5"><span>Merma 5%</span></label>
+          <label class="chip"><input type="radio" name="merma" value="10" checked><span>Merma 10%</span></label>
+          <label class="chip"><input type="radio" name="merma" value="15"><span>Merma 15%</span></label>
+        </div>
+        <div class="numgrid dos" style="margin-top:16px">
+          <div class="numfield"><label for="corona">Ancho de la coronación</label>
+            <div class="box"><input type="number" id="corona" value="0.30" min="0.1" max="1" step="0.01"><span class="unit">m</span></div></div>
+        </div>
+      </div>
+
+      <details class="avz">
+        <summary>Ajustes de obra</summary>
+        <div class="numgrid">
+          <div class="numfield"><label for="emuro">Espesor del muro</label>
+            <div class="box"><input type="number" id="emuro" value="0.20" min="0.1" max="0.5" step="0.01"><span class="unit">m</span></div></div>
+          <div class="numfield"><label for="esolera">Espesor de la solera</label>
+            <div class="box"><input type="number" id="esolera" value="0.25" min="0.1" max="0.5" step="0.01"><span class="unit">m</span></div></div>
+          <div class="numfield"><label for="sobre">Sobreancho de trabajo</label>
+            <div class="box"><input type="number" id="sobre" value="0.40" min="0" max="1.5" step="0.05"><span class="unit">m</span></div></div>
+          <div class="numfield"><label for="zahorra">Cama de zahorra</label>
+            <div class="box"><input type="number" id="zahorra" value="0.15" min="0" max="0.5" step="0.01"><span class="unit">m</span></div></div>
+          <div class="numfield"><label for="cuba">Capacidad de cuba</label>
+            <div class="box"><input type="number" id="cuba" value="8" min="1" max="12" step="0.5"><span class="unit">m³</span></div></div>
+          <div class="numfield"><label for="esponj">Esponjamiento tierra</label>
+            <div class="box"><input type="number" id="esponj" value="25" min="0" max="60" step="1"><span class="unit">%</span></div></div>
+        </div>
+      </details>
+    </form>
+
+    <aside class="rail">
+      <div class="rcard">
+        <p class="rlabel">Agua del vaso</p>
+        <p class="big" id="r-agua">48 m³</p>
+        <p class="wnote" id="r-agua-l">48.000 litros · profundidad media 1,50 m</p>
+
+        <dl class="facts">
+          <div class="fact"><dt>Excavación</dt><dd id="r-exc">—<small id="r-exc-s">a retirar</small></dd></div>
+          <div class="fact"><dt>Hormigón</dt><dd id="r-hor">—<small id="r-hor-s">solera + muros</small></dd></div>
+          <div class="fact"><dt>A revestir</dt><dd id="r-rev">—<small id="r-rev-s">con merma</small></dd></div>
+          <div class="fact"><dt>Coronación</dt><dd id="r-cor">—<small id="r-cor-s">borde</small></dd></div>
+        </dl>
+      </div>
+
+      <div class="aviso">
+        <b>Esto no es un presupuesto</b>
+        <p>Es una <strong>estimación orientativa</strong> hecha con medidas teóricas. No es vinculante, no sustituye a una medición en obra, no sirve como base de una reclamación.</p>
+        <p><strong>Quien tiene que dar el valor bueno es el profesional que va a ejecutar la piscina</strong>, con el proyecto delante, el terreno visto, la solución constructiva decidida.</p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="audwrap">
+    <label class="toggle"><input type="checkbox" id="verDesglose" checked><span class="track"></span><span class="lbl">Cómo sale cada número</span></label>
+    <div class="audit" id="desglose"></div>
+  </div>
+</div>
+
+<footer class="pie">
+  <div class="wrap">
+    <h3>Sobre estos números</h3>
+    <p>La calculadora aplica geometría sobre las medidas que introduces. No conoce tu terreno, ni la roca que pueda aparecer al excavar, ni el nivel freático, ni las armaduras que pida el proyecto, ni la solución de impermeabilización, ni las mermas reales del formato de pieza que elijas. Por eso el resultado es una <strong>estimación no vinculante</strong>: sirve para hacerse una idea del volumen de material antes de pedir precio, nada más.</p>
+    <p><strong>El valor definitivo lo da el profesional que instala la piscina.</strong> Adrihosan no se hace responsable de pedidos, contrataciones o decisiones de obra tomadas únicamente a partir de este cálculo.</p>
+    <p class="marca">Adrihosan · prototipo de calculadora, versión 1</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var form = $("form");
+
+  function num(id){ var v = parseFloat($(id).value); return isFinite(v) ? v : 0; }
+  function pick(name){ var el = form.querySelector('input[name="'+name+'"]:checked'); return el ? el.value : ""; }
+  function m3(v){ return v.toLocaleString("es-ES",{maximumFractionDigits:1}) + " m³"; }
+  function m2(v){ return v.toLocaleString("es-ES",{maximumFractionDigits:1}) + " m²"; }
+  function ml(v){ return v.toLocaleString("es-ES",{maximumFractionDigits:1}) + " ml"; }
+  function dec(v,d){ return v.toLocaleString("es-ES",{minimumFractionDigits:d===undefined?2:d,maximumFractionDigits:d===undefined?2:d}); }
+
+  // Perimetro de una elipse (aproximacion de Ramanujan).
+  function perimElipse(a,b){
+    return Math.PI * ( 3*(a+b) - Math.sqrt((3*a+b)*(a+3*b)) );
+  }
+
+  function geometria(){
+    var forma = pick("forma"), g = {forma:forma};
+    if (forma === "rect"){
+      g.L = num("largo"); g.A = num("ancho");
+      g.lamina = g.L * g.A;
+      g.perim  = 2 * (g.L + g.A);
+      g.mayor  = g.L;
+      g.formula = g.L + " × " + g.A;
+    } else if (forma === "redonda"){
+      var D = num("diam");
+      g.L = D; g.A = D;
+      g.lamina = Math.PI * D * D / 4;
+      g.perim  = Math.PI * D;
+      g.mayor  = D;
+      g.formula = "π × " + D + "² / 4";
+    } else if (forma === "ovalada"){
+      g.L = num("largo"); g.A = num("ancho");
+      g.lamina = Math.PI * g.L * g.A / 4;
+      g.perim  = perimElipse(g.L/2, g.A/2);
+      g.mayor  = g.L;
+      g.formula = "π × " + g.L + " × " + g.A + " / 4";
+    } else {
+      g.lamina = num("lamina");
+      g.perim  = num("perim");
+      g.mayor  = num("mayor");
+      g.L = g.mayor; g.A = g.lamina / (g.mayor || 1);
+      g.formula = "introducida a mano";
+    }
+    return g;
+  }
+
+  function calcular(){
+    var forma = pick("forma");
+    // que campos se ven segun la forma
+    $("g-rect").classList.toggle("hidden", !(forma === "rect" || forma === "ovalada"));
+    $("g-redonda").classList.toggle("hidden", forma !== "redonda");
+    $("g-libre").classList.toggle("hidden", forma !== "libre");
+
+    var rampa = pick("fondo") === "rampa";
+    $("f-pmax").classList.toggle("hidden", !rampa);
+    $("lb-pmin").textContent = rampa ? "Profundidad mínima" : "Profundidad";
+
+    // el sistema constructivo empuja los espesores por defecto
+    var g = geometria();
+    var pmin = num("pmin");
+    var pmax = rampa ? num("pmax") : pmin;
+    if (pmax < pmin){ pmax = pmin; }
+    var pm = (pmin + pmax) / 2;
+    var delta = pmax - pmin;
+
+    var eMuro   = num("emuro");
+    var eSolera = num("esolera");
+    var sobre   = num("sobre");
+    var zahorra = num("zahorra");
+    var capCuba = num("cuba") || 8;
+    var esponj  = num("esponj") / 100;
+    var merma   = parseFloat(pick("merma")) / 100;
+    var wCorona = num("corona");
+
+    var rectangular = (forma === "rect");
+
+    // Sin medidas utiles no se inventa nada: la calculadora se calla.
+    if (!(g.lamina > 0) || !(g.perim > 0) || !(pm > 0)){
+      ["r-agua"].forEach(function(id){ $(id).textContent = "—"; });
+      $("r-agua-l").textContent = "Faltan medidas por rellenar";
+      ["r-exc","r-hor","r-rev","r-cor"].forEach(function(id){ $(id).firstChild.nodeValue = "—"; });
+      $("r-exc-s").textContent = "a retirar";
+      $("r-hor-s").textContent = "solera + muros";
+      $("r-rev-s").textContent = "con merma";
+      $("r-cor-s").textContent = "borde";
+      $("desglose").innerHTML = "<p style='margin:0'>Rellena las medidas del vaso para ver de dónde sale cada número.</p>";
+      return;
+    }
+
+    // --- agua
+    var agua = g.lamina * pm;
+
+    // --- superficie a revestir
+    var factorRampa = g.mayor > 0 ? Math.sqrt(1 + Math.pow(delta / g.mayor, 2)) : 1;
+    var fondo   = g.lamina * factorRampa;
+    var paredes = g.perim * pm;
+    var revestir = fondo + paredes;
+    var revestirMerma = revestir * (1 + merma);
+
+    // --- coronacion
+    var corML = g.perim;
+    var corM2 = corML * wCorona;
+
+    // --- hormigon
+    // solera: la huella del vaso ensanchada el espesor del muro (formula de Steiner)
+    var areaSolera = g.lamina + g.perim * eMuro + Math.PI * eMuro * eMuro;
+    var volSolera  = areaSolera * eSolera;
+    // muros: longitud de la linea media del muro por la altura media por el espesor
+    var longMedia  = rectangular ? (g.perim + 4 * eMuro) : (g.perim + Math.PI * eMuro);
+    var volMuros   = longMedia * pm * eMuro;
+    var hormigon   = volSolera + volMuros;
+    var cubas      = Math.ceil(hormigon / capCuba);
+
+    // --- excavacion
+    var off = eMuro + sobre;
+    var areaExc = g.lamina + g.perim * off + Math.PI * off * off;
+    var profExc = pm + eSolera + zahorra;
+    var excavacion = areaExc * profExc;
+    var excTransporte = excavacion * (1 + esponj);
+
+    // --- pintar
+    $("r-agua").textContent = m3(agua);
+    $("r-agua-l").textContent = Math.round(agua * 1000).toLocaleString("es-ES") + " litros · profundidad media " + dec(pm) + " m";
+
+    $("r-exc").firstChild.nodeValue = m3(excavacion);
+    $("r-exc-s").textContent = m3(excTransporte) + " a retirar";
+    $("r-hor").firstChild.nodeValue = m3(hormigon);
+    $("r-hor-s").textContent = cubas + (cubas === 1 ? " cuba de " : " cubas de ") + dec(capCuba,0) + " m³";
+    $("r-rev").firstChild.nodeValue = m2(revestirMerma);
+    $("r-rev-s").textContent = m2(revestir) + " + " + Math.round(merma*100) + "% merma";
+    $("r-cor").firstChild.nodeValue = ml(corML);
+    $("r-cor-s").textContent = m2(corM2) + " de pieza";
+
+    // --- desglose
+    var fila = function(txt, val, clase){
+      return '<div class="' + (clase || "") + '"><span class="op">' + txt + '</span><span>' + val + '</span></div>';
+    };
+    var h = "";
+    h += "<h3>Lámina de agua</h3><div class='calcline'>";
+    h += fila("Superficie de lámina (" + g.formula + ")", m2(g.lamina));
+    h += fila("Perímetro del vaso", ml(g.perim));
+    h += fila("Profundidad media (" + dec(pmin) + " + " + dec(pmax) + ") / 2", dec(pm) + " m");
+    h += fila("Agua = lámina × profundidad media", m3(agua), "tot");
+    h += "</div>";
+
+    h += "<h3>Superficie a revestir</h3><div class='calcline'>";
+    h += fila("Fondo = lámina × " + dec(factorRampa,3) + " (pendiente)", m2(fondo));
+    h += fila("Paredes = perímetro × profundidad media", m2(paredes));
+    h += fila("Suma geométrica", m2(revestir));
+    h += fila("Con merma del " + Math.round(merma*100) + "%", m2(revestirMerma), "tot");
+    h += "</div><p>La merma cubre cortes, roturas, piezas de remate. En vaso curvo, en escalera o en formato grande sube; pídele el dato bueno a quien va a colocar.</p>";
+
+    h += "<h3>Hormigón del vaso</h3><div class='calcline'>";
+    h += fila("Solera: " + m2(areaSolera) + " × " + dec(eSolera) + " m", m3(volSolera));
+    h += fila("Muros: " + ml(longMedia) + " × " + dec(pm) + " m × " + dec(eMuro) + " m", m3(volMuros));
+    h += fila("Total de hormigón", m3(hormigon), "tot");
+    h += fila("Cubas de " + dec(capCuba,0) + " m³", cubas + (cubas === 1 ? " cuba" : " cubas"));
+    h += "</div><p>Volumen geométrico limpio: <strong>no incluye</strong> armaduras, refuerzos de escalera, playa, vasos de compensación, ni el hormigón que se pierde en obra.</p>";
+
+    h += "<h3>Excavación</h3><div class='calcline'>";
+    h += fila("Huella con muro + " + dec(sobre) + " m de trabajo por lado", m2(areaExc));
+    h += fila("Profundidad = " + dec(pm) + " + " + dec(eSolera) + " + " + dec(zahorra), dec(profExc) + " m");
+    h += fila("Volumen en banco", m3(excavacion), "tot");
+    h += fila("Suelto para retirar (+" + Math.round(esponj*100) + "% de esponjamiento)", m3(excTransporte));
+    h += "</div><p>La tierra aumenta de volumen al sacarla, así que los camiones se cuentan sobre la cifra suelta, no sobre la del banco.</p>";
+
+    h += "<h3>Coronación</h3><div class='calcline'>";
+    h += fila("Metros lineales de borde", ml(corML));
+    h += fila("Superficie de pieza (" + dec(wCorona) + " m de ancho)", m2(corM2), "tot");
+    h += "</div><p>Sin contar el despiece de las esquinas ni las piezas especiales de ángulo.</p>";
+
+    $("desglose").innerHTML = h;
+  }
+
+  // el sistema constructivo reescribe los espesores
+  form.querySelectorAll('input[name="sistema"]').forEach(function(r){
+    r.addEventListener("change", function(){
+      $("emuro").value   = this.dataset.muro;
+      $("esolera").value = this.dataset.solera;
+      calcular();
+    });
+  });
+
+  form.addEventListener("input", calcular);
+  form.addEventListener("change", calcular);
+  $("verDesglose").addEventListener("change", function(){
+    $("desglose").classList.toggle("hidden", !this.checked);
+  });
+
+  calcular();
+})();
+</script>
+</body>
+</html>
