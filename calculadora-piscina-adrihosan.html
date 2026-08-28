@@ -432,7 +432,7 @@ details.avz .numgrid{margin-top:16px}
     '</article>';
   }
 
-  function bloqueHTML(lista, titulo, subtitulo, hacerDatos) {
+  function bloqueHTML(lista, titulo, subtitulo, hacerDatos, criterio) {
     if (!lista.length){
       return '<h3>' + titulo + '</h3><div class="cards"><p class="vacio-mat">' +
         'Ahora mismo no hay ninguna referencia de este tipo disponible en la tienda.</p></div>';
@@ -443,8 +443,8 @@ details.avz .numgrid{margin-top:16px}
     }).join("");
     var resto = lista.length - vistas.length;
     var pie = resto > 0
-      ? '<p class="gsub" style="margin-top:14px">Se enseñan las ' + TOPE + ' más económicas. Hay ' +
-        resto + ' referencia' + (resto === 1 ? '' : 's') + ' más en la tienda para este uso.</p>'
+      ? '<p class="gsub" style="margin-top:14px">Se enseñan ' + (criterio || "las " + TOPE + " más económicas") +
+        '. Hay ' + resto + ' referencia' + (resto === 1 ? '' : 's') + ' más en la tienda para este uso.</p>'
       : '';
     return '<h3>' + titulo + '</h3><p class="gsub">' + subtitulo + '</p>' +
       '<div class="cards">' + cards + '</div>' + pie;
@@ -531,7 +531,8 @@ details.avz .numgrid{margin-top:16px}
           total: m2ped * prod.p,
           pie: "suelo de playa"
         };
-      });
+      },
+      "las series Sagano, Bonvoy y Aspen primero");
   }
 
   function geometria(){
