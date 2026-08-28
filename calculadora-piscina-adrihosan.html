@@ -203,13 +203,19 @@ details.avz .numgrid{margin-top:16px}
 .cline{display:flex;justify-content:space-between;gap:12px;font-size:13px;font-variant-numeric:tabular-nums}
 .cline span:first-child{color:var(--muted)}
 .cline span:last-child{color:var(--ink);font-weight:500}
-.cfoot{margin-top:auto;padding:14px 16px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cfoot{margin-top:auto;padding:14px 16px 16px;display:flex;flex-direction:column;align-items:stretch;gap:11px}
+.cbtns{display:flex;align-items:center;gap:8px}
+.cbuy{flex:1;text-align:center;text-decoration:none;background:var(--turq);color:var(--petrol-deep);
+  border-radius:999px;padding:11px 14px;font-size:13.5px;font-weight:600;transition:.15s;white-space:nowrap}
+.cbuy:hover{background:#63DEDC;transform:translateY(-1px)}
+.cbuy:focus-visible{outline:2px solid var(--petrol-deep);outline-offset:2px}
 .cprice{line-height:1.15}
 .cprice b{display:block;font-size:20px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
 .cprice small{display:block;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin-top:2px}
-.cgo{flex:none;text-decoration:none;background:var(--petrol-deep);color:#FFF;border-radius:999px;padding:10px 17px;
-  font-size:13.5px;font-weight:500;transition:.15s;white-space:nowrap}
-.cgo:hover{background:var(--turq-deep)}
+.cprice small s{text-decoration-thickness:1px}
+.cgo{flex:none;text-decoration:none;background:var(--mist);color:var(--petrol);border:1px solid var(--line-2);
+  border-radius:999px;padding:10px 15px;font-size:13.5px;font-weight:500;transition:.15s;white-space:nowrap}
+.cgo:hover{background:var(--paper);border-color:var(--turq);color:var(--turq-deep)}
 .cgo:focus-visible{outline:2px solid var(--turq-deep);outline-offset:2px}
 .nota-mat{margin:26px 0 0;padding:16px 18px;background:var(--mist);border-left:3px solid var(--turq);
   border-radius:0 var(--r-md) var(--r-md) 0;font-size:13.5px;line-height:1.6}
@@ -370,7 +376,7 @@ details.avz .numgrid{margin-top:16px}
     <div id="mat-vaso" class="grupo"></div>
     <div id="mat-corona" class="grupo"></div>
     <div id="mat-playa" class="grupo"></div>
-    <p class="nota-mat"><b>Sobre estos precios:</b> son los del catálogo de adrihosan.com el día que se hizo este prototipo, sin portes ni descuentos por palet. El material que de verdad entra en una piscina (adherencia bajo agua, junta, impermeabilización) lo decide quien la ejecuta: esto solo dice cuánto haría falta si se elige esa referencia.</p>
+    <p class="nota-mat"><b>El botón de añadir</b> abre la tienda en otra pestaña con esa cantidad ya metida en el carrito; puedes seguir aquí y añadir más cosas. <b>Sobre estos precios:</b> son los del catálogo de adrihosan.com el día que se hizo este prototipo, sin portes ni descuentos por palet. El material que de verdad entra en una piscina (adherencia bajo agua, junta, impermeabilización) lo decide quien la ejecuta: esto solo dice cuánto haría falta si se elige esa referencia.</p>
   </section>
 
   <div class="audwrap">
@@ -409,10 +415,26 @@ details.avz .numgrid{margin-top:16px}
   // En la versión de producción, este mismo JSON lo produce el PHP del tema
   // contra WooCommerce, sin fichero intermedio.
   // ---------------------------------------------------------------
+  // El add-to-cart de WooCommerce por URL: admite decimales y el importe que
+  // deja en el carrito cuadra al céntimo con el de la tarjeta (probado el
+  // 28-ago-2026 con 75,46 m² del Clásico Alaska -> 1.199,81 €).
+  var TIENDA = "https://www.adrihosan.com/";
   var CATALOGO = null;     // se rellena al cargar
   var TOPE = 8;            // tarjetas por bloque; el resto se resume
 
   function eur(v){ return v.toLocaleString("es-ES",{minimumFractionDigits:2,maximumFractionDigits:2}) + " €"; }
+
+  // Descuento por palet: la tienda lo aplica sola en el carrito a partir de
+  // cierta cantidad. Si la tarjeta no lo enseña, el precio de aquí es MÁS CARO
+  // que el que se va a pagar. Comprobado el 28-ago-2026: 76,32 m² de Sagano
+  // grey salen a 1.518,77 € por catálogo y a 1.215,01 € en el carrito.
+  function conPalet(prod, cantidad, bruto){
+    if (!prod.dto || cantidad < prod.dto[0]){
+      return {total: bruto, bruto: bruto, pct: 0, ahorro: 0};
+    }
+    var ahorro = bruto * prod.dto[1] / 100;
+    return {total: bruto - ahorro, bruto: bruto, pct: prod.dto[1], ahorro: ahorro};
+  }
 
   // Una tarjeta de material. Todo lo que se sirve en cajas redondea hacia arriba.
   function tarjeta(prod, datos, tier){
@@ -427,8 +449,14 @@ details.avz .numgrid{margin-top:16px}
         '<div class="clines">' + lineas + '</div>' +
       '</div>' +
       '<div class="cfoot">' +
-        '<span class="cprice"><b>' + eur(datos.total) + '</b><small>' + datos.pie + '</small></span>' +
-        '<a class="cgo" href="' + prod.url + '" target="_blank" rel="noopener">Ver</a>' +
+        '<span class="cprice"><b>' + eur(datos.total) + '</b><small>' +
+          (datos.pct ? '<s>' + eur(datos.bruto) + '</s> · ' + datos.pct + '% de palet' : datos.pie) +
+        '</small></span>' +
+        '<span class="cbtns">' +
+          '<a class="cbuy" href="' + TIENDA + '?add-to-cart=' + prod.id + '&quantity=' + datos.cantidad +
+            '" target="_blank" rel="noopener">' + datos.botonTexto + '</a>' +
+          '<a class="cgo" href="' + prod.url + '" target="_blank" rel="noopener">Ver</a>' +
+        '</span>' +
       '</div>' +
     '</article>';
   }
@@ -465,16 +493,21 @@ details.avz .numgrid{margin-top:16px}
       function(prod, i){
         var cajas = Math.ceil(revestir / prod.m2cj);
         var m2ped = cajas * prod.m2cj;
+        var pr = conPalet(prod, m2ped, m2ped * prod.p);
+        var lineas = [["Necesarios", dec(revestir,1) + " m²"],
+                      ["Cajas de " + dec(prod.m2cj,2) + " m²", cajas],
+                      ["Se piden", dec(m2ped,2) + " m²"]];
+        if (pr.pct){ lineas.push(["Descuento de palet", "− " + eur(pr.ahorro)]); }
         return {
           // Las series recomendadas van delante, así que la primera tarjeta
           // no tiene por qué ser la más barata.
           etiqueta: prod.prio ? "recomendada" : "revestimiento",
           unitario: eur(prod.p) + "/m²",
-          lineas: [["Necesarios", dec(revestir,1) + " m²"],
-                   ["Cajas de " + dec(prod.m2cj,2) + " m²", cajas],
-                   ["Se piden", dec(m2ped,2) + " m²"]],
-          total: m2ped * prod.p,
-          pie: "material del vaso"
+          lineas: lineas,
+          total: pr.total, bruto: pr.bruto, pct: pr.pct,
+          pie: "material del vaso",
+          cantidad: m2ped.toFixed(2),
+          botonTexto: "Añadir " + dec(m2ped,2) + " m²"
         };
       },
       "las recomendadas repartidas entre las de piscina");
@@ -491,7 +524,9 @@ details.avz .numgrid{margin-top:16px}
       })[0] || CATALOGO.angulo[0];
       extra = '<p class="gsub" style="margin-top:16px">Las <strong>' + esquinas + ' esquinas</strong> piden pieza de ángulo: ' +
         '<a class="cname" style="display:inline" href="' + angulo.url + '" target="_blank" rel="noopener">' + angulo.n + '</a> · ' +
-        esquinas + ' × ' + eur(angulo.p) + ' = <strong>' + eur(esquinas * angulo.p) + '</strong>. Solo aplica si se corona en barro.</p>';
+        esquinas + ' × ' + eur(angulo.p) + ' = <strong>' + eur(esquinas * angulo.p) + '</strong>. Solo aplica si se corona en barro. ' +
+        '<a class="cbuy" style="display:inline-block;flex:none;margin-left:6px;padding:7px 14px;font-size:12.5px" href="' +
+        TIENDA + '?add-to-cart=' + angulo.id + '&quantity=' + esquinas + '" target="_blank" rel="noopener">Añadir ' + esquinas + ' ángulos</a></p>';
     }
     $("mat-corona").innerHTML = bloqueHTML(
       CATALOGO.corona,
@@ -499,14 +534,19 @@ details.avz .numgrid{margin-top:16px}
       'Borde del vaso: <strong>' + dec(corML,1) + ' ml</strong>.',
       function(prod, i){
         var piezas = Math.ceil(corML / prod.mlud);
+        var pr = conPalet(prod, piezas, piezas * prod.p);
+        var lineas = [["Borde", dec(corML,1) + " ml"],
+                      ["Piezas de " + dec(prod.mlud,1) + " ml", piezas],
+                      ["Precio por pieza", eur(prod.p)]];
+        if (pr.pct){ lineas.push(["Descuento de palet", "− " + eur(pr.ahorro)]); }
         return {
           etiqueta: "coronación",
           unitario: eur(prod.p / prod.mlud) + "/ml",
-          lineas: [["Borde", dec(corML,1) + " ml"],
-                   ["Piezas de " + dec(prod.mlud,1) + " ml", piezas],
-                   ["Precio por pieza", eur(prod.p)]],
-          total: piezas * prod.p,
-          pie: "borde del vaso"
+          lineas: lineas,
+          total: pr.total, bruto: pr.bruto, pct: pr.pct,
+          pie: "borde del vaso",
+          cantidad: piezas,
+          botonTexto: "Añadir " + piezas + (piezas === 1 ? " pieza" : " piezas")
         };
       }) + extra;
 
@@ -524,16 +564,21 @@ details.avz .numgrid{margin-top:16px}
       function(prod, i){
         var cajas = Math.ceil(playaM2 / prod.m2cj);
         var m2ped = cajas * prod.m2cj;
+        var pr = conPalet(prod, m2ped, m2ped * prod.p);
+        var lineas = [["Necesarios", dec(playaM2,1) + " m²"],
+                      ["Cajas de " + dec(prod.m2cj,2) + " m²", cajas],
+                      ["Se piden", dec(m2ped,2) + " m²"]];
+        if (pr.pct){ lineas.push(["Descuento de palet", "− " + eur(pr.ahorro)]); }
         return {
           // La playa no va ordenada por precio: delante van las series
           // destacadas, así que la primera tarjeta no es la más barata.
           etiqueta: prod.prio ? "recomendada" : "antideslizante",
           unitario: eur(prod.p) + "/m²",
-          lineas: [["Necesarios", dec(playaM2,1) + " m²"],
-                   ["Cajas de " + dec(prod.m2cj,2) + " m²", cajas],
-                   ["Se piden", dec(m2ped,2) + " m²"]],
-          total: m2ped * prod.p,
-          pie: "suelo de playa"
+          lineas: lineas,
+          total: pr.total, bruto: pr.bruto, pct: pr.pct,
+          pie: "suelo de playa",
+          cantidad: m2ped.toFixed(2),
+          botonTexto: "Añadir " + dec(m2ped,2) + " m²"
         };
       },
       "las series Sagano, Bonvoy y Aspen primero");
