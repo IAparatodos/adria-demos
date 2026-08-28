@@ -4,6 +4,42 @@
  "totalTienda": 169,
  "vaso": [
   {
+   "id": 271760,
+   "n": "Pavimento porcelánico imitación pizarra Sagano grey 30,3 x 61,3 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-sagano-grey-303-x-613",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-sagano-grey-303-x-613/",
+   "p": 15.9,
+   "m2cj": 1.3,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2024/07/pavimento-porcelanico-farum-grey-ambiente-1.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 421045,
+   "n": "Pavimento porcelánico imitación pizarra Bonvoy gris 30,3 x 61,3 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-bonvoy-gris",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-bonvoy-gris/",
+   "p": 16.9,
+   "m2cj": 1.3,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2025/03/azulejo-porcelanico-bonvoy-gris-3.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 401255,
+   "n": "Pavimento porcelánico imitación pizarra Aspen white 30 x 60 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-aspen-white",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-aspen-white/",
+   "p": 14.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2024/12/azulejo-aspen-white-3.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
    "id": 108097,
    "n": "Azulejo liso piscina brillo 15x15 cm",
    "s": "azulejo-liso-piscina-brillo-15x15",
