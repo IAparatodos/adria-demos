@@ -1,7 +1,7 @@
 {
  "generado": "2026-08-28",
  "categoria": 66,
- "totalTienda": 163,
+ "totalTienda": 169,
  "vaso": [
   {
    "id": 108097,
@@ -12,7 +12,8 @@
    "m2cj": 1.0,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2021/03/azulejo-liso-pasta-roja-piscina-15-15-cm.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 108201,
@@ -23,7 +24,8 @@
    "m2cj": 1.0,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2021/03/azulejo-liso-pasta-roja-piscina-15-15-cm-1.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 428620,
@@ -34,7 +36,8 @@
    "m2cj": 0.98,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2026/06/azulejo-pasta-roja-azul-celeste.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 428610,
@@ -45,7 +48,8 @@
    "m2cj": 0.98,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2026/06/azulejo-pasta-roja-monocolor-ambiente.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 90910,
@@ -56,7 +60,8 @@
    "m2cj": 1.02,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2021/01/revestimiento-pasta-roja-10-30-piscina-adrihosan.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 90777,
@@ -67,7 +72,8 @@
    "m2cj": 1.02,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2021/01/revestimiento-pasta-roja-10-30-piscina-adrihosan.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 405440,
@@ -78,7 +84,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/02/azulejo-porcelanico-zijil-ocean-5.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 405421,
@@ -89,7 +96,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/02/azulejo-porcelanico-zilij-sage-5.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 405396,
@@ -100,7 +108,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/02/azulejo-porcelanico-zilij-white-2.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 405452,
@@ -111,7 +120,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/02/azulejo-porcelanico-zilij-navy-2.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 405412,
@@ -122,7 +132,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/02/azulejo-porcelanico-zijil-smoke-2.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 405621,
@@ -133,7 +144,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/02/azulejo-porcelanico-waterwrld-blue-4.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 405615,
@@ -144,7 +156,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/02/azulejo-porcelanico-zilij-deco-white-3.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 405598,
@@ -155,7 +168,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/02/azulejo-porcelanico-zilij-deco-white-3.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 405591,
@@ -166,7 +180,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/02/azulejo-porcelanico-zijil-jewel-navy-2.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 405582,
@@ -177,7 +192,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/02/azulejo-porcelanico-zilij-jewel-ocean-4.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 405496,
@@ -188,7 +204,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/02/azulejo-porcelanico-zilij-jewel-sage-4.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 405488,
@@ -199,7 +216,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/02/azulejo-porcelanico-zijil-jewel-smoke.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 405460,
@@ -210,7 +228,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/02/azulejo-porcelanico-zijil-jewel-white-4.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 428629,
@@ -221,7 +240,8 @@
    "m2cj": 0.98,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2026/06/azulejo-pasta-roja-azul-noche.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   }
  ],
  "corona": [
@@ -234,7 +254,8 @@
    "m2cj": 0.0,
    "mlud": 0.6,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/01/terracota-manual-remate-piscina-30x325cm-ambiente.jpg",
-   "fuenteM2": "no aplica"
+   "fuenteM2": "no aplica",
+   "prio": 0
   },
   {
    "id": 134048,
@@ -245,7 +266,8 @@
    "m2cj": 0.0,
    "mlud": 2.5,
    "img": "https://www.adrihosan.com/wp-content/uploads/2020/05/novopeldano-maxidakar-especial-para-escaleras-remates-de-piscinas.jpg",
-   "fuenteM2": "no aplica"
+   "fuenteM2": "no aplica",
+   "prio": 0
   },
   {
    "id": 404326,
@@ -256,7 +278,8 @@
    "m2cj": 0.0,
    "mlud": 0.8,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/01/terracota-manual-remate-piscina-30x325cm-ambiente.jpg",
-   "fuenteM2": "no aplica"
+   "fuenteM2": "no aplica",
+   "prio": 0
   }
  ],
  "angulo": [
@@ -269,7 +292,8 @@
    "m2cj": 0.0,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/01/terracota-manual-medio-angulo-de-piscina-30x32cm-ambiente.jpg",
-   "fuenteM2": "no aplica"
+   "fuenteM2": "no aplica",
+   "prio": 0
   },
   {
    "id": 404328,
@@ -280,7 +304,8 @@
    "m2cj": 0.0,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/01/terracota-manual-angulo-externo-piscina-405x405cm-ambiente.jpg",
-   "fuenteM2": "no aplica"
+   "fuenteM2": "no aplica",
+   "prio": 0
   },
   {
    "id": 404327,
@@ -291,10 +316,287 @@
    "m2cj": 0.0,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2025/01/terracota-manual-angulo-interno-de-piscina-45x45cm-ambiente.jpg",
-   "fuenteM2": "no aplica"
+   "fuenteM2": "no aplica",
+   "prio": 0
   }
  ],
  "playa": [
+  {
+   "id": 401255,
+   "n": "Pavimento porcelánico imitación pizarra Aspen white 30 x 60 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-aspen-white",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-aspen-white/",
+   "p": 14.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2024/12/azulejo-aspen-white-3.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 130753,
+   "n": "Pavimento porcelánico imitación pizarra Aspen Blue 30 x 60 cm",
+   "s": "pavimento-porcelanico-pizarra-aspen-blue",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-pizarra-aspen-blue/",
+   "p": 14.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2022/06/azulejo-aspen-blue-30-x-60-adrihosan-mykonos-8.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 130708,
+   "n": "Pavimento porcelánico imitación pizarra Aspen beige 30 x 60 cm",
+   "s": "pavimento-porcelanico-pizarra-aspen-beig",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-pizarra-aspen-beig/",
+   "p": 14.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2023/06/piscina-con-azulejos-aspen-en-color-beige.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 130709,
+   "n": "Pavimento porcelánico imitación pizarra Aspen tierra 30 x 60 cm",
+   "s": "pavimento-porcelanico-pizarra-aspen-tierra",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-pizarra-aspen-tierra/",
+   "p": 14.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2023/02/pavimento-porcelanico-imitacion-pizarra-aspen-tierra-30-x-60-cm-2.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 130710,
+   "n": "Pavimento porcelánico imitación pizarra Aspen multicolor 30 x 60 cm",
+   "s": "pavimento-porcelanico-aspen-multicolor",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-aspen-multicolor/",
+   "p": 14.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2023/02/piscina-pavimiento-porcelanico-aspen-multicolor-1.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 130752,
+   "n": "Pavimento porcelánico imitación pizarra Aspen Green 30 x 60 cm",
+   "s": "pavimento-porcelanico-pizarra-aspen-gre",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-pizarra-aspen-gre/",
+   "p": 14.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2022/06/azulejo-aspen-greenn-30-x-60-adrihosan-mykonos-6.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 151027,
+   "n": "Pavimento porcelánico imitación pizarra Aspen Grey 30 x 60 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-aspen-grey",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-aspen-grey/",
+   "p": 14.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2024/11/azulejo-aspen-grey.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 151035,
+   "n": "Pavimento porcelánico imitación pizarra Aspen Coal 30 x 60 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-aspen-coal-30-x-60-cm-1-44-m2-cj",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-aspen-coal-30-x-60-cm-1-44-m2-cj/",
+   "p": 14.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/pavimento-porcelanico-aspen-coal.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 271760,
+   "n": "Pavimento porcelánico imitación pizarra Sagano grey 30,3 x 61,3 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-sagano-grey-303-x-613",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-sagano-grey-303-x-613/",
+   "p": 15.9,
+   "m2cj": 1.3,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2024/07/pavimento-porcelanico-farum-grey-ambiente-1.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 271756,
+   "n": "Pavimento porcelánico imitación pizarra Sagano blue 30,3 x 61,3 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-sagano-blue-303-x-613",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-sagano-blue-303-x-613/",
+   "p": 15.9,
+   "m2cj": 1.3,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2024/07/pavimento-porcelanico-farum-blue-3.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 421045,
+   "n": "Pavimento porcelánico imitación pizarra Bonvoy gris 30,3 x 61,3 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-bonvoy-gris",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-bonvoy-gris/",
+   "p": 16.9,
+   "m2cj": 1.3,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2025/03/azulejo-porcelanico-bonvoy-gris-3.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 421029,
+   "n": "Pavimento porcelánico imitación pizarra Bonvoy azul 30,3 x 61,3 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-bonvoy-azul",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-bonvoy-azul/",
+   "p": 16.9,
+   "m2cj": 1.3,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2025/03/azulejo-porcelanico-bonboy-azul-ambiente.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 420998,
+   "n": "Pavimento porcelánico imitación pizarra Bonvoy verde 30,3 x 61,3 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-bonvoy-verde-303-x-613",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-bonvoy-verde-303-x-613/",
+   "p": 16.9,
+   "m2cj": 1.3,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2025/03/azulejo-porcelanico-bonboy-verde-ambiente-2.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 166802,
+   "n": "Pavimento porcelánico rectificado imitación pizarra Aspen beige 60 x 120 cm",
+   "s": "azulejo-aspen-beige-120",
+   "url": "https://www.adrihosan.com/producto/azulejo-aspen-beige-120/",
+   "p": 18.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2023/06/piscina-con-azulejos-aspen-en-color-beige.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 166806,
+   "n": "Pavimento porcelánico rectificado imitación pizarra Aspen blue 60 x 120 cm",
+   "s": "pavimento-aspen-blue",
+   "url": "https://www.adrihosan.com/producto/pavimento-aspen-blue/",
+   "p": 18.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2022/06/azulejo-aspen-blue-30-x-60-adrihosan-mykonos-8.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 166811,
+   "n": "Pavimento porcelánico rectificado imitación pizarra Aspen multicolor 60 x 120 cm",
+   "s": "pavimento-porcelanico-aspen-multicolor-2",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-aspen-multicolor-2/",
+   "p": 18.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2020/08/pavimento-porcelanico-imitacion-pizarra-aspen-multicolor-adrihosan-8.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 421057,
+   "n": "Pavimento porcelánico rectificado imitación pizarra Bonvoy gris 60 x 120 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-bonvoy-gris-60-x-120",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-bonvoy-gris-60-x-120/",
+   "p": 19.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2025/03/azulejo-porcelanico-bonvoy-gris-3.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 421043,
+   "n": "Pavimento porcelánico rectificado imitación pizarra Bonvoy Azul 60 x 120 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-bonvoy-azul-60-x-120",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-bonvoy-azul-60-x-120/",
+   "p": 19.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2025/03/azulejo-porcelanico-bonboy-azul-ambiente.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 421012,
+   "n": "Pavimento porcelánico rectificado imitación pizarra Bonvoy verde 60 x 120 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-bonvoy-verde-60-x-120-cm-1-44-m2-cj",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-bonvoy-verde-60-x-120-cm-1-44-m2-cj/",
+   "p": 19.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2025/03/azulejo-porcelanico-bonboy-verde-ambiente-2.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 271732,
+   "n": "Pavimento porcelánico rectificado imitación pizarra Sagano grey 60 x 120 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-sagano-grey-60-x-120",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-sagano-grey-60-x-120/",
+   "p": 19.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2024/07/pavimento-porcelanico-farum-grey-ambiente-1.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 271745,
+   "n": "Pavimento porcelánico rectificado imitación pizarra Sagano emerald 60 x 120 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-sagano-emerald-60-x-120",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-sagano-emerald-60-x-120/",
+   "p": 19.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2024/07/pavimento-porcelanico-farum-emerald-1.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 271726,
+   "n": "Pavimento porcelánico rectificado imitación pizarra Sagano blue 60 x 120 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-sagano-blue-60-x-120",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-sagano-blue-60-x-120/",
+   "p": 19.9,
+   "m2cj": 1.44,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2024/07/pavimento-porcelanico-farum-blue.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
+  {
+   "id": 271765,
+   "n": "Pavimento porcelánico imitación pizarra Sagano emerald 30,3 x 61,3 cm",
+   "s": "pavimento-porcelanico-imitacion-pizarra-sagano-emerald-303-x-613",
+   "url": "https://www.adrihosan.com/producto/pavimento-porcelanico-imitacion-pizarra-sagano-emerald-303-x-613/",
+   "p": 19.9,
+   "m2cj": 1.3,
+   "mlud": 0.0,
+   "img": "https://www.adrihosan.com/wp-content/uploads/2024/07/pavimento-porcelanico-farum-emerald-1.jpg",
+   "fuenteM2": "titulo",
+   "prio": 1
+  },
   {
    "id": 429944,
    "n": "Suelo imitación madera miel antideslizante Irazu 45x45 cm",
@@ -304,7 +606,8 @@
    "m2cj": 1.22,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2026/08/suelo-imitacion-madera-irazu-miel-45x45-terraza-v2.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 429940,
@@ -315,7 +618,8 @@
    "m2cj": 1.22,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2026/08/suelo-imitacion-madera-irazu-natural-45x45-terraza.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 429936,
@@ -326,7 +630,8 @@
    "m2cj": 1.22,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2026/08/suelo-imitacion-madera-irazu-perla-45x45-terraza.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 429929,
@@ -337,7 +642,8 @@
    "m2cj": 1.22,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2026/08/suelo-imitacion-madera-irazu-roble-45x45-terraza-2000.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 429921,
@@ -348,7 +654,8 @@
    "m2cj": 1.22,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2026/08/suelo-imitacion-madera-irazu-gris-45x45-terraza-2000.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151459,
@@ -359,7 +666,8 @@
    "m2cj": 0.99,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/ambientebalirturquesa.png",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151462,
@@ -370,7 +678,8 @@
    "m2cj": 0.99,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/ambientebalibeige.png",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151521,
@@ -381,7 +690,8 @@
    "m2cj": 0.99,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/ambientebalirturquesa.png",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151538,
@@ -392,7 +702,8 @@
    "m2cj": 0.99,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/ambientebalirgrafito.png",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151644,
@@ -403,7 +714,8 @@
    "m2cj": 1.26,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/ambientebalirturquesa.png",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151649,
@@ -414,7 +726,8 @@
    "m2cj": 1.26,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/ambientebalibeige.png",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151655,
@@ -425,7 +738,8 @@
    "m2cj": 1.26,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/ambientebalirturquesa.png",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151665,
@@ -436,7 +750,8 @@
    "m2cj": 1.26,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/ambientebalirgrafito.png",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 117178,
@@ -447,7 +762,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2021/09/suelo-ceramico-ziro-adrihosan.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 117177,
@@ -458,7 +774,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2022/01/porcelanico-gran-formato-rectificado-pavimento-village-marengo-adrihosan-2.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 117165,
@@ -469,7 +786,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2022/01/porcelanico-gran-formato-rectificado-pavimento-village-blanco-adrihosan-1.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 117166,
@@ -480,7 +798,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2022/01/porcelanico-gran-formato-rectificado-pavimento-village-crema-adrihosan-1.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 117176,
@@ -491,7 +810,8 @@
    "m2cj": 1.08,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2022/01/porcelanico-gran-formato-rectificado-pavimento-village-gris-adrihosan-1.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 117188,
@@ -502,7 +822,8 @@
    "m2cj": 1.44,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2022/01/porcelanico-gran-formato-rectificado-pavimento-village-crema-adrihosan-1.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 117200,
@@ -513,7 +834,8 @@
    "m2cj": 1.44,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2022/01/porcelanico-gran-formato-rectificado-pavimento-village-marengo-adrihosan-2.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 117206,
@@ -524,7 +846,8 @@
    "m2cj": 1.44,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2022/01/porcelanico-gran-formato-rectificado-pavimento-village-perla-adrihosan.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 117194,
@@ -535,7 +858,8 @@
    "m2cj": 1.44,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2022/01/porcelanico-gran-formato-rectificado-pavimento-village-gris-adrihosan.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 117184,
@@ -546,7 +870,8 @@
    "m2cj": 1.44,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2022/01/porcelanico-gran-formato-rectificado-pavimento-village-blanco-adrihosan.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151626,
@@ -557,7 +882,8 @@
    "m2cj": 1.44,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/ambientebalirturquesa.png",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151631,
@@ -568,7 +894,8 @@
    "m2cj": 1.44,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/ambientebalibeige.png",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151634,
@@ -579,7 +906,8 @@
    "m2cj": 1.44,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/ambientebalirturquesa.png",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151635,
@@ -590,7 +918,8 @@
    "m2cj": 1.44,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/ambientebalirgrafito.png",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 129563,
@@ -601,7 +930,8 @@
    "m2cj": 0.65,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/01/suelo-exterior-antideslizante-c3-carnival-white-realonda-1.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 129921,
@@ -612,7 +942,8 @@
    "m2cj": 0.65,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/01/suelo-exterior-antideslizante-c3-carnival-color-realonda.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 129922,
@@ -623,7 +954,8 @@
    "m2cj": 0.65,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/01/suelo-exterior-antideslizante-c3-carnival-grey-realonda-1.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 129925,
@@ -634,7 +966,8 @@
    "m2cj": 0.65,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/01/suelo-exterior-antideslizante-c3-carnival-beige-realonda-2.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 130046,
@@ -645,7 +978,8 @@
    "m2cj": 0.65,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/01/pavimento-fresco-ash-329-x-329-6.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 130058,
@@ -656,7 +990,8 @@
    "m2cj": 0.65,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/01/pavimento-fresco-blue-329-x-329-2.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 130063,
@@ -667,7 +1002,8 @@
    "m2cj": 0.65,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/01/pavimento-fresco-black-329-x-329-3.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 130070,
@@ -678,7 +1014,8 @@
    "m2cj": 0.65,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/01/pavimento-fresco-mint-329-x-329-2.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 130344,
@@ -689,7 +1026,8 @@
    "m2cj": 0.65,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/01/pavimento-venice-smoke-329-x-329-1.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151313,
@@ -700,7 +1038,8 @@
    "m2cj": 0.65,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/pavimento-porcelanico-parma-arena.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151307,
@@ -711,7 +1050,8 @@
    "m2cj": 0.65,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/pavimiento-porcelanico-parma-cotto.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151293,
@@ -722,7 +1062,8 @@
    "m2cj": 0.65,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/pavimento-porcelanico-parma-terra.jpg",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151562,
@@ -733,7 +1074,8 @@
    "m2cj": 1.4,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/ambientebalirturquesa.png",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151565,
@@ -744,7 +1086,8 @@
    "m2cj": 1.4,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/ambientebalibeige.png",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151567,
@@ -755,7 +1098,8 @@
    "m2cj": 1.4,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/ambientebalirturquesa.png",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   },
   {
    "id": 151570,
@@ -766,7 +1110,8 @@
    "m2cj": 1.4,
    "mlud": 0.0,
    "img": "https://www.adrihosan.com/wp-content/uploads/2023/05/ambientebalirgrafito.png",
-   "fuenteM2": "atributo"
+   "fuenteM2": "atributo",
+   "prio": 0
   }
  ]
 }
