@@ -314,8 +314,8 @@ details.avz .numgrid{margin-top:16px}
         <div class="numgrid dos" style="margin-top:16px">
           <div class="numfield"><label for="corona">Ancho de la coronación</label>
             <div class="box"><input type="number" id="corona" value="0.30" min="0.1" max="1" step="0.01"><span class="unit">m</span></div></div>
-          <div class="numfield"><label for="playa">Ancho de playa (0 = no calcular)</label>
-            <div class="box"><input type="number" id="playa" value="1.5" min="0" max="10" step="0.1"><span class="unit">m</span></div></div>
+          <div class="numfield"><label for="playa">Playa a revestir (0 = no calcular)</label>
+            <div class="box"><input type="number" id="playa" value="50" min="0" max="3000" step="1"><span class="unit">m²</span></div></div>
         </div>
       </div>
 
@@ -450,7 +450,7 @@ details.avz .numgrid{margin-top:16px}
       '<div class="cards">' + cards + '</div>' + pie;
   }
 
-  function pintarMateriales(revestir, corML, playaM2, esquinas, merma){
+  function pintarMateriales(revestir, corML, playaM2, playaDicha, esquinas, merma){
     if (!CATALOGO){ return; }
     $("fecha-cat").textContent = "catálogo de la tienda · " + CATALOGO.generado;
     var pct = Math.round(merma * 100);
@@ -507,14 +507,14 @@ details.avz .numgrid{margin-top:16px}
 
     // --- playa perimetral (opcional)
     if (!(playaM2 > 0)){
-      $("mat-playa").innerHTML = '<h3>Playa perimetral</h3>' +
-        '<div class="cards"><p class="vacio-mat">Pon un ancho de playa arriba para calcular también el pavimento antideslizante de alrededor.</p></div>';
+      $("mat-playa").innerHTML = '<h3>Playa</h3>' +
+        '<div class="cards"><p class="vacio-mat">Escribe arriba los metros de playa que se van a revestir alrededor de la piscina para ver también el pavimento antideslizante.</p></div>';
       return;
     }
     $("mat-playa").innerHTML = bloqueHTML(
       CATALOGO.playa,
-      "Playa perimetral",
-      'Anillo alrededor del vaso: <strong>' + dec(playaM2,1) + ' m²</strong> con la misma merma del ' + pct + '%.',
+      "Playa",
+      'Playa indicada: <strong>' + dec(playaDicha,1) + ' m²</strong>, que con la merma del ' + pct + '% son <strong>' + dec(playaM2,1) + ' m²</strong>.',
       function(prod, i){
         var cajas = Math.ceil(playaM2 / prod.m2cj);
         var m2ped = cajas * prod.m2cj;
@@ -588,7 +588,9 @@ details.avz .numgrid{margin-top:16px}
     var esponj  = num("esponj") / 100;
     var merma   = parseFloat(pick("merma")) / 100;
     var wCorona = num("corona");
-    var wPlaya  = num("playa");
+    // La playa la dice el cliente en m²: es como llega el dato en la tienda,
+    // y una piscina real no lleva un anillo regular alrededor.
+    var playaDicha = num("playa");
 
     var rectangular = (forma === "rect");
 
@@ -650,13 +652,12 @@ details.avz .numgrid{margin-top:16px}
     $("r-cor").firstChild.nodeValue = ml(corML);
     $("r-cor-s").textContent = m2(corM2) + " de pieza";
 
-    // --- playa perimetral: anillo por fuera de la coronación
-    var perimCorona = g.perim + 2 * Math.PI * wCorona;
-    var playaM2 = wPlaya > 0 ? (perimCorona * wPlaya + Math.PI * wPlaya * wPlaya) * (1 + merma) : 0;
+    // --- playa: sobre los metros que indique, solo se añade la merma
+    var playaM2 = playaDicha > 0 ? playaDicha * (1 + merma) : 0;
 
     // --- material del catálogo
     var esquinas = rectangular ? 4 : 0;
-    pintarMateriales(revestirMerma, corML, playaM2, esquinas, merma);
+    pintarMateriales(revestirMerma, corML, playaM2, playaDicha, esquinas, merma);
 
     // --- desglose
     var fila = function(txt, val, clase){
@@ -697,11 +698,10 @@ details.avz .numgrid{margin-top:16px}
     h += "</div><p>Sin contar el despiece de las esquinas ni las piezas especiales de ángulo.</p>";
 
     if (playaM2 > 0){
-      h += "<h3>Playa perimetral</h3><div class='calcline'>";
-      h += fila("Contorno por fuera de la coronación", ml(perimCorona));
-      h += fila("Anillo de " + dec(wPlaya) + " m de ancho", m2(playaM2 / (1 + merma)));
+      h += "<h3>Playa</h3><div class='calcline'>";
+      h += fila("Superficie que has indicado", m2(playaDicha));
       h += fila("Con merma del " + Math.round(merma*100) + "%", m2(playaM2), "tot");
-      h += "</div><p>Anillo continuo alrededor del vaso. Si la playa no rodea la piscina entera, o si hay ducha, escalera o zona de tumbonas, esa superficie se mide aparte.</p>";
+      h += "</div><p>Este dato no se calcula: lo pones tú. La calculadora solo le suma la merma y lo pasa a cajas.</p>";
     }
 
     $("desglose").innerHTML = h;
