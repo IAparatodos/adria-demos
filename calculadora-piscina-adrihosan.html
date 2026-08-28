@@ -465,7 +465,9 @@ details.avz .numgrid{margin-top:16px}
         var cajas = Math.ceil(revestir / prod.m2cj);
         var m2ped = cajas * prod.m2cj;
         return {
-          etiqueta: i === 0 ? "más económica" : "revestimiento",
+          // Las series recomendadas van delante, así que la primera tarjeta
+          // no tiene por qué ser la más barata.
+          etiqueta: prod.prio ? "recomendada" : "revestimiento",
           unitario: eur(prod.p) + "/m²",
           lineas: [["Necesarios", dec(revestir,1) + " m²"],
                    ["Cajas de " + dec(prod.m2cj,2) + " m²", cajas],
@@ -473,7 +475,8 @@ details.avz .numgrid{margin-top:16px}
           total: m2ped * prod.p,
           pie: "material del vaso"
         };
-      });
+      },
+      "las recomendadas primero, después las más económicas");
 
     // --- coronación: se vende por pieza de N metros lineales
     var extra = "";
