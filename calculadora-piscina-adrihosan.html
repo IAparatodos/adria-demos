@@ -401,50 +401,15 @@ details.avz .numgrid{margin-top:16px}
 
 
   // ---------------------------------------------------------------
-  // Catálogo de adrihosan.com — instantánea del 28-ago-2026.
-  // m2cj sale del TÍTULO de la ficha (los m² por caja reales), no del
-  // meta de paso de compra de la tienda, que en esta categoría está
-  // desajustado en 76 de 106 referencias.
-  // En la versión de producción esto lo lee WooCommerce en vivo, igual
-  // que hace la calculadora de calefacción.
+  // Catálogo: se lee de catalogo-piscina.json, que genera
+  // generar-catalogo.py leyendo la tienda en vivo (Store API pública).
+  // Aquí NO hay ningún producto escrito a mano: lo que se dé de alta o de
+  // baja en adrihosan.com aparece o desaparece al regenerar el JSON.
+  // En la versión de producción, este mismo JSON lo produce el PHP del tema
+  // contra WooCommerce, sin fichero intermedio.
   // ---------------------------------------------------------------
-  var BASE = "https://www.adrihosan.com/producto/";
-  var IMG  = "https://www.adrihosan.com/wp-content/uploads/";
-
-  var CATALOGO = {
-    fecha: "28-ago-2026",
-    // Revestimiento del vaso: precio €/m², servido en cajas de m2cj.
-    vaso: [
-      {n:"Azulejo liso piscina 15x15",            s:"azulejo-liso-piscina-15x15",              p:13.90, m2cj:1.00, img:"2021/03/azulejo-liso-pasta-roja-piscina-15-15-cm-1.jpg"},
-      {n:"Azulejo liso piscina brillo 15x15",     s:"azulejo-liso-piscina-brillo-15x15",       p:13.90, m2cj:1.00, img:"2021/03/azulejo-liso-pasta-roja-piscina-15-15-cm.jpg"},
-      {n:"Clásico Piscinas Alaska 14x28",         s:"azulejo-pasta-roja-monocolor-alaska-14-x28", p:15.90, m2cj:0.98, img:"2026/06/azulejo-pasta-roja-monocolor-ambiente.jpg"},
-      {n:"Clásico Piscinas Azul Celeste 14x28",   s:"azulejo-clasico-para-piscinas-en-color-azul-celeste", p:15.90, m2cj:0.98, img:"2026/06/azulejo-pasta-roja-azul-celeste.jpg"},
-      {n:"Azulejo liso piscina brillo 10x30",     s:"azulejo-liso-piscina-brillo-10x30-cm",    p:16.90, m2cj:1.02, img:"2021/01/revestimiento-pasta-roja-10-30-piscina-adrihosan.jpg"},
-      {n:"Zilij White 15x45",                     s:"azulejo-porcelanico-zijil-white",         p:18.90, m2cj:1.08, img:"2025/02/azulejo-porcelanico-zilij-white-2.jpg"},
-      {n:"Zilij Ocean 15x45",                     s:"azulejo-porcelanico-zilij-ocean",         p:18.90, m2cj:1.08, img:"2025/02/azulejo-porcelanico-zijil-ocean-5.jpg"},
-      {n:"Zilij Sage 15x45",                      s:"azulejo-porcelanico-zilij-sage",          p:18.90, m2cj:1.08, img:"2025/02/azulejo-porcelanico-zilij-sage-5.jpg"},
-      {n:"Zilij Navy 15x45",                      s:"azulejo-porcelanico-zilij-navy",          p:18.90, m2cj:1.08, img:"2025/02/azulejo-porcelanico-zilij-navy-2.jpg"},
-      {n:"Waterwold Turquesa 15x45",              s:"azulejo-porcelanico-waterwold-turquesa",  p:20.90, m2cj:1.08, img:"2025/02/azulejo-porcelanico-zilij-deco-white-3.jpg"},
-      {n:"Waterwold Blue 15x45",                  s:"azulejo-porcelanico-waterwold-blue",      p:20.90, m2cj:1.08, img:"2025/02/azulejo-porcelanico-waterwrld-blue-4.jpg"},
-      {n:"Clásico Piscinas Azul Noche 14x28",     s:"azulejo-clasico-para-piscinas-en-color-azul-noche", p:21.90, m2cj:0.98, img:"2026/06/azulejo-pasta-roja-azul-noche.jpg"}
-    ],
-    // Coronación: se vende por pieza, cada una cubre mlud metros lineales.
-    corona: [
-      {n:"Remate barro terracota 30x32,5", s:"terracota-manual-alt000032", p:13.90, mlud:0.6, img:"2025/01/terracota-manual-remate-piscina-30x325cm-ambiente.jpg"},
-      {n:"Remate barro terracota 40x40",   s:"terracota-manual-alt000033", p:22.90, mlud:0.8, img:"2025/01/terracota-manual-remate-piscina-30x325cm-ambiente.jpg"},
-      {n:"Novopeldaño MaxiDakar 2,5 ml",   s:"novopeldano-maxidakar-2-5",  p:62.90, mlud:2.5, img:"2020/05/novopeldano-maxidakar-especial-para-escaleras-remates-de-piscinas.jpg"}
-    ],
-    // Ángulo para las esquinas del vaso rectangular.
-    angulo: {n:"Ángulo externo piscina terracota", s:"terracota-manual-alt000035", p:40.90, img:"2025/01/terracota-manual-angulo-externo-piscina-405x405cm-ambiente.jpg"},
-    // Playa perimetral: antideslizantes.
-    playa: [
-      {n:"Bali Beige antideslizante 30x30",  s:"suelo-porcelanico-bali-beige-30x30",     p:16.90, m2cj:0.99, img:"2023/05/ambientebalibeige.png"},
-      {n:"Irazu roble antideslizante 45x45", s:"suelo-imitacion-madera-roble-irazu-45x45", p:16.90, m2cj:1.22, img:"2026/08/suelo-imitacion-madera-irazu-roble-45x45-terraza-2000.jpg"},
-      {n:"Ziro Gris antideslizante 30x60",   s:"pavimento-antideslizante-porc-ziro-gris", p:17.90, m2cj:1.08, img:"2022/01/porcelanico-gran-formato-rectificado-pavimento-village-gris-adrihosan-1.jpg"},
-      {n:"Ziro Gris antideslizante 60x60",   s:"pavimento-anti-porc-rec-ziro-gris-60",   p:18.90, m2cj:1.44, img:"2022/01/porcelanico-gran-formato-rectificado-pavimento-village-gris-adrihosan.jpg"},
-      {n:"Carnival white C3 32,9x32,9",      s:"suelo-exterior-antideslizante-carnivalw", p:23.90, m2cj:0.65, img:"2023/01/suelo-exterior-antideslizante-c3-carnival-white-realonda-1.jpg"}
-    ]
-  };
+  var CATALOGO = null;     // se rellena al cargar
+  var TOPE = 8;            // tarjetas por bloque; el resto se resume
 
   function eur(v){ return v.toLocaleString("es-ES",{minimumFractionDigits:2,maximumFractionDigits:2}) + " €"; }
 
@@ -455,96 +420,114 @@ details.avz .numgrid{margin-top:16px}
     }).join("");
     return '<article class="card" data-tier="' + (tier || "") + '">' +
       '<div class="cbadge"><span>' + datos.etiqueta + '</span><span class="unit">' + datos.unitario + '</span></div>' +
-      '<div class="shot"><img src="' + IMG + prod.img + '" alt="" loading="lazy"></div>' +
+      (prod.img ? '<div class="shot"><img src="' + prod.img + '" alt="" loading="lazy"></div>' : '') +
       '<div class="cbody">' +
-        '<a class="cname" href="' + BASE + prod.s + '/" target="_blank" rel="noopener">' + prod.n + '</a>' +
+        '<a class="cname" href="' + prod.url + '" target="_blank" rel="noopener">' + prod.n + '</a>' +
         '<div class="clines">' + lineas + '</div>' +
       '</div>' +
       '<div class="cfoot">' +
         '<span class="cprice"><b>' + eur(datos.total) + '</b><small>' + datos.pie + '</small></span>' +
-        '<a class="cgo" href="' + BASE + prod.s + '/" target="_blank" rel="noopener">Ver</a>' +
+        '<a class="cgo" href="' + prod.url + '" target="_blank" rel="noopener">Ver</a>' +
       '</div>' +
     '</article>';
   }
 
-  function pintarMateriales(revestir, corML, playaM2, esquinas, merma){
-    $("fecha-cat").textContent = "precios del catálogo · " + CATALOGO.fecha;
-
-    // --- vaso
-    var vaso = CATALOGO.vaso.map(function(prod, i){
-      var cajas = Math.ceil(revestir / prod.m2cj);
-      var m2ped = cajas * prod.m2cj;
-      return tarjeta(prod, {
-        etiqueta: i === 0 ? "más económica" : "revestimiento",
-        unitario: eur(prod.p) + "/m²",
-        lineas: [
-          ["Necesarios", dec(revestir,1) + " m²"],
-          ["Cajas de " + dec(prod.m2cj,2) + " m²", cajas],
-          ["Se piden", dec(m2ped,2) + " m²"]
-        ],
-        total: m2ped * prod.p,
-        pie: "material del vaso"
-      }, i === 0 ? "mejor" : "");
-    }).join("");
-    $("mat-vaso").innerHTML = '<h3>Revestimiento del vaso</h3>' +
-      '<p class="gsub">Fondo con paredes: <strong>' + dec(revestir,1) + ' m²</strong> con la merma del ' + Math.round(merma*100) + '% ya dentro.</p>' +
-      '<div class="cards">' + vaso + '</div>';
-
-    // --- coronación
-    var corona = CATALOGO.corona.map(function(prod, i){
-      var piezas = Math.ceil(corML / prod.mlud);
-      return tarjeta(prod, {
-        etiqueta: i === 0 ? "más económica" : "coronación",
-        unitario: eur(prod.p / prod.mlud) + "/ml",
-        lineas: [
-          ["Borde", dec(corML,1) + " ml"],
-          ["Piezas de " + dec(prod.mlud,1) + " ml", piezas],
-          ["Precio por pieza", eur(prod.p)]
-        ],
-        total: piezas * prod.p,
-        pie: "borde del vaso"
-      }, i === 0 ? "mejor" : "");
-    }).join("");
-    var extra = "";
-    if (esquinas > 0){
-      var a = CATALOGO.angulo;
-      extra = '<p class="gsub" style="margin-top:16px">Las <strong>' + esquinas + ' esquinas</strong> piden pieza de ángulo: ' +
-        '<a class="cname" style="display:inline" href="' + BASE + a.s + '/" target="_blank" rel="noopener">' + a.n + '</a> · ' +
-        esquinas + ' × ' + eur(a.p) + ' = <strong>' + eur(esquinas * a.p) + '</strong>. Solo aplica si se corona en barro.</p>';
+  function bloqueHTML(lista, titulo, subtitulo, hacerDatos) {
+    if (!lista.length){
+      return '<h3>' + titulo + '</h3><div class="cards"><p class="vacio-mat">' +
+        'Ahora mismo no hay ninguna referencia de este tipo disponible en la tienda.</p></div>';
     }
-    $("mat-corona").innerHTML = '<h3>Coronación</h3>' +
-      '<p class="gsub">Borde del vaso: <strong>' + dec(corML,1) + ' ml</strong>.</p>' +
-      '<div class="cards">' + corona + '</div>' + extra;
+    var vistas = lista.slice(0, TOPE);
+    var cards = vistas.map(function(prod, i){
+      return tarjeta(prod, hacerDatos(prod, i), i === 0 ? "mejor" : "");
+    }).join("");
+    var resto = lista.length - vistas.length;
+    var pie = resto > 0
+      ? '<p class="gsub" style="margin-top:14px">Se enseñan las ' + TOPE + ' más económicas. Hay ' +
+        resto + ' referencia' + (resto === 1 ? '' : 's') + ' más en la tienda para este uso.</p>'
+      : '';
+    return '<h3>' + titulo + '</h3><p class="gsub">' + subtitulo + '</p>' +
+      '<div class="cards">' + cards + '</div>' + pie;
+  }
 
-    // --- playa
+  function pintarMateriales(revestir, corML, playaM2, esquinas, merma){
+    if (!CATALOGO){ return; }
+    $("fecha-cat").textContent = "catálogo de la tienda · " + CATALOGO.generado;
+    var pct = Math.round(merma * 100);
+
+    // --- revestimiento del vaso: se sirve en cajas enteras
+    $("mat-vaso").innerHTML = bloqueHTML(
+      CATALOGO.vaso,
+      "Revestimiento del vaso",
+      'Fondo con paredes: <strong>' + dec(revestir,1) + ' m²</strong> con la merma del ' + pct + '% ya dentro.',
+      function(prod, i){
+        var cajas = Math.ceil(revestir / prod.m2cj);
+        var m2ped = cajas * prod.m2cj;
+        return {
+          etiqueta: i === 0 ? "más económica" : "revestimiento",
+          unitario: eur(prod.p) + "/m²",
+          lineas: [["Necesarios", dec(revestir,1) + " m²"],
+                   ["Cajas de " + dec(prod.m2cj,2) + " m²", cajas],
+                   ["Se piden", dec(m2ped,2) + " m²"]],
+          total: m2ped * prod.p,
+          pie: "material del vaso"
+        };
+      });
+
+    // --- coronación: se vende por pieza de N metros lineales
+    var extra = "";
+    var angulo = null;
+    if (esquinas > 0 && CATALOGO.angulo && CATALOGO.angulo.length){
+      // De los ángulos de la tienda, el externo entero es el de las esquinas
+      // de un vaso rectangular; el "medio ángulo" es otra pieza.
+      angulo = CATALOGO.angulo.filter(function(a){
+        var n = a.n.toLowerCase();
+        return n.indexOf("externo") >= 0 && n.indexOf("medio") < 0;
+      })[0] || CATALOGO.angulo[0];
+      extra = '<p class="gsub" style="margin-top:16px">Las <strong>' + esquinas + ' esquinas</strong> piden pieza de ángulo: ' +
+        '<a class="cname" style="display:inline" href="' + angulo.url + '" target="_blank" rel="noopener">' + angulo.n + '</a> · ' +
+        esquinas + ' × ' + eur(angulo.p) + ' = <strong>' + eur(esquinas * angulo.p) + '</strong>. Solo aplica si se corona en barro.</p>';
+    }
+    $("mat-corona").innerHTML = bloqueHTML(
+      CATALOGO.corona,
+      "Coronación",
+      'Borde del vaso: <strong>' + dec(corML,1) + ' ml</strong>.',
+      function(prod, i){
+        var piezas = Math.ceil(corML / prod.mlud);
+        return {
+          etiqueta: i === 0 ? "mejor precio por metro" : "coronación",
+          unitario: eur(prod.p / prod.mlud) + "/ml",
+          lineas: [["Borde", dec(corML,1) + " ml"],
+                   ["Piezas de " + dec(prod.mlud,1) + " ml", piezas],
+                   ["Precio por pieza", eur(prod.p)]],
+          total: piezas * prod.p,
+          pie: "borde del vaso"
+        };
+      }) + extra;
+
+    // --- playa perimetral (opcional)
     if (!(playaM2 > 0)){
       $("mat-playa").innerHTML = '<h3>Playa perimetral</h3>' +
         '<div class="cards"><p class="vacio-mat">Pon un ancho de playa arriba para calcular también el pavimento antideslizante de alrededor.</p></div>';
       return;
     }
-    var playa = CATALOGO.playa.map(function(prod, i){
-      var cajas = Math.ceil(playaM2 / prod.m2cj);
-      var m2ped = cajas * prod.m2cj;
-      return tarjeta(prod, {
-        etiqueta: i === 0 ? "más económica" : "antideslizante",
-        unitario: eur(prod.p) + "/m²",
-        lineas: [
-          ["Necesarios", dec(playaM2,1) + " m²"],
-          ["Cajas de " + dec(prod.m2cj,2) + " m²", cajas],
-          ["Se piden", dec(m2ped,2) + " m²"]
-        ],
-        total: m2ped * prod.p,
-        pie: "suelo de playa"
-      }, i === 0 ? "mejor" : "");
-    }).join("");
-    $("mat-playa").innerHTML = '<h3>Playa perimetral</h3>' +
-      '<p class="gsub">Anillo alrededor del vaso: <strong>' + dec(playaM2,1) + ' m²</strong> con la misma merma del ' + Math.round(merma*100) + '%.</p>' +
-      '<div class="cards">' + playa + '</div>';
-  }
-
-  // Perimetro de una elipse (aproximacion de Ramanujan).
-  function perimElipse(a,b){
-    return Math.PI * ( 3*(a+b) - Math.sqrt((3*a+b)*(a+3*b)) );
+    $("mat-playa").innerHTML = bloqueHTML(
+      CATALOGO.playa,
+      "Playa perimetral",
+      'Anillo alrededor del vaso: <strong>' + dec(playaM2,1) + ' m²</strong> con la misma merma del ' + pct + '%.',
+      function(prod, i){
+        var cajas = Math.ceil(playaM2 / prod.m2cj);
+        var m2ped = cajas * prod.m2cj;
+        return {
+          etiqueta: i === 0 ? "más económica" : "antideslizante",
+          unitario: eur(prod.p) + "/m²",
+          lineas: [["Necesarios", dec(playaM2,1) + " m²"],
+                   ["Cajas de " + dec(prod.m2cj,2) + " m²", cajas],
+                   ["Se piden", dec(m2ped,2) + " m²"]],
+          total: m2ped * prod.p,
+          pie: "suelo de playa"
+        };
+      });
   }
 
   function geometria(){
@@ -738,6 +721,32 @@ details.avz .numgrid{margin-top:16px}
   $("verDesglose").addEventListener("change", function(){
     $("desglose").classList.toggle("hidden", !this.checked);
   });
+
+  // ---- carga del catálogo ----
+  function estadoMaterial(mensaje){
+    ["mat-vaso","mat-corona","mat-playa"].forEach(function(id, i){
+      $(id).innerHTML = i === 0 ? '<div class="cards"><p class="vacio-mat">' + mensaje + '</p></div>' : "";
+    });
+  }
+
+  estadoMaterial("Cargando el catálogo de la tienda…");
+
+  fetch("catalogo-piscina.json", {cache: "no-cache"})
+    .then(function(r){
+      if (!r.ok) { throw new Error("HTTP " + r.status); }
+      return r.json();
+    })
+    .then(function(datos){
+      CATALOGO = datos;
+      calcular();
+    })
+    .catch(function(err){
+      // Antes que enseñar precios viejos, se dice que no hay catálogo.
+      $("fecha-cat").textContent = "catálogo no disponible";
+      estadoMaterial('No se ha podido leer el catálogo de la tienda (' + err.message + '). ' +
+        'Los metros de arriba siguen siendo válidos; el material se puede mirar en ' +
+        '<a class="cname" style="display:inline" href="https://www.adrihosan.com/categoria-producto/suelos-y-pavimentos-ceramicos/azulejos-para-piscinas/" target="_blank" rel="noopener">la categoría de piscinas</a>.');
+    });
 
   calcular();
 })();
