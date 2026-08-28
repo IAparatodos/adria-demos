@@ -308,9 +308,8 @@ details.avz .numgrid{margin-top:16px}
         <p class="shint">Pedir los metros justos sale mal: se parten piezas al cortar y conviene
         que sobren algunas para reponer. Eso es la <strong>merma</strong>.</p>
         <div class="chips">
-          <label class="chip"><input type="radio" name="merma" value="5"><span>5% · vaso recto sencillo</span></label>
           <label class="chip"><input type="radio" name="merma" value="10" checked><span>10% · lo normal</span></label>
-          <label class="chip"><input type="radio" name="merma" value="15"><span>15% · curvas, escalera o pieza grande</span></label>
+          <label class="chip"><input type="radio" name="merma" value="15"><span>15% · curvas o escalera</span></label>
         </div>
         <div class="numgrid dos" style="margin-top:16px">
           <div class="numfield"><label for="corona">Ancho de la coronación</label>
@@ -522,7 +521,9 @@ details.avz .numgrid{margin-top:16px}
         var cajas = Math.ceil(playaM2 / prod.m2cj);
         var m2ped = cajas * prod.m2cj;
         return {
-          etiqueta: i === 0 ? "más económica" : "antideslizante",
+          // La playa no va ordenada por precio: delante van las series
+          // destacadas, así que la primera tarjeta no es la más barata.
+          etiqueta: prod.prio ? "recomendada" : "antideslizante",
           unitario: eur(prod.p) + "/m²",
           lineas: [["Necesarios", dec(playaM2,1) + " m²"],
                    ["Cajas de " + dec(prod.m2cj,2) + " m²", cajas],
