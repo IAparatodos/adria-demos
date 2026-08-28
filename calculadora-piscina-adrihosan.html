@@ -308,8 +308,9 @@ details.avz .numgrid{margin-top:16px}
         <p class="shint">Pedir los metros justos sale mal: se parten piezas al cortar y conviene
         que sobren algunas para reponer. Eso es la <strong>merma</strong>.</p>
         <div class="chips">
-          <label class="chip"><input type="radio" name="merma" value="10" checked><span>10% · lo normal</span></label>
-          <label class="chip"><input type="radio" name="merma" value="15"><span>15% · curvas o escalera</span></label>
+          <label class="chip"><input type="radio" name="merma" value="5"><span>5%</span></label>
+          <label class="chip"><input type="radio" name="merma" value="10" checked><span>10%</span></label>
+          <label class="chip"><input type="radio" name="merma" value="15"><span>15%</span></label>
         </div>
         <div class="numgrid dos" style="margin-top:16px">
           <div class="numfield"><label for="corona">Ancho de la coronación</label>
@@ -443,7 +444,7 @@ details.avz .numgrid{margin-top:16px}
     }).join("");
     var resto = lista.length - vistas.length;
     var pie = resto > 0
-      ? '<p class="gsub" style="margin-top:14px">Se enseñan ' + (criterio || "las " + TOPE + " más económicas") +
+      ? '<p class="gsub" style="margin-top:14px">Se enseñan ' + (criterio || TOPE + " de ellas") +
         '. Hay ' + resto + ' referencia' + (resto === 1 ? '' : 's') + ' más en la tienda para este uso.</p>'
       : '';
     return '<h3>' + titulo + '</h3><p class="gsub">' + subtitulo + '</p>' +
@@ -499,7 +500,7 @@ details.avz .numgrid{margin-top:16px}
       function(prod, i){
         var piezas = Math.ceil(corML / prod.mlud);
         return {
-          etiqueta: i === 0 ? "mejor precio por metro" : "coronación",
+          etiqueta: "coronación",
           unitario: eur(prod.p / prod.mlud) + "/ml",
           lineas: [["Borde", dec(corML,1) + " ml"],
                    ["Piezas de " + dec(prod.mlud,1) + " ml", piezas],
