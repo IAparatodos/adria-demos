@@ -305,10 +305,8 @@ details.avz .numgrid{margin-top:16px}
       <div class="step">
         <p class="slab">Acabado</p>
         <h2>Material de más para los cortes</h2>
-        <p class="shint">Si pides justo los metros que mide el vaso, te quedas corto: al cortar
-        se parten piezas, los rincones obligan a despiezar, y conviene guardar unas cuantas por
-        si mañana hay que reponer alguna (esa serie puede no existir ya, o venir de otro tono).
-        Ese extra es lo que en el oficio se llama <strong>merma</strong>. Elige cuánto:</p>
+        <p class="shint">Pedir los metros justos sale mal: se parten piezas al cortar y conviene
+        que sobren algunas para reponer. Eso es la <strong>merma</strong>.</p>
         <div class="chips">
           <label class="chip"><input type="radio" name="merma" value="5"><span>5% · vaso recto sencillo</span></label>
           <label class="chip"><input type="radio" name="merma" value="10" checked><span>10% · lo normal</span></label>
@@ -368,7 +366,7 @@ details.avz .numgrid{margin-top:16px}
       <h2>Material del catálogo para estos metros</h2>
       <span class="count" id="fecha-cat">precios del catálogo</span>
     </div>
-    <p class="picksub">La cerámica se vende por m² pero se sirve en cajas enteras, así que se redondea hacia arriba: se pide la caja entera aunque sobre media. Los metros que verás en cada ficha ya llevan dentro el material de más para los cortes.</p>
+    <p class="picksub">Se vende por m² pero se sirve en cajas enteras, así que siempre redondea hacia arriba. Los metros de cada ficha ya llevan los cortes dentro.</p>
     <div id="mat-vaso" class="grupo"></div>
     <div id="mat-corona" class="grupo"></div>
     <div id="mat-playa" class="grupo"></div>
@@ -462,8 +460,8 @@ details.avz .numgrid{margin-top:16px}
     $("mat-vaso").innerHTML = bloqueHTML(
       CATALOGO.vaso,
       "Revestimiento del vaso",
-      'El vaso mide <strong>' + dec(revestir/(1+merma),1) + ' m²</strong> entre fondo y paredes. Con el ' + pct +
-      '% de material de más para los cortes, hay que comprar <strong>' + dec(revestir,1) + ' m²</strong>.',
+      'Fondo y paredes: <strong>' + dec(revestir/(1+merma),1) + ' m²</strong>. Con el ' + pct +
+      '% de más, se compran <strong>' + dec(revestir,1) + ' m²</strong>.',
       function(prod, i){
         var cajas = Math.ceil(revestir / prod.m2cj);
         var m2ped = cajas * prod.m2cj;
@@ -518,8 +516,8 @@ details.avz .numgrid{margin-top:16px}
     $("mat-playa").innerHTML = bloqueHTML(
       CATALOGO.playa,
       "Playa",
-      'Has indicado <strong>' + dec(playaDicha,1) + ' m²</strong> de playa. Con el ' + pct +
-      '% de material de más, hay que comprar <strong>' + dec(playaM2,1) + ' m²</strong>.',
+      'Has dicho <strong>' + dec(playaDicha,1) + ' m²</strong>. Con el ' + pct +
+      '% de más, se compran <strong>' + dec(playaM2,1) + ' m²</strong>.',
       function(prod, i){
         var cajas = Math.ceil(playaM2 / prod.m2cj);
         var m2ped = cajas * prod.m2cj;
@@ -682,11 +680,8 @@ details.avz .numgrid{margin-top:16px}
     h += fila("Lo que mide el vaso", m2(revestir));
     h += fila("Material de más (" + Math.round(merma*100) + "%)", "+ " + m2(revestirMerma - revestir));
     h += fila("Lo que hay que comprar", m2(revestirMerma), "tot");
-    h += "</div><p><strong>Por qué se compra de más:</strong> de esos " + m2(revestirMerma) +
-         " no llegan todos a la pared. Se parten piezas al cortarlas, los rincones y el borde " +
-         "obligan a despiezar, y conviene que sobren unas cuantas guardadas por si hay que " +
-         "reponer más adelante. Quien coloca sabe cuánto se le va de verdad con esa pieza: " +
-         "es la persona a la que preguntarle el porcentaje bueno.</p>";
+    h += "</div><p>Esos " + m2(revestirMerma - revestir) + " no llegan a la pared: se van en cortes " +
+         "y en reserva para reponer. El porcentaje bueno lo sabe quien coloca.</p>";
 
     h += "<h3>Hormigón del vaso</h3><div class='calcline'>";
     h += fila("Solera: " + m2(areaSolera) + " × " + dec(eSolera) + " m", m3(volSolera));
@@ -712,7 +707,7 @@ details.avz .numgrid{margin-top:16px}
       h += fila("Superficie que has indicado", m2(playaDicha));
       h += fila("Material de más (" + Math.round(merma*100) + "%)", "+ " + m2(playaM2 - playaDicha));
       h += fila("Lo que hay que comprar", m2(playaM2), "tot");
-      h += "</div><p>Este dato no se calcula: lo pones tú. La calculadora solo le suma el material de más para los cortes y lo pasa a cajas.</p>";
+      h += "</div><p>Este dato lo pones tú. Aquí solo se le suman los cortes y se pasa a cajas.</p>";
     }
 
     $("desglose").innerHTML = h;
