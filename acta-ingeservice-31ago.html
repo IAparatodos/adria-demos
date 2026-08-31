@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acta — Reunión INGESERVICE · 31 agosto 2026</title>
+<link rel="icon" type="image/png" href="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Acta de reunión · INGESERVICE · Código AdrIA">
+<meta property="og:description" content="Los desplegables del Excel fallaban en un solo ordenador. Qué era y cómo se arregló.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="URL_PENDIENTE">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Acta de reunión · INGESERVICE · Código AdrIA">
+<meta name="twitter:description" content="Los desplegables del Excel fallaban en un solo ordenador. Qué era y cómo se arregló.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ca-turquesa:#4dd2d0;--ca-petroleo:#3f6f7b;--ca-profundo:#102e35;
+  --tinta:#102e35;--suave:#5b7a83;--linea:#dfe9eb;--papel:#ffffff;--acento:#3f6f7b;--verde:#2E7D48;--fondo-suave:#f2f8f8}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--fondo-suave);color:var(--tinta);font-family:'Poppins',-apple-system,system-ui,sans-serif;line-height:1.62;padding:32px 16px;-webkit-font-smoothing:antialiased}
+.hoja{max-width:760px;margin:0 auto;background:var(--papel);border:1px solid var(--linea);border-radius:6px;padding:clamp(28px,5vw,54px)}
+header{border-bottom:3px solid var(--ca-turquesa);padding-bottom:18px;margin-bottom:26px}
+.tipo{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ca-petroleo);margin-bottom:8px}
+h1{font-size:clamp(21px,3.4vw,27px);font-weight:700;letter-spacing:-0.02em;line-height:1.25}
+.datos{margin-top:16px;display:grid;grid-template-columns:auto 1fr;gap:5px 18px;font-size:14.5px}
+.datos dt{color:var(--suave)}
+.datos dd{font-weight:500}
+h2{font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ca-petroleo);margin:32px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--linea)}
+p{margin-bottom:12px;font-size:15.5px}
+ol,ul{margin:0 0 12px 20px}
+li{margin-bottom:9px;font-size:15.5px}
+li strong{font-weight:650}
+.destacado{background:rgba(77,210,208,.12);border-left:3px solid var(--ca-turquesa);padding:15px 18px;border-radius:0 5px 5px 0;margin:16px 0}
+.destacado p:last-child{margin-bottom:0}
+code{background:var(--fondo-suave);border:1px solid var(--linea);padding:1px 5px;border-radius:4px;font-size:13.5px;font-family:ui-monospace,Menlo,monospace;word-break:break-word}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:14px 0}
+th{text-align:left;padding:9px 12px;border-bottom:2px solid var(--ca-petroleo);font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--suave)}
+td{padding:9px 12px;border-bottom:1px solid var(--linea)}
+td.num,th.num{text-align:right;white-space:nowrap}
+tr.total td{border-top:2px solid var(--ca-petroleo);border-bottom:none;font-weight:700}
+.quien{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:3px;background:var(--fondo-suave);border:1px solid var(--linea);color:var(--suave);margin-right:7px}
+.bono-linea{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:10px}
+.bono-num{font-size:30px;font-weight:700;letter-spacing:-.02em}
+.bono-num small{font-size:.5em;font-weight:600;color:var(--suave)}
+.barra{height:9px;background:var(--fondo-suave);border:1px solid var(--linea);border-radius:100px;overflow:hidden}
+.barra span{display:block;height:100%;width:86%;background:linear-gradient(90deg,var(--ca-petroleo),var(--ca-turquesa))}
+.pie{margin-top:34px;padding-top:16px;border-top:1px solid var(--linea);font-size:13px;color:var(--suave);text-align:center}
+@media print{body{background:#fff;padding:0}.hoja{border:none;padding:0}}
+</style>
+</head>
+<body>
+<div class="hoja">
+
+<header>
+  <div class="tipo">Acta de reunión</div>
+  <h1>Revisión de la plantilla de Excel — INGESERVICE</h1>
+  <dl class="datos">
+    <dt>Fecha</dt><dd>Lunes 31 de agosto de 2026</dd>
+    <dt>Duración</dt><dd>1 h 45 min</dd>
+    <dt>Asistentes</dt><dd>David Gómez Martínez (INGESERVICE) · Ricardo Hoyos Pérez (Código AdrIA)</dd>
+    <dt>Motivo</dt><dd>Los desplegables de la plantilla no funcionaban en el ordenador de David</dd>
+    <dt>Además</dt><dd>Presentación de un frente nuevo: certificados de castillos hinchables</dd>
+  </dl>
+</header>
+
+<h2>1 · Situación de partida</h2>
+<p>David reportaba que en el Excel generado por el sistema no le funcionaban los desplegables de dos pestañas: <strong>Fabricante 2ª fase</strong> y <strong>Elección categoría</strong>. La de Fabricante 1ª fase ya se había corregido en una ronda anterior.</p>
+<p>Se generó un expediente nuevo en directo (cliente de prueba: Congrual · Suministros Carlet) y ambos descargaron el mismo archivo. A Ricardo le funcionaba con normalidad; a David no le aparecían ni el filtro ni los resultados.</p>
+
+<h2>2 · Diagnóstico</h2>
+<p>La primera sospecha fue la versión de Excel (Microsoft 365 en un caso, Office Hogar y Empresas 2024 en el otro). <strong>Se descartó:</strong> el archivo no usa ninguna función exclusiva de 365 y sus tablas dinámicas son de un formato que Office 2024 abre sin problema.</p>
+<p>La causa real es un <strong>vínculo heredado a un archivo del escritorio de David</strong> —<code>C:\Users\Usuario\Desktop\PRUEBA EXCEL\PLANTILLA REFORMA MATRICULADOS.xlsx</code>— junto con ocho referencias rotas. Como en su equipo esa ruta sí existe, su Excel intentaba resolverla, no lo conseguía y abría el libro en modo protegido <strong>desactivando las tablas dinámicas</strong>. En el equipo de Ricardo la ruta no existe, Excel ignoraba el vínculo y todo funcionaba con normalidad.</p>
+
+<h2>3 · Solución aplicada</h2>
+<p>Se eliminó del archivo el vínculo externo y las ocho referencias rotas, sin tocar nada más: las tablas dinámicas, sus datos y el resto de las 26 pestañas quedan intactos. Ninguna fórmula del libro usaba ese archivo externo, así que no se pierde ninguna funcionalidad.</p>
+<div class="destacado">
+  <p><strong>Verificado en la propia reunión.</strong> David descargó la copia corregida, la abrió y los desplegables funcionaron. También se comprobó que la barra de «Habilitar edición» que aparece al abrir es el aviso normal de Windows para archivos descargados de internet, y no tiene relación con el problema.</p>
+</div>
+<p>Además, se limpió del mismo modo la <strong>plantilla maestra alojada en Drive</strong> y se sustituyó durante la reunión. A partir de ahora, todos los Excel que genere el sistema salen ya sin este problema, sin necesidad de modificar el flujo de trabajo.</p>
+
+<h2>4 · Frente nuevo: certificados de castillos hinchables</h2>
+<p>Al terminar la videollamada, David compartió material de una línea de trabajo distinta a la de los camiones: la emisión de <strong>certificados de montaje de castillos hinchables</strong>. Envió el listado de hinchables con foto, el modelo de certificado de montaje, la declaración responsable y el enlace a un <strong>prototipo de app móvil</strong> que ha diseñado él mismo.</p>
+<p>La app plantea una pantalla de «Mis certificados» con un certificado por montaje: hinchable, emplazamiento, código, hora, documentos adjuntos y firma. Lo más relevante del planteamiento es que <strong>funciona sin cobertura</strong>: el montador puede seguir trabajando en la fiesta y el certificado se envía solo al recuperar red.</p>
+<p style="color:var(--suave);font-size:14.5px">Este punto se habló por teléfono, después de cortarse la videollamada, y queda pendiente de concretar por escrito su alcance.</p>
+
+<h2>5 · Acuerdos</h2>
+<ol>
+  <li>Se da por <strong>resuelto el fallo de los desplegables</strong>, verificado por David en directo.</li>
+  <li>La plantilla maestra de Drive queda <strong>sustituida por la versión corregida</strong>.</li>
+  <li>David hará una <strong>prueba completa de un camión</strong> con la plantilla nueva, con calma, para confirmar que todo el circuito responde.</li>
+</ol>
+
+<h2>6 · Pendientes</h2>
+<ul>
+  <li><span class="quien">Ricardo</span>Confirmar que en Drive queda <strong>una sola</strong> plantilla: el sistema la busca por nombre y se detiene si encuentra dos.</li>
+  <li><span class="quien">David</span>Probar un camión completo de principio a fin con la plantilla nueva.</li>
+  <li><span class="quien">David</span>Revisar su equipo: durante la reunión dejaron de responderle el menú de inicio y el botón derecho, y tuvo que reiniciar.</li>
+  <li><span class="quien">Ricardo</span>Repasar la pestaña de Fabricante 2ª fase con la plantilla ya limpia.</li>
+  <li><span class="quien">Ricardo</span>Recibir los documentos de hinchables por otra vía: los adjuntos de WhatsApp no se han podido descargar.</li>
+  <li><span class="quien">David</span>Dar acceso al diseño de la app móvil: el enlace compartido no es accesible desde fuera de su cuenta.</li>
+  <li><span class="quien">Ambos</span>Concretar el alcance del frente de los hinchables.</li>
+</ul>
+
+<h2>7 · Estado del bono de horas</h2>
+<div class="bono-linea">
+  <span class="bono-num">2 h 49 min <small>disponibles</small></span>
+  <span style="color:var(--suave);font-size:14.5px">17 h 11 min consumidas de 20 h · 86 %</span>
+</div>
+<div class="barra"><span></span></div>
+<table>
+  <tr><th>Concepto</th><th class="num">Tiempo</th><th class="num">Cuenta</th></tr>
+  <tr><td>Trabajo de Ricardo (7 sesiones)</td><td class="num">12 h 25 m</td><td class="num">12 h 25 m</td></tr>
+  <tr><td>Trabajo de becario (5 sesiones) — computa a mitad</td><td class="num">9 h 33 m</td><td class="num">4 h 46 m</td></tr>
+  <tr class="total"><td>Consumido del bono de 20 h</td><td class="num">21 h 58 m</td><td class="num">17 h 11 m</td></tr>
+</table>
+<p style="font-size:14.5px;color:var(--suave)">Bono de 20 h contratado el 23 de julio de 2026. La sesión de hoy (1 h 45 min) ya está incluida en el cómputo.</p>
+
+
+</div>
+<style>
+  .ca-foot{
+    background:#102e35;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal-brand span{font-size:.86rem;font-weight:500;color:#dfe9eb}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Si esta receta te ha servido, en la comunidad compartimos muchas más:
+          flujos que funcionan, lo que no funciona, sin postureo.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+        <span>Código AdrIA</span>
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
