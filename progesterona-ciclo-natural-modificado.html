@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Progesterona en ciclo natural modificado · Saupstad et al., RBMO 2024</title>
+<link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+<meta name="theme-color" content="#102e35">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sin asociación entre progesterona y gestación clínica · Código AdrIA">
+<meta property="og:description" content="209 mujeres en ciclo natural modificado sin soporte lúteo: el umbral de 30 nmol/l no predijo nada.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/og-progesterona-mnc-fet.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ficha visual: tasas de gestación clínica por encima y por debajo de 29,0 nmol/l, sin diferencias significativas.">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/progesterona-ciclo-natural-modificado.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sin asociación entre progesterona y gestación clínica · Código AdrIA">
+<meta name="twitter:description" content="209 mujeres en ciclo natural modificado sin soporte lúteo: el umbral de 30 nmol/l no predijo nada.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/og-progesterona-mnc-fet.jpg">
+<meta name="description" content="El estudio de Saupstad et al. en Reproductive BioMedicine Online (2024), contado en visual: qué se preguntaba, cómo se midió la progesterona, qué salió en las 209 mujeres y qué limitaciones reconocen los autores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181a; --ink-soft:#3a4448; --ink-mute:#6d797e;
+    --canvas:#ffffff; --parchment:#f4f7f7;
+    --tile-dark:#16242a; --tile-darker:#101c21;
+    --hairline:#e2e9e9;
+    --brand:#4dd2d0; --brand-deep:#0e9c99; --brand-slate:#3f6f7b;
+    --serie-a:#0e9c99; --serie-b:#6b5ea8;
+    --serie-a-dark:#4dd2d0; --serie-b-dark:#a99cf0;
+    --radius-card:18px; --radius-pill:9999px;
+    --shadow-object:0 3px 30px rgba(16,28,33,.14);
+    --max:1120px; --max-read:760px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--canvas);color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:17px;line-height:1.55;font-weight:400;letter-spacing:-.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+  section{padding:88px 24px}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .read{max-width:var(--max-read);margin:0 auto}
+  h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.028em;line-height:1.08}
+  h1{font-size:clamp(2.1rem,6vw,3.7rem)}
+  h2{font-size:clamp(1.6rem,4vw,2.5rem)}
+  h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.3}
+  p{margin:0 0 1.15em}
+  p:last-child{margin-bottom:0}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-deep);margin:0 0 20px}
+  .lead{font-size:clamp(1.1rem,2.4vw,1.42rem);font-weight:300;line-height:1.45;color:var(--ink-soft)}
+
+  /* ---------- barra de marca ---------- */
+  .brandbar{background:var(--tile-dark);padding:18px 24px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .brandbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brandbar img{height:34px;width:auto;display:block}
+  .brandbar .serie{font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#7c9299}
+
+  /* ---------- portada ---------- */
+  .hero{
+    background:var(--tile-dark);color:#fff;padding:84px 24px;
+    background-image:radial-gradient(120% 90% at 12% 0%,rgba(77,210,208,.16) 0%,transparent 58%);
+  }
+  .hero .eyebrow{color:var(--brand)}
+  .hero h1{color:#fff;max-width:17ch}
+  .hero .original{margin-top:26px;padding-left:18px;border-left:2px solid rgba(77,210,208,.5);font-size:1rem;font-weight:300;color:#c9d6d9;font-style:italic;max-width:56ch}
+  .authors{margin-top:34px;font-size:.95rem;color:#9fb0b5;line-height:1.7;max-width:62ch}
+  .authors .first{color:#fff;font-weight:600}
+  .meta-row{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
+  .chip{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-pill);padding:8px 16px;font-size:.83rem;color:#dfe9eb;white-space:nowrap}
+  .chip b{color:#fff;font-weight:600}
+  .chip a{color:#dfe9eb;text-decoration:none;border-bottom:1px solid rgba(223,233,235,.4)}
+  .chip.open{border-color:rgba(77,210,208,.4);color:#a9ecea}
+  .chip.open b{color:#a9ecea}
+
+  /* ---------- destacado numérico ---------- */
+  .headline-figure{background:var(--parchment)}
+  .figure-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin-top:44px}
+  .stat{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);padding:26px 24px}
+  .stat .num{font-size:clamp(1.9rem,4.4vw,2.6rem);font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--ink)}
+  .stat .num small{font-size:.42em;font-weight:500;letter-spacing:-.01em;color:var(--ink-mute);margin-left:4px}
+  .stat .label{margin-top:12px;font-size:.92rem;color:var(--ink-soft);line-height:1.4}
+  .stat .foot{margin-top:10px;font-size:.78rem;color:var(--ink-mute)}
+  .stat.accent{border-color:rgba(14,156,153,.35);background:linear-gradient(180deg,rgba(14,156,153,.06),transparent 70%)}
+  .stat.accent .num{color:var(--brand-deep)}
+
+  /* ---------- gráfico ---------- */
+  .chart-card{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);padding:32px 28px;margin-top:40px}
+  .chart-title{font-size:1.05rem;font-weight:600;letter-spacing:-.02em;margin:0}
+  .chart-sub{font-size:.87rem;color:var(--ink-mute);margin:6px 0 0}
+  .legend{display:flex;flex-wrap:wrap;gap:18px;margin:22px 0 6px}
+  .legend span{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--ink-soft)}
+  .swatch{width:12px;height:12px;border-radius:3px;flex:none}
+  .swatch.a{background:var(--serie-a)}
+  .swatch.b{background:var(--serie-b)}
+
+  .bars{display:flex;flex-direction:column;gap:26px;margin-top:26px}
+  .bar-group .bar-name{font-size:.9rem;color:var(--ink-soft);margin-bottom:12px}
+  .bar-row{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .bar-row:last-child{margin-bottom:0}
+  .bar-track{flex:1;height:26px;background:#eef3f3;border-radius:4px;overflow:hidden}
+  .bar-fill{height:100%;width:0;border-radius:0 4px 4px 0;transition:width .9s cubic-bezier(.22,.8,.3,1)}
+  .bar-fill.a{background:var(--serie-a)}
+  .bar-fill.b{background:var(--serie-b)}
+  .bar-val{font-variant-numeric:tabular-nums;font-size:.95rem;font-weight:600;color:var(--ink);min-width:96px;text-align:right;letter-spacing:-.02em}
+  .bar-val small{display:block;font-weight:400;font-size:.74rem;color:var(--ink-mute);letter-spacing:0}
+  .p-tag{display:inline-block;margin-top:14px;font-size:.78rem;color:var(--ink-mute);background:#eef3f3;border-radius:var(--radius-pill);padding:5px 12px}
+  .p-tag.sig{background:rgba(14,156,153,.12);color:var(--brand-deep);font-weight:500}
+  .chart-split{margin-top:38px;padding-top:30px;border-top:1px solid var(--hairline)}
+
+  /* ---------- pasos del método ---------- */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;margin-top:44px;background:var(--hairline);border-radius:var(--radius-card);overflow:hidden}
+  .step{background:var(--canvas);padding:28px 24px}
+  .step .n{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--brand-deep);color:#fff;font-size:.85rem;font-weight:600;margin-bottom:16px}
+  .step h3{margin-bottom:8px}
+  .step p{font-size:.92rem;color:var(--ink-soft);margin:0 0 .9em}
+
+  /* ---------- nota de unidades ---------- */
+  .nota-adria{
+    margin-top:24px;border-left:3px solid var(--brand-deep);background:rgba(14,156,153,.06);
+    border-radius:0 10px 10px 0;padding:14px 16px;font-size:.86rem;line-height:1.55;color:var(--ink-soft)
+  }
+  .nota-adria b{color:var(--brand-deep);font-weight:600}
+
+  .tint{background:var(--parchment)}
+
+  /* ---------- cita destacada en claro ---------- */
+  .pull{margin:38px 0 0;padding:22px 0 0;border-top:1px solid var(--hairline)}
+  .pull p{font-size:clamp(1.02rem,2.2vw,1.24rem);font-weight:300;line-height:1.5;color:var(--ink-soft);font-style:italic;margin:0}
+  .pull cite{display:block;margin-top:12px;font-size:.83rem;color:var(--ink-mute);font-style:normal}
+
+  /* ---------- tile oscuro ---------- */
+  .dark{background:var(--tile-darker);color:#e8eef0}
+  .dark h2{color:#fff}
+  .dark .eyebrow{color:var(--brand)}
+  .dark .lead{color:#b3c3c7}
+  .caveats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:44px}
+  .caveat{border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-card);padding:26px 24px;background:rgba(255,255,255,.03)}
+  .caveat h3{color:#fff;margin-bottom:10px}
+  .caveat p{font-size:.92rem;color:#a9bbc0;margin:0}
+  .quote{margin:56px auto 0;max-width:var(--max-read);padding:30px 0 0;border-top:1px solid rgba(255,255,255,.16)}
+  .quote p{font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:300;line-height:1.5;color:#dbe6e8;font-style:italic}
+  .quote .orig{font-size:.85rem;color:#8ea3a8;font-style:italic;margin-top:14px;line-height:1.5}
+  .quote cite{display:block;margin-top:14px;font-size:.85rem;color:#8ea3a8;font-style:normal}
+
+  /* ---------- cierre ---------- */
+  .closing{background:var(--canvas);text-align:center}
+  .closing .cite-block{max-width:var(--max-read);margin:36px auto 0;padding:24px;background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);font-size:.88rem;color:var(--ink-soft);text-align:left;line-height:1.6}
+  .closing a{color:var(--brand-deep);text-decoration:none;border-bottom:1px solid rgba(14,156,153,.35)}
+  .honesty{background:var(--canvas);border-top:1px solid var(--hairline);padding:40px 24px;text-align:center;font-size:.82rem;color:var(--ink-mute);line-height:1.7}
+  .honesty .brand{color:var(--brand-deep);font-weight:600}
+  .honesty .read{max-width:640px}
+
+  @media (max-width:640px){
+    section{padding:64px 20px}
+    .hero{padding:64px 20px}
+    .bar-val{min-width:82px;font-size:.88rem}
+    .chart-card{padding:24px 18px}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .bar-fill{transition:none}
+  }
+
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ink:#eef3f4;--ink-soft:#b9c7cb;--ink-mute:#8b9ca1;
+      --canvas:#0f1719;--parchment:#141f22;--hairline:#25353a;
+      --serie-a:var(--serie-a-dark);--serie-b:var(--serie-b-dark);
+    }
+    .stat.accent{background:linear-gradient(180deg,rgba(77,210,208,.08),transparent 70%);border-color:rgba(77,210,208,.3)}
+    .stat.accent .num{color:var(--brand)}
+    .eyebrow{color:var(--brand)}
+    .step .n{background:var(--brand);color:#0f1719}
+    .bar-track{background:#1d2b2f}
+    .p-tag{background:#1d2b2f}
+    .p-tag.sig{background:rgba(77,210,208,.14);color:var(--brand)}
+    .nota-adria{background:rgba(77,210,208,.08)}
+    .nota-adria b{color:var(--brand)}
+    .closing a,.honesty .brand{color:var(--brand)}
+    .closing a{border-bottom-color:rgba(77,210,208,.4)}
+  }
+</style>
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="wrap">
+    <a href="https://www.codigoadria.com" target="_blank" rel="noopener">
+      <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+    </a>
+    <span class="serie">Papers legibles</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Reproductive BioMedicine Online · Vol. 49 · Nº 1 · 2024</p>
+    <h1>Sin asociación entre progesterona y gestación clínica</h1>
+    <p class="original">«Progesterone concentrations on blastocyst transfer day in modified natural cycle frozen embryo transfer cycles»</p>
+    <p class="authors">
+      <span class="first">Marte Saupstad</span> y <span class="first">Sara J. Bergenheim</span> (co-primeras firmas), Jeanette W. Bogstad, Morten R. Petersen, Anna Klajnbard, Lisbeth Prætorius, Nina l.C. Freiesleben, Anne L. Englund, Ellen C.L. Løkkegaard, Ulla B. Knudsen, Merete Husth, Birgit Alsbjerg, Julie E. Møller, Tine V. Dam, Julie L. Forman, y Anja Pinborg y Kristine Løssl (co-últimas firmas).<br>
+      Clínica de Fertilidad del Hospital Universitario de Copenhague Rigshospitalet y otros siete centros públicos daneses · Universidad de Copenhague.
+    </p>
+    <div class="meta-row">
+      <span class="chip">Diseño <b>Sub-estudio de un ECA</b></span>
+      <span class="chip">Protocolo <b>Ciclo natural modificado, sin soporte lúteo</b></span>
+      <span class="chip">Muestra <b>209 mujeres</b></span>
+      <span class="chip">DOI <b><a href="https://doi.org/10.1016/j.rbmo.2024.103862" target="_blank" rel="noopener">10.1016/j.rbmo.2024.103862</a></b></span>
+      <span class="chip open">Acceso <b>Abierto · CC BY 4.0</b></span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="read">
+    <p class="eyebrow">La pregunta</p>
+    <h2>Un umbral que viene de otro protocolo</h2>
+    <p class="lead" style="margin-top:26px">En los ciclos preparados con terapia hormonal sustitutiva existe un acuerdo bastante extendido: por debajo de cierta concentración de progesterona, los resultados empeoran.</p>
+
+    <p style="margin-top:28px">El artículo lo resume así: varios estudios y un metaanálisis han concluido que concentraciones séricas por debajo de aproximadamente <b>8–10 ng/ml (unos 30 nmol/l)</b> alrededor del día de la transferencia de blastocisto se asocian a menor tasa de gestación clínica o de recién nacido vivo <b>en ciclos HRT-FET</b>. La lógica es directa: en un ciclo sustituido la mujer no ovula, no hay cuerpo lúteo, y toda la progesterona que hay es la que se le administra.</p>
+
+    <p>El ciclo natural modificado funciona de otra manera. Hay ovulación, hay cuerpo lúteo, y en Dinamarca es el protocolo preferido para mujeres ovuladoras en la sanidad pública, habitualmente <b>sin soporte de fase lútea</b>, es decir, sin progesterona exógena. La pregunta es si el umbral que viene de los ciclos sustituidos significa algo aquí.</p>
+
+    <p>Los autores solo encontraron dos trabajos previos que hubieran mirado esto en ciclo natural sin soporte, y no coinciden. Gaggiotti-Marre y colaboradores (n = 294) describieron menor tasa de gestación clínica y de recién nacido vivo por debajo de <b>10 ng/ml (31,8 nmol/l)</b> el día antes de la transferencia, en ciclo natural verdadero. Ramezanali y colaboradores (n = 101) no encontraron ninguna asociación en ciclo natural modificado, pero con embriones en día 2 o 3, no con blastocistos.</p>
+
+    <p>De ahí la pregunta del estudio: <b>en ciclo natural modificado sin soporte de fase lútea, ¿la progesterona del día de la transferencia se asocia a la tasa de gestación clínica? ¿Y existe un valor de corte por debajo del cual los resultados empeoren?</b></p>
+
+    <div class="nota-adria">
+      <b>Sobre las unidades.</b> El artículo trabaja en nmol/l. Las equivalencias que aparecen en su propio texto son las citadas arriba: 8–10 ng/ml ≈ 30 nmol/l, y 10 ng/ml = 31,8 nmol/l.
+    </div>
+  </div>
+</section>
+
+<section class="headline-figure">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">Los resultados</p>
+      <h2>Ninguna de las comparaciones alcanzó significación</h2>
+    </div>
+
+    <div class="figure-grid">
+      <div class="stat accent">
+        <div class="num">35,3 <small>vs 37,3 %</small></div>
+        <div class="label">Gestación clínica por debajo y por encima de 29,0 nmol/l</div>
+        <div class="foot">P = 0,792 · percentil 25 de la muestra</div>
+      </div>
+      <div class="stat">
+        <div class="num">38,5 <small>vs 36,8</small></div>
+        <div class="label">Progesterona media (nmol/l) en quienes lograron gestación y en quienes no</div>
+        <div class="foot">DE 14,0 y 12,4 · P = 0,350</div>
+      </div>
+      <div class="stat">
+        <div class="num">0,87</div>
+        <div class="label">Odds ratio ajustada de gestación clínica, progesterona &lt;29,0 vs ≥29,0</div>
+        <div class="foot">IC 95 % 0,39–1,93 · Tabla 3</div>
+      </div>
+      <div class="stat">
+        <div class="num">4,9–91,8</div>
+        <div class="label">Rango de progesterona el día de la transferencia (nmol/l)</div>
+        <div class="foot">Excluido un valor extremo de 182,8</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <p class="chart-title">Resultados reproductivos según el corte de progesterona</p>
+      <p class="chart-sub">Los dos cortes que usaron los autores: el percentil 25 (29,0 nmol/l) y el percentil 10 (22,5 nmol/l) de su propia muestra.</p>
+
+      <div class="legend">
+        <span><i class="swatch a"></i>Por debajo del corte</span>
+        <span><i class="swatch b"></i>Por encima o igual</span>
+      </div>
+
+      <div class="bars">
+        <div class="bar-group">
+          <p class="bar-name">Gestación clínica · corte 29,0 nmol/l (n = 51 vs 158)</p>
+          <div class="bar-row"><div class="bar-track"><div class="bar-fill a" data-w="35.3"></div></div><div class="bar-val">35,3 %<small>&lt;29,0</small></div></div>
+          <div class="bar-row"><div class="bar-track"><div class="bar-fill b" data-w="37.3"></div></div><div class="bar-val">37,3 %<small>≥29,0</small></div></div>
+          <span class="p-tag">Sin diferencia significativa · P = 0,792</span>
+        </div>
+
+        <div class="bar-group">
+          <p class="bar-name">Tasa de embarazo · corte 29,0 nmol/l</p>
+          <div class="bar-row"><div class="bar-track"><div class="bar-fill a" data-w="51.0"></div></div><div class="bar-val">51,0 %<small>&lt;29,0</small></div></div>
+          <div class="bar-row"><div class="bar-track"><div class="bar-fill b" data-w="54.8"></div></div><div class="bar-val">54,8 %<small>≥29,0</small></div></div>
+          <span class="p-tag">Sin diferencia significativa · P = 0,637</span>
+        </div>
+
+        <div class="bar-group">
+          <p class="bar-name">Pérdida gestacional · corte 29,0 nmol/l</p>
+          <div class="bar-row"><div class="bar-track"><div class="bar-fill a" data-w="15.7"></div></div><div class="bar-val">15,7 %<small>&lt;29,0</small></div></div>
+          <div class="bar-row"><div class="bar-track"><div class="bar-fill b" data-w="17.2"></div></div><div class="bar-val">17,2 %<small>≥29,0</small></div></div>
+          <span class="p-tag">Sin diferencia significativa · P = 0,802</span>
+        </div>
+      </div>
+
+      <div class="chart-split">
+        <p class="chart-title" style="font-size:.97rem">El mismo análisis con el corte del percentil 10 (22,5 nmol/l)</p>
+        <p class="chart-sub">Los autores repitieron las comparaciones con un corte más exigente, por si el efecto aparecía solo en los valores más bajos.</p>
+
+        <div class="bars">
+          <div class="bar-group">
+            <p class="bar-name">Gestación clínica · corte 22,5 nmol/l</p>
+            <div class="bar-row"><div class="bar-track"><div class="bar-fill a" data-w="36.8"></div></div><div class="bar-val">36,8 %<small>&lt;22,5</small></div></div>
+            <div class="bar-row"><div class="bar-track"><div class="bar-fill b" data-w="36.8"></div></div><div class="bar-val">36,8 %<small>≥22,5</small></div></div>
+            <span class="p-tag">Sin diferencia significativa · P = 1,000</span>
+          </div>
+
+          <div class="bar-group">
+            <p class="bar-name">Tasa de embarazo · corte 22,5 nmol/l</p>
+            <div class="bar-row"><div class="bar-track"><div class="bar-fill a" data-w="47.4"></div></div><div class="bar-val">47,4 %<small>&lt;22,5</small></div></div>
+            <div class="bar-row"><div class="bar-track"><div class="bar-fill b" data-w="54.5"></div></div><div class="bar-val">54,5 %<small>≥22,5</small></div></div>
+            <span class="p-tag">Sin diferencia significativa · P = 0,552</span>
+          </div>
+
+          <div class="bar-group">
+            <p class="bar-name">Pérdida gestacional · corte 22,5 nmol/l</p>
+            <div class="bar-row"><div class="bar-track"><div class="bar-fill a" data-w="10.5"></div></div><div class="bar-val">10,5 %<small>&lt;22,5</small></div></div>
+            <div class="bar-row"><div class="bar-track"><div class="bar-fill b" data-w="17.5"></div></div><div class="bar-val">17,5 %<small>≥22,5</small></div></div>
+            <span class="p-tag">Sin diferencia significativa · P = 0,441</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="read" style="margin-top:44px">
+      <p>La tasa de gestación clínica del conjunto fue del <b>36,8 %</b>. Los percentiles de progesterona de la muestra quedaron así (Tabla 2): <b>19,2</b> el 5, <b>22,5</b> el 10, <b>29,0</b> el 25, <b>36,7</b> la mediana, <b>43,8</b> el 75, <b>54,0</b> el 90 y <b>60,6</b> nmol/l el 95.</p>
+      <p>Al estratificar por el día de la transferencia, las medias siguieron siendo parecidas entre quienes lograron gestación y quienes no: en día 6, <b>34,2 frente a 33,5 nmol/l</b> (P = 0,758); en día 7, <b>42,3 frente a 39,9</b> (P = 0,360). Y la regresión logística ajustada no encontró asociación tratando la progesterona como variable continua: <b>aOR 1,01 (IC 95 % 0,99–1,04)</b>.</p>
+      <p>Entre los dos grupos hubo una diferencia basal que los autores señalan: las mujeres con progesterona por debajo de 29,0 nmol/l tenían un <b>IMC mediano más alto</b> (24,8 frente a 22,3 kg/m²; P = 0,001) y habían transferido más a menudo en el día 6 en lugar del 7 (72,5 % frente a 39,9 %; P &lt; 0,001).</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">El método</p>
+      <h2>Cómo se hizo</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="n">1</span>
+        <h3>A quién se incluyó</h3>
+        <p>209 mujeres de 18 a 41 años, con ciclos regulares de 23 a 35 días, tratadas en <b>ocho hospitales públicos daneses</b> entre enero de 2019 y octubre de 2022.</p>
+        <p>Todas transfirieron <b>un solo blastocisto</b> autólogo de buena calidad (Gardner ≥ 3BB), vitrificado en día 5 o 6. Se excluyeron receptoras de ovocitos y parejas con diagnóstico genético preimplantacional.</p>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <h3>Qué recibieron todas</h3>
+        <p>Ciclo natural modificado. Cuando el folículo líder alcanzaba <b>17 mm o más</b>, se administraba hCG (Ovitrelle, 250 µg) a las <b>22:00</b> de esa misma tarde.</p>
+        <p>La transferencia se hacía <b>6 o 7 días después</b> del trigger, según la asignación aleatoria. Ninguna de las incluidas aquí recibió progesterona exógena: son los brazos sin soporte de fase lútea del ensayo.</p>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <h3>Cómo se midió la progesterona</h3>
+        <p>Extracción venosa el día de la transferencia, <b>dentro de la hora anterior o posterior</b>. Todas las transferencias se hicieron entre las <b>11:00 y las 14:00</b>.</p>
+        <p>Las muestras se analizaron en cada centro con inmunoensayos de variación inter-ensayo <b>igual o menor del 10 %</b>. Los cortes se fijaron sobre los propios percentiles de la muestra: 25 (29,0) y 10 (22,5 nmol/l).</p>
+      </div>
+      <div class="step">
+        <span class="n">4</span>
+        <h3>Qué se midió como desenlace</h3>
+        <p>Principal: <b>gestación clínica</b>, definida como gestación viable más allá de la semana 7. Secundarios: <b>tasa de embarazo</b> (hCG en suero ≥ 5 UI/l a los 16 días del trigger) y <b>pérdida gestacional</b> antes o en la ecografía de la semana 8.</p>
+        <p>Además de las comparaciones directas, se hicieron regresiones logísticas ajustadas por día de transferencia, centro, causa de infertilidad, IMC, edad, parto previo y día de vitrificación.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">La letra pequeña</p>
+      <h2>Lo que reconocen los autores</h2>
+      <p class="lead" style="margin-top:26px">Un resultado negativo obliga a mirar de cerca si el estudio podía haber detectado el efecto en caso de existir. Los autores lo discuten explícitamente.</p>
+    </div>
+
+    <div class="caveats">
+      <div class="caveat">
+        <h3>Puede faltar potencia</h3>
+        <p>Reconocen que el conjunto de datos «podría estar infrapotenciado para detectar un efecto», lo que aumenta el riesgo de error de tipo II. Matizan que las tasas de gestación clínica fueron similares entre grupos, lo que en su opinión lo hace menos probable. Aun así, con 209 participantes frente a las 294 del estudio de Gaggiotti-Marre, admiten que la muestra es modesta y que no se puede descartar que con más participantes el resultado hubiera sido distinto.</p>
+      </div>
+      <div class="caveat">
+        <h3>Un sub-estudio de un ensayo mayor</h3>
+        <p>Los datos vienen de un ensayo aleatorizado en curso, pero los autores reconocen que un sub-estudio «no tiene la misma potencia para dar estimaciones no sesgadas del efecto que el propio ensayo». También señalan que el análisis multivariante con la progesterona dicotomizada en el percentil 25 puede estar sobreajustado, porque el grupo por debajo es pequeño; para sortearlo repitieron el análisis con la progesterona como variable continua.</p>
+      </div>
+      <div class="caveat">
+        <h3>Una sola medición, y en una ventana amplia</h3>
+        <p>Fijar la hora de extracción es una fortaleza, porque la progesterona fluctúa a lo largo del día. Pero los autores advierten de que una medición aislada «puede no ser representativa» de las concentraciones del día, y de que una franja de tres horas para la extracción «puede ser demasiado amplia». El día de medición además difería entre grupos (6 o 7 tras el trigger); lo abordaron estratificando, y los resultados no cambiaron.</p>
+      </div>
+      <div class="caveat">
+        <h3>Un inmunoensayo distinto en cada centro</h3>
+        <p>Por razones logísticas la progesterona se analizó localmente en cada centro, con inmunoensayos distintos. Los autores dicen que esto «puede comprometer la comparabilidad» y que habría sido preferible centralizar las muestras. Añaden que su análisis multivariante apunta a que la tasa de gestación podría diferir entre centros, pero que los tamaños por centro son pequeños y debe interpretarse con cautela.</p>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p>«Aunque una ausencia de evidencia no significa necesariamente evidencia de una ausencia de efecto, no fue posible identificar una asociación significativa entre las concentraciones de progesterona el día de la transferencia de blastocisto y la tasa de gestación clínica, la tasa de embarazo o la tasa de pérdida gestacional en mNC-FET sin soporte de fase lútea.»</p>
+      <p class="orig">«While an absence of evidence does not necessarily mean evidence of an absence of effect, it was not possible to identify a significant association between progesterone concentrations on the day of blastocyst transfer and CPR, pregancy rate or PLR in mNC-FET without LPS.»</p>
+      <cite>Saupstad, Bergenheim et al., conclusión del artículo. Reprod Biomed Online. 2024;49(1):103862</cite>
+    </div>
+
+    <div class="quote" style="border-top:none;padding-top:22px;margin-top:22px">
+      <p>«Los datos subrayan que los resultados de los ciclos HRT-FET y de ciclo natural verdadero podrían no ser aplicables al ciclo natural modificado, lo que destaca la importancia de distinguir entre los distintos protocolos de preparación endometrial, tanto en investigación como en la práctica clínica.»</p>
+      <cite>Última frase de la discusión del artículo</cite>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="read">
+    <p class="eyebrow">Para citarlo</p>
+    <h2>La referencia</h2>
+    <div class="cite-block">
+      Saupstad M, Bergenheim SJ, Bogstad JW, Petersen MR, Klajnbard A, Prætorius L, Freiesleben NIC, Englund AL, Løkkegaard ECL, Knudsen UB, Husth M, Alsbjerg B, Møller JE, Dam TV, Forman JL, Pinborg A, Løssl K. Progesterone concentrations on blastocyst transfer day in modified natural cycle frozen embryo transfer cycles. <i>Reprod Biomed Online</i>. 2024;49(1):103862.
+      <br><br>
+      doi: <a href="https://doi.org/10.1016/j.rbmo.2024.103862" target="_blank" rel="noopener">10.1016/j.rbmo.2024.103862</a>
+      <br>
+      Artículo de acceso abierto bajo licencia CC BY 4.0. Los autores declaran no tener conflictos de interés financieros ni comerciales. Ensayo registrado en EudraCT (2018-002207-34) y ClinicalTrials.gov (NCT03795220).
+      <br><br>
+      <a href="https://www.rbmojournal.com/article/S1472-6483(24)00051-8/fulltext" target="_blank" rel="noopener">Leer el artículo completo en Reproductive BioMedicine Online</a>
+    </div>
+  </div>
+</section>
+
+<div class="honesty">
+  <div class="read">
+    Ficha visual de <span class="brand">Código AdrIA</span>, elaborada sobre el artículo original sin añadir datos ni interpretaciones ajenas al texto. Cada cifra se ha verificado contra su tabla o su sección antes de maquetarla. Esta página no sustituye al artículo original.
+  </div>
+</div>
+
+<style>
+  .ca-foot{
+    background:#102e35;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal-brand span{font-size:.86rem;font-weight:500;color:#dfe9eb}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+  @media (max-width:640px){
+    .ca-cta{padding:48px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Esta pieza es parte de la serie «papers legibles»: cada cifra se verifica contra su
+          tabla o su sección del artículo original antes de maquetarla. Las siguientes se
+          publican en la comunidad.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+        <span>Código AdrIA</span>
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var bars = document.querySelectorAll('.bar-fill');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) {
+      bars.forEach(function(b){ b.style.width = b.dataset.w + '%'; });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) {
+          e.target.style.width = e.target.dataset.w + '%';
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    bars.forEach(function(b){ io.observe(b); });
+  })();
+</script>
+
+</body>
+</html>
