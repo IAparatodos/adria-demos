@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Análisis de visagismo — Eddie Moon</title>
+<meta name="description" content="Medimos tu cara antes de tocar la tijera. 468 puntos, no una línea a ojo.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d0d0e'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='40' font-weight='700' fill='%23c9a227' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Análisis de visagismo · Eddie Moon (demostración)">
+<meta property="og:description" content="Medimos tu cara antes de tocar la tijera: 468 puntos, no una línea a ojo.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="URL_PENDIENTE">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Análisis de visagismo · Eddie Moon (demostración)">
+<meta name="twitter:description" content="Medimos tu cara antes de tocar la tijera: 468 puntos, no una línea a ojo.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --negro:#0d0d0e; --negro2:#151517; --negro3:#1e1e21;
+  --oro:#c9a227; --oro2:#e3c158; --oro-dim:rgba(201,162,39,.12); --oro-bd:rgba(201,162,39,.22);
+  --hueso:#f2eee6; --gris:#8b867d; --linea:rgba(255,255,255,.07);
+  --ok:#5cb85c; --mal:#d9534f;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--negro);color:var(--hueso);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:680px;margin:0 auto;padding:0 20px}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;letter-spacing:-.01em}
+
+/* ---------- barra demo ---------- */
+.demo-bar{background:var(--oro);color:#1a1508;text-align:center;font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:7px 14px}
+
+/* ---------- hero ---------- */
+.hero{padding:38px 0 30px;text-align:center;border-bottom:1px solid var(--linea)}
+.marca{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;letter-spacing:.22em;color:var(--hueso);text-transform:uppercase}
+.marca-sub{font-size:10.5px;letter-spacing:.3em;color:var(--oro);text-transform:uppercase;margin-top:5px}
+.since{font-size:11px;color:var(--gris);letter-spacing:.16em;margin-top:12px;text-transform:uppercase}
+.hero h1{font-size:clamp(30px,8vw,44px);line-height:1.12;margin:26px 0 14px}
+.hero h1 em{font-style:italic;color:var(--oro2)}
+.hero p{color:var(--gris);font-size:16px;max-width:480px;margin:0 auto}
+
+/* ---------- botones ---------- */
+.btn{display:block;width:100%;background:var(--oro);color:#17130a;border:none;border-radius:4px;padding:17px 20px;font-family:'Inter',sans-serif;font-size:16px;font-weight:700;letter-spacing:.02em;cursor:pointer;transition:.2s;text-align:center;text-decoration:none}
+.btn:active{transform:scale(.985)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn-ghost{background:transparent;color:var(--oro);border:1px solid var(--oro-bd);font-weight:600}
+.btn-row{display:grid;gap:10px;margin-top:22px}
+@media(min-width:520px){.btn-row{grid-template-columns:1fr 1fr}}
+
+/* ---------- analizador ---------- */
+.sec{padding:42px 0;border-bottom:1px solid var(--linea)}
+.kicker{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--oro);margin-bottom:12px}
+.sec h2{font-size:clamp(24px,6vw,32px);margin-bottom:10px}
+.sec>.wrap>p.lead{color:var(--gris);font-size:15.5px}
+
+.dropzone{margin-top:22px;border:1px dashed var(--oro-bd);border-radius:6px;padding:34px 20px;text-align:center;background:var(--negro2);transition:.2s}
+.dropzone.drag{background:var(--oro-dim);border-color:var(--oro)}
+.dz-icon{font-size:30px;margin-bottom:10px;opacity:.85}
+.dz-t{font-weight:600;margin-bottom:5px}
+.dz-s{color:var(--gris);font-size:13.5px}
+
+.privacidad{display:flex;gap:9px;align-items:flex-start;margin-top:14px;padding:12px 14px;background:rgba(92,184,92,.07);border:1px solid rgba(92,184,92,.2);border-radius:5px;font-size:13px;color:#bcd8bc}
+.privacidad b{color:#d8ecd8}
+
+#estado{margin-top:16px;text-align:center;color:var(--oro2);font-size:14px;min-height:22px}
+
+.lienzo-caja{margin-top:22px;position:relative;display:none}
+.lienzo-caja.on{display:block}
+canvas{width:100%;border-radius:6px;display:block;background:var(--negro2)}
+.capas{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px;justify-content:center}
+.capa{background:var(--negro3);border:1px solid var(--linea);color:var(--gris);padding:7px 13px;border-radius:100px;font-size:12.5px;font-weight:600;cursor:pointer;transition:.16s;font-family:inherit}
+.capa.on{background:var(--oro-dim);border-color:var(--oro-bd);color:var(--oro2)}
+.pista{text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);margin-top:9px}
+
+/* ---------- resultados ---------- */
+#resultado{display:none}
+#resultado.on{display:block}
+.forma{text-align:center;padding:30px 20px;background:linear-gradient(180deg,var(--oro-dim),transparent);border:1px solid var(--oro-bd);border-radius:6px;margin-top:8px}
+.forma-k{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--oro);margin-bottom:8px}
+.forma-n{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,9vw,46px);font-weight:700;line-height:1.1}
+.forma-d{color:var(--gris);font-size:14.5px;margin-top:9px}
+
+.medidas{margin-top:20px;border:1px solid var(--linea);border-radius:6px;overflow:hidden}
+.med{display:flex;align-items:center;gap:12px;padding:13px 15px;border-bottom:1px solid var(--linea)}
+.med:last-child{border-bottom:none}
+.med-n{flex:1;font-size:14px}
+.med-n small{display:block;color:var(--gris);font-size:11.5px;margin-top:1px}
+.med-v{font-variant-numeric:tabular-nums;font-weight:700;font-size:15px;color:var(--oro2);white-space:nowrap}
+.med-bar{width:64px;height:4px;background:var(--negro3);border-radius:100px;overflow:hidden;flex-shrink:0}
+.med-bar span{display:block;height:100%;background:var(--oro)}
+
+.ficha{margin-top:20px;background:var(--negro2);border:1px solid var(--linea);border-radius:6px;padding:20px}
+.ficha h3{font-size:20px;margin-bottom:14px;color:var(--oro2)}
+.ficha dl{display:grid;gap:12px}
+.ficha dt{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--oro);margin-bottom:3px}
+.ficha dd{font-size:14.5px;color:#ded8ce}
+
+.aviso-firma{margin-top:18px;padding:15px 17px;border-left:2px solid var(--oro);background:var(--oro-dim);border-radius:0 5px 5px 0;font-size:14px;color:#e8dfc9}
+
+/* ---------- método ---------- */
+.pasos{display:grid;gap:14px;margin-top:22px}
+.paso{display:flex;gap:15px;align-items:flex-start}
+.paso-n{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--oro);line-height:1;min-width:34px;font-weight:700}
+.paso-t{font-weight:650;margin-bottom:3px}
+.paso-d{color:var(--gris);font-size:14.5px}
+
+/* ---------- precio ---------- */
+.precio{text-align:center;border:1px solid var(--oro-bd);border-radius:6px;padding:32px 22px;background:var(--negro2)}
+.precio .cifra{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:700;color:var(--oro2);line-height:1}
+.precio .cifra small{font-size:.42em;color:var(--gris)}
+.precio ul{list-style:none;text-align:left;max-width:330px;margin:20px auto 0;display:grid;gap:9px}
+.precio li{font-size:14.5px;padding-left:22px;position:relative;color:#ded8ce}
+.precio li::before{content:'—';position:absolute;left:0;color:var(--oro)}
+.sin-trucos{color:var(--gris);font-size:13px;margin-top:18px}
+
+/* ---------- pie ---------- */
+.pie{padding:34px 20px 44px;text-align:center;border-top:1px solid var(--linea)}
+.pie .demo-nota{background:var(--negro2);border:1px solid var(--oro-bd);border-radius:6px;padding:16px 18px;font-size:13.5px;color:var(--gris);max-width:520px;margin:0 auto 22px;text-align:left}
+.pie .demo-nota b{color:var(--hueso)}
+.pie small{color:var(--gris);font-size:12.5px;display:block;line-height:1.8}
+.pie a{color:var(--oro);text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="demo-bar">Demostración · no es la web oficial</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="marca">Eddie Moon</div>
+    <div class="marca-sub">Barber Shop · Valencia</div>
+    <div class="since">Desde 1992 · 34 años de oficio</div>
+    <h1>Ese corte le quedaba bien <em>a otra cara</em>.</h1>
+    <p>Otra implantación de pelo, otra mandíbula, otras proporciones. Aquí medimos la tuya antes de tocar la tijera: 468 puntos sobre tu rostro, ninguna línea trazada a ojo.</p>
+    <div class="btn-row">
+      <a href="#analisis" class="btn">Medir mi cara ahora</a>
+      <a href="#precio" class="btn btn-ghost">Ver qué incluye</a>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="analisis">
+  <div class="wrap">
+    <div class="kicker">Pruébalo tú mismo</div>
+    <h2>Sube una foto de frente</h2>
+    <p class="lead">Cara despejada, mirando al frente y con luz decente. Funciona igual con una foto del carrete que con una hecha ahora.</p>
+
+    <div class="dropzone" id="dz">
+      <div class="dz-icon">◎</div>
+      <div class="dz-t">Toca para elegir una foto</div>
+      <div class="dz-s">o arrástrala aquí</div>
+      <input type="file" id="file" accept="image/*" hidden>
+    </div>
+
+    <div class="privacidad">
+      <span>🔒</span>
+      <div><b>Tu foto no sale de este teléfono.</b> La medición ocurre dentro de tu propio navegador: no se sube a ningún servidor, no se guarda y nadie más la ve. Al cerrar esta página desaparece.</div>
+    </div>
+
+    <div id="estado"></div>
+
+    <div class="lienzo-caja" id="lienzoCaja">
+      <canvas id="lienzo"></canvas>
+      <div class="capas">
+        <button class="capa on" data-capa="malla">Malla</button>
+        <button class="capa on" data-capa="tercios">Tercios</button>
+        <button class="capa on" data-capa="quintos">Quintos</button>
+        <button class="capa on" data-capa="anchuras">Anchuras</button>
+        <button class="capa" data-capa="eje">Eje</button>
+      </div>
+      <div class="pista">Toca para mostrar u ocultar</div>
+    </div>
+  </div>
+</section>
+
+<div id="resultado">
+  <section class="sec">
+    <div class="wrap">
+      <div class="kicker">Tu diagnóstico</div>
+      <div class="forma">
+        <div class="forma-k">Estructura detectada</div>
+        <div class="forma-n" id="formaNombre">—</div>
+        <div class="forma-d" id="formaDesc"></div>
+      </div>
+
+      <div class="medidas" id="medidas"></div>
+
+      <div class="ficha">
+        <h3>Ficha técnica para el barbero</h3>
+        <dl>
+          <div><dt>Corte</dt><dd id="recCorte">—</dd></div>
+          <div><dt>Laterales y degradado</dt><dd id="recLados">—</dd></div>
+          <div><dt>Barba</dt><dd id="recBarba">—</dd></div>
+          <div><dt>Lo que hay que evitar</dt><dd id="recEvitar">—</dd></div>
+        </dl>
+      </div>
+
+      <p style="font-size:13px;color:var(--gris);margin-top:12px">El nacimiento del pelo no se mide en una foto — ningún sistema lo ve si hay pelo delante. Por eso todo se calcula desde las cejas hacia abajo, que es lo que sí se puede medir con honestidad.</p>
+
+      <div class="aviso-firma">
+        <b>Usamos IA y no lo escondemos.</b> La máquina mide y redacta el borrador; Eddie lo revisa antes de que salga y decide en la silla. Lo que mide un ordenador son proporciones, no criterio — el criterio lo pone quien lleva 34 años detrás del sillón.
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="kicker">El método</div>
+    <h2>Medimos, diagnosticamos, cortamos.</h2>
+    <div class="pasos">
+      <div class="paso"><div class="paso-n">01</div><div><div class="paso-t">Medimos sobre tu foto</div><div class="paso-d">468 puntos anatómicos y las proporciones que de verdad mandan en un corte: tercios, quintos, anchura de frente, pómulo y mandíbula.</div></div></div>
+      <div class="paso"><div class="paso-n">02</div><div><div class="paso-t">Diagnosticamos con cifras</div><div class="paso-d">Tu estructura comparada con el canon clásico. Qué corte y qué barba te favorecen, y por qué — no porque se lleve.</div></div></div>
+      <div class="paso"><div class="paso-n">03</div><div><div class="paso-t">Y lo ejecutamos</div><div class="paso-d">Eddie corta siguiendo la ficha, y te queda por escrito para que el resultado se repita la próxima vez.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="precio">
+  <div class="wrap">
+    <div class="kicker">Precio</div>
+    <h2>Un análisis. Sin trucos.</h2>
+    <div class="precio" style="margin-top:20px">
+      <div class="cifra">37<small> €</small></div>
+      <ul>
+        <li>Análisis completo: 468 puntos y tus proporciones</li>
+        <li>Diagnóstico de corte y barba para tu estructura</li>
+        <li>Ficha técnica escrita, tuya para siempre</li>
+        <li>Descontable de tu próximo servicio</li>
+      </ul>
+      <a href="https://eddiemoon.booksy.com/a/" class="btn" style="margin-top:24px" target="_blank" rel="noopener">Reservar mi análisis</a>
+      <div class="sin-trucos">Sin precio tachado. Sin cuenta atrás. Sin «quedan 2 plazas».</div>
+    </div>
+  </div>
+</section>
+
+<footer class="pie">
+  <div class="demo-nota">
+    <b>Esta página es una demostración.</b> La ha construido Código AdrIA para enseñarle a Eddie Moon cómo quedaría el sistema con la marca de su barbería. No es su web oficial y no está conectada a su agenda real: el botón de reserva lleva a su Booksy de siempre.
+  </div>
+  <small>
+    <strong style="color:var(--hueso)">Código AdrIA</strong> · IA aplicada al trabajo real, sin humo<br>
+    <a href="https://www.codigoadria.com">codigoadria.com</a> · 96 195 71 36
+  </small>
+</footer>
+
+<script type="module">
+import { FaceLandmarker, FilesetResolver } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14";
+
+const dz = document.getElementById('dz');
+const file = document.getElementById('file');
+const estado = document.getElementById('estado');
+const lienzo = document.getElementById('lienzo');
+const lienzoCaja = document.getElementById('lienzoCaja');
+const ctx = lienzo.getContext('2d');
+let landmarker = null, puntos = null, img = null;
+const capas = {malla:true, tercios:true, quintos:true, anchuras:true, eje:false};
+
+// --- puntos de referencia del FaceMesh ---
+const P = {
+  trichion:10, glabela:9, subnasal:2, menton:152,
+  sienIzq:234, sienDer:454,           // anchura bicigomática (pómulos)
+  frenteIzq:54, frenteDer:284,        // anchura frontal
+  mandIzq:172, mandDer:397,           // anchura mandibular (gonion)
+  ojoExtIzq:33, ojoIntIzq:133, ojoIntDer:362, ojoExtDer:263,
+  bocaIzq:61, bocaDer:291, narizIzq:129, narizDer:358
+};
+
+async function cargarMotor(){
+  estado.textContent = 'Preparando el sistema de medición…';
+  const fs = await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm");
+  landmarker = await FaceLandmarker.createFromOptions(fs, {
+    baseOptions:{ modelAssetPath:"https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task" },
+    runningMode:"IMAGE", numFaces:1, outputFaceBlendshapes:false
+  });
+  estado.textContent = '';
+}
+
+dz.addEventListener('click', ()=> file.click());
+dz.addEventListener('dragover', e=>{e.preventDefault(); dz.classList.add('drag')});
+dz.addEventListener('dragleave', ()=> dz.classList.remove('drag'));
+dz.addEventListener('drop', e=>{e.preventDefault(); dz.classList.remove('drag'); if(e.dataTransfer.files[0]) procesar(e.dataTransfer.files[0]);});
+file.addEventListener('change', e=>{ if(e.target.files[0]) procesar(e.target.files[0]); });
+
+async function procesar(f){
+  estado.textContent = 'Leyendo la foto…';
+  const url = URL.createObjectURL(f);
+  img = new Image();
+  img.onload = async ()=>{
+    URL.revokeObjectURL(url);
+    try{
+      if(!landmarker) await cargarMotor();
+      estado.textContent = 'Localizando los 468 puntos…';
+      const res = landmarker.detect(img);
+      if(!res.faceLandmarks || !res.faceLandmarks.length){
+        estado.textContent = 'No he encontrado una cara ahí. Prueba con una foto de frente, con la cara despejada.';
+        return;
+      }
+      puntos = res.faceLandmarks[0];
+      estado.textContent = '';
+      lienzoCaja.classList.add('on');
+      dibujar();
+      medir();
+      document.getElementById('resultado').classList.add('on');
+      document.getElementById('resultado').scrollIntoView({behavior:'smooth'});
+    }catch(err){
+      estado.textContent = 'Algo ha fallado al medir: ' + err.message;
+    }
+  };
+  img.src = url;
+}
+
+function dibujar(){
+  // Recorte automático al rostro: la retícula tiene que verse grande, no perdida en la foto.
+  let minX=1,maxX=0,minY=1,maxY=0;
+  for(const q of puntos){
+    if(q.x<minX)minX=q.x; if(q.x>maxX)maxX=q.x;
+    if(q.y<minY)minY=q.y; if(q.y>maxY)maxY=q.y;
+  }
+  const ancho = (maxX-minX)*img.width, altoC = (maxY-minY)*img.height;
+  const mx = ancho*0.32, myTop = altoC*0.45, myBot = altoC*0.18;  // más margen arriba: frente y pelo
+  let ox = Math.max(0, minX*img.width - mx);
+  let oy = Math.max(0, minY*img.height - myTop);
+  let ow = Math.min(img.width-ox, ancho + mx*2);
+  let oh = Math.min(img.height-oy, altoC + myTop + myBot);
+
+  const maxW = 900;
+  const esc = Math.min(1, maxW/ow);
+  const W = lienzo.width = Math.round(ow*esc);
+  const H = lienzo.height = Math.round(oh*esc);
+  ctx.drawImage(img, ox, oy, ow, oh, 0, 0, W, H);
+  ctx.fillStyle = 'rgba(13,13,14,.34)';
+  ctx.fillRect(0,0,W,H);
+
+  const px = i => (puntos[i].x*img.width - ox)*esc;
+  const py = i => (puntos[i].y*img.height - oy)*esc;
+
+  if(capas.malla){
+    ctx.fillStyle = 'rgba(227,193,88,.6)';
+    const r = Math.max(1, W/620);
+    for(let i=0;i<puntos.length;i++){
+      ctx.beginPath(); ctx.arc(px(i), py(i), r, 0, 6.284); ctx.fill();
+    }
+  }
+  const linea = (x1,y1,x2,y2,col,gr=1.4,dash=[])=>{
+    ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=gr; ctx.setLineDash(dash);
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke(); ctx.restore();
+  };
+  const tam = Math.max(11, W/44);
+  const etiqueta = (t,x,y)=>{
+    ctx.save(); ctx.font = `600 ${tam}px Inter, sans-serif`;
+    const an = ctx.measureText(t).width + 14;
+    ctx.fillStyle='rgba(13,13,14,.85)'; ctx.fillRect(x, y-tam-5, an, tam+10);
+    ctx.fillStyle='#e3c158'; ctx.fillText(t, x+7, y);
+    ctx.restore();
+  };
+  ctx.font = `600 ${tam}px Inter, sans-serif`;
+
+  if(capas.tercios){
+    const ys = [P.glabela,P.subnasal,P.menton].map(py);
+    const alto = ys[2]-ys[0];
+    ys.forEach(y=> linea(0,y,W,y,'rgba(201,162,39,.75)',1.4,[7,6]));
+    const noms = ['Medio','Inferior'];
+    for(let i=0;i<2;i++){
+      const pc = ((ys[i+1]-ys[i])/alto*100).toFixed(0);
+      const t = `${noms[i]} ${pc}%`;
+      etiqueta(t, W - ctx.measureText(t).width - 22, (ys[i]+ys[i+1])/2);
+    }
+  }
+  if(capas.quintos){
+    const xs = [P.sienIzq,P.ojoExtIzq,P.ojoIntIzq,P.ojoIntDer,P.ojoExtDer,P.sienDer].map(px).sort((a,b)=>a-b);
+    const y1 = py(P.glabela) - (py(P.menton)-py(P.glabela))*0.55, y2 = py(P.menton);
+    xs.forEach(x=> linea(x,Math.max(0,y1),x,y2,'rgba(150,196,214,.55)',1.2,[5,7]));
+  }
+  if(capas.anchuras){
+    [[P.frenteIzq,P.frenteDer,'Frente'],[P.sienIzq,P.sienDer,'Pómulos'],[P.mandIzq,P.mandDer,'Mandíbula']]
+    .forEach(([a,b,n])=>{
+      const y=(py(a)+py(b))/2;
+      linea(px(a),y,px(b),y,'rgba(227,193,88,.95)',2.2);
+      [a,b].forEach(i=>{ ctx.fillStyle='#e3c158'; ctx.beginPath(); ctx.arc(px(i),y,Math.max(3,W/190),0,6.284); ctx.fill(); });
+      etiqueta(n, Math.max(4, px(a)-ctx.measureText(n).width-24), y+tam/3);
+    });
+  }
+  if(capas.eje){
+    linea(px(P.glabela),0,px(P.menton),H,'rgba(255,255,255,.7)',1.6);
+  }
+}
+
+function dist(a,b){
+  const dx=(puntos[a].x-puntos[b].x)*img.width, dy=(puntos[a].y-puntos[b].y)*img.height;
+  return Math.hypot(dx,dy);
+}
+
+const FORMAS = {
+  ovalado:{n:'Ovalado',d:'La estructura más equilibrada: el largo manda sobre el ancho y las tres anchuras se llevan bien.',
+    corte:'Casi todo te vale, así que se elige por pelo y por cómo vives, no por corregir nada. Textura media arriba, sin exagerar volumen.',
+    lados:'Degradado medio, ni apurado ni cargado. Mantiene la proporción que ya tienes.',
+    barba:'Barba corta perfilada o de tres días. No hace falta alargar ni ensanchar nada.',
+    evitar:'Flequillos que tapen la frente y cargar demasiado los laterales: es lo único que rompe un óvalo.'},
+  redondo:{n:'Redondo',d:'Ancho y largo casi iguales, con mandíbula suave. Pide altura y ángulos.',
+    corte:'Volumen arriba y algo de altura en el copete: alarga visualmente. Nada de peso a los lados.',
+    lados:'Degradado alto y apurado. Marca contraste entre lo alto y lo bajo.',
+    barba:'Barba más larga en el mentón y corta en las mejillas. Alarga la cara y da ángulo a la mandíbula.',
+    evitar:'Cortes redondeados, flequillo recto y laterales con volumen. Todo eso ensancha más.'},
+  cuadrado:{n:'Cuadrado',d:'Mandíbula marcada y anchuras parejas. Estructura fuerte de por sí.',
+    corte:'Te favorece casi todo. Textura desordenada arriba para suavizar, o peinado clásico hacia atrás si quieres reforzar el gesto.',
+    lados:'Degradado medio o bajo. No hace falta contraste: la mandíbula ya lo da.',
+    barba:'Barba corta y uniforme que siga la línea del hueso. Perfilado limpio, sin redondear la esquina de la mandíbula.',
+    evitar:'Degradados muy altos y barbas cuadradas y voluminosas: cuadran sobre cuadrado y endurecen de más.'},
+  alargado:{n:'Alargado',d:'El largo se impone claramente al ancho. Todo lo que sume altura, en contra.',
+    corte:'Corto y controlado arriba. Nada de copetes altos: alargan lo que ya es largo.',
+    lados:'Degradado bajo, dejando algo de peso en los laterales. Ensancha y compensa.',
+    barba:'Barba con volumen en las mejillas y corta en el mentón. Es lo que más ensancha la cara.',
+    evitar:'Volumen alto, tupés y laterales apurados al cero. Estiran el rostro.'},
+  corazon:{n:'Corazón',d:'Frente ancha y mentón estrecho. El equilibrio está en no cargar la parte de arriba.',
+    corte:'Media longitud con caída natural hacia delante. Flequillo texturizado si la frente es muy alta.',
+    lados:'Degradado medio, sin apurar: mantener algo de cuerpo abajo compensa el mentón estrecho.',
+    barba:'Barba con densidad en el mentón. Da peso donde la estructura no lo tiene.',
+    evitar:'Volumen alto y laterales muy apurados: exageran el contraste entre frente y barbilla.'},
+  diamante:{n:'Diamante',d:'Pómulos como punto más ancho, frente y mandíbula más estrechas.',
+    corte:'Volumen y peso arriba para ensanchar la frente. Flequillo lateral si el pelo lo permite.',
+    lados:'Degradado medio a bajo, dejando cuerpo por debajo del pómulo.',
+    barba:'Barba llena que ensanche el mentón y equilibre los pómulos.',
+    evitar:'Laterales apurados a la altura del pómulo: exageran la anchura del centro.'}
+};
+
+// ratio = altura de glabela a mentón dividida por la anchura entre pómulos.
+// Se usa esa altura y no la total porque el nacimiento del pelo NO es medible en una foto
+// con pelo: FaceMesh no lo detecta. Canon clásico de esta relación: 0,97 – 1,07.
+function clasificar(m){
+  const {ratio, fr, po, ma} = m;
+  if(ratio > 1.12) return 'alargado';
+  if(po > fr*1.06 && po > ma*1.06) return 'diamante';
+  if(fr > ma*1.11) return 'corazon';
+  if(ratio < 1.00 && ma > po*.90) return 'cuadrado';
+  if(ratio < 0.97) return 'redondo';
+  return 'ovalado';
+}
+
+function medir(){
+  const alto = dist(P.glabela,P.menton);   // altura facial fiable (sin depender del pelo)
+  const po = dist(P.sienIzq,P.sienDer);
+  const fr = dist(P.frenteIzq,P.frenteDer);
+  const ma = dist(P.mandIzq,P.mandDer);
+  const ratio = alto/po;
+
+  const yG=puntos[P.glabela].y, yS=puntos[P.subnasal].y, yM=puntos[P.menton].y;
+  const dosTercios = yM-yG;
+  const t2=(yS-yG)/dosTercios*100, t3=(yM-yS)/dosTercios*100;
+
+  const ojo = dist(P.ojoExtIzq,P.ojoIntIzq);
+  const sep = dist(P.ojoIntIzq,P.ojoIntDer);
+  const boca = dist(P.bocaIzq,P.bocaDer);
+  const nariz = dist(P.narizIzq,P.narizDer);
+
+  const filas = [
+    ['Altura facial / anchura', 'Cejas a mentón sobre pómulos. Canon: 0,97 – 1,07', ratio.toFixed(2), Math.min(100, ratio/1.4*100)],
+    ['Tercio medio', 'De las cejas a la base de la nariz. Canon: 50 %', t2.toFixed(0)+' %', t2],
+    ['Tercio inferior', 'De la nariz al mentón. Canon: 50 %', t3.toFixed(0)+' %', t3],
+    ['Frente respecto a pómulos', '100 % sería igual de ancha', (fr/po*100).toFixed(0)+' %', fr/po*100],
+    ['Mandíbula respecto a pómulos', 'Cuanto más alto, más cuadrado', (ma/po*100).toFixed(0)+' %', ma/po*100],
+    ['Separación entre ojos', 'El canon: un ojo de distancia', (sep/ojo).toFixed(2)+' ojos', sep/ojo/1.4*100],
+    ['Boca respecto a la nariz', 'Canon: 1,5 veces más ancha', (boca/nariz).toFixed(2)+' ×', boca/nariz/2*100]
+  ];
+  document.getElementById('medidas').innerHTML = filas.map(([n,s,v,p])=>`
+    <div class="med">
+      <div class="med-n">${n}<small>${s}</small></div>
+      <div class="med-bar"><span style="width:${Math.max(6,Math.min(100,p))}%"></span></div>
+      <div class="med-v">${v}</div>
+    </div>`).join('');
+
+  const f = FORMAS[clasificar({ratio,fr,po,ma})];
+  document.getElementById('formaNombre').textContent = f.n;
+  document.getElementById('formaDesc').textContent = f.d;
+  document.getElementById('recCorte').textContent = f.corte;
+  document.getElementById('recLados').textContent = f.lados;
+  document.getElementById('recBarba').textContent = f.barba;
+  document.getElementById('recEvitar').textContent = f.evitar;
+}
+
+document.querySelectorAll('.capa').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    const c = b.dataset.capa;
+    capas[c] = !capas[c];
+    b.classList.toggle('on', capas[c]);
+    if(puntos) dibujar();
+  });
+});
+
+cargarMotor();
+</script>
+</body>
+</html>
