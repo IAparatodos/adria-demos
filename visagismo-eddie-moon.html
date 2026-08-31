@@ -579,6 +579,96 @@ document.getElementById('btnSim').addEventListener('click', async (ev)=>{
   nota.textContent = 'Estas imágenes salen de tu foto y son orientativas: el resultado real lo decide Eddie en la silla.';
 });
 
+const FORMAS = {
+  ovalado:{n:'Ovalado',d:'La estructura más equilibrada: el largo manda sobre el ancho y las tres anchuras se llevan bien.',
+    corte:'Casi todo te vale, así que se elige por pelo y por cómo vives, no por corregir nada. Textura media arriba, sin exagerar volumen.',
+    lados:'Degradado medio, ni apurado ni cargado. Mantiene la proporción que ya tienes.',
+    barba:'Barba corta perfilada o de tres días. No hace falta alargar ni ensanchar nada.',
+    evitar:'Flequillos que tapen la frente y cargar demasiado los laterales: es lo único que rompe un óvalo.'},
+  redondo:{n:'Redondo',d:'Ancho y largo casi iguales, con mandíbula suave. Pide altura y ángulos.',
+    corte:'Volumen arriba y algo de altura en el copete: alarga visualmente. Nada de peso a los lados.',
+    lados:'Degradado alto y apurado. Marca contraste entre lo alto y lo bajo.',
+    barba:'Barba más larga en el mentón y corta en las mejillas. Alarga la cara y da ángulo a la mandíbula.',
+    evitar:'Cortes redondeados, flequillo recto y laterales con volumen. Todo eso ensancha más.'},
+  cuadrado:{n:'Cuadrado',d:'Mandíbula marcada y anchuras parejas. Estructura fuerte de por sí.',
+    corte:'Te favorece casi todo. Textura desordenada arriba para suavizar, o peinado clásico hacia atrás si quieres reforzar el gesto.',
+    lados:'Degradado medio o bajo. No hace falta contraste: la mandíbula ya lo da.',
+    barba:'Barba corta y uniforme que siga la línea del hueso. Perfilado limpio, sin redondear la esquina de la mandíbula.',
+    evitar:'Degradados muy altos y barbas cuadradas y voluminosas: cuadran sobre cuadrado y endurecen de más.'},
+  alargado:{n:'Alargado',d:'El largo se impone claramente al ancho. Todo lo que sume altura, en contra.',
+    corte:'Corto y controlado arriba. Nada de copetes altos: alargan lo que ya es largo.',
+    lados:'Degradado bajo, dejando algo de peso en los laterales. Ensancha y compensa.',
+    barba:'Barba con volumen en las mejillas y corta en el mentón. Es lo que más ensancha la cara.',
+    evitar:'Volumen alto, tupés y laterales apurados al cero. Estiran el rostro.'},
+  corazon:{n:'Corazón',d:'Frente ancha y mentón estrecho. El equilibrio está en no cargar la parte de arriba.',
+    corte:'Media longitud con caída natural hacia delante. Flequillo texturizado si la frente es muy alta.',
+    lados:'Degradado medio, sin apurar: mantener algo de cuerpo abajo compensa el mentón estrecho.',
+    barba:'Barba con densidad en el mentón. Da peso donde la estructura no lo tiene.',
+    evitar:'Volumen alto y laterales muy apurados: exageran el contraste entre frente y barbilla.'},
+  diamante:{n:'Diamante',d:'Pómulos como punto más ancho, frente y mandíbula más estrechas.',
+    corte:'Volumen y peso arriba para ensanchar la frente. Flequillo lateral si el pelo lo permite.',
+    lados:'Degradado medio a bajo, dejando cuerpo por debajo del pómulo.',
+    barba:'Barba llena que ensanche el mentón y equilibre los pómulos.',
+    evitar:'Laterales apurados a la altura del pómulo: exageran la anchura del centro.'}
+};
+
+// ratio = altura de glabela a mentón dividida por la anchura entre pómulos.
+// Se usa esa altura y no la total porque el nacimiento del pelo NO es medible en una foto
+// con pelo: FaceMesh no lo detecta. Canon clásico de esta relación: 0,97 – 1,07.
+function clasificar(m){
+  const {ratio, fr, po, ma} = m;
+  if(ratio > 1.12) return 'alargado';
+  if(po > fr*1.06 && po > ma*1.06) return 'diamante';
+  if(fr > ma*1.11) return 'corazon';
+  if(ratio < 1.00 && ma > po*.90) return 'cuadrado';
+  if(ratio < 0.97) return 'redondo';
+  return 'ovalado';
+}
+
+function medir(){
+  const alto = dist(P.glabela,P.menton);   // altura facial fiable (sin depender del pelo)
+  const po = dist(P.sienIzq,P.sienDer);
+  const fr = dist(P.frenteIzq,P.frenteDer);
+  const ma = dist(P.mandIzq,P.mandDer);
+  const ratio = alto/po;
+
+  const yG=puntos[P.glabela].y, yS=puntos[P.subnasal].y, yM=puntos[P.menton].y;
+  const dosTercios = yM-yG;
+  const t2=(yS-yG)/dosTercios*100, t3=(yM-yS)/dosTercios*100;
+
+  const ojo = dist(P.ojoExtIzq,P.ojoIntIzq);
+  const sep = dist(P.ojoIntIzq,P.ojoIntDer);
+  const boca = dist(P.bocaIzq,P.bocaDer);
+  const nariz = dist(P.narizIzq,P.narizDer);
+
+  const filas = [
+    ['Altura facial / anchura', 'Cejas a mentón sobre pómulos. Canon: 0,97 – 1,07', ratio.toFixed(2), Math.min(100, ratio/1.4*100)],
+    ['Tercio medio', 'De las cejas a la base de la nariz. Canon: 50 %', t2.toFixed(0)+' %', t2],
+    ['Tercio inferior', 'De la nariz al mentón. Canon: 50 %', t3.toFixed(0)+' %', t3],
+    ['Frente respecto a pómulos', '100 % sería igual de ancha', (fr/po*100).toFixed(0)+' %', fr/po*100],
+    ['Mandíbula respecto a pómulos', 'Cuanto más alto, más cuadrado', (ma/po*100).toFixed(0)+' %', ma/po*100],
+    ['Separación entre ojos', 'El canon: un ojo de distancia', (sep/ojo).toFixed(2)+' ojos', sep/ojo/1.4*100],
+    ['Boca respecto a la nariz', 'Canon: 1,5 veces más ancha', (boca/nariz).toFixed(2)+' ×', boca/nariz/2*100]
+  ];
+  document.getElementById('medidas').innerHTML = filas.map(([n,sub,v,pc])=>`
+    <div class="med">
+      <div class="med-n">${n}<small>${sub}</small></div>
+      <div class="med-bar"><span style="width:${Math.max(6,Math.min(100,pc))}%"></span></div>
+      <div class="med-v">${v}</div>
+    </div>`).join('');
+
+  const clave = clasificar({ratio,fr,po,ma});
+  const f = FORMAS[clave];
+  document.getElementById('formaNombre').textContent = f.n;
+  document.getElementById('formaDesc').textContent = f.d;
+  document.getElementById('recCorte').textContent = f.corte;
+  document.getElementById('recLados').textContent = f.lados;
+  document.getElementById('recBarba').textContent = f.barba;
+  document.getElementById('recEvitar').textContent = f.evitar;
+  pintarCortes(clave);
+  pintarModo();
+}
+
 let claveForma = null;
 
 function pintarCortes(clave){
