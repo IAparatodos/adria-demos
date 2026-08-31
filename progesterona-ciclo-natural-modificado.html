@@ -75,7 +75,7 @@
   .authors{margin-top:34px;font-size:.95rem;color:#9fb0b5;line-height:1.7;max-width:62ch}
   .authors .first{color:#fff;font-weight:600}
   .meta-row{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
-  .chip{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-pill);padding:8px 16px;font-size:.83rem;color:#dfe9eb;white-space:nowrap}
+  .chip{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-pill);padding:8px 16px;font-size:.83rem;color:#dfe9eb;white-space:nowrap;max-width:100%}
   .chip b{color:#fff;font-weight:600}
   .chip a{color:#dfe9eb;text-decoration:none;border-bottom:1px solid rgba(223,233,235,.4)}
   .chip.open{border-color:rgba(77,210,208,.4);color:#a9ecea}
@@ -164,7 +164,10 @@
     .hero{padding:64px 20px}
     .bar-val{min-width:82px;font-size:.88rem}
     .chart-card{padding:24px 18px}
+    .chip{white-space:normal;line-height:1.35}
+    .bar-name{overflow-wrap:anywhere}
   }
+  .wrap,.read{overflow-wrap:break-word}
 
   @media (prefers-reduced-motion:reduce){
     .bar-fill{transition:none}
