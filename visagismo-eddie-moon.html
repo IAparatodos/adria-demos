@@ -573,8 +573,9 @@ document.getElementById('btnSim').addEventListener('click', async (ev)=>{
       if(im){ im.style.opacity='1'; im.parentElement.classList.remove('cargando'); }
     }
   }));
+  // OJO: aquí NO se llama a pintarModo(): repinta las tarjetas y se cargaría
+  // las simulaciones recién puestas. Solo se actualiza el texto del botón.
   boton.textContent = 'Repetir la simulación';
-  pintarModo();
   boton.disabled = false;
   nota.textContent = 'Estas imágenes salen de tu foto y son orientativas: el resultado real lo decide Eddie en la silla.';
 });
