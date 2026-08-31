@@ -148,6 +148,14 @@ canvas{width:100%;border-radius:6px;display:block;background:var(--negro2)}
 .corte .ref img{width:34px;height:43px}
 .aviso-sim{position:absolute;left:0;right:0;bottom:0;z-index:2;background:linear-gradient(transparent,rgba(13,13,14,.9) 45%);padding:26px 14px 13px;text-align:center;font-size:12.5px;color:var(--oro2);font-weight:600}
 
+/* ---------- foto ampliada ---------- */
+.corte-top img,.corte img,.ref img,canvas{cursor:zoom-in}
+.lupa{position:fixed;inset:0;z-index:999;background:rgba(8,8,9,.94);display:none;align-items:center;justify-content:center;padding:22px;backdrop-filter:blur(6px)}
+.lupa.on{display:flex}
+.lupa img{max-width:100%;max-height:88vh;border-radius:6px;box-shadow:0 24px 70px rgba(0,0,0,.6);cursor:zoom-out}
+.lupa-x{position:absolute;top:16px;right:18px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:var(--hueso);font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lupa-pie{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:var(--gris);font-size:12.5px;letter-spacing:.06em}
+
 /* ---------- método ---------- */
 .pasos{display:grid;gap:14px;margin-top:22px}
 .paso{display:flex;gap:15px;align-items:flex-start}
@@ -173,6 +181,12 @@ canvas{width:100%;border-radius:6px;display:block;background:var(--negro2)}
 </style>
 </head>
 <body>
+
+<div class="lupa" id="lupa">
+  <button class="lupa-x" id="lupaX" aria-label="Cerrar">&times;</button>
+  <img id="lupaImg" alt="">
+  <div class="lupa-pie">Toca fuera de la foto para cerrar</div>
+</div>
 
 <div class="demo-bar">Demostración · no es la web oficial</div>
 
@@ -647,6 +661,19 @@ function medir(){
   document.getElementById('recBarba').textContent = f.barba;
   document.getElementById('recEvitar').textContent = f.evitar;
 }
+
+// ---------- ampliar cualquier foto al pincharla ----------
+const lupa = document.getElementById('lupa'), lupaImg = document.getElementById('lupaImg');
+function ampliar(src){ lupaImg.src = src; lupa.classList.add('on'); document.body.style.overflow='hidden'; }
+function cerrarLupa(){ lupa.classList.remove('on'); lupaImg.src=''; document.body.style.overflow=''; }
+lupa.addEventListener('click', e=>{ if(e.target !== lupaImg) cerrarLupa(); });
+document.getElementById('lupaX').addEventListener('click', cerrarLupa);
+document.addEventListener('keydown', e=>{ if(e.key === 'Escape') cerrarLupa(); });
+document.addEventListener('click', e=>{
+  const el = e.target;
+  if(el.tagName === 'IMG' && el.closest('#cortes')) { ampliar(el.src); return; }
+  if(el.id === 'lienzo') ampliar(el.toDataURL('image/jpeg', 0.92));
+});
 
 document.querySelectorAll('.capa').forEach(b=>{
   b.addEventListener('click', ()=>{
