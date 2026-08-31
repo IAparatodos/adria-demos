@@ -141,6 +141,12 @@ canvas{width:100%;border-radius:6px;display:block;background:var(--negro2)}
 .corte-top img,.corte img{transition:opacity .3s}
 .cargando::after{content:'';position:absolute;top:calc(50% - 16px);left:calc(50% - 16px);width:26px;height:26px;border:2px solid rgba(255,255,255,.15);border-top-color:var(--oro);border-radius:50%;animation:giro .9s linear infinite}
 .es-tuyo::before{content:'TÚ, CON ESTE CORTE';position:absolute;top:11px;left:11px;z-index:2;background:rgba(13,13,14,.82);border:1px solid var(--oro-bd);color:var(--oro2);font-size:10px;font-weight:800;letter-spacing:.1em;padding:4px 9px;border-radius:100px}
+.ref{display:flex;gap:11px;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--linea)}
+.ref img{width:46px;height:58px;object-fit:cover;object-position:center top;border-radius:4px;flex-shrink:0}
+.ref span{font-size:11.5px;color:var(--gris);line-height:1.4}
+.corte .ref{margin-top:9px;padding-top:9px}
+.corte .ref img{width:34px;height:43px}
+.aviso-sim{position:absolute;left:0;right:0;bottom:0;z-index:2;background:linear-gradient(transparent,rgba(13,13,14,.9) 45%);padding:26px 14px 13px;text-align:center;font-size:12.5px;color:var(--oro2);font-weight:600}
 
 /* ---------- método ---------- */
 .pasos{display:grid;gap:14px;margin-top:22px}
@@ -511,6 +517,7 @@ document.getElementById('btnSim').addEventListener('click', async (ev)=>{
         im.style.aspectRatio = '1/1';
         im.parentElement.classList.remove('cargando');
         im.parentElement.classList.add('es-tuyo');
+        const av = document.getElementById('aviso-'+k); if(av) av.remove();
       }
     }catch(err){
       if(im){ im.style.opacity='1'; im.parentElement.classList.remove('cargando'); }
@@ -528,17 +535,21 @@ function pintarCortes(claveForma){
   const otros = r.si.slice(1).map(k=>`
     <div class="corte">
       <img id="img-${k}" src="${CORTES[k].img}" alt="${CORTES[k].n}">
-      <div class="cuerpo"><h5>${CORTES[k].n}</h5><small>${CORTES[k].d}</small></div>
+      <div class="cuerpo"><h5>${CORTES[k].n}</h5>
+        <div class="ref"><img src="${CORTES[k].img}" alt="Referencia"><span>Referencia del corte</span></div>
+      </div>
     </div>`).join('');
   document.getElementById('cortes').innerHTML = `
     <h3 style="font-size:22px;margin-bottom:4px">Los cortes que te favorecen</h3>
     <p style="color:var(--gris);font-size:14px;margin-bottom:16px">Ordenados para tu estructura. El primero es el que más te acompaña.</p>
     <div class="corte-top">
       <img id="img-${r.si[0]}" src="${p.img}" alt="${p.n}">
+      <div class="aviso-sim" id="aviso-${r.si[0]}">Pulsa abajo para verte a ti con este corte</div>
       <div class="cuerpo">
         <span class="corte-badge">El que más te favorece</span>
         <h4>${p.n}</h4>
         <p>${r.porque}</p>
+        <div class="ref"><img src="${p.img}" alt="Referencia"><span>Referencia del corte<br>${p.d}</span></div>
       </div>
     </div>
     <div class="corte-grid">${otros}</div>
