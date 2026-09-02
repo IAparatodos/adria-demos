@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IA en medicina reproductiva: hope or hype · Agarwal et al., Clin Obstet Gynecol 2026</title>
+<link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+<meta name="theme-color" content="#102e35">
+<meta property="og:type" content="website">
+<meta property="og:title" content="IA en medicina reproductiva: hope or hype · Código AdrIA">
+<meta property="og:description" content="La IA ya está en casi todas las fases de la FIV. Ningún ensayo ha mejorado el recién nacido vivo.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/og-ia-hope-hype.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ficha visual: escalera de evidencia de la IA por fase del tratamiento, con la columna del ensayo aleatorizado con recién nacido vivo vacía en las cinco áreas.">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/ia-medicina-reproductiva-hope-hype.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IA en medicina reproductiva: hope or hype · Código AdrIA">
+<meta name="twitter:description" content="La IA ya está en casi todas las fases de la FIV. Ningún ensayo ha mejorado el recién nacido vivo.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/og-ia-hope-hype.jpg">
+<meta name="description" content="La revisión de Agarwal, Quaas y Trolice en Clinical Obstetrics and Gynecology (2026), contada en visual: qué aplicación de IA hay en cada fase del tratamiento, qué evidencia la respalda y qué limitaciones reconocen los autores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181a; --ink-soft:#3a4448; --ink-mute:#6d797e;
+    --canvas:#ffffff; --parchment:#f4f7f7;
+    --tile-dark:#16242a; --tile-darker:#101c21;
+    --hairline:#e2e9e9;
+    --brand:#4dd2d0; --brand-deep:#0e9c99; --brand-slate:#3f6f7b;
+    --serie-a:#0e9c99; --serie-b:#6b5ea8;
+    --serie-a-dark:#4dd2d0; --serie-b-dark:#a99cf0;
+    --radius-card:18px; --radius-pill:9999px;
+    --shadow-object:0 3px 30px rgba(16,28,33,.14);
+    --max:1120px; --max-read:760px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--canvas);color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:17px;line-height:1.55;font-weight:400;letter-spacing:-.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+  section{padding:88px 24px}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .read{max-width:var(--max-read);margin:0 auto}
+  h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.028em;line-height:1.08}
+  h1{font-size:clamp(2.1rem,6vw,3.7rem)}
+  h2{font-size:clamp(1.6rem,4vw,2.5rem)}
+  h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.3}
+  p{margin:0 0 1.15em}
+  p:last-child{margin-bottom:0}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-deep);margin:0 0 20px}
+  .lead{font-size:clamp(1.1rem,2.4vw,1.42rem);font-weight:300;line-height:1.45;color:var(--ink-soft)}
+
+  /* ---------- barra de marca ---------- */
+  .brandbar{background:var(--tile-dark);padding:18px 24px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .brandbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brandbar img{height:34px;width:auto;display:block}
+  .brandbar .serie{font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#7c9299}
+
+  /* ---------- portada ---------- */
+  .hero{
+    background:var(--tile-dark);color:#fff;padding:84px 24px;
+    background-image:radial-gradient(120% 90% at 12% 0%,rgba(77,210,208,.16) 0%,transparent 58%);
+  }
+  .hero .eyebrow{color:var(--brand)}
+  .hero h1{color:#fff;max-width:17ch}
+  .hero .original{margin-top:26px;padding-left:18px;border-left:2px solid rgba(77,210,208,.5);font-size:1rem;font-weight:300;color:#c9d6d9;font-style:italic;max-width:56ch}
+  .authors{margin-top:34px;font-size:.95rem;color:#9fb0b5;line-height:1.7;max-width:62ch}
+  .authors .first{color:#fff;font-weight:600}
+  .meta-row{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
+  .chip{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-pill);padding:8px 16px;font-size:.83rem;color:#dfe9eb;white-space:nowrap;max-width:100%}
+  .chip b{color:#fff;font-weight:600}
+  .chip a{color:#dfe9eb;text-decoration:none;border-bottom:1px solid rgba(223,233,235,.4)}
+  .chip.closed{border-color:rgba(255,255,255,.16);color:#a9bbc0}
+  .chip.closed b{color:#c9d6d9}
+
+  /* ---------- banda de aviso de formato ---------- */
+  .notice{background:var(--parchment);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:34px 24px}
+  .notice .read{display:flex;gap:18px;align-items:flex-start;max-width:900px}
+  .notice .mark{flex:none;width:34px;height:34px;border-radius:50%;background:rgba(14,156,153,.12);color:var(--brand-deep);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.95rem}
+  .notice p{font-size:.93rem;color:var(--ink-soft);margin:0}
+  .notice b{color:var(--ink)}
+
+  /* ---------- destacado numérico ---------- */
+  .headline-figure{background:var(--parchment)}
+  .figure-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin-top:44px}
+  .stat{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);padding:26px 24px}
+  .stat .num{font-size:clamp(1.9rem,4.4vw,2.6rem);font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--ink)}
+  .stat .num small{font-size:.42em;font-weight:500;letter-spacing:-.01em;color:var(--ink-mute);margin-left:4px}
+  .stat .label{margin-top:12px;font-size:.92rem;color:var(--ink-soft);line-height:1.4}
+  .stat .foot{margin-top:10px;font-size:.78rem;color:var(--ink-mute)}
+  .stat.accent{border-color:rgba(14,156,153,.35);background:linear-gradient(180deg,rgba(14,156,153,.06),transparent 70%)}
+  .stat.accent .num{color:var(--brand-deep)}
+
+  /* ---------- matriz de evidencia ---------- */
+  .matrix-card{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);padding:32px 28px;margin-top:44px}
+  .chart-title{font-size:1.05rem;font-weight:600;letter-spacing:-.02em;margin:0}
+  .chart-sub{font-size:.87rem;color:var(--ink-mute);margin:6px 0 0}
+  .mx{margin-top:28px}
+  .mx-head,.mx-row{display:grid;grid-template-columns:minmax(150px,1.35fr) repeat(4,minmax(0,1fr));gap:10px;align-items:center}
+  .mx-head{padding-bottom:14px;border-bottom:1px solid var(--hairline)}
+  .mx-head span{font-size:.74rem;line-height:1.3;color:var(--ink-mute);text-align:center}
+  .mx-head span:first-child{text-align:left}
+  .mx-row{padding:16px 0;border-bottom:1px solid var(--hairline)}
+  .mx-row:last-child{border-bottom:0}
+  .mx-name{font-size:.92rem;color:var(--ink-soft);font-weight:500}
+  .rung{display:flex;align-items:center;justify-content:center;gap:8px}
+  .dot{width:15px;height:15px;border-radius:50%;border:1.5px solid var(--hairline);background:transparent;flex:none}
+  .rung.on .dot{background:var(--brand-deep);border-color:var(--brand-deep)}
+  .rlab{display:none;font-size:.84rem;color:var(--ink-mute)}
+  .rung.on .rlab{color:var(--ink-soft)}
+  .mx-foot{margin-top:20px;font-size:.82rem;color:var(--ink-mute);line-height:1.55}
+
+  /* ---------- fases ---------- */
+  .phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:22px;margin-top:44px}
+  .phase{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);padding:28px 26px;display:flex;flex-direction:column}
+  .phase .ph-eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-deep);margin:0 0 12px}
+  .phase h3{margin-bottom:18px}
+  .blk{margin-bottom:18px}
+  .blk h4{margin:0 0 8px;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute)}
+  .blk p{font-size:.9rem;color:var(--ink-soft);line-height:1.6;margin:0}
+  .blk.gap h4{color:var(--brand-slate)}
+  .phase .verdict{margin-top:auto;padding-top:16px;border-top:1px solid var(--hairline);font-size:.85rem;color:var(--ink-soft);font-style:italic}
+
+  /* ---------- nota ---------- */
+  .nota-adria{
+    margin-top:24px;border-left:3px solid var(--brand-deep);background:rgba(14,156,153,.06);
+    border-radius:0 10px 10px 0;padding:14px 16px;font-size:.86rem;line-height:1.55;color:var(--ink-soft)
+  }
+  .nota-adria b{color:var(--brand-deep);font-weight:600}
+
+  .tint{background:var(--parchment)}
+
+  /* ---------- cita destacada en claro ---------- */
+  .pull{margin:38px 0 0;padding:22px 0 0;border-top:1px solid var(--hairline)}
+  .pull p{font-size:clamp(1.02rem,2.2vw,1.24rem);font-weight:300;line-height:1.5;color:var(--ink-soft);font-style:italic;margin:0}
+  .pull cite{display:block;margin-top:12px;font-size:.83rem;color:var(--ink-mute);font-style:normal}
+
+  /* ---------- tile oscuro ---------- */
+  .dark{background:var(--tile-darker);color:#e8eef0}
+  .dark h2{color:#fff}
+  .dark .eyebrow{color:var(--brand)}
+  .dark .lead{color:#b3c3c7}
+  .caveats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:44px}
+  .caveat{border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-card);padding:26px 24px;background:rgba(255,255,255,.03)}
+  .caveat h3{color:#fff;margin-bottom:10px}
+  .caveat p{font-size:.92rem;color:#a9bbc0;margin:0}
+  .quote{margin:56px auto 0;max-width:var(--max-read);padding:30px 0 0;border-top:1px solid rgba(255,255,255,.16)}
+  .quote p{font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:300;line-height:1.5;color:#dbe6e8;font-style:italic}
+  .quote .orig{font-size:.85rem;color:#8ea3a8;font-style:italic;margin-top:14px;line-height:1.5}
+  .quote cite{display:block;margin-top:14px;font-size:.85rem;color:#8ea3a8;font-style:normal}
+
+  /* ---------- cierre ---------- */
+  .closing{background:var(--canvas);text-align:center}
+  .closing .cite-block{max-width:var(--max-read);margin:36px auto 0;padding:24px;background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);font-size:.88rem;color:var(--ink-soft);text-align:left;line-height:1.6}
+  .closing a{color:var(--brand-deep);text-decoration:none;border-bottom:1px solid rgba(14,156,153,.35)}
+  .honesty{background:var(--canvas);border-top:1px solid var(--hairline);padding:40px 24px;text-align:center;font-size:.82rem;color:var(--ink-mute);line-height:1.7}
+  .honesty .brand{color:var(--brand-deep);font-weight:600}
+  .honesty .read{max-width:640px}
+
+  @media (max-width:720px){
+    .mx-head{display:none}
+    .mx-row{grid-template-columns:1fr;gap:8px;padding:18px 0}
+    .mx-name{font-weight:600;color:var(--ink)}
+    .rung{justify-content:flex-start}
+    .rlab{display:inline}
+  }
+  @media (max-width:640px){
+    section{padding:64px 20px}
+    .hero{padding:64px 20px}
+    .matrix-card{padding:24px 18px}
+    .chip{white-space:normal;line-height:1.35}
+    .phases{grid-template-columns:1fr}
+  }
+  .wrap,.read{overflow-wrap:break-word}
+
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ink:#eef3f4;--ink-soft:#b9c7cb;--ink-mute:#8b9ca1;
+      --canvas:#0f1719;--parchment:#141f22;--hairline:#25353a;
+      --serie-a:var(--serie-a-dark);--serie-b:var(--serie-b-dark);
+    }
+    .stat.accent{background:linear-gradient(180deg,rgba(77,210,208,.08),transparent 70%);border-color:rgba(77,210,208,.3)}
+    .stat.accent .num{color:var(--brand)}
+    .eyebrow{color:var(--brand)}
+    .phase .ph-eyebrow{color:var(--brand)}
+    .rung.on .dot{background:var(--brand);border-color:var(--brand)}
+    .notice .mark{background:rgba(77,210,208,.14);color:var(--brand)}
+    .nota-adria{background:rgba(77,210,208,.08)}
+    .nota-adria b{color:var(--brand)}
+    .closing a,.honesty .brand{color:var(--brand)}
+    .closing a{border-bottom-color:rgba(77,210,208,.4)}
+    .blk.gap h4{color:#7fb3bd}
+  }
+</style>
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="wrap">
+    <a href="https://www.codigoadria.com" target="_blank" rel="noopener">
+      <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+    </a>
+    <span class="serie">Papers legibles</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Clinical Obstetrics and Gynecology · Vol. 69 · Nº 1 · Marzo 2026</p>
+    <h1>Ningún ensayo demuestra más recién nacidos vivos</h1>
+    <p class="original">«AI in Reproductive Medicine: Hope or Hype?»</p>
+    <p class="authors">
+      <span class="first">Shruti Agarwal</span>, Alexander M. Quaas y Mark P. Trolice.<br>
+      University of Central Florida-HCA Consortium of Greater Orlando · Shady Grove Fertility, San Diego (California).
+    </p>
+    <div class="meta-row">
+      <span class="chip">Tipo <b>Revisión narrativa</b></span>
+      <span class="chip">Base <b>46 referencias</b></span>
+      <span class="chip">Páginas <b>6–12</b></span>
+      <span class="chip">DOI <b><a href="https://doi.org/10.1097/GRF.0000000000000983" target="_blank" rel="noopener">10.1097/GRF.0000000000000983</a></b></span>
+      <span class="chip closed">Acceso <b>Suscripción · © Wolters Kluwer</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="notice">
+  <div class="read">
+    <span class="mark">i</span>
+    <p><b>Esto no es un estudio con muestra propia.</b> Es una revisión narrativa: los autores repasan lo publicado en cada fase del tratamiento y no aportan datos nuevos. Todas las cifras de esta ficha vienen de los trabajos que el artículo cita, y se indica de cuál. El artículo no incluye apartado de métodos ni estrategia de búsqueda, de modo que no es una revisión sistemática.</p>
+  </div>
+</div>
+
+<section>
+  <div class="read">
+    <p class="eyebrow">La pregunta</p>
+    <h2>Casi todas las fases del tratamiento tienen ya un modelo</h2>
+    <p class="lead" style="margin-top:26px">Dos cosas han empujado la entrada de la IA en la medicina reproductiva: los grandes conjuntos de datos clínicos, ahora accesibles, y la mejora de la imagen embrionaria.</p>
+
+    <p style="margin-top:28px">El artículo enumera dónde está ya. Algoritmos que puntúan y seleccionan embriones por morfología y tiempos de desarrollo. Modelos que valoran movilidad y morfología espermática. Imagen no invasiva del ovocito para predecir competencia. En estimulación ovárica, modelos para individualizar la dosis de gonadotropinas, predecir la respuesta y optimizar el momento del trigger. En endometrio, ecografía tridimensional con segmentación automática para estimar receptividad. Y, además de lo que toca al paciente, sistemas para normalizar el control de calidad del laboratorio, manejar grandes bases de datos, reducir la variabilidad entre observadores y dar apoyo al consejo médico.</p>
+
+    <p>El problema aparece al preguntar qué valor clínico tiene todo eso. Las revisiones sistemáticas que cita el artículo señalan que <b>la mayoría de los estudios son retrospectivos, monocéntricos y con recogida de datos heterogénea</b>, lo que hace difícil determinar su valor real.</p>
+
+    <p>Los autores recogen dos avisos previos. Letterie subraya que la IA se debe introducir «with a much-needed word of caution» y que no puede verse como una solución «plug-and-play» en el laboratorio de reproducción asistida. Riegler y colaboradores apuntan que, aunque la valoración de embrión y esperma da resultados prometedores, los problemas de reproducibilidad y el beneficio dudoso para el paciente impiden implantarla de rutina.</p>
+
+    <p>De ahí el criterio que proponen los autores: una tecnología nueva se evalúa por si <b>añade valor al cuidado del paciente</b>. La revisión recorre embrión, esperma, ovocito, estimulación, endometrio, predicción de resultados y consideraciones éticas <b>para determinar qué correlación tienen con los resultados del paciente</b>.</p>
+  </div>
+</section>
+
+<section class="headline-figure">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">Las cifras que circulan</p>
+      <h2>Precisión alta en imagen, meseta en la predicción</h2>
+    </div>
+
+    <div class="figure-grid">
+      <div class="stat accent">
+        <div class="num">Ninguno</div>
+        <div class="label">Ensayo aleatorizado que demuestre mayor tasa de recién nacido vivo con IA</div>
+        <div class="foot">Se afirma en esperma, en estimulación y en las conclusiones</div>
+      </div>
+      <div class="stat">
+        <div class="num">69–77 <small>%</small></div>
+        <div class="label">Precisión de STORK-A al predecir euploidía</div>
+        <div class="foot">Más de 10.000 embriones con PGT-A · mantiene rendimiento en validación externa (ref. 12)</div>
+      </div>
+      <div class="stat">
+        <div class="num">96,7 <small>%</small></div>
+        <div class="label">Precisión de un ResNet-50 clasificando espermatozoide normal o anormal</div>
+        <div class="foot">Sobre imágenes de esperma fijado o teñido, no utilizable para ICSI (ref. 18)</div>
+      </div>
+      <div class="stat">
+        <div class="num">0,7–0,8 <small>AUC</small></div>
+        <div class="label">Meseta de rendimiento de los modelos de predicción de resultados</div>
+        <div class="foot">«Perhaps too low to be clinically useful», dicen los autores</div>
+      </div>
+    </div>
+
+    <div class="matrix-card">
+      <p class="chart-title">Hasta dónde llega la evidencia en cada área</p>
+      <p class="chart-sub">Diseño de estudio más exigente que el artículo describe para cada aplicación. La última columna está vacía en las cinco.</p>
+
+      <div class="mx">
+        <div class="mx-head">
+          <span>Área</span>
+          <span>Retrospectivo o monocéntrico</span>
+          <span>Prospectivo (concordancia o seguridad)</span>
+          <span>ECA de no inferioridad</span>
+          <span>ECA de superioridad con recién nacido vivo</span>
+        </div>
+
+        <div class="mx-row">
+          <div class="mx-name">Embrión</div>
+          <div class="rung on"><span class="dot"></span><span class="rlab">Retrospectivo o monocéntrico</span></div>
+          <div class="rung on"><span class="dot"></span><span class="rlab">Prospectivo</span></div>
+          <div class="rung on"><span class="dot"></span><span class="rlab">ECA de no inferioridad (iDAScore)</span></div>
+          <div class="rung"><span class="dot"></span><span class="rlab">ECA de superioridad con recién nacido vivo</span></div>
+        </div>
+
+        <div class="mx-row">
+          <div class="mx-name">Espermatozoide</div>
+          <div class="rung on"><span class="dot"></span><span class="rlab">Retrospectivo o monocéntrico</span></div>
+          <div class="rung"><span class="dot"></span><span class="rlab">Prospectivo</span></div>
+          <div class="rung"><span class="dot"></span><span class="rlab">ECA de no inferioridad</span></div>
+          <div class="rung"><span class="dot"></span><span class="rlab">ECA de superioridad con recién nacido vivo</span></div>
+        </div>
+
+        <div class="mx-row">
+          <div class="mx-name">Ovocito y estimulación</div>
+          <div class="rung on"><span class="dot"></span><span class="rlab">Retrospectivo o monocéntrico</span></div>
+          <div class="rung on"><span class="dot"></span><span class="rlab">Prospectivo (concordancia de dosis)</span></div>
+          <div class="rung"><span class="dot"></span><span class="rlab">ECA de no inferioridad</span></div>
+          <div class="rung"><span class="dot"></span><span class="rlab">ECA de superioridad con recién nacido vivo</span></div>
+        </div>
+
+        <div class="mx-row">
+          <div class="mx-name">Endometrio</div>
+          <div class="rung on"><span class="dot"></span><span class="rlab">Retrospectivo o monocéntrico</span></div>
+          <div class="rung"><span class="dot"></span><span class="rlab">Prospectivo</span></div>
+          <div class="rung"><span class="dot"></span><span class="rlab">ECA de no inferioridad</span></div>
+          <div class="rung"><span class="dot"></span><span class="rlab">ECA de superioridad con recién nacido vivo</span></div>
+        </div>
+
+        <div class="mx-row">
+          <div class="mx-name">Predicción y decisión</div>
+          <div class="rung on"><span class="dot"></span><span class="rlab">Retrospectivo o monocéntrico</span></div>
+          <div class="rung"><span class="dot"></span><span class="rlab">Prospectivo</span></div>
+          <div class="rung"><span class="dot"></span><span class="rlab">ECA de no inferioridad</span></div>
+          <div class="rung"><span class="dot"></span><span class="rlab">ECA de superioridad con recién nacido vivo</span></div>
+        </div>
+      </div>
+
+      <p class="mx-foot">Cada punto encendido corresponde a un diseño que el artículo describe en esa sección: el ensayo aleatorizado multicéntrico de iDAScore en embrión; el estudio prospectivo multicéntrico de dosis y trigger, y el software de dosificación con muy buena concordancia con clínicos experimentados, en estimulación. En esperma, endometrio y predicción, los propios autores describen la evidencia como retrospectiva y de un solo centro.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">El mapa por fases</p>
+      <h2>Qué se ha probado en cada punto del tratamiento</h2>
+      <p class="lead" style="margin-top:26px">Las cinco áreas que recorre el artículo, con lo que hay publicado y lo que los autores señalan que falta.</p>
+    </div>
+
+    <div class="phases">
+
+      <article class="phase">
+        <p class="ph-eyebrow">Fase 01</p>
+        <h3>Embrión: valoración y selección</h3>
+        <div class="blk">
+          <h4>Qué se ha probado</h4>
+          <p>Las redes neuronales convolucionales clasifican blastocistos con una precisión similar a la del embriólogo y estratifican de forma consistente entre conjuntos de datos, lo que resuelve la variabilidad entre observadores (Khosravi). Bormann añadió los tiempos de desarrollo a la morfología. STORK-A se entrenó con más de 10.000 embriones con su resultado de PGT-A y predijo euploidía con una precisión del 69 % al 77 %, manteniendo el rendimiento en cohortes de validación externa. BELA hace lo mismo desde vídeo time-lapse con igual precisión. BlastAssist mejora la predicción de implantación frente a la puntuación del embriólogo en análisis retrospectivo. La evidencia clínica más sólida es el ensayo aleatorizado multicéntrico de iDAScore: las transferencias guiadas por el algoritmo <b>no fueron inferiores</b> a la selección del embriólogo en gestación evolutiva y redujeron la variabilidad entre laboratorios.</p>
+        </div>
+        <div class="blk gap">
+          <h4>Qué falta</h4>
+          <p>STORK-A, BELA y BlastAssist se apoyan en datos retrospectivos, de un solo centro o de definición estrecha. La predicción de ploidía por imagen sigue por debajo de la fiabilidad del PGT-A, que continúa siendo el estándar clínico. El ensayo de iDAScore mostró rendimiento a la par, no superior. La puntuación no siempre es explicable: el embriólogo puede enumerar los rasgos morfológicos de su decisión y el algoritmo no, lo que complica el consejo y deja sin resolver de quién es la responsabilidad. Muchos conjuntos de entrenamiento infrarrepresentan a poblaciones minoritarias.</p>
+        </div>
+        <p class="verdict">«La aplicación más avanzada de la IA en medicina reproductiva», según los autores, que piden verla con optimismo cauto.</p>
+      </article>
+
+      <article class="phase">
+        <p class="ph-eyebrow">Fase 02</p>
+        <h3>Espermatozoide: elección para ICSI</h3>
+        <div class="blk">
+          <h4>Qué se ha probado</h4>
+          <p>Elegir un único espermatozoide es una de las tareas más subjetivas de la reproducción asistida, y con los criterios de la OMS sigue dependiendo del operador. Javadi entrenó un modelo de aprendizaje profundo con más de 1.500 imágenes de esperma sin teñir y alcanzó hasta un <b>94 %</b> de precisión identificando anomalías de cabeza, acrosoma y vacuolas. Mashaal aplicó un ResNet-50 para separar normal de anormal con un <b>96,7 %</b>. En movilidad, motilitAI predice con un rendimiento comparable al de embriólogos experimentados, y un método basado en redes convolucionales sobre vídeo distingue con fiabilidad los patrones de movilidad progresiva. Se empieza a incorporar la fragmentación del ADN y la integridad de la cromatina a los modelos de selección. Un caso clínico describe el <b>primer nacido vivo con un sistema totalmente automatizado</b>, con IA en la selección del espermatozoide y en la micromanipulación.</p>
+        </div>
+        <div class="blk gap">
+          <h4>Qué falta</h4>
+          <p>Hay una distancia grande entre el rendimiento técnico y la utilidad clínica. La mayoría de los trabajos son retrospectivos y se apoyan en colecciones de esperma fijado o teñido que no sirve para ICSI; incluso los modelos entrenados con imágenes de esperma viable necesitan validación prospectiva antes de usarse. Ninguno ha demostrado mejor fecundación, desarrollo a blastocisto ni recién nacido vivo. Y los sistemas evalúan morfología, movilidad o integridad del ADN por separado, mientras que el embriólogo integra las tres cosas a la vez.</p>
+        </div>
+        <p class="verdict">Todavía «en fase de investigación»: ayudas de apoyo, no sustitutos del embriólogo experimentado.</p>
+      </article>
+
+      <article class="phase">
+        <p class="ph-eyebrow">Fase 03</p>
+        <h3>Ovocito y estimulación ovárica</h3>
+        <div class="blk">
+          <h4>Qué se ha probado</h4>
+          <p>Hanassab aplicó IA explicable a la ecografía tridimensional para identificar los rasgos foliculares que predicen madurez sin perder interpretabilidad para el clínico. Liang usó análisis volumétrico automatizado para ligar tamaño y morfología del folículo con el rendimiento en ovocitos maduros. En estimulación hay modelos de dosificación individualizada de gonadotropinas que, según el artículo, superan el juicio del médico, algoritmos de dosis interpretables y sistemas que predicen mejor el día óptimo de trigger que la respuesta ovárica. Un software prospectivo mostró muy buena concordancia con clínicos experimentados en la dosis, y otros modelos predicen ovocitos maduros y día de trigger en poblaciones diversas. En una cohorte retrospectiva apareada, una herramienta de apoyo a la decisión <b>bajó la dosis inicial y total de FSH manteniendo el mismo número de ovocitos en metafase II</b>.</p>
+        </div>
+        <div class="blk gap">
+          <h4>Qué falta</h4>
+          <p>Los modelos de valoración del ovocito son pequeños y retrospectivos. Los de dosificación se han evaluado solo de forma retrospectiva o en simulación, sin validación por resultados; incluso en los prospectivos, los desenlaces han priorizado la concordancia o el recién nacido vivo por delante de la seguridad. La generalización es dudosa porque la respuesta ovárica depende de edad, índice de masa corporal, reserva y protocolo. Siguen siendo cajas negras, y el consejo se complica cuando la predicción contradice el criterio clínico. No hay ensayos aleatorizados que muestren que la IA maneje la estimulación mejor que el clínico experto, ni en recién nacido vivo ni en evitar complicaciones.</p>
+        </div>
+        <p class="verdict">Promesa real de reproducibilidad e individualización, con la evidencia todavía temprana.</p>
+      </article>
+
+      <article class="phase">
+        <p class="ph-eyebrow">Fase 04</p>
+        <h3>Endometrio e implantación</h3>
+        <div class="blk">
+          <h4>Qué se ha probado</h4>
+          <p>La receptividad se sigue valorando con grosor, morfología, hormonas y características del ciclo, marcadores solo moderadamente predictivos. Un trabajo con ecografía tridimensional demostró que la segmentación automática cuantifica el grosor endometrial con alta precisión, de forma reproducible e independiente del operador, aunque sus autores no afirman que sea superior a la ecografía estándar. EndoClassify integró características ecográficas en un sistema de clasificación y describió una tasa de gestación evolutiva del <b>74 %</b> cuando más de la mitad del endometrio trilaminar correspondía a las capas externas. Un modelo con variables clínicas, de laboratorio y endometriales alcanzó un <b>AUC de 0,79</b> para gestación clínica y se propuso para decidir la transferencia de embrión único. El análisis de más de <b>24.000 ciclos</b> situó el protocolo de estimulación, el número de embriones y las características endometriales entre los predictores más fuertes, con el aprendizaje automático por encima de la regresión. En más de <b>400 ciclos</b> de transferencia de embrión congelado con terapia hormonal sustitutiva, grosor, morfología, hormonas séricas y calidad embrionaria fueron los rasgos más predictivos, y los random forest los más precisos.</p>
+        </div>
+        <div class="blk gap">
+          <h4>Qué falta</h4>
+          <p>Casi todo es monocéntrico, retrospectivo y desarrollado sobre poblaciones heterogéneas. EndoClassify depende de análisis de imagen comercial y de esquemas de clasificación no estandarizados, lo que dificulta comparar entre clínicas. Y varios autores señalan que los modelos rinden mucho en su conjunto de entrenamiento y no mejoran los resultados al validarse de forma prospectiva en poblaciones diversas.</p>
+        </div>
+        <p class="verdict">Campo en fase temprana: hará falta prospectivo y multicéntrico, con el recién nacido vivo como desenlace.</p>
+      </article>
+
+      <article class="phase">
+        <p class="ph-eyebrow">Fase 05</p>
+        <h3>Predicción de resultados y apoyo a la decisión</h3>
+        <div class="blk">
+          <h4>Qué se ha probado</h4>
+          <p>Es la aplicación más centrada en el paciente. Wen construyó una herramienta que predice gestación y estima el riesgo de gestación múltiple, para decidir entre transferir uno o dos embriones. Wang, con más de 24.000 ciclos, mostró que combinar detalles de la estimulación, características del embrión y parámetros endometriales personaliza más que la edad sola. Liu predijo con precisión razonable el resultado de la transferencia en ciclos de embrión congelado. Amitai llevó el trabajo al primer trimestre y anticipó el riesgo de aborto a partir de rasgos del desarrollo embrionario, con un <b>AUC en torno a 0,7</b>. Y un árbol de decisión en mujeres de <b>43 a 45 años</b> estima la tasa acumulada de recién nacido vivo con ciclos propios adicionales, para encuadrar una de las conversaciones más difíciles: seguir con ovocitos propios o pasar a donación.</p>
+        </div>
+        <div class="blk gap">
+          <h4>Qué falta</h4>
+          <p>La mayoría son retrospectivos y específicos de un centro. La precisión es modesta incluso con conjuntos grandes, y se informa más de gestación clínica que de recién nacido vivo. Lo que funciona en un sitio puede rendir mal en otro. El rendimiento se estanca en un AUC de 0,7 a 0,8, «quizá demasiado bajo para ser clínicamente útil». Estos modelos no sustituyen a los predictores de implantación y aneuploidía basados en el embrión: su papel es probablemente adyuvante. El árbol de decisión ofrece un consejo formal, pero no reemplaza una conversación sobre las implicaciones económicas y emocionales. Y anticipar el aborto puede aumentar la ansiedad sin una intervención que cambie el resultado.</p>
+        </div>
+        <p class="verdict">Dan probabilidades, no garantías, y aún no han demostrado que cambien decisiones ni que mejoren la tasa de recién nacido vivo.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="read">
+    <p class="eyebrow">Ética, ley y sociedad</p>
+    <h2>Responsabilidad, equidad, consentimiento y datos</h2>
+    <p class="lead" style="margin-top:26px">Los autores dedican un apartado entero a los aspectos éticos, legales y sociales, y avisan de que no son accesorios: determinan si estas tecnologías pueden aplicarse de forma responsable.</p>
+
+    <p style="margin-top:28px">Koplin y colaboradores sostienen que, si estos sistemas acortan el tiempo hasta el embarazo y reducen la carga económica, puede existir un imperativo moral de considerarlos, por el coste emocional y económico de la infertilidad. Los mismos autores advierten del riesgo contrario: la deshumanización de tratar a embriones y pacientes como puntos de datos.</p>
+
+    <div class="caveats" style="margin-top:36px">
+      <div class="caveat" style="background:var(--canvas);border-color:var(--hairline)">
+        <h3 style="color:var(--ink)">Responsabilidad y caja negra</h3>
+        <p style="color:var(--ink-soft)">Si un sistema desvía la selección, ¿la responsabilidad es del clínico que se apoyó en la herramienta, de la clínica que la adoptó o de quien la desarrolló? El sesgo de automatización agrava el problema: el clínico puede sentirse presionado a ceder ante la confianza del algoritmo aunque su intuición discrepe.</p>
+      </div>
+      <div class="caveat" style="background:var(--canvas);border-color:var(--hairline)">
+        <h3 style="color:var(--ink)">Equidad e hiper-estratificación</h3>
+        <p style="color:var(--ink-soft)">Homanen advierte de que la IA «amenaza con meter en una caja negra las desigualdades en salud» y de generar «hiper-estratificaciones» de la reproducción, donde quien tiene más medios gana más ventaja. Farhud lleva la preocupación al plano global: las clínicas con pocos recursos difícilmente adoptarán sistemas caros, y la brecha internacional se ensancha.</p>
+      </div>
+      <div class="caveat" style="background:var(--canvas);border-color:var(--hairline)">
+        <h3 style="color:var(--ink)">Consentimiento informado</h3>
+        <p style="color:var(--ink-soft)">Rolfes señala la «mayor dificultad para asegurar el consentimiento informado» cuando se pide aceptar tecnologías cuyo funcionamiento puede ser opaco hasta para el clínico. Park lo midió: los pacientes dan tanta importancia a que se les informe del uso de IA como a los riesgos del procedimiento. Iserson pide explicar las limitaciones del sistema y cómo se resolverán los desacuerdos entre criterio clínico y recomendación algorítmica.</p>
+      </div>
+      <div class="caveat" style="background:var(--canvas);border-color:var(--hairline)">
+        <h3 style="color:var(--ink)">Datos y adopción comercial</h3>
+        <p style="color:var(--ink-soft)">Las clínicas que despliegan sistemas grandes deben proteger información reproductiva sensible con cifrado, cortafuegos y protocolos de ciberseguridad como los de la banca. Zammit avisa de una adopción comercial incontrolada, con algoritmos propietarios implantados sin transparencia ni rendición de cuentas, y de que las implicaciones a largo plazo de la selección embrionaria guiada por algoritmo sobre la salud de la descendencia siguen siendo inciertas.</p>
+      </div>
+    </div>
+
+    <div class="read" style="margin-top:0">
+      <div class="pull">
+        <p>«Hasta que la IA no demuestre una tasa más alta de recién nacido vivo, la tecnología actual puede servir como adyuvante para reducir la variabilidad, agilizar el flujo de trabajo y ayudar en el consejo, pero no para sustituir la decisión humana.»</p>
+        <cite>Conclusiones del artículo</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">La letra pequeña</p>
+      <h2>Las limitaciones que reconocen los propios autores</h2>
+      <p class="lead" style="margin-top:26px">Son las que el artículo repite en todas sus secciones.</p>
+    </div>
+
+    <div class="caveats">
+      <div class="caveat">
+        <h3>Diseño retrospectivo</h3>
+        <p>La mayoría de los estudios son retrospectivos, a menudo de un solo centro y con recogida de datos heterogénea. Es lo que impide determinar el valor clínico real de estas herramientas.</p>
+      </div>
+      <div class="caveat">
+        <h3>Desenlaces intermedios</h3>
+        <p>Se mide viabilidad embrionaria o gestación clínica, no recién nacido vivo. En predicción de resultados, la precisión es modesta incluso con conjuntos grandes y suele informarse sobre gestación clínica.</p>
+      </div>
+      <div class="caveat">
+        <h3>No inferioridad, no mejora</h3>
+        <p>Incluso los ensayos prospectivos, como el aleatorizado de iDAScore, han mostrado no inferioridad en lugar de una mejora real de los resultados.</p>
+      </div>
+      <div class="caveat">
+        <h3>Techo de rendimiento</h3>
+        <p>La capacidad predictiva se estanca en un AUC de 0,7 a 0,8, «quizá demasiado bajo para ser clínicamente útil». Estos modelos tampoco pueden sustituir a los predictores de implantación y aneuploidía basados en el embrión.</p>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p>«Solo entonces sabremos si estas aplicaciones representan una esperanza genuina, un camino hacia una atención de fertilidad más segura, más eficaz y más accesible; o simplemente ruido, que añade complejidad sin beneficio real.»</p>
+      <p class="orig">«Only then will we know whether these applications represent genuine hope, a pathway to safer, more effective, and more accessible fertility care; or simply hype, adding complexity without meaningful benefit.»</p>
+      <cite>Última frase de las conclusiones del artículo</cite>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="read">
+    <p class="eyebrow">Para citarlo</p>
+    <h2>La referencia</h2>
+    <div class="cite-block">
+      Agarwal S, Quaas AM, Trolice MP. AI in Reproductive Medicine: Hope or Hype? <i>Clin Obstet Gynecol</i>. 2026;69(1):6–12.
+      <br><br>
+      doi: <a href="https://doi.org/10.1097/GRF.0000000000000983" target="_blank" rel="noopener">10.1097/GRF.0000000000000983</a>
+      <br>
+      Los autores declaran no tener nada que declarar. Copyright © 2025 Wolters Kluwer Health, Inc. Artículo de suscripción: no es de acceso abierto.
+      <br><br>
+      <a href="https://journals.lww.com/clinicalobgyn/toc/2026/03000" target="_blank" rel="noopener">Ver el número en Clinical Obstetrics and Gynecology</a>
+    </div>
+  </div>
+</section>
+
+<div class="honesty">
+  <div class="read">
+    Ficha visual de <span class="brand">Código AdrIA</span>, elaborada sobre el artículo original sin añadir datos ni interpretaciones ajenas al texto. Cada cifra se ha verificado contra su sección antes de maquetarla, y la tabla de evidencia por áreas se ha construido con lo que el propio artículo dice de cada una. Esta página no sustituye al artículo original.
+  </div>
+</div>
+<style>
+  .ca-foot{
+    background:#102e35;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal-brand span{font-size:.86rem;font-weight:500;color:#dfe9eb}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+  @media (max-width:640px){
+    .ca-cta{padding:48px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Esta pieza es parte de la serie «papers legibles»: cada cifra se verifica contra su
+          tabla o su sección del artículo original antes de maquetarla. Las siguientes se
+          publican en la comunidad.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+        <span>Código AdrIA</span>
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
