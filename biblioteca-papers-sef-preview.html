@@ -53,12 +53,10 @@ font-family:Poppins,system-ui,-apple-system,sans-serif;background:var(--canvas);
 .cad-bib .mini.alt{background:none;color:var(--ink3);border:1px solid var(--line2);font-weight:400}
 .cad-bib .mini.alt:hover{color:var(--ink);border-color:var(--line2)}
 .cad-bib .vacio{color:var(--ink3);text-align:center;padding:36px}
-.cad-bib details{margin-top:26px;background:var(--s1);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
-.cad-bib summary{cursor:pointer;font-weight:500;font-size:14.5px;color:var(--ink2)}
-.cad-bib details ul{margin:12px 0 0;padding-left:18px;font-size:13px;color:var(--ink3);columns:2;column-gap:28px}
-.cad-bib details li{margin:4px 0;break-inside:avoid}
+.cad-bib .nota{margin-top:24px;background:var(--s1);border:1px solid var(--line);border-left:3px solid var(--t);border-radius:0 12px 12px 0;padding:15px 18px;font-size:14px;color:var(--ink2)}
+.cad-bib .nota b{color:var(--ink);font-weight:600}
 .cad-bib .pie{font-size:12.5px;color:var(--ink3);padding:30px 0 50px;border-top:1px solid var(--line);margin-top:34px}
-@media(max-width:640px){.cad-bib .nums{gap:26px}.cad-bib .num b{font-size:30px}.cad-bib details ul{columns:1}.cad-bib .fecha{flex:0 0 36px}}</style></head><body><div class="cad-bib">
+@media(max-width:640px){.cad-bib .nums{gap:26px}.cad-bib .num b{font-size:30px}.cad-bib .fecha{flex:0 0 36px}}</style></head><body><div class="cad-bib">
 <div class="hero"><div class="w">
 <p class="eyebrow">Comunidad SEF · desde julio de 2026</p>
 <h1>Todo lo que se ha<br>compartido en el grupo,<br><em>ordenado</em></h1>
@@ -329,7 +327,7 @@ font-family:Poppins,system-ui,-apple-system,sans-serif;background:var(--canvas);
 <div class="acc"><span class="chip">Estimulación y protocolos</span><span class="chip">IA en reproducción asistida</span><span class="chip warn">por confirmar</span><a class="mini alt" href="https://doi.org/10.64898/2026.06.21.26356181" rel="noopener">Original</a></div></div></article>
 <p class="vacio" hidden>Nada con esa búsqueda.</p>
 </div>
-<details><summary>Y 23 que no hemos podido identificar. ¿Alguien sabe cuáles son?</summary><ul><li>1__492_751.pdf · José Luis, 2026-07-16</li><li>3379134_1277.pdf · Enrique, 2026-07-19</li><li>20260718-148178-vkcocp.pdf · Enrique, 2026-07-19</li><li>showPdf (39).pdf · Enrique, 2026-07-20</li><li>showPdf (40).pdf · Enrique, 2026-07-20</li><li>3413168_1277.pdf · Enrique, 2026-07-23</li><li>SVfaaMYrr11womAjo3r5zp0sB5MNb-rKas1l7ofIkRk.pdf · Enrique, 2026-07-24</li><li>showPdf (41).pdf · Enrique, 2026-07-24</li><li>showPdf (42).pdf · Enrique, 2026-07-24</li><li>3410405_1196.pdf · José Luis, 2026-07-24</li><li>showPdf (43).pdf · Enrique, 2026-07-26</li><li>showPdf (44).pdf · Enrique, 2026-07-26</li><li>3405077_1277 (2).pdf · Enrique, 2026-07-27</li><li>showPdf (45).pdf · Enrique, 2026-07-29</li><li>3311923_1277.pdf · Enrique, 2026-07-29</li><li>showPdf.pdf · Enrique, 2026-07-31</li><li>1438066_1277.pdf · Enrique, 2026-07-31</li><li>showPdf.pdf · Enrique, 2026-07-31</li><li>showPdf.pdf · Enrique, 2026-08-01</li><li>371254_1277.pdf · Enrique, 2026-08-01</li><li>3415253_1277 (1).pdf · Enrique, 2026-08-01</li><li>OBSTETRICIA, ENDOMETRIOSIS Y ADENOMIOSIS.pdf · José Luis, 2026-08-06</li><li>main.pdf · Enrique, 2026-08-14</li></ul></details>
+<div class="nota"><b>Empieza el 15 de julio de 2026</b>, el día que entramos al grupo: lo anterior no lo tenemos. Si echas en falta un artículo, pásalo y entra.</div>
 <p class="pie">Índice al 03/09/2026. No se aloja ningún PDF: cada entrada enlaza al original en su revista. Cortesía de Código AdrIA.</p>
 </div></div><script>(function(){var r=document.querySelector('.cad-bib'),q=r.querySelector('input'),fs=r.querySelectorAll('.f'),ps=r.querySelectorAll('.p'),v=r.querySelector('.vacio'),c=r.querySelector('.cuenta'),t='';
 function ap(){var s=q.value.toLowerCase().trim(),n=0;ps.forEach(function(p){var ok=(!t||p.dataset.temas.split(' ').indexOf(t)>=0||(t==='_ficha'&&p.dataset.ficha==='1'))&&(!s||p.dataset.txt.indexOf(s)>=0);p.hidden=!ok;if(ok)n++});v.hidden=n>0;if(c)c.textContent=n}
