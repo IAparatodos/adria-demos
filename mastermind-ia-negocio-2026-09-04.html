@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cuando la IA entra en el negocio · Mastermind 4 de septiembre de 2026</title>
+  <meta name="description" content="Casos reales de automatización, negocio y sistemas de IA que ya trabajan dentro de empresas.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://iaparatodos.github.io/adria-demos/mastermind-ia-negocio-2026-09-04.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cuando la IA entra en el negocio · Código AdrIA">
+  <meta property="og:description" content="Casos reales de automatización, negocio y sistemas de IA que ya trabajan dentro de empresas.">
+  <meta property="og:image" content="https://iaparatodos.github.io/adria-demos/og-mastermind-ia-negocio-2026-09-04.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Resumen visual del Mastermind: cuando la IA entra en el negocio">
+  <meta property="og:url" content="https://iaparatodos.github.io/adria-demos/mastermind-ia-negocio-2026-09-04.html">
+  <meta property="og:site_name" content="Código AdrIA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cuando la IA entra en el negocio · Código AdrIA">
+  <meta name="twitter:description" content="Casos reales de automatización, negocio y sistemas de IA que ya trabajan dentro de empresas.">
+  <meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/og-mastermind-ia-negocio-2026-09-04.jpg">
+  <meta name="theme-color" content="#102e35">
+  <link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+  <link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ca-turquesa: #4dd2d0;
+      --ca-petroleo: #3f6f7b;
+      --ca-profundo: #102e35;
+      --ca-oscuro: #0b2128;
+      --ca-noche: #07181d;
+      --ca-turquesa-profundo: #129d9a;
+      --ca-turquesa-suave: rgba(77, 210, 208, .12);
+      --ca-turquesa-borde: rgba(77, 210, 208, .24);
+      --ca-turquesa-linea: rgba(77, 210, 208, .1);
+      --blanco: #ffffff;
+      --papel: #f3f7f7;
+      --tinta: #172125;
+      --tinta-media: #405056;
+      --tinta-suave: #708087;
+      --linea: #dfe8e9;
+      --naranja: #f2a65a;
+      --rojo: #d76a6a;
+      --verde: #4db58a;
+      --violeta: #8e83d8;
+      --radio: 20px;
+      --sombra: 0 20px 55px rgba(16, 46, 53, .11);
+      --max: 1160px;
+      --lectura: 790px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      color: var(--tinta);
+      background: var(--blanco);
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-size: 17px;
+      line-height: 1.62;
+      letter-spacing: -.012em;
+      -webkit-font-smoothing: antialiased;
+    }
+    button, a { font: inherit; }
+    a { color: inherit; }
+    img { max-width: 100%; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+    .read { width: min(var(--lectura), 100%); }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--ca-turquesa-profundo);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.08; letter-spacing: -.035em; }
+    h1 { font-size: clamp(2.35rem, 6vw, 4.75rem); font-weight: 700; }
+    h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 650; }
+    h3 { font-size: 1.15rem; font-weight: 650; letter-spacing: -.02em; }
+    p { margin: 0 0 1.1em; }
+    p:last-child { margin-bottom: 0; }
+    .lead {
+      margin-top: 24px;
+      color: var(--tinta-media);
+      font-size: clamp(1.08rem, 2vw, 1.34rem);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 100;
+      width: 0;
+      height: 3px;
+      background: var(--ca-turquesa);
+      box-shadow: 0 0 16px rgba(77, 210, 208, .75);
+    }
+
+    .brandbar {
+      padding: 17px 0;
+      color: var(--blanco);
+      background: var(--ca-noche);
+      border-bottom: 1px solid var(--ca-turquesa-linea);
+    }
+    .brandbar .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brandbar img { display: block; width: auto; height: 34px; }
+    .brandbar .series {
+      color: #83a1a8;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(76px, 11vw, 138px) 0 clamp(68px, 9vw, 112px);
+      color: var(--blanco);
+      background:
+        radial-gradient(65% 85% at 9% 4%, rgba(77, 210, 208, .19), transparent 68%),
+        radial-gradient(45% 70% at 96% 94%, rgba(63, 111, 123, .32), transparent 75%),
+        var(--ca-profundo);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -120px;
+      top: 40px;
+      width: 360px;
+      height: 360px;
+      border: 1px solid var(--ca-turquesa-borde);
+      border-radius: 50%;
+      box-shadow: 0 0 0 55px rgba(77, 210, 208, .035), 0 0 0 110px rgba(77, 210, 208, .025);
+      pointer-events: none;
+    }
+    .hero .wrap { position: relative; z-index: 1; }
+    .hero .eyebrow { color: var(--ca-turquesa); }
+    .hero h1 { max-width: 14ch; }
+    .hero h1 span { color: var(--ca-turquesa); }
+    .hero .intro {
+      max-width: 720px;
+      margin-top: 30px;
+      color: #b9cbcf;
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      font-weight: 300;
+    }
+    .meta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 38px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 8px 15px;
+      color: #dce8ea;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 999px;
+      font-size: .82rem;
+      max-width: 100%;
+    }
+    .chip b { color: var(--blanco); font-weight: 600; }
+    .chip.private { color: var(--ca-turquesa); border-color: var(--ca-turquesa-borde); background: var(--ca-turquesa-suave); }
+
+    .nav-shell {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      background: rgba(7, 24, 29, .94);
+      border-bottom: 1px solid var(--ca-turquesa-linea);
+      backdrop-filter: blur(14px);
+    }
+    .nav {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      padding: 11px 0;
+      scrollbar-width: none;
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      color: #7f9ba2;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: .76rem;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: .25s ease;
+    }
+    .nav a:hover, .nav a.active { color: var(--ca-turquesa); background: var(--ca-turquesa-suave); border-color: var(--ca-turquesa-borde); }
+    .nav .n {
+      display: grid;
+      width: 21px;
+      height: 21px;
+      place-items: center;
+      color: #b6c7ca;
+      background: #183a43;
+      border-radius: 50%;
+      font-size: .66rem;
+      font-weight: 700;
+    }
+    .nav a.active .n { color: var(--ca-profundo); background: var(--ca-turquesa); }
+
+    section { padding: clamp(70px, 9vw, 108px) 0; }
+    section.tint { background: var(--papel); }
+    section.dark { color: #e8f0f1; background: var(--ca-noche); }
+    section.deep { color: #e8f0f1; background: var(--ca-profundo); }
+    section.dark .eyebrow, section.deep .eyebrow { color: var(--ca-turquesa); }
+    section.dark .lead, section.deep .lead { color: #a9bdc1; }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 46px;
+    }
+    .signal {
+      min-height: 180px;
+      padding: 27px 24px;
+      background: var(--blanco);
+      border: 1px solid var(--linea);
+      border-radius: var(--radio);
+      box-shadow: 0 8px 35px rgba(16, 46, 53, .04);
+    }
+    .signal.accent { background: linear-gradient(155deg, rgba(77, 210, 208, .12), var(--blanco) 72%); border-color: rgba(18, 157, 154, .3); }
+    .signal .number { color: var(--ca-profundo); font-size: clamp(2rem, 4vw, 3rem); font-weight: 650; line-height: 1; letter-spacing: -.055em; }
+    .signal .label { margin-top: 15px; color: var(--tinta-media); font-size: .88rem; line-height: 1.48; }
+    .signal .source { margin-top: 12px; color: var(--tinta-suave); font-size: .72rem; }
+
+    .thesis {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: clamp(38px, 7vw, 96px);
+      align-items: start;
+    }
+    .thesis-card {
+      position: sticky;
+      top: 92px;
+      padding: 28px;
+      color: var(--blanco);
+      background: var(--ca-profundo);
+      border-radius: var(--radio);
+      box-shadow: var(--sombra);
+    }
+    .thesis-card .big { color: var(--ca-turquesa); font-size: 3rem; font-weight: 700; line-height: 1; }
+    .thesis-card p { margin-top: 18px; color: #c2d2d5; font-size: 1.04rem; }
+    .principles { display: grid; gap: 2px; overflow: hidden; border: 1px solid var(--linea); border-radius: var(--radio); background: var(--linea); }
+    .principle { display: grid; grid-template-columns: 42px 1fr; gap: 17px; padding: 25px; background: var(--blanco); }
+    .principle .index { display: grid; width: 38px; height: 38px; place-items: center; color: var(--ca-profundo); background: var(--ca-turquesa); border-radius: 12px; font-weight: 700; }
+    .principle p { margin-top: 7px; color: var(--tinta-media); font-size: .9rem; }
+
+    .topic-head { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end; margin-bottom: 38px; }
+    .topic-time {
+      align-self: start;
+      padding: 7px 13px;
+      color: var(--ca-turquesa-profundo);
+      background: rgba(77, 210, 208, .11);
+      border: 1px solid rgba(18, 157, 154, .23);
+      border-radius: 999px;
+      font-size: .76rem;
+      font-weight: 600;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+    .dark .topic-time, .deep .topic-time { color: var(--ca-turquesa); border-color: var(--ca-turquesa-borde); background: var(--ca-turquesa-suave); }
+
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 25px 23px;
+      background: var(--blanco);
+      border: 1px solid var(--linea);
+      border-radius: var(--radio);
+    }
+    .card::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 3px; background: var(--ca-turquesa); opacity: 0; transition: opacity .25s; }
+    .card:hover::before { opacity: 1; }
+    .card .icon { margin-bottom: 18px; font-size: 1.45rem; }
+    .card p { margin-top: 10px; color: var(--tinta-media); font-size: .88rem; line-height: 1.57; }
+    .dark .card, .deep .card { background: rgba(255, 255, 255, .035); border-color: rgba(255, 255, 255, .13); }
+    .dark .card p, .deep .card p { color: #a9bdc1; }
+    .dark .card h3, .deep .card h3 { color: var(--blanco); }
+
+    .quote {
+      max-width: 900px;
+      margin: 42px auto 0;
+      padding: 32px 0 0;
+      border-top: 1px solid var(--linea);
+    }
+    .quote p { color: var(--tinta-media); font-size: clamp(1.12rem, 2.5vw, 1.42rem); font-weight: 300; font-style: italic; line-height: 1.52; }
+    .quote cite { display: block; margin-top: 14px; color: var(--tinta-suave); font-size: .8rem; font-style: normal; }
+    .dark .quote, .deep .quote { border-color: rgba(255, 255, 255, .15); }
+    .dark .quote p, .deep .quote p { color: #d5e2e4; }
+    .dark .quote cite, .deep .quote cite { color: #809ba1; }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 2px;
+      overflow: hidden;
+      margin-top: 42px;
+      background: var(--linea);
+      border: 1px solid var(--linea);
+      border-radius: var(--radio);
+    }
+    .flow-step { min-height: 196px; padding: 23px 20px; background: var(--blanco); }
+    .flow-step .step-no { color: var(--ca-turquesa-profundo); font-size: .72rem; font-weight: 700; letter-spacing: .13em; }
+    .flow-step h3 { margin-top: 14px; }
+    .flow-step p { margin-top: 9px; color: var(--tinta-media); font-size: .83rem; line-height: 1.5; }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 40px;
+    }
+    .compare-box { padding: 29px; border-radius: var(--radio); }
+    .compare-box.before { background: #fff5ee; border: 1px solid #f1d9c6; }
+    .compare-box.after { background: rgba(77, 210, 208, .1); border: 1px solid rgba(18, 157, 154, .25); }
+    .compare-box .label { margin-bottom: 13px; color: var(--tinta-suave); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .compare-box ul { margin: 0; padding-left: 20px; }
+    .compare-box li { margin: 8px 0; color: var(--tinta-media); font-size: .9rem; }
+
+    .case-strip {
+      display: grid;
+      grid-template-columns: 1.25fr repeat(3, .75fr);
+      gap: 2px;
+      overflow: hidden;
+      margin-top: 42px;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: var(--radio);
+    }
+    .case-piece { min-height: 178px; padding: 26px 23px; background: rgba(255, 255, 255, .035); }
+    .case-piece.main { background: rgba(77, 210, 208, .1); }
+    .case-piece .value { color: var(--ca-turquesa); font-size: clamp(1.55rem, 3.6vw, 2.5rem); font-weight: 650; line-height: 1.08; letter-spacing: -.04em; }
+    .case-piece p { margin-top: 12px; color: #a9bdc1; font-size: .84rem; line-height: 1.5; }
+
+    .privacy {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 18px;
+      align-items: start;
+      margin: 0 0 34px;
+      padding: 19px 21px;
+      color: #f0d9bf;
+      background: rgba(242, 166, 90, .09);
+      border: 1px solid rgba(242, 166, 90, .25);
+      border-radius: 14px;
+    }
+    .privacy .lock { font-size: 1.2rem; }
+    .privacy p { font-size: .84rem; line-height: 1.55; }
+
+    .lesson-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 40px; }
+    .lesson {
+      padding: 27px 25px;
+      color: #d9e6e8;
+      background: rgba(255, 255, 255, .035);
+      border: 1px solid rgba(255, 255, 255, .13);
+      border-radius: var(--radio);
+    }
+    .lesson .tag { display: inline-block; margin-bottom: 13px; color: var(--ca-turquesa); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .lesson p { color: #9eb3b8; font-size: .88rem; }
+
+    .matrix { overflow-x: auto; margin-top: 42px; border: 1px solid var(--linea); border-radius: var(--radio); box-shadow: var(--sombra); }
+    table { width: 100%; min-width: 760px; border-collapse: collapse; background: var(--blanco); }
+    th, td { padding: 19px 21px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--linea); }
+    tr:last-child td { border-bottom: 0; }
+    th { color: var(--ca-profundo); background: var(--papel); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    td { color: var(--tinta-media); font-size: .86rem; }
+    td:first-child { color: var(--tinta); font-weight: 650; }
+    .status { display: inline-block; margin-top: 6px; padding: 3px 9px; color: var(--ca-turquesa-profundo); background: rgba(77, 210, 208, .1); border-radius: 999px; font-size: .68rem; font-weight: 650; }
+
+    .resource-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 40px; }
+    .resource {
+      padding: 24px;
+      background: var(--blanco);
+      border: 1px solid var(--linea);
+      border-radius: var(--radio);
+    }
+    .resource .category { color: var(--ca-turquesa-profundo); font-size: .69rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .resource ul { list-style: none; margin: 16px 0 0; padding: 0; }
+    .resource li { padding: 9px 0; color: var(--tinta-media); border-top: 1px solid var(--linea); font-size: .85rem; }
+    .resource li:first-child { border-top: 0; }
+    .resource a { color: var(--ca-turquesa-profundo); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .note { margin-top: 28px; color: var(--tinta-suave); font-size: .78rem; }
+
+    .closing { text-align: center; }
+    .closing h2 { max-width: 19ch; margin: 0 auto; }
+    .closing .lead { max-width: 720px; margin: 25px auto 0; }
+    .closing .line { width: 70px; height: 3px; margin: 34px auto 0; background: var(--ca-turquesa); border-radius: 999px; }
+
+    .footer {
+      padding: 48px 0 58px;
+      color: #839da3;
+      text-align: center;
+      background: var(--ca-noche);
+      border-top: 1px solid var(--ca-turquesa-linea);
+      font-size: .78rem;
+    }
+    .footer .brand { color: var(--ca-turquesa); font-weight: 650; }
+    .footer a { color: #aac0c4; text-underline-offset: 3px; }
+    .footer .legal { max-width: 730px; margin: 16px auto 0; color: #66848b; font-size: .7rem; line-height: 1.6; }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 920px) {
+      .signal-grid, .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .thesis { grid-template-columns: 1fr; }
+      .thesis-card { position: static; }
+      .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .flow-step:last-child { grid-column: 1 / -1; }
+      .case-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .resource-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      body { font-size: 16px; }
+      .wrap { width: min(calc(100% - 36px), var(--max)); }
+      .brandbar .series { display: none; }
+      .hero::after { opacity: .45; }
+      .signal-grid, .cards, .lesson-grid, .resource-grid, .compare, .case-strip { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: 1fr; }
+      .flow-step:last-child { grid-column: auto; }
+      .topic-head { grid-template-columns: 1fr; gap: 18px; }
+      .topic-time { justify-self: start; }
+      .principle { grid-template-columns: 36px 1fr; padding: 21px 18px; }
+      .privacy { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+    @media print {
+      .progress, .nav-shell { display: none; }
+      .hero { padding: 64px 0; }
+      section { padding: 54px 0; break-inside: avoid; }
+      .reveal { opacity: 1; transform: none; }
+      .thesis-card { position: static; }
+      body { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <div class="brandbar">
+    <div class="wrap">
+      <a href="https://www.codigoadria.com" target="_blank" rel="noopener">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      </a>
+      <span class="series">Mastermind · Notas de sesión</span>
+    </div>
+  </div>
+
+  <header class="hero" id="inicio">
+    <div class="wrap">
+      <p class="eyebrow">Mastermind · Sesión del 4 de septiembre de 2026</p>
+      <h1>Cuando la IA <span>entra en el negocio</span></h1>
+      <p class="intro">Casi tres horas de casos reales: procesos que facturan, automatizaciones que trabajan solas, decisiones que duelen y una idea común. La ventaja ya no está en saber qué herramienta existe, sino en meterla dentro del trabajo diario.</p>
+      <div class="meta-row">
+        <span class="chip"><b>166 min</b> de conversación</span>
+        <span class="chip"><b>6</b> participantes</span>
+        <span class="chip"><b>8</b> bloques principales</span>
+        <span class="chip private">Resumen editorial de la sesión</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-shell">
+    <nav class="nav wrap" aria-label="Índice de la sesión">
+      <a href="#s1"><span class="n">1</span> Modelos</a>
+      <a href="#s2"><span class="n">2</span> VPS + Codex</a>
+      <a href="#s3"><span class="n">3</span> Web y móvil</a>
+      <a href="#s4"><span class="n">4</span> Flujo operativo</a>
+      <a href="#s5"><span class="n">5</span> Mercado</a>
+      <a href="#s6"><span class="n">6</span> Socios</a>
+      <a href="#s7"><span class="n">7</span> Vender IA</a>
+      <a href="#s8"><span class="n">8</span> Construir</a>
+      <a href="#acciones"><span class="n">✓</span> Acciones</a>
+      <a href="#recursos"><span class="n">↗</span> Recursos</a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="tint">
+      <div class="wrap">
+        <div class="read reveal">
+          <p class="eyebrow">La sesión en cuatro cifras</p>
+          <h2>Esto ya no va de hacer pruebas</h2>
+          <p class="lead">Los ejemplos compartidos tienen trabajo, dinero y riesgo detrás. Ahí es donde la conversación cambia.</p>
+        </div>
+        <div class="signal-grid reveal">
+          <article class="signal accent">
+            <div class="number">18 min</div>
+            <div class="label">El tiempo que necesitó un caso del grupo para recuperar y preparar trabajo que permitió volver a facturar.</div>
+            <div class="source">Caso explicado en 23:11</div>
+          </article>
+          <article class="signal">
+            <div class="number">5 €</div>
+            <div class="label">El coste mensual del VPS usado por Joan para tener Codex disponible dentro de automatizaciones.</div>
+            <div class="source">Patrón compartido en 32:57</div>
+          </article>
+          <article class="signal">
+            <div class="number">600</div>
+            <div class="label">Tutoriales del proyecto de localización masiva que Joan mantiene trabajando en segundo plano.</div>
+            <div class="source">Caso explicado en 50:30</div>
+          </article>
+          <article class="signal">
+            <div class="number">9</div>
+            <div class="label">Categorías de WooCommerce que Ricardo revisó y modificó de una vez tras dos años de aprendizaje acumulado.</div>
+            <div class="source">Caso explicado en 38:54 y 02:38:00</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap thesis">
+        <aside class="thesis-card reveal">
+          <div class="big">01</div>
+          <h3 style="margin-top:18px;color:var(--blanco)">La gran idea</h3>
+          <p>La IA empieza a cambiar una empresa cuando deja de vivir en un chat aislado y entra en sus procesos, archivos, decisiones y rutinas.</p>
+        </aside>
+        <div class="principles reveal">
+          <article class="principle">
+            <div class="index">1</div>
+            <div><h3>Modelo según tarea</h3><p>Potencia para pensar, revisar o decidir. Un modelo más contenido para ejecutar trabajo conocido y repetible.</p></div>
+          </article>
+          <article class="principle">
+            <div class="index">2</div>
+            <div><h3>Primero el cuello de botella</h3><p>Un caso empezó por el cliente que sostiene la caja. Otro, por los mensajes y tareas que se quedaban sin responder.</p></div>
+          </article>
+          <article class="principle">
+            <div class="index">3</div>
+            <div><h3>El contexto se acumula</h3><p>Proyectos, memoria, procedimientos y decisiones permiten que el sistema deje de empezar de cero cada mañana.</p></div>
+          </article>
+          <article class="principle">
+            <div class="index">4</div>
+            <div><h3>Automatizar no significa soltar</h3><p>Los flujos valiosos empiezan con revisión humana, aprenden las excepciones y ganan autonomía por etapas.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark" id="s1" data-nav="1">
+      <div class="wrap">
+        <div class="topic-head reveal">
+          <div class="read">
+            <p class="eyebrow">01 · Capacidad y coste</p>
+            <h2>El modelo grande no tiene que hacerlo todo</h2>
+            <p class="lead">La sesión arranca con una decisión operativa: separar el trabajo que necesita criterio del trabajo que ya está definido.</p>
+          </div>
+          <span class="topic-time">12:03 → 30:56</span>
+        </div>
+        <div class="cards reveal">
+          <article class="card"><div class="icon">🧠</div><h3>Planificar y revisar</h3><p>Para análisis complejos, código delicado, investigación o decisiones que cruzan varias fuentes, Ricardo reserva el modelo más potente.</p></article>
+          <article class="card"><div class="icon">⚙️</div><h3>Ejecutar lo conocido</h3><p>Si el proceso ya está decidido y no exige interpretar excepciones nuevas, un modelo medio puede completar la tarea con menos consumo.</p></article>
+          <article class="card"><div class="icon">📏</div><h3>Medir por resultado</h3><p>El caso no compara planes en abstracto. Los compara contra horas recuperadas, facturación rescatada y errores que ya no hay que perseguir a mano.</p></article>
+        </div>
+        <blockquote class="quote reveal">
+          <p>«Si vas a ejecutar, el pequeño. Si vas a planificar, el grande.»</p>
+          <cite>Ricardo · 15:20</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="s2" data-nav="2">
+      <div class="wrap">
+        <div class="topic-head reveal">
+          <div class="read">
+            <p class="eyebrow">02 · Arquitectura práctica</p>
+            <h2>Un Codex esperando trabajo en un VPS</h2>
+            <p class="lead">Joan comparte el patrón técnico que usa para que una automatización pueda pedir razonamiento sin hacer cada llamada por API.</p>
+          </div>
+          <span class="topic-time">30:56 → 36:09</span>
+        </div>
+        <div class="flow reveal">
+          <article class="flow-step"><span class="step-no">PASO 1</span><h3>Disparador</h3><p>Llega un artículo, una factura, un tutorial o cualquier evento del flujo.</p></article>
+          <article class="flow-step"><span class="step-no">PASO 2</span><h3>Código</h3><p>Los pasos deterministas limpian, mueven, extraen o preparan la información.</p></article>
+          <article class="flow-step"><span class="step-no">PASO 3</span><h3>VPS</h3><p>La automatización entrega al servidor únicamente la parte que necesita interpretación.</p></article>
+          <article class="flow-step"><span class="step-no">PASO 4</span><h3>Codex</h3><p>La sesión autenticada realiza el trabajo y devuelve el resultado al proceso.</p></article>
+          <article class="flow-step"><span class="step-no">PASO 5</span><h3>Continuación</h3><p>El flujo sigue: guarda, publica, traduce, clasifica o prepara un borrador.</p></article>
+        </div>
+        <blockquote class="quote reveal">
+          <p>«No tenía sentido que me sobrasen tokens de la suscripción y estuviese pagando tokens de API.»</p>
+          <cite>Joan · 35:26</cite>
+        </blockquote>
+        <p class="note reveal">Patrón descrito por un participante. Antes de llevarlo a producción conviene revisar seguridad, aislamiento de credenciales, límites de uso y condiciones del servicio.</p>
+      </div>
+    </section>
+
+    <section class="tint" id="s3" data-nav="3">
+      <div class="wrap">
+        <div class="topic-head reveal">
+          <div class="read">
+            <p class="eyebrow">03 · Herramientas con criterio</p>
+            <h2>WordPress deja de ser la respuesta automática</h2>
+            <p class="lead">No se declara muerto. Pasa a ser una opción más: muy buena cuando encaja y pesada cuando el proyecto solo necesita una pieza pequeña.</p>
+          </div>
+          <span class="topic-time">36:09 → 59:27</span>
+        </div>
+        <div class="compare reveal">
+          <div class="compare-box before">
+            <div class="label">WordPress encaja</div>
+            <h3>Contenido, usuarios y back office</h3>
+            <ul><li>Varias personas necesitan editar.</li><li>El ecosistema de plugins resuelve una parte real del proyecto.</li><li>Ya existe una tienda grande y funciona.</li></ul>
+          </div>
+          <div class="compare-box after">
+            <div class="label">A medida encaja</div>
+            <h3>Una solución concreta y contenida</h3>
+            <ul><li>La web es estática o tiene muy pocas funciones.</li><li>El panel de control sobra.</li><li>La prioridad es velocidad, sencillez y control exacto.</li></ul>
+          </div>
+        </div>
+        <div class="cards reveal" style="margin-top:18px">
+          <article class="card"><div class="icon">📱</div><h3>El trabajo sale del escritorio</h3><p>Varios participantes ya mantienen proyectos desde el móvil: dictan cambios, revisan avances y dejan procesos trabajando sin cargar con el portátil.</p></article>
+          <article class="card"><div class="icon">🖼️</div><h3>La pantalla se vuelve contexto</h3><p>Con el atajo de captura, Codex puede recoger lo visible y el texto accesible de la ventana. El problema llega con contexto, no como una explicación desde cero.</p></article>
+          <article class="card"><div class="icon">🌍</div><h3>Coste por proyecto, no por costumbre</h3><p>Para localizar cientos de tutoriales, Joan compara API y suscripción temporal. Contrata capacidad alta durante el lote y la retira cuando termina.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="deep" id="s4" data-nav="4">
+      <div class="wrap">
+        <div class="topic-head reveal">
+          <div class="read">
+            <p class="eyebrow">04 · Caso operativo completo</p>
+            <h2>Un caos de entradas convertido en un proceso</h2>
+            <p class="lead">Correo, capturas, WhatsApp, fotografías y partes manuscritos entran por sitios distintos. El objetivo no es resumirlos: es terminar el trabajo administrativo que provocan.</p>
+          </div>
+          <span class="topic-time">59:40 → 01:15:47</span>
+        </div>
+        <div class="case-strip reveal">
+          <article class="case-piece main"><div class="value">Entrada multicanal</div><p>Texto de email, capturas de la plataforma del cliente, fotografías de campo y partes manuscritos.</p></article>
+          <article class="case-piece"><div class="value">1</div><p>Base normalizada con las columnas que realmente necesita el equipo.</p></article>
+          <article class="case-piece"><div class="value">5</div><p>Bloques fijos del parte: electricidad, paneles, estructuras, limpieza y baterías.</p></article>
+          <article class="case-piece"><div class="value">2</div><p>Documentos de PRL cuando el trabajo y las evidencias lo requieren.</p></article>
+        </div>
+        <div class="flow reveal" style="margin-top:18px;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.12)">
+          <article class="flow-step" style="background:rgba(255,255,255,.035)"><span class="step-no" style="color:var(--ca-turquesa)">01</span><h3 style="color:var(--blanco)">Interpretar</h3><p style="color:#a9bdc1">Decide si el mensaje corresponde a un mantenimiento y extrae los datos de texto e imagen.</p></article>
+          <article class="flow-step" style="background:rgba(255,255,255,.035)"><span class="step-no" style="color:var(--ca-turquesa)">02</span><h3 style="color:var(--blanco)">Ordenar</h3><p style="color:#a9bdc1">Actualiza la hoja, crea carpetas, renombra fotografías y descomprime los archivos recibidos.</p></article>
+          <article class="flow-step" style="background:rgba(255,255,255,.035)"><span class="step-no" style="color:var(--ca-turquesa)">03</span><h3 style="color:var(--blanco)">Situar</h3><p style="color:#a9bdc1">Crea o retira la chincheta de Google My Maps según el estado del trabajo.</p></article>
+          <article class="flow-step" style="background:rgba(255,255,255,.035)"><span class="step-no" style="color:var(--ca-turquesa)">04</span><h3 style="color:var(--blanco)">Documentar</h3><p style="color:#a9bdc1">Lee el parte, rellena la plantilla estable y prepara la documentación preventiva.</p></article>
+          <article class="flow-step" style="background:rgba(255,255,255,.035)"><span class="step-no" style="color:var(--ca-turquesa)">05</span><h3 style="color:var(--blanco)">Responder</h3><p style="color:#a9bdc1">Busca el hilo original y deja el correo en borrador con el ZIP y la respuesta correspondiente.</p></article>
+        </div>
+        <blockquote class="quote reveal"><p>El destino está claro: que el proceso se ejecute entero sin intervención manual constante. De momento, cada excepción se revisa y sirve para enseñar al sistema.</p><cite>Síntesis del caso · 01:04:24 → 01:10:54</cite></blockquote>
+      </div>
+    </section>
+
+    <section id="s5" data-nav="5">
+      <div class="wrap">
+        <div class="topic-head reveal">
+          <div class="read">
+            <p class="eyebrow">05 · El mercado también se automatiza</p>
+            <h2>Mientras tú decides, el terreno cambia</h2>
+            <p class="lead">El caso del ciclismo sirve como aviso: una empresa puede ejecutar bien y aun así encontrarse con una burbuja, exceso de stock o un competidor que cambia las reglas.</p>
+          </div>
+          <span class="topic-time">01:16:28 → 01:33:26</span>
+        </div>
+        <div class="cards reveal">
+          <article class="card"><div class="icon">📦</div><h3>La resaca del sobrestock</h3><p>Albert describe cómo la demanda posterior a la pandemia, los plazos de fabricación y la deuda dejaron inventario acumulado cuando el consumo ya había caído.</p></article>
+          <article class="card"><div class="icon">🚲</div><h3>Un nuevo entrante rompe el tablero</h3><p>Avinox, el sistema de DJI para bicicletas eléctricas, aparece como ejemplo de una marca ajena al sector que llega con otra base tecnológica.</p></article>
+          <article class="card"><div class="icon">📉</div><h3>La herramienta no elimina el mercado</h3><p>La IA ayuda a leer señales y reaccionar más rápido. No corrige por sí sola una compra en la cresta de una burbuja ni crea demanda donde no la hay.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark" id="s6" data-nav="6">
+      <div class="wrap">
+        <div class="topic-head reveal">
+          <div class="read">
+            <p class="eyebrow">06 · Socios, asesores y caja</p>
+            <h2>Cuando la empresa aprieta, la decisión importa más</h2>
+            <p class="lead">La conversación aterriza criterios para crecer sin perder control, reducir dependencias y contrastar decisiones importantes. Son principios de trabajo, no recetas.</p>
+          </div>
+          <span class="topic-time">01:33:26 → 02:13:44</span>
+        </div>
+        <div class="lesson-grid reveal">
+          <article class="lesson"><span class="tag">Socios</span><h3>Capital solo si resuelve una necesidad concreta</h3><p>Si alguien aporta clientes, una comisión recurrente puede alinear incentivos sin entregar control permanente de la empresa.</p></article>
+          <article class="lesson"><span class="tag">Asesores</span><h3>Entender también el incentivo del consejero</h3><p>Una recomendación profesional puede estar condicionada por el trabajo que genera. Contrastar criterios ayuda a formular mejores preguntas.</p></article>
+          <article class="lesson"><span class="tag">Continuidad</span><h3>El conocimiento no puede vivir en una persona</h3><p>Una ausencia prolongada expuso la dependencia de quien conseguía y ejecutaba parte del trabajo. Documentar y automatizar se convierte en protección.</p></article>
+          <article class="lesson"><span class="tag">Caja</span><h3>Automatizar el flujo que permite cobrar</h3><p>Cuando la facturación cae, el proceso prioritario es el del cliente que todavía aporta ingresos. No el proyecto más vistoso.</p></article>
+          <article class="lesson"><span class="tag">Segunda lectura</span><h3>La IA sirve para preparar, contrastar y ordenar</h3><p>Puede revisar documentos, reunir normativa y señalar contradicciones. La decisión legal, fiscal o financiera sigue necesitando verificación profesional.</p></article>
+          <article class="lesson"><span class="tag">Reacción</span><h3>Separar lo controlable del ruido</h3><p>Albert lo resume con su equipo: una vez asumido lo que no puedes evitar, vuelves a lo que sí puedes hacer hoy.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tint" id="s7" data-nav="7">
+      <div class="wrap">
+        <div class="topic-head reveal">
+          <div class="read">
+            <p class="eyebrow">07 · La oportunidad comercial</p>
+            <h2>No se vende una herramienta: se vende el atajo</h2>
+            <p class="lead">La demanda aparece cuando alguien ya sabe que necesita moverse, pero no quiere perder semanas investigando ni repetir los mismos errores.</p>
+          </div>
+          <span class="topic-time">01:57:31 → 02:25:18</span>
+        </div>
+        <div class="signal-grid reveal">
+          <article class="signal accent"><div class="number">20 h</div><div class="label">El paquete que Ricardo usa para acotar implantaciones, formación y automatizaciones a medida.</div><div class="source">Explicado en 02:00:38</div></article>
+          <article class="signal"><div class="number">1 tarde</div><div class="label">El tiempo empleado para convertir un archivo de 45 episodios en una nueva web con sus transcripciones.</div><div class="source">Caso explicado en 02:16:33</div></article>
+          <article class="signal"><div class="number">7 h</div><div class="label">El tiempo de investigación que Albert usa como ejemplo de lo que una buena auditoría puede ahorrarle.</div><div class="source">Conversación en 02:35:16</div></article>
+          <article class="signal"><div class="number">1 grupo</div><div class="label">Una primera ficha de paper abrió la puerta a administrar la comunidad de IA de la Sociedad Española de Fertilidad.</div><div class="source">Caso explicado en 02:01:13</div></article>
+        </div>
+        <div class="cards reveal" style="margin-top:18px">
+          <article class="card"><div class="icon">🧩</div><h3>El servicio se adapta al puesto</h3><p>Una persona necesita formación; otra, una integración; otra, una demo preparada para causar efecto en una presentación. El destino manda sobre el formato.</p></article>
+          <article class="card"><div class="icon">🗂️</div><h3>Un OS por proyecto</h3><p>Ricardo enseña una estructura con contexto de marca, memoria, clientes y proyectos. El sistema sabe dónde trabaja antes de recibir la siguiente orden.</p></article>
+          <article class="card"><div class="icon">📣</div><h3>Publicar también es un proceso</h3><p>Guion, piezas visuales, programación, recordatorios de Telegram, comentario fijado y vídeo relacionado forman una cadena, no una lista mental.</p></article>
+        </div>
+        <blockquote class="quote reveal"><p>«Una consultoría será un atajo para no perder tiempo investigando y un atajo al resultado.»</p><cite>Albert · 02:35:16</cite></blockquote>
+      </div>
+    </section>
+
+    <section id="s8" data-nav="8">
+      <div class="wrap">
+        <div class="topic-head reveal">
+          <div class="read">
+            <p class="eyebrow">08 · Construir o seguir pagando</p>
+            <h2>La dependencia externa empieza a tener alternativa</h2>
+            <p class="lead">Albert y Ricardo comparan años de mantenimiento lento y desarrollos caros con la capacidad actual de iterar, probar y corregir dentro del negocio.</p>
+          </div>
+          <span class="topic-time">02:25:18 → 02:46:17</span>
+        </div>
+        <div class="cards reveal">
+          <article class="card"><div class="icon">🛠️</div><h3>Primero una pieza pequeña</h3><p>Albert está aprendiendo con una web real. El proyecto concreto evita estudiar durante meses sin llegar a una entrega.</p></article>
+          <article class="card"><div class="icon">🏪</div><h3>Lo viejo puede ser la especificación</h3><p>Su B2B actual, con todo lo que funciona y todo lo que molesta, puede servir como mapa para construir una versión nueva cuando toque.</p></article>
+          <article class="card"><div class="icon">📦</div><h3>Automatizar el almacén exige volumen</h3><p>Un armario Modula de 57.000 € reduce desplazamientos y errores, pero solo tiene sentido frente al coste real de espacio, preparación y demanda.</p></article>
+        </div>
+        <blockquote class="quote reveal"><p>La autonomía no llega porque la IA acierte a la primera. Llega después de dos años de probar, corregir y aprender hasta poder cambiar nueve categorías sin depender de un proveedor.</p><cite>Síntesis de Ricardo · 02:36:37 → 02:38:20</cite></blockquote>
+      </div>
+    </section>
+
+    <section class="tint" id="acciones" data-nav="9">
+      <div class="wrap">
+        <div class="read reveal">
+          <p class="eyebrow">Lo que queda en marcha</p>
+          <h2>Próximos movimientos</h2>
+          <p class="lead">No todos fueron compromisos formales. Esta tabla separa los siguientes pasos expresados con claridad de las ideas todavía exploratorias.</p>
+        </div>
+        <div class="matrix reveal">
+          <table>
+            <thead><tr><th>Persona</th><th>Siguiente movimiento</th><th>Estado al cerrar</th></tr></thead>
+            <tbody>
+              <tr><td>Caso operativo</td><td>Seguir enseñando excepciones al flujo de mantenimiento y volver a incluir la descarga automática de imágenes cuando sea estable.</td><td>En curso<br><span class="status">Prioridad de caja</span></td></tr>
+              <tr><td>Joan</td><td>Mantener la localización masiva de tutoriales y contar con más detalle el patrón VPS + Codex en su contenido.</td><td>En ejecución<br><span class="status">Documentable</span></td></tr>
+              <tr><td>Ricardo</td><td>Continuar la recuperación SEO basada en datos, enseñar su sistema operativo y convertir los casos reales en implantaciones y formación.</td><td>En curso<br><span class="status">Oferta validándose</span></td></tr>
+              <tr><td>Producto digital</td><td>Terminar el producto y decidir cómo remunerar a quien trae cuentas grandes sin ceder control innecesario.</td><td>Decisión abierta<br><span class="status">Comisión sobre la mesa</span></td></tr>
+              <tr><td>Albert</td><td>Avanzar la web de Brakco como proyecto de aprendizaje y definir antes de construir los próximos ecommerce y sistemas internos.</td><td>Prototipo activo<br><span class="status">Construcción gradual</span></td></tr>
+              <tr><td>Grupo</td><td>Seguir compartiendo patrones, plantillas y casos de uso con cifras, incluidos los límites y las partes que fallan.</td><td>Continuo<br><span class="status">Aprendizaje compartido</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos" data-nav="10">
+      <div class="wrap">
+        <div class="read reveal">
+          <p class="eyebrow">Mencionado durante la sesión</p>
+          <h2>Herramientas y referencias</h2>
+          <p class="lead">Inventario de lo que apareció en la conversación. Estar citado aquí no equivale a una recomendación del grupo.</p>
+        </div>
+        <div class="resource-grid reveal">
+          <article class="resource"><span class="category">IA y trabajo</span><ul><li>Codex y ChatGPT Work</li><li>Claude</li><li>Modelos Sol, Terra y Luna, según los nombres usados en la sesión</li><li>Freepik Spaces</li><li>HeyGen para traducción y doblaje</li></ul></article>
+          <article class="resource"><span class="category">Automatización</span><ul><li>n8n</li><li>VPS de Hetzner</li><li>Google My Maps</li><li>Google Sites</li><li>Telegram y WhatsApp Business</li></ul></article>
+          <article class="resource"><span class="category">Web y negocio</span><ul><li>WordPress y WooCommerce</li><li>Django y desarrollo a medida</li><li>Metricool</li><li>ERP, PIM y SGA</li><li>Modula para almacenamiento automatizado</li></ul></article>
+          <article class="resource"><span class="category">Casos compartidos</span><ul><li><a href="https://brakco-performance.acoronado-cat.chatgpt.site" target="_blank" rel="noopener">Prototipo web de Brakco Performance</a></li><li>Localización del catálogo de Lulu Ferris</li><li>Automatización operativa de mantenimientos</li><li>Sistema editorial y de seguimiento de Ricardo</li></ul></article>
+          <article class="resource"><span class="category">Lecturas y mercado</span><ul><li>El libro negro del emprendedor</li><li>Grupo Accell y la crisis del ciclismo</li><li>Avinox, de DJI</li><li>Vehículos eléctricos e infraestructura de baterías</li></ul></article>
+          <article class="resource"><span class="category">Fuente</span><ul><li>Transcripción Tactiq de la reunión</li><li>4 de septiembre de 2026</li><li>Duración registrada: 166 minutos</li><li>Resumen contrastado contra la transcripción completa</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="deep closing">
+      <div class="wrap reveal">
+        <p class="eyebrow">La frase que queda</p>
+        <h2>No hace falta automatizarlo todo. Hace falta empezar por lo que hoy te ahoga.</h2>
+        <p class="lead">Un flujo que permite facturar, una bandeja que deja de perder clientes o una auditoría que evita siete horas de prueba. La transformación empieza ahí.</p>
+        <div class="line"></div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .ca-foot{background:#102e35;color:#fff;font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;letter-spacing:-.01em}
+    .ca-foot *{box-sizing:border-box}.ca-foot a{text-decoration:none}.ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+    .ca-cta{display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;padding:64px 0 52px}
+    .ca-cta-copy{max-width:34rem}.ca-kicker{margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0}
+    .ca-cta h2{margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff}
+    .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+    .ca-btn{display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;background:#4dd2d0;color:#0b2026;white-space:nowrap;transition:background .2s,transform .12s;flex:none}
+    .ca-btn:hover{background:#6fe0de}.ca-btn:active{transform:scale(.98)}
+    .ca-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;padding:44px 0;border-top:1px solid rgba(255,255,255,.09)}
+    .ca-col h3{margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299}
+    .ca-col ul{margin:0;padding:0;list-style:none}.ca-col li{margin-bottom:11px}.ca-col li:last-child{margin-bottom:0}
+    .ca-col a{display:inline-flex;align-items:center;gap:9px;font-size:.94rem;color:#dfe9eb;transition:color .18s}.ca-col a:hover{color:#4dd2d0}
+    .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+    .ca-legal{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)}
+    .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}.ca-legal-brand:hover{opacity:.8}
+    .ca-legal-brand img{height:32px;width:auto;display:block}.ca-legal-brand span{font-size:.86rem;font-weight:500;color:#dfe9eb}
+    .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+    @media (max-width:640px){.ca-cta{padding:52px 0 40px}.ca-btn{width:100%;text-align:center}}
+  </style>
+
+  <footer class="ca-foot">
+    <div class="ca-wrap">
+      <div class="ca-cta">
+        <div class="ca-cta-copy">
+          <p class="ca-kicker">Código AdrIA</p>
+          <h2>La IA aplicada al trabajo real, sin humo</h2>
+          <p class="ca-cta-sub">Esta sesión reúne procesos reales, decisiones difíciles y automatizaciones que ya trabajan dentro de pequeñas empresas. En la comunidad compartimos más casos así, con lo que funciona y lo que falla.</p>
+        </div>
+        <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+      </div>
+      <div class="ca-cols">
+        <div class="ca-col">
+          <h3>Empieza aquí</h3>
+          <ul>
+            <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+            <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+            <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+          </ul>
+        </div>
+        <div class="ca-col">
+          <h3>Sígueme</h3>
+          <ul>
+            <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+            <li><a href="https://www.linkedin.com/in/ricardohoyosperez/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/ricardohoyos1/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+          </ul>
+        </div>
+        <div class="ca-col">
+          <h3>La casa</h3>
+          <ul>
+            <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+            <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+            <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="ca-legal">
+        <a class="ca-legal-brand" href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"><span>Código AdrIA</span></a>
+        <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const progress = document.getElementById('progress');
+    const navLinks = [...document.querySelectorAll('.nav a')];
+    const sections = [...document.querySelectorAll('[data-nav]')];
+
+    const updateProgress = () => {
+      const total = document.documentElement.scrollHeight - innerHeight;
+      progress.style.width = `${total > 0 ? (scrollY / total) * 100 : 0}%`;
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: .08 });
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      const target = `#${visible.target.id}`;
+      navLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === target));
+      const active = navLinks.find((link) => link.classList.contains('active'));
+      if (active) active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }, { rootMargin: '-25% 0px -58% 0px', threshold: [0, .1, .25] });
+    sections.forEach((section) => sectionObserver.observe(section));
+
+    addEventListener('scroll', updateProgress, { passive: true });
+    addEventListener('resize', updateProgress);
+    updateProgress();
+  </script>
+</body>
+</html>
