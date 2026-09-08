@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>BoxCore · Chuleta de la demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--tinta:#14202b;--gris:#5c7080;--linea:#dde6ec;--fondo:#f5f8fa;--acento:#ff5a36;--ok:#1e8e5a;--aviso:#b3402b}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--fondo);font-family:'Poppins',-apple-system,sans-serif;color:var(--tinta);line-height:1.6;padding-bottom:60px}
+  header{background:var(--tinta);color:#fff;padding:38px 22px;text-align:center}
+  header .b{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--acento)}
+  header h1{margin:8px 0 4px;font-size:29px;font-weight:800}
+  header p{color:#b9c9d4;font-size:15px}
+  .wrap{max-width:880px;margin:0 auto;padding:26px 18px}
+  .acceso{background:#fff;border:1px solid var(--linea);border-left:4px solid var(--acento);border-radius:14px;padding:20px 22px;margin-bottom:22px}
+  .acceso a{color:var(--acento);font-weight:700;text-decoration:none;font-size:19px}
+  .acceso code{background:var(--fondo);border:1px solid var(--linea);border-radius:6px;padding:2px 8px;font-size:14px}
+  h2{font-size:20px;font-weight:800;margin:34px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--linea)}
+  h3{font-size:16px;font-weight:700;margin:22px 0 8px;color:var(--gris)}
+  .users{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+  .u{background:#fff;border:1px solid var(--linea);border-radius:12px;padding:15px 17px}
+  .u .mail{font-weight:700;font-size:15px;word-break:break-all}
+  .u .rol{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin:7px 0;background:var(--fondo);color:var(--gris);border:1px solid var(--linea)}
+  .u .rol.o{background:#fff0ec;color:var(--acento);border-color:#ffd5cb}
+  .u p{font-size:14px;color:var(--gris)}
+  ol.pasos{list-style:none;counter-reset:p;margin-top:10px}
+  ol.pasos li{counter-increment:p;background:#fff;border:1px solid var(--linea);border-radius:12px;padding:14px 18px 14px 52px;position:relative;margin-bottom:10px;font-size:15px}
+  ol.pasos li::before{content:counter(p);position:absolute;left:16px;top:14px;width:24px;height:24px;border-radius:50%;background:var(--tinta);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  ol.pasos li b{display:block;margin-bottom:2px}
+  .ok{color:var(--ok);font-weight:600}
+  .nota{background:#fff9ed;border:1px solid #f0dda8;border-left:4px solid #e8b931;border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14px}
+  .nota.rojo{background:#fff4f2;border-color:#f3c4bb;border-left-color:var(--aviso)}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;font-size:14px;border:1px solid var(--linea)}
+  th{background:var(--tinta);color:#fff;text-align:left;padding:10px 12px;font-size:12px;letter-spacing:.05em;text-transform:uppercase}
+  td{padding:10px 12px;border-bottom:1px solid var(--linea);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .pie{text-align:center;color:#8fa3b0;font-size:13px;margin-top:36px}
+</style>
+</head>
+<body>
+<header>
+  <div class="b">Chuleta de la demo</div>
+  <h1>BoxCore</h1>
+  <p>Todo lo que puedes probar, en orden</p>
+</header>
+<div class="wrap">
+
+  <div class="acceso">
+    <p style="margin-bottom:8px"><strong>La app:</strong> <a href="https://boxcore.vercel.app">boxcore.vercel.app</a></p>
+    <p style="margin-bottom:8px"><strong>Contraseña de todos los usuarios:</strong> <code>changeme123</code></p>
+    <p><strong>Tarjeta para probar pagos:</strong> <code>4548 8100 0000 0003</code> · caducidad <code>12/49</code> · CVV <code>123</code><br>
+    <span style="font-size:14px;color:var(--gris)">Es el banco de pruebas: no mueve dinero real. En la pantalla del banco, elige «Autenticación con éxito».</span></p>
+  </div>
+
+  <div class="nota rojo">
+    <strong>Los datos caducan.</strong> El calendario tiene 7 días de clases desde que se sembró. Sembrado el <strong>8 de septiembre</strong>, así que va bien hasta el <strong>14</strong>. Si lo abres después y no ves clases, avísame y lo repongo en un minuto.
+  </div>
+
+  <h2>Con qué usuario entras</h2>
+  <div class="users">
+    <div class="u"><div class="mail">owner@demo.test</div><div class="rol o">Dueña del box</div><p>Lo ve todo: panel, cobros, socios, tarifas. Es tu sitio.</p></div>
+    <div class="u"><div class="mail">coach@demo.test</div><div class="rol">Entrenador</div><p>Clases, socios y mensajes. <strong>No ve el dinero</strong>: ni panel ni cobros.</p></div>
+    <div class="u"><div class="mail">ana@demo.test</div><div class="rol">Socia al día</div><p>Reserva con normalidad. Para probar el día a día de un socio.</p></div>
+    <div class="u"><div class="mail">luis@demo.test</div><div class="rol">Socio con recibo</div><p>Tiene la mensualidad de 55 € pendiente, vence hoy. Todavía puede reservar.</p></div>
+    <div class="u"><div class="mail">javi@demo.test</div><div class="rol">Socio moroso</div><p>Debe 25 € desde hace 12 días. <strong>Bloqueado</strong> para reservar hasta que pague.</p></div>
+  </div>
+
+  <h2>Lo que yo probaría, por este orden</h2>
+
+  <h3>1 · El día a día de una socia — entra como <code>ana@demo.test</code></h3>
+  <ol class="pasos">
+    <li><b>Reservar una clase</b>Clases → una con plazas → Reservar. <span class="ok">Le descuenta una sesión de su bono.</span></li>
+    <li><b>Intentar una segunda clase el mismo día</b><span class="ok">La rechaza:</span> su tarifa permite una al día.</li>
+    <li><b>Lista de espera</b>La clase de hoy a las 18:00 está llena. Reserva igual. <span class="ok">Entras en cola con tu puesto.</span></li>
+    <li><b>Cancelar</b>Cancela la reserva. <span class="ok">La sesión vuelve a su bono</span>, y si hay alguien en cola, sube solo y le llega el aviso.</li>
+  </ol>
+
+  <h3>2 · El caso que mejor se ve — entra como <code>javi@demo.test</code></h3>
+  <ol class="pasos">
+    <li><b>Intenta reservar</b><span class="ok">No le deja:</span> debe 25 €. En el panel de la dueña sale como bloqueado.</li>
+    <li><b>Que pague él mismo</b>Mis recibos → Pagar con tarjeta → la tarjeta de prueba de arriba → «Autenticación con éxito».</li>
+    <li><b>Vuelve a Clases</b><span class="ok">Ya puede reservar.</span> Se ha desbloqueado solo, sin que nadie del box toque nada.</li>
+  </ol>
+
+  <h3>3 · Cobrar en el mostrador — entra como <code>owner@demo.test</code></h3>
+  <ol class="pasos">
+    <li><b>Cobros</b>El recibo de Luis, 55 € → Efectivo → Cobrar. <span class="ok">Pasa a cobrados.</span></li>
+    <li><b>Descargar el recibo</b>En Pagados → Recibo (PDF): sale con el nombre del box, el socio, el concepto y el impuesto desglosado.</li>
+    <li><b>Asignar una tarifa</b>Socios → un socio → Asignar tarifa. <span class="ok">Se le genera el recibo al momento.</span></li>
+    <li><b>Renovar ciclos vencidos</b>En Cobros. Genera los recibos del mes nuevo. <span class="ok">Púlsalo dos veces: no duplica nada.</span></li>
+  </ol>
+
+  <h3>4 · El remate: alguien nuevo se apunta solo</h3>
+  <p style="font-size:15px;color:var(--gris);margin-bottom:6px">Ábrelo en una ventana de incógnito, como si fueras alguien que ve tu box por primera vez.</p>
+  <ol class="pasos">
+    <li><b>Alta online</b>Entra en <a href="https://boxcore.vercel.app/join/demo-box" style="color:var(--acento)">boxcore.vercel.app/join/demo-box</a> y crea una cuenta con un correo inventado. <span class="ok">Aparece en tu panel como «potencial».</span></li>
+    <li><b>Que elija tarifa</b>Las tarifas con venta online tienen «Apuntarme y pagar». <span class="ok">Va directo al banco.</span></li>
+    <li><b>No pagues todavía</b>Cierra la pestaña del banco y ve a Clases. <span class="ok">No hay botón de reservar:</span> nadie entrena sin pagar.</li>
+    <li><b>Ahora sí, paga</b>Con la tarjeta de prueba. <span class="ok">Pasa de potencial a socio activo solo</span>, y ya puede reservar. Tú no has tocado nada.</li>
+  </ol>
+
+  <h3>5 · Comprueba que cada uno ve lo suyo</h3>
+  <ol class="pasos">
+    <li><b>Entra como <code>coach@demo.test</code></b><span class="ok">Ni panel ni cobros:</span> el dinero solo lo ve la dueña.</li>
+    <li><b>Vuelve como dueña</b>El panel refleja ya todo lo que has hecho: los cobros, el desbloqueo de Javi, las plazas ocupadas.</li>
+  </ol>
+
+  <h2>Otras cosas que hay dentro</h2>
+  <table>
+    <tr><th>Dónde</th><th>Qué es</th></tr>
+    <tr><td>Tablón</td><td>Avisos para todo el box, con opción de fijar uno arriba.</td></tr>
+    <tr><td>Mensajes</td><td>Un hilo con cada socio. Ahí caen también los avisos automáticos.</td></tr>
+    <tr><td>Ejercicios</td><td>189 movimientos por categoría. Se archivan, no se borran.</td></tr>
+    <tr><td>WODs</td><td>Entrenos programados con su ranking, RX por delante de escalado.</td></tr>
+    <tr><td>Reservas automáticas</td><td>En la ficha del socio: «los lunes a las 18:00» y se le reserva solo.</td></tr>
+    <tr><td>Fidelización</td><td>Avisos de cumpleaños, bienvenida y rescate de los que no vienen.</td></tr>
+    <tr><td>Penalizaciones</td><td>Vienen puestas: 3 faltas en 30 días, 7 días sin reservar. Se ajusta el umbral.</td></tr>
+  </table>
+
+  <div class="nota">
+    <strong>Dos cosas que aún no tienen pantalla</strong>, para que no las busques: crear el horario y pasar lista. Están en la lista de lo siguiente.
+  </div>
+
+  <div class="nota">
+    <strong>¿Quieres ver un pago que falla?</strong> Crea un recibo cuyo importe acabe en <code>,96</code> (por ejemplo 19,96 €). El banco de pruebas los rechaza siempre, y verás el aviso de «no se ha cobrado nada» con el recibo listo para reintentar.
+  </div>
+
+  <p class="pie">BoxCore · chuleta de la demo · actualizada el 8 de septiembre de 2026</p>
+</div>
+</body>
+</html>
