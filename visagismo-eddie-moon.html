@@ -166,6 +166,11 @@ canvas{width:100%;border-radius:6px;display:block;background:var(--negro2)}
 .paso-t{font-weight:650;margin-bottom:3px}
 .paso-d{color:var(--gris);font-size:14.5px}
 
+/* ---------- reserva ---------- */
+.reserva-box{margin-top:18px;border:1px solid var(--oro-bd);border-radius:6px;padding:18px;background:var(--negro2);text-align:center}
+.reserva-box .btn+.btn{margin-top:10px}
+.reserva-box .btn.ok{background:#2f6b3f;color:#fff}
+.reserva-nota{font-size:12.5px;color:var(--gris);margin-top:10px;line-height:1.5}
 /* ---------- precio ---------- */
 .precio{text-align:center;border:1px solid var(--oro-bd);border-radius:6px;padding:32px 22px;background:var(--negro2)}
 .precio .cifra{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:700;color:var(--oro2);line-height:1}
@@ -202,7 +207,7 @@ canvas{width:100%;border-radius:6px;display:block;background:var(--negro2)}
     <p>Otra implantación de pelo, otra mandíbula, otras proporciones. Aquí medimos la tuya antes de tocar la tijera: 468 puntos sobre tu rostro, ninguna línea trazada a ojo.</p>
     <div class="btn-row">
       <a href="#analisis" class="btn">Medir mi cara ahora</a>
-      <a href="#precio" class="btn btn-ghost">Ver qué incluye</a>
+      <a href="#reserva" class="btn btn-ghost">Cómo se reserva</a>
     </div>
   </div>
 </header>
@@ -263,6 +268,12 @@ canvas{width:100%;border-radius:6px;display:block;background:var(--negro2)}
         </dl>
       </div>
 
+      <div class="reserva-box">
+        <a class="btn js-reserva" href="https://bit.ly/eddie-visagismo" target="_blank" rel="noopener">Reservar con esta ficha</a>
+        <button class="btn btn-ghost js-copiar" type="button">Copiar solo la ficha</button>
+        <div class="reserva-nota">Al pulsar se copia tu ficha y se abre la agenda de Eddie en Booksy. Pégala en «Comentarios» al reservar y la tendrá delante antes de que te sientes.</div>
+      </div>
+
       <div class="cortes" id="cortes"></div>
       <div class="modo-sel" id="modoSel">
         <button class="modo" data-modo="ambas">Pelo y barba</button>
@@ -293,20 +304,19 @@ canvas{width:100%;border-radius:6px;display:block;background:var(--negro2)}
   </div>
 </section>
 
-<section class="sec" id="precio">
+<section class="sec" id="reserva">
   <div class="wrap">
-    <div class="kicker">Precio</div>
-    <h2>Un análisis. Sin trucos.</h2>
+    <div class="kicker">Reserva</div>
+    <h2>Ven con la ficha hecha.</h2>
     <div class="precio" style="margin-top:20px">
-      <div class="cifra">37<small> €</small></div>
       <ul>
-        <li>Análisis completo: 468 puntos y tus proporciones</li>
-        <li>Diagnóstico de corte y barba para tu estructura</li>
-        <li>Ficha técnica escrita, tuya para siempre</li>
-        <li>Vale igual te cortes aquí o no: la ficha es tuya</li>
+        <li>Mide tu cara aquí: 468 puntos y tus proporciones, gratis y en tu móvil</li>
+        <li>Pulsa «Reservar con esta ficha»: se copia sola y se abre el Booksy de Eddie</li>
+        <li>Pégala en «Comentarios» al reservar el corte</li>
+        <li>Eddie la lee antes de que te sientes y decide en la silla</li>
       </ul>
-      <a href="https://eddiemoon.booksy.com/a/" class="btn" style="margin-top:24px" target="_blank" rel="noopener">Reservar mi análisis</a>
-      <div class="sin-trucos">Sin precio tachado. Sin cuenta atrás. Sin «quedan 2 plazas».</div>
+      <a class="btn js-reserva" href="https://bit.ly/eddie-visagismo" style="margin-top:24px" target="_blank" rel="noopener">Reservar en Booksy</a>
+      <div class="sin-trucos">Misma agenda de siempre. Sin cuenta nueva, sin app nueva.</div>
     </div>
   </div>
 </section>
@@ -578,6 +588,53 @@ document.getElementById('btnSim').addEventListener('click', async (ev)=>{
   boton.textContent = 'Repetir la simulación';
   boton.disabled = false;
   nota.textContent = 'Estas imágenes salen de tu foto y son orientativas: el resultado real lo decide Eddie en la silla.';
+});
+
+// ---------- reserva: ficha al portapapeles + Booksy ----------
+function fichaTexto(){
+  const t = id => (document.getElementById(id).textContent || '').trim();
+  const forma = t('formaNombre');
+  if(!forma || forma === '—') return '';
+  const nombre = k => (CORTES[k] && CORTES[k].n) || (BARBAS[k] && BARBAS[k].n) || k;
+  const vistos = (cortesActuales || []).map(nombre).filter(Boolean).join(', ');
+  const lineas = [
+    '[VISAGISMO] Ficha de la app',
+    'Estructura: ' + forma,
+    'Corte: ' + t('recCorte'),
+    'Laterales: ' + t('recLados'),
+    'Barba: ' + t('recBarba'),
+    'Evitar: ' + t('recEvitar')
+  ];
+  if(vistos) lineas.push('Propuestas vistas: ' + vistos);
+  return lineas.join('\n');
+}
+function copiarTexto(txt){
+  // navigator.clipboard falla en iframes y sin https: textarea + execCommand como red
+  try{ if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(txt); return true; } }catch(e){}
+  try{
+    const ta = document.createElement('textarea');
+    ta.value = txt; ta.setAttribute('readonly',''); ta.style.position='fixed'; ta.style.top='-1000px';
+    document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, txt.length);
+    const ok = document.execCommand('copy'); document.body.removeChild(ta); return ok;
+  }catch(e){ return false; }
+}
+function marcarCopiado(el, txtOk, txtBase){
+  el.classList.add('ok'); el.textContent = txtOk;
+  setTimeout(()=>{ el.classList.remove('ok'); el.textContent = txtBase; }, 2600);
+}
+document.querySelectorAll('.js-reserva').forEach(a=>{
+  a.addEventListener('click', ()=>{
+    const f = fichaTexto();
+    if(f && copiarTexto(f)) marcarCopiado(a, 'Ficha copiada · pégala en Comentarios', a.textContent);
+    // el enlace sigue su curso: se abre Booksy en otra pestaña
+  });
+});
+document.querySelectorAll('.js-copiar').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    const f = fichaTexto();
+    if(!f){ marcarCopiado(b, 'Primero sube una foto', b.textContent); return; }
+    marcarCopiado(b, copiarTexto(f) ? 'Copiada' : 'No se pudo copiar', b.textContent);
+  });
 });
 
 const FORMAS = {
