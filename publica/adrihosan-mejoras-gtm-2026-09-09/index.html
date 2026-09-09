@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Adrihosan · Mejoras en Google Tag Manager</title>
+  <style>
+    :root{--ink:#102e35;--teal:#236f73;--aqua:#4dd2d0;--mist:#f4f8f9;--line:#d9e7ea;--text:#24383d;--muted:#587078;--ok:#16734c;--warn:#9d6714}*{box-sizing:border-box}body{margin:0;background:var(--mist);font:17px/1.65 Poppins,Inter,Arial,sans-serif;color:var(--text)}main{max-width:960px;margin:auto;padding:30px 20px 70px}.cover{background:var(--ink);color:#fff;border-top:6px solid var(--aqua);border-radius:20px;padding:42px;margin-bottom:25px}.eyebrow{color:var(--aqua);font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:0}.cover h1{font-size:clamp(2rem,5vw,3.25rem);line-height:1.1;margin:9px 0}.cover .sub{color:#d4e7e9;margin:0}article{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(22px,4vw,42px)}h2{font-size:1.55rem;line-height:1.25;color:var(--ink);border-top:1px solid var(--line);padding-top:31px;margin:39px 0 13px}h2:first-child{border-top:0;padding-top:0;margin-top:0}h3{font-size:1.08rem;color:var(--teal);margin:25px 0 7px}p{margin:0 0 14px}ul{margin:0 0 19px;padding-left:22px}li{margin:7px 0}.summary{border-left:4px solid var(--aqua);background:#f4fbfb;border-radius:0 10px 10px 0;padding:17px 20px;margin:0 0 25px}.status{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0 28px}.card{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}.card strong{display:block;color:var(--ink);font-size:1.08rem}.card span{font-size:.88rem;color:var(--muted)}.ok{color:var(--ok);font-weight:800}.warn{color:var(--warn);font-weight:800}table{border-collapse:collapse;width:100%;margin:17px 0 23px;font-size:.94rem}th,td{border:1px solid var(--line);padding:11px;text-align:left;vertical-align:top}th{background:#edf7f7;color:var(--ink)}code{font:.87em ui-monospace,SFMono-Regular,Consolas,monospace;background:#eef4f5;color:#155c60;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}.notice{background:#fbf4e7;border-left:4px solid #c08a2e;padding:15px 18px;border-radius:8px;margin:22px 0;color:#5e481c}.footer{color:var(--muted);font-size:.82rem;margin:23px 2px 0}@media(max-width:680px){body{font-size:16px}main{padding:14px 12px 45px}.cover,article{border-radius:14px}.cover{padding:26px}article{padding:20px}.status{grid-template-columns:1fr}table{font-size:.84rem}}
+  </style>
+</head>
+<body>
+<main>
+  <header class="cover">
+    <p class="eyebrow">Adrihosan · Informe técnico para Media Buying</p>
+    <h1>Mejoras publicadas en Google Tag Manager</h1>
+    <p class="sub">Qué se corrigió, qué queda protegido por consentimiento y qué debe comprobarse en tráfico real · 9 de septiembre de 2026</p>
+  </header>
+  <article>
+    <h2>Resumen ejecutivo</h2>
+    <div class="summary"><strong>GTM queda más ordenado y más seguro de medir.</strong> Se publicó la versión 77 del contenedor y se consolidó la web para cargar un único contenedor GTM. Se corrigieron los datos comerciales enviados a Meta, se limitaron las URL que reciben Google Ads y se activaron las 13 mediciones complementarias de GA4 bajo consentimiento analítico. No se cambiaron campañas, presupuestos, pujas ni objetivos.</div>
+    <div class="status"><div class="card"><strong class="ok">Publicado</strong><span>GTM v77 y cargador único de la web</span></div><div class="card"><strong class="ok">Conservado</strong><span>Eventos GA4, píxel OpenAI y CAPI</span></div><div class="card"><strong class="warn">Pendiente de red</strong><span>Validación final de algunos emisores</span></div></div>
+
+    <h2>1. Un único cargador GTM en lugar de varios</h2>
+    <p>La categoría Azulejos tenía cuatro bloques que podían iniciar el mismo contenedor. Esto no demostraba por sí solo cuatro conversiones duplicadas, pero sí era una arquitectura frágil y difícil de auditar. Ahora la web devuelve un solo cargador GTM en la comprobación de origen realizada tras el despliegue.</p>
+    <ul><li>Se conserva el <em>dataLayer</em> y los módulos de comercio electrónico existentes.</li><li>Complianz sigue siendo quien decide si el contenedor puede arrancar según el consentimiento.</li><li>Los cargadores heredados quedan desactivados de forma acotada, con mecanismo de recuperación técnica.</li><li>Se verificaron 14 pruebas locales y la sintaxis de los archivos implicados antes del despliegue.</li></ul>
+    <p><strong>Impacto para Media Buying:</strong> reduce el riesgo de eventos repetidos por una inicialización duplicada y hace mucho más fiable cualquier revisión con Tag Assistant.</p>
+
+    <h2>2. Consentimiento: la medición no debe anticiparse a la decisión</h2>
+    <p>Las etiquetas complementarias de GA4 requieren <code>analytics_storage</code>. Las etiquetas publicitarias requieren la categoría correspondiente. Se mantiene el evento diferido que permite arrancar las bases tras aceptar el banner sin forzar el consentimiento ni recargar la página.</p>
+    <table><thead><tr><th>Estado de la persona</th><th>Comportamiento previsto</th><th>Qué significa</th></tr></thead><tbody><tr><td>Sin decisión o rechaza</td><td>Sin medición complementaria propia</td><td>No se deben disparar las etiquetas que requieren consentimiento.</td></tr><tr><td>Acepta analítica</td><td>GA4 y sus eventos complementarios</td><td>La medición de uso queda disponible para análisis.</td></tr><tr><td>Acepta marketing</td><td>Etiquetas publicitarias permitidas</td><td>Los píxeles de campañas pueden medir según su categoría.</td></tr><tr><td>Revoca</td><td>Debe cesar el envío posterior</td><td>Este ciclo completo sigue siendo una prueba de red recomendada.</td></tr></tbody></table>
+    <div class="notice"><strong>Límite importante.</strong> La configuración está publicada, pero la ausencia total de peticiones tras revocar solo se certifica observando la red del navegador con el banner real. Es una validación pendiente, no una afirmación cerrada.</div>
+
+    <h2>3. Meta: datos comerciales con el formato que espera la plataforma</h2>
+    <p>Se corrigieron las etiquetas de compra, añadir al carrito e inicio de pago para usar las claves comerciales estándar de Meta: moneda, valor, productos, identificadores y cantidades. Antes existían nombres de campos no equivalentes al contrato estándar.</p>
+    <table><thead><tr><th>Evento</th><th>Antes</th><th>Ahora</th></tr></thead><tbody><tr><td>Compra</td><td>Campos comerciales no normalizados</td><td>Valor, moneda y productos en formato estándar</td></tr><tr><td>Añadir al carrito</td><td>Cobertura parcial de campos</td><td>Productos, cantidades e identificadores normalizados</td></tr><tr><td>Inicio de pago</td><td>Campos comerciales no normalizados</td><td>Valor, moneda y productos en formato estándar</td></tr></tbody></table>
+    <p>También se añadió una preparación de PageView para casos de consentimiento concedido después de que haya cargado la página. Lleva una marca de página para evitar repetición. Los productos inválidos o sin identificador se descartan y no se copian correos ni títulos libres.</p>
+    <p><strong>Revisión recomendada para Oriol:</strong> contrastar el identificador que recibe Meta con el catálogo, especialmente en variaciones y productos vendidos por superficie. No se ha añadido CAPI de Meta ni se da por certificada deduplicación con servidor.</p>
+
+    <h2>4. Google Ads: URL más limpia, atribución preservada</h2>
+    <p>La etiqueta base de Google Ads utiliza los sanitizadores ya preparados para ubicación, referencia y título de página. Eliminan parámetros de búsqueda revisados y mantienen los parámetros necesarios de atribución, como UTM y gclid.</p>
+    <ul><li>La conversión principal sigue siendo la compra directa.</li><li>Las compras importadas desde GA4 y WooCommerce permanecen como secundarias: no se han contado como tres ventas en este informe.</li><li>Se mantuvo la configuración de conversiones mejoradas automática y sus controles de consentimiento.</li></ul>
+    <div class="notice"><strong>Qué falta confirmar.</strong> Está verificado en la configuración; aún hay que capturar en red la URL exacta que transmite la biblioteca de Google Ads y qué campos detecta automáticamente la función de conversiones mejoradas en cada pantalla.</div>
+
+    <h2>5. GA4: 13 acciones útiles ya activas</h2>
+    <p>Las trece etiquetas de GA4 están activas y condicionadas por consentimiento analítico. El objetivo es poder interpretar el embudo y las interacciones de intención sin añadir datos personales a los eventos propios.</p>
+    <table><thead><tr><th>Grupo</th><th>Ejemplos de medición</th><th>Uso</th></tr></thead><tbody><tr><td>Navegación y catálogo</td><td>Visita de producto, búsqueda protegida, filtros</td><td>Detectar interés y fricción de catálogo.</td></tr><tr><td>Decisión</td><td>Uso de calculadora, clic de contacto</td><td>Medir intención previa al lead o pedido.</td></tr><tr><td>Formulario</td><td>Error de formulario</td><td>Localizar problemas de conversión; el evento de CF7 inválido sigue pausado.</td></tr><tr><td>Compra</td><td>Carrito e inicio de checkout</td><td>Analizar pérdida entre pasos del embudo.</td></tr></tbody></table>
+    <p>Se han conservado las definiciones de 17 dimensiones y 3 métricas para explotar estos eventos en GA4. La creación administrativa de esas definiciones depende de permisos de propietario de la propiedad.</p>
+
+    <h2>6. Etiquetas existentes: qué se mantuvo y qué no se tocó</h2>
+    <ul><li>Los píxeles antiguos de Meta permanecen pausados.</li><li>Las etiquetas heredadas de Microsoft UET permanecen pausadas.</li><li>La etiqueta de TikTok dentro de GTM permanece pausada.</li><li>La web tiene otro TikTok fuera de GTM, marcado como marketing por Complianz: no se duplicó ni se retiró.</li><li>Las demás etiquetas existentes no se modificaron en este cierre.</li></ul>
+    <p><strong>Resultado:</strong> se minimizan cambios ajenos al objetivo. La publicación se limita a correcciones necesarias, dos variables, un disparador y una preparación local para Meta, además de las etiquetas ya aprobadas.</p>
+
+    <h2>7. Validaciones realizadas y controles siguientes</h2>
+    <table><thead><tr><th>Verificado</th><th>Alcance</th></tr></thead><tbody><tr><td class="ok">Sí</td><td>Versión 77 publicada y comprobada por API.</td></tr><tr><td class="ok">Sí</td><td>Un cargador GTM en la respuesta HTTP ordinaria comprobada.</td></tr><tr><td class="ok">Sí</td><td>13 eventos GA4 activos y con condición de consentimiento.</td></tr><tr><td class="ok">Sí</td><td>Payload comercial de Meta corregido en configuración y pruebas locales.</td></tr><tr><td class="warn">Pendiente</td><td>Captura de red de Meta, Google Ads, TikTok externo y revocación completa.</td></tr><tr><td class="warn">Pendiente</td><td>Correspondencia final de IDs de productos y catálogo Meta.</td></tr></tbody></table>
+    <h3>Checklist para la próxima revisión de Oriol</h3>
+    <ul><li>Abrir Tag Assistant en incógnito y confirmar un único contenedor por página.</li><li>Aceptar y revocar consentimiento mientras se observa la pestaña de red.</li><li>Ejecutar una prueba real de producto, carrito e inicio de checkout sin completar una compra ficticia.</li><li>Confirmar que Meta recibe identificadores coincidentes con el catálogo.</li><li>Revisar la conversión directa de compra como principal y las importadas como secundarias.</li></ul>
+    <h2>Conclusión</h2>
+    <p>La base de GTM está cerrada para operar campañas con menos riesgo de duplicidad, una estructura de consentimiento más coherente y mejor calidad de datos para Meta, Google Ads y GA4. La siguiente decisión no es añadir más etiquetas: es realizar la comprobación final de transporte en un navegador real y usar esos resultados para ajustar campañas y audiencias con confianza.</p>
+  </article>
+  <p class="footer">Adrihosan · Documento público de revisión · Sin credenciales, identificadores de medición ni datos de clientes.</p>
+</main>
+</body>
+</html>
+
