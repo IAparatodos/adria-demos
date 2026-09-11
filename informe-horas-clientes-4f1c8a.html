@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Las horas que no hemos gastado</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Las horas que no hemos gastado · Código AdrIA">
+<meta property="og:description" content="Siete cuentas, cuatro meses: lo que habría costado a mano frente a lo que costó con IA.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/og-horas-clientes.jpg">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/informe-horas-clientes-4f1c8a.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Las horas que no hemos gastado · Código AdrIA">
+<meta name="twitter:description" content="Siete cuentas, cuatro meses: lo que habría costado a mano frente a lo que costó con IA.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/og-horas-clientes.jpg">
+<meta name="theme-color" content="#102e35">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico">
+<link rel="icon" type="image/png" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+<style>
+  :root{
+    --tinta:#102e35;
+    --tinta-2:#1b4049;
+    --papel:#f2f7f7;
+    --sup:#ffffff;
+    --sup-2:#e7f0f0;
+    --linea:#d3e2e3;
+    --gris:#5f7c83;
+    --turquesa:#2fb5b3;
+    --turquesa-vivo:#4dd2d0;
+    --petroleo:#3f6f7b;
+    --petroleo-suave:#b9d2d6;
+    --alerta:#a8621c;
+    --sombra:0 1px 2px rgba(16,46,53,.06),0 8px 24px -18px rgba(16,46,53,.4);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --tinta:#e6f1f2; --tinta-2:#bcd6d9; --papel:#0a171b; --sup:#102e35; --sup-2:#163b44;
+      --linea:#20505a; --gris:#8faaaf; --turquesa:#4dd2d0; --turquesa-vivo:#6fe0de;
+      --petroleo:#8fbcc4; --petroleo-suave:#2a5a66; --alerta:#e0a460;
+      --sombra:0 1px 2px rgba(0,0,0,.3),0 8px 24px -18px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"]{
+    --tinta:#e6f1f2; --tinta-2:#bcd6d9; --papel:#0a171b; --sup:#102e35; --sup-2:#163b44;
+    --linea:#20505a; --gris:#8faaaf; --turquesa:#4dd2d0; --turquesa-vivo:#6fe0de;
+    --petroleo:#8fbcc4; --petroleo-suave:#2a5a66; --alerta:#e0a460;
+    --sombra:0 1px 2px rgba(0,0,0,.3),0 8px 24px -18px rgba(0,0,0,.8);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--papel);color:var(--tinta);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-weight:300;font-size:16px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding-inline:24px}
+  .estrecho{max-width:70ch}
+  a{color:var(--petroleo)}
+  strong{font-weight:600}
+
+  header.top{background:var(--sup);border-bottom:1px solid var(--linea)}
+  .marca{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+  .marca img{height:26px;width:auto;display:block}
+  .marca .sello{
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--gris)
+  }
+  .hero{padding-block:44px 40px}
+  .kicker{
+    margin:0 0 16px;font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--turquesa)
+  }
+  h1{
+    margin:0 0 18px;font-size:clamp(2rem,5.2vw,3.1rem);font-weight:600;line-height:1.08;
+    letter-spacing:-.035em;text-wrap:balance;max-width:16ch
+  }
+  .entradilla{margin:0;font-size:1.08rem;color:var(--tinta-2);max-width:62ch}
+
+  .marcador-env{border-block:1px solid var(--linea);background:var(--sup)}
+  .marcador{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:1px;background:var(--linea)
+  }
+  .marcador div{background:var(--sup);padding:22px 24px}
+  .marcador .et{
+    margin:0 0 8px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--gris)
+  }
+  .marcador .cifra{
+    margin:0;font-family:'JetBrains Mono',monospace;font-size:1.95rem;font-weight:700;
+    line-height:1;letter-spacing:-.03em
+  }
+  .marcador .cifra small{font-size:.95rem;font-weight:400;color:var(--gris);letter-spacing:0}
+  .marcador .pie{margin:8px 0 0;font-size:.85rem;color:var(--gris);line-height:1.45}
+  .marcador .destacada .cifra{color:var(--turquesa)}
+
+  section{padding-block:52px}
+  h2{margin:0 0 6px;font-size:1.55rem;font-weight:600;letter-spacing:-.03em;line-height:1.2}
+  .sub{margin:0 0 30px;color:var(--gris);font-size:.97rem;max-width:65ch}
+  h3{margin:0;font-size:1.12rem;font-weight:600;letter-spacing:-.02em}
+
+  .grafico{display:flex;flex-direction:column;gap:20px}
+  .fila{display:grid;grid-template-columns:180px 1fr;gap:18px;align-items:center}
+  .fila .etq{font-size:.95rem;font-weight:500;line-height:1.3}
+  .fila .etq span{display:block;font-size:.78rem;font-weight:300;color:var(--gris)}
+  .pista{display:flex;flex-direction:column;gap:5px}
+  .barra{display:flex;align-items:center;gap:9px}
+  .barra .traza{height:15px;border-radius:2px;min-width:3px;flex:none}
+  .traza.manual{background:var(--petroleo)}
+  .traza.manual-alto{background:var(--petroleo-suave)}
+  .traza.ia{background:var(--turquesa-vivo)}
+  .barra .val{
+    font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--gris);white-space:nowrap
+  }
+  .barra .val b{color:var(--tinta);font-weight:700}
+  .leyenda{
+    display:flex;flex-wrap:wrap;gap:20px;margin-top:28px;padding-top:18px;
+    border-top:1px solid var(--linea);font-size:.85rem;color:var(--gris)
+  }
+  .leyenda i{display:inline-block;width:22px;height:9px;border-radius:2px;margin-right:8px;vertical-align:middle}
+
+  .fichas{display:grid;gap:18px}
+  .ficha{
+    background:var(--sup);border:1px solid var(--linea);border-radius:4px;
+    padding:26px 28px;box-shadow:var(--sombra)
+  }
+  .ficha.propia{border-left:3px solid var(--turquesa)}
+  .ficha-cab{
+    display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;
+    padding-bottom:14px;margin-bottom:16px;border-bottom:1px solid var(--linea)
+  }
+  .tag{
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--gris);border:1px solid var(--linea);
+    border-radius:2px;padding:2px 7px
+  }
+  .tag.viva{color:var(--turquesa);border-color:var(--turquesa)}
+  .periodo{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--gris);margin-left:auto}
+  .cifras{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:14px;margin-bottom:18px
+  }
+  .cifras div{border-left:2px solid var(--linea);padding-left:12px}
+  .cifras div.ok{border-left-color:var(--turquesa)}
+  .cifras .et{
+    margin:0 0 3px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;color:var(--gris)
+  }
+  .cifras .v{
+    margin:0;font-family:'JetBrains Mono',monospace;font-size:1.15rem;font-weight:700;letter-spacing:-.02em
+  }
+  .ficha p{margin:0 0 12px;font-size:.95rem;line-height:1.62;color:var(--tinta-2)}
+  .ficha p:last-child{margin-bottom:0}
+  .ficha ul{margin:0 0 12px;padding-left:19px;font-size:.95rem;color:var(--tinta-2)}
+  .ficha li{margin-bottom:7px;line-height:1.55}
+  .ficha li:last-child{margin-bottom:0}
+  .apunte{
+    background:var(--sup-2);border-radius:3px;padding:13px 16px;font-size:.9rem;
+    color:var(--tinta-2);margin-top:16px
+  }
+  .apunte b{color:var(--tinta)}
+
+  .tabla-env{overflow-x:auto;border:1px solid var(--linea);border-radius:4px;background:var(--sup)}
+  table{width:100%;border-collapse:collapse;font-size:.91rem;min-width:560px}
+  th{
+    text-align:left;padding:12px 16px;background:var(--sup-2);font-weight:600;font-size:.82rem;
+    letter-spacing:.02em;border-bottom:1px solid var(--linea);white-space:nowrap
+  }
+  td{padding:11px 16px;border-bottom:1px solid var(--linea);vertical-align:top;color:var(--tinta-2)}
+  tr:last-child td{border-bottom:none}
+  td.n,th.n{text-align:right;font-family:'JetBrains Mono',monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+  tfoot td{font-weight:600;background:var(--sup-2);color:var(--tinta)}
+
+  .metodo{background:var(--sup);border-top:1px solid var(--linea)}
+  .metodo h2{font-size:1.25rem}
+  .metodo ol{padding-left:20px;font-size:.92rem;color:var(--tinta-2);max-width:72ch}
+  .metodo li{margin-bottom:10px;line-height:1.6}
+  .aviso{
+    border-left:3px solid var(--alerta);background:var(--sup);padding:16px 20px;
+    font-size:.93rem;color:var(--tinta-2);margin:0 0 30px;border-radius:0 3px 3px 0
+  }
+  .aviso b{color:var(--tinta)}
+
+  @media (max-width:640px){
+    .fila{grid-template-columns:1fr;gap:7px}
+    .periodo{margin-left:0;width:100%}
+    .hero{padding-block:32px 28px}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap marca">
+    <a href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"></a>
+    <span class="sello">11 sep 2026</span>
+  </div>
+</header>
+
+<div class="wrap hero">
+  <p class="kicker">Siete cuentas · may → sep 2026</p>
+  <h1>Las horas que no hemos gastado</h1>
+  <p class="entradilla">
+    Reconstrucción del trabajo entregado en las siete cuentas que han pasado por el sistema, con lo
+    que habría costado hacerlo a mano enfrentado a lo que costó de verdad. Los rangos van a la baja a
+    propósito: donde había duda, se apuntó la cifra menor.
+  </p>
+</div>
+
+<div class="marcador-env"><div class="wrap"><div class="marcador">
+  <div>
+    <p class="et">A mano o encargado fuera</p>
+    <p class="cifra">1.298<small> – 2.100 h</small></p>
+    <p class="pie">Tarifa de mercado: SEO, programación, diseño, edición de vídeo, consultoría.</p>
+  </div>
+  <div>
+    <p class="et">Lo que costó de verdad</p>
+    <p class="cifra">≈ 440<small> h</small></p>
+    <p class="pie">Tiempo del operador delante de la IA, sesiones con cliente incluidas.</p>
+  </div>
+  <div class="destacada">
+    <p class="et">Ahorro neto</p>
+    <p class="cifra">850<small> – 1.650 h</small></p>
+    <p class="pie">Con la lectura más prudente, cinco meses de una persona a jornada completa.</p>
+  </div>
+  <div>
+    <p class="et">Y cada mes que viene</p>
+    <p class="cifra">57<small> – 93 h</small></p>
+    <p class="pie">Automatismos que siguen corriendo solos: 28-50 h propias y 29-43 h de clientes.</p>
+  </div>
+</div></div></div>
+
+<section class="wrap">
+  <h2>El reparto</h2>
+  <p class="sub">
+    Cada fila enfrenta las dos barras a la misma escala. La oscura es lo que habría costado fuera,
+    con el tramo claro hasta el extremo alto del rango. La turquesa es lo que costó.
+  </p>
+
+  <div class="grafico">
+
+    <div class="fila">
+      <div class="etq">Adrihosan <span>tienda propia</span></div>
+      <div class="pista">
+        <div class="barra">
+          <div class="traza manual" style="width:62.6%"></div>
+          <div class="traza manual-alto" style="width:37.4%"></div>
+          <span class="val"><b>770-1.230</b> h</span>
+        </div>
+        <div class="barra">
+          <div class="traza ia" style="width:21.4%"></div>
+          <span class="val">263 h</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fila">
+      <div class="etq">Solidker <span>marca propia</span></div>
+      <div class="pista">
+        <div class="barra">
+          <div class="traza manual" style="width:11.1%"></div>
+          <div class="traza manual-alto" style="width:9.5%"></div>
+          <span class="val"><b>136-253</b> h</span>
+        </div>
+        <div class="barra">
+          <div class="traza ia" style="width:1.7%"></div>
+          <span class="val">21 h</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fila">
+      <div class="etq">Cuenta A <span>ingeniería de vehículos</span></div>
+      <div class="pista">
+        <div class="barra">
+          <div class="traza manual" style="width:10.6%"></div>
+          <div class="traza manual-alto" style="width:6.7%"></div>
+          <span class="val"><b>130-213</b> h</span>
+        </div>
+        <div class="barra">
+          <div class="traza ia" style="width:5%"></div>
+          <span class="val">45-60 h</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fila">
+      <div class="etq">Cuenta B <span>consultoría de CRM</span></div>
+      <div class="pista">
+        <div class="barra">
+          <div class="traza manual" style="width:9.5%"></div>
+          <div class="traza manual-alto" style="width:5.2%"></div>
+          <span class="val"><b>117-181</b> h</span>
+        </div>
+        <div class="barra">
+          <div class="traza ia" style="width:3.7%"></div>
+          <span class="val">30-46 h</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fila">
+      <div class="etq">Cuenta C <span>ortopedia, tres sedes</span></div>
+      <div class="pista">
+        <div class="barra">
+          <div class="traza manual" style="width:5.3%"></div>
+          <div class="traza manual-alto" style="width:3.2%"></div>
+          <span class="val"><b>65-105</b> h</span>
+        </div>
+        <div class="barra">
+          <div class="traza ia" style="width:2.4%"></div>
+          <span class="val">30 h</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fila">
+      <div class="etq">Cuenta D <span>formación en IA</span></div>
+      <div class="pista">
+        <div class="barra">
+          <div class="traza manual" style="width:3.3%"></div>
+          <div class="traza manual-alto" style="width:1.6%"></div>
+          <span class="val"><b>40-60</b> h</span>
+        </div>
+        <div class="barra">
+          <div class="traza ia" style="width:0.9%"></div>
+          <span class="val">11 h</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fila">
+      <div class="etq">La Russafera <span>cortesía</span></div>
+      <div class="pista">
+        <div class="barra">
+          <div class="traza manual" style="width:3.3%"></div>
+          <div class="traza manual-alto" style="width:1.4%"></div>
+          <span class="val"><b>40-58</b> h</span>
+        </div>
+        <div class="barra">
+          <div class="traza ia" style="width:0.8%"></div>
+          <span class="val">8 h</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="leyenda">
+    <span><i class="traza manual"></i>Coste fuera, extremo prudente</span>
+    <span><i class="traza manual-alto"></i>Hasta el extremo alto</span>
+    <span><i class="traza ia"></i>Horas reales con IA</span>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Cuenta por cuenta</h2>
+  <p class="sub">
+    Lo que hay detrás de cada barra. En las cuentas de cliente se separan dos cosas distintas: lo que
+    nos ahorramos produciendo y lo que se ahorra el cliente cada mes usándolo.
+  </p>
+
+  <div class="fichas">
+
+    <article class="ficha propia">
+      <div class="ficha-cab">
+        <h3>Adrihosan</h3>
+        <span class="tag viva">En producción</span>
+        <span class="periodo">17 may → 10 sep</span>
+      </div>
+      <div class="cifras">
+        <div><p class="et">Fuera</p><p class="v">770-1.230 h</p></div>
+        <div><p class="et">Real</p><p class="v">263 h</p></div>
+        <div class="ok"><p class="et">Ahorro</p><p class="v">500-950 h</p></div>
+        <div class="ok"><p class="et">Cada mes</p><p class="v">28-50 h</p></div>
+      </div>
+      <p>
+        Es la cuenta grande: cuatro meses de SEO de silos, calculadoras, publicidad, altas de producto
+        y fontanería de datos. Ocho procedimientos propios con el método ya escrito y despliegue a
+        producción con solo empujar el cambio.
+      </p>
+      <ul>
+        <li><strong>32.620 productos</strong> con título y descripción únicos en un solo día, con copia de seguridad previa. A mano no se habría hecho nunca.</li>
+        <li><strong>Silo de lavabos</strong>: doce categorías reconstruidas enteras, de la búsqueda a la plantilla y la medición. El método luego se repitió en platos de ducha y fregaderos.</li>
+        <li><strong>Dos calculadoras en dos días</strong>, calefacción y piscina, con catálogo vivo, descuento por palet y carrito.</li>
+        <li><strong>El formulario de contacto llevaba cinco meses sin entrar en el CRM.</strong> Detectado, reactivado y blindado para que no se pueda apagar.</li>
+        <li><strong>La medición de compras estaba rota</strong>: llegaba uno de cada seis pedidos y la publicidad optimizaba a clics de WhatsApp, el 92 % de las conversiones.</li>
+      </ul>
+      <div class="apunte">
+        <b>Lo que sigue corriendo solo:</b> informe semanal de posiciones, repaso diario del WhatsApp
+        de la tienda con puntuación de tono, vigilancia de tarifas de proveedor, guardia de contactos
+        nuevos, recordatorio de pedidos abiertos y la compuerta de Black Friday, que se abre sola.
+      </div>
+    </article>
+
+    <article class="ficha propia">
+      <div class="ficha-cab">
+        <h3>Solidker</h3>
+        <span class="tag viva">En producción</span>
+        <span class="periodo">3 → 16 jun</span>
+      </div>
+      <div class="cifras">
+        <div><p class="et">Fuera</p><p class="v">136-253 h</p></div>
+        <div><p class="et">Real</p><p class="v">21 h</p></div>
+        <div class="ok"><p class="et">Ahorro</p><p class="v">115-230 h</p></div>
+        <div><p class="et">Días</p><p class="v">5</p></div>
+      </div>
+      <p>
+        Cinco días de trabajo repartidos en dos semanas para levantar una web que llevaba tiempo
+        abandonada. Verificado el 11 de septiembre: las seis páginas, el blog, la redirección y el
+        conector siguen respondiendo.
+      </p>
+      <ul>
+        <li><strong>Web nueva en 48 horas</strong>: seis páginas con el catálogo real de 41 modelos, contacto y blog integrado.</li>
+        <li><strong>46 artículos y 6 páginas</strong> con posicionamiento completo en dos días. Las 46 descripciones eran idénticas; ahora cada una es suya.</li>
+        <li><strong>86 fotos de catálogo generadas</strong>, 45 en producción, sin sesión de fotos ni retocador.</li>
+        <li><strong>Conector público en vivo</strong> desde junio: cualquier asistente puede consultar el catálogo sin credenciales.</li>
+      </ul>
+      <div class="apunte">
+        <b>Pendiente:</b> el blog no publica nada desde junio y falta conectar la consola de búsqueda,
+        así que se va a ciegas en posiciones.
+      </div>
+    </article>
+
+    <article class="ficha">
+      <div class="ficha-cab">
+        <h3>Cuenta A · ingeniería de vehículos</h3>
+        <span class="tag viva">En producción</span>
+        <span class="periodo">16 jun → 6 sep</span>
+      </div>
+      <div class="cifras">
+        <div><p class="et">Fuera</p><p class="v">130-213 h</p></div>
+        <div><p class="et">Real</p><p class="v">45-60 h</p></div>
+        <div class="ok"><p class="et">Ahorro</p><p class="v">70-165 h</p></div>
+        <div class="ok"><p class="et">Al cliente</p><p class="v">4 h/mes</p></div>
+      </div>
+      <p>
+        Tres flujos en su propio servidor que montan el expediente de cada vehículo: crean la carpeta,
+        vuelcan las 180 respuestas del formulario a un Excel de 26 pestañas, leen el certificado
+        escaneado con visión y colocan las fotos en su hueco. Ocho versiones del primero, seis del
+        segundo, cinco del tercero.
+      </p>
+      <ul>
+        <li><strong>De hora y media a tres horas por expediente</strong> pasan a la máquina; queda la revisión, unos veinte minutos.</li>
+        <li>Se le montó y blindó el servidor, y luego se le <strong>bajó la factura mensual a la mitad</strong>.</li>
+        <li>El fallo que llevaba cuatro semanas achacado a su versión de Office era <strong>un vínculo roto dentro del Excel</strong>. Resuelto y probado en directo.</li>
+      </ul>
+      <div class="apunte">
+        <b>Ojo:</b> a día de hoy no consta ni un expediente tramitado por él en producción. El ahorro
+        está construido, pero todavía no cobrado.
+      </div>
+    </article>
+
+    <article class="ficha">
+      <div class="ficha-cab">
+        <h3>Cuenta B · consultoría de CRM</h3>
+        <span class="tag">Cerrada</span>
+        <span class="periodo">15 → 30 jul</span>
+      </div>
+      <div class="cifras">
+        <div><p class="et">Fuera</p><p class="v">117-181 h</p></div>
+        <div><p class="et">Real</p><p class="v">30-46 h</p></div>
+        <div class="ok"><p class="et">Ahorro</p><p class="v">71-151 h</p></div>
+        <div><p class="et">Duración</p><p class="v">15 días</p></div>
+      </div>
+      <p>
+        Quince días de auditoría de un CRM heredado de dos agencias: casi 32.000 contactos, 8.631
+        oportunidades falsas y 151 flujos de lanzamientos muertos. Se entregaron 124 archivos y 15
+        enlaces.
+      </p>
+      <ul>
+        <li><strong>136 flujos revisados uno a uno en menos de dos horas.</strong> La estimación previa eran 15-18 horas. Ahí quedó probado el origen de las oportunidades falsas.</li>
+        <li><strong>Una herramienta de auditoría de 2.249 líneas</strong> en modo solo lectura que recorrió el CRM entero en cuatro minutos y dejó informe y copia de seguridad.</li>
+        <li>Diez documentos de arquitectura en un solo día, incluidas las reglas para pegar a cualquier agente que toque ese CRM.</li>
+      </ul>
+      <div class="apunte">
+        <b>La lección cara:</b> se trabajó más del doble de lo presupuestado. El desfase no lo causó la
+        IA sino el alcance, porque la limpieza nunca llegó a ejecutarse.
+      </div>
+    </article>
+
+    <article class="ficha">
+      <div class="ficha-cab">
+        <h3>Cuenta C · ortopedia, tres sedes</h3>
+        <span class="tag viva">Abierta</span>
+        <span class="periodo">18 ago → 9 sep</span>
+      </div>
+      <div class="cifras">
+        <div><p class="et">Fuera</p><p class="v">65-105 h</p></div>
+        <div><p class="et">Real</p><p class="v">≈30 h</p></div>
+        <div class="ok"><p class="et">Ahorro</p><p class="v">45-85 h</p></div>
+        <div class="ok"><p class="et">Al cliente</p><p class="v">8-10 h/mes</p></div>
+      </div>
+      <p>
+        Formación al equipo y, por debajo, el trabajo que no se ve: actas de cada sesión, guías,
+        análisis de dos plataformas y documentación técnica. Cinco sesiones con el cliente suman
+        11 h 33; el trabajo alrededor, unas 18,5 h más.
+      </p>
+      <ul>
+        <li><strong>Por cada hora de sesión se han trabajado unas 2,6.</strong> Las actas, los informes y los análisis no se facturan aparte.</li>
+        <li>Su asistente de correo llevaba a su informático <strong>dos días atascado</strong>; se depuró en vivo hasta dejarlo leyendo correo real.</li>
+        <li>Se descartaron dos caminos de integración antes de construirlos, con la documentación en la mano. Eso son <strong>20-40 horas no gastadas</strong> en un callejón.</li>
+      </ul>
+      <div class="apunte">
+        <b>Revisar:</b> el cómputo de horas se quedó corto porque falta una sesión entera. Y la rama
+        grande, la facturación automática, sigue bloqueada esperando a que alguien pregunte al
+        fabricante de su programa por su interfaz de datos.
+      </div>
+    </article>
+
+    <article class="ficha">
+      <div class="ficha-cab">
+        <h3>Cuenta D · formación en IA</h3>
+        <span class="tag viva">Abierta</span>
+        <span class="periodo">13 jul → 8 sep</span>
+      </div>
+      <div class="cifras">
+        <div><p class="et">Fuera</p><p class="v">40-60 h</p></div>
+        <div><p class="et">Real</p><p class="v">≈11 h</p></div>
+        <div class="ok"><p class="et">Ahorro</p><p class="v">30-50 h</p></div>
+        <div class="ok"><p class="et">Al cliente</p><p class="v">18-27 h/mes</p></div>
+      </div>
+      <p>
+        Primera cuenta de la línea de sistema operativo como servicio. Se le instaló en su máquina en
+        una sesión de tres horas y desde entonces lo usa para su propio contenido.
+      </p>
+      <ul>
+        <li>El mismo día de la reunión de encaje salieron el contexto de marca, el brief y el cuestionario.</li>
+        <li>En la segunda sesión se encontró la causa de que sus rutinas se quedaran colgadas: <strong>pedían permiso</strong>. Llevaba semanas sin poder resolverlo.</li>
+        <li>Lo que él describe como funcionando: resumen diario de decenas de boletines y calendario editorial de los viernes con dos piezas por tema.</li>
+      </ul>
+      <div class="apunte">
+        <b>Además es prescriptor:</b> una formación anterior a otra empresa salió de él. Quedan varias
+        promesas abiertas, entre ellas el procedimiento de propuestas comerciales, que es justo su
+        dolor número uno.
+      </div>
+    </article>
+
+    <article class="ficha">
+      <div class="ficha-cab">
+        <h3>La Russafera</h3>
+        <span class="tag">Cortesía</span>
+        <span class="periodo">4 may → 1 jun</span>
+      </div>
+      <div class="cifras">
+        <div><p class="et">Fuera</p><p class="v">40-58 h</p></div>
+        <div><p class="et">Real</p><p class="v">≈8 h</p></div>
+        <div class="ok"><p class="et">Ahorro</p><p class="v">30-51 h</p></div>
+        <div><p class="et">Comercios</p><p class="v">26</p></div>
+      </div>
+      <p>
+        La web de la asociación de comercios del barrio, hecha como cortesía. De un WordPress con
+        plantilla de demostración a la web completa <strong>en una sola tarde</strong>: tres horas de
+        reloj para portada con 26 comercios, 93 imágenes, página de ventajas y formulario.
+      </p>
+      <ul>
+        <li>El formulario de inscripción admite dos adjuntos y manda dos correos con la marca puesta, uno a la asociación y otro al comercio. Trece versiones hasta que entró bien.</li>
+        <li><strong>El patrón se reutilizó tres días después</strong> en otra de las webs, y en agosto se convirtió en una herramienta general para subir imágenes a cualquiera de ellas.</li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Lo que se ahorra cada mes sin tocar nada</h2>
+  <p class="sub">
+    Del ahorro de arriba, una parte es de una vez. Esto es lo que se repite mientras siga encendido.
+  </p>
+  <div class="tabla-env">
+    <table>
+      <thead>
+        <tr><th>Quién</th><th>Qué le quita de encima</th><th class="n">Horas/mes</th><th>Vivo hoy</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Adrihosan</td><td>Informe de posiciones, WhatsApp de tienda, tarifas, despliegues, contactos, pedidos</td><td class="n">28-50</td><td>Sí</td></tr>
+        <tr><td>Cuenta D</td><td>Resumen diario de boletines y calendario editorial con sus piezas</td><td class="n">18-27</td><td>Sí, por su cuenta</td></tr>
+        <tr><td>Cuenta C</td><td>Clasificación y redacción de correo en un puesto</td><td class="n">8-10</td><td>Sí, un puesto</td></tr>
+        <tr><td>Cuenta A</td><td>Expediente de cada vehículo montado solo</td><td class="n">2,5-6,3</td><td>Construido, sin usar</td></tr>
+        <tr><td>Solidker</td><td>Conector público y redirecciones, sin mantenimiento</td><td class="n">—</td><td>Sí, pasivo</td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td colspan="2">Total recurrente</td><td class="n">57-93</td><td></td></tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="apunte" style="max-width:72ch;margin-top:20px">
+    <b>Potencial que no cuenta todavía:</b> si el asistente de correo llega a administración y se
+    encienden los repasos pendientes, la cuenta de ortopedia sola pasaría de 8-10 a 40-60 horas al
+    mes. Y el sistema de expedientes no devuelve nada hasta que su dueño tramite el primero.
+  </div>
+</section>
+
+<section class="metodo">
+  <div class="wrap">
+    <h2>Cómo está contado</h2>
+    <p class="aviso estrecho">
+      <b>Los números de arriba son rangos de criterio, no presupuestos.</b> Las horas «fuera» son lo
+      que se le pagaría a un profesional por el mismo entregable; las «reales» son tiempo de reloj
+      delante de la IA. Donde no había forma de medir, se dice.
+    </p>
+    <ol>
+      <li>
+        <strong>Las transcripciones solo existen desde el 12 de agosto.</strong> El programa las
+        purga, así que de mayo a julio no hay registro de sesión. Ahí el tiempo real se reconstruyó
+        desde el historial de mensajes, que sí guarda la hora de cada uno, agrupando en tramos con
+        pausas de menos de treinta minutos. Ese método mide por debajo: en el mes en que existen las
+        dos fuentes da la mitad que la transcripción, porque no ve el rato en que la máquina sigue
+        trabajando después del último mensaje.
+      </li>
+      <li>
+        <strong>De ese mes sí medido</strong>, la cuenta grande da 99 horas de trabajo conjunto en
+        cuatro semanas, unas 23 a la semana. El resto del periodo se estimó con ese ritmo como
+        referencia.
+      </li>
+      <li>
+        <strong>Falta lo del segundo equipo.</strong> Las sesiones del PC del despacho no están en
+        este ordenador, así que las horas reales son un suelo, no un techo. Eso hace que el ahorro
+        salga más bajo de lo que fue, no más alto.
+      </li>
+      <li>
+        <strong>Las horas de sesión con cliente no son ahorro</strong>, son el servicio: están dentro
+        de las horas reales pero no descuentan de las manuales.
+      </li>
+      <li>
+        <strong>Lo que no se pudo probar se dejó fuera</strong>: componentes sin rastro de autoría, la
+        newsletter cuyo montaje original no consta, y una aplicación que nació en una de estas cuentas
+        pero es producto propio.
+      </li>
+      <li>
+        <strong>Dos cifras no son comparables entre sí</strong>: el ahorro de producción es de una vez
+        y ya está cobrado en tiempo; el recurrente se repite cada mes solo mientras el automatismo
+        siga encendido y alguien lo use.
+      </li>
+    </ol>
+  </div>
+</section>
+
+<style>
+  .ca-foot{
+    background:#07181d;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Estas horas salen de trabajo de verdad, con sus aciertos y sus meteduras de pata.
+          En la comunidad se cuentan las dos cosas.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
