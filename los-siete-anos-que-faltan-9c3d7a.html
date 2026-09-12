@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Los siete años que faltan</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Los siete años que faltan · Código AdrIA">
+<meta property="og:description" content="El libro de historia de la IA que circuló por el grupo se para en 2019. Aquí va lo que vino después.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/og-siete-anos.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/los-siete-anos-que-faltan-9c3d7a.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Los siete años que faltan · Código AdrIA">
+<meta name="twitter:description" content="El libro de historia de la IA que circuló por el grupo se para en 2019. Aquí va lo que vino después.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/og-siete-anos.jpg">
+<meta name="theme-color" content="#102e35">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico">
+<link rel="icon" type="image/png" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+<style>
+  :root{
+    --profundo:#102e35;
+    --petroleo:#3f6f7b;
+    --turquesa:#4dd2d0;
+    --turquesa-hondo:#1f9b99;
+    --papel:#f5f8f8;
+    --sup:#ffffff;
+    --sup-2:#e8f1f1;
+    --tinta:#12262b;
+    --tinta-2:#33535c;
+    --gris:#67848b;
+    --linea:#d6e4e5;
+    --aviso:#9c5a12;
+    --aviso-f:#fdf4e7;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --papel:#08171b; --sup:#102e35; --sup-2:#17404a; --tinta:#e7f0f1; --tinta-2:#bdd4d8;
+      --gris:#8fa9af; --linea:#22505a; --petroleo:#8ec3cb; --turquesa-hondo:#4dd2d0;
+      --aviso:#e3a75f; --aviso-f:#2c2114;
+    }
+  }
+  :root[data-theme="dark"]{
+    --papel:#08171b; --sup:#102e35; --sup-2:#17404a; --tinta:#e7f0f1; --tinta-2:#bdd4d8;
+    --gris:#8fa9af; --linea:#22505a; --petroleo:#8ec3cb; --turquesa-hondo:#4dd2d0;
+    --aviso:#e3a75f; --aviso-f:#2c2114;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--papel);color:var(--tinta);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:16.5px;line-height:1.68;font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding-inline:24px}
+  a{color:var(--petroleo)}
+  strong,b{font-weight:600}
+
+  header.top{background:var(--sup);border-bottom:1px solid var(--linea)}
+  .marca{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:15px}
+  .marca img{height:25px;width:auto;display:block}
+  .marca span{font-size:.78rem;color:var(--gris)}
+
+  .hero{padding-block:52px 40px}
+  .kicker{
+    margin:0 0 15px;font-size:.74rem;font-weight:600;letter-spacing:.17em;
+    text-transform:uppercase;color:var(--turquesa-hondo)
+  }
+  h1{
+    margin:0 0 20px;font-size:clamp(2.1rem,6vw,3.4rem);font-weight:600;line-height:1.05;
+    letter-spacing:-.035em;max-width:14ch;text-wrap:balance
+  }
+  .entrada{font-size:1.06rem;color:var(--tinta-2);max-width:60ch;margin:0 0 16px}
+  .entrada:last-child{margin-bottom:0}
+
+  .tesis{
+    background:var(--profundo);color:#fff;padding:34px 0;margin-block:8px 0
+  }
+  .tesis .wrap{max-width:880px}
+  .tesis p{margin:0;font-size:1.22rem;font-weight:300;line-height:1.5;max-width:52ch}
+  .tesis b{color:var(--turquesa);font-weight:600}
+
+  section{padding-block:48px;border-bottom:1px solid var(--linea)}
+  h2{
+    margin:0 0 8px;font-size:1.6rem;font-weight:600;letter-spacing:-.025em;line-height:1.18
+  }
+  h2 .n{
+    display:block;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--turquesa-hondo);margin-bottom:11px
+  }
+  .bajada{color:var(--gris);margin:0 0 32px;max-width:62ch;font-size:.97rem}
+
+  .hito{
+    display:grid;grid-template-columns:88px 1fr;gap:20px;padding:15px 0;
+    border-top:1px solid var(--linea)
+  }
+  .hito:first-of-type{border-top:2px solid var(--tinta)}
+  .fecha{
+    font-size:.82rem;font-weight:600;color:var(--petroleo);white-space:nowrap;
+    font-variant-numeric:tabular-nums;padding-top:2px
+  }
+  .hito h3{margin:0 0 5px;font-size:1.03rem;font-weight:600;line-height:1.35;letter-spacing:-.01em}
+  .hito p{margin:0 0 7px;font-size:.94rem;color:var(--tinta-2)}
+  .hito p:last-child{margin-bottom:0}
+  .porque{color:var(--tinta);font-size:.94rem}
+  .porque b{color:var(--turquesa-hondo)}
+  .fuente{font-size:.79rem;color:var(--gris);word-break:break-word}
+  .fuente a{color:var(--gris);text-decoration:underline;text-underline-offset:2px}
+  .fuente a:hover{color:var(--petroleo)}
+
+  .nota{
+    background:var(--sup);border-left:3px solid var(--turquesa);padding:18px 22px;
+    margin:26px 0;border-radius:0 3px 3px 0
+  }
+  .nota .quien{
+    font-size:.72rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--turquesa-hondo);margin:0 0 8px
+  }
+  .nota p{margin:0;font-size:1rem;color:var(--tinta);line-height:1.58}
+
+  .ojo{
+    background:var(--aviso-f);border-left:3px solid var(--aviso);padding:16px 20px;
+    margin:22px 0;font-size:.93rem;color:var(--tinta-2);border-radius:0 3px 3px 0
+  }
+  .ojo b{color:var(--tinta)}
+
+  .tabla-env{overflow-x:auto;border:1px solid var(--linea);border-radius:3px;background:var(--sup);margin-bottom:18px}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:520px}
+  th{
+    text-align:left;padding:11px 15px;background:var(--sup-2);font-weight:600;font-size:.82rem;
+    border-bottom:1px solid var(--linea);white-space:nowrap
+  }
+  td{padding:10px 15px;border-bottom:1px solid var(--linea);color:var(--tinta-2);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  td b{color:var(--tinta)}
+
+  .cierre{background:var(--sup);border-top:3px solid var(--turquesa)}
+  .cierre h2{font-size:1.45rem}
+  .cierre p{max-width:58ch;color:var(--tinta-2);margin-bottom:14px}
+  .cierre .pregunta{
+    font-size:1.16rem;color:var(--tinta);font-weight:400;line-height:1.5;
+    padding-left:20px;border-left:3px solid var(--turquesa);max-width:52ch
+  }
+
+  .creditos{padding-block:34px 40px;font-size:.85rem;color:var(--gris)}
+  .creditos p{margin:0 0 9px;max-width:70ch}
+  .creditos a{color:var(--gris)}
+
+  @media (max-width:620px){
+    .hito{grid-template-columns:1fr;gap:4px}
+    .fecha{padding-top:0}
+    .hero{padding-block:36px 28px}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap marca">
+    <a href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"></a>
+    <span>12 de septiembre de 2026</span>
+  </div>
+</header>
+
+<div class="wrap hero">
+  <p class="kicker">De 2019 a hoy · 29 hitos, 15 con su fuente</p>
+  <h1>Los siete años que faltan</h1>
+  <p class="entrada">
+    José Luis Gómez hizo circular estos días <em>Artificial Intelligence: An Illustrated
+    History</em>, de Clifford Pickover. Es un libro estupendo: cien episodios que van del tres en
+    raya egipcio a la cirugía robótica, y la paradoja de Moravec explicada como no la he visto
+    explicada en ningún sitio.
+  </p>
+  <p class="entrada">
+    Tiene un problema, y no es culpa suya: se publicó en 2019. Busqué dentro del texto y no
+    aparece ni una vez la palabra transformador, ni GPT, ni modelo de lenguaje. O sea que todo lo
+    que usamos hoy queda fuera. Esto es el capítulo que falta, con la fuente de cada dato y con lo
+    que no ha salido bien, que en medicina importa más.
+  </p>
+</div>
+
+<div class="tesis">
+  <div class="wrap">
+    <p>
+      Lo que se automatiza barato es <b>todo lo que rodea</b> a la consulta y al laboratorio. Lo
+      que parece fácil, mirar a una paciente a los ojos y entender qué le pasa, sigue siendo lo
+      caro. Siete años después, la paradoja de Moravec aguanta.
+    </p>
+  </div>
+</div>
+
+<section class="wrap">
+  <h2><span class="n">Carril uno</span>Lo que pasó en general</h2>
+  <p class="bajada">
+    Catorce momentos en los que cambió algo de verdad, no en los que hubo un anuncio.
+  </p>
+
+  <div class="hito">
+    <div class="fecha">Oct 2019</div>
+    <div>
+      <h3>La IA gana al StarCraft y cierra una etapa</h3>
+      <p>AlphaStar supera al 99,8 % de los jugadores humanos activos.</p>
+      <p class="porque">Es el último gran hito de la era de los juegos. A partir de aquí el foco se va a los modelos de lenguaje, y ese giro es toda la historia posterior.</p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">May 2020</div>
+    <div>
+      <h3>GPT-3</h3>
+      <p>175.000 millones de parámetros y una habilidad nueva: resuelve tareas que nadie le ha enseñado, con solo dos o tres ejemplos escritos en la propia pregunta.</p>
+      <p class="porque">Establece que hacer el modelo más grande no lo hace mejor en lo suyo, sino capaz de cosas distintas. Todo lo demás se construye encima.</p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Nov 2020</div>
+    <div>
+      <h3>AlphaFold 2 resuelve el plegamiento de proteínas</h3>
+      <p>En la evaluación CASP14 alcanza una precisión media equivalente al ancho de un átomo, en torno a 1,6 ångströms.</p>
+      <p class="porque">Primera vez que un sistema de IA resuelve a nivel experimental un problema científico que llevaba cincuenta años abierto.</p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Jul 2021</div>
+    <div>
+      <h3>Y lo regalan</h3>
+      <p>Se publica el método y, una semana después, más de 350.000 estructuras predichas, incluido el proteoma humano entero. En 2022 pasan de 200 millones.</p>
+      <p class="porque">Deja de ser el activo de una empresa y pasa a ser infraestructura pública, consultable desde cualquier laboratorio.</p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Ago 2022</div>
+    <div>
+      <h3>Stable Diffusion se publica entero</h3>
+      <p>Un generador de imágenes potente, descargable, que corre en una tarjeta gráfica de andar por casa.</p>
+      <p class="porque">La generación de imágenes deja de depender del permiso de nadie. Es el momento en que esto se descentraliza.</p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Nov 2022</div>
+    <div>
+      <h3>ChatGPT</h3>
+      <p>Sale como vista previa de investigación, gratis. Un año más tarde la propia empresa declara cien millones de usuarios cada semana.</p>
+      <p class="porque">No fue un avance técnico, fue una interfaz. Ese es justo el motivo por el que lo cambió todo.</p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Mar 2023</div>
+    <div>
+      <h3>GPT-4, y la competencia</h3>
+      <p>Acepta imágenes además de texto. El mismo día aparece Claude, de Anthropic.</p>
+      <p class="porque">Se abre la carrera entre laboratorios, que es lo que ha hecho bajar los precios y subir el ritmo desde entonces.</p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">May 2024</div>
+    <div>
+      <h3>AlphaFold 3</h3>
+      <p>Ya no predice solo proteínas: también ADN, ARN y cómo se unen a otras moléculas. Con servidor gratuito para uso no comercial.</p>
+      <p class="porque">Lleva la predicción al terreno donde está el interés farmacológico, que es la interacción y no la pieza suelta.</p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Sep 2024</div>
+    <div>
+      <h3>Modelos que se paran a pensar</h3>
+      <p>Aparece el primero que dedica tiempo de cálculo a razonar antes de responder, en vez de contestar de corrido.</p>
+      <p class="porque">Cambia el eje: ya no se trata solo de entrenar más grande, sino de dejarle pensar más rato en cada pregunta.</p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Oct 2024</div>
+    <div>
+      <h3>Dos premios Nobel</h3>
+      <p>El de Física, a John Hopfield y Geoffrey Hinton, por los cimientos del aprendizaje con redes neuronales. El de Química, mitad para David Baker por el diseño computacional de proteínas y mitad a repartir entre Demis Hassabis y John Jumper por la predicción de estructuras.</p>
+      <p class="porque">Un Nobel de ciencia experimental a un programa informático, cuatro años después del CASP14. Es el dato más citable que hay.</p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Oct 2024</div>
+    <div>
+      <h3>Los modelos empiezan a manejar el ordenador</h3>
+      <p>Claude mira la pantalla, mueve el cursor y escribe. Un mes después sale el protocolo que conecta modelos con herramientas y datos, que el resto adopta en pocos meses.</p>
+      <p class="porque">Se pasa de que el modelo escriba texto a que ejecute trabajo. Es la categoría que domina desde entonces.</p>
+    </div>
+  </div>
+
+  <div class="nota">
+    <p class="quien">Lo que he visto yo</p>
+    <p>
+      A partir de ahora, con Astra, ya no van a hacer falta los teclados. Esto se está
+      convirtiendo en un agente útil de verdad.
+    </p>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Ene 2025</div>
+    <div>
+      <h3>DeepSeek y el susto de la bolsa</h3>
+      <p>Una empresa china publica un modelo de razonamiento abierto a la altura del estado del arte. Una semana después Nvidia pierde cerca de 600.000 millones de dólares de valor en una sola sesión.</p>
+      <p class="porque">El mercado descubre que entrenar esto puede salir mucho más barato de lo que se creía.</p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Jul 2025</div>
+    <div>
+      <h3>Oro en la Olimpiada Internacional de Matemáticas</h3>
+      <p>Cinco de seis problemas, 35 puntos sobre 42, dentro del tiempo oficial y con la corrección certificada por los propios coordinadores de la Olimpiada.</p>
+      <p class="porque">Ojo al matiz, que aquí lo apreciaréis: otro laboratorio anunció lo mismo dos días antes, pero corregido por evaluadores contratados por la propia empresa. No es lo mismo.</p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Sep 2026</div>
+    <div>
+      <h3>GPT-6 Astra</h3>
+      <p>Presentado el 3 de septiembre. Su función central es manejar el ordenador y el navegador: moverse por la web, rellenar formularios, actualizar un CRM, redactar documentos por su cuenta. La propia empresa destaca su rendimiento encontrando vulnerabilidades en código, y su responsable científico ha reconocido que la técnica de razonamiento que usa dificulta auditar cómo llega a sus conclusiones.</p>
+      <p class="porque">Es lo más reciente que hay y cierra el arco que abrió el manejo del ordenador en 2024: el modelo ya no es un interlocutor, es un operador. Lo de la auditabilidad conviene retenerlo: en sanidad, un sistema cuyo razonamiento no se puede revisar tiene un techo.</p>
+    </div>
+  </div>
+
+  <div class="nota">
+    <p class="quien">Lo que he visto yo · voz clonada y avatares</p>
+    <p>
+      Todavía lo nota uno mismo. Pero mucha gente, cuando usamos Seedance, se sorprendió de que no
+      fuera yo. De hecho hay quien me lo ha pedido precisamente por eso, porque le da vergüenza
+      hablar delante de una cámara.
+    </p>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2><span class="n">Carril dos</span>Lo que ha pasado en clínica</h2>
+  <p class="bajada">
+    Aquí van todas con su fuente, incluidas las que salieron mal. He puesto a propósito más
+    resultados negativos de los que suele haber en estas listas, porque son los que faltan.
+  </p>
+
+  <div class="hito">
+    <div class="fecha">Abr 2019</div>
+    <div>
+      <h3>STORK, el primer modelo de imagen embrionaria</h3>
+      <p>Una red entrenada con unas 50.000 imágenes de time-lapse clasifica la calidad del blastocisto con un área bajo la curva superior a 0,98.</p>
+      <p class="porque">Importa por lo que <b>no</b> hizo: ese 0,98 mide el acuerdo con la etiqueta morfológica del embriólogo, no con el embarazo ni con el nacido vivo. Ahí nace el malentendido que seguimos arrastrando.</p>
+      <p class="fuente">Khosravi et al., npj Digital Medicine · <a href="https://doi.org/10.1038/s41746-019-0096-y">doi.org/10.1038/s41746-019-0096-y</a></p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Jun 2019</div>
+    <div>
+      <h3>Predecir latido fetal desde el vídeo, y las dos cartas que llegaron después</h3>
+      <p>Modelo con 10.638 embriones de ocho clínicas, área bajo la curva de 0,93. En 2020 recibió dos objeciones en la misma revista: buena parte de los embriones usados eran de calidad tan baja que nunca se habrían transferido, y eso infla la métrica.</p>
+      <p class="porque">El problema real es elegir entre embriones que ya son viables, no separar uno bueno de otro que nadie iba a transferir. La objeción sigue viva para casi todo lo que vino después.</p>
+      <p class="fuente">Tran et al., Human Reproduction · <a href="https://doi.org/10.1093/humrep/dez064">doi.org/10.1093/humrep/dez064</a> · réplica: <a href="https://doi.org/10.1093/humrep/deaa083">doi.org/10.1093/humrep/deaa083</a></p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Ene 2020</div>
+    <div>
+      <h3>Mamografía de Google, y su réplica en la misma revista</h3>
+      <p>Un sistema que reducía falsos positivos y negativos frente a radiólogos. Nueve meses después, <em>Nature</em> publicó una objeción formal: sin código ni modelos disponibles, nadie podía reproducirlo.</p>
+      <p class="porque">El par completo enseña más que el artículo solo. Un resultado retrospectivo brillante no es un ensayo, y lo hizo constar la propia revista.</p>
+      <p class="fuente">McKinney et al., Nature · <a href="https://pubmed.ncbi.nlm.nih.gov/31894144/">PMID 31894144</a> · réplica: <a href="https://pubmed.ncbi.nlm.nih.gov/33057217/">PMID 33057217</a></p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Jun 2021</div>
+    <div>
+      <h3>El modelo de sepsis que fallaba en cientos de hospitales</h3>
+      <p>Validación externa sobre 38.455 ingresos: área bajo la curva de 0,63. No detectó a dos de cada tres pacientes con sepsis y saltaba en el 18 % de todos los ingresos.</p>
+      <p class="porque">Software clínico vendido e instalado a gran escala sin validación independiente previa. Es el caso que conviene tener a mano cuando llegue un comercial.</p>
+      <p class="fuente">Wong et al., JAMA Internal Medicine · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8218233/">PMC8218233</a></p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Ene 2023</div>
+    <div>
+      <h3>Ploidía por imagen, sin tocar el embrión</h3>
+      <p>STORK-A, con 10.378 embriones ya diagnosticados: 69,3 % de precisión y área bajo la curva de 0,761, que baja a 0,70 en las validaciones externas.</p>
+      <p class="porque">Los propios autores dicen que no pretende sustituir al test genético. Con 0,76 no se decide si un embrión se transfiere.</p>
+      <p class="fuente">Barnes et al., Lancet Digital Health · <a href="https://doi.org/10.1016/S2589-7500(22)00213-8">doi.org/10.1016/S2589-7500(22)00213-8</a></p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Feb 2023</div>
+    <div>
+      <h3>Lo del examen de acceso a la profesión, bien contado</h3>
+      <p>Entre el 45,4 % y el 75,0 % según la parte del examen y según cómo se cuenten las respuestas indeterminadas, con el aprobado en torno al 60 %.</p>
+      <p class="porque">Es el dato peor citado de todos. Que «aprobó el examen» depende del método: en la mitad de los escenarios se queda por debajo del corte.</p>
+      <p class="fuente">Kung et al., PLOS Digital Health · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9931230/">PMC9931230</a></p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Mar 2023</div>
+    <div>
+      <h3>El primer ensayo aleatorizado grande dio empate</h3>
+      <p>SelecTIMO: tres brazos, doble ciego, 1.731 parejas, 15 clínicas holandesas. Embarazo evolutivo a doce meses: 50,8 % por algoritmo, 50,9 % por selección rutinaria, 49,4 % con cultivo convencional.</p>
+      <p class="porque">Los autores concluyen que hay que cuestionar el uso generalizado del time-lapse prometiendo mejores resultados. El brazo algorítmico no aportó nada.</p>
+      <p class="fuente">Kieslinger et al., The Lancet · <a href="https://doi.org/10.1016/S0140-6736(23)00168-X">doi.org/10.1016/S0140-6736(23)00168-X</a></p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Nov 2023</div>
+    <div>
+      <h3>ESHRE coloca el time-lapse entre los complementos</h3>
+      <p>El documento sobre <em>add-ons</em> dice que no se recomienda como herramienta para mejorar la tasa de nacido vivo.</p>
+      <p class="porque">Hay un segundo dato revelador: ese documento no menciona ni una sola vez la inteligencia artificial. En 2023 todavía no había entrado en la lista.</p>
+      <p class="fuente">ESHRE add-ons, Human Reproduction · <a href="https://doi.org/10.1093/humrep/dead184">doi.org/10.1093/humrep/dead184</a></p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Ago 2024</div>
+    <div>
+      <h3>El ensayo de iDAScore, que es el dato central de todo esto</h3>
+      <p>Multicéntrico, aleatorizado, doble ciego, de no inferioridad. 14 clínicas de Australia y Europa, 1.066 pacientes, selección por aprendizaje profundo frente a morfología manual. Embarazo clínico: 46,5 % con IA frente a 48,2 % con el embriólogo.</p>
+      <p class="porque">No es que la IA perdiera. Es que el ensayo solo buscaba demostrar que no era peor, y ni siquiera llegó a ese listón. Textual: <em>no se pudo demostrar la no inferioridad</em>. El nacido vivo no se ha publicado.</p>
+      <p class="fuente">Illingworth et al., Nature Medicine · <a href="https://doi.org/10.1038/s41591-024-03166-5">doi.org/10.1038/s41591-024-03166-5</a></p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Jun 2025</div>
+    <div>
+      <h3>El consenso de Estambul se actualiza y dice «todavía no»</h3>
+      <p>Veinte recomendaciones de ESHRE y ALPHA. Sobre IA: promete mucho como apoyo, pero no debe considerarse todavía un sustituto de la valoración convencional. Sobre ploidía: le falta exactitud diagnóstica. En la encuesta asociada, con 833 centros, el uso real de IA está en el 14 %.</p>
+      <p class="porque">Es lo más parecido a un posicionamiento oficial que existe hoy, y cita precisamente el ensayo de arriba.</p>
+      <p class="fuente">Consenso Estambul actualizado · <a href="https://doi.org/10.1093/humrep/deaf021">doi.org/10.1093/humrep/deaf021</a></p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Ago 2025</div>
+    <div>
+      <h3>La primera autorización de la agencia estadounidense en seis años</h3>
+      <p>CHLOE BLAST, por la vía de equivalencia. La indicación dice literalmente que aporta información <em>adyuvante</em> y que se usa <b>después</b> de que el embriólogo haya hecho su valoración. En mayo de 2026 se autorizó una segunda con el mismo techo.</p>
+      <p class="porque">El dato que casi nadie cuenta: no hay ni una sola autorización para selección autónoma de embriones, ni para predicción de ploidía. Y esa vía acredita equivalencia con un producto previo, no beneficio clínico.</p>
+      <p class="fuente">FDA 510(k) · <a href="https://www.accessdata.fda.gov/cdrh_docs/pdf24/K243851.pdf">K243851</a></p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Ago 2025</div>
+    <div>
+      <h3>Y un efecto que nadie mide: se pierde destreza</h3>
+      <p>Cuatro centros polacos, 1.443 colonoscopias sin IA, tres meses antes y tres después de implantar un detector de pólipos. La detección de adenomas en la colonoscopia estándar cayó del 28,4 % al 22,4 %.</p>
+      <p class="porque">Primer dato serio de que la asistencia continuada puede degradar la competencia del profesional cuando se le retira. Ningún ensayo de eficacia mide esto, y debería.</p>
+      <p class="fuente">Budzyń et al., Lancet Gastroenterology &amp; Hepatology · <a href="https://pubmed.ncbi.nlm.nih.gov/40816301/">PMID 40816301</a></p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Ene 2026</div>
+    <div>
+      <h3>MASAI, que es donde la IA sí ha demostrado algo</h3>
+      <p>Ensayo sueco aleatorizado de cribado mamográfico con desenlace de cáncer de intervalo: 1,55 frente a 1,76 por mil, no inferior, con sensibilidad del 80,5 % frente al 73,8 % y la misma especificidad. El análisis previo dio un 29 % más de cánceres detectados sin más falsos positivos, y un 44 % menos de carga de lectura.</p>
+      <p class="porque">Cuando alguien pida un sitio donde esto funcione de verdad en clínica, es este. Y fíjate en la tarea: mirar muchísimas imágenes buscando algo raro.</p>
+      <p class="fuente">Hernström et al., The Lancet · <a href="https://pubmed.ncbi.nlm.nih.gov/41620232/">PMID 41620232</a></p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Jun 2026</div>
+    <div>
+      <h3>La ASRM se pronuncia por primera vez</h3>
+      <p>Primer documento formal de una gran sociedad dedicado solo a la IA en el laboratorio de FIV. Pide cautela con los datos retrospectivos y reclama ensayos aleatorizados que midan nacido vivo <em>antes de una adopción generalizada</em>.</p>
+      <p class="porque">Es la referencia que llevar a una discusión de comité. Cita el ensayo de iDAScore como hecho central.</p>
+      <p class="fuente">ASRM Practice Committee, Fertility and Sterility · <a href="https://doi.org/10.1016/j.fertnstert.2026.05.004">doi.org/10.1016/j.fertnstert.2026.05.004</a></p>
+    </div>
+  </div>
+
+  <div class="hito">
+    <div class="fecha">Jul 2026</div>
+    <div>
+      <h3>Buscar espermatozoides en micro-TESE</h3>
+      <p>Detector entrenado con 1.932 imágenes de 1.165 pacientes, evaluado en 40 casos de azoospermia: valor predictivo positivo del 80,6 % y sensibilidad del 96,1 %. Señaló espermatozoides que la revisión manual no había visto en seis casos, dos de ellos dados por negativos, con tres nacidos vivos entre los seis seguidos.</p>
+      <p class="porque">Es el único terreno donde parece hacer algo que el ojo humano no hace: encontrar una aguja en un pajar. Que no es lo mismo que ordenar el pajar. Unicéntrico y preliminar.</p>
+      <p class="fuente">Human Reproduction Open · <a href="https://doi.org/10.1093/hropen/hoag062">doi.org/10.1093/hropen/hoag062</a></p>
+    </div>
+  </div>
+
+  <div class="nota">
+    <p class="quien">Lo que he visto yo · resumir artículos con IA</p>
+    <p>
+      Para resumir sí, para decidir no. Y hay que tener cuidado con cómo se pide un resumen. Los
+      guardarraíles son necesarios, y más en salud: todos los datos hay que contrastarlos si hay
+      que aplicarlos.
+    </p>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2><span class="n">Lo que ya os obliga</span>El reglamento europeo, a día de hoy</h2>
+  <p class="bajada">
+    Se aprobó en 2024 y este julio se ha retrasado la parte que más os toca. Es el punto que peor
+    se cuenta, así que va con las fechas exactas.
+  </p>
+
+  <div class="tabla-env">
+    <table>
+      <thead><tr><th>Desde cuándo</th><th>Qué obliga</th></tr></thead>
+      <tbody>
+        <tr><td><b>2 feb 2025</b></td><td>Prácticas prohibidas y obligación de formar en IA a quien la usa</td></tr>
+        <tr><td><b>2 ago 2025</b></td><td>Modelos de propósito general, gobernanza y sanciones</td></tr>
+        <tr><td><b>2 ago 2026</b></td><td>Transparencia: etiquetar el contenido generado y avisar de que se está hablando con una IA</td></tr>
+        <tr><td><b>2 dic 2027</b></td><td>Alto riesgo del anexo III, aplazado este julio desde agosto de 2026</td></tr>
+        <tr><td><b>2 ago 2028</b></td><td>Alto riesgo dentro de productos ya regulados, que es donde caen los productos sanitarios</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ojo">
+    <b>Lo práctico para un laboratorio:</b> las obligaciones de alto riesgo que afectarían a un
+    producto sanitario con IA no aplican todavía, y no lo harán hasta agosto de 2028. Lo que sí
+    aplica desde el mes pasado es avisar cuando un texto, una imagen o una voz los ha hecho una
+    máquina.
+  </div>
+</section>
+
+<section class="wrap">
+  <h2><span class="n">El resumen</span>Qué ha cambiado de verdad</h2>
+  <p class="bajada" style="max-width:64ch">
+    Tres párrafos, porque es lo que se sostiene con la evidencia de arriba.
+  </p>
+  <p style="max-width:64ch;color:var(--tinta-2)">
+    En 2019 la IA era una herramienta estrecha que hacía bien una cosa concreta. Hoy es una
+    herramienta general a la que se le describe una tarea hablando y la ejecuta, incluido manejar
+    un ordenador. Ese paso explica todo lo demás, y explica también por qué esta conversación se haya
+    salido de los círculos técnicos y haya llegado a un grupo como este.
+  </p>
+  <p style="max-width:64ch;color:var(--tinta-2)">
+    En ciencia el cambio tiene fecha y tiene premio. La predicción de estructuras de proteínas
+    pasó de problema abierto a recurso público en cuatro años, y en 2024 se llevó el Nobel de
+    Química. Ocurrió porque había un problema bien definido, un criterio de éxito indiscutible y
+    décadas de datos con los que comparar.
+  </p>
+  <p style="max-width:64ch;color:var(--tinta-2)">
+    En clínica el balance es desigual, y hay que decirlo así. Donde la tarea es mirar muchísimas
+    imágenes buscando algo raro, hay evidencia aleatorizada de que funciona. Donde la tarea es
+    ordenar opciones que ya son todas buenas, que es exactamente el problema de la selección
+    embrionaria, no hay ni una sola prueba aleatorizada de que mejore el embarazo ni el nacido
+    vivo. Lo que sí sostiene la evidencia es más modesto: iguala al embriólogo con menos
+    variabilidad y sin depender de que haya un profesional experimentado disponible. Eso es
+    estandarización, no mejora de resultados.
+  </p>
+
+  <div class="nota">
+    <p class="quien">Lo que he visto yo · por dónde empezaría</p>
+    <p>
+      Si una clínica solo pudiera automatizar una cosa este año, yo diría que la atención al
+      paciente, tanto antes de ser paciente como después. Los resúmenes de las citas con IA son
+      potentísimos.
+    </p>
+  </div>
+</section>
+
+<section class="cierre">
+  <div class="wrap">
+    <h2>Ahora vosotros</h2>
+    <p>
+      Esta lista la he hecho yo y por tanto está sesgada por lo que yo miro. Vosotros estáis
+      dentro del laboratorio y de la consulta todos los días, y veis cosas que a mí se me escapan.
+    </p>
+    <p class="pregunta">
+      ¿Qué hito de estos siete años pondríais vosotros que aquí no está?
+    </p>
+  </div>
+</section>
+
+<div class="wrap creditos">
+  <p>
+    <b>De dónde sale cada cosa.</b> Los hitos clínicos llevan su referencia enlazada. Los
+    generales no la llevan porque no los discute nadie. Quedaron fuera a propósito varias cosas
+    que circulan y no se sostienen: no existen recomendaciones de ESHRE sobre inteligencia
+    artificial, no hay ningún ensayo aleatorizado de ploidía predicha por IA, ni publicado ni
+    registrado, y ninguna agencia ha autorizado la selección autónoma de embriones.
+  </p>
+  <p>
+    El libro que lo empezó todo es <em>Artificial Intelligence: An Illustrated History</em>, de
+    Clifford Pickover (2019), que trajo al grupo José Luis Gómez. Gracias por la lectura, que es
+    buena de verdad.
+  </p>
+  <p>Ricardo Hoyos · <a href="https://www.codigoadria.com">Código AdrIA</a> · Valencia, 12 de septiembre de 2026</p>
+</div>
+
+<style>
+  .ca-foot{
+    background:#07181d;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Si esta lista te ha servido, en la comunidad comparto muchas más cosas así:
+          lo que funciona, lo que no, y con la fuente delante.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
