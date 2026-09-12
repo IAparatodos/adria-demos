@@ -117,14 +117,24 @@
   .fuente a:hover{color:var(--petroleo)}
 
   .nota{
-    background:var(--sup);border-left:3px solid var(--turquesa);padding:18px 22px;
+    display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;
+    background:var(--sup);border-left:3px solid var(--turquesa);padding:20px 22px;
     margin:26px 0;border-radius:0 3px 3px 0
+  }
+  .nota .cara{
+    width:58px;height:58px;border-radius:50%;object-fit:cover;display:block;
+    border:2px solid var(--turquesa);flex:none
   }
   .nota .quien{
     font-size:.72rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
-    color:var(--turquesa-hondo);margin:0 0 8px
+    color:var(--turquesa-hondo);margin:0 0 4px
   }
-  .nota p{margin:0;font-size:1rem;color:var(--tinta);line-height:1.58}
+  .nota .firma{font-size:.8rem;color:var(--gris);margin:0 0 9px}
+  .nota p.dicho{margin:0;font-size:1rem;color:var(--tinta);line-height:1.58}
+  @media (max-width:520px){
+    .nota{grid-template-columns:1fr;gap:12px}
+    .nota .cara{width:48px;height:48px}
+  }
 
   .ojo{
     background:var(--aviso-f);border-left:3px solid var(--aviso);padding:16px 20px;
@@ -303,11 +313,15 @@
   </div>
 
   <div class="nota">
-    <p class="quien">Lo que he visto yo</p>
-    <p>
+    <img class="cara" src="https://iaparatodos.github.io/adria-demos/avatar-ricardo-hoyos.jpg" alt="Ricardo Hoyos" width="58" height="58">
+    <div>
+      <p class="quien">Lo que he visto yo</p>
+      <p class="firma">Ricardo Hoyos · Código AdrIA</p>
+      <p class="dicho">
       A partir de ahora, con Astra, ya no van a hacer falta los teclados. Esto se está
       convirtiendo en un agente útil de verdad.
-    </p>
+      </p>
+    </div>
   </div>
 
   <div class="hito">
@@ -338,12 +352,16 @@
   </div>
 
   <div class="nota">
-    <p class="quien">Lo que he visto yo · voz clonada y avatares</p>
-    <p>
+    <img class="cara" src="https://iaparatodos.github.io/adria-demos/avatar-ricardo-hoyos.jpg" alt="Ricardo Hoyos" width="58" height="58">
+    <div>
+      <p class="quien">Lo que he visto yo · voz clonada y avatares</p>
+      <p class="firma">Ricardo Hoyos · Código AdrIA</p>
+      <p class="dicho">
       Todavía lo nota uno mismo. Pero mucha gente, cuando usamos Seedance, se sorprendió de que no
       fuera yo. De hecho hay quien me lo ha pedido precisamente por eso, porque le da vergüenza
       hablar delante de una cámara.
-    </p>
+      </p>
+    </div>
   </div>
 </section>
 
@@ -505,12 +523,16 @@
   </div>
 
   <div class="nota">
-    <p class="quien">Lo que he visto yo · resumir artículos con IA</p>
-    <p>
+    <img class="cara" src="https://iaparatodos.github.io/adria-demos/avatar-ricardo-hoyos.jpg" alt="Ricardo Hoyos" width="58" height="58">
+    <div>
+      <p class="quien">Lo que he visto yo · resumir artículos con IA</p>
+      <p class="firma">Ricardo Hoyos · Código AdrIA</p>
+      <p class="dicho">
       Para resumir sí, para decidir no. Y hay que tener cuidado con cómo se pide un resumen. Los
       guardarraíles son necesarios, y más en salud: todos los datos hay que contrastarlos si hay
       que aplicarlos.
-    </p>
+      </p>
+    </div>
   </div>
 </section>
 
@@ -570,12 +592,16 @@
   </p>
 
   <div class="nota">
-    <p class="quien">Lo que he visto yo · por dónde empezaría</p>
-    <p>
+    <img class="cara" src="https://iaparatodos.github.io/adria-demos/avatar-ricardo-hoyos.jpg" alt="Ricardo Hoyos" width="58" height="58">
+    <div>
+      <p class="quien">Lo que he visto yo · por dónde empezaría</p>
+      <p class="firma">Ricardo Hoyos · Código AdrIA</p>
+      <p class="dicho">
       Si una clínica solo pudiera automatizar una cosa este año, yo diría que la atención al
       paciente, tanto antes de ser paciente como después. Los resúmenes de las citas con IA son
       potentísimos.
-    </p>
+      </p>
+    </div>
   </div>
 </section>
 
