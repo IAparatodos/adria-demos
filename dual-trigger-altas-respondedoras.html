@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dual trigger en altas respondedoras · Li et al., J Ovarian Res 2026</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dual trigger en altas respondedoras · Código AdrIA">
+<meta property="og:description" content="Metaanalisis de 4427 mujeres: no mejora la maduracion y multiplica el riesgo de hiperestimulacion.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/og-dual-trigger.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ficha visual: forest plot del riesgo de hiperestimulacion con dual trigger frente a agonista solo.">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/dual-trigger-altas-respondedoras.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dual trigger en altas respondedoras · Código AdrIA">
+<meta name="twitter:description" content="Metaanalisis de 4427 mujeres: no mejora la maduracion y multiplica el riesgo de hiperestimulacion.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/og-dual-trigger.jpg">
+<meta name="description" content="El metaanalisis de Li y colaboradores en Journal of Ovarian Research (2026) sobre dual trigger frente a agonista de GnRH solo en altas respondedoras, contado en visual: eficacia, seguridad y las limitaciones que reconocen los autores.">
+<link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+<meta name="theme-color" content="#102e35">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181a; --ink-soft:#3a4448; --ink-mute:#6d797e;
+    --canvas:#ffffff; --parchment:#f4f7f7;
+    --tile-dark:#16242a; --tile-darker:#101c21;
+    --hairline:#e2e9e9;
+    --brand:#4dd2d0; --brand-deep:#0e9c99; --brand-slate:#3f6f7b;
+    --serie-a:#0e9c99; --serie-b:#6b5ea8;
+    --serie-a-dark:#4dd2d0; --serie-b-dark:#a99cf0;
+    --radius-card:18px; --radius-pill:9999px;
+    --shadow-object:0 3px 30px rgba(16,28,33,.14);
+    --max:1120px; --max-read:760px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--canvas);color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:17px;line-height:1.55;font-weight:400;letter-spacing:-.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+  section{padding:88px 24px}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .read{max-width:var(--max-read);margin:0 auto}
+  h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.028em;line-height:1.08}
+  h1{font-size:clamp(2.1rem,6vw,3.7rem)}
+  h2{font-size:clamp(1.6rem,4vw,2.5rem)}
+  h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.3}
+  p{margin:0 0 1.15em}
+  p:last-child{margin-bottom:0}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-deep);margin:0 0 20px}
+  .lead{font-size:clamp(1.1rem,2.4vw,1.42rem);font-weight:300;line-height:1.45;color:var(--ink-soft)}
+
+  /* ---------- barra de marca ---------- */
+  .brandbar{background:var(--tile-dark);padding:18px 24px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .brandbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brandbar img{height:34px;width:auto;display:block}
+  .brandbar .serie{font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#7c9299}
+
+  /* ---------- portada ---------- */
+  .hero{
+    background:var(--tile-dark);color:#fff;padding:84px 24px;
+    background-image:radial-gradient(120% 90% at 12% 0%,rgba(77,210,208,.16) 0%,transparent 58%);
+  }
+  .hero .eyebrow{color:var(--brand)}
+  .hero h1{color:#fff;max-width:19ch}
+  .hero .original{margin-top:26px;padding-left:18px;border-left:2px solid rgba(77,210,208,.5);font-size:1rem;font-weight:300;color:#c9d6d9;font-style:italic;max-width:56ch}
+  .authors{margin-top:34px;font-size:.95rem;color:#9fb0b5;line-height:1.7;max-width:62ch}
+  .authors .first{color:#fff;font-weight:600}
+  .meta-row{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
+  .chip{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-pill);padding:8px 16px;font-size:.83rem;color:#dfe9eb;white-space:nowrap;max-width:100%}
+  .chip b{color:#fff;font-weight:600}
+  .chip a{color:#dfe9eb;text-decoration:none;border-bottom:1px solid rgba(223,233,235,.4)}
+  .transparency{
+    margin-top:34px;max-width:62ch;border-left:3px solid rgba(77,210,208,.55);
+    background:rgba(255,255,255,.045);border-radius:0 10px 10px 0;padding:16px 18px;
+    font-size:.88rem;line-height:1.6;color:#c2d1d5
+  }
+  .transparency b{display:block;color:var(--brand);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+
+  /* ---------- banda de aviso de formato ---------- */
+  .notice{background:var(--parchment);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:34px 24px}
+  .notice .read{display:flex;gap:18px;align-items:flex-start;max-width:900px}
+  .notice .mark{flex:none;width:34px;height:34px;border-radius:50%;background:rgba(14,156,153,.12);color:var(--brand-deep);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.95rem}
+  .notice p{font-size:.93rem;color:var(--ink-soft);margin:0}
+  .notice b{color:var(--ink)}
+
+  /* ---------- destacado numérico ---------- */
+  .headline-figure{background:var(--parchment)}
+  .figure-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin-top:44px}
+  .stat{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);padding:26px 24px}
+  .stat .num{font-size:clamp(1.6rem,3.6vw,2.2rem);font-weight:600;letter-spacing:-.04em;line-height:1.1;color:var(--ink)}
+  .stat .num small{font-size:.5em;font-weight:500;letter-spacing:-.01em;color:var(--ink-mute);margin-left:4px}
+  .stat .label{margin-top:12px;font-size:.92rem;color:var(--ink-soft);line-height:1.4}
+  .stat .foot{margin-top:10px;font-size:.78rem;color:var(--ink-mute);line-height:1.5}
+  .stat.accent{border-color:rgba(14,156,153,.35);background:linear-gradient(180deg,rgba(14,156,153,.06),transparent 70%)}
+  .stat.accent .num{color:var(--brand-deep)}
+
+  /* ---------- grafico ---------- */
+  .chart-card{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);padding:32px 28px;margin-top:40px}
+  .chart-title{font-size:1.05rem;font-weight:600;letter-spacing:-.02em;margin:0}
+  .chart-sub{font-size:.87rem;color:var(--ink-mute);margin:6px 0 0}
+  .chart-foot{margin-top:24px;padding-top:18px;border-top:1px solid var(--hairline);font-size:.82rem;color:var(--ink-mute);line-height:1.6}
+
+  /* ---------- grafico forest (escala logaritmica) ---------- */
+  .forest{margin-top:26px}
+  .f-row{margin-bottom:28px}
+  .f-row:last-child{margin-bottom:0}
+  .f-name{font-size:.9rem;color:var(--ink-soft);margin-bottom:11px}
+  .f-name b{color:var(--ink);font-weight:600}
+  .f-body{display:flex;align-items:center;gap:14px}
+  .f-track{position:relative;flex:1;height:34px;background:#eef3f3;border-radius:4px;overflow:hidden}
+  .f-null{position:absolute;top:0;bottom:0;width:2px;background:#c2d0d0;transform:translateX(-1px)}
+  .f-ci{position:absolute;top:50%;height:8px;margin-top:-4px;border-radius:4px;background:var(--serie-b);opacity:.42;transition:width .9s cubic-bezier(.22,.8,.3,1)}
+  .f-ci.sig{background:var(--serie-a);opacity:.34}
+  .f-dot{position:absolute;top:50%;width:15px;height:15px;border-radius:50%;background:var(--serie-b);border:2px solid var(--canvas);transform:translate(-50%,-50%) scale(.4);opacity:0;transition:transform .55s cubic-bezier(.22,1.4,.5,1) .25s,opacity .4s ease .25s}
+  .f-dot.sig{background:var(--serie-a)}
+  .f-dot.show{transform:translate(-50%,-50%) scale(1);opacity:1}
+  .f-val{font-variant-numeric:tabular-nums;font-size:.95rem;font-weight:600;color:var(--ink);min-width:126px;text-align:right;letter-spacing:-.02em}
+  .f-val small{display:block;font-weight:400;font-size:.74rem;color:var(--ink-mute);letter-spacing:0}
+  .f-axis{position:relative;height:20px;margin-top:6px;margin-right:140px;font-variant-numeric:tabular-nums;font-size:.72rem;color:var(--ink-mute)}
+  .f-axis i{position:absolute;transform:translateX(-50%);font-style:normal}
+  .f-axis i.zero{color:var(--ink-soft);font-weight:600}
+  .f-hint{display:flex;justify-content:space-between;margin-top:2px;margin-right:140px;font-size:.74rem;color:var(--ink-mute)}
+  .p-tag{display:inline-block;margin-top:13px;font-size:.78rem;color:var(--ink-mute);background:#eef3f3;border-radius:var(--radius-pill);padding:5px 12px}
+  .p-tag.sig{background:rgba(14,156,153,.12);color:var(--brand-deep);font-weight:500}
+  .p-tag.expl{background:rgba(107,94,168,.12);color:#584a94;font-weight:500}
+
+  /* ---------- tabla plegable ---------- */
+  details.table-view{margin-top:26px;border-top:1px solid var(--hairline);padding-top:18px}
+  details.table-view summary{cursor:pointer;font-size:.87rem;color:var(--brand-deep);font-weight:500;list-style:none}
+  details.table-view summary::-webkit-details-marker{display:none}
+  details.table-view summary::before{content:"▸ "}
+  details.table-view[open] summary::before{content:"▾ "}
+  .tbl-scroll{overflow-x:auto;margin-top:16px}
+  table{border-collapse:collapse;width:100%;font-size:.87rem;min-width:560px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hairline)}
+  th{font-weight:600;color:var(--ink-soft);font-size:.8rem;letter-spacing:.02em}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+
+  /* ---------- pasos del método ---------- */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;margin-top:44px;background:var(--hairline);border-radius:var(--radius-card);overflow:hidden}
+  .step{background:var(--canvas);padding:28px 24px}
+  .step .n{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--brand-deep);color:#fff;font-size:.85rem;font-weight:600;margin-bottom:16px}
+  .step h3{margin-bottom:8px}
+  .step p{font-size:.92rem;color:var(--ink-soft);margin:0}
+  .step p + p{margin-top:.8em}
+
+  .tint{background:var(--parchment)}
+
+  /* ---------- tile oscuro ---------- */
+  .dark{background:var(--tile-darker);color:#e8eef0}
+  .dark h2{color:#fff}
+  .dark .eyebrow{color:var(--brand)}
+  .dark .lead{color:#b3c3c7}
+  .caveats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:44px}
+  .caveat{border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-card);padding:26px 24px;background:rgba(255,255,255,.03)}
+  .caveat h3{color:#fff;margin-bottom:10px}
+  .caveat p{font-size:.92rem;color:#a9bbc0;margin:0}
+  .caveat p + p{margin-top:.8em}
+  .caveat q{font-style:italic;color:#c6d4d8}
+  .quote{margin:56px auto 0;max-width:var(--max-read);padding:30px 0 0;border-top:1px solid rgba(255,255,255,.16)}
+  .quote p{font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:300;line-height:1.5;color:#dbe6e8;font-style:italic}
+  .quote .orig{font-size:.85rem;color:#8ea3a8;font-style:italic;margin-top:14px;line-height:1.5}
+  .quote cite{display:block;margin-top:14px;font-size:.85rem;color:#8ea3a8;font-style:normal}
+
+  /* ---------- cierre ---------- */
+  .closing{background:var(--canvas);text-align:center}
+  .closing .cite-block{max-width:var(--max-read);margin:36px auto 0;padding:24px;background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);font-size:.88rem;color:var(--ink-soft);text-align:left;line-height:1.6}
+  .closing a{color:var(--brand-deep);text-decoration:none;border-bottom:1px solid rgba(14,156,153,.35)}
+  .honesty{background:var(--canvas);border-top:1px solid var(--hairline);padding:40px 24px;text-align:center;font-size:.82rem;color:var(--ink-mute);line-height:1.7}
+  .honesty .brand{color:var(--brand-deep);font-weight:600}
+  .honesty .read{max-width:640px}
+
+  @media (max-width:640px){
+    section{padding:64px 20px}
+    .hero{padding:64px 20px}
+    .chart-card{padding:24px 18px}
+    .chip{white-space:normal;line-height:1.35}
+    .bar-val{min-width:82px;font-size:.88rem}
+  }
+  .wrap,.read{overflow-wrap:break-word}
+
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ink:#eef3f4;--ink-soft:#b9c7cb;--ink-mute:#8b9ca1;
+      --canvas:#0f1719;--parchment:#141f22;--hairline:#25353a;
+      --serie-a:var(--serie-a-dark);--serie-b:var(--serie-b-dark);
+    }
+    .stat.accent{background:linear-gradient(180deg,rgba(77,210,208,.08),transparent 70%);border-color:rgba(77,210,208,.3)}
+    .stat.accent .num{color:var(--brand)}
+    .eyebrow{color:var(--brand)}
+    .notice .mark{background:rgba(77,210,208,.14);color:var(--brand)}
+    .f-track{background:#1d2b2f}
+    .f-null{background:#3a4c52}
+    .f-dot{border-color:var(--canvas)}
+    .p-tag{background:#1d2b2f}
+    .p-tag.expl{background:rgba(169,156,240,.14);color:#a99cf0}
+    .p-tag.sig{background:rgba(77,210,208,.14);color:var(--brand)}
+    .step .n{background:var(--brand);color:#0f1719}
+    .closing a,.honesty .brand{color:var(--brand)}
+    .closing a{border-bottom-color:rgba(77,210,208,.4)}
+    details.table-view summary{color:var(--brand)}
+  }
+</style>
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="wrap">
+    <a href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"></a>
+    <span class="serie">Papers legibles</span>
+  </div>
+</div>
+
+<!-- 1 · PORTADA -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Journal of Ovarian Research · 2026</p>
+    <h1>Sin mejorar la maduración y con más OHSS</h1>
+    <p class="original">«Dual trigger with gonadotropin-releasing hormone agonist and low-dose human chorionic gonadotropin versus gonadotropin-releasing hormone agonist alone in predicted high responders using antagonist protocol: a systematic review and meta-analysis»</p>
+    <p class="authors">
+      <span class="first">Zhou Li</span>, Xiaohan Shi, Xueqiong Lin, Jue Wang y Lei Jin.<br>
+      Revisión sistemática y metaanálisis registrado en PROSPERO (CRD420251003498), con búsqueda en PubMed, Embase, Web of Science, Cochrane Library y CNKI.
+    </p>
+    <div class="meta-row">
+      <span class="chip"><b>Metaanálisis</b> 2 ensayos y 12 cohortes</span>
+      <span class="chip"><b>4427</b> mujeres</span>
+      <span class="chip">DOI <a href="https://doi.org/10.1186/s13048-026-02249-w">10.1186/s13048-026-02249-w</a></span>
+    </div>
+    <div class="transparency">
+      <b>Transparencia</b>
+      El trabajo está financiado por <b style="display:inline;font-size:inherit;letter-spacing:normal;text-transform:none">Organon (Shanghai) Pharmaceutical Technology</b>, y <b style="display:inline;font-size:inherit;letter-spacing:normal;text-transform:none">tres de los cinco autores</b> (XL, XS y JW) eran empleados de Organon durante la realización del estudio. Los otros dos declaran no tener conflictos. Es la propia declaración de los autores. Conviene tenerlo delante al leer un resultado que recomienda no añadir hCG al desencadenamiento.
+    </div>
+  </div>
+</section>
+
+<!-- banda de aviso -->
+<div class="notice">
+  <div class="read">
+    <div class="mark">!</div>
+    <p><b>Qué tipo de evidencia es esta.</b> De los 14 estudios agrupados, <b>solo 2 son ensayos aleatorizados</b>: los otros 12 son cohortes observacionales. Es la primera limitación que señalan los autores, y significa que lo que se lee aquí son asociaciones, no causalidad. La calidad de las 12 cohortes se evaluó como media en 4 (33,3 %) y alta en 8 (66,7 %). Además se trabajó sobre la versión <i>Article in Press</i> (recibida el 15 de febrero de 2026, aceptada el 24 de agosto de 2026), citable y con DOI permanente, pero sin paginación final.</p>
+  </div>
+</div>
+
+<!-- 2 · LA PREGUNTA -->
+<section>
+  <div class="read">
+    <p class="eyebrow">La pregunta</p>
+    <h2>Qué añade la hCG en una alta respondedora</h2>
+    <p class="lead" style="margin-top:26px">En una alta respondedora, el desencadenamiento tiene que resolver dos cosas a la vez: madurar los ovocitos y no provocar un síndrome de hiperestimulación.</p>
+    <p style="margin-top:26px">El artículo cuantifica el problema. La respuesta ovárica se clasifica por ovocitos recuperados: pobre por debajo de 4, subóptima entre 4 y 9, normal entre 10 y 15, y alta por encima de 15. Las altas respondedoras son alrededor del <b>7 %</b> de los ciclos, y hasta el <b>15 %</b> en mujeres de 30 años o menos. Cuanta más respuesta, más riesgo de hiperestimulación. El cuadro leve se tolera y no suele necesitar tratamiento, pero el moderado o grave abre la puerta a derrame pleural, insuficiencia renal aguda y tromboembolismo venoso. A veces el ciclo se cancela para evitarlo.</p>
+    <p>Una de las palancas para reducirlo es el desencadenamiento. La hCG convencional, entre <b>5000 y 10 000 UI</b>, aumenta el riesgo y por eso se considera poco apropiada aquí. El agonista de GnRH solo evita bien la hiperestimulación, pero el pico de LH que provoca es más corto que el natural y deja el cuerpo lúteo deteriorado, lo que se ha asociado a menos gestaciones y menos recién nacidos vivos. De ahí el <b>dual trigger</b>: añadir hCG a dosis baja al agonista para alargar ese pico sin disparar el riesgo.</p>
+    <p>La literatura previa que recoge el artículo va en las dos direcciones. Un estudio retrospectivo describió más embriones de calidad y menos hiperestimulación grave con dual trigger; otro, mejores tasas de implantación, gestación y recién nacido vivo sin más hiperestimulación clínicamente relevante; y un tercero, justo lo contrario, más riesgo de hiperestimulación que con el agonista solo. La única revisión anterior se limitaba a ciclos en fresco y no llegó a hacer metaanálisis.</p>
+    <p>La pregunta, entonces: <b>¿compensa añadir hCG a dosis baja al agonista en altas respondedoras con protocolo antagonista, en maduración, en resultados reproductivos y en seguridad?</b></p>
+  </div>
+</section>
+
+<!-- 3 · LOS RESULTADOS -->
+<section class="headline-figure">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">Los resultados</p>
+      <h2>La maduración no se mueve; el riesgo de hiperestimulación sí</h2>
+    </div>
+
+    <div class="figure-grid">
+      <div class="stat">
+        <div class="num">+0,52 <small>puntos</small></div>
+        <div class="label">Tasa de ovocitos MII: diferencia entre dual trigger y agonista solo</div>
+        <div class="foot">Diferencia de medias ponderada 0,52 (IC95% −1,37 a 2,42) · 11 estudios · el intervalo cruza el cero: sin mejora demostrada</div>
+      </div>
+      <div class="stat accent">
+        <div class="num">×4,42</div>
+        <div class="label">Riesgo de hiperestimulación moderada o grave con dual trigger</div>
+        <div class="foot">RR 4,42 (IC95% 2,44 a 8,01) · 10 estudios · el intervalo no toca el 1 en ningún punto</div>
+      </div>
+      <div class="stat">
+        <div class="num">0 <small>de 7</small></div>
+        <div class="label">Desenlaces secundarios preespecificados con diferencia significativa</div>
+        <div class="foot">Ovocitos recuperados, embriones totales y de buena calidad, fecundación, gestación clínica, aborto y recién nacido vivo: todos planos</div>
+      </div>
+      <div class="stat">
+        <div class="num">4427</div>
+        <div class="label">Mujeres en 14 estudios, de los que solo 2 son aleatorizados</div>
+        <div class="foot">12 cohortes observacionales · calidad media en 4 y alta en 8 de ellas</div>
+      </div>
+    </div>
+
+    <!-- FOREST 1: eficacia -->
+    <div class="chart-card">
+      <p class="chart-title">Eficacia: ninguna diferencia, salvo un subgrupo exploratorio</p>
+      <p class="chart-sub">Riesgo relativo del dual trigger frente al agonista solo, con intervalo de confianza del 95 %. Escala logarítmica; la línea vertical marca el 1, donde no hay diferencia.</p>
+
+      <div class="forest">
+        <div class="f-row">
+          <div class="f-name"><b>Gestación clínica</b> · global, 8 estudios</div>
+          <div class="f-body">
+            <div class="f-track">
+              <div class="f-null" style="left:22.51%"></div>
+              <div class="f-ci" style="left:19.71%;width:22.15%"></div>
+              <div class="f-dot" style="left:30.57%"></div>
+            </div>
+            <div class="f-val">RR 1,06<small>0,98 – 1,15</small></div>
+          </div>
+          <span class="p-tag">p = 0,147 · sin diferencia</span>
+        </div>
+
+        <div class="f-row">
+          <div class="f-name"><b>Recién nacido vivo</b> · 4 estudios</div>
+          <div class="f-body">
+            <div class="f-track">
+              <div class="f-null" style="left:22.51%"></div>
+              <div class="f-ci" style="left:10.96%;width:19.62%"></div>
+              <div class="f-dot" style="left:21.11%"></div>
+            </div>
+            <div class="f-val">RR 0,99<small>0,92 – 1,06</small></div>
+          </div>
+          <span class="p-tag">p = 0,760 · sin diferencia</span>
+        </div>
+
+        <div class="f-row">
+          <div class="f-name"><b>Aborto</b> · 8 estudios</div>
+          <div class="f-body">
+            <div class="f-track">
+              <div class="f-null" style="left:22.51%"></div>
+              <div class="f-ci" style="left:4.80%;width:50.80%"></div>
+              <div class="f-dot" style="left:30.57%"></div>
+            </div>
+            <div class="f-val">RR 1,06<small>0,88 – 1,27</small></div>
+          </div>
+          <span class="p-tag">p = 0,555 · sin diferencia</span>
+        </div>
+
+        <div class="f-row">
+          <div class="f-name"><b>Fecundación normal</b> · 5 estudios</div>
+          <div class="f-body">
+            <div class="f-track">
+              <div class="f-null" style="left:22.51%"></div>
+              <div class="f-ci" style="left:16.85%;width:8.40%"></div>
+              <div class="f-dot" style="left:21.11%"></div>
+            </div>
+            <div class="f-val">RR 0,99<small>0,96 – 1,02</small></div>
+          </div>
+          <span class="p-tag">p = 0,439 · sin diferencia</span>
+        </div>
+
+        <div class="f-row">
+          <div class="f-name"><b>Gestación clínica solo en transferencia en fresco</b> · 4 estudios</div>
+          <div class="f-body">
+            <div class="f-track">
+              <div class="f-null" style="left:22.51%"></div>
+              <div class="f-ci sig" style="left:41.86%;width:40.44%"></div>
+              <div class="f-dot sig" style="left:62.00%"></div>
+            </div>
+            <div class="f-val">RR 1,33<small>1,15 – 1,54</small></div>
+          </div>
+          <span class="p-tag expl">p &lt; 0,001 · significativo, pero subgrupo exploratorio</span>
+        </div>
+      </div>
+
+      <div class="f-axis">
+        <i style="left:7.91%">0,9</i><i class="zero" style="left:22.51%">1</i><i style="left:35.71%">1,1</i><i style="left:53.41%">1,25</i><i style="left:78.65%">1,5</i>
+      </div>
+      <div class="f-hint"><span>← favorece al agonista solo</span><span>favorece al dual trigger →</span></div>
+
+      <p class="chart-foot">El único resultado de eficacia que se sale es la gestación clínica en el subgrupo de transferencia en fresco. Los autores lo marcan como <b>exploratorio</b>: sale de 4 estudios, no hicieron pruebas formales de interacción entre estrategias, y en el conjunto global esa misma gestación clínica queda plana. En el subgrupo de freeze-all, el valor es RR 0,99 (0,95–1,05).</p>
+    </div>
+
+    <!-- FOREST 2: seguridad -->
+    <div class="chart-card">
+      <p class="chart-title">Seguridad: hiperestimulación moderada o grave</p>
+      <p class="chart-sub">Mismo tipo de gráfico, pero con otra escala: aquí los efectos son de una magnitud que no cabe en la anterior. Escala logarítmica del 0,8 al 100.</p>
+
+      <div class="forest">
+        <div class="f-row">
+          <div class="f-name"><b>Global</b> · 10 estudios</div>
+          <div class="f-body">
+            <div class="f-track">
+              <div class="f-null" style="left:4.62%"></div>
+              <div class="f-ci sig" style="left:23.10%;width:24.62%"></div>
+              <div class="f-dot sig" style="left:35.40%"></div>
+            </div>
+            <div class="f-val">RR 4,42<small>2,44 – 8,01</small></div>
+          </div>
+          <span class="p-tag sig">p &lt; 0,001 · más riesgo con dual trigger</span>
+        </div>
+
+        <div class="f-row">
+          <div class="f-name"><b>En estrategia freeze-all</b> · 5 estudios</div>
+          <div class="f-body">
+            <div class="f-track">
+              <div class="f-null" style="left:4.62%"></div>
+              <div class="f-ci sig" style="left:23.85%;width:32.99%"></div>
+              <div class="f-dot sig" style="left:40.34%"></div>
+            </div>
+            <div class="f-val">RR 5,61<small>2,53 – 12,44</small></div>
+          </div>
+          <span class="p-tag sig">p &lt; 0,001 · más riesgo con dual trigger</span>
+        </div>
+
+        <div class="f-row">
+          <div class="f-name"><b>En transferencia en fresco</b> · 3 estudios</div>
+          <div class="f-body">
+            <div class="f-track">
+              <div class="f-null" style="left:4.62%"></div>
+              <div class="f-ci" style="left:3.34%;width:78.61%"></div>
+              <div class="f-dot" style="left:42.71%"></div>
+            </div>
+            <div class="f-val">RR 6,29<small>0,94 – 41,84</small></div>
+          </div>
+          <span class="p-tag">p = 0,152 · no significativo, intervalo enorme</span>
+        </div>
+
+        <div class="f-row">
+          <div class="f-name"><b>Con hCG de 1000 UI o menos</b> · 3 estudios</div>
+          <div class="f-body">
+            <div class="f-track">
+              <div class="f-null" style="left:4.62%"></div>
+              <div class="f-ci sig" style="left:12.88%;width:84.41%"></div>
+              <div class="f-dot sig" style="left:55.08%"></div>
+            </div>
+            <div class="f-val">RR 11,43<small>1,49 – 87,73</small></div>
+          </div>
+          <span class="p-tag expl">los autores lo dan con «imprecisión estadística»</span>
+        </div>
+      </div>
+
+      <div class="f-axis">
+        <i class="zero" style="left:4.62%">1</i><i style="left:18.98%">2</i><i style="left:37.95%">5</i><i style="left:52.31%">10</i><i style="left:66.67%">20</i><i style="left:85.64%">50</i><i style="left:100%">100</i>
+      </div>
+      <div class="f-hint"><span>← menos riesgo</span><span>más riesgo con dual trigger →</span></div>
+
+      <p class="chart-foot">La primera lectura: el aumento de riesgo es <b>estadísticamente sólido en el conjunto y en freeze-all</b>, y en cambio no lo es en fresco, pese a que el estimador puntual allí es más alto; el intervalo de fresco va de 0,94 a 41,84, así que no permite concluir nada. La segunda: bajar la hCG a 1000 UI o menos <b>no hizo desaparecer el exceso de riesgo</b>. Los propios autores advierten de la imprecisión de esa estimación y explican por qué los intervalos salen tan anchos: los estudios sin ningún caso de hiperestimulación no aportan a este análisis, lo que reduce los datos disponibles y la precisión.</p>
+
+      <details class="table-view">
+        <summary>Ver todos los desenlaces en tabla</summary>
+        <div class="tbl-scroll">
+          <table>
+            <thead>
+              <tr><th>Desenlace</th><th class="num">Estudios</th><th class="num">Efecto (IC95%)</th><th class="num">p</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Ovocitos MII (%) — <i>principal</i></td><td class="num">11</td><td class="num">WMD 0,52 (−1,37 a 2,42)</td><td class="num">—</td></tr>
+              <tr><td>Hiperestimulación moderada o grave — <i>principal</i></td><td class="num">10</td><td class="num">RR 4,42 (2,44 a 8,01)</td><td class="num">&lt; 0,001</td></tr>
+              <tr><td>Embriones totales (n)</td><td class="num">2</td><td class="num">WMD −0,88 (−1,86 a 0,09)</td><td class="num">0,077</td></tr>
+              <tr><td>Embriones de buena calidad (n)</td><td class="num">5</td><td class="num">WMD 0,05 (−0,01 a 0,11)</td><td class="num">0,132</td></tr>
+              <tr><td>Fecundación normal (%)</td><td class="num">5</td><td class="num">RR 0,99 (0,96 a 1,02)</td><td class="num">0,439</td></tr>
+              <tr><td>Gestación clínica (%)</td><td class="num">8</td><td class="num">RR 1,06 (0,98 a 1,15)</td><td class="num">0,147</td></tr>
+              <tr><td>Aborto (%)</td><td class="num">8</td><td class="num">RR 1,06 (0,88 a 1,27)</td><td class="num">0,555</td></tr>
+              <tr><td>Recién nacido vivo (%)</td><td class="num">4</td><td class="num">RR 0,99 (0,92 a 1,06)</td><td class="num">0,760</td></tr>
+              <tr><td colspan="4" style="padding-top:16px;font-weight:600;color:var(--ink-soft)">Subgrupos por estrategia de transferencia (exploratorios)</td></tr>
+              <tr><td>Ovocitos MII — fresco / freeze-all</td><td class="num">5 / 5</td><td class="num">3,44 (−2,35 a 9,24) / −0,71 (−2,10 a 0,67)</td><td class="num">0,244 / 0,312</td></tr>
+              <tr><td>Hiperestimulación — fresco / freeze-all</td><td class="num">3 / 5</td><td class="num">6,29 (0,94 a 41,84) / 5,61 (2,53 a 12,44)</td><td class="num">0,152 / &lt; 0,001</td></tr>
+              <tr><td>Gestación clínica — fresco / freeze-all</td><td class="num">4 / 5</td><td class="num">1,33 (1,15 a 1,54) / 0,99 (0,95 a 1,05)</td><td class="num">&lt; 0,001 / 0,720</td></tr>
+              <tr><td>Aborto — fresco / freeze-all</td><td class="num">4 / 5</td><td class="num">0,96 (0,68 a 1,34) / 1,10 (0,88 a 1,37)</td><td class="num">0,721 / 0,385</td></tr>
+              <tr><td>Ovocitos recuperados — fresco / freeze-all</td><td class="num">7 / 5</td><td class="num">−0,38 (−2,85 a 2,09) / −0,31 (−1,12 a 0,51)</td><td class="num">0,764 / 0,460</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · EL MÉTODO -->
+<section>
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">El método</p>
+      <h2>Cómo se hizo, en cuatro pasos</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <span class="n">1</span>
+        <h3>Dónde se buscó</h3>
+        <p>PubMed, Embase, Web of Science, Cochrane Library y CNKI, la base china, con los términos «in vitro fertilization», «high responder», «dual trigger» y «GnRH agonist».</p>
+        <p>Dos autores revisaron títulos y resúmenes por separado, y un tercero con más experiencia resolvió los desacuerdos. El protocolo se registró en PROSPERO antes de empezar y se siguió la guía PRISMA.</p>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <h3>Qué estudios entraron</h3>
+        <p>Ensayos aleatorizados y cohortes observacionales que compararan dual trigger —agonista más hCG de 2500 UI o menos— con agonista solo, en altas respondedoras con protocolo antagonista.</p>
+        <p>Alta respondedora se definió por cumplir cualquiera de estos criterios: síndrome de ovario poliquístico; 15 folículos o más, o estradiol por encima de 4000 pg/ml el día del desencadenamiento; hiperestimulación en un ciclo previo; o ciclo cancelado por riesgo de hiperestimulación. Fuera quedaron revisiones, cartas, guías, casos clínicos y comunicaciones a congresos.</p>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <h3>Cómo se valoró la calidad</h3>
+        <p>Las 12 cohortes se puntuaron con la escala de Newcastle-Ottawa: calidad media en 4 (33,3 %) y alta en 8 (66,7 %). De las 12, once recibieron al menos una estrella de comparabilidad y ocho las tres estrellas del dominio de desenlace.</p>
+        <p>Los 2 ensayos se valoraron con la herramienta de riesgo de sesgo de Cochrane. La extracción de datos la hizo un autor y la revisó otro.</p>
+      </div>
+      <div class="step">
+        <span class="n">4</span>
+        <h3>Cómo se analizó</h3>
+        <p>Stata/SE 15.0. Riesgo relativo para las variables binarias y diferencia de medias ponderada para las continuas, ambas con intervalo de confianza del 95 %. Los ensayos y las cohortes se agruparon juntos.</p>
+        <p>La heterogeneidad se midió con I²: baja hasta el 30 %, moderada entre el 30 y el 75 %, alta desde el 75 %. Sobre el filtrado: en los estudios en que el grupo de agonista recibía hCG a dosis baja después de la punción, esos desenlaces se excluyeron del agrupado. Los subgrupos preespecificados fueron la estrategia de transferencia y la dosis de hCG, con el corte en 1000 UI.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · LA LETRA PEQUEÑA -->
+<section class="dark">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">La letra pequeña</p>
+      <h2>Lo que los autores reconocen de su propio trabajo</h2>
+      <p class="lead" style="margin-top:26px">Las cinco limitaciones que siguen están en su apartado de limitaciones, en sus términos.</p>
+    </div>
+
+    <div class="caveats">
+      <div class="caveat">
+        <h3>Doce de catorce son observacionales</h3>
+        <p>Solo hay dos ensayos aleatorizados, y eso <q>baja el nivel de evidencia y la confianza clínica</q>. En los estudios observacionales, la elección del tratamiento puede depender de la respuesta ovárica, del riesgo de hiperestimulación, de la preferencia del clínico, de la transferencia y del manejo de la fase lútea.</p>
+        <p>Su conclusión sobre esto es explícita: no se pueden descartar el sesgo de selección ni la confusión, y <q>las asociaciones no deben implicar causalidad</q>.</p>
+      </div>
+      <div class="caveat">
+        <h3>Heterogeneidad clínica y de método</h3>
+        <p>La propia definición de alta respondedora varía entre estudios según el ovario poliquístico, el recuento de folículos, los ovocitos obtenidos, el estradiol o la hiperestimulación previa.</p>
+        <p>Y también varían las preparaciones de agonista, la dosis y el momento de la hCG, el soporte de fase lútea, la estrategia de fresco o freeze-all, y hasta la definición de hiperestimulación. Eso limita la generalización a una alta respondedora con diagnóstico estandarizado.</p>
+      </div>
+      <div class="caveat">
+        <h3>Pocos estudios en lo que más importa</h3>
+        <p>Varios análisis descansan en pocos estudios o muestras pequeñas, y los autores lo señalan especialmente en los de hiperestimulación, donde se refleja en intervalos muy anchos, incluidos los de fresco y los de hCG de 1000 UI o menos. Los estudios sin ningún caso no aportan, lo que resta datos y precisión.</p>
+        <p>En recién nacido vivo solo cuatro estudios entraron en el agrupado, y dos informaban de tasa acumulada sin metaanálisis. Añaden que la gestación clínica es un desenlace intermedio y <q>no siempre conduce a más recién nacidos vivos</q>.</p>
+      </div>
+      <div class="caveat">
+        <h3>Los subgrupos son exploratorios</h3>
+        <p>Los análisis por estrategia de transferencia y por dosis de hCG <q>deben considerarse exploratorios</q>, y no se hicieron pruebas formales de interacción para comparar efectos entre estrategias ni entre categorías de dosis. Ahí está el matiz que afecta al RR 1,33 de la gestación clínica en fresco.</p>
+        <p>Por último, admiten que con tan pocos estudios los gráficos en embudo pierden capacidad para detectar el efecto de los estudios pequeños, así que no pueden excluir del todo el sesgo de publicación ni el de notificación selectiva.</p>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p>«Este metaanálisis encontró que el dual trigger con agonista de GnRH y hCG a dosis baja no mejoró la maduración ovocitaria ni los resultados reproductivos comparado con el agonista solo, y se asoció a un mayor riesgo de hiperestimulación moderada o grave en mujeres con alta respuesta ovárica prevista. Estos hallazgos provienen de estudios mayoritariamente observacionales y heterogéneos.»</p>
+      <p class="orig">«This meta-analysis found that dual trigger with GnRH-a and low-dose hCG did not improve oocyte maturation or reproductive outcomes compared to GnRH-a alone, and was associated with an increased risk of moderate or severe OHSS in women with predicted high ovarian response. These findings are from mostly observational, heterogeneous studies.»</p>
+      <cite>Li Z, Shi X, Lin X, Wang J, Jin L. Journal of Ovarian Research, 2026. Conclusión del artículo.</cite>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · PARA CITARLO -->
+<section class="closing">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">Para citarlo</p>
+      <h2>La referencia</h2>
+    </div>
+    <div class="cite-block">
+      Li Z, Shi X, Lin X, Wang J, Jin L. Dual trigger with gonadotropin-releasing hormone agonist and low-dose human chorionic gonadotropin versus gonadotropin-releasing hormone agonist alone in predicted high responders using antagonist protocol: a systematic review and meta-analysis. J Ovarian Res. 2026. doi:10.1186/s13048-026-02249-w<br><br>
+      <a href="https://doi.org/10.1186/s13048-026-02249-w">Leer el artículo original</a> · Registro: PROSPERO CRD420251003498 · Acceso abierto con licencia CC BY-NC-ND 4.0
+    </div>
+  </div>
+</section>
+
+<!-- 7 · PIE DE HONESTIDAD -->
+<div class="honesty">
+  <div class="read">
+    Esta ficha se ha elaborado sobre el artículo original, sin añadir datos ni interpretaciones ajenas al texto.
+    Cada cifra se ha verificado contra el artículo antes de maquetarla. Enlaza al artículo para quien quiera leerlo completo.<br>
+    <span class="brand">Código AdrIA</span> · serie «papers legibles»
+  </div>
+</div>
+
+<style>
+  .ca-foot{
+    background:#07181d;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Estas fichas se hacen con verificación de cifras contra el artículo original.
+          En la comunidad cuento cómo, y qué sale mal cuando no se verifica.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  // El intervalo del forest entra animado al aparecer: la geometria vive en el HTML,
+  // aqui solo se retiene el ancho y se suelta al entrar en pantalla.
+  (function () {
+    var rows = Array.prototype.slice.call(document.querySelectorAll('.f-row'));
+    if (!rows.length) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduce || !('IntersectionObserver' in window)) {
+      rows.forEach(function (row) {
+        var dot = row.querySelector('.f-dot');
+        if (dot) dot.classList.add('show');
+      });
+      return;
+    }
+
+    rows.forEach(function (row) {
+      var ci = row.querySelector('.f-ci');
+      if (!ci) return;
+      ci.dataset.w = ci.style.width;
+      ci.style.width = '0%';
+    });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var row = entry.target;
+        var ci = row.querySelector('.f-ci');
+        var dot = row.querySelector('.f-dot');
+        requestAnimationFrame(function () {
+          if (ci) ci.style.width = ci.dataset.w;
+          if (dot) dot.classList.add('show');
+        });
+        io.unobserve(row);
+      });
+    }, { threshold: 0.25 });
+
+    rows.forEach(function (row) { io.observe(row); });
+  })();
+</script>
+
+</body>
+</html>
