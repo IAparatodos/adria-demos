@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PPOS con clomifeno en LH basal baja · Hu et al., Reprod Biol Endocrinol 2026</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="PPOS con clomifeno en LH basal baja · Código AdrIA">
+<meta property="og:description" content="Ensayo aleatorizado: el clomifeno sube la LH y aun asi se recuperan menos ovocitos.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/og-ppos-clomifeno.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/ppos-clomifeno-lh-basal-baja.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PPOS con clomifeno en LH basal baja · Código AdrIA">
+<meta name="twitter:description" content="Ensayo aleatorizado: el clomifeno sube la LH y aun asi se recuperan menos ovocitos.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/og-ppos-clomifeno.jpg">
+<meta name="description" content="El ensayo aleatorizado de Hu, Fan, Zhou y colaboradores en Reproductive Biology and Endocrinology (2026) sobre anadir citrato de clomifeno al protocolo PPOS en pacientes con LH basal baja: 230 pacientes.">
+<link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+<meta name="theme-color" content="#102e35">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181a; --ink-soft:#3a4448; --ink-mute:#6d797e;
+    --canvas:#ffffff; --parchment:#f4f7f7;
+    --tile-dark:#16242a; --tile-darker:#101c21;
+    --hairline:#e2e9e9;
+    --brand:#4dd2d0; --brand-deep:#0e9c99; --brand-slate:#3f6f7b;
+    --serie-a:#0e9c99; --serie-b:#6b5ea8;
+    --serie-a-dark:#4dd2d0; --serie-b-dark:#a99cf0;
+    --radius-card:18px; --radius-pill:9999px;
+    --shadow-object:0 3px 30px rgba(16,28,33,.14);
+    --max:1120px; --max-read:760px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--canvas);color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:17px;line-height:1.55;font-weight:400;letter-spacing:-.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+  section{padding:88px 24px}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .read{max-width:var(--max-read);margin:0 auto}
+  h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.028em;line-height:1.08}
+  h1{font-size:clamp(2.1rem,6vw,3.7rem)}
+  h2{font-size:clamp(1.6rem,4vw,2.5rem)}
+  h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.3}
+  p{margin:0 0 1.15em}
+  p:last-child{margin-bottom:0}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-deep);margin:0 0 20px}
+  .lead{font-size:clamp(1.1rem,2.4vw,1.42rem);font-weight:300;line-height:1.45;color:var(--ink-soft)}
+
+  /* ---------- barra de marca ---------- */
+  .brandbar{background:var(--tile-dark);padding:18px 24px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .brandbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brandbar img{height:34px;width:auto;display:block}
+  .brandbar .serie{font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#7c9299}
+
+  /* ---------- portada ---------- */
+  .hero{
+    background:var(--tile-dark);color:#fff;padding:84px 24px;
+    background-image:radial-gradient(120% 90% at 12% 0%,rgba(77,210,208,.16) 0%,transparent 58%);
+  }
+  .hero .eyebrow{color:var(--brand)}
+  .hero h1{color:#fff;max-width:19ch}
+  .hero .original{margin-top:26px;padding-left:18px;border-left:2px solid rgba(77,210,208,.5);font-size:1rem;font-weight:300;color:#c9d6d9;font-style:italic;max-width:56ch}
+  .authors{margin-top:34px;font-size:.95rem;color:#9fb0b5;line-height:1.7;max-width:62ch}
+  .authors .first{color:#fff;font-weight:600}
+  .meta-row{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
+  .chip{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-pill);padding:8px 16px;font-size:.83rem;color:#dfe9eb;white-space:nowrap;max-width:100%}
+  .chip b{color:#fff;font-weight:600}
+  .chip a{color:#dfe9eb;text-decoration:none;border-bottom:1px solid rgba(223,233,235,.4)}
+  .transparency{
+    margin-top:34px;max-width:62ch;border-left:3px solid rgba(77,210,208,.55);
+    background:rgba(255,255,255,.045);border-radius:0 10px 10px 0;padding:16px 18px;
+    font-size:.88rem;line-height:1.6;color:#c2d1d5
+  }
+  .transparency b{display:block;color:var(--brand);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+
+  /* ---------- banda de aviso de formato ---------- */
+  .notice{background:var(--parchment);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:34px 24px}
+  .notice .read{display:flex;gap:18px;align-items:flex-start;max-width:900px}
+  .notice .mark{flex:none;width:34px;height:34px;border-radius:50%;background:rgba(14,156,153,.12);color:var(--brand-deep);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.95rem}
+  .notice p{font-size:.93rem;color:var(--ink-soft);margin:0}
+  .notice b{color:var(--ink)}
+
+  /* ---------- destacado numérico ---------- */
+  .headline-figure{background:var(--parchment)}
+  .figure-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin-top:44px}
+  .stat{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);padding:26px 24px}
+  .stat .num{font-size:clamp(1.6rem,3.6vw,2.2rem);font-weight:600;letter-spacing:-.04em;line-height:1.1;color:var(--ink)}
+  .stat .num small{font-size:.5em;font-weight:500;letter-spacing:-.01em;color:var(--ink-mute);margin-left:4px}
+  .stat .label{margin-top:12px;font-size:.92rem;color:var(--ink-soft);line-height:1.4}
+  .stat .foot{margin-top:10px;font-size:.78rem;color:var(--ink-mute);line-height:1.5}
+  .stat.accent{border-color:rgba(14,156,153,.35);background:linear-gradient(180deg,rgba(14,156,153,.06),transparent 70%)}
+  .stat.accent .num{color:var(--brand-deep)}
+
+  /* ---------- grafico ---------- */
+  .chart-card{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);padding:32px 28px;margin-top:40px}
+  .chart-title{font-size:1.05rem;font-weight:600;letter-spacing:-.02em;margin:0}
+  .chart-sub{font-size:.87rem;color:var(--ink-mute);margin:6px 0 0}
+  .chart-foot{margin-top:24px;padding-top:18px;border-top:1px solid var(--hairline);font-size:.82rem;color:var(--ink-mute);line-height:1.6}
+
+  /* ---------- grafico forest (escala logaritmica) ---------- */
+  .forest{margin-top:26px}
+  .f-row{margin-bottom:28px}
+  .f-row:last-child{margin-bottom:0}
+  .f-name{font-size:.9rem;color:var(--ink-soft);margin-bottom:11px}
+  .f-name b{color:var(--ink);font-weight:600}
+  .f-body{display:flex;align-items:center;gap:14px}
+  .f-track{position:relative;flex:1;height:34px;background:#eef3f3;border-radius:4px;overflow:hidden}
+  .f-null{position:absolute;top:0;bottom:0;width:2px;background:#c2d0d0;transform:translateX(-1px)}
+  .f-ci{position:absolute;top:50%;height:8px;margin-top:-4px;border-radius:4px;background:var(--serie-b);opacity:.42;transition:width .9s cubic-bezier(.22,.8,.3,1)}
+  .f-ci.sig{background:var(--serie-a);opacity:.34}
+  .f-dot{position:absolute;top:50%;width:15px;height:15px;border-radius:50%;background:var(--serie-b);border:2px solid var(--canvas);transform:translate(-50%,-50%) scale(.4);opacity:0;transition:transform .55s cubic-bezier(.22,1.4,.5,1) .25s,opacity .4s ease .25s}
+  .f-dot.sig{background:var(--serie-a)}
+  .f-dot.show{transform:translate(-50%,-50%) scale(1);opacity:1}
+  .f-val{font-variant-numeric:tabular-nums;font-size:.95rem;font-weight:600;color:var(--ink);min-width:126px;text-align:right;letter-spacing:-.02em}
+  .f-val small{display:block;font-weight:400;font-size:.74rem;color:var(--ink-mute);letter-spacing:0}
+  .f-axis{position:relative;height:20px;margin-top:6px;margin-right:140px;font-variant-numeric:tabular-nums;font-size:.72rem;color:var(--ink-mute)}
+  .f-axis i{position:absolute;transform:translateX(-50%);font-style:normal}
+  .f-axis i.zero{color:var(--ink-soft);font-weight:600}
+  .f-hint{display:flex;justify-content:space-between;margin-top:2px;margin-right:140px;font-size:.74rem;color:var(--ink-mute)}
+  .p-tag{display:inline-block;margin-top:13px;font-size:.78rem;color:var(--ink-mute);background:#eef3f3;border-radius:var(--radius-pill);padding:5px 12px}
+  .p-tag.sig{background:rgba(14,156,153,.12);color:var(--brand-deep);font-weight:500}
+  .p-tag.expl{background:rgba(107,94,168,.12);color:#584a94;font-weight:500}
+  .f-group{margin:38px 0 4px;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-deep)}
+  .f-group:first-of-type{margin-top:26px}
+  .f-group span{display:block;margin-top:7px;font-size:.84rem;font-weight:400;letter-spacing:-.01em;text-transform:none;color:var(--ink-mute)}
+
+  /* ---------- tabla plegable ---------- */
+  details.table-view{margin-top:26px;border-top:1px solid var(--hairline);padding-top:18px}
+  details.table-view summary{cursor:pointer;font-size:.87rem;color:var(--brand-deep);font-weight:500;list-style:none}
+  details.table-view summary::-webkit-details-marker{display:none}
+  details.table-view summary::before{content:"▸ "}
+  details.table-view[open] summary::before{content:"▾ "}
+  .tbl-scroll{overflow-x:auto;margin-top:16px}
+  table{border-collapse:collapse;width:100%;font-size:.87rem;min-width:560px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hairline)}
+  th{font-weight:600;color:var(--ink-soft);font-size:.8rem;letter-spacing:.02em}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+
+  /* ---------- pasos del método ---------- */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;margin-top:44px;background:var(--hairline);border-radius:var(--radius-card);overflow:hidden}
+  .step{background:var(--canvas);padding:28px 24px}
+  .step .n{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--brand-deep);color:#fff;font-size:.85rem;font-weight:600;margin-bottom:16px}
+  .step h3{margin-bottom:8px}
+  .step p{font-size:.92rem;color:var(--ink-soft);margin:0}
+  .step p + p{margin-top:.8em}
+
+  .tint{background:var(--parchment)}
+
+  /* ---------- tile oscuro ---------- */
+  .dark{background:var(--tile-darker);color:#e8eef0}
+  .dark h2{color:#fff}
+  .dark .eyebrow{color:var(--brand)}
+  .dark .lead{color:#b3c3c7}
+  .caveats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:44px}
+  .caveat{border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-card);padding:26px 24px;background:rgba(255,255,255,.03)}
+  .caveat h3{color:#fff;margin-bottom:10px}
+  .caveat p{font-size:.92rem;color:#a9bbc0;margin:0}
+  .caveat p + p{margin-top:.8em}
+  .caveat q{font-style:italic;color:#c6d4d8}
+  .quote{margin:56px auto 0;max-width:var(--max-read);padding:30px 0 0;border-top:1px solid rgba(255,255,255,.16)}
+  .quote p{font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:300;line-height:1.5;color:#dbe6e8;font-style:italic}
+  .quote .orig{font-size:.85rem;color:#8ea3a8;font-style:italic;margin-top:14px;line-height:1.5}
+  .quote cite{display:block;margin-top:14px;font-size:.85rem;color:#8ea3a8;font-style:normal}
+
+  /* ---------- cierre ---------- */
+  .closing{background:var(--canvas);text-align:center}
+  .closing .cite-block{max-width:var(--max-read);margin:36px auto 0;padding:24px;background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);font-size:.88rem;color:var(--ink-soft);text-align:left;line-height:1.6}
+  .closing a{color:var(--brand-deep);text-decoration:none;border-bottom:1px solid rgba(14,156,153,.35)}
+  .honesty{background:var(--canvas);border-top:1px solid var(--hairline);padding:40px 24px;text-align:center;font-size:.82rem;color:var(--ink-mute);line-height:1.7}
+  .honesty .brand{color:var(--brand-deep);font-weight:600}
+  .honesty .read{max-width:640px}
+
+  @media (max-width:640px){
+    section{padding:64px 20px}
+    .hero{padding:64px 20px}
+    .chart-card{padding:24px 18px}
+    .chip{white-space:normal;line-height:1.35}
+    .bar-val{min-width:82px;font-size:.88rem}
+  }
+  .wrap,.read{overflow-wrap:break-word}
+
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ink:#eef3f4;--ink-soft:#b9c7cb;--ink-mute:#8b9ca1;
+      --canvas:#0f1719;--parchment:#141f22;--hairline:#25353a;
+      --serie-a:var(--serie-a-dark);--serie-b:var(--serie-b-dark);
+    }
+    .stat.accent{background:linear-gradient(180deg,rgba(77,210,208,.08),transparent 70%);border-color:rgba(77,210,208,.3)}
+    .stat.accent .num{color:var(--brand)}
+    .eyebrow{color:var(--brand)}
+    .notice .mark{background:rgba(77,210,208,.14);color:var(--brand)}
+    .f-track{background:#1d2b2f}
+    .f-null{background:#3a4c52}
+    .f-dot{border-color:var(--canvas)}
+    .p-tag{background:#1d2b2f}
+    .f-group{color:var(--brand)}
+    .p-tag.expl{background:rgba(169,156,240,.14);color:#a99cf0}
+    .p-tag.sig{background:rgba(77,210,208,.14);color:var(--brand)}
+    .step .n{background:var(--brand);color:#0f1719}
+    .closing a,.honesty .brand{color:var(--brand)}
+    .closing a{border-bottom-color:rgba(77,210,208,.4)}
+    details.table-view summary{color:var(--brand)}
+  }
+</style>
+<style>
+  /* barras comparadas de dos grupos (medias ± DE) */
+  .bars{margin-top:26px}
+  .b-row{margin-bottom:30px}
+  .b-row:last-child{margin-bottom:0}
+  .b-name{font-size:.9rem;color:var(--ink-soft);margin-bottom:12px}
+  .b-name b{color:var(--ink);font-weight:600}
+  .b-line{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .b-tag{flex:none;width:112px;font-size:.8rem;color:var(--ink-mute);text-align:right}
+  .b-track{flex:1;height:26px;background:#eef3f3;border-radius:5px;overflow:hidden}
+  .b-fill{height:100%;border-radius:5px;width:0;transition:width 1s cubic-bezier(.22,.8,.3,1)}
+  .b-fill.a{background:var(--serie-a)}
+  .b-fill.b{background:var(--serie-b)}
+  .b-val{flex:none;min-width:124px;font-variant-numeric:tabular-nums;font-size:.93rem;font-weight:600;color:var(--ink);letter-spacing:-.02em}
+  .b-val small{display:block;font-weight:400;font-size:.74rem;color:var(--ink-mute);letter-spacing:0}
+  @media (prefers-color-scheme:dark){ .b-track{background:#1d2b2f} }
+  @media (max-width:640px){ .b-tag{width:84px;font-size:.74rem} .b-val{min-width:96px;font-size:.85rem} }
+</style>
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="wrap">
+    <a href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"></a>
+    <span class="serie">Papers legibles</span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Reproductive Biology and Endocrinology · 2026</p>
+    <h1>Sube la LH, y aun así se recuperan menos ovocitos</h1>
+    <p class="original">«Effects of progestin-primed ovarian stimulation protocol plus clomiphene citrate in patients with low basal LH levels: a randomized controlled trial»</p>
+    <p class="authors">
+      <span class="first">Zhijie Hu</span>, Yong Fan, Xiaoqian Zhou, Haiyan Guo, Weiran Chai, Qiuju Chen, Qifeng Lyu, Renfei Cai y Xuefeng Lu.<br>
+      Departamento de Reproducción Asistida. Los tres primeros firmantes contribuyeron por igual.
+    </p>
+    <div class="meta-row">
+      <span class="chip"><b>Ensayo aleatorizado y controlado</b></span>
+      <span class="chip"><b>230</b> pacientes · 115 por grupo</span>
+      <span class="chip">DOI <a href="https://doi.org/10.1186/s12958-026-01601-5">10.1186/s12958-026-01601-5</a></span>
+    </div>
+    <div class="transparency">
+      <b>Por qué importa que sea aleatorizado</b>
+      Es de los pocos trabajos de esta serie donde <b style="display:inline;font-size:inherit;letter-spacing:normal;text-transform:none">el reparto de pacientes lo hizo un ordenador y no el criterio del clínico</b>. Aleatorización 1:1 por bloques generada por un bioestadístico, con la lista custodiada por él y sin acceso para el equipo tratante. El cegamiento fue abierto por la naturaleza de la intervención.
+    </div>
+  </div>
+</section>
+
+<div class="notice">
+  <div class="read">
+    <div class="mark">!</div>
+    <p><b>Atención al formato.</b> Este documento es la <b>versión aceptada y sin editar</b> del manuscrito («Accepted article in press»). El propio editor advierte en portada: «proporcionamos una versión sin editar de este manuscrito para dar acceso temprano a sus hallazgos; antes de la publicación final pasará por más edición, y puede haber errores presentes que afecten al contenido». Ha superado la revisión por pares, pero las cifras pueden cambiar en la versión definitiva.</p>
+  </div>
+</div>
+
+<section>
+  <div class="read">
+    <p class="eyebrow">La pregunta</p>
+    <h2>Cuando la LH basal está baja, algo falla al final</h2>
+    <p class="lead" style="margin-top:26px">El protocolo PPOS usa un progestágeno para frenar el pico prematuro de LH. Pero en las pacientes que ya parten de una LH basal baja, esa supresión añadida puede dejarla por debajo de lo necesario.</p>
+    <p style="margin-top:26px">El artículo describe el problema con datos concretos de la literatura previa. Las pacientes con una LH profundamente suprimida durante el ciclo tuvieron tasas de <b>pérdida gestacional temprana significativamente mayores: 31,1 % frente a 16,3 %</b> (P = 0,012). Y las de LH basal baja mostraron una <b>tasa acumulada de recién nacido vivo menor: 63,1 % frente a 68,3 %</b> (P = 0,034).</p>
+    <p>De ahí la idea que pone a prueba el ensayo. El citrato de clomifeno es un modulador del receptor de estrógeno que, al bloquear la retroalimentación negativa, hace subir la secreción endógena de LH. Si el problema es que falta LH, añadir clomifeno al PPOS debería devolverla al rango útil y mejorar los resultados.</p>
+    <p>La pregunta del trabajo: <b>¿añadir clomifeno al protocolo PPOS mejora la recuperación de ovocitos y los resultados en pacientes con LH basal baja?</b></p>
+  </div>
+</section>
+
+<section class="headline-figure">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">Los resultados</p>
+      <h2>La hipótesis se cumple y el resultado sale al revés</h2>
+      <p style="margin-top:22px;font-size:.98rem;color:var(--ink-soft)">El clomifeno hizo exactamente lo que se esperaba de él: subir la LH, de forma significativa y en todos los momentos medidos. Y aun así, el grupo que lo recibió recuperó <b>menos ovocitos de los folículos que tenía</b> y congeló menos embriones.</p>
+    </div>
+
+    <div class="figure-grid">
+      <div class="stat accent">
+        <div class="num">0,71 <small>vs 0,76</small></div>
+        <div class="label">Tasa de recuperación ovocitaria: peor con clomifeno</div>
+        <div class="foot">Variable principal · 0,71 ± 0,22 frente a 0,76 ± 0,18 · diferencia de medias −0,06 (IC95% −0,11 a −0,01) · P = 0,043</div>
+      </div>
+      <div class="stat">
+        <div class="num">−0,89</div>
+        <div class="label">Embriones criopreservados de menos</div>
+        <div class="foot">2,89 ± 2,43 frente a 3,90 ± 2,39 · IC95% −1,50 a −0,28 · FDR-P = 0,035 · sobrevive a la corrección por comparaciones múltiples</div>
+      </div>
+      <div class="stat">
+        <div class="num">+0,62 <small>UI/l</small></div>
+        <div class="label">Más LH con clomifeno, el día 9 del ciclo</div>
+        <div class="foot">2,31 ± 0,99 frente a 1,69 ± 0,99 · IC95% 0,36 a 0,87 · P &lt; 0,001 · el mecanismo funcionó</div>
+      </div>
+      <div class="stat">
+        <div class="num">0 <small>casos</small></div>
+        <div class="label">Picos prematuros de LH, en ninguno de los dos grupos</div>
+        <div class="foot">Ni una sola paciente de los dos brazos experimentó un pico prematuro de LH</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <p class="chart-title">Lo que midió el laboratorio, grupo a grupo</p>
+      <p class="chart-sub">Medias con su desviación estándar. En verde el grupo con clomifeno (hMG + MPA + CC), en morado el control (hMG + MPA). Las barras están a escala dentro de cada fila.</p>
+      <div class="bars">
+
+        <div class="b-row">
+          <div class="b-name"><b>Tasa de recuperación ovocitaria</b> · variable principal · ovocitos obtenidos sobre folículos aspirados</div>
+          <div class="b-line"><span class="b-tag">Con clomifeno</span><div class="b-track"><div class="b-fill a" style="width:93.4%"></div></div><span class="b-val">0,71<small>± 0,22</small></span></div>
+          <div class="b-line"><span class="b-tag">Control</span><div class="b-track"><div class="b-fill b" style="width:100%"></div></div><span class="b-val">0,76<small>± 0,18</small></span></div>
+          <span class="p-tag sig">diferencia significativa · P = 0,043 · peor con clomifeno</span>
+        </div>
+
+        <div class="b-row">
+          <div class="b-name"><b>Embriones criopreservados</b></div>
+          <div class="b-line"><span class="b-tag">Con clomifeno</span><div class="b-track"><div class="b-fill a" style="width:74.1%"></div></div><span class="b-val">2,89<small>± 2,43</small></span></div>
+          <div class="b-line"><span class="b-tag">Control</span><div class="b-track"><div class="b-fill b" style="width:100%"></div></div><span class="b-val">3,90<small>± 2,39</small></span></div>
+          <span class="p-tag sig">diferencia significativa · FDR-P = 0,035 · menos embriones con clomifeno</span>
+        </div>
+
+        <div class="b-row">
+          <div class="b-name"><b>Ovocitos obtenidos</b> · el número absoluto</div>
+          <div class="b-line"><span class="b-tag">Con clomifeno</span><div class="b-track"><div class="b-fill a" style="width:82.6%"></div></div><span class="b-val">8,83<small>± 5,41</small></span></div>
+          <div class="b-line"><span class="b-tag">Control</span><div class="b-track"><div class="b-fill b" style="width:100%"></div></div><span class="b-val">10,69<small>± 5,85</small></span></div>
+          <span class="p-tag">sin diferencia significativa · FDR-P = 0,213 · cuenta tanto como las que sí</span>
+        </div>
+
+        <div class="b-row">
+          <div class="b-name"><b>Tasa de utilización ovocitaria</b></div>
+          <div class="b-line"><span class="b-tag">Con clomifeno</span><div class="b-track"><div class="b-fill a" style="width:87.0%"></div></div><span class="b-val">0,40<small>± 0,25</small></span></div>
+          <div class="b-line"><span class="b-tag">Control</span><div class="b-track"><div class="b-fill b" style="width:100%"></div></div><span class="b-val">0,46<small>± 0,24</small></span></div>
+          <span class="p-tag">no significativa tras corregir · FDR-P = 0,084</span>
+        </div>
+
+        <div class="b-row">
+          <div class="b-name"><b>LH el día 9 de la menstruación</b> · UI/l · aquí el clomifeno sí hizo su trabajo</div>
+          <div class="b-line"><span class="b-tag">Con clomifeno</span><div class="b-track"><div class="b-fill a" style="width:100%"></div></div><span class="b-val">2,31<small>± 0,99</small></span></div>
+          <div class="b-line"><span class="b-tag">Control</span><div class="b-track"><div class="b-fill b" style="width:73.2%"></div></div><span class="b-val">1,69<small>± 0,99</small></span></div>
+          <span class="p-tag sig">diferencia significativa · P &lt; 0,001 · más LH con clomifeno</span>
+        </div>
+      </div>
+
+      <p class="chart-foot">La subida de LH se mantuvo en todos los momentos medidos: días 11-12 (<b>2,15 ± 1,15 frente a 1,28 ± 0,98</b>, P &lt; 0,001), día del desencadenante (<b>1,94 ± 1,10 frente a 1,18 ± 0,86</b>, P &lt; 0,001) y el día siguiente al desencadenante (<b>34,32 ± 16,21 frente a 30,27 ± 12,10</b>, P = 0,033). El artículo lo resume así: «estos resultados confirmaron que el CC contribuye a la secreción de LH».</p>
+    </div>
+
+    <div class="chart-card">
+      <p class="chart-title">Y en lo que de verdad importa: embarazo y recién nacido vivo</p>
+      <p class="chart-sub">Razón de riesgos instantáneos (<i>hazard ratio</i>) con intervalo de confianza del 95 %, por análisis de supervivencia de Kaplan-Meier. Escala logarítmica; la línea vertical marca el 1. A la izquierda, peor con clomifeno.</p>
+      <div class="forest">
+        <div class="f-row">
+          <div class="f-name"><b>Embarazo clínico acumulado</b> · 61,05 % frente a 77,67 %</div>
+          <div class="f-body">
+            <div class="f-track">
+              <div class="f-null" style="left:79.17%"></div>
+              <div class="f-ci" style="left:6.66%;width:79.17%"></div>
+              <div class="f-dot" style="left:44.78%"></div>
+            </div>
+            <div class="f-val">HR 0,74<small>0,53 – 1,06</small></div>
+          </div>
+          <span class="p-tag">sin diferencia significativa · P = 0,101 · FDR-P = 0,214</span>
+        </div>
+        <div class="f-row">
+          <div class="f-name"><b>Recién nacido vivo acumulado</b> · 53,68 % frente a 66,02 %</div>
+          <div class="f-body">
+            <div class="f-track">
+              <div class="f-null" style="left:79.17%"></div>
+              <div class="f-ci" style="left:6.66%;width:86.48%"></div>
+              <div class="f-dot" style="left:49.32%"></div>
+            </div>
+            <div class="f-val">HR 0,77<small>0,53 – 1,13</small></div>
+          </div>
+          <span class="p-tag">sin diferencia significativa · P = 0,183 · FDR-P = 0,214</span>
+        </div>
+      </div>
+      <div class="f-axis">
+        <i style="left:0%">0,5</i><i style="left:20.83%">0,6</i><i style="left:53.69%">0,8</i><i class="zero" style="left:79.17%">1</i><i style="left:100%">1,2</i>
+      </div>
+      <div class="f-hint"><span>Peor con clomifeno</span><span>Mejor con clomifeno</span></div>
+
+      <p class="chart-foot"><b>Los porcentajes separan mucho y los intervalos no.</b> Hay 16 puntos de diferencia en embarazo clínico acumulado y 12 en recién nacido vivo, siempre a favor del control, pero los intervalos cruzan el 1: con 230 pacientes no hay potencia para distinguir si esa brecha es real o azar. Los autores no la presentan como diferencia demostrada, y así hay que leerla.</p>
+
+      <details class="table-view">
+        <summary>Ver el primer ciclo de transferencia y el análisis de sensibilidad</summary>
+        <div class="tbl-scroll">
+          <table>
+            <thead><tr><th>Desenlace</th><th class="num">Con clomifeno</th><th class="num">Control</th><th class="num">Efecto (IC95%)</th><th class="num">FDR-P</th></tr></thead>
+            <tbody>
+              <tr><td>Embarazo clínico, primer ciclo de transferencia de congelados<br><small>ajustado por edad, IMC, duración y causa de la infertilidad</small></td><td class="num">42,61 %<br><small>49/115</small></td><td class="num">52,17 %<br><small>60/115</small></td><td class="num">OR 0,69 (0,41–1,17)</td><td class="num">0,213</td></tr>
+              <tr><td>Recién nacido vivo, primer ciclo de transferencia</td><td class="num">35,65 %<br><small>41/115</small></td><td class="num">39,13 %<br><small>45/115</small></td><td class="num">OR 0,88 (0,51–1,50)</td><td class="num">0,629</td></tr>
+              <tr><td><b>Sensibilidad</b>: embarazo clínico acumulado contando como fracaso a quien se quedó sin embriones</td><td class="num">50,43 %</td><td class="num">67,83 %</td><td class="num">HR 0,66 (0,47–0,94)<br><small>P = 0,020</small></td><td class="num">0,056</td></tr>
+              <tr><td><b>Sensibilidad</b>: recién nacido vivo acumulado, mismo criterio</td><td class="num">40,00 %</td><td class="num">55,70 %</td><td class="num">HR 0,69 (0,48–0,99)<br><small>P = 0,050</small></td><td class="num">0,088</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="chart-foot" style="margin-top:18px">El análisis de sensibilidad es el más desfavorable para el clomifeno: al contar como fracaso a las pacientes que se quedaron sin embriones para transferir —algo coherente con que ese grupo congelara menos—, la diferencia <b>sí alcanza significación sin corregir</b> (P = 0,020 y P = 0,050). Los propios autores precisan que <b>esas diferencias dejan de ser significativas tras la corrección FDR</b> (0,056 y 0,088), y así lo reportan.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">El método</p>
+      <h2>Cómo se hizo</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h3>A quién se reclutó</h3>
+        <p><b>230 pacientes infértiles con LH basal baja</b>, definida como LH &lt; 2,27 mUI/ml.</p>
+        <p>Ensayo prospectivo aleatorizado realizado entre <b>enero de 2018 y febrero de 2021</b> en un departamento de reproducción asistida.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3>Qué recibieron todas</h3>
+        <p>Desde el <b>tercer día de la menstruación</b>: hMG a 150 o 225 UI al día, más acetato de medroxiprogesterona (MPA) 10 mg al día.</p>
+        <p>Los embriones viables se criopreservaron para transferirlos después. Ninguna transferencia fue en fresco.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3>Qué recibió solo el grupo de estudio</h3>
+        <p>Los 115 del grupo de estudio añadieron <b>citrato de clomifeno 50 mg al día</b>, también desde el tercer día de la menstruación.</p>
+        <p>Aleatorización 1:1 por bloques generada por ordenador a cargo de un bioestadístico, con la lista bajo su custodia. Etiqueta abierta por la naturaleza de la intervención.</p>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <h3>Qué se midió</h3>
+        <p>Variable principal: la <b>tasa de recuperación ovocitaria</b>, definida como el cociente entre ovocitos obtenidos y folículos aspirados.</p>
+        <p>Secundarias: tasa de utilización ovocitaria, número de ovocitos, embriones criopreservados, embarazo clínico y recién nacido vivo. Análisis por intención de tratar, Kaplan-Meier para los acumulados y corrección FDR por comparaciones múltiples.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">La letra pequeña</p>
+      <h2>Lo que los autores reconocen de su propio trabajo</h2>
+      <p class="lead" style="margin-top:26px">La limitación principal de este ensayo es de las más honestas que se leen: el cálculo del tamaño de muestra partió de un supuesto que resultó equivocado.</p>
+    </div>
+    <div class="caveats">
+      <div class="caveat">
+        <h3>El cálculo partió de otra población</h3>
+        <p>La tasa de recuperación ovocitaria esperada para calcular el tamaño muestral se tomó de un subgrupo de respondedoras subóptimas de un estudio previo, porque <b>no había datos publicados</b> de mujeres con LH basal &lt; 2,27 mUI/ml.</p>
+        <p><q>Ese subgrupo posdesencadenante no es idéntico a la población de LH basal baja incluida en nuestro ensayo.</q></p>
+      </div>
+      <div class="caveat">
+        <h3>Solo 12 pacientes del control respondieron mal</h3>
+        <p>En el grupo control, muchas menos pacientes de las esperadas —<b>solo 12</b>— con LH basal &lt; 2,27 mUI/ml desarrollaron una respuesta subóptima al desencadenante.</p>
+      </div>
+      <div class="caveat">
+        <h3>Se asumió un 60 % y salió un 76 %</h3>
+        <p>La tasa de recuperación ovocitaria asumida en el cálculo (<b>60 %</b>) subestimó sustancialmente la real observada en la población del ensayo (<b>76 %</b>).</p>
+        <p><q>Esta discrepancia probablemente redujo la potencia estadística para detectar una diferencia verdadera entre los dos grupos.</q></p>
+      </div>
+      <div class="caveat">
+        <h3>Y el formato del documento</h3>
+        <p>Esta ficha está hecha sobre el manuscrito aceptado sin editar. El editor advierte de que puede contener errores que afecten al contenido y de que el texto pasará por más edición antes de la publicación final.</p>
+      </div>
+    </div>
+    <div class="quote">
+      <p>«El citrato de clomifeno contribuyó a la secreción de LH, pero el protocolo PPOS con clomifeno dio lugar a una tasa de recuperación ovocitaria menor en pacientes con niveles bajos de LH basal. El protocolo PPOS con clomifeno debería usarse con cautela en estas pacientes.»</p>
+      <p class="orig">«CC contributed to LH secretion, but PPOS protocol with CC resulted in a lower oocyte retrieval rate in patients with low basal LH levels. PPOS protocol with CC should be used cautiously in these patients.»</p>
+      <cite>Hu Z, Fan Y, Zhou X, et al. Reproductive Biology and Endocrinology, 2026.</cite>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">Para citarlo</p>
+      <h2>La referencia</h2>
+    </div>
+    <div class="cite-block">
+      Hu Z, Fan Y, Zhou X, Guo H, Chai W, Chen Q, et al. Effects of progestin-primed ovarian stimulation protocol plus clomiphene citrate in patients with low basal LH levels: a randomized controlled trial. Reprod Biol Endocrinol. 2026. doi:10.1186/s12958-026-01601-5<br><br>
+      <a href="https://doi.org/10.1186/s12958-026-01601-5">Leer el artículo original</a> · Recibido el 15 de octubre de 2025, aceptado el 2 de agosto de 2026 · Artículo en prensa, versión sin editar · Acceso abierto bajo licencia CC BY-NC-ND
+    </div>
+  </div>
+</section>
+
+<div class="honesty">
+  <div class="read">
+    Esta ficha se ha elaborado sobre el artículo original, sin añadir datos ni interpretaciones ajenas al texto.
+    Cada cifra se ha verificado contra el artículo antes de maquetarla. Se ha mantenido la distinción que hacen los autores
+    entre los valores de P sin corregir y los corregidos por comparaciones múltiples (FDR), porque en este trabajo cambia la lectura.
+    Enlaza al artículo para quien quiera leerlo completo.<br>
+    <span class="brand">Código AdrIA</span> · serie «papers legibles»
+  </div>
+</div>
+
+<!--
+  FOOTER DE MARCA — OBLIGATORIO en todo HTML de Código AdrIA que se comparta en público.
+  Pégalo justo antes de </body>. Autocontenido: CSS propio + SVG en línea, sin dependencias.
+  Regla en CLAUDE.md raíz: "HTML público — marca y footer obligatorios".
+
+  Estructura (patrón Stripe: banda de cierre + columnas + fila legal):
+    1. Banda de cierre con UNA sola llamada a la acción rellena (la comunidad).
+    2. Tres columnas de enlaces: empezar / seguir / la casa.
+    3. Fila legal con logo enlazado + copyright.
+
+  Enlaces oficiales (verificados 2-ago-2026):
+  - Comunidad Telegram (alta): https://forms.gle/LQUSEfZZ9m8R5e8f6
+  - Curso:     https://www.codigoadria.com/curso-automatizaciones/
+  - Academia:  https://www.codigoadria.com/academia/
+  - YouTube:   https://www.youtube.com/@codigoadria?sub_confirmation=1
+  - LinkedIn:  https://www.linkedin.com/in/ricardohoyosperez/
+  - Instagram: https://www.instagram.com/ricardohoyos1/  ← el PERSONAL (decisión de Ricardo)
+
+  Adapta SOLO el texto de .ca-cta-sub al contenido de la página. El resto no se toca.
+  El footer usa #07181d, distinto del bloque editorial de cierre (#102e35), para que ambos
+  se lean como dos bandas separadas. En la fila legal se muestra solo el logo: no añadir
+  texto «Código AdrIA» junto a él, porque ya forma parte del propio logotipo.
+  En la CABECERA de la página, el logo SIEMPRE enlazado a https://www.codigoadria.com.
+
+  ⚠️ Si la página tiene bloques <pre> con ejemplos de código, escapa las etiquetas
+  (&lt;style&gt;, &lt;script&gt;): una etiqueta cruda se interpreta de verdad, se traga
+  el resto del documento y revienta este footer.
+-->
+<style>
+  .ca-foot{
+    background:#07181d;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Si esta receta te ha servido, en la comunidad compartimos muchas más:
+          flujos que funcionan, lo que no funciona, sin postureo.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  // El intervalo del forest entra animado al aparecer: la geometria vive en el HTML,
+  // aqui solo se retiene el ancho y se suelta al entrar en pantalla.
+  (function () {
+    var rows = Array.prototype.slice.call(document.querySelectorAll('.f-row'));
+    if (!rows.length) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduce || !('IntersectionObserver' in window)) {
+      rows.forEach(function (row) {
+        var dot = row.querySelector('.f-dot');
+        if (dot) dot.classList.add('show');
+      });
+      return;
+    }
+
+    rows.forEach(function (row) {
+      var ci = row.querySelector('.f-ci');
+      if (!ci) return;
+      ci.dataset.w = ci.style.width;
+      ci.style.width = '0%';
+    });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var row = entry.target;
+        var ci = row.querySelector('.f-ci');
+        var dot = row.querySelector('.f-dot');
+        requestAnimationFrame(function () {
+          if (ci) ci.style.width = ci.dataset.w;
+          if (dot) dot.classList.add('show');
+        });
+        io.unobserve(row);
+      });
+    }, { threshold: 0.25 });
+
+    rows.forEach(function (row) { io.observe(row); });
+  })();
+</script>
+<script>
+  // Las barras de medias entran animadas igual que el forest. Respeta prefers-reduced-motion.
+  (function () {
+    var fills = Array.prototype.slice.call(document.querySelectorAll('.b-fill'));
+    if (!fills.length) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+
+    fills.forEach(function (f) { f.dataset.w = f.style.width; f.style.width = '0%'; });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var f = entry.target;
+        requestAnimationFrame(function () { f.style.width = f.dataset.w; });
+        io.unobserve(f);
+      });
+    }, { threshold: 0.25 });
+
+    fills.forEach(function (f) { io.observe(f); });
+  })();
+</script>
+
+</body>
+</html>
