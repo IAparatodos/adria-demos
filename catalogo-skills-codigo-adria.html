@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo de skills · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Catálogo de skills · Código AdrIA">
+<meta property="og:description" content="Las 91 rutinas que el sistema ejecuta solo: qué hace cada una y cuándo se usa.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/catalogo-skills-codigo-adria.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Catálogo de skills · Código AdrIA">
+<meta name="twitter:description" content="Las 91 rutinas que el sistema ejecuta solo: qué hace cada una y cuándo se usa.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta name="description" content="El catálogo completo de skills del sistema operativo agéntico de Código AdrIA: 91 rutinas repartidas en doce familias, con la explicación de qué hace cada una, cuándo se dispara y con qué comando se llama.">
+<link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+<meta name="theme-color" content="#102e35">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181a; --ink-soft:#3a4448; --ink-mute:#6d797e;
+    --canvas:#ffffff; --parchment:#f4f7f7;
+    --tile-dark:#16242a; --hairline:#e2e9e9;
+    --brand:#4dd2d0; --brand-deep:#0e9c99; --brand-slate:#3f6f7b; --deep:#102e35;
+    --max:1120px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;background:var(--canvas);color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    line-height:1.55;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  a{color:var(--brand-deep)}
+
+  .brandbar{background:var(--deep);padding:14px 0}
+  .brandbar .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .brandbar img{height:30px;display:block}
+  .brandbar .serie{color:var(--brand);font-size:13px;font-weight:600;letter-spacing:.02em}
+
+  .hero{background:var(--deep);color:#fff;padding:20px 0 56px}
+  .hero .eyebrow{color:var(--brand);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
+  .hero h1{font-size:clamp(30px,5vw,50px);line-height:1.12;margin:0 0 16px;font-weight:600;letter-spacing:-.025em;max-width:18ch}
+  .hero p.lead{font-size:clamp(16px,2vw,19px);color:#c6d6d9;max-width:62ch;margin:0;font-weight:300}
+  .stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+  .stat{background:rgba(255,255,255,.07);border:1px solid rgba(77,210,208,.25);border-radius:12px;padding:12px 18px;font-size:13px;color:#c6d6d9}
+  .stat b{display:block;font-size:26px;color:var(--brand);font-weight:600;line-height:1.1}
+
+  .notice{background:var(--parchment);border-bottom:1px solid var(--hairline);padding:22px 0}
+  .notice .wrap{display:flex;gap:14px;align-items:flex-start;max-width:900px}
+  .notice .mark{flex:0 0 26px;height:26px;border-radius:50%;background:var(--brand-deep);color:#fff;
+    display:grid;place-items:center;font-weight:700;font-size:15px}
+  .notice p{margin:0;font-size:15px;color:var(--ink-soft)}
+
+  .toolbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--hairline);padding:14px 0}
+  .toolbar .wrap{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  #q{flex:1;min-width:230px;padding:11px 16px;border:1px solid var(--hairline);border-radius:9999px;
+    font-family:inherit;font-size:15px;color:var(--ink);background:var(--parchment)}
+  #q:focus{outline:2px solid var(--brand);border-color:transparent;background:#fff}
+  .fbtn{padding:9px 16px;border:1px solid var(--hairline);background:#fff;border-radius:9999px;
+    font-family:inherit;font-size:14px;color:var(--ink-soft);cursor:pointer;transition:.15s}
+  .fbtn:hover{border-color:var(--brand)}
+  .fbtn.on{background:var(--deep);color:#fff;border-color:var(--deep)}
+
+  main{padding:10px 0 60px}
+  h2{font-size:clamp(21px,3vw,27px);margin:46px 0 4px;font-weight:600;letter-spacing:-.02em;
+    display:flex;align-items:baseline;gap:12px}
+  h2 .count{font-size:13px;color:var(--ink-mute);font-weight:400}
+  .famline{height:3px;width:52px;background:var(--brand);border-radius:2px;margin-bottom:20px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+  .card{background:#fff;border:1px solid var(--hairline);border-radius:18px;padding:18px 20px;
+    transition:.18s;display:flex;flex-direction:column}
+  .card:hover{border-color:var(--brand);box-shadow:0 3px 30px rgba(16,28,33,.09);transform:translateY(-1px)}
+  .card .top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:9px}
+  .card .name{font-size:15px;font-weight:600;letter-spacing:-.01em}
+  .badge{font-size:10.5px;padding:3px 9px;border-radius:9999px;font-weight:600;letter-spacing:.02em}
+  .b-core{background:#e0f7f6;color:#0b6e6c}
+  .b-lib{background:#eee9fb;color:#5f3dc4}
+  .b-glo{background:#e9eff1;color:var(--brand-slate)}
+  .chip{font-size:12px;background:var(--deep);color:var(--brand);padding:3px 10px;border-radius:9999px;font-weight:600}
+  .card p{margin:0;font-size:14.5px;color:var(--ink-soft);font-weight:300}
+  .card .install{margin-top:12px;padding-top:11px;border-top:1px solid var(--hairline);
+    font-size:12px;color:var(--ink-mute)}
+  .card .install code{background:var(--parchment);padding:2px 7px;border-radius:6px;font-size:11.5px;color:var(--brand-slate)}
+  .nores{display:none;text-align:center;color:var(--ink-mute);padding:50px 0;font-size:16px}
+
+  .cmdsec{background:var(--parchment);border-top:1px solid var(--hairline);padding:52px 0}
+  .cmdsec h2{margin-top:0}
+  .cmdgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:9px}
+  .cmdgrid code{background:#fff;border:1px solid var(--hairline);color:var(--brand-slate);
+    padding:10px 12px;border-radius:12px;font-size:13.5px;font-weight:600;text-align:center;display:block}
+
+  .closing{background:var(--deep);color:#fff;padding:54px 0}
+  .closing .wrap{max-width:780px}
+  .closing h2{color:#fff;margin:0 0 14px}
+  .closing p{color:#c6d6d9;font-size:16px;font-weight:300;margin:0 0 12px}
+  .closing b{color:var(--brand);font-weight:600}
+
+  @media(max-width:600px){
+    .grid{grid-template-columns:1fr}
+    .stat{flex:1;min-width:calc(50% - 5px)}
+  }
+</style>
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="wrap">
+    <a href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"></a>
+    <span class="serie">El sistema por dentro</span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Catálogo · 14 de septiembre de 2026</p>
+    <h1>Las 91 cosas que el sistema hace solo</h1>
+    <p class="lead">Una skill es una rutina que el asistente ya se sabe: se le pide en castellano y
+    la ejecuta entera, con sus compuertas y sus comprobaciones. No hay que recordar ningún comando.
+    Esto es el inventario completo, ordenado por para qué sirve cada una.</p>
+    <div class="stats">
+      <div class="stat"><b>91</b>skills distintas</div>
+      <div class="stat"><b>49</b>instaladas</div>
+      <div class="stat"><b>15</b>solo en biblioteca</div>
+      <div class="stat"><b>27</b>globales</div>
+      <div class="stat"><b>27</b>comandos</div>
+    </div>
+  </div>
+</section>
+
+<div class="notice">
+  <div class="wrap">
+    <div class="mark">i</div>
+    <p><b>Las skills no están todas cargadas a la vez.</b> Cada una ocupa contexto, así que el
+    sistema solo levanta la que hace falta cuando la petición encaja con ella. Por eso importa
+    saber qué hay: lo que no se sabe que existe, se acaba haciendo a mano.</p>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="wrap">
+    <input id="q" placeholder="Buscar: reel, factura, SEO, cliente, vídeo…" autocomplete="off">
+    <button class="fbtn on" data-f="all">Todas</button>
+    <button class="fbtn" data-f="core">Instaladas</button>
+    <button class="fbtn" data-f="lib">Biblioteca</button>
+    <button class="fbtn" data-f="global">Globales</button>
+    <button class="fbtn" data-f="cmd">Con comando</button>
+  </div>
+</div>
+
+<main class="wrap">
+  <div id="out"></div>
+  <div class="nores" id="nores">Nada con ese nombre. Prueba con otra palabra.</div>
+</main>
+
+<section class="cmdsec">
+  <div class="wrap">
+    <h2>Comandos rápidos <span class="count">27</span></h2>
+    <div class="famline"></div>
+    <p style="margin:0 0 20px;color:var(--ink-soft);font-weight:300;max-width:64ch">Se escriben tal
+    cual. Unos lanzan una skill y otros son del propio sistema.</p>
+    <div class="cmdgrid"><code>/instala</code><code>/install</code><code>/install-status</code><code>/start-here</code><code>/wrap-up</code><code>/doctor</code><code>/actualiza</code><code>/restaura</code><code>/backup</code><code>/skills</code><code>/add-client</code><code>/install-skill</code><code>/install-mcp</code><code>/aprende</code><code>/deep-dive</code><code>/recuerda</code><code>/loops</code><code>/evalua-loop</code><code>/interroga</code><code>/meet</code><code>/publica</code><code>/whatsapp</code><code>/reel</code><code>/video</code><code>/ficha-paper</code><code>/cerebro</code><code>/smp-hoy-y-ayer</code></div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>Cómo crece esto</h2>
+    <p>Ninguna de estas skills nació de golpe. Todas salen del mismo sitio: una tarea que se ha
+    hecho <b>tres veces a mano</b> y a la cuarta se convierte en sistema. Se diseña una vez, se
+    ejecuta muchas, y cada pasada deja aprendido lo que falló en la anterior.</p>
+    <p>Por eso el catálogo se queda viejo solo. La lista de verdad está en el sistema de archivos,
+    no en este documento.</p>
+  </div>
+</section>
+
+<!--
+  FOOTER DE MARCA — OBLIGATORIO en todo HTML de Código AdrIA que se comparta en público.
+  Pégalo justo antes de </body>. Autocontenido: CSS propio + SVG en línea, sin dependencias.
+  Regla en CLAUDE.md raíz: "HTML público — marca y footer obligatorios".
+
+  Estructura (patrón Stripe: banda de cierre + columnas + fila legal):
+    1. Banda de cierre con UNA sola llamada a la acción rellena (la comunidad).
+    2. Tres columnas de enlaces: empezar / seguir / la casa.
+    3. Fila legal con logo enlazado + copyright.
+
+  Enlaces oficiales (verificados 2-ago-2026):
+  - Comunidad Telegram (alta): https://forms.gle/LQUSEfZZ9m8R5e8f6
+  - Curso:     https://www.codigoadria.com/curso-automatizaciones/
+  - Academia:  https://www.codigoadria.com/academia/
+  - YouTube:   https://www.youtube.com/@codigoadria?sub_confirmation=1
+  - LinkedIn:  https://www.linkedin.com/in/ricardohoyosperez/
+  - Instagram: https://www.instagram.com/ricardohoyos1/  ← el PERSONAL (decisión de Ricardo)
+
+  Adapta SOLO el texto de .ca-cta-sub al contenido de la página. El resto no se toca.
+  El footer usa #07181d, distinto del bloque editorial de cierre (#102e35), para que ambos
+  se lean como dos bandas separadas. En la fila legal se muestra solo el logo: no añadir
+  texto «Código AdrIA» junto a él, porque ya forma parte del propio logotipo.
+  En la CABECERA de la página, el logo SIEMPRE enlazado a https://www.codigoadria.com.
+
+  ⚠️ Si la página tiene bloques <pre> con ejemplos de código, escapa las etiquetas
+  (&lt;style&gt;, &lt;script&gt;): una etiqueta cruda se interpreta de verdad, se traga
+  el resto del documento y revienta este footer.
+-->
+<style>
+  .ca-foot{
+    background:#07181d;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Si esta receta te ha servido, en la comunidad compartimos muchas más:
+          flujos que funcionan, lo que no funciona, sin postureo.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+
+<script>
+const DATA = [{"n": "adrihosan-alta-producto", "c": "core", "f": "Adrihosan", "d": "Da de alta o actualiza productos en la tienda por MCP de WooCommerce. Dos perfiles: cerámica (venta por m² cobrada por caja) y el resto. Se encarga de precios, atributos y categorías sin que toques el panel."}, {"n": "adrihosan-home-oferta", "c": "core", "f": "Adrihosan", "d": "Cambia las tres ofertas de «Oportunidades reales del mes» de la home. Le dices qué producto entra y qué sale, y lo deja publicado."}, {"n": "adrihosan-seo-categoria", "c": "core", "f": "Adrihosan", "d": "Aplica el paquete SEO completo a una categoría: metas de Rank Math, descripción HTML y FAQs. Es el cierre estándar de cualquier categoría que se toca."}, {"n": "adrihosan-silo-categoria", "c": "core", "f": "Adrihosan", "d": "El UX y el silo completo de una categoría, en tres fases con tu OK entre cada una: primero el informe (GSC, SERP, Ads a 12 meses, Metricool, ventas), luego los tres archivos del tema con deploy por git push a producción, y al final el SEO de la ficha."}, {"n": "reel-edita-adrihosan", "c": "core", "f": "Adrihosan", "d": "Convierte un vídeo bruto vertical en un reel con el estilo de Adrihosan: corta lo que sobra, mete rótulos y lo deja con la identidad de la tienda."}, {"n": "revision-leads", "c": "core", "f": "Adrihosan", "d": "El repaso de los viernes al embudo «Leds web» de Pipedrive. Saca los vencidos, lee su hilo de correo, redacta uno a uno y te lo deja en un HTML para que apruebes antes de que salga nada."}, {"n": "automation-n8n-builder", "c": "lib", "f": "Automatización", "d": "Crea, valida y despliega workflows de n8n desde aquí, por MCP. Para cuando el flujo hay que montarlo de verdad, no dibujarlo."}, {"n": "automation-n8n-to-claude", "c": "lib", "f": "Automatización", "d": "Migra workflows de n8n o Make al ecosistema de Claude Code: analiza el JSON, mapea nodos y propone cómo hacerlo sin la plataforma."}, {"n": "boluda-leccion-texto", "c": "core", "f": "Boluda", "d": "Escribe el texto de la página de una lección de boluda.com desde la transcripción: introducción en futuro, conclusión en pasado, ejercicio práctico y el cierre estándar de la plataforma."}, {"n": "codigoadria-clase-publish", "c": "core", "f": "Código AdrIA", "d": "Publica una clase del curso de punta a punta: transcripción, post SEO en la web, vídeo en Vimeo restringido por nivel, lección en Tutor LMS y los HTML de difusión. Todo pasa por el humanizer antes de salir."}, {"n": "codigoadria-clase-slides", "c": "core", "f": "Código AdrIA", "d": "Genera la presentación que ven los alumnos durante el vídeo de una clase. Es lo que grabas en pantalla, no el material de después."}, {"n": "codigoadria-ficha-paper", "c": "core", "f": "Código AdrIA", "cmd": "/ficha-paper", "d": "Convierte un paper científico en una ficha visual de una página que se entiende en tres minutos, con marca y URL pública. Regla dura: cada cifra se verifica contra su tabla antes de maquetar nada."}, {"n": "codigoadria-newsletter-voz", "c": "core", "f": "Código AdrIA", "d": "Produce la newsletter desde una nota de voz tuya. Tú hablas cinco minutos y ella escribe, maqueta y deja el envío preparado."}, {"n": "demos", "c": "global", "f": "Código AdrIA", "cmd": "/demos", "d": "La fábrica de demos para prospectos. Desde la web del cliente potencial construye una demo funcional con SU marca, la despliega, lo registra en Pipedrive, graba el vídeo de la propuesta y deja el email en borrador."}, {"n": "arnes", "c": "lib", "f": "Desarrollo", "d": "Arranca proyectos de software paso a paso para quien no es técnico. Concepto de Fernando Montero, opt-in."}, {"n": "tool-quality-gate", "c": "lib", "f": "Desarrollo", "d": "Validación antes de desplegar una web: detecta el stack, monta los tests que falten y ejecuta el build."}, {"n": "tool-seguridad-ia", "c": "lib", "f": "Desarrollo", "d": "Manual de seguridad para desarrollar con IA: prompts preventivos, checklist antes de desplegar y qué hacer si algo se filtra."}, {"n": "tool-web-security-audit", "c": "lib", "f": "Desarrollo", "d": "Auditoría de seguridad tipo caja negra sobre webs propias o con permiso explícito."}, {"n": "cognito", "c": "lib", "f": "Estrategia", "d": "El Sistema Operativo de Pensamiento de Luis Pitik: siete modos cognitivos (divergente, verificador, abogado del diablo…) orquestados para pensar un problema en serio."}, {"n": "lead-research-brief", "c": "lib", "f": "Estrategia", "d": "Investiga un lead B2B, mapea cómo trabaja hoy y genera el backlog de una app a medida. Entrega resumen, HTML y Word, y opcionalmente una demo funcional con su marca."}, {"n": "metodo-ias", "c": "lib", "f": "Estrategia", "d": "Método I.A.S. (Intención · Acción · Síntesis) para trabajar con IA agéntica sin acabar frito. Tiene modo diario y modo proyecto."}, {"n": "seis-sombreros", "c": "core", "f": "Estrategia", "d": "Análisis por los Seis Sombreros de De Bono con aislamiento entre sombreros, para que uno no contamine al siguiente."}, {"n": "strategy-investigacion-profunda", "c": "lib", "f": "Estrategia", "d": "Informes de investigación profunda con triangulación de fuentes y puntuación de credibilidad. La hermana mayor de la investigación ligera."}, {"n": "strategy-stack-recommender", "c": "lib", "f": "Estrategia", "d": "Te dice con qué construir un proyecto —lenguaje, framework, base de datos, hosting— y por qué encaja cada pieza."}, {"n": "strategy-web-research", "c": "core", "f": "Estrategia", "d": "Investigación ligera de un tema con tres a cinco fuentes y síntesis citada. Para comprobar algo rápido sin montar un informe."}, {"n": "archify", "c": "global", "f": "Herramientas", "d": "Diagramas de arquitectura, flujos y ciclos de vida como HTML autónomo con exportación a PNG o SVG. Traga Mermaid pegado y lo redibuja bonito."}, {"n": "design-references", "c": "global", "f": "Herramientas", "d": "Aplica principios de diseño de 70 referencias top (Apple, Stripe, Linear, Vercel…) cuando lo que se construye tiene que quedar bien de verdad. Se lee ANTES de escribir la UI."}, {"n": "tool-firecrawl-scraper", "c": "core", "f": "Herramientas", "d": "Saca el contenido de páginas web que bloquean bots. La usan por dentro las de marca y posicionamiento."}, {"n": "tool-humanizer", "c": "core", "f": "Herramientas", "d": "Detecta y quita los tics de escritura de IA. Devuelve nota de 0 a 10 y el texto reescrito. Es la compuerta obligatoria: nada publicable sale por debajo de 7."}, {"n": "tool-meet-summary", "c": "core", "f": "Herramientas", "cmd": "/meet", "d": "Resumen HTML interactivo de una reunión o clase de Meet desde su transcripción: temas, timeline, recursos mencionados y los textos de difusión."}, {"n": "tool-notebooklm", "c": "core", "f": "Herramientas", "cmd": "/notebooklm", "d": "Maneja Gemini Notebook desde la terminal: meter fuentes, preguntar al cuaderno, generar podcast, informe o mapa mental y descargarlo. No es oficial: no la pongas en la ruta crítica de un cliente."}, {"n": "tool-output-verifier", "c": "core", "f": "Herramientas", "d": "Control de calidad antes de entregar algo a un cliente: cuatro comprobaciones (humanizer, voz de marca, longitud y formato)."}, {"n": "tool-transcribe-social", "c": "lib", "f": "Herramientas", "d": "Baja el audio de un reel, un TikTok, un Short o cualquier URL soportada y lo transcribe."}, {"n": "tool-url-publica", "c": "core", "f": "Herramientas", "cmd": "/publica", "d": "Convierte un HTML en una URL pública que le puedes pasar a un cliente, subiéndolo a GitHub Pages. Las URLs de artifacts de claude.ai no le funcionan a un cliente; estas sí."}, {"n": "tool-visual-explainer", "c": "core", "f": "Herramientas", "d": "Páginas HTML autocontenidas que explican visualmente un sistema, un plan o unos datos. Para cuando un texto no basta."}, {"n": "tool-web-legal-audit", "c": "lib", "f": "Herramientas", "d": "Audita una web para detectar incumplimientos legales: RGPD, LSSI-CE, cookies según la guía de la AEPD y accesibilidad."}, {"n": "tool-whatsapp-ingest", "c": "core", "f": "Herramientas", "cmd": "/whatsapp", "d": "Lee el bridge local de WhatsApp y vuelca lo relevante (decisiones, encargos, fechas) al log del cliente y a su negocio de Pipedrive. Sin copiar y pegar nada."}, {"n": "tool-zoom-summary", "c": "lib", "f": "Herramientas", "d": "Resumen HTML de una reunión de Zoom: baja la transcripción y el chat por API e identifica quién dijo qué."}, {"n": "adria-rescate-infra", "c": "core", "f": "Infraestructura", "d": "El runbook de cuando Adria no responde: OpenClaw, MCP, túneles y la app de voz del PC. Diagnostica primero por síntoma y arregla después."}, {"n": "forja-consultor", "c": "global", "f": "Marketing", "d": "Meta-skill que te monta tu propia fábrica de consultores o calculadoras con IA para captar leads, desplegada en tu cuenta y con tus claves."}, {"n": "marketing-blog-geo", "c": "core", "f": "Marketing", "d": "Pasa un vídeo o un tema a post de blog optimizado para que te citen las IA: bloque «En corto», vídeo embebido, enlazado interno, FAQ con schema y Rank Math relleno. Lo deja en borrador."}, {"n": "marketing-brand-voice", "c": "core", "f": "Marketing", "d": "Construye el perfil de voz con tres registros (formal, divulgativo y cercano) a partir de textos y transcripciones reales tuyas, no de suposiciones."}, {"n": "marketing-content-repurposing", "c": "core", "f": "Marketing", "d": "De una pieza larga (vídeo, podcast, transcripción, artículo) saca entre cinco y ocho piezas para distintas redes."}, {"n": "marketing-copywriting", "c": "core", "f": "Marketing", "d": "Escribe copy para una plataforma concreta (LinkedIn, X, email, landing, anuncio) usando tu voz de marca ya definida."}, {"n": "marketing-email-sequence", "c": "core", "f": "Marketing", "d": "Monta secuencias de email y automatizaciones de ciclo de vida: bienvenida, carrito, reactivación."}, {"n": "marketing-icp", "c": "core", "f": "Marketing", "d": "Define a quién le vendes con detalle: qué le duele, con qué palabras lo dice, qué le hace comprar y, sobre todo, quién NO es tu cliente."}, {"n": "marketing-meta-ads-analyzer", "c": "lib", "f": "Marketing", "d": "Diagnostica campañas de Meta Ads desde los datos exportados o capturas del Ads Manager: qué está tirando el dinero y por qué."}, {"n": "marketing-positioning", "c": "core", "f": "Marketing", "d": "Afina tu posicionamiento: analiza competidores, encuentra el hueco y te deja la frase con la que te presentas."}, {"n": "smp-el-hoy-y-el-ayer", "c": "core", "f": "Podcast", "cmd": "/smp-hoy-y-ayer", "d": "Un episodio entero de la serie «El hoy y el ayer» de socialmediapodcast.es: guion espejo, cortes reales, avatar de HeyGen, montaje con B-roll, auditoría y publicación."}, {"n": "automation-loop-engine", "c": "core", "f": "Sistema", "cmd": "/loops", "d": "Convierte trabajo repetitivo en sistema: se diseña una vez y se ejecuta muchas, con verificación y compuertas humanas. Además te avisa sola cuando detecta que algo se está convirtiendo en rutina."}, {"n": "decisions-log", "c": "core", "f": "Sistema", "d": "El diario de decisiones importantes, en formato fijo y sin reescribir lo anterior: fecha, decisión y por qué."}, {"n": "find-skills", "c": "core", "f": "Sistema", "d": "Cuando preguntas «¿cómo hago X?», busca si ya hay una skill que lo hace antes de ponerse a improvisar."}, {"n": "health-check", "c": "core", "f": "Sistema", "cmd": "/doctor", "d": "Diagnóstico del OS con validación de verdad: no mira si los archivos existen, mira si sirven. Devuelve semáforo y acciones concretas."}, {"n": "meta-deep-dive", "c": "core", "f": "Sistema", "cmd": "/deep-dive", "d": "La segunda fase del onboarding: entrevista larga para que el sistema te conozca de verdad."}, {"n": "meta-interrogatorio", "c": "core", "f": "Sistema", "cmd": "/interroga", "d": "Te interroga a preguntas antes de construir nada: una cada vez, con respuesta recomendada, recorriendo el árbol de decisiones. Al cerrar vuelca lo decidido al brief o al registro de decisiones."}, {"n": "meta-onboarding-wizard", "c": "core", "f": "Sistema", "d": "El onboarding de un operador que instala el OS por primera vez. Es entrevista, no formulario."}, {"n": "meta-skill-creator", "c": "core", "f": "Sistema", "d": "Crea skills nuevas siguiendo el patrón de la casa. Es lo que se usa cuando algo se ha hecho tres veces a mano."}, {"n": "meta-start-here", "c": "core", "f": "Sistema", "cmd": "/start-here", "d": "El ritual de arranque de sesión: carga el contexto, te recuerda qué dejaste abierto y propone por dónde seguir."}, {"n": "meta-wrap-up", "c": "core", "f": "Sistema", "cmd": "/wrap-up", "d": "El cierre del día: resumen de lo hecho, lo que queda pendiente, propuesta para mañana y commit si lo apruebas."}, {"n": "recuerda", "c": "core", "f": "Sistema", "cmd": "/recuerda", "d": "Busca en el histórico y responde citando archivo y fecha. Si no lo encuentra, lo dice en vez de inventárselo."}, {"n": "sinapsis-instincts", "c": "global", "f": "Sistema", "d": "Los patrones aprendidos que Sinapsis inyecta solo cuando aplican, sin que tengas que recordárselos."}, {"n": "sinapsis-learning", "c": "global", "f": "Sistema", "d": "El motor que convierte lo que pasa en las sesiones en instincts nuevos."}, {"n": "skill-router", "c": "global", "f": "Sistema", "d": "El lanzador de Sinapsis: menú de proyectos y skills para elegir por dónde entrar."}, {"n": "welcome-quick-win", "c": "core", "f": "Sistema", "d": "El primer entregable en cinco minutos tras instalar, para que se vea que aquello funciona."}, {"n": "brag", "c": "core", "f": "Vídeo", "d": "Convierte la web de un proyecto en un vídeo corto de lanzamiento. Viene del pack Hyperframes."}, {"n": "embedded-captions", "c": "global", "f": "Vídeo", "d": "Pone subtítulos a un vídeo de cabeza parlante, con un catálogo de 32 identidades visuales para elegir."}, {"n": "faceless-explainer", "c": "global", "f": "Vídeo", "d": "Convierte un texto, unas notas o un tema en un vídeo explicativo sin cara, de hasta tres minutos."}, {"n": "forja-reel", "c": "core", "f": "Vídeo", "d": "Meta-skill: te entrevista y te construye TU editor de reels a medida, en vez de darte uno genérico."}, {"n": "general-video", "c": "global", "f": "Vídeo", "d": "El comodín de Hyperframes para piezas largas o de varias escenas que no encajan en ningún workflow concreto."}, {"n": "hyperframes", "c": "global", "f": "Vídeo", "d": "El motor de vídeo generativo por HTML. Es la puerta de entrada: cualquier petición de animación o motion graphic pasa por aquí antes de elegir workflow."}, {"n": "hyperframes-animation", "c": "global", "f": "Vídeo", "d": "Todo el saber de animación de Hyperframes: reglas de movimiento, escenas por fases y transiciones."}, {"n": "hyperframes-cli", "c": "global", "f": "Vídeo", "d": "El ciclo de trabajo por terminal de Hyperframes: init, add, capture, lint, validate, render."}, {"n": "hyperframes-core", "c": "global", "f": "Vídeo", "d": "El contrato de composición de Hyperframes: estructura y atributos de tiempo. Es la fontanería, no se usa sola."}, {"n": "hyperframes-creative", "c": "global", "f": "Vídeo", "d": "La dirección creativa que no es animación: paleta, tipografía y especificación de diseño de la pieza."}, {"n": "hyperframes-media", "c": "global", "f": "Vídeo", "d": "Audio y material para las composiciones: locución multi-proveedor, música y efectos por un único motor."}, {"n": "hyperframes-registry", "c": "global", "f": "Vídeo", "d": "Instala y conecta bloques y componentes ya hechos dentro de una composición."}, {"n": "marketing-ai-presenter-lipsync", "c": "core", "f": "Vídeo", "d": "Vídeos con presentador generado, varias escenas y voz clonada. Bloquea una locución aprobada antes de sincronizar labios, para no repetir el render veinte veces."}, {"n": "marketing-reel-studio", "c": "core", "f": "Vídeo", "cmd": "/reel", "d": "Lo mismo pero en vertical 9:16 para Instagram, TikTok y Shorts. Cuatro agentes en cadena con compuertas tuyas: revisor del bruto, recursos, montador y QA final."}, {"n": "marketing-video-publish", "c": "core", "f": "Vídeo", "d": "El paquete completo de publicación de un vídeo de YouTube: máster limpio, transcripción local, guía de edición con timecodes, overlays de marca, miniatura desde frames reales, título validado en VidIQ, descripción, tags y los copies de todas las redes."}, {"n": "marketing-video-studio", "c": "core", "f": "Vídeo", "cmd": "/video", "d": "El estudio de vídeo horizontal 16:9. Sin material te escribe el guion; con el bruto te lo edita: corta silencios y fallos, mete pantalla y B-roll, pone rótulos y normaliza. Al cerrar encadena con la de publicación."}, {"n": "media-use", "c": "global", "f": "Vídeo", "d": "El resolvedor de material: música, efectos, imágenes o iconos acaban siendo un archivo local congelado y registrado, para que un montaje no dependa de una URL que caduca."}, {"n": "motion-graphics", "c": "global", "f": "Vídeo", "d": "Piezas cortas donde el movimiento ES el mensaje: tipografía cinética, cifras que se animan, sellos."}, {"n": "music-to-video", "c": "global", "f": "Vídeo", "d": "Vídeo sincronizado al ritmo a partir de una pista de música."}, {"n": "pr-to-video", "c": "global", "f": "Vídeo", "d": "Convierte una pull request de GitHub en vídeo. Para enseñar qué ha cambiado sin leer código."}, {"n": "product-launch-video", "c": "global", "f": "Vídeo", "d": "Vídeo de lanzamiento de producto desde una URL, un guion pegado o un brief."}, {"n": "reel-avatar-heygen", "c": "core", "f": "Vídeo", "cmd": "/reel-avatar", "d": "Para cuando no te quieres grabar. Pantalla partida con tu avatar de HeyGen abajo (tu cara real y tu voz clonada) y la capa gráfica arriba. Tiene modo serie para montar varios de golpe, con auditoría independiente obligatoria."}, {"n": "remotion-to-hyperframes", "c": "global", "f": "Vídeo", "d": "Porta una composición de Remotion (React) a Hyperframes. Solo cuando lo pides expresamente."}, {"n": "slideshow", "c": "global", "f": "Vídeo", "d": "Presentaciones y pitch decks como composición de Hyperframes, con diapositivas y fragmentos."}, {"n": "talking-head-recut", "c": "global", "f": "Vídeo", "d": "Coge un vídeo tuyo hablando a cámara y le superpone tarjetas gráficas temporizadas encima."}, {"n": "website-to-video", "c": "global", "f": "Vídeo", "d": "Captura una web y la convierte en vídeo: recorrido del sitio o clip para redes con su propio material visual."}, {"n": "youtube", "c": "global", "f": "Vídeo", "d": "La navaja suiza de YouTube: auditoría de canal, SEO de vídeo, guiones con retención, ganchos, briefs de miniatura, calendario, Shorts y lectura de analíticas."}];
+const LBL = {core:['Instalada','b-core'], lib:['Biblioteca','b-lib'], global:['Global','b-glo']};
+let filt='all', q='';
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function render(){
+  const fams={}; let total=0;
+  DATA.forEach(d=>{
+    if(filt==='cmd'){ if(!d.cmd) return; }
+    else if(filt!=='all' && d.c!==filt) return;
+    if(q){
+      const h=(d.n+' '+d.d+' '+d.f+' '+(d.cmd||'')).toLowerCase();
+      if(!h.includes(q)) return;
+    }
+    (fams[d.f]=fams[d.f]||[]).push(d); total++;
+  });
+  document.getElementById('out').innerHTML = Object.keys(fams).sort().map(f=>{
+    const cards=fams[f].map(d=>`
+      <article class="card">
+        <div class="top">
+          <span class="name">${esc(d.n)}</span>
+          <span class="badge ${LBL[d.c][1]}">${LBL[d.c][0]}</span>
+          ${d.cmd?`<span class="chip">${esc(d.cmd)}</span>`:''}
+        </div>
+        <p>${esc(d.d)}</p>
+        ${d.c==='lib'?`<div class="install">Se instala con <code>/skills</code></div>`:''}
+      </article>`).join('');
+    return `<h2>${esc(f)} <span class="count">${fams[f].length}</span></h2><div class="famline"></div><div class="grid">${cards}</div>`;
+  }).join('');
+  document.getElementById('nores').style.display = total? 'none':'block';
+}
+document.getElementById('q').addEventListener('input',e=>{ q=e.target.value.toLowerCase().trim(); render(); });
+document.querySelectorAll('.fbtn').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); filt=b.dataset.f; render();
+}));
+render();
+</script>
+
+</body>
+</html>
