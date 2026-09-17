@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La explicabilidad no es un requisito universal · Freour et al., Hum Reprod 2026</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="La explicabilidad no es un requisito universal · Código AdrIA">
+<meta property="og:description" content="Exigir explicabilidad a toda IA clinica impone un estandar inconsistente, segun Freour y colaboradores.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/explicabilidad-ia-reproduccion-asistida.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="La explicabilidad no es un requisito universal · Código AdrIA">
+<meta name="twitter:description" content="Exigir explicabilidad a toda IA clinica impone un estandar inconsistente, segun Freour y colaboradores.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta name="description" content="El artículo de opinión de Freour, Anichini, Gaillard y Mouchère en Human Reproduction (2026) sobre la explicabilidad de la IA en reproducción asistida, contado en visual: los tres conceptos que se confunden, dónde se usa ya la IA, los cuatro riesgos de los modelos opacos y el debate sobre dónde se apoya la confianza.">
+<link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+<meta name="theme-color" content="#102e35">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+    --ink:#14181a; --ink-soft:#3a4448; --ink-mute:#6d797e;
+    --canvas:#ffffff; --parchment:#f4f7f7;
+    --tile-dark:#16242a; --tile-darker:#101c21;
+    --hairline:#e2e9e9;
+    --brand:#4dd2d0; --brand-deep:#0e9c99; --brand-slate:#3f6f7b;
+    --serie-a:#0e9c99; --serie-b:#6b5ea8;
+    --serie-a-dark:#4dd2d0; --serie-b-dark:#a99cf0;
+    --radius-card:18px; --radius-pill:9999px;
+    --shadow-object:0 3px 30px rgba(16,28,33,.14);
+    --max:1120px; --max-read:760px;
+  }
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+    margin:0;background:var(--canvas);color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:17px;line-height:1.55;font-weight:400;letter-spacing:-.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+section{padding:88px 24px}
+.wrap{max-width:var(--max);margin:0 auto}
+.read{max-width:var(--max-read);margin:0 auto}
+h1, h2, h3{margin:0;font-weight:600;letter-spacing:-.028em;line-height:1.08}
+h1{font-size:clamp(2.1rem,6vw,3.7rem)}
+h2{font-size:clamp(1.6rem,4vw,2.5rem)}
+h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.3}
+p{margin:0 0 1.15em}
+p:last-child{margin-bottom:0}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-deep);margin:0 0 20px}
+.lead{font-size:clamp(1.1rem,2.4vw,1.42rem);font-weight:300;line-height:1.45;color:var(--ink-soft)}
+/* ---------- barra de marca ---------- */
+  .brandbar{background:var(--tile-dark);padding:18px 24px;border-bottom:1px solid rgba(255,255,255,.08)}
+.brandbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brandbar img{height:34px;width:auto;display:block}
+.brandbar .serie{font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#7c9299}
+/* ---------- portada ---------- */
+  .hero{
+    background:var(--tile-dark);color:#fff;padding:84px 24px;
+    background-image:radial-gradient(120% 90% at 12% 0%,rgba(77,210,208,.16) 0%,transparent 58%);
+  }
+.hero .eyebrow{color:var(--brand)}
+.hero h1{color:#fff;max-width:19ch}
+.hero .original{margin-top:26px;padding-left:18px;border-left:2px solid rgba(77,210,208,.5);font-size:1rem;font-weight:300;color:#c9d6d9;font-style:italic;max-width:56ch}
+.authors{margin-top:34px;font-size:.95rem;color:#9fb0b5;line-height:1.7;max-width:62ch}
+.authors .first{color:#fff;font-weight:600}
+.meta-row{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-pill);padding:8px 16px;font-size:.83rem;color:#dfe9eb;white-space:nowrap;max-width:100%}
+.chip b{color:#fff;font-weight:600}
+.chip a{color:#dfe9eb;text-decoration:none;border-bottom:1px solid rgba(223,233,235,.4)}
+.transparency{
+    margin-top:34px;max-width:62ch;border-left:3px solid rgba(77,210,208,.55);
+    background:rgba(255,255,255,.045);border-radius:0 10px 10px 0;padding:16px 18px;
+    font-size:.88rem;line-height:1.6;color:#c2d1d5
+  }
+.transparency b{display:block;color:var(--brand);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+/* ---------- banda de aviso de formato ---------- */
+  .notice{background:var(--parchment);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:34px 24px}
+.notice .read{display:flex;gap:18px;align-items:flex-start;max-width:900px}
+.notice .mark{flex:none;width:34px;height:34px;border-radius:50%;background:rgba(14,156,153,.12);color:var(--brand-deep);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.95rem}
+.notice p{font-size:.93rem;color:var(--ink-soft);margin:0}
+.notice b{color:var(--ink)}
+/* ---------- destacado numérico ---------- */
+  .headline-figure{background:var(--parchment)}
+.figure-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin-top:44px}
+.stat{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);padding:26px 24px}
+.stat .num{font-size:clamp(1.6rem,3.6vw,2.2rem);font-weight:600;letter-spacing:-.04em;line-height:1.1;color:var(--ink)}
+.stat .num small{font-size:.5em;font-weight:500;letter-spacing:-.01em;color:var(--ink-mute);margin-left:4px}
+.stat .label{margin-top:12px;font-size:.92rem;color:var(--ink-soft);line-height:1.4}
+.stat .foot{margin-top:10px;font-size:.78rem;color:var(--ink-mute);line-height:1.5}
+.stat.accent{border-color:rgba(14,156,153,.35);background:linear-gradient(180deg,rgba(14,156,153,.06),transparent 70%)}
+.stat.accent .num{color:var(--brand-deep)}
+table{border-collapse:collapse;width:100%;font-size:.87rem;min-width:560px}
+th, td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hairline)}
+th{font-weight:600;color:var(--ink-soft);font-size:.8rem;letter-spacing:.02em}
+td.num, th.num{text-align:right;font-variant-numeric:tabular-nums}
+/* ---------- pasos del método ---------- */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;margin-top:44px;background:var(--hairline);border-radius:var(--radius-card);overflow:hidden}
+.step{background:var(--canvas);padding:28px 24px}
+.step .n{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--brand-deep);color:#fff;font-size:.85rem;font-weight:600;margin-bottom:16px}
+.step h3{margin-bottom:8px}
+.step p{font-size:.92rem;color:var(--ink-soft);margin:0}
+.step p + p{margin-top:.8em}
+.tint{background:var(--parchment)}
+/* ---------- tile oscuro ---------- */
+  .dark{background:var(--tile-darker);color:#e8eef0}
+.dark h2{color:#fff}
+.dark .eyebrow{color:var(--brand)}
+.dark .lead{color:#b3c3c7}
+.caveats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:44px}
+.caveat{border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-card);padding:26px 24px;background:rgba(255,255,255,.03)}
+.caveat h3{color:#fff;margin-bottom:10px}
+.caveat p{font-size:.92rem;color:#a9bbc0;margin:0}
+.caveat p + p{margin-top:.8em}
+.caveat q{font-style:italic;color:#c6d4d8}
+.quote{margin:56px auto 0;max-width:var(--max-read);padding:30px 0 0;border-top:1px solid rgba(255,255,255,.16)}
+.quote p{font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:300;line-height:1.5;color:#dbe6e8;font-style:italic}
+.quote .orig{font-size:.85rem;color:#8ea3a8;font-style:italic;margin-top:14px;line-height:1.5}
+.quote cite{display:block;margin-top:14px;font-size:.85rem;color:#8ea3a8;font-style:normal}
+/* ---------- cierre ---------- */
+  .closing{background:var(--canvas);text-align:center}
+.closing .cite-block{max-width:var(--max-read);margin:36px auto 0;padding:24px;background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);font-size:.88rem;color:var(--ink-soft);text-align:left;line-height:1.6}
+.closing a{color:var(--brand-deep);text-decoration:none;border-bottom:1px solid rgba(14,156,153,.35)}
+.honesty{background:var(--canvas);border-top:1px solid var(--hairline);padding:40px 24px;text-align:center;font-size:.82rem;color:var(--ink-mute);line-height:1.7}
+.honesty .brand{color:var(--brand-deep);font-weight:600}
+.honesty .read{max-width:640px}
+@media (max-width:640px){section{padding:64px 20px}
+.hero{padding:64px 20px}
+.chip{white-space:normal;line-height:1.35}}
+.wrap, .read{overflow-wrap:break-word}
+@media (prefers-color-scheme:dark){:root{
+      --ink:#eef3f4;--ink-soft:#b9c7cb;--ink-mute:#8b9ca1;
+      --canvas:#0f1719;--parchment:#141f22;--hairline:#25353a;
+      --serie-a:var(--serie-a-dark);--serie-b:var(--serie-b-dark);
+    }
+.stat.accent{background:linear-gradient(180deg,rgba(77,210,208,.08),transparent 70%);border-color:rgba(77,210,208,.3)}
+.stat.accent .num{color:var(--brand)}
+.eyebrow{color:var(--brand)}
+.notice .mark{background:rgba(77,210,208,.14);color:var(--brand)}
+.step .n{background:var(--brand);color:#0f1719}
+.closing a, .honesty .brand{color:var(--brand)}
+.closing a{border-bottom-color:rgba(77,210,208,.4)}}
+.ca-foot{
+    background:#07181d;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+.ca-foot *{box-sizing:border-box}
+.ca-foot a{text-decoration:none}
+.ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+.ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+.ca-cta-copy{max-width:34rem}
+.ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+.ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+.ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+.ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+.ca-btn:hover{background:#6fe0de}
+.ca-btn:active{transform:scale(.98)}
+.ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+.ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+.ca-col ul{margin:0;padding:0;list-style:none}
+.ca-col li{margin-bottom:11px}
+.ca-col li:last-child{margin-bottom:0}
+.ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+.ca-col a:hover{color:#4dd2d0}
+.ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+.ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+.ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+.ca-legal-brand:hover{opacity:.8}
+.ca-legal-brand img{height:32px;width:auto;display:block}
+.ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+@media (max-width:640px){.ca-cta{padding:52px 0 40px}
+.ca-btn{width:100%;text-align:center}}
+</style>
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="wrap">
+    <a href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"></a>
+    <span class="serie">Papers legibles</span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Human Reproduction · 2026 · 41(9) 1466–1469</p>
+    <h1>La explicabilidad no es un requisito universal</h1>
+    <p class="original">«Explainability of artificial intelligence (AI) tools in assisted reproductive technologies (ARTs): promise, clinical reality, and conceptual limits»</p>
+    <p class="authors">
+      <span class="first">Thomas Freour</span>, Giulia Anichini, Maxence Gaillard y Harold Mouchère.<br>
+      CHU de Nantes y Nantes Université (servicio de biología y medicina de la reproducción), INSERM UMR 1064, Cermes3 (CNRS UMR8211, INSERM U988, Université Paris Cité y EHESS), Institut supérieur de philosophie de UCLouvain, y École Centrale Nantes con el CNRS LS2N UMR 6004.
+    </p>
+    <div class="meta-row">
+      <span class="chip"><b>Artículo de opinión</b></span>
+      <span class="chip">Sin datos primarios</span>
+      <span class="chip">DOI <a href="https://doi.org/10.1093/humrep/deag102">10.1093/humrep/deag102</a></span>
+    </div>
+    <div class="transparency">
+      <b>Transparencia</b>
+      T.F. declara ser consultor científico de Vitrolife y Alife. G.A., H.M. y M.G. no declaran conflictos de interés. El trabajo no recibió financiación. Los datos están en el apartado de conflictos del propio artículo.
+    </div>
+  </div>
+</section>
+
+<div class="notice">
+  <div class="read">
+    <div class="mark">Qué es esta pieza</div>
+    <p><b>Es un artículo de opinión, no un estudio.</b> No tiene diseño, ni muestra, ni desenlaces, ni tablas de resultados. En las cuatro páginas hay <b>una sola cifra clínica</b>, la que aparece abajo. Por eso esta ficha no lleva tarjetas de resultados, ni gráfico de comparación entre grupos, ni método en cuatro pasos: el artículo no los tiene y no se inventan. Lo que se recoge es la arquitectura del argumento.</p>
+  </div>
+</div>
+
+<section>
+  <div class="read">
+    <p class="eyebrow">La pregunta</p>
+    <h2>Decidir con modelos que no se pueden interrogar</h2>
+    <p class="lead">La fecundación in vitro consigue entre un 20 y un 40 % de recién nacido vivo por ciclo de media. Los autores llaman a esa cifra «aún perfectible». Los pacientes afrontan mientras tanto una carga emocional y económica.</p>
+    <p>La reproducción humana reúne complejidad biológica, conocimiento mecanístico incompleto y una variabilidad considerable entre individuos. Las decisiones en reproducción asistida son probabilísticas y se toman con incertidumbre parcial.</p>
+    <p>Con ese telón de fondo, la IA se presenta con frecuencia como la vía para estandarizar procedimientos y mejorar la capacidad del clínico de predecir el resultado de las opciones disponibles. La dificultad está en el tipo de modelo que mejor rinde: arquitecturas complejas, como las redes neuronales profundas, difíciles o imposibles de interpretar para un profesional por su cuenta. Entregan puntuaciones, rankings, probabilidades, segmentaciones de embriones y predicciones de tiempos sin mostrar cómo han combinado los datos de entrada.</p>
+    <p>Los autores formulan tres preguntas abiertas: cuánto debe apoyarse el clínico en estas herramientas, qué papel le queda al juicio experto si la IA lo hace todo, y quién responde cuando el resultado no es el esperado. De ahí sale la pregunta del artículo: <b>¿la explicabilidad es un requisito previo para usar IA en reproducción asistida, o su valor depende del contexto?</b></p>
+  </div>
+</section>
+
+<section class="headline-figure">
+  <div class="wrap">
+    <div class="read" style="margin:0 auto 34px">
+      <p class="eyebrow">La única cifra del artículo</p>
+      <h2>El margen que la IA promete estrechar</h2>
+    </div>
+    <div class="figure-grid" style="grid-template-columns:minmax(0,1fr)">
+      <div class="stat accent">
+        <div class="num">20-40 <small>%</small></div>
+        <div class="label">Recién nacido vivo por ciclo de FIV, promedio</div>
+        <div class="foot">Introducción del artículo. Es la horquilla que los autores dan como media, no un resultado medido por ellos: el artículo no genera datos propios.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="read">
+    <p class="eyebrow">Definiciones</p>
+    <h2>Tres conceptos que se confunden</h2>
+    <p class="lead">El artículo separa tres ideas que en el debate suelen ir mezcladas.</p>
+  </div>
+  <div class="wrap">
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h3>Interpretabilidad</h3>
+        <p>Hasta qué punto un humano entiende la lógica interna del modelo.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3>Explicabilidad</h3>
+        <p>Métodos posteriores que aproximan cómo el modelo llegó a una predicción concreta.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3>Reporte transparente</h3>
+        <p>Declarar limitaciones y métricas de rendimiento siguiendo guías estándar como TRIPOD+AI y PROBAST+AI.</p>
+      </div>
+    </div>
+  </div>
+  <div class="read">
+    <p>El artículo considera la frontera entre caja negra y caja blanca en buena medida heurística y pide interpretarla con cautela. Ningún modelo es intrínsecamente explicable ni intrínsecamente inexplicable del todo. El comportamiento de caja negra aparece cuando el modelo supera la capacidad cognitiva de una persona para abarcar la relación entre lo que entra y lo que sale. Una regresión logística con muchas variables e interacciones se vuelve opaca en la práctica. Una red neuronal se puede interrogar en parte con técnicas dedicadas.</p>
+    <p>La consecuencia es que la explicabilidad depende de tres cosas: la complejidad del espacio de predicción, la experiencia de quien usa el modelo y el tiempo disponible para interrogarlo. <b>El mismo sistema puede resultar transparente para un experto que le dedica un análisis detallado y funcionar como caja negra para un clínico que decide en consulta.</b></p>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="read">
+    <p class="eyebrow">El inventario</p>
+    <h2>Dónde se usa ya la IA en reproducción asistida</h2>
+  </div>
+  <div class="wrap">
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h3>Valoración embrionaria</h3>
+        <p>La aplicación más madura. La valoración tradicional se apoya en criterios morfológicos evaluados a ojo en estadios predefinidos, con variabilidad entre observadores y dentro del mismo observador. Los incubadores time-lapse han multiplicado el volumen y el detalle de los datos. Hay modelos entrenados con imágenes estáticas y con vídeo que predicen implantación, euploidía o recién nacido vivo, además de segmentar el embrión, aplicar la clasificación de Gardner de forma automática y predecir tiempos de desarrollo. La mayoría entrega una puntuación sin explicar qué rasgos la sostienen. Cuando esa puntuación discrepa de la valoración visual del embriólogo, al profesional le cuesta reconciliar las dos.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3>Selección de espermatozoides</h3>
+        <p>En ICSI de rutina la selección se hace a mano, por motilidad y morfología al microscopio óptico, criterios que son indicadores limitados de la competencia funcional y están sujetos a variabilidad del observador. Los sistemas CASA con IA automatizan y cuantifican esa evaluación, y mejoran reproducibilidad y volumen de trabajo. La lógica por la que el algoritmo prioriza un espermatozoide concreto sigue siendo opaca. Los autores señalan que eso plantea preguntas sobre el papel de la IA al definir el valor biológico, y sobre la aparición de nuevas normas que rigen la ordenación de entidades vivas.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3>Predicción de resultado y estimulación</h3>
+        <p>Los modelos integran edad, perfiles hormonales e historia de tratamiento para predecir el resultado de la FIV. Se han propuesto para planificar tratamiento individualizado, incluida la personalización de los protocolos de estimulación ovárica. Aquí la recomendación algorítmica puede guiar la dosis de medicación o la cancelación de un ciclo, y con eso la transparencia y la responsabilidad pesan más.</p>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <h3>Aprendizaje continuo</h3>
+        <p>Los modelos que actualizan sus pesos a medida que procesan datos nuevos plantean un problema propio: la explicación de una salida concreta puede cambiar con el tiempo. Eso complica la rendición de cuentas clínica a largo plazo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="read">
+    <p class="eyebrow">Lo que está en juego</p>
+    <h2>Cuatro riesgos de los modelos opacos</h2>
+  </div>
+  <div class="wrap">
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h3>Complica el juicio profesional</h3>
+        <p>Cuando la salida del algoritmo choca con la valoración del experto, al clínico le faltan herramientas para entender de dónde viene el desacuerdo y en qué condiciones toca replantear. El resultado es deferencia acrítica al algoritmo o descarte sistemático de sus recomendaciones. Ninguna de las dos conduce a una buena decisión.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3>Afecta a la práctica colectiva</h3>
+        <p>La reproducción asistida se apoya en estándares visuales e interpretativos compartidos, construidos con formación y experiencia. Dominar la valoración embrionaria pasa por un marco colectivo y un repertorio común de guías. Automatizar la anotación puede reconfigurar la pericia de los profesionales y debilitar su dominio de la evaluación embrionaria. Las puntuaciones sin explicación erosionan esas normas compartidas y dificultan construir un entendimiento común de buena práctica.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3>Agrava el sesgo de automatización</h3>
+        <p>Sobre todo en personal con menos experiencia. En entornos clínicos de presión, las salidas del algoritmo pueden adquirir un estatus «oracular» que desincentiva el escrutinio crítico. En otros campos de la medicina ya se ha descrito cómo los sistemas opacos desplazan la responsabilidad lejos de quien decide.</p>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <h3>Estropea la comunicación con el paciente</h3>
+        <p>El clínico invierte esfuerzo en explicar decisiones y resultados, a menudo con narrativas visuales del desarrollo embrionario. Una puntuación generada por IA, sin contexto interpretable, encaja mal en ese trabajo relacional. Menos todavía en el momento emocionalmente delicado del fracaso del tratamiento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="read">
+    <p class="eyebrow">El debate</p>
+    <h2>Dónde se apoya la confianza</h2>
+    <p class="lead">El artículo enfrenta las dos posiciones y se coloca en una de ellas con matices.</p>
+  </div>
+  <div class="wrap">
+    <div class="steps">
+      <div class="step">
+        <div class="n">A</div>
+        <h3>A favor de exigir explicabilidad</h3>
+        <p>Sus defensores la consideran un prerrequisito para intervenciones clínicamente relevantes y éticamente guiadas. Las decisiones en reproducción asistida tienen implicaciones personales y morales profundas, así que apoyarse en sistemas opacos resulta inaceptable. La explicabilidad sostiene el consentimiento informado, permite detectar sesgos, facilita la aprobación regulatoria y alinea las salidas del modelo con el razonamiento clínico. En esta posición es una exigencia ética, por encima de una característica técnica.</p>
+      </div>
+      <div class="step">
+        <div class="n">B</div>
+        <h3>En contra de darla por requisito</h3>
+        <p>Van Royen y colaboradores sostienen que la explicabilidad puede no entregar explicaciones clínicamente relevantes, y que incluso puede deteriorar la toma de decisiones. Su objeción central es la <b>«ilusión de comprensión»</b>: los gráficos de atribución de rasgos y los mapas de calor se ven claros e intuitivos mientras son inestables, dependientes del modelo y sensibles a perturbaciones menores de los datos. Eso alimenta confianza mal puesta o escepticismo injustificado. Los autores del artículo matizan la etiqueta: esta posición defiende el reporte transparente según guías estándar como TRIPOD y PROBAST.</p>
+      </div>
+      <div class="step">
+        <div class="n">C</div>
+        <h3>El problema de la causalidad</h3>
+        <p>Los modelos de predicción son correlacionales por construcción. Las personas interpretan las explicaciones en clave causal. En reproducción asistida eso puede llevar al clínico a inferir mecanismos biológicos o intervenciones accionables sin validez causal demostrada.</p>
+      </div>
+      <div class="step">
+        <div class="n">D</div>
+        <h3>El estándar inconsistente</h3>
+        <p>Muchas herramientas médicas establecidas se usan con eficacia sin comprensión mecanística completa, y el artículo pone como ejemplo los propios medios de cultivo de FIV. Exigir explicabilidad a la IA impone entonces un estándar inconsistente con el que se aplica a esas otras herramientas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">Los matices que ponen los autores</p>
+      <h2>La letra pequeña</h2>
+      <p class="lead" style="margin-top:26px">Un artículo de opinión no tiene limitaciones de muestra. Lo que tiene son los límites que sus propios autores le ponen a la explicabilidad, incluida la que ellos defienden.</p>
+    </div>
+
+    <div class="caveats">
+      <div class="caveat">
+        <h3>Las explicaciones son locales</h3>
+        <p>En reproducción asistida, donde el análisis de imagen y vídeo suele requerir aprendizaje profundo, las explicaciones se centran en un embrión o un paciente concretos. No ofrecen una comprensión del modelo completo.</p>
+      </div>
+      <div class="caveat">
+        <h3>Se apoyan en simplificaciones</h3>
+        <p>Las técnicas de atribución de rasgos, perturbación de entradas y mapas de atención ayudan a evaluar robustez, coherencia con el conocimiento del dominio y modos de fallo. También descansan en simplificaciones que pueden no reflejar el proceso real de decisión de un modelo complejo.</p>
+      </div>
+      <div class="caveat">
+        <h3>Falta demostrar que mejoran el razonamiento</h3>
+        <p>Los autores lo dejan abierto en sus términos: hasta qué punto estas explicaciones mejoran de verdad el razonamiento clínico, en lugar de ofrecer tranquilidad o racionalizaciones posteriores que se pueden sobreinterpretar, <q>sigue siendo incierto</q>.</p>
+      </div>
+      <div class="caveat">
+        <h3>La explicabilidad puede oscurecer las limitaciones</h3>
+        <p>El artículo admite que en algunos contextos la explicabilidad puede oscurecer las limitaciones de los modelos predictivos antes que aclararlas.</p>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p>«El objetivo último de la IA en reproducción asistida no debería ser simplemente abrir la caja negra, sino garantizar que la IA, explicable o no, se reporte de forma transparente y sirva a una atención reproductiva centrada en el paciente.»</p>
+      <p class="orig">«The ultimate goal of AI in ART should not simply be to open the black box, but to ensure that AI, either explainable or not, is transparently reported and serves patient-centered reproductive care.»</p>
+      <cite>Freour T, Anichini G, Gaillard M, Mouchère H. Human Reproduction, 2026. Conclusión del artículo. La traducción al castellano es nuestra.</cite>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">Para citarlo</p>
+      <h2>La referencia</h2>
+    </div>
+    <div class="cite-block">
+      Freour T, Anichini G, Gaillard M, Mouchère H. Explainability of artificial intelligence (AI) tools in assisted reproductive technologies (ARTs): promise, clinical reality, and conceptual limits. Hum Reprod. 2026;41(9):1466–1469. doi:10.1093/humrep/deag102<br><br>
+      <a href="https://doi.org/10.1093/humrep/deag102">Leer el artículo original</a> · Publicación avanzada: 21 de junio de 2026
+    </div>
+  </div>
+</section>
+
+<div class="honesty">
+  <div class="read">
+    Esta ficha se ha elaborado sobre el artículo original, sin añadir datos ni interpretaciones ajenas al texto.
+    La única cifra del artículo se ha verificado contra él antes de maquetarla, y las cifras de los estudios que el artículo cita se han dejado fuera a propósito: no son suyas.
+    Enlaza al artículo para quien quiera leerlo completo: son cuatro páginas.<br>
+    <span class="brand">Código AdrIA</span> · serie «papers legibles»
+  </div>
+</div>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Estas fichas se hacen con verificación de cifras contra el artículo original.
+          En la comunidad cuento cómo, y qué sale mal cuando no se verifica.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
