@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="20-40 % de recien nacido vivo por ciclo de FIV. Ficha visual de Codigo AdrIA.">
+  <defs>
+    <linearGradient id="fondo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16323a"/>
+      <stop offset="0.55" stop-color="#102e35"/>
+      <stop offset="1" stop-color="#0b1f25"/>
+    </linearGradient>
+    <linearGradient id="cifra" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7ce6e4"/>
+      <stop offset="1" stop-color="#2bb3b1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#fondo)"/>
+
+  <!-- trama sutil de puntos: da textura sin competir con el texto -->
+  <g fill="#4dd2d0" opacity="0.07">
+    <circle cx="1075" cy="118" r="3"/><circle cx="1123" cy="118" r="3"/><circle cx="1171" cy="118" r="3"/>
+    <circle cx="1075" cy="166" r="3"/><circle cx="1123" cy="166" r="3"/><circle cx="1171" cy="166" r="3"/>
+    <circle cx="1075" cy="214" r="3"/><circle cx="1123" cy="214" r="3"/><circle cx="1171" cy="214" r="3"/>
+  </g>
+
+  <!-- barra de acento izquierda -->
+  <rect x="0" y="0" width="10" height="630" fill="#4dd2d0"/>
+
+  <g font-family="Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif">
+
+    <!-- cabecera -->
+    <text x="76" y="104" fill="#4dd2d0" font-size="20" font-weight="600" letter-spacing="4.5">PAPERS LEGIBLES</text>
+    <text x="76" y="140" fill="#8fb3b8" font-size="21" font-weight="400">Human Reproduction · 2026 · artículo de opinión</text>
+
+    <!-- la unica cifra del articulo -->
+    <text x="72" y="356" fill="url(#cifra)" font-size="188" font-weight="700" letter-spacing="-6">20-40
+      <tspan font-size="112" font-weight="600" dx="6">%</tspan>
+    </text>
+    <text x="76" y="410" fill="#e8f0f0" font-size="34" font-weight="500">recién nacido vivo por ciclo de FIV</text>
+    <text x="76" y="452" fill="#8fb3b8" font-size="24" font-weight="400">la única cifra que da el artículo, y no es un resultado suyo</text>
+
+    <!-- pie -->
+    <rect x="76" y="506" width="64" height="3" fill="#4dd2d0"/>
+    <text x="76" y="552" fill="#c9d6d6" font-size="25" font-weight="500">Freour, Anichini, Gaillard y Mouchère</text>
+    <text x="76" y="586" fill="#6f8f95" font-size="21" font-weight="400">CHU de Nantes · doi 10.1093/humrep/deag102</text>
+
+    <text x="1124" y="586" fill="#4dd2d0" font-size="23" font-weight="600" text-anchor="end">Código AdrIA</text>
+  </g>
+</svg>
