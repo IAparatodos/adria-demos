@@ -1,0 +1,608 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a1c21">
+<title>La biblioteca de SEF Lovers · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="La biblioteca de SEF Lovers · Código AdrIA">
+<meta property="og:description" content="81 papers del grupo, ordenados y buscables, con 17 fichas que se leen en 3 minutos.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/biblioteca-sef.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="La biblioteca de SEF Lovers · Código AdrIA">
+<meta name="twitter:description" content="81 papers del grupo, ordenados y buscables, con 17 fichas que se leen en 3 minutos.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>html,body{margin:0;background:#0a1c21}.cad-bib .hall{margin:10px 0 0;border-left:2px solid var(--line2);padding-left:12px}
+.cad-bib .hall summary{cursor:pointer;list-style:none;font-size:.82rem;font-weight:600;color:var(--t);letter-spacing:.01em}
+.cad-bib .hall summary::-webkit-details-marker{display:none}
+.cad-bib .hall summary::before{content:"▸ "}
+.cad-bib .hall[open] summary::before{content:"▾ "}
+.cad-bib .hall p{margin:8px 0 0;font-size:.88rem;line-height:1.6;color:var(--ink2)}
+.cad-bib .hall p b{color:var(--ink)}
+.cad-bib{--t:#4dd2d0;--t2:#6fe0de;--p:#3f6f7b;--canvas:#0a1c21;--s1:#102e35;--s2:#15383f;--line:#1e454e;--line2:#2b5c66;--ink:#eef7f7;--ink2:#a9c6c9;--ink3:#7d9ba1;
+font-family:Poppins,system-ui,-apple-system,sans-serif;background:var(--canvas);color:var(--ink);margin:0;padding:0;line-height:1.5;-webkit-font-smoothing:antialiased}
+.cad-bib *{box-sizing:border-box}.cad-bib a{text-decoration:none;color:inherit}
+.cad-bib .w{max-width:1180px;margin:0 auto;padding:0 22px}
+.cad-bib .hero{padding:60px 0 34px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#0d242a 0%,var(--canvas) 100%)}
+.cad-bib .eyebrow{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--t);margin:0 0 14px}
+.cad-bib h1{font-size:clamp(34px,6.4vw,68px);font-weight:600;line-height:1.03;letter-spacing:-2.2px;margin:0 0 16px}
+.cad-bib h1 em{font-style:normal;color:var(--t)}
+.cad-bib .lead{font-size:clamp(15px,2vw,19px);color:var(--ink2);max-width:38rem;margin:0;font-weight:300}
+.cad-bib .nums{display:flex;gap:44px;flex-wrap:wrap;margin-top:38px}
+.cad-bib .num b{display:block;font-size:40px;font-weight:600;letter-spacing:-1.4px;line-height:1;color:var(--t)}
+.cad-bib .num span{font-size:12.5px;color:var(--ink3);letter-spacing:.04em}
+.cad-bib h2{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);margin:52px 0 18px}
+.cad-bib .dests{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px}
+.cad-bib .dest{background:var(--s1);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:.16s}
+.cad-bib .dest:hover{background:var(--s2);border-color:var(--line2);transform:translateY(-2px)}
+.cad-bib .dest-img{aspect-ratio:1200/630;background:#0d242a center/cover no-repeat;border-bottom:1px solid var(--line)}
+.cad-bib .dest-txt{padding:15px 16px 17px}
+.cad-bib .tag{font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--t)}
+.cad-bib .dest h3{font-size:16.5px;font-weight:500;letter-spacing:-.35px;line-height:1.3;margin:7px 0 6px}
+.cad-bib .dest p{font-size:12.5px;color:var(--ink3);margin:0}
+.cad-bib .barra{position:sticky;top:0;z-index:20;background:rgba(10,28,33,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:14px 0;margin-top:34px}
+.cad-bib input{width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--s1);border:1px solid var(--line);border-radius:10px;padding:12px 14px;outline:none}
+.cad-bib input:focus{border-color:var(--t);box-shadow:0 0 0 3px rgba(77,210,208,.16)}
+.cad-bib input::placeholder{color:var(--ink3)}
+.cad-bib .fs{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.cad-bib .f{font:inherit;font-size:12.5px;font-weight:500;color:var(--ink2);background:var(--s1);border:1px solid var(--line);border-radius:8px;padding:6px 11px;cursor:pointer;display:flex;gap:7px;align-items:center;transition:.14s}
+.cad-bib .f:hover{background:var(--s2);border-color:var(--line2)}
+.cad-bib .f small{color:var(--ink3);font-size:11px}
+.cad-bib .f.on{background:var(--t);border-color:var(--t);color:#08222a;font-weight:600}.cad-bib .f.on small{color:#0a3138}
+.cad-bib .lista{margin-top:20px}
+.cad-bib .p{display:flex;gap:16px;background:var(--s1);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:8px;transition:.14s}
+.cad-bib .p:hover{background:var(--s2);border-color:var(--line2)}
+.cad-bib .p[hidden]{display:none}
+.cad-bib .fecha{flex:0 0 44px;text-align:center;padding-top:2px}
+.cad-bib .fecha b{display:block;font-size:19px;font-weight:600;letter-spacing:-.5px;color:var(--ink)}
+.cad-bib .fecha span{font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em}
+.cad-bib .cuerpo{flex:1;min-width:0}
+.cad-bib .p h3{font-size:15.5px;font-weight:500;letter-spacing:-.3px;line-height:1.35;margin:0 0 3px}
+.cad-bib .meta{font-size:13px;color:var(--ink2);margin:0}
+.cad-bib .quien{font-size:12px;color:var(--ink3);margin:2px 0 9px}
+.cad-bib .acc{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.cad-bib .chip{font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);border:1px solid var(--line2);padding:3px 8px;border-radius:6px}
+.cad-bib .chip.alt{background:var(--p);border-color:var(--p);color:#fff}
+.cad-bib .chip.warn{border-color:#8a5a3c;color:#d99a6c}
+.cad-bib .mini{font-size:12px;font-weight:600;color:#08222a;background:var(--t);padding:4px 10px;border-radius:7px}
+.cad-bib .mini:hover{background:var(--t2)}
+.cad-bib .mini.alt{background:none;color:var(--ink3);border:1px solid var(--line2);font-weight:400}
+.cad-bib .mini.alt:hover{color:var(--ink);border-color:var(--line2)}
+.cad-bib .vacio{color:var(--ink3);text-align:center;padding:36px}
+.cad-bib .nota{margin-top:24px;background:var(--s1);border:1px solid var(--line);border-left:3px solid var(--t);border-radius:0 12px 12px 0;padding:15px 18px;font-size:14px;color:var(--ink2)}
+.cad-bib .nota b{color:var(--ink);font-weight:600}
+.cad-bib .pie{font-size:12.5px;color:var(--ink3);padding:30px 0 50px;border-top:1px solid var(--line);margin-top:34px}
+@media(max-width:640px){.cad-bib .nums{gap:26px}.cad-bib .num b{font-size:30px}.cad-bib .fecha{flex:0 0 36px}}
+.cad-bib.cerrada .barra,.cad-bib.cerrada .lista,.cad-bib.cerrada .nota,.cad-bib.cerrada .pie,.cad-bib.cerrada .dests{display:none}
+.cad-bib.cerrada .w>h2{display:none}
+.muro{max-width:720px;margin:0 auto;padding:8px 20px 60px}
+.muro .caja{background:var(--s1);border:1px solid var(--line2);border-radius:16px;padding:26px 26px 22px}
+.muro h2{font-size:22px;letter-spacing:-.02em;margin:0 0 6px;color:var(--ink)}
+.muro p{color:var(--ink2);font-size:15px;line-height:1.55;margin:8px 0}
+.muro .prom{border-left:3px solid var(--t);padding:10px 14px;background:var(--s2);border-radius:0 10px 10px 0;margin:14px 0 18px}
+.muro .prom b{color:var(--ink)}
+.muro ul{margin:8px 0 0;padding-left:20px;color:var(--ink2);font-size:14.5px}
+.muro li{margin:5px 0}
+.ghl-placeholder{border:2px dashed var(--t);border-radius:12px;padding:16px;color:var(--ink);background:#0c2229}
+.ghl-placeholder p{margin:6px 0;color:var(--ink)}.ghl-placeholder .peq{font-size:12.5px;color:var(--ink3)}
+.ghl-placeholder code{background:#071619;padding:2px 6px;border-radius:5px;color:var(--t2)}
+.muro .clave{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.muro .clave input{flex:1 1 200px;background:#071619;border:1px solid var(--line2);color:var(--ink);border-radius:9px;padding:11px 13px;font:inherit;font-size:15px}
+.muro .clave button{background:var(--t);color:#08222a;border:0;border-radius:9px;padding:11px 18px;font:inherit;font-weight:600;cursor:pointer}
+.muro .clave button:hover{background:var(--t2)}
+.muro .clave small{flex-basis:100%;color:var(--ink3);font-size:12.5px}
+.muro .clave .mal{color:#d99a6c}
+.abierto-aviso{max-width:1100px;margin:0 auto;padding:0 20px 8px;color:var(--ink3);font-size:12.5px;text-align:right}
+</style></head><body><div class="cad-bib">
+<div class="hero"><div class="w">
+<p class="eyebrow">Comunidad SEF Lovers · la memoria del grupo</p>
+<h1>Todo lo que se comparta<br>en SEF Lovers,<br><em>ordenado y para siempre</em></h1>
+<p class="lead">Cada artículo con su título de verdad, sus autores, su revista y su enlace al original. Los que hemos trabajado llevan una página que se lee en tres minutos.</p>
+<div class="nums">
+<div class="num"><b>81</b><span>documentos</span></div>
+<div class="num"><b>17</b><span>con ficha visual</span></div>
+<div class="num"><b>26</b><span>con el hallazgo resumido</span></div>
+<div class="num"><b>9</b><span>temáticas</span></div>
+<div class="num"><b>29</b><span>revistas distintas</span></div>
+</div></div></div>
+<div class="muro" id="muro">
+<div class="caja">
+<h2>Entra con tu nombre y tu correo</h2>
+<p>La biblioteca es del grupo y se queda abierta para ti <b>mientras exista SEF Lovers</b>: todo lo que se comparta ahí entra aquí, ordenado y con su enlace al original.</p>
+<div class="prom"><b>Lo que hay hoy:</b> 81 documentos · 17 con ficha visual · 9 temáticas · 29 revistas.
+<br><b>Lo que habrá:</b> cada paper nuevo del grupo, indexado; los más relevantes, en ficha de tres minutos.</div>
+<div class="ghl-placeholder">
+<p><b>Aquí va el formulario de GoHighLevel</b> (nombre + email).</p>
+<p>Al enviarlo, GHL debe <b>redirigir a</b> <code>URL_DE_ESTA_PAGINA?k=CLAVE</code> para abrir la biblioteca.</p>
+<p class="peq">Marcador de desarrollo: sustituir con <code>--ghl-embed formulario.html</code>.</p>
+</div>
+<div class="clave">
+<input type="text" id="clave" placeholder="¿Tienes ya la clave del directo? Escríbela aquí" autocomplete="off" aria-label="Clave de acceso">
+<button type="button" id="abrir">Abrir</button>
+<small id="clave-msg">Se dijo en el webinar del 23 de septiembre. Si la tienes, no hace falta el formulario.</small>
+</div>
+</div>
+</div>
+
+<div class="w"><h2>Los que hemos trabajado</h2><div class="dests"><a class="dest" href="https://iaparatodos.github.io/adria-demos/explicabilidad-ia-reproduccion-asistida.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-explicabilidad-ia.svg?v=2')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>La explicabilidad no es un requisito universal</h3>
+<p>Freour, T., Anichini, G. et al. · Human Reproduction 2026</p></div></a><a class="dest" href="https://iaparatodos.github.io/adria-demos/adenomiosis-fertilidad-metaanalisis.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-adenomiosis.jpg')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>La mitad logra embarazo, sin ensayos aleatorizados</h3>
+<p>Liu, L., Wang, T. et al. · BMC Pregnancy and Childbirth 2025</p></div></a><a class="dest" href="https://iaparatodos.github.io/adria-demos/nipgt-a-edad-materna-avanzada.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-nipgta-ama.jpg')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>No mejora la gestación; reduce el aborto precoz</h3>
+<p>Huang, J., Li, R. et al. · Nature Communications 2026</p></div></a><a class="dest" href="https://iaparatodos.github.io/adria-demos/letrozol-vs-ciclo-artificial-fet.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-letrozol-fet.jpg')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>Ocho puntos más de nacidos vivos, con certeza baja</h3>
+<p>Bülow, N., Wissing, M. et al. · Human Reproduction Update 2025</p></div></a><a class="dest" href="https://iaparatodos.github.io/adria-demos/caja-negra-implantacion-euploides.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-caja-negra.jpg')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>La calidad del blastocisto sigue mandando</h3>
+<p>Cimadomo, D., Rienzi, L. et al. · Human Reproduction Update 2023</p></div></a><a class="dest" href="https://iaparatodos.github.io/adria-demos/dual-trigger-altas-respondedoras.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-dual-trigger.jpg')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>Sin mejorar la maduración y con más OHSS</h3>
+<p>Li, Z., Shi, X. et al. · Journal of Ovarian Research 2026</p></div></a><a class="dest" href="https://iaparatodos.github.io/adria-demos/cadenas-citoplasmaticas-blastocisto.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-cadenas-citoplasmaticas.jpg')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>Más cadenas, mejor resultado, con certeza muy baja</h3>
+<p>Dodhia, V., Ng, K. et al. · Human Reproduction Update 2026</p></div></a><a class="dest" href="https://iaparatodos.github.io/adria-demos/ia-medicina-reproductiva-hope-hype.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-ia-hope-hype.jpg')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>IA en medicina reproductiva: ¿esperanza o humo?</h3>
+<p>Agarwal, Shruti, Quaas, Alexander M. et al. · Clinical Obstetrics &amp; Gynecology 2026</p></div></a><a class="dest" href="https://iaparatodos.github.io/adria-demos/progesterona-ciclo-natural-modificado.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-progesterona-mnc-fet.jpg')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>La progesterona del día de la transferencia y el niño en casa</h3>
+<p>Saupstad, Marte, Bergenheim, Sara J. et al. · Reproductive BioMedicine Online 2024</p></div></a><a class="dest" href="https://iaparatodos.github.io/adria-demos/stair-step-clomifeno-sop.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-stair-step.jpg')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>Más ovulación y un mes menos de tratamiento</h3>
+<p>Reimão Miller, Katherine Ann, dos Santos, Priscila Luiza et al. · Reproductive BioMedicine Online 2026</p></div></a><a class="dest" href="https://iaparatodos.github.io/adria-demos/blastocisto-vs-dia-3-clbr.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-blastocisto-dia3.jpg')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>Blastocisto o día tres: resultado comparable</h3>
+<p>Busnelli, Andrea, Fauque, Patricia et al. · Fertility and Sterility 2026</p></div></a><a class="dest" href="https://iaparatodos.github.io/adria-demos/ficha-recombinacion-meiotica-pgtm.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-recombinacion-pgtm.jpg')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>Un crossing over causando enfermedad, por primera vez visto en humanos</h3>
+<p>Iversen, Anna, Gerber, Sara K. et al. · F&amp;S Reports 2026</p></div></a><a class="dest" href="https://iaparatodos.github.io/adria-demos/ppos-clomifeno-lh-basal-baja.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-ppos-clomifeno.jpg')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>Sube la LH y aun así se recuperan menos ovocitos</h3>
+<p>Hu, Zhijie, Fan, Yong et al. · Reproductive Biology and Endocrinology 2026</p></div></a><a class="dest" href="https://iaparatodos.github.io/adria-demos/ppos-vs-gnrh-metaanalisis.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-ppos-metaanalisis.jpg')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>El progestágeno oral supera al antagonista</h3>
+<p>Martins, W. P., Nastri, C. O. · Ultrasound in Obstetrics &amp; Gynecology 2026</p></div></a><a class="dest" href="https://iaparatodos.github.io/adria-demos/antagonista-gnrh-inseminacion.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-antagonista-gnrh-inseminacion.jpg')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>Cuándo disparar la ovulación en una inseminación</h3>
+<p>Gómez-Palomares, J., Juliá, B. et al. · Human Reproduction 2005</p></div></a><a class="dest" href="https://iaparatodos.github.io/adria-demos/congelado-vs-fresco-bajas-respondedoras.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-congelado-vs-fresco.jpg')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>Congelarlo todo no mejora nada en baja respuesta</h3>
+<p>Sun, Yiming, Sun, Xiaoxi et al. · Fertility and Sterility 2026</p></div></a><a class="dest" href="https://iaparatodos.github.io/adria-demos/dfi-aneuploidia-metaanalisis.html">
+<div class="dest-img" style="background-image:url('https://iaparatodos.github.io/adria-demos/og-dfi-aneuploidia.jpg')"></div>
+<div class="dest-txt"><span class="tag">Ficha visual</span><h3>El vínculo existe, es modesto y no basta para decidir</h3>
+<p>Zou, Min, Raffi, Nur AB et al. · Reproductive BioMedicine Online 2026</p></div></a></div></div>
+
+<div class="barra"><div class="w"><input type="search" placeholder="Busca por título, autor o revista…" aria-label="Buscar"><div class="fs"><button class="f" data-t="_ficha">Con ficha<small>17</small></button><button class="f" data-t="estimulacion">Estimulación y protocolos<small>15</small></button><button class="f" data-t="transferencia">Transferencia y endometrio<small>21</small></button><button class="f" data-t="laboratorio">Laboratorio y embriología<small>27</small></button><button class="f" data-t="genetica">Genética y PGT<small>12</small></button><button class="f" data-t="andrologia">Andrología<small>4</small></button><button class="f" data-t="donacion">Donación y regulación<small>8</small></button><button class="f" data-t="ia">IA en reproducción asistida<small>7</small></button><button class="f" data-t="clinica">Clínica general y resultados<small>25</small></button><button class="f" data-t="otros">Otros<small>7</small></button></div></div></div>
+
+<div class="w"><h2><span class="cuenta">81</span> documentos</h2><div class="lista">
+<article class="p" data-temas="donacion ia" data-ficha="1" data-txt="explainability of artificial intelligence (ai) tools in assisted reproductive technologies (arts): promise, clinical reality, and conceptual limits freour, t., anichini, g. et al. · human reproduction · 2026 ">
+<div class="fecha"><b>14</b><span>sep</span></div>
+<div class="cuerpo"><h3>Explainability of artificial intelligence (AI) tools in assisted reproductive technologies (ARTs): promise, clinical reality, and conceptual limits</h3><p class="meta">Freour, T., Anichini, G. et al. · Human Reproduction · 2026</p>
+<p class="quien">un miembro</p>
+
+<div class="acc"><span class="chip alt">journal-article</span><span class="chip">Donación y regulación</span><span class="chip">IA en reproducción asistida</span><a class="mini alt" href="https://doi.org/10.1093/humrep/deag102" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/explicabilidad-ia-reproduccion-asistida.html">Ficha visual →</a></div></div></article><article class="p" data-temas="transferencia" data-ficha="0" data-txt="falsely elevated progesterone levels caused by concurrent spironolactone administration sandhu, n., nakajima, s. · f&amp;amp;s reports · 2026 ">
+<div class="fecha"><b>14</b><span>sep</span></div>
+<div class="cuerpo"><h3>Falsely Elevated Progesterone Levels Caused by Concurrent Spironolactone Administration</h3><p class="meta">Sandhu, N., Nakajima, S. · F&amp;amp;S Reports · 2026</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip alt">journal-article</span><span class="chip">Transferencia y endometrio</span><a class="mini alt" href="https://doi.org/10.1016/j.xfre.2026.08.012" rel="noopener">Original</a></div></div></article><article class="p" data-temas="estimulacion transferencia" data-ficha="0" data-txt="luteal phase progesterone support in modified natural cycle frozen embryo transfer: a systematic review and meta-analysis engesgaard, f., johansen, a. et al. · reproductive biomedicine online · 2026 ">
+<div class="fecha"><b>14</b><span>sep</span></div>
+<div class="cuerpo"><h3>Luteal phase progesterone support in modified natural cycle frozen embryo transfer: a systematic review and meta-analysis</h3><p class="meta">Engesgaard, F., Johansen, A. et al. · Reproductive BioMedicine Online · 2026</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip alt">journal-article</span><span class="chip">Estimulación y protocolos</span><span class="chip">Transferencia y endometrio</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2026.105731" rel="noopener">Original</a></div></div></article><article class="p" data-temas="clinica" data-ficha="1" data-txt="reproductive outcomes after fertility-sparing interventions for symptomatic adenomyosis: a systematic review and meta-analysis liu, l., wang, t. et al. · bmc pregnancy and childbirth · 2025 ">
+<div class="fecha"><b>12</b><span>sep</span></div>
+<div class="cuerpo"><h3>Reproductive outcomes after fertility-sparing interventions for symptomatic adenomyosis: a systematic review and meta-analysis</h3><p class="meta">Liu, L., Wang, T. et al. · BMC Pregnancy and Childbirth · 2025</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip alt">journal-article</span><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1186/s12884-025-08323-3" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/adenomiosis-fertilidad-metaanalisis.html">Ficha visual →</a></div></div></article><article class="p" data-temas="transferencia laboratorio" data-ficha="1" data-txt="embryo selection by non-invasive preimplantation genetic testing for aneuploidy in women of advanced maternal age: a randomized, clinical trial huang, j., li, r. et al. · nature communications · 2026 ">
+<div class="fecha"><b>11</b><span>sep</span></div>
+<div class="cuerpo"><h3>Embryo selection by non-invasive preimplantation genetic testing for aneuploidy in women of advanced maternal age: a randomized, clinical trial</h3><p class="meta">Huang, J., Li, R. et al. · Nature Communications · 2026</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip alt">journal-article</span><span class="chip">Transferencia y endometrio</span><span class="chip">Laboratorio y embriología</span><a class="mini alt" href="https://doi.org/10.1038/s41467-026-77628-4" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/nipgt-a-edad-materna-avanzada.html">Ficha visual →</a></div></div></article><article class="p" data-temas="ia transferencia" data-ficha="0" data-txt="an explainable ultrasound-based machine learning model for predicting reproductive outcomes after frozen embryo transfer xu, f., ma, q. et al. · reproductive biomedicine online · 2025 ">
+<div class="fecha"><b>10</b><span>sep</span></div>
+<div class="cuerpo"><h3>An explainable ultrasound-based machine learning model for predicting reproductive outcomes after frozen embryo transfer</h3><p class="meta">Xu, F., Ma, Q. et al. · Reproductive BioMedicine Online · 2025</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">IA en reproducción asistida</span><span class="chip">Transferencia y endometrio</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2024.104743" rel="noopener">Original</a></div></div></article><article class="p" data-temas="estimulacion transferencia" data-ficha="1" data-txt="reproductive outcomes after letrozole stimulated versus artificial frozen-thawed embryo transfer cycles in women with pcos and/or oligo-anovulation: a systematic review and meta-analysis bülow, n., wissing, m. et al. · human reproduction update · 2025 ">
+<div class="fecha"><b>10</b><span>sep</span></div>
+<div class="cuerpo"><h3>Reproductive outcomes after letrozole stimulated versus artificial frozen-thawed embryo transfer cycles in women with PCOS and/or oligo-anovulation: a systematic review and meta-analysis</h3><p class="meta">Bülow, N., Wissing, M. et al. · Human Reproduction Update · 2025</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">Estimulación y protocolos</span><span class="chip">Transferencia y endometrio</span><a class="mini alt" href="https://doi.org/10.1093/humupd/dmaf011" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/letrozol-vs-ciclo-artificial-fet.html">Ficha visual →</a></div></div></article><article class="p" data-temas="clinica" data-ficha="0" data-txt="effective intrauterine adhesion prevention—nothing to laugh at parry, j., drizi, a. et al. · fertility and sterility · 2026 editorial sobre el listón metodológico en la prevención de adherencias intrauterinas. usa como ejemplo de sesgo un estudio que atribuía a la terapia con payasos una mejora del recién nacido vivo tras la transferencia con aor 2,67 (ic95% 1,36–5,24), para ilustrar cómo un diseño mal montado puede justificar intervenciones médicamente inverosímiles.">
+<div class="fecha"><b>10</b><span>sep</span></div>
+<div class="cuerpo"><h3>Effective Intrauterine Adhesion Prevention—Nothing to Laugh At</h3><p class="meta">Parry, J., Drizi, A. et al. · Fertility and Sterility · 2026</p>
+<p class="quien">Enrique</p>
+<details class="hall"><summary>Qué encontró</summary><p><b>Editorial.</b> Editorial sobre el listón metodológico en la prevención de adherencias intrauterinas. Usa como ejemplo de sesgo un estudio que atribuía a la terapia con payasos una mejora del recién nacido vivo tras la transferencia con aOR 2,67 (IC95% 1,36–5,24), para ilustrar cómo un diseño mal montado puede justificar intervenciones médicamente inverosímiles.</p></details>
+<div class="acc"><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1016/j.fertnstert.2026.09.002" rel="noopener">Original</a></div></div></article><article class="p" data-temas="clinica" data-ficha="0" data-txt="fetal exposure to paracetamol is associated with altered markers of ovarian development and reduced uterine volume in girls: the copana study fischer, m., mola, g. et al. · human reproduction open · 2026 la exposición fetal a paracetamol se asoció a marcadores de reserva ovárica más bajos en las niñas. exposición temprana: menor volumen ovárico (−0,11 cm³; ic95% −0,19 a −0,03) y uterino (−0,18 cm³; −0,35 a −0,01), y amh más baja (−0,45 sds; −0,87 a −0,03). exposición media-tardía: menos folículos ováricos (−1,05; −1,71 a −0,39).">
+<div class="fecha"><b>9</b><span>sep</span></div>
+<div class="cuerpo"><h3>Fetal exposure to paracetamol is associated with altered markers of ovarian development and reduced uterine volume in girls: the COPANA study</h3><p class="meta">Fischer, M., Mola, G. et al. · Human Reproduction Open · 2026</p>
+<p class="quien">Enrique</p>
+<details class="hall"><summary>Qué encontró</summary><p>La exposición fetal a paracetamol se asoció a marcadores de reserva ovárica más bajos en las niñas. Exposición temprana: menor volumen ovárico (−0,11 cm³; IC95% −0,19 a −0,03) y uterino (−0,18 cm³; −0,35 a −0,01), y AMH más baja (−0,45 SDS; −0,87 a −0,03). Exposición media-tardía: menos folículos ováricos (−1,05; −1,71 a −0,39).</p></details>
+<div class="acc"><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1093/hropen/hoag073" rel="noopener">Original</a></div></div></article><article class="p" data-temas="estimulacion laboratorio" data-ficha="0" data-txt="triggering final oocyte maturation using different doses of human chorionic gonadotropin: a randomized pilot study in patients with polycystic ovary syndrome treated with gonadotropin-releasing hormone antagonists and recombinant follicle-stimulating hormone kolibianakis, e., papanikolaou, e. et al. · fertility and sterility · 2007 bajar la dosis de hcg para la maduración final no perjudicó el embarazo en pacientes con ovario poliquístico: la gestación evolutiva por paciente fue del 26,9 % (7/26) con 10 000 ui, 30,8 % (8/26) con 5000 ui y 34,8 % (8/23) con 2500 ui. las tasas de fertilización fueron 52,8 %, 65,4 % y 55,6 %.">
+<div class="fecha"><b>9</b><span>sep</span></div>
+<div class="cuerpo"><h3>Triggering final oocyte maturation using different doses of human chorionic gonadotropin: a randomized pilot study in patients with polycystic ovary syndrome treated with gonadotropin-releasing hormone antagonists and recombinant follicle-stimulating hormone</h3><p class="meta">Kolibianakis, E., Papanikolaou, E. et al. · Fertility and Sterility · 2007</p>
+<p class="quien">Enrique</p>
+<details class="hall"><summary>Qué encontró</summary><p>Bajar la dosis de hCG para la maduración final no perjudicó el embarazo en pacientes con ovario poliquístico: la gestación evolutiva por paciente fue del 26,9 % (7/26) con 10 000 UI, 30,8 % (8/26) con 5000 UI y 34,8 % (8/23) con 2500 UI. Las tasas de fertilización fueron 52,8 %, 65,4 % y 55,6 %.</p></details>
+<div class="acc"><span class="chip">Estimulación y protocolos</span><span class="chip">Laboratorio y embriología</span><a class="mini alt" href="https://doi.org/10.1016/j.fertnstert.2006.12.058" rel="noopener">Original</a></div></div></article><article class="p" data-temas="otros" data-ficha="0" data-txt="the journal of reproduction · vol 4, nº 1 (julio-septiembre 2026) — número completo the journal of reproduction · 2026 ">
+<div class="fecha"><b>9</b><span>sep</span></div>
+<div class="cuerpo"><h3>The Journal of Reproduction · Vol 4, Nº 1 (julio-septiembre 2026) — número completo</h3><p class="meta">The Journal of Reproduction · 2026</p>
+<p class="quien">Enrique · 2 veces</p>
+
+<div class="acc"><span class="chip alt">número de revista</span><span class="chip">Otros</span><a class="mini alt" href="https://doi.org/10.58779/tjor" rel="noopener">Original</a></div></div></article><article class="p" data-temas="estimulacion" data-ficha="0" data-txt="continuous ovarian stimulation: a proof-of-concept study exploring the uninterrupted use of corifollitropin α in duostim cycles for enhanced efficiency and patient convenience (alicante protocol) castillo, j., fuentes, a. et al. · f&amp;amp;s reports · 2024 estudio de prueba de concepto de estimulación ovárica continua: rendimiento de ovocitos y de mii similar al protocolo diario de fsh (13,3 ± 6,9 frente a 11,8 ± 6,1 ovocitos), sin diferencias en ninguno de los desenlaces secundarios. lo que cambió fue el número de inyecciones para completar un duostim: 4,5 ± 1,4 frente a 35,2 ± 12,2, una reducción media de 30,7 pinchazos.">
+<div class="fecha"><b>6</b><span>sep</span></div>
+<div class="cuerpo"><h3>Continuous ovarian stimulation: a proof-of-concept study exploring the uninterrupted use of corifollitropin α in DuoStim cycles for enhanced efficiency and patient convenience (Alicante protocol)</h3><p class="meta">Castillo, J., Fuentes, A. et al. · F&amp;amp;S Reports · 2024</p>
+<p class="quien">Enrique</p>
+<details class="hall"><summary>Qué encontró</summary><p>Estudio de prueba de concepto de estimulación ovárica continua: rendimiento de ovocitos y de MII similar al protocolo diario de FSH (13,3 ± 6,9 frente a 11,8 ± 6,1 ovocitos), sin diferencias en ninguno de los desenlaces secundarios. Lo que cambió fue el número de inyecciones para completar un DuoStim: 4,5 ± 1,4 frente a 35,2 ± 12,2, una reducción media de 30,7 pinchazos.</p></details>
+<div class="acc"><span class="chip">Estimulación y protocolos</span><a class="mini alt" href="https://doi.org/10.1016/j.xfre.2024.03.005" rel="noopener">Original</a></div></div></article><article class="p" data-temas="otros" data-ficha="0" data-txt="iii congreso internacional proyecto sop — programa  ">
+<div class="fecha"><b>6</b><span>sep</span></div>
+<div class="cuerpo"><h3>III Congreso Internacional Proyecto SOP — programa</h3><p class="meta"></p>
+<p class="quien">Eric Saucedo</p>
+
+<div class="acc"><span class="chip alt">programa</span><span class="chip">Otros</span></div></div></article><article class="p" data-temas="genetica clinica" data-ficha="0" data-txt="pgt-a is associated with a reduced live birth rate in routine practice: evidence from the uk art register roberts, s., brison, d. et al. · reproductive biomedicine online · 2026 en la práctica rutinaria, el pgt-a se asoció a menos recién nacidos vivos que la fiv estándar: or 0,86 (ic95% 0,77–0,97) en la primera transferencia y or 0,74 (ic95% 0,67–0,82) de forma acumulada. la pérdida gestacional sí se redujo por embarazo conseguido.">
+<div class="fecha"><b>6</b><span>sep</span></div>
+<div class="cuerpo"><h3>PGT-A is associated with a reduced live birth rate in routine practice: evidence from the UK ART register</h3><p class="meta">Roberts, S., Brison, D. et al. · Reproductive BioMedicine Online · 2026</p>
+<p class="quien">Dr. Rivas</p>
+<details class="hall"><summary>Qué encontró</summary><p>En la práctica rutinaria, el PGT-A se asoció a MENOS recién nacidos vivos que la FIV estándar: OR 0,86 (IC95% 0,77–0,97) en la primera transferencia y OR 0,74 (IC95% 0,67–0,82) de forma acumulada. La pérdida gestacional sí se redujo por embarazo conseguido.</p></details>
+<div class="acc"><span class="chip">Genética y PGT</span><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2026.105747" rel="noopener">Original</a></div></div></article><article class="p" data-temas="otros" data-ficha="0" data-txt="¿revolución o espejismo? el debate sobre el cambio de paradigma en la medicina actual  ">
+<div class="fecha"><b>6</b><span>sep</span></div>
+<div class="cuerpo"><h3>¿Revolución o espejismo? El debate sobre el cambio de paradigma en la medicina actual</h3><p class="meta"></p>
+<p class="quien">Luis</p>
+
+<div class="acc"><span class="chip alt">documento de opinión</span><span class="chip">Otros</span></div></div></article><article class="p" data-temas="clinica laboratorio" data-ficha="0" data-txt="ivf add-ons: the case for individualized application ranieri, d. · journal of ivf-worldwide · 2026 ">
+<div class="fecha"><b>6</b><span>sep</span></div>
+<div class="cuerpo"><h3>IVF Add-ons: The case for individualized application</h3><p class="meta">Ranieri, D. · Journal of IVF-Worldwide · 2026</p>
+<p class="quien">Dr. Rivas</p>
+
+<div class="acc"><span class="chip">Clínica general y resultados</span><span class="chip">Laboratorio y embriología</span><a class="mini alt" href="https://doi.org/10.46989/001c.166488" rel="noopener">Original</a></div></div></article><article class="p" data-temas="estimulacion laboratorio" data-ficha="0" data-txt="dual triggering for final oocyte maturation. a narrative review riobó, a., martínez acosta, a. et al. · frontiers in endocrinology · 2025 ">
+<div class="fecha"><b>5</b><span>sep</span></div>
+<div class="cuerpo"><h3>Dual triggering for final oocyte maturation. A narrative review</h3><p class="meta">Riobó, A., Martínez Acosta, A. et al. · Frontiers in Endocrinology · 2025</p>
+<p class="quien">Dr. Rivas</p>
+
+<div class="acc"><span class="chip">Estimulación y protocolos</span><span class="chip">Laboratorio y embriología</span><a class="mini alt" href="https://doi.org/10.3389/fendo.2025.1556732" rel="noopener">Original</a></div></div></article><article class="p" data-temas="otros" data-ficha="0" data-txt="more abstracts, more science? conference visibility and evidence maturity in reproductive medicine choucair, f., varghese, a. et al. · reproductive biomedicine online · 2026 análisis de la visibilidad en congresos: los resúmenes enviados pasaron de 1623 en 2022 a 2282 en 2025 y a 2750 en 2026, un aumento del 69 % en cinco reuniones, contra un número fijo de plazas para comunicación oral y póster. su tesis es reforzar la trazabilidad de lo que se presenta en vez de restringir la comunicación.">
+<div class="fecha"><b>5</b><span>sep</span></div>
+<div class="cuerpo"><h3>More Abstracts, More Science? Conference Visibility and Evidence Maturity in Reproductive Medicine</h3><p class="meta">Choucair, F., Varghese, A. et al. · Reproductive BioMedicine Online · 2026</p>
+<p class="quien">Enrique · 2 veces</p>
+<details class="hall"><summary>Qué encontró</summary><p><b>Artículo de posición.</b> Análisis de la visibilidad en congresos: los resúmenes enviados pasaron de 1623 en 2022 a 2282 en 2025 y a 2750 en 2026, un aumento del 69 % en cinco reuniones, contra un número fijo de plazas para comunicación oral y póster. Su tesis es reforzar la trazabilidad de lo que se presenta en vez de restringir la comunicación.</p></details>
+<div class="acc"><span class="chip">Otros</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2026.105959" rel="noopener">Original</a></div></div></article><article class="p" data-temas="laboratorio genetica" data-ficha="1" data-txt="opening the black box: why do euploid blastocysts fail to implant? a systematic review and meta-analysis cimadomo, d., rienzi, l. et al. · human reproduction update · 2023 ">
+<div class="fecha"><b>5</b><span>sep</span></div>
+<div class="cuerpo"><h3>Opening the black box: why do euploid blastocysts fail to implant? A systematic review and meta-analysis</h3><p class="meta">Cimadomo, D., Rienzi, L. et al. · Human Reproduction Update · 2023</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">Laboratorio y embriología</span><span class="chip">Genética y PGT</span><a class="mini alt" href="https://doi.org/10.1093/humupd/dmad010" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/caja-negra-implantacion-euploides.html">Ficha visual →</a></div></div></article><article class="p" data-temas="clinica" data-ficha="0" data-txt="helping patients achieve their expected live birth rate: an art paradigm shift gianaroli, l., mocanu, e. et al. · reproductive biomedicine online · 2026 ">
+<div class="fecha"><b>4</b><span>sep</span></div>
+<div class="cuerpo"><h3>Helping patients achieve their expected live birth rate: an ART paradigm shift</h3><p class="meta">Gianaroli, L., Mocanu, E. et al. · Reproductive BioMedicine Online · 2026</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2026.105785" rel="noopener">Original</a></div></div></article><article class="p" data-temas="estimulacion" data-ficha="1" data-txt="dual trigger with gonadotropin-releasing hormone agonist and low-dose human chorionic gonadotropin versus gonadotropin-releasing hormone agonist alone in predicted high responders using antagonist protocol: a systematic review and meta-analysis li, z., shi, x. et al. · journal of ovarian research · 2026 ">
+<div class="fecha"><b>4</b><span>sep</span></div>
+<div class="cuerpo"><h3>Dual trigger with gonadotropin-releasing hormone agonist and low-dose human chorionic gonadotropin versus gonadotropin-releasing hormone agonist alone in predicted high responders using antagonist protocol: a systematic review and meta-analysis</h3><p class="meta">Li, Z., Shi, X. et al. · Journal of Ovarian Research · 2026</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">Estimulación y protocolos</span><a class="mini alt" href="https://doi.org/10.1186/s13048-026-02249-w" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/dual-trigger-altas-respondedoras.html">Ficha visual →</a></div></div></article><article class="p" data-temas="laboratorio" data-ficha="0" data-txt="burnout in embryologists working in assisted reproduction: data from a cross-sectional worldwide study urteaga, r., díaz, a. · jbra assisted reproduction · 2026 más del 80 % de los embriólogos encuestados presentaba niveles moderados o altos de agotamiento emocional y despersonalización, y el 67 % mostraba falta de realización personal. es un estudio transversal sobre una profesión que la oms reconoce expuesta al burnout desde que lo incluyó en la cie-11.">
+<div class="fecha"><b>4</b><span>sep</span></div>
+<div class="cuerpo"><h3>Burnout in Embryologists Working in Assisted Reproduction: Data from a Cross-Sectional Worldwide Study</h3><p class="meta">Urteaga, R., Díaz, A. · JBRA Assisted Reproduction · 2026</p>
+<p class="quien">Enrique</p>
+<details class="hall"><summary>Qué encontró</summary><p>Más del 80 % de los embriólogos encuestados presentaba niveles moderados o altos de agotamiento emocional y despersonalización, y el 67 % mostraba falta de realización personal. Es un estudio transversal sobre una profesión que la OMS reconoce expuesta al burnout desde que lo incluyó en la CIE-11.</p></details>
+<div class="acc"><span class="chip">Laboratorio y embriología</span><a class="mini alt" href="https://doi.org/10.5935/1518-0557.20260058" rel="noopener">Original</a></div></div></article><article class="p" data-temas="transferencia laboratorio" data-ficha="0" data-txt="what does life-table analysis of sequential euploid blastocyst transfers actually tell us about recurrent implantation failure (rif) – or lack thereof? paulson, richard j. · f&amp;s reports · 2026 comentario que discute qué mide de verdad el análisis de tablas de vida en transferencias sucesivas de euploides, y si el fallo de implantación recurrente existe como entidad. aporta las cifras del debate: más del 80 % de recién nacido vivo tras cinco ciclos de ovodonación, un 86,1 % acumulado tras cuatro, y tasas acumuladas que superan el 90 % tras solo tres ciclos de transferencia de blastocisto euploide.">
+<div class="fecha"><b>3</b><span>sep</span></div>
+<div class="cuerpo"><h3>What does life-table analysis of sequential euploid blastocyst transfers actually tell us about recurrent implantation failure (RIF) – or lack thereof?</h3><p class="meta">Paulson, Richard J. · F&amp;S Reports · 2026</p>
+<p class="quien">Enrique</p>
+<details class="hall"><summary>Qué encontró</summary><p><b>Comentario.</b> Comentario que discute qué mide de verdad el análisis de tablas de vida en transferencias sucesivas de euploides, y si el fallo de implantación recurrente existe como entidad. Aporta las cifras del debate: más del 80 % de recién nacido vivo tras cinco ciclos de ovodonación, un 86,1 % acumulado tras cuatro, y tasas acumuladas que superan el 90 % tras solo tres ciclos de transferencia de blastocisto euploide.</p></details>
+<div class="acc"><span class="chip">Transferencia y endometrio</span><span class="chip">Laboratorio y embriología</span><a class="mini alt" href="https://doi.org/10.1016/j.xfre.2026.08.011" rel="noopener">Original</a></div></div></article><article class="p" data-temas="clinica" data-ficha="0" data-txt="guideline no. 464: recurrent pregnancy loss motan, t., cockwell, h. et al. · journal of obstetrics and gynaecology canada · 2025 ">
+<div class="fecha"><b>3</b><span>sep</span></div>
+<div class="cuerpo"><h3>Guideline No. 464: Recurrent Pregnancy Loss</h3><p class="meta">Motan, T., Cockwell, H. et al. · Journal of Obstetrics and Gynaecology Canada · 2025</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip alt">guia</span><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1016/j.jogc.2025.103167" rel="noopener">Original</a></div></div></article><article class="p" data-temas="clinica" data-ficha="0" data-txt="recurrent pregnancy loss: a committee opinion gracia, c., amato, p. et al. · fertility and sterility · 2026 ">
+<div class="fecha"><b>3</b><span>sep</span></div>
+<div class="cuerpo"><h3>Recurrent pregnancy loss: a committee opinion</h3><p class="meta">Gracia, C., Amato, P. et al. · Fertility and Sterility · 2026</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip alt">documento de comité</span><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1016/j.fertnstert.2026.03.001" rel="noopener">Original</a></div></div></article><article class="p" data-temas="laboratorio" data-ficha="1" data-txt="cytoplasmic strings in human in-vitro embryos are a promising indicator for enhanced live-birth outcomes: a systematic review and meta-analysis dodhia, v., ng, k. et al. · human reproduction update · 2026 ">
+<div class="fecha"><b>3</b><span>sep</span></div>
+<div class="cuerpo"><h3>Cytoplasmic strings in human in-vitro embryos are a promising indicator for enhanced live-birth outcomes: a systematic review and meta-analysis</h3><p class="meta">Dodhia, V., Ng, K. et al. · Human Reproduction Update · 2026</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">Laboratorio y embriología</span><a class="mini alt" href="https://doi.org/10.1093/humupd/dmag026" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/cadenas-citoplasmaticas-blastocisto.html">Ficha visual →</a></div></div></article><article class="p" data-temas="transferencia laboratorio" data-ficha="0" data-txt="multicenter assessment of outcomes after intended or non-selective transfer of whole chromosome and segmental aneuploid embryos viotti, manuel, madjunkova, svetlana et al. · fertility and sterility · 2026 ">
+<div class="fecha"><b>2</b><span>sep</span></div>
+<div class="cuerpo"><h3>Multicenter Assessment of Outcomes After Intended or Non-selective Transfer of Whole Chromosome and Segmental Aneuploid Embryos</h3><p class="meta">Viotti, Manuel, Madjunkova, Svetlana et al. · Fertility and Sterility · 2026</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">Transferencia y endometrio</span><span class="chip">Laboratorio y embriología</span><a class="mini alt" href="https://doi.org/10.1016/j.fertnstert.2026.08.1124" rel="noopener">Original</a></div></div></article><article class="p" data-temas="ia clinica" data-ficha="1" data-txt="ai in reproductive medicine: hope or hype? agarwal, shruti, quaas, alexander m. et al. · clinical obstetrics &amp; gynecology · 2026 ">
+<div class="fecha"><b>2</b><span>sep</span></div>
+<div class="cuerpo"><h3>AI in Reproductive Medicine: Hope or Hype?</h3><p class="meta">Agarwal, Shruti, Quaas, Alexander M. et al. · Clinical Obstetrics &amp; Gynecology · 2026</p>
+<p class="quien">GUILLO</p>
+
+<div class="acc"><span class="chip">IA en reproducción asistida</span><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1097/grf.0000000000000983" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/ia-medicina-reproductiva-hope-hype.html">Ficha visual →</a></div></div></article><article class="p" data-temas="donacion" data-ficha="0" data-txt="nota informativa sobre el destino de las donaciones de gametos criopreservadas de donantes que han alcanzado el límite máximo de hijos nacidos en españa generados con sus gametos comisión nacional de reproducción humana asistida, ministerio de sanidad · 2025 ">
+<div class="fecha"><b>2</b><span>sep</span></div>
+<div class="cuerpo"><h3>Nota informativa sobre el destino de las donaciones de gametos criopreservadas de donantes que han alcanzado el límite máximo de hijos nacidos en España generados con sus gametos</h3><p class="meta">Comisión Nacional de Reproducción Humana Asistida, Ministerio de Sanidad · 2025</p>
+<p class="quien">un miembro</p>
+
+<div class="acc"><span class="chip alt">documento oficial</span><span class="chip">Donación y regulación</span></div></div></article><article class="p" data-temas="andrologia" data-ficha="0" data-txt="time-dependent effects of iatrogenic stress on sperm membrane integrity and dna fragmentation gosálvez, jaime, de la vega, carlos garcía et al. · asian pacific journal of reproduction · 2026 la viabilidad espermática cae de forma exponencial con el tiempo (r² = 0,988) mientras la fragmentación del adn sube de forma logarítmica (r² = 0,989). las dos curvas se cruzan alrededor de las dos horas tras la licuefacción, momento en que ambos parámetros superan los umbrales de referencia habituales.">
+<div class="fecha"><b>1</b><span>sep</span></div>
+<div class="cuerpo"><h3>Time-dependent effects of iatrogenic stress on sperm membrane integrity and DNA fragmentation</h3><p class="meta">Gosálvez, Jaime, de la Vega, Carlos García et al. · Asian Pacific Journal of Reproduction · 2026</p>
+<p class="quien">un miembro</p>
+<details class="hall"><summary>Qué encontró</summary><p>La viabilidad espermática cae de forma exponencial con el tiempo (R² = 0,988) mientras la fragmentación del ADN sube de forma logarítmica (R² = 0,989). Las dos curvas se cruzan alrededor de las dos horas tras la licuefacción, momento en que ambos parámetros superan los umbrales de referencia habituales.</p></details>
+<div class="acc"><span class="chip">Andrología</span><a class="mini alt" href="https://doi.org/10.4103/apjr.apjr_21_26" rel="noopener">Original</a></div></div></article><article class="p" data-temas="genetica andrologia" data-ficha="0" data-txt="the role of mitochondrial dysfunction and genetics in female infertility and premature ovarian insufficiency kline, brianna l, compton, alison g et al. · human reproduction update · 2026 revisión sobre disfunción mitocondrial y genética en la infertilidad femenina. sitúa la infertilidad femenina en torno al 37 % de las parejas infértiles y la insuficiencia ovárica prematura entre el 1 y el 3,7 % de las mujeres. su mensaje para la consulta: la infertilidad puede ser el primer signo clínico de una enfermedad mitocondrial, y la insuficiencia ovárica prematura un síntoma infravalorado de esas enfermedades.">
+<div class="fecha"><b>1</b><span>sep</span></div>
+<div class="cuerpo"><h3>The role of mitochondrial dysfunction and genetics in female infertility and premature ovarian insufficiency</h3><p class="meta">Kline, Brianna L, Compton, Alison G et al. · Human Reproduction Update · 2026</p>
+<p class="quien">Dr. Rivas · 2 veces</p>
+<details class="hall"><summary>Qué encontró</summary><p><b>Revisión narrativa.</b> Revisión sobre disfunción mitocondrial y genética en la infertilidad femenina. Sitúa la infertilidad femenina en torno al 37 % de las parejas infértiles y la insuficiencia ovárica prematura entre el 1 y el 3,7 % de las mujeres. Su mensaje para la consulta: la infertilidad puede ser el primer signo clínico de una enfermedad mitocondrial, y la insuficiencia ovárica prematura un síntoma infravalorado de esas enfermedades.</p></details>
+<div class="acc"><span class="chip">Genética y PGT</span><span class="chip">Andrología</span><a class="mini alt" href="https://doi.org/10.1093/humupd/dmag022" rel="noopener">Original</a></div></div></article><article class="p" data-temas="transferencia laboratorio" data-ficha="1" data-txt="progesterone concentrations on blastocyst transfer day in modified natural cycle frozen embryo transfer cycles saupstad, marte, bergenheim, sara j. et al. · reproductive biomedicine online · 2024 ">
+<div class="fecha"><b>31</b><span>ago</span></div>
+<div class="cuerpo"><h3>Progesterone concentrations on blastocyst transfer day in modified natural cycle frozen embryo transfer cycles</h3><p class="meta">Saupstad, Marte, Bergenheim, Sara J. et al. · Reproductive BioMedicine Online · 2024</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">Transferencia y endometrio</span><span class="chip">Laboratorio y embriología</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2024.103862" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/progesterona-ciclo-natural-modificado.html">Ficha visual →</a></div></div></article><article class="p" data-temas="transferencia clinica" data-ficha="0" data-txt="recurrent implantation failure: a committee opinion gracia, clarisa, amato, paula et al. · fertility and sterility · 2026 ">
+<div class="fecha"><b>29</b><span>ago</span></div>
+<div class="cuerpo"><h3>Recurrent implantation failure: a committee opinion</h3><p class="meta">Gracia, Clarisa, Amato, Paula et al. · Fertility and Sterility · 2026</p>
+<p class="quien">Sergio · 2 veces</p>
+
+<div class="acc"><span class="chip alt">documento de comité</span><span class="chip">Transferencia y endometrio</span><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1016/j.fertnstert.2026.03.026" rel="noopener">Original</a></div></div></article><article class="p" data-temas="otros" data-ficha="0" data-txt="programa del xv curso de actualización en medicina reproductiva ivi vigo / ivi coruña 2026 (30 de octubre de 2026) ivirma vigo · 2026 ">
+<div class="fecha"><b>28</b><span>ago</span></div>
+<div class="cuerpo"><h3>Programa del XV Curso de Actualización en Medicina Reproductiva IVI Vigo / IVI Coruña 2026 (30 de octubre de 2026)</h3><p class="meta">IVIRMA Vigo · 2026</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip alt">programa</span><span class="chip">Otros</span></div></div></article><article class="p" data-temas="estimulacion clinica" data-ficha="0" data-txt="comparison of highly purified human menopausal gonadotropin and recombinant follicle stimulating hormone use in patients undergoing in vitro fertilization with progestin-primed ovarian stimulation protocol: a single center retrospective analysis yetkinel, selçuk, aytaç, pınar çağlar et al. · archives of gynecology and obstetrics · 2024 estimular con hmg altamente purificada o con fsh recombinante dentro de un protocolo ppos dio resultados equivalentes: fertilización 66,7 % frente a 64,3 % (p &gt; 0,05) y gestación 53,5 % frente a 46,7 %, sin diferencias significativas en gestación, aborto ni recién nacido vivo. folículos, ovocitos, mii y 2pn también fueron similares.">
+<div class="fecha"><b>25</b><span>ago</span></div>
+<div class="cuerpo"><h3>Comparison of highly purified human menopausal gonadotropin and recombinant follicle stimulating hormone use in patients undergoing in vitro fertilization with progestin-primed ovarian stimulation protocol: a single center retrospective analysis</h3><p class="meta">Yetkinel, Selçuk, Aytaç, Pınar Çağlar et al. · Archives of Gynecology and Obstetrics · 2024</p>
+<p class="quien">José Luis</p>
+<details class="hall"><summary>Qué encontró</summary><p>Estimular con hMG altamente purificada o con FSH recombinante dentro de un protocolo PPOS dio resultados equivalentes: fertilización 66,7 % frente a 64,3 % (p &gt; 0,05) y gestación 53,5 % frente a 46,7 %, sin diferencias significativas en gestación, aborto ni recién nacido vivo. Folículos, ovocitos, MII y 2PN también fueron similares.</p></details>
+<div class="acc"><span class="chip">Estimulación y protocolos</span><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1007/s00404-024-07756-z" rel="noopener">Original</a></div></div></article><article class="p" data-temas="estimulacion" data-ficha="0" data-txt="progestin primed ovarian stimulation yields comparable outcomes to the gnrh antagonist protocol for controlled ovarian hyperstimulation meseci, elif, okten, sabri berkem et al. · scientific reports · 2025 estudio retrospectivo que compara ppos con protocolo antagonista: resultados globalmente comparables, con más embriones de buena calidad (p = 0,003) y mayor tasa de formación de blastocisto en el grupo ppos. conviene tener en cuenta que el índice de masa corporal medio del grupo ppos era significativamente mayor.">
+<div class="fecha"><b>24</b><span>ago</span></div>
+<div class="cuerpo"><h3>Progestin primed ovarian stimulation yields comparable outcomes to the GnRH antagonist protocol for controlled ovarian hyperstimulation</h3><p class="meta">Meseci, Elif, Okten, Sabri Berkem et al. · Scientific Reports · 2025</p>
+<p class="quien">un miembro</p>
+<details class="hall"><summary>Qué encontró</summary><p>Estudio retrospectivo que compara PPOS con protocolo antagonista: resultados globalmente comparables, con más embriones de buena calidad (p = 0,003) y mayor tasa de formación de blastocisto en el grupo PPOS. Conviene tener en cuenta que el índice de masa corporal medio del grupo PPOS era significativamente mayor.</p></details>
+<div class="acc"><span class="chip">Estimulación y protocolos</span><a class="mini alt" href="https://doi.org/10.1038/s41598-025-24192-4" rel="noopener">Original</a></div></div></article><article class="p" data-temas="laboratorio ia" data-ficha="0" data-txt="an incomplete optimization: ivf directs ai at embryo laboratory while treatment discontinuation goes unmeasured glujovsky, demián, azar, claudia schwarzstein et al. · reproductive biomedicine online · 2026 artículo de posición: la fiv está aplicando la ia al laboratorio de embriología mientras el abandono del tratamiento sigue sin medirse. aporta el dato de que la tasa acumulada de recién nacido vivo a tres ciclos es del 57,9 %, pero baja al 42,7 % al contar el abandono precoz, y señala que el glosario internacional de 2025, con 348 definiciones de consenso, no tiene ninguna entrada para el abandono del tratamiento.">
+<div class="fecha"><b>23</b><span>ago</span></div>
+<div class="cuerpo"><h3>An incomplete optimization: IVF directs AI at embryo laboratory while treatment discontinuation goes unmeasured</h3><p class="meta">Glujovsky, Demián, Azar, Claudia Schwarzstein et al. · Reproductive BioMedicine Online · 2026</p>
+<p class="quien">José Luis · 2 veces</p>
+<details class="hall"><summary>Qué encontró</summary><p><b>Artículo de posición.</b> Artículo de posición: la FIV está aplicando la IA al laboratorio de embriología mientras el abandono del tratamiento sigue sin medirse. Aporta el dato de que la tasa acumulada de recién nacido vivo a tres ciclos es del 57,9 %, pero baja al 42,7 % al contar el abandono precoz, y señala que el Glosario Internacional de 2025, con 348 definiciones de consenso, no tiene ninguna entrada para el abandono del tratamiento.</p></details>
+<div class="acc"><span class="chip">Laboratorio y embriología</span><span class="chip">IA en reproducción asistida</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2026.105934" rel="noopener">Original</a></div></div></article><article class="p" data-temas="estimulacion clinica" data-ficha="1" data-txt="stair-step versus traditional clomiphene citrate protocols in polycystic ovary syndrome: a systematic review and meta-analysis reimão miller, katherine ann, dos santos, priscila luiza et al. · reproductive biomedicine online · 2026 ">
+<div class="fecha"><b>21</b><span>ago</span></div>
+<div class="cuerpo"><h3>Stair-step versus traditional clomiphene citrate protocols in polycystic ovary syndrome: a systematic review and meta-analysis</h3><p class="meta">Reimão Miller, Katherine Ann, dos Santos, Priscila Luiza et al. · Reproductive BioMedicine Online · 2026</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">Estimulación y protocolos</span><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2026.105826" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/stair-step-clomifeno-sop.html">Ficha visual →</a></div></div></article><article class="p" data-temas="laboratorio" data-ficha="0" data-txt="from morphology to molecular validation: ethical re-evaluation of 3pn-derived embryos alteri, alessandra, campagnolo, luisa et al. · reproductive biomedicine online · 2026 artículo de reevaluación ética sobre los embriones derivados de cigotos 3pn, hoy descartados de forma sistemática. recoge que las tasas de diploidía descritas van del 85,7 % al 100 % y que las de euploidía varían drásticamente entre el 0 % y el 47 %, y propone un marco de investigación con gobernanza ética antes de cambiar nada en la práctica.">
+<div class="fecha"><b>19</b><span>ago</span></div>
+<div class="cuerpo"><h3>From morphology to molecular validation: ethical re-evaluation of 3PN-derived embryos</h3><p class="meta">Alteri, Alessandra, Campagnolo, Luisa et al. · Reproductive BioMedicine Online · 2026</p>
+<p class="quien">Enrique</p>
+<details class="hall"><summary>Qué encontró</summary><p><b>Artículo de posición.</b> Artículo de reevaluación ética sobre los embriones derivados de cigotos 3PN, hoy descartados de forma sistemática. Recoge que las tasas de diploidía descritas van del 85,7 % al 100 % y que las de euploidía varían drásticamente entre el 0 % y el 47 %, y propone un marco de investigación con gobernanza ética antes de cambiar nada en la práctica.</p></details>
+<div class="acc"><span class="chip">Laboratorio y embriología</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2026.105888" rel="noopener">Original</a></div></div></article><article class="p" data-temas="donacion" data-ficha="0" data-txt="guías clínicas sef: donación de ovocitos-donantes: estudios y procedimientos sociedad española de fertilidad ">
+<div class="fecha"><b>18</b><span>ago</span></div>
+<div class="cuerpo"><h3>Guías Clínicas SEF: Donación de ovocitos-donantes: estudios y procedimientos</h3><p class="meta">Sociedad Española de Fertilidad</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip alt">guia</span><span class="chip">Donación y regulación</span></div></div></article><article class="p" data-temas="genetica donacion" data-ficha="0" data-txt="cribado genético en donación de gametos grupo de trabajo de donación de gametos y embriones, sociedad española de fertilidad ">
+<div class="fecha"><b>18</b><span>ago</span></div>
+<div class="cuerpo"><h3>Cribado genético en donación de gametos</h3><p class="meta">Grupo de trabajo de Donación de Gametos y Embriones, Sociedad Española de Fertilidad</p>
+<p class="quien">un miembro · 2 veces</p>
+
+<div class="acc"><span class="chip alt">guia</span><span class="chip">Genética y PGT</span><span class="chip">Donación y regulación</span></div></div></article><article class="p" data-temas="transferencia laboratorio" data-ficha="1" data-txt="effect of blastocyst-stage versus cleavage-stage strategy on cumulative live birth rate in assisted reproductive technology: a systematic review and meta-analysis busnelli, andrea, fauque, patricia et al. · fertility and sterility · 2026 ">
+<div class="fecha"><b>14</b><span>ago</span></div>
+<div class="cuerpo"><h3>Effect of blastocyst-stage versus cleavage-stage strategy on cumulative live birth rate in assisted reproductive technology: a systematic review and meta-analysis</h3><p class="meta">Busnelli, Andrea, Fauque, Patricia et al. · Fertility and Sterility · 2026</p>
+<p class="quien">Enrique · 2 veces</p>
+
+<div class="acc"><span class="chip">Transferencia y endometrio</span><span class="chip">Laboratorio y embriología</span><span class="chip warn">por confirmar</span><a class="mini alt" href="https://doi.org/10.1016/j.fertnstert.2026.07.007" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/blastocisto-vs-dia-3-clbr.html">Ficha visual →</a></div></div></article><article class="p" data-temas="donacion" data-ficha="0" data-txt="guía de autorización e inspección de los centros y servicios de reproducción humana asistida consejo interterritorial del sns / ministerio de sanidad (cnrha) · 2024 ">
+<div class="fecha"><b>13</b><span>ago</span></div>
+<div class="cuerpo"><h3>Guía de autorización e inspección de los centros y servicios de reproducción humana asistida</h3><p class="meta">Consejo Interterritorial del SNS / Ministerio de Sanidad (CNRHA) · 2024</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip alt">documento oficial</span><span class="chip">Donación y regulación</span></div></div></article><article class="p" data-temas="transferencia genetica" data-ficha="1" data-txt="meiotic recombination observed through preimplantation genetic testing for two x-linked conditions: first reported case in humans iversen, anna, gerber, sara k. et al. · f&amp;s reports · 2026 ">
+<div class="fecha"><b>12</b><span>ago</span></div>
+<div class="cuerpo"><h3>Meiotic recombination observed through preimplantation genetic testing for two X-linked conditions: first reported case in humans</h3><p class="meta">Iversen, Anna, Gerber, Sara K. et al. · F&amp;S Reports · 2026</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">Transferencia y endometrio</span><span class="chip">Genética y PGT</span><a class="mini alt" href="https://doi.org/10.1016/j.xfre.2026.08.001" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/ficha-recombinacion-meiotica-pgtm.html">Ficha visual →</a></div></div></article><article class="p" data-temas="transferencia laboratorio" data-ficha="0" data-txt="duration of progesterone exposure before frozen embryo transfer impacts live birth rates following single vitrified-thawed day 6 blastocyst transfer: a multicenter cohort study cai, he, wang, zhiqiang et al. · contraception and reproductive medicine · 2026 seis días de progesterona antes de la transferencia de congelados dieron más recién nacidos vivos que cinco: 33,87 % (380/1122) frente a 24,95 % (129/517), con p &lt; 0,001. la diferencia se mantuvo tras ajustar por factores de confusión con modelos gee.">
+<div class="fecha"><b>9</b><span>ago</span></div>
+<div class="cuerpo"><h3>Duration of progesterone exposure before frozen embryo transfer impacts live birth rates following single vitrified-thawed day 6 blastocyst transfer: a multicenter cohort study</h3><p class="meta">Cai, He, Wang, Zhiqiang et al. · Contraception and Reproductive Medicine · 2026</p>
+<p class="quien">José Luis</p>
+<details class="hall"><summary>Qué encontró</summary><p>Seis días de progesterona antes de la transferencia de congelados dieron más recién nacidos vivos que cinco: 33,87 % (380/1122) frente a 24,95 % (129/517), con p &lt; 0,001. La diferencia se mantuvo tras ajustar por factores de confusión con modelos GEE.</p></details>
+<div class="acc"><span class="chip">Transferencia y endometrio</span><span class="chip">Laboratorio y embriología</span><a class="mini alt" href="https://doi.org/10.1186/s40834-026-00425-3" rel="noopener">Original</a></div></div></article><article class="p" data-temas="clinica" data-ficha="0" data-txt="immunotherapy for fertility in autoimmune premature ovarian insufficiency hirschberg, angelica lindén, björnsdottir, sigridur et al. · nejm evidence · 2026 ">
+<div class="fecha"><b>7</b><span>ago</span></div>
+<div class="cuerpo"><h3>Immunotherapy for Fertility in Autoimmune Premature Ovarian Insufficiency</h3><p class="meta">Hirschberg, Angelica Lindén, Björnsdottir, Sigridur et al. · NEJM Evidence · 2026</p>
+<p class="quien">José Luis</p>
+
+<div class="acc"><span class="chip">Clínica general y resultados</span><span class="chip warn">por confirmar</span><a class="mini alt" href="https://doi.org/10.1056/evidoa2500303" rel="noopener">Original</a></div></div></article><article class="p" data-temas="estimulacion clinica" data-ficha="1" data-txt="effects of progestin-primed ovarian stimulation protocol plus clomiphene citrate in patients with low basal lh levels: a randomized controlled trial hu, zhijie, fan, yong et al. · reproductive biology and endocrinology · 2026 ">
+<div class="fecha"><b>7</b><span>ago</span></div>
+<div class="cuerpo"><h3>Effects of progestin-primed ovarian stimulation protocol plus clomiphene citrate in patients with low basal LH levels: a randomized controlled trial</h3><p class="meta">Hu, Zhijie, Fan, Yong et al. · Reproductive Biology and Endocrinology · 2026</p>
+<p class="quien">José Luis</p>
+
+<div class="acc"><span class="chip">Estimulación y protocolos</span><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1186/s12958-026-01601-5" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/ppos-clomifeno-lh-basal-baja.html">Ficha visual →</a></div></div></article><article class="p" data-temas="clinica" data-ficha="0" data-txt="balancing innovation and efficiency in a private-equity-changed world of ivf: the case for sustainable scale freour, thomas, campbell, alison et al. · reproductive biomedicine online · 2026 ">
+<div class="fecha"><b>7</b><span>ago</span></div>
+<div class="cuerpo"><h3>Balancing innovation and efficiency in a private-equity-changed world of IVF: the case for sustainable scale</h3><p class="meta">Freour, Thomas, Campbell, Alison et al. · Reproductive BioMedicine Online · 2026</p>
+<p class="quien">José Luis</p>
+
+<div class="acc"><span class="chip">Clínica general y resultados</span><span class="chip warn">por confirmar</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2026.105846" rel="noopener">Original</a></div></div></article><article class="p" data-temas="estimulacion clinica" data-ficha="1" data-txt="progestogen‐primed ovarian stimulation vs gnrh antagonists and/or agonists for women undergoing assisted reproduction: systematic review and meta‐analysis martins, w. p., nastri, c. o. · ultrasound in obstetrics &amp; gynecology · 2026 ">
+<div class="fecha"><b>7</b><span>ago</span></div>
+<div class="cuerpo"><h3>Progestogen‐primed ovarian stimulation vs GnRH antagonists and/or agonists for women undergoing assisted reproduction: systematic review and meta‐analysis</h3><p class="meta">Martins, W. P., Nastri, C. O. · Ultrasound in Obstetrics &amp; Gynecology · 2026</p>
+<p class="quien">Enrique · 2 veces</p>
+
+<div class="acc"><span class="chip">Estimulación y protocolos</span><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1002/uog.70267" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/ppos-vs-gnrh-metaanalisis.html">Ficha visual →</a></div></div></article><article class="p" data-temas="donacion" data-ficha="0" data-txt="eshre position paper: international limits on the number of offspring per gamete donor frith, lucy, tassot, johanna et al. · human reproduction · 2026 ">
+<div class="fecha"><b>6</b><span>ago</span></div>
+<div class="cuerpo"><h3>ESHRE position paper: international limits on the number of offspring per gamete donor</h3><p class="meta">Frith, Lucy, Tassot, Johanna et al. · Human Reproduction · 2026</p>
+<p class="quien">José Luis · 2 veces</p>
+
+<div class="acc"><span class="chip alt">documento de posición</span><span class="chip">Donación y regulación</span><a class="mini alt" href="https://doi.org/10.1093/humrep/deag108" rel="noopener">Original</a></div></div></article><article class="p" data-temas="laboratorio genetica" data-ficha="0" data-txt="head-to-head comparison of six commercial artificial intelligence algorithms for embryo ploidy risk stratification in 1000 pgt-a-tested blastocysts giménez-rodríguez, carla, caparrós lópez-battú, blanca et al. · reproductive biomedicine online · 2026 ">
+<div class="fecha"><b>2</b><span>ago</span></div>
+<div class="cuerpo"><h3>Head-to-head comparison of six commercial artificial intelligence algorithms for embryo ploidy risk stratification in 1000 PGT-A-tested blastocysts</h3><p class="meta">Giménez-Rodríguez, Carla, Caparrós López-Battú, Blanca et al. · Reproductive BioMedicine Online · 2026</p>
+<p class="quien">Sergio</p>
+
+<div class="acc"><span class="chip">Laboratorio y embriología</span><span class="chip">Genética y PGT</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2026.105865" rel="noopener">Original</a></div></div></article><article class="p" data-temas="laboratorio ia" data-ficha="0" data-txt="improving embryo ploidy prediction: a machine learning approach using morphokinetic meta-variables and clinical data güell-penas, enric, ferrer-buitrago, minerva et al. · reproductive biomedicine online · 2026 ">
+<div class="fecha"><b>2</b><span>ago</span></div>
+<div class="cuerpo"><h3>Improving embryo ploidy prediction: a machine learning approach using morphokinetic meta-variables and clinical data</h3><p class="meta">Güell-Penas, Enric, Ferrer-Buitrago, Minerva et al. · Reproductive BioMedicine Online · 2026</p>
+<p class="quien">un miembro</p>
+
+<div class="acc"><span class="chip">Laboratorio y embriología</span><span class="chip">IA en reproducción asistida</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2025.105404" rel="noopener">Original</a></div></div></article><article class="p" data-temas="estimulacion clinica" data-ficha="0" data-txt="gnrh antagonist ganirelix prevents premature luteinization in iui cycles: rationale for its use martinez-salazar, j, cerrillo, m et al. · reproductive biomedicine online · 2009 ">
+<div class="fecha"><b>1</b><span>ago</span></div>
+<div class="cuerpo"><h3>GnRH antagonist ganirelix prevents premature luteinization in IUI cycles: rationale for its use</h3><p class="meta">Martinez-Salazar, J, Cerrillo, M et al. · Reproductive BioMedicine Online · 2009</p>
+<p class="quien">un miembro</p>
+
+<div class="acc"><span class="chip">Estimulación y protocolos</span><span class="chip">Clínica general y resultados</span><span class="chip warn">por confirmar</span><a class="mini alt" href="https://doi.org/10.1016/s1472-6483(10)60066-1" rel="noopener">Original</a></div></div></article><article class="p" data-temas="estimulacion clinica" data-ficha="1" data-txt="timing ovulation for intrauterine insemination with a gnrh antagonist gómez-palomares, j., juliá, b. et al. · human reproduction · 2005 ">
+<div class="fecha"><b>1</b><span>ago</span></div>
+<div class="cuerpo"><h3>Timing ovulation for intrauterine insemination with a GnRH antagonist</h3><p class="meta">Gómez-Palomares, J., Juliá, B. et al. · Human Reproduction · 2005</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">Estimulación y protocolos</span><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1093/humrep/deh602" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/antagonista-gnrh-inseminacion.html">Ficha visual →</a></div></div></article><article class="p" data-temas="genetica donacion" data-ficha="0" data-txt="a shared egg donor program: which is the minimum number of oocytes to be allocated? glujovsky, demian, dominguez, marcelo et al. · journal of assisted reproduction and genetics · 2010 en un programa de donación de ovocitos compartida no hubo diferencias significativas en tasa de gestación clínica entre los estratos analizados (del 43,7 % al 53,0 %) ni en la de aborto. sí variaron la proporción de embriones transferidos de máxima calidad y la tasa de congelación embrionaria.">
+<div class="fecha"><b>1</b><span>ago</span></div>
+<div class="cuerpo"><h3>A shared egg donor program: which is the minimum number of oocytes to be allocated?</h3><p class="meta">Glujovsky, Demian, Dominguez, Marcelo et al. · Journal of Assisted Reproduction and Genetics · 2010</p>
+<p class="quien">Enrique</p>
+<details class="hall"><summary>Qué encontró</summary><p>En un programa de donación de ovocitos compartida no hubo diferencias significativas en tasa de gestación clínica entre los estratos analizados (del 43,7 % al 53,0 %) ni en la de aborto. Sí variaron la proporción de embriones transferidos de máxima calidad y la tasa de congelación embrionaria.</p></details>
+<div class="acc"><span class="chip">Genética y PGT</span><span class="chip">Donación y regulación</span><a class="mini alt" href="https://doi.org/10.1007/s10815-010-9511-7" rel="noopener">Original</a></div></div></article><article class="p" data-temas="donacion" data-ficha="0" data-txt="prognostic factors in oocyte donation: an analysis through egg-sharing recipient pairs showing a discordant outcome bodri, daniel, colodron, marta et al. · fertility and sterility · 2007 ">
+<div class="fecha"><b>1</b><span>ago</span></div>
+<div class="cuerpo"><h3>Prognostic factors in oocyte donation: an analysis through egg-sharing recipient pairs showing a discordant outcome</h3><p class="meta">Bodri, Daniel, Colodron, Marta et al. · Fertility and Sterility · 2007</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">Donación y regulación</span><a class="mini alt" href="https://doi.org/10.1016/j.fertnstert.2007.01.054" rel="noopener">Original</a></div></div></article><article class="p" data-temas="estimulacion transferencia" data-ficha="1" data-txt="frozen versus fresh embryo transfer in low responders: a systematic review sun, yiming, sun, xiaoxi et al. · fertility and sterility · 2026 ">
+<div class="fecha"><b>1</b><span>ago</span></div>
+<div class="cuerpo"><h3>Frozen versus fresh embryo transfer in low responders: a systematic review</h3><p class="meta">Sun, Yiming, Sun, Xiaoxi et al. · Fertility and Sterility · 2026</p>
+<p class="quien">un miembro · 2 veces</p>
+
+<div class="acc"><span class="chip">Estimulación y protocolos</span><span class="chip">Transferencia y endometrio</span><a class="mini alt" href="https://doi.org/10.1016/j.fertnstert.2026.03.021" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/congelado-vs-fresco-bajas-respondedoras.html">Ficha visual →</a></div></div></article><article class="p" data-temas="clinica" data-ficha="0" data-txt="assisted reproductive technologies (art) and breast cancer risk: hormonal treatments under the spotlight boldrini, cristiana, bottalico, micol et al. · breast cancer research and treatment · 2026 revisión narrativa: la evidencia actual no respalda un aumento real y consistente del riesgo de cáncer de mama tras los tratamientos hormonales de reproducción asistida. los estudios poblacionales grandes y los metaanálisis recientes son tranquilizadores, sobre todo cuando se compara a las mujeres tratadas con mujeres infértiles no tratadas y no con la población general.">
+<div class="fecha"><b>31</b><span>jul</span></div>
+<div class="cuerpo"><h3>Assisted Reproductive Technologies (ART) and breast cancer risk: hormonal treatments under the spotlight</h3><p class="meta">Boldrini, Cristiana, Bottalico, Micol et al. · Breast Cancer Research and Treatment · 2026</p>
+<p class="quien">Enrique</p>
+<details class="hall"><summary>Qué encontró</summary><p><b>Revisión narrativa.</b> Revisión narrativa: la evidencia actual no respalda un aumento real y consistente del riesgo de cáncer de mama tras los tratamientos hormonales de reproducción asistida. Los estudios poblacionales grandes y los metaanálisis recientes son tranquilizadores, sobre todo cuando se compara a las mujeres tratadas con mujeres infértiles no tratadas y no con la población general.</p></details>
+<div class="acc"><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1007/s10549-026-08036-x" rel="noopener">Original</a></div></div></article><article class="p" data-temas="clinica" data-ficha="0" data-txt="fertility preservation in patients with turner syndrome: a swot analysis ferro, rafael, vento, federico del et al. · reproductive biomedicine online · 2026 ">
+<div class="fecha"><b>30</b><span>jul</span></div>
+<div class="cuerpo"><h3>Fertility preservation in patients with Turner syndrome: a SWOT analysis</h3><p class="meta">Ferro, Rafael, Vento, Federico Del et al. · Reproductive BioMedicine Online · 2026</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2025.105438" rel="noopener">Original</a></div></div></article><article class="p" data-temas="laboratorio clinica" data-ficha="0" data-txt="rethinking the route of oocyte retrieval: when one procedure does not fit all melado, laura, lawrenz, barbara et al. · reproductive biomedicine online · 2026 ">
+<div class="fecha"><b>26</b><span>jul</span></div>
+<div class="cuerpo"><h3>Rethinking the route of oocyte retrieval: when one procedure does not fit all</h3><p class="meta">Melado, Laura, Lawrenz, Barbara et al. · Reproductive BioMedicine Online · 2026</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">Laboratorio y embriología</span><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2026.105739" rel="noopener">Original</a></div></div></article><article class="p" data-temas="ia clinica" data-ficha="0" data-txt="stage-specific machine learning prediction of cumulative live birth in women with diminished ovarian reserve liu, lidan, liu, bo et al. · frontiers in endocrinology · 2026 un modelo de aprendizaje automático (catboost) predice el recién nacido vivo acumulado en baja reserva ovárica con un auc de 0,759 (ic95% 0,704–0,810) usando solo cinco variables basales. añadir los marcadores posteriores a la estimulación no aportó nada (δauc = −0,004); el salto llegó con los parámetros embriológicos previos a la transferencia.">
+<div class="fecha"><b>25</b><span>jul</span></div>
+<div class="cuerpo"><h3>Stage-specific machine learning prediction of cumulative live birth in women with diminished ovarian reserve</h3><p class="meta">Liu, Lidan, Liu, Bo et al. · Frontiers in Endocrinology · 2026</p>
+<p class="quien">Sergio</p>
+<details class="hall"><summary>Qué encontró</summary><p>Un modelo de aprendizaje automático (CatBoost) predice el recién nacido vivo acumulado en baja reserva ovárica con un AUC de 0,759 (IC95% 0,704–0,810) usando solo cinco variables basales. Añadir los marcadores posteriores a la estimulación no aportó nada (ΔAUC = −0,004); el salto llegó con los parámetros embriológicos previos a la transferencia.</p></details>
+<div class="acc"><span class="chip">IA en reproducción asistida</span><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.3389/fendo.2026.1832301" rel="noopener">Original</a></div></div></article><article class="p" data-temas="clinica" data-ficha="0" data-txt="pcos is here to stay: does ‘pmos’ truly reflect biological reality? longo, maria, la marca, antonio · reproductive biomedicine online · 2026 ">
+<div class="fecha"><b>24</b><span>jul</span></div>
+<div class="cuerpo"><h3>PCOS is here to stay: does ‘PMOS’ truly reflect biological reality?</h3><p class="meta">Longo, Maria, La Marca, Antonio · Reproductive BioMedicine Online · 2026</p>
+<p class="quien">José Luis · 3 veces</p>
+
+<div class="acc"><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2026.105883" rel="noopener">Original</a></div></div></article><article class="p" data-temas="transferencia genetica" data-ficha="0" data-txt="serial progesterone levels more accurately predict the time of ovulation in subfertile women: a prospective cohort study aydin, turgut, koroglu, nadiye et al. · journal of assisted reproduction and genetics · 2023 un modelo basado en progesterona seriada predijo el momento de la ovulación mejor que el basado en el pico de lh, con r² de 0,9983 y rmse de 0,2454. su exactitud neta fue del 63,0 % para acertar el día exacto y del 99,6 % admitiendo un día de error.">
+<div class="fecha"><b>24</b><span>jul</span></div>
+<div class="cuerpo"><h3>Serial progesterone levels more accurately predict the time of ovulation in subfertile women: a prospective cohort study</h3><p class="meta">Aydin, Turgut, Koroglu, Nadiye et al. · Journal of Assisted Reproduction and Genetics · 2023</p>
+<p class="quien">José Luis</p>
+<details class="hall"><summary>Qué encontró</summary><p>Un modelo basado en progesterona seriada predijo el momento de la ovulación mejor que el basado en el pico de LH, con R² de 0,9983 y RMSE de 0,2454. Su exactitud neta fue del 63,0 % para acertar el día exacto y del 99,6 % admitiendo un día de error.</p></details>
+<div class="acc"><span class="chip">Transferencia y endometrio</span><span class="chip">Genética y PGT</span><a class="mini alt" href="https://doi.org/10.1007/s10815-023-02864-2" rel="noopener">Original</a></div></div></article><article class="p" data-temas="laboratorio genetica" data-ficha="0" data-txt="cytogenetic and microarray analysis follow‐up of pgt‐a mosaic and sex discrepant embryos during pregnancy: absence of confirmation and follow‐up recommendations kline, laura a., nitibhon, vanessa a. et al. · prenatal diagnosis · 2026 de 328 hallazgos de mosaicismo en pgt-a, ninguno se confirmó en el estudio prenatal por cariotipo o microarray. de los 298 microarrays realizados, cinco (1,7 %) mostraron anomalías patogénicas sin relación con el motivo de derivación.">
+<div class="fecha"><b>24</b><span>jul</span></div>
+<div class="cuerpo"><h3>Cytogenetic and Microarray Analysis Follow‐Up of PGT‐A Mosaic and Sex Discrepant Embryos During Pregnancy: Absence of Confirmation and Follow‐Up Recommendations</h3><p class="meta">Kline, Laura A., Nitibhon, Vanessa A. et al. · Prenatal Diagnosis · 2026</p>
+<p class="quien">Enrique</p>
+<details class="hall"><summary>Qué encontró</summary><p>De 328 hallazgos de mosaicismo en PGT-A, ninguno se confirmó en el estudio prenatal por cariotipo o microarray. De los 298 microarrays realizados, cinco (1,7 %) mostraron anomalías patogénicas sin relación con el motivo de derivación.</p></details>
+<div class="acc"><span class="chip">Laboratorio y embriología</span><span class="chip">Genética y PGT</span><a class="mini alt" href="https://doi.org/10.1002/pd.70132" rel="noopener">Original</a></div></div></article><article class="p" data-temas="transferencia genetica" data-ficha="0" data-txt="the hera (hyper-response risk assessment) delphi consensus for the management of hyper-responders in in vitro fertilization feferkorn, i., santos-ribeiro, s. et al. · journal of assisted reproduction and genetics · 2023 consenso delphi hera para el manejo de la hiper-respondedora: 26 de 28 afirmaciones alcanzaron acuerdo. las más concretas: el objetivo son 15–19 ovocitos por ciclo (89,3 % de consenso), es preferible asumir la hiper-respuesta y congelar todo antes que buscar transferencia en fresco (71,4 %), y deben evitarse los agonistas de gnrh para la supresión hipofisaria en estas pacientes (96,4 %).">
+<div class="fecha"><b>23</b><span>jul</span></div>
+<div class="cuerpo"><h3>The HERA (Hyper-response Risk Assessment) Delphi consensus for the management of hyper-responders in in vitro fertilization</h3><p class="meta">Feferkorn, I., Santos-Ribeiro, S. et al. · Journal of Assisted Reproduction and Genetics · 2023</p>
+<p class="quien">Enrique</p>
+<details class="hall"><summary>Qué encontró</summary><p><b>Consenso.</b> Consenso Delphi HERA para el manejo de la hiper-respondedora: 26 de 28 afirmaciones alcanzaron acuerdo. Las más concretas: el objetivo son 15–19 ovocitos por ciclo (89,3 % de consenso), es preferible asumir la hiper-respuesta y congelar todo antes que buscar transferencia en fresco (71,4 %), y deben evitarse los agonistas de GnRH para la supresión hipofisaria en estas pacientes (96,4 %).</p></details>
+<div class="acc"><span class="chip">Transferencia y endometrio</span><span class="chip">Genética y PGT</span><a class="mini alt" href="https://doi.org/10.1007/s10815-023-02918-5" rel="noopener">Original</a></div></div></article><article class="p" data-temas="transferencia laboratorio" data-ficha="0" data-txt="preimplantation genetic testing and embryo mosaicism: a critical narrative review of clinical outcomes and controversies inoue, daichi, asada, yoshimasa · obstetrics and gynecology international · 2026 revisión narrativa crítica sobre el mosaicismo embrionario en pgt-a. recoge el umbral de la pgdis, que asigna «euploide» por debajo del 20 % y «aneuploide» por encima del 80 %, dejando una franja de mosaico del 20 al 80 %; los estudios más recientes usan un corte en torno al 50 % para separar mosaicismo de bajo y alto nivel.">
+<div class="fecha"><b>23</b><span>jul</span></div>
+<div class="cuerpo"><h3>Preimplantation Genetic Testing and Embryo Mosaicism: A Critical Narrative Review of Clinical Outcomes and Controversies</h3><p class="meta">Inoue, Daichi, Asada, Yoshimasa · Obstetrics and Gynecology International · 2026</p>
+<p class="quien">José Luis</p>
+<details class="hall"><summary>Qué encontró</summary><p><b>Revisión narrativa.</b> Revisión narrativa crítica sobre el mosaicismo embrionario en PGT-A. Recoge el umbral de la PGDIS, que asigna «euploide» por debajo del 20 % y «aneuploide» por encima del 80 %, dejando una franja de mosaico del 20 al 80 %; los estudios más recientes usan un corte en torno al 50 % para separar mosaicismo de bajo y alto nivel.</p></details>
+<div class="acc"><span class="chip">Transferencia y endometrio</span><span class="chip">Laboratorio y embriología</span><a class="mini alt" href="https://doi.org/10.1155/ogi/9009681" rel="noopener">Original</a></div></div></article><article class="p" data-temas="clinica" data-ficha="0" data-txt="from pcos to pmos: why a new name may improve patient care garcia-velasco, juan a., fauser, bart et al. · reproductive biomedicine online · 2026 ">
+<div class="fecha"><b>23</b><span>jul</span></div>
+<div class="cuerpo"><h3>From PCOS to PMOS: why a new name may improve patient care</h3><p class="meta">Garcia-Velasco, Juan A., Fauser, Bart et al. · Reproductive BioMedicine Online · 2026</p>
+<p class="quien">José Luis</p>
+
+<div class="acc"><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2026.105886" rel="noopener">Original</a></div></div></article><article class="p" data-temas="transferencia laboratorio" data-ficha="0" data-txt="progesterone-based ovulation timing versus lh surge monitoring in true natural cycle frozen embryo transfer: impact on live birth rates in a prospective cohort study aydin, turgut, koroglu, nadiye et al. · human reproduction · 2026 ">
+<div class="fecha"><b>23</b><span>jul</span></div>
+<div class="cuerpo"><h3>Progesterone-based ovulation timing versus LH surge monitoring in true natural cycle frozen embryo transfer: impact on live birth rates in a prospective cohort study</h3><p class="meta">Aydin, Turgut, Koroglu, Nadiye et al. · Human Reproduction · 2026</p>
+<p class="quien">Enrique · 2 veces</p>
+
+<div class="acc"><span class="chip">Transferencia y endometrio</span><span class="chip">Laboratorio y embriología</span><a class="mini alt" href="https://doi.org/10.1093/humrep/deag109" rel="noopener">Original</a></div></div></article><article class="p" data-temas="laboratorio" data-ficha="0" data-txt="germinal vesicle oocytes’ rescue: a worthless treatment or a patient-centred approach? eight years of clinical experience in poor prognosis patients cimadomo, danilo, escrich, laura et al. · human reproduction · 2026 ">
+<div class="fecha"><b>23</b><span>jul</span></div>
+<div class="cuerpo"><h3>Germinal vesicle oocytes’ rescue: a worthless treatment or a patient-centred approach? Eight years of clinical experience in poor prognosis patients</h3><p class="meta">Cimadomo, Danilo, Escrich, Laura et al. · Human Reproduction · 2026</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">Laboratorio y embriología</span><a class="mini alt" href="https://doi.org/10.1093/humrep/deag115" rel="noopener">Original</a></div></div></article><article class="p" data-temas="transferencia laboratorio" data-ficha="0" data-txt="rate of true recurrent implantation failure is low: results of three successive frozen euploid single embryo transfers pirtea, paul, de ziegler, dominique et al. · fertility and sterility · 2021 ">
+<div class="fecha"><b>21</b><span>jul</span></div>
+<div class="cuerpo"><h3>Rate of true recurrent implantation failure is low: results of three successive frozen euploid single embryo transfers</h3><p class="meta">Pirtea, Paul, De Ziegler, Dominique et al. · Fertility and Sterility · 2021</p>
+<p class="quien">un miembro</p>
+
+<div class="acc"><span class="chip">Transferencia y endometrio</span><span class="chip">Laboratorio y embriología</span><span class="chip warn">por confirmar</span><a class="mini alt" href="https://doi.org/10.1016/j.fertnstert.2020.07.002" rel="noopener">Original</a></div></div></article><article class="p" data-temas="andrologia" data-ficha="0" data-txt="eye tracking reveals expert gaze patterns during intracytoplasmic sperm injection asai, azusa, hagiwara, hayato et al. · scientific reports · 2026 ">
+<div class="fecha"><b>21</b><span>jul</span></div>
+<div class="cuerpo"><h3>Eye tracking reveals expert gaze patterns during intracytoplasmic sperm injection</h3><p class="meta">Asai, Azusa, Hagiwara, Hayato et al. · Scientific Reports · 2026</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">Andrología</span><a class="mini alt" href="https://doi.org/10.1038/s41598-026-57054-8" rel="noopener">Original</a></div></div></article><article class="p" data-temas="otros" data-ficha="0" data-txt="doc-20221107-wa0003..pdf  ">
+<div class="fecha"><b>20</b><span>jul</span></div>
+<div class="cuerpo"><h3>DOC-20221107-WA0003..pdf</h3><p class="meta"></p>
+<p class="quien">un miembro</p>
+
+<div class="acc"><span class="chip alt">documento oficial</span><span class="chip">Otros</span><span class="chip warn">por confirmar</span></div></div></article><article class="p" data-temas="laboratorio" data-ficha="0" data-txt="eshre recommendations on good practice in the ivf laboratory , arroyo, gemma et al. · human reproduction · 2026 ">
+<div class="fecha"><b>20</b><span>jul</span></div>
+<div class="cuerpo"><h3>ESHRE recommendations on Good Practice in the IVF laboratory</h3><p class="meta">, Arroyo, Gemma et al. · Human Reproduction · 2026</p>
+<p class="quien">Enrique · 2 veces</p>
+
+<div class="acc"><span class="chip alt">guia</span><span class="chip">Laboratorio y embriología</span><span class="chip warn">por confirmar</span><a class="mini alt" href="https://doi.org/10.1093/humrep/deag096" rel="noopener">Original</a></div></div></article><article class="p" data-temas="laboratorio andrologia" data-ficha="0" data-txt="the impact of fresh versus cryopreserved testicular sperm on in-vitro fertilization outcomes in couples with elevated sperm dna fragmentation: a retrospective cohort study siegel, dana r., kaizer, laura k. et al. · reproductive biology and endocrinology · 2026 ">
+<div class="fecha"><b>18</b><span>jul</span></div>
+<div class="cuerpo"><h3>The impact of fresh versus cryopreserved testicular sperm on in-vitro fertilization outcomes in couples with elevated sperm DNA fragmentation: a retrospective cohort study</h3><p class="meta">Siegel, Dana R., Kaizer, Laura K. et al. · Reproductive Biology and Endocrinology · 2026</p>
+<p class="quien">Enrique</p>
+
+<div class="acc"><span class="chip">Laboratorio y embriología</span><span class="chip">Andrología</span><a class="mini alt" href="https://doi.org/10.1186/s12958-026-01594-1" rel="noopener">Original</a></div></div></article><article class="p" data-temas="otros" data-ficha="0" data-txt="abstracts of the 42nd annual meeting of eshre, london, 5–8 july 2026 (abstract book, versión sin abstracts embargados) eshre · human reproduction · 2026 ">
+<div class="fecha"><b>18</b><span>jul</span></div>
+<div class="cuerpo"><h3>Abstracts of the 42nd Annual Meeting of ESHRE, London, 5–8 July 2026 (abstract book, versión sin abstracts embargados)</h3><p class="meta">ESHRE · Human Reproduction · 2026</p>
+<p class="quien">Enrique · 2 veces</p>
+
+<div class="acc"><span class="chip alt">libro de abstracts</span><span class="chip">Otros</span></div></div></article><article class="p" data-temas="laboratorio genetica" data-ficha="1" data-txt="sperm dna fragmentation and embryo aneuploidy: a comprehensive systematic review and meta-analysis zou, min, raffi, nur ab et al. · reproductive biomedicine online · 2026 un índice de fragmentación del adn espermático elevado se asocia a más aneuploidía embrionaria, pero de forma modesta: rr 1,16 (ic95% 1,03–1,31) en 7 estudios y 3563 embriones, con heterogeneidad considerable (i² = 55 %). los autores concluyen que la evidencia, toda retrospectiva, es insuficiente para recomendar el test de fragmentación como guía independiente de decisión clínica.">
+<div class="fecha"><b>18</b><span>jul</span></div>
+<div class="cuerpo"><h3>Sperm DNA fragmentation and embryo aneuploidy: a comprehensive systematic review and meta-analysis</h3><p class="meta">Zou, Min, Raffi, Nur AB et al. · Reproductive BioMedicine Online · 2026</p>
+<p class="quien">Enrique · 2 veces</p>
+<details class="hall"><summary>Qué encontró</summary><p>Un índice de fragmentación del ADN espermático elevado se asocia a más aneuploidía embrionaria, pero de forma modesta: RR 1,16 (IC95% 1,03–1,31) en 7 estudios y 3563 embriones, con heterogeneidad considerable (I² = 55 %). Los autores concluyen que la evidencia, toda retrospectiva, es insuficiente para recomendar el test de fragmentación como guía independiente de decisión clínica.</p></details>
+<div class="acc"><span class="chip">Laboratorio y embriología</span><span class="chip">Genética y PGT</span><span class="chip warn">por confirmar</span><a class="mini alt" href="https://doi.org/10.1016/j.rbmo.2026.105639" rel="noopener">Original</a><a class="mini" href="https://iaparatodos.github.io/adria-demos/dfi-aneuploidia-metaanalisis.html">Ficha visual →</a></div></div></article><article class="p" data-temas="laboratorio genetica" data-ficha="0" data-txt="effect of sperm dna fragmentation on embryo euploidy rate in assisted reproductive technologies: a systematic review and meta-analysis wan, bangbei, fu, yu et al. · european journal of medical research · 2025 el efecto de la fragmentación del adn espermático sobre la euploidía embrionaria depende del umbral que se use. con el corte en el 15 % no hubo asociación significativa; con el corte en el 30 %, una fragmentación alta sí se asoció a menos embriones euploides. seis estudios y 1516 ciclos, todos midiendo con scsa y cortes entre el 15 y el 30 %.">
+<div class="fecha"><b>18</b><span>jul</span></div>
+<div class="cuerpo"><h3>Effect of sperm DNA fragmentation on embryo euploidy rate in assisted reproductive technologies: a systematic review and meta-analysis</h3><p class="meta">Wan, Bangbei, Fu, Yu et al. · European Journal of Medical Research · 2025</p>
+<p class="quien">Enrique</p>
+<details class="hall"><summary>Qué encontró</summary><p>El efecto de la fragmentación del ADN espermático sobre la euploidía embrionaria depende del umbral que se use. Con el corte en el 15 % no hubo asociación significativa; con el corte en el 30 %, una fragmentación alta sí se asoció a menos embriones euploides. Seis estudios y 1516 ciclos, todos midiendo con SCSA y cortes entre el 15 y el 30 %.</p></details>
+<div class="acc"><span class="chip">Laboratorio y embriología</span><span class="chip">Genética y PGT</span><a class="mini alt" href="https://doi.org/10.1186/s40001-025-03402-9" rel="noopener">Original</a></div></div></article><article class="p" data-temas="transferencia laboratorio" data-ficha="0" data-txt="influencing factors for early miscarriage after frozen-thawed euploid blastocyst transfer in patients with intramural uterine fibroids wang, chao, zhang, xiao et al. · fertility and sterility · 2026 ">
+<div class="fecha"><b>17</b><span>jul</span></div>
+<div class="cuerpo"><h3>Influencing factors for early miscarriage after frozen-thawed euploid blastocyst transfer in patients with intramural uterine fibroids</h3><p class="meta">Wang, Chao, Zhang, Xiao et al. · Fertility and Sterility · 2026</p>
+<p class="quien">José Luis</p>
+
+<div class="acc"><span class="chip">Transferencia y endometrio</span><span class="chip">Laboratorio y embriología</span><a class="mini alt" href="https://doi.org/10.1016/j.fertnstert.2026.07.008" rel="noopener">Original</a></div></div></article><article class="p" data-temas="transferencia" data-ficha="0" data-txt="subendometrial platelet-rich plasma injection for refractory thin endometrium: a prospective pilot study zhang, hui, wang, huiyan et al. · scientific reports · 2026 estudio piloto de un solo brazo en 21 mujeres con endometrio fino refractario (grosor por debajo de 7 mm) tratadas con inyección subendometrial de plasma rico en plaquetas. la tasa de gestación clínica en los ciclos de transferencia de congelados fue del 44,4 %, con 8 embarazos: 2 recién nacidos vivos y 6 gestaciones en curso al cierre.">
+<div class="fecha"><b>17</b><span>jul</span></div>
+<div class="cuerpo"><h3>Subendometrial platelet-rich plasma injection for refractory thin endometrium: a prospective pilot study</h3><p class="meta">Zhang, Hui, Wang, Huiyan et al. · Scientific Reports · 2026</p>
+<p class="quien">José Luis</p>
+<details class="hall"><summary>Qué encontró</summary><p>Estudio piloto de un solo brazo en 21 mujeres con endometrio fino refractario (grosor por debajo de 7 mm) tratadas con inyección subendometrial de plasma rico en plaquetas. La tasa de gestación clínica en los ciclos de transferencia de congelados fue del 44,4 %, con 8 embarazos: 2 recién nacidos vivos y 6 gestaciones en curso al cierre.</p></details>
+<div class="acc"><span class="chip">Transferencia y endometrio</span><a class="mini alt" href="https://doi.org/10.1038/s41598-026-38286-0" rel="noopener">Original</a></div></div></article><article class="p" data-temas="transferencia clinica" data-ficha="0" data-txt="intrauterine infusion and hysteroscopic injection of autologous platelet-rich plasma for patients with a persistent thin endometrium: a prospective case–control study yu, tzu-ning, lee, tsung-hsien et al. · journal of clinical medicine · 2024 tras infusión intrauterina e inyección histeroscópica de plasma rico en plaquetas, el 78,2 % y el 55,3 % de las pacientes superaron los 7 mm de grosor endometrial. el grupo de inyección histeroscópica alcanzó una tasa de implantación del 52 %, gestación clínica del 52 % y recién nacido vivo del 38 %, frente al 18 %, 22 % y 4 % del grupo control.">
+<div class="fecha"><b>17</b><span>jul</span></div>
+<div class="cuerpo"><h3>Intrauterine Infusion and Hysteroscopic Injection of Autologous Platelet-Rich Plasma for Patients with a Persistent Thin Endometrium: A Prospective Case–Control Study</h3><p class="meta">Yu, Tzu-Ning, Lee, Tsung-Hsien et al. · Journal of Clinical Medicine · 2024</p>
+<p class="quien">José Luis</p>
+<details class="hall"><summary>Qué encontró</summary><p>Tras infusión intrauterina e inyección histeroscópica de plasma rico en plaquetas, el 78,2 % y el 55,3 % de las pacientes superaron los 7 mm de grosor endometrial. El grupo de inyección histeroscópica alcanzó una tasa de implantación del 52 %, gestación clínica del 52 % y recién nacido vivo del 38 %, frente al 18 %, 22 % y 4 % del grupo control.</p></details>
+<div class="acc"><span class="chip">Transferencia y endometrio</span><span class="chip">Clínica general y resultados</span><a class="mini alt" href="https://doi.org/10.3390/jcm13102838" rel="noopener">Original</a></div></div></article><article class="p" data-temas="estimulacion ia" data-ficha="0" data-txt="clinical evaluation of automated self-operated transvaginal ultrasound for ovarian stimulation monitoring shavit, tal, bortoletto, pietro et al. · 2026 ">
+<div class="fecha"><b>15</b><span>jul</span></div>
+<div class="cuerpo"><h3>Clinical Evaluation of Automated Self-Operated Transvaginal Ultrasound for Ovarian Stimulation Monitoring</h3><p class="meta">Shavit, Tal, Bortoletto, Pietro et al. · 2026</p>
+<p class="quien">Sergio</p>
+
+<div class="acc"><span class="chip">Estimulación y protocolos</span><span class="chip">IA en reproducción asistida</span><span class="chip warn">por confirmar</span><a class="mini alt" href="https://doi.org/10.64898/2026.06.21.26356181" rel="noopener">Original</a></div></div></article>
+<p class="vacio" hidden>Nada con esa búsqueda.</p>
+</div>
+<div class="nota"><b>Empieza el 15 de julio de 2026</b>, el día que entramos al grupo: lo anterior no lo tenemos. Si echas en falta un artículo, pásalo y entra.</div>
+<p class="pie">Índice al 18/09/2026. No se aloja ningún PDF: cada entrada enlaza al original en su revista. Cortesía de Código AdrIA.</p>
+</div></div><script>(function(){
+var K="sef-blasto-458";var r=document.querySelector('.cad-bib');
+function abre(){r.classList.remove('cerrada');var m=document.getElementById('muro');if(m)m.remove();
+  try{localStorage.setItem('bib-sef-k',K)}catch(e){}
+  var av=document.createElement('p');av.className='abierto-aviso';av.textContent='Acceso abierto · guarda esta página en favoritos';r.insertBefore(av,r.firstChild.nextSibling);}
+var q=new URLSearchParams(location.search).get('k');var s=null;try{s=localStorage.getItem('bib-sef-k')}catch(e){}
+if((q&&q.trim().toLowerCase()===K.toLowerCase())||s===K){abre();
+  if(q){try{history.replaceState(null,'',location.pathname+location.hash)}catch(e){}}return;}
+r.classList.add('cerrada');
+var b=document.getElementById('abrir'),i=document.getElementById('clave'),m=document.getElementById('clave-msg');
+function intenta(){if(i.value.trim().toLowerCase()===K.toLowerCase()){abre()}else{m.textContent='Esa no es. La clave se dijo en el directo: revisa mayúsculas y guiones.';m.classList.add('mal')}}
+if(b){b.addEventListener('click',intenta)}if(i){i.addEventListener('keydown',function(e){if(e.key==='Enter')intenta()})}
+})();</script><script>(function(){var r=document.querySelector('.cad-bib'),q=r.querySelector('input'),fs=r.querySelectorAll('.f'),ps=r.querySelectorAll('.p'),v=r.querySelector('.vacio'),c=r.querySelector('.cuenta'),t='';
+function ap(){var s=q.value.toLowerCase().trim(),n=0;ps.forEach(function(p){var ok=(!t||p.dataset.temas.split(' ').indexOf(t)>=0||(t==='_ficha'&&p.dataset.ficha==='1'))&&(!s||p.dataset.txt.indexOf(s)>=0);p.hidden=!ok;if(ok)n++});v.hidden=n>0;if(c)c.textContent=n}
+q.addEventListener('input',ap);fs.forEach(function(b){b.addEventListener('click',function(){var on=b.classList.contains('on');fs.forEach(function(x){x.classList.remove('on')});t=on?'':b.dataset.t;if(!on)b.classList.add('on');ap()})})})();</script></body></html>
