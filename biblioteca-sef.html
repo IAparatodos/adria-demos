@@ -93,6 +93,13 @@ font-family:Poppins,system-ui,-apple-system,sans-serif;background:var(--canvas);
 .muro .clave button:hover{background:var(--t2)}
 .muro .clave small{flex-basis:100%;color:var(--ink3);font-size:12.5px}
 .muro .clave .mal{color:#d99a6c}
+.fnat{display:grid;gap:10px;margin:6px 0 4px}
+.fnat label{display:grid;gap:4px;color:var(--ink2);font-size:13.5px}
+.fnat input[type=text],.fnat input[type=email]{background:#071619;border:1px solid var(--line2);color:var(--ink);border-radius:9px;padding:11px 13px;font:inherit;font-size:15px}
+.fnat .chk{grid-template-columns:auto 1fr;align-items:start;gap:8px;font-size:13px}
+.fnat button{background:var(--t);color:#08222a;border:0;border-radius:9px;padding:12px 18px;font:inherit;font-weight:600;cursor:pointer;justify-self:start}
+.fnat button:hover{background:var(--t2)}.fnat button[disabled]{opacity:.6;cursor:wait}
+.fnat small{color:var(--ink3);font-size:12.5px}.fnat small.mal{color:#d99a6c}
 .abierto-aviso{max-width:1100px;margin:0 auto;padding:0 20px 8px;color:var(--ink3);font-size:12.5px;text-align:right}
 </style></head><body><div class="cad-bib">
 <div class="hero"><div class="w">
@@ -112,11 +119,13 @@ font-family:Poppins,system-ui,-apple-system,sans-serif;background:var(--canvas);
 <p>La biblioteca es del grupo y se queda abierta para ti <b>mientras exista SEF Lovers</b>: todo lo que se comparta ahí entra aquí, ordenado y con su enlace al original.</p>
 <div class="prom"><b>Lo que hay hoy:</b> 81 documentos · 17 con ficha visual · 9 temáticas · 29 revistas.
 <br><b>Lo que habrá:</b> cada paper nuevo del grupo, indexado; los más relevantes, en ficha de tres minutos.</div>
-<div class="ghl-placeholder">
-<p><b>Aquí va el formulario de GoHighLevel</b> (nombre + email).</p>
-<p>Al enviarlo, GHL debe <b>redirigir a</b> <code>URL_DE_ESTA_PAGINA?k=CLAVE</code> para abrir la biblioteca.</p>
-<p class="peq">Marcador de desarrollo: sustituir con <code>--ghl-embed formulario.html</code>.</p>
-</div>
+<form class="fnat" id="fnat" novalidate>
+<label>Nombre<input type="text" name="nombre" autocomplete="name" required></label>
+<label>Correo<input type="email" name="email" autocomplete="email" required></label>
+<label class="chk"><input type="checkbox" name="ok" required> Quiero acceso a la biblioteca y que me avises cuando entren papers nuevos.</label>
+<button type="submit">Entrar en la biblioteca</button>
+<small id="fnat-msg"></small>
+</form>
 <div class="clave">
 <input type="text" id="clave" placeholder="¿Tienes ya la clave del directo? Escríbela aquí" autocomplete="off" aria-label="Clave de acceso">
 <button type="button" id="abrir">Abrir</button>
@@ -600,6 +609,14 @@ var q=new URLSearchParams(location.search).get('k');var s=null;try{s=localStorag
 if((q&&q.trim().toLowerCase()===K.toLowerCase())||s===K){abre();
   if(q){try{history.replaceState(null,'',location.pathname+location.hash)}catch(e){}}return;}
 r.classList.add('cerrada');
+var f=document.getElementById('fnat');if(f){f.addEventListener('submit',function(e){e.preventDefault();
+  var n=f.nombre.value.trim(),em=f.email.value.trim(),ms=document.getElementById('fnat-msg'),bt=f.querySelector('button');
+  if(!n||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)||!f.ok.checked){ms.textContent='Nombre, correo válido y la casilla, por favor.';ms.className='mal';return;}
+  var u=new URLSearchParams(location.search);bt.disabled=true;ms.className='';ms.textContent='Un momento…';
+  fetch("https://services.leadconnectorhq.com/hooks/HlKu3PeEjk04JBO7ZAG6/webhook-trigger/cb6a9ff8-2e70-4269-81a9-0651ca22624c",{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+    nombre:n,email:em,origen:'biblioteca-sef',utm_source:u.get('utm_source')||'',utm_medium:u.get('utm_medium')||'',utm_campaign:u.get('utm_campaign')||'',pagina:location.href.split('?')[0],fecha:new Date().toISOString()})})
+  .then(function(rs){if(!rs.ok)throw 0;abre();}).catch(function(){bt.disabled=false;ms.textContent='No se ha podido enviar. Prueba otra vez o entra con la clave del directo.';ms.className='mal';});
+});}
 var b=document.getElementById('abrir'),i=document.getElementById('clave'),m=document.getElementById('clave-msg');
 function intenta(){if(i.value.trim().toLowerCase()===K.toLowerCase()){abre()}else{m.textContent='Esa no es. La clave se dijo en el directo: revisa mayúsculas y guiones.';m.classList.add('mal')}}
 if(b){b.addEventListener('click',intenta)}if(i){i.addEventListener('keydown',function(e){if(e.key==='Enter')intenta()})}
