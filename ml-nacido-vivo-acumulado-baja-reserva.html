@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baja reserva: el pronóstico lo marca el embrión · Liu et al., Front Endocrinol 2026</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Predecir el nacido vivo en baja reserva con machine learning · Código AdrIA">
+<meta property="og:description" content="Modelos por etapas en 1.234 ciclos: la estimulacion no anade nada al pronostico; la calidad embrionaria, si.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/ml-nacido-vivo-acumulado-baja-reserva.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Predecir el nacido vivo en baja reserva con machine learning · Código AdrIA">
+<meta name="twitter:description" content="Modelos por etapas en 1.234 ciclos: la estimulacion no anade nada al pronostico; la calidad embrionaria, si.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta name="description" content="El modelo de machine learning por etapas de Liu et al. (Frontiers in Endocrinology, 2026) para predecir el recién nacido vivo acumulado en reserva ovárica disminuida, contado en visual y con cada cifra verificada.">
+<link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+<meta name="theme-color" content="#102e35">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181a; --ink-soft:#3a4448; --ink-mute:#6d797e;
+    --canvas:#ffffff; --parchment:#f4f7f7;
+    --tile-dark:#16242a; --tile-darker:#101c21;
+    --hairline:#e2e9e9;
+    --brand:#4dd2d0; --brand-deep:#0e9c99; --brand-slate:#3f6f7b;
+    --serie-a:#0e9c99; --serie-b:#6b5ea8;
+    --serie-a-dark:#4dd2d0; --serie-b-dark:#a99cf0;
+    --radius-card:18px; --radius-pill:9999px;
+    --shadow-object:0 3px 30px rgba(16,28,33,.14);
+    --max:1120px; --max-read:760px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--canvas);color:var(--ink);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:17px;line-height:1.55;font-weight:400;letter-spacing:-.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+  section{padding:88px 24px}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .read{max-width:var(--max-read);margin:0 auto}
+  h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.028em;line-height:1.08}
+  h1{font-size:clamp(2.1rem,6vw,3.7rem)}
+  h2{font-size:clamp(1.6rem,4vw,2.5rem)}
+  h3{font-size:1.2rem;letter-spacing:-.02em;line-height:1.3}
+  p{margin:0 0 1.15em}
+  p:last-child{margin-bottom:0}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-deep);margin:0 0 20px}
+  .lead{font-size:clamp(1.1rem,2.4vw,1.42rem);font-weight:300;line-height:1.45;color:var(--ink-soft)}
+
+  /* ---------- barra de marca ---------- */
+  .brandbar{background:var(--tile-dark);padding:18px 24px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .brandbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brandbar img{height:34px;width:auto;display:block}
+  .brandbar .serie{font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#7c9299}
+
+  /* ---------- portada ---------- */
+  .hero{
+    background:var(--tile-dark);color:#fff;padding:84px 24px;
+    background-image:radial-gradient(120% 90% at 12% 0%,rgba(77,210,208,.16) 0%,transparent 58%);
+  }
+  .hero .eyebrow{color:var(--brand)}
+  .hero h1{color:#fff;max-width:19ch}
+  .hero .original{margin-top:26px;padding-left:18px;border-left:2px solid rgba(77,210,208,.5);font-size:1rem;font-weight:300;color:#c9d6d9;font-style:italic;max-width:56ch}
+  .authors{margin-top:34px;font-size:.95rem;color:#9fb0b5;line-height:1.7;max-width:62ch}
+  .authors .first{color:#fff;font-weight:600}
+  .meta-row{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
+  .chip{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-pill);padding:8px 16px;font-size:.83rem;color:#dfe9eb;white-space:nowrap;max-width:100%}
+  .chip b{color:#fff;font-weight:600}
+  .chip a{color:#dfe9eb;text-decoration:none;border-bottom:1px solid rgba(223,233,235,.4)}
+  .transparency{
+    margin-top:34px;max-width:62ch;border-left:3px solid rgba(77,210,208,.55);
+    background:rgba(255,255,255,.045);border-radius:0 10px 10px 0;padding:16px 18px;
+    font-size:.88rem;line-height:1.6;color:#c2d1d5
+  }
+  .transparency b{display:block;color:var(--brand);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+
+  /* ---------- banda de aviso de formato ---------- */
+  .notice{background:var(--parchment);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:34px 24px}
+  .notice .read{display:flex;gap:18px;align-items:flex-start;max-width:900px}
+  .notice .mark{flex:none;width:34px;height:34px;border-radius:50%;background:rgba(14,156,153,.12);color:var(--brand-deep);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.95rem}
+  .notice p{font-size:.93rem;color:var(--ink-soft);margin:0}
+  .notice b{color:var(--ink)}
+
+  /* ---------- destacado numérico ---------- */
+  .headline-figure{background:var(--parchment)}
+  .figure-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin-top:44px}
+  .stat{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);padding:26px 24px}
+  .stat .num{font-size:clamp(1.6rem,3.6vw,2.2rem);font-weight:600;letter-spacing:-.04em;line-height:1.1;color:var(--ink)}
+  .stat .num small{font-size:.5em;font-weight:500;letter-spacing:-.01em;color:var(--ink-mute);margin-left:4px}
+  .stat .label{margin-top:12px;font-size:.92rem;color:var(--ink-soft);line-height:1.4}
+  .stat .foot{margin-top:10px;font-size:.78rem;color:var(--ink-mute);line-height:1.5}
+  .stat.accent{border-color:rgba(14,156,153,.35);background:linear-gradient(180deg,rgba(14,156,153,.06),transparent 70%)}
+  .stat.accent .num{color:var(--brand-deep)}
+
+  /* ---------- grafico ---------- */
+  .chart-card{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);padding:32px 28px;margin-top:40px}
+  .chart-title{font-size:1.05rem;font-weight:600;letter-spacing:-.02em;margin:0}
+  .chart-sub{font-size:.87rem;color:var(--ink-mute);margin:6px 0 0}
+  .chart-foot{margin-top:24px;padding-top:18px;border-top:1px solid var(--hairline);font-size:.82rem;color:var(--ink-mute);line-height:1.6}
+
+
+  /* ---------- tabla plegable ---------- */
+  details.table-view{margin-top:26px;border-top:1px solid var(--hairline);padding-top:18px}
+  details.table-view summary{cursor:pointer;font-size:.87rem;color:var(--brand-deep);font-weight:500;list-style:none}
+  details.table-view summary::-webkit-details-marker{display:none}
+  details.table-view summary::before{content:"▸ "}
+  details.table-view[open] summary::before{content:"▾ "}
+  .tbl-scroll{overflow-x:auto;margin-top:16px}
+  table{border-collapse:collapse;width:100%;font-size:.87rem;min-width:560px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hairline)}
+  th{font-weight:600;color:var(--ink-soft);font-size:.8rem;letter-spacing:.02em}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+
+  /* ---------- pasos del método ---------- */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;margin-top:44px;background:var(--hairline);border-radius:var(--radius-card);overflow:hidden}
+  .step{background:var(--canvas);padding:28px 24px}
+  .step .n{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--brand-deep);color:#fff;font-size:.85rem;font-weight:600;margin-bottom:16px}
+  .step h3{margin-bottom:8px}
+  .step p{font-size:.92rem;color:var(--ink-soft);margin:0}
+  .step p + p{margin-top:.8em}
+
+  .tint{background:var(--parchment)}
+
+  /* ---------- tile oscuro ---------- */
+  .dark{background:var(--tile-darker);color:#e8eef0}
+  .dark h2{color:#fff}
+  .dark .eyebrow{color:var(--brand)}
+  .dark .lead{color:#b3c3c7}
+  .caveats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:44px}
+  .caveat{border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-card);padding:26px 24px;background:rgba(255,255,255,.03)}
+  .caveat h3{color:#fff;margin-bottom:10px}
+  .caveat p{font-size:.92rem;color:#a9bbc0;margin:0}
+  .caveat p + p{margin-top:.8em}
+  .caveat q{font-style:italic;color:#c6d4d8}
+  .quote{margin:56px auto 0;max-width:var(--max-read);padding:30px 0 0;border-top:1px solid rgba(255,255,255,.16)}
+  .quote p{font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:300;line-height:1.5;color:#dbe6e8;font-style:italic}
+  .quote .orig{font-size:.85rem;color:#8ea3a8;font-style:italic;margin-top:14px;line-height:1.5}
+  .quote cite{display:block;margin-top:14px;font-size:.85rem;color:#8ea3a8;font-style:normal}
+
+  /* ---------- cierre ---------- */
+  .closing{background:var(--canvas);text-align:center}
+  .closing .cite-block{max-width:var(--max-read);margin:36px auto 0;padding:24px;background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--radius-card);font-size:.88rem;color:var(--ink-soft);text-align:left;line-height:1.6}
+  .closing a{color:var(--brand-deep);text-decoration:none;border-bottom:1px solid rgba(14,156,153,.35)}
+  .honesty{background:var(--canvas);border-top:1px solid var(--hairline);padding:40px 24px;text-align:center;font-size:.82rem;color:var(--ink-mute);line-height:1.7}
+  .honesty .brand{color:var(--brand-deep);font-weight:600}
+  .honesty .read{max-width:640px}
+
+  @media (max-width:640px){
+    section{padding:64px 20px}
+    .hero{padding:64px 20px}
+    .chart-card{padding:24px 18px}
+    .chip{white-space:normal;line-height:1.35}
+    .bar-val{min-width:82px;font-size:.88rem}
+  }
+  .wrap,.read{overflow-wrap:break-word}
+
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ink:#eef3f4;--ink-soft:#b9c7cb;--ink-mute:#8b9ca1;
+      --canvas:#0f1719;--parchment:#141f22;--hairline:#25353a;
+      --serie-a:var(--serie-a-dark);--serie-b:var(--serie-b-dark);
+    }
+    .stat.accent{background:linear-gradient(180deg,rgba(77,210,208,.08),transparent 70%);border-color:rgba(77,210,208,.3)}
+    .stat.accent .num{color:var(--brand)}
+    .eyebrow{color:var(--brand)}
+    .notice .mark{background:rgba(77,210,208,.14);color:var(--brand)}
+    .p-tag{background:#1d2b2f}
+    .p-tag.expl{background:rgba(169,156,240,.14);color:#a99cf0}
+    .p-tag.sig{background:rgba(77,210,208,.14);color:var(--brand)}
+    .step .n{background:var(--brand);color:#0f1719}
+    .closing a,.honesty .brand{color:var(--brand)}
+    .closing a{border-bottom-color:rgba(77,210,208,.4)}
+    details.table-view summary{color:var(--brand)}
+  }
+</style>
+
+<style>
+  /* barras comparadas de dos grupos (medias ± DE) */
+  .bars{margin-top:26px}
+  .b-row{margin-bottom:30px}
+  .b-row:last-child{margin-bottom:0}
+  .b-name{font-size:.9rem;color:var(--ink-soft);margin-bottom:12px}
+  .b-name b{color:var(--ink);font-weight:600}
+  .b-line{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .b-tag{flex:none;width:112px;font-size:.8rem;color:var(--ink-mute);text-align:right}
+  .b-track{flex:1;height:26px;background:#eef3f3;border-radius:5px;overflow:hidden}
+  .b-fill{height:100%;border-radius:5px;width:0;transition:width 1s cubic-bezier(.22,.8,.3,1)}
+  .b-fill.a{background:var(--serie-a)}
+  .b-fill.b{background:var(--serie-b)}
+  .b-val{flex:none;min-width:124px;font-variant-numeric:tabular-nums;font-size:.93rem;font-weight:600;color:var(--ink);letter-spacing:-.02em}
+  .b-val small{display:block;font-weight:400;font-size:.74rem;color:var(--ink-mute);letter-spacing:0}
+  @media (prefers-color-scheme:dark){ .b-track{background:#1d2b2f} }
+  @media (max-width:640px){ .b-tag{width:84px;font-size:.74rem} .b-val{min-width:96px;font-size:.85rem} }
+</style>
+</head>
+
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="wrap">
+    <a href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"></a>
+    <span class="serie">Papers legibles</span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Frontiers in Endocrinology · Volumen 17 · 2026</p>
+    <h1>Baja reserva: el pronóstico lo marca el embrión</h1>
+    <p class="original">«Stage-specific machine learning prediction of cumulative live birth in women with diminished ovarian reserve»</p>
+    <p class="authors">
+      <span class="first">Lu Liu</span>, Bo Liu, Qiuyan Huang, Lin Qin, Lihong Jiang y Hongyuan Wu.<br>
+      Primer Hospital Afiliado de la Universidad Médica de Guangxi, China.
+    </p>
+    <div class="meta-row">
+      <span class="chip"><b>Cohorte retrospectiva unicéntrica</b> · modelo predictivo</span>
+      <span class="chip"><b>1.234</b> ciclos de punción · AMH ≤ 1,1 ng/mL</span>
+      <span class="chip">DOI <a href="https://doi.org/10.3389/fendo.2026.1832301">10.3389/fendo.2026.1832301</a></span>
+    </div>
+    <div class="transparency">
+      <b>Qué tipo de evidencia es</b>
+      Un modelo entrenado y probado <b style="display:inline;font-size:inherit;letter-spacing:normal;text-transform:none">dentro del mismo centro</b>, sin validación externa. Los autores lo califican de «generador de hipótesis»; no lo presentan como una herramienta lista para la clínica. Lo que describe es qué información predice y cuál no, en esta población.
+    </div>
+  </div>
+</section>
+
+<div class="notice">
+  <div class="read">
+    <div class="mark">!</div>
+    <p><b>Tres momentos, tres modelos.</b> El estudio construye un modelo con lo que se sabe <b>antes de empezar</b> (edad, AMH, IMC, años de infertilidad, edad del varón), otro añadiendo lo que se sabe <b>el día del desencadenante</b> (estradiol, LH) y un tercero con lo que se sabe <b>antes de transferir</b> (calidad embrionaria). Y mide cuánto mejora la predicción en cada paso.</p>
+  </div>
+</div>
+
+<section>
+  <div class="read">
+    <p class="eyebrow">La pregunta</p>
+    <h2>Cuánto se puede afinar el pronóstico en baja reserva, y cuándo</h2>
+    <p class="lead" style="margin-top:26px">Las mujeres con reserva ovárica disminuida tienen tasas de recién nacido vivo acumulado <b>por debajo del 30 %</b> tras la transferencia, y las herramientas de pronóstico actuales se apoyan en datos basales estáticos, sin interpretabilidad.</p>
+    <p style="margin-top:26px">El artículo señala dos problemas de fondo en los modelos publicados. Uno, que casi ninguno maneja bien el desbalance de clases: el nacido vivo es el resultado minoritario, y un algoritmo que no lo tenga en cuenta puede acertar mucho en apariencia y fallar justo en lo que importa. Dos, que la caja negra impide que el clínico entienda por qué el modelo dice lo que dice.</p>
+    <p>La consecuencia, según los autores, es que en la consulta se recurre a la experiencia subjetiva en lugar de a una estratificación de riesgo basada en evidencia.</p>
+    <p>Las preguntas del trabajo: <b>¿cuánto mejora la predicción del recién nacido vivo acumulado al incorporar la respuesta a la estimulación y después los datos embriológicos? ¿Qué variables la sostienen, y con qué umbrales?</b></p>
+  </div>
+</section>
+
+<section class="headline-figure">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">Los resultados</p>
+      <h2>La estimulación no añade capacidad predictiva; la calidad embrionaria, sí</h2>
+      <p style="margin-top:22px;font-size:.98rem;color:var(--ink-soft)">El mejor algoritmo en las tres etapas fue CatBoost. Con las cinco variables basales, el área bajo la curva en el conjunto de prueba fue 0,759. Añadir los datos del día del desencadenante no la movió. Añadir la calidad embrionaria la subió a 0,793.</p>
+    </div>
+
+    <div class="figure-grid">
+      <div class="stat accent">
+        <div class="num">AUC 0,793</div>
+        <div class="label">Modelo pre-transferencia, con calidad embrionaria</div>
+        <div class="foot">IC95% 0,739–0,840 · sensibilidad 70,6 % · especificidad 72,4 % · conjunto de prueba, n = 371</div>
+      </div>
+      <div class="stat">
+        <div class="num">−0,004</div>
+        <div class="label">Lo que aportó la respuesta a la estimulación al AUC basal</div>
+        <div class="foot">AUC 0,759 con datos basales frente a 0,755 añadiendo estradiol y LH del día del desencadenante</div>
+      </div>
+      <div class="stat">
+        <div class="num">&lt; 30 %</div>
+        <div class="label">Sensibilidad de los algoritmos sin corrección del desbalance</div>
+        <div class="foot">Gradient Boosting y AdaBoost, con AUC de 0,71–0,77 · se dejaban más del 70 % de los nacidos vivos</div>
+      </div>
+      <div class="stat">
+        <div class="num">62,5 %</div>
+        <div class="label">Peso conjunto de la edad de la mujer y la calidad embrionaria</div>
+        <div class="foot">SHAP: edad 32,8 % · calidad embrionaria 29,7 % · edad del varón 16,1 % · umbrales a los 37 y los 40 años</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <p class="chart-title">Modelo basal frente a modelo pre-transferencia, en el conjunto de prueba</p>
+      <p class="chart-sub">Mismo algoritmo (CatBoost) y mismos 371 ciclos de prueba. Verde: etapa 1, cinco variables basales. Morado: etapa 3, ocho variables con la calidad embrionaria. Umbral de decisión 0,5.</p>
+      <div class="bars">
+
+        <div class="b-row">
+          <div class="b-name"><b>Área bajo la curva ROC</b> · discriminación</div>
+          <div class="b-line"><span class="b-tag">Basal</span><div class="b-track"><div class="b-fill a" style="width:95.7%"></div></div><span class="b-val">0,759<small>IC 0,704–0,810</small></span></div>
+          <div class="b-line"><span class="b-tag">Pre-transfer.</span><div class="b-track"><div class="b-fill b" style="width:100%"></div></div><span class="b-val">0,793<small>IC 0,739–0,840</small></span></div>
+          <span class="p-tag sig">mejora de 0,034 · IC95% 0,704–0,810 frente a 0,739–0,840 · los intervalos se solapan</span>
+        </div>
+
+        <div class="b-row">
+          <div class="b-name"><b>Sensibilidad</b> · nacidos vivos que el modelo detecta</div>
+          <div class="b-line"><span class="b-tag">Basal</span><div class="b-track"><div class="b-fill a" style="width:100%"></div></div><span class="b-val">76,5 %<small></small></span></div>
+          <div class="b-line"><span class="b-tag">Pre-transfer.</span><div class="b-track"><div class="b-fill b" style="width:92.3%"></div></div><span class="b-val">70,6 %<small>60 / 85</small></span></div>
+          <span class="p-tag">el modelo basal detecta más nacidos vivos, a costa de más falsos positivos</span>
+        </div>
+
+        <div class="b-row">
+          <div class="b-name"><b>Especificidad</b> · ciclos sin nacido vivo bien clasificados</div>
+          <div class="b-line"><span class="b-tag">Basal</span><div class="b-track"><div class="b-fill a" style="width:87.8%"></div></div><span class="b-val">63,6 %<small></small></span></div>
+          <div class="b-line"><span class="b-tag">Pre-transfer.</span><div class="b-track"><div class="b-fill b" style="width:100%"></div></div><span class="b-val">72,4 %<small>207 / 286</small></span></div>
+          <span class="p-tag sig">la calidad embrionaria mejora sobre todo la especificidad</span>
+        </div>
+
+        <div class="b-row">
+          <div class="b-name"><b>Valor predictivo positivo</b></div>
+          <div class="b-line"><span class="b-tag">Basal</span><div class="b-track"><div class="b-fill a" style="width:89.1%"></div></div><span class="b-val">38,5 %<small></small></span></div>
+          <div class="b-line"><span class="b-tag">Pre-transfer.</span><div class="b-track"><div class="b-fill b" style="width:100%"></div></div><span class="b-val">43,2 %<small></small></span></div>
+          <span class="p-tag">bajo en ambos: solo el 22,8 % de los ciclos acaban en nacido vivo</span>
+        </div>
+
+        <div class="b-row">
+          <div class="b-name"><b>Valor predictivo negativo</b></div>
+          <div class="b-line"><span class="b-tag">Basal</span><div class="b-track"><div class="b-fill a" style="width:100%"></div></div><span class="b-val">90,1 %<small></small></span></div>
+          <div class="b-line"><span class="b-tag">Pre-transfer.</span><div class="b-track"><div class="b-fill b" style="width:99.0%"></div></div><span class="b-val">89,2 %<small></small></span></div>
+          <span class="p-tag">sin cambio · cuando el modelo dice que no, acierta nueve de cada diez veces</span>
+        </div>
+      </div>
+      <p class="chart-foot"><b>La etapa intermedia no aparece en el gráfico porque no cambió nada:</b> AUC 0,755 (IC95% 0,699–0,808), sensibilidad 72,9 %, especificidad 63,6 %. <b>Calibración:</b> las probabilidades brutas salían sobreconfiadas (Brier 0,186 y ECE 0,180 en la etapa 3); tras reescalar con Platt bajaron a 0,153 y 0,082 sin tocar el AUC. Los autores concluyen que el orden de riesgo es fiable, pero la probabilidad individual hay que recalibrarla en cada centro antes de dársela a una paciente.</p>
+
+      <details class="table-view">
+        <summary>Ver qué variables entraron en cada etapa y cuánto pesan</summary>
+        <div class="tbl-scroll">
+          <table>
+            <thead><tr><th>Etapa</th><th>Variables seleccionadas (de las candidatas)</th><th class="num">AUC prueba</th></tr></thead>
+            <tbody>
+              <tr><td>1 · Basal</td><td>Edad de la mujer, edad del varón, AMH, IMC, duración de la infertilidad (5 de 22)</td><td class="num">0,759</td></tr>
+              <tr><td>2 · Tras estimulación</td><td>Las cinco anteriores + estradiol y LH el día del desencadenante (7 de 31)</td><td class="num">0,755</td></tr>
+              <tr><td>3 · Pre-transferencia</td><td>Las siete anteriores + calidad embrionaria (8 de 37)</td><td class="num">0,793</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="chart-foot" style="margin-top:18px"><b>Cómo se reparten las decisiones del modelo final (SHAP):</b> edad de la mujer 32,8 % del peso total, calidad embrionaria 29,7 %, edad del varón 16,1 %, y el 21,4 % restante entre las otras cinco variables. Los embriones de grado 5 empujan la predicción hacia arriba (SHAP de +0,3 a +0,7); los de grado 1 y 2, con fuerza hacia abajo (de −1,0 a −1,5). El efecto de la edad se acelera a partir de los 37 años en la mujer y de los 40 en el varón. La Discusión del artículo cita porcentajes distintos para estas mismas importancias (38,9 %, 35,2 % y 19,0 %); la ficha usa los de la sección de Resultados y del resumen.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">El método</p>
+      <h2>Cómo se hizo</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h3>A quién se incluyó</h3>
+        <p>De <b>7.773</b> pacientes con transferencia en el centro entre enero de 2019 y julio de 2024, <b>1.359</b> cumplían AMH ≤ 1,1 ng/mL (criterios de Bolonia). Tras excluir 125 con historia incompleta quedaron <b>1.234</b> ciclos.</p>
+        <p>Mediana de edad 38 años, AMH 0,67 ng/mL. Desenlace: recién nacido vivo acumulado por ciclo de punción, incluyendo todas las transferencias en fresco y congelado de esa punción.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3>Cómo se repartió la muestra</h3>
+        <p>División aleatoria estratificada en <b>entrenamiento (n = 863, 70 %)</b> y <b>prueba (n = 371, 30 %)</b>. El conjunto de prueba se apartó al principio y solo se tocó para la evaluación final.</p>
+        <p>La tasa de nacido vivo acumulado fue 22,8 % en ambos conjuntos. Selección de variables con Random Forest solo sobre el entrenamiento, quedándose con las cinco más importantes en cada etapa.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3>Qué algoritmos se compararon</h3>
+        <p>Seis modelos de árboles: Decision Tree, LightGBM, Gradient Boosting, XGBoost, CatBoost y AdaBoost, con hiperparámetros fijados de antemano (100 estimadores, profundidad 3–5, tasa de aprendizaje 0,1).</p>
+        <p>Corrección del desbalance según el algoritmo (peso 1 : 3,4, calculado sobre 197 eventos frente a 666 no eventos). Gradient Boosting y AdaBoost se entrenaron <b>sin</b> corrección, a propósito, para ver qué pasaba.</p>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <h3>Cómo se evaluó y se explicó</h3>
+        <p>Validación cruzada de 10 pliegues en entrenamiento; AUC en prueba con intervalos por 1.000 remuestreos bootstrap. Sensibilidad, especificidad, valores predictivos y F1 a umbral 0,5. Calibración con Brier, ECE y Hosmer-Lemeshow.</p>
+        <p>Interpretación con <b>SHAP</b> sobre el modelo final en unidades clínicas reales. Análisis de sensibilidad con cinco estrategias para los datos faltantes: el AUC se movió entre 0,801 y 0,806.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">La letra pequeña</p>
+      <h2>Lo que los autores reconocen de su propio trabajo</h2>
+      <p class="lead" style="margin-top:26px">Los límites que listan los autores condicionan cualquier uso del modelo fuera de su centro.</p>
+    </div>
+    <div class="caveats">
+      <div class="caveat">
+        <h3>Solo validación interna</h3>
+        <p>Todo descansa en la partición 70/30, la validación cruzada y el bootstrap dentro del mismo centro. <q>No se realizó ninguna validación externa independiente.</q> Las diferencias entre centros en protocolos de estimulación, cultivo y criterios de gradación embrionaria pueden reducir el rendimiento en poblaciones no vistas.</p>
+        <p>Por eso los resultados deben considerarse <q>evidencia generadora de hipótesis</q> y no <q>una herramienta clínicamente desplegable</q>.</p>
+      </div>
+      <div class="caveat">
+        <h3>El umbral de AMH es una convención</h3>
+        <p>El corte de 1,1 ng/mL sigue los criterios de Bolonia, pero los autores lo reconocen <q>algo arbitrario</q>: otros umbrales, o modelar la AMH como variable continua, podrían cambiar el patrón de importancias.</p>
+      </div>
+      <div class="caveat">
+        <h3>Sin datos genéticos del embrión</h3>
+        <p>No se dispuso de resultados de PGT-A, que cada vez pesan más en la selección embrionaria y que podrían mejorar la predicción de la etapa pre-transferencia. Tampoco entraron datos de time-lapse ni parámetros morfocinéticos.</p>
+      </div>
+      <div class="caveat">
+        <h3>Las predicciones individuales llevan incertidumbre</h3>
+        <p>Aunque SHAP da una interpretación con base teórica, las predicciones individuales <q>deben comunicarse con cautela</q>: llevan incertidumbre y <q>deben complementar, no sustituir, el juicio clínico</q>. Y las probabilidades brutas del modelo salían sobreconfiadas hasta recalibrarlas.</p>
+      </div>
+    </div>
+    <div class="quote">
+      <p>«Desarrollamos y validamos un marco de aprendizaje automático para predecir el recién nacido vivo acumulado en mujeres con reserva ovárica disminuida sometidas a transferencia embrionaria, demostrando que los parámetros embriológicos mejoran sustancialmente la precisión de la predicción más allá de las características basales, mientras que los marcadores posteriores a la estimulación aportan un valor incremental insignificante.»</p>
+      <p class="orig">«We developed and validated a machine learning framework for predicting cumulative live birth in women with diminished ovarian reserve undergoing embryo transfer, demonstrating that embryological parameters substantially enhance prediction accuracy beyond baseline characteristics, while post-stimulation markers contribute negligible incremental value.»</p>
+      <cite>Liu L et al. Frontiers in Endocrinology, 2026.</cite>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <div class="read" style="margin:0">
+      <p class="eyebrow">Para citarlo</p>
+      <h2>La referencia</h2>
+    </div>
+    <div class="cite-block">
+      Liu L, Liu B, Huang Q, Qin L, Jiang L, Wu H. Stage-specific machine learning prediction of cumulative live birth in women with diminished ovarian reserve. Front Endocrinol (Lausanne). 2026;17:1832301. doi:10.3389/fendo.2026.1832301<br><br>
+      <a href="https://doi.org/10.3389/fendo.2026.1832301">Leer el artículo original</a> · Acceso abierto bajo licencia CC BY
+    </div>
+  </div>
+</section>
+
+<div class="honesty">
+  <div class="read">
+    Esta ficha se ha elaborado sobre el artículo original, sin añadir datos ni interpretaciones ajenas al texto.
+    Cada cifra se ha verificado contra las tablas y la sección de resultados del artículo antes de maquetarla.
+    Enlaza al artículo para quien quiera leerlo completo.<br>
+    <span class="brand">Código AdrIA</span> · serie «papers legibles»
+  </div>
+</div>
+
+<style>
+  .ca-foot{
+    background:#07181d;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Fichas de papers con cada cifra verificada contra el artículo original. En la comunidad compartimos cómo se hacen.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+<script>
+  // Las barras entran animadas al aparecer. Respeta prefers-reduced-motion.
+  (function () {
+    var fills = Array.prototype.slice.call(document.querySelectorAll('.b-fill'));
+    if (!fills.length) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    fills.forEach(function (f) { f.dataset.w = f.style.width; f.style.width = '0%'; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var f = entry.target;
+        requestAnimationFrame(function () { f.style.width = f.dataset.w; });
+        io.unobserve(f);
+      });
+    }, { threshold: 0.25 });
+    fills.forEach(function (f) { io.observe(f); });
+  })();
+</script>
+</body>
+</html>
