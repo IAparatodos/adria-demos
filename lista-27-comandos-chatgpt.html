@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Los 27 comandos de ChatGPT · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Los 27 comandos de ChatGPT · Código AdrIA">
+<meta property="og:description" content="La lista completa de los 27 estilos de imagen que ChatGPT entiende con una barra.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/lista-27-comandos-chatgpt.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Los 27 comandos de ChatGPT · Código AdrIA">
+<meta name="twitter:description" content="La lista completa de los 27 estilos de imagen que ChatGPT entiende con una barra.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --tinta:#07181d; --tinta-2:#102e35; --turquesa:#4dd2d0;
+    --papel:#f6f8f8; --gris:#5c7077; --linea:#dde5e6;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--papel);color:var(--tinta);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;line-height:1.6;font-weight:300;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  a{color:inherit}
+
+  header.top{background:var(--tinta);padding:18px 0}
+  header.top img{height:26px;display:block}
+
+  .hero{background:var(--tinta-2);color:#fff;padding:72px 0 64px;text-align:center}
+  .hero .kicker{
+    margin:0 0 16px;font-size:.72rem;font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--turquesa)
+  }
+  .hero h1{
+    margin:0;font-size:clamp(1.9rem,5vw,3rem);font-weight:600;
+    letter-spacing:-.04em;line-height:1.1
+  }
+  .hero p{margin:18px auto 0;max-width:38rem;color:#a9bdc2;font-size:1.02rem}
+  .hero .barra{color:var(--turquesa);font-weight:600}
+
+  .secreto{
+    max-width:760px;margin:-32px auto 0;position:relative;background:#fff;
+    border-radius:16px;padding:28px 32px;box-shadow:0 12px 40px rgba(7,24,29,.12)
+  }
+  .secreto h2{margin:0 0 8px;font-size:1.05rem;font-weight:600;letter-spacing:-.02em}
+  .secreto p{margin:0;color:var(--gris);font-size:.96rem}
+
+  main{padding:56px 0 64px}
+  .bloque{margin:0 0 44px}
+  .bloque h3{
+    margin:0 0 4px;font-size:.72rem;font-weight:600;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gris)
+  }
+  .bloque h4{margin:0 0 20px;font-size:1.4rem;font-weight:600;letter-spacing:-.03em}
+  .rejilla{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .cmd{
+    background:#fff;border:1px solid var(--linea);border-radius:14px;padding:22px 22px 20px;
+    transition:border-color .2s,transform .12s
+  }
+  .cmd:hover{border-color:var(--turquesa);transform:translateY(-2px)}
+  .cmd code{
+    display:inline-block;margin:0 0 10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:1rem;font-weight:600;color:var(--tinta);background:#eaf7f7;
+    border-radius:8px;padding:5px 11px;letter-spacing:-.02em
+  }
+  .cmd p{margin:0;font-size:.93rem;color:var(--gris)}
+
+  .bonus{
+    background:var(--tinta);color:#fff;border-radius:18px;padding:40px 36px;margin:8px 0 0
+  }
+  .bonus h4{margin:0 0 12px;font-size:1.35rem;font-weight:600;letter-spacing:-.03em;color:#fff}
+  .bonus p{margin:0 0 18px;color:#a9bdc2;font-size:.98rem}
+  .bonus .ejemplo{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.95rem;
+    color:var(--turquesa);background:rgba(77,210,208,.1);
+    border-radius:10px;padding:12px 16px;display:inline-block
+  }
+
+  .copiar{text-align:center;margin:44px 0 0}
+  .copiar button{
+    font-family:inherit;font-size:.94rem;font-weight:600;cursor:pointer;
+    border:0;border-radius:9999px;padding:15px 30px;
+    background:var(--tinta);color:#fff;transition:background .2s,transform .12s
+  }
+  .copiar button:hover{background:var(--tinta-2)}
+  .copiar button:active{transform:scale(.98)}
+  .copiar .ok{margin:12px 0 0;font-size:.88rem;color:var(--gris);min-height:1.2em}
+  @media (max-width:640px){
+    .secreto{margin:-24px 16px 0;padding:24px}
+    .bonus{padding:30px 24px}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"></a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker">La lista completa</p>
+    <h1>Los 27 comandos de ChatGPT<br>para crear imágenes</h1>
+    <p>Escribes <span class="barra">/</span> más la palabra, le pones detrás lo que quieras, y ya está. Nueve familias, veintisiete estilos.</p>
+  </div>
+</section>
+
+<div class="secreto wrap">
+  <h2>El secreto que casi nadie cuenta</h2>
+  <p>No son comandos de verdad: no aparecen en ninguna documentación de OpenAI. Son <strong>estilos que el generador de imágenes reconoce</strong> al ver la barra y la palabra. Por eso funcionan con cualquier tema que les pongas detrás, y por eso se pueden combinar entre sí.</p>
+</div>
+
+<main class="wrap">
+
+  <section class="bloque">
+    <h3>Familia 1</h3>
+    <h4>Para llamar la atención</h4>
+    <div class="rejilla">
+      <div class="cmd"><code>/newspaperad</code><p>Tu producto o tu negocio dentro de un anuncio de periódico antiguo.</p></div>
+      <div class="cmd"><code>/dronview</code><p>Una toma aérea de cualquier escena, sin tener dron.</p></div>
+      <div class="cmd"><code>/anatomy</code><p>Lo que quieras dibujado con todas sus partes etiquetadas, como una lámina de ciencias.</p></div>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <h3>Familia 2</h3>
+    <h4>Ver por dentro</h4>
+    <div class="rejilla">
+      <div class="cmd"><code>/xray</code><p>Una radiografía del objeto, con las piezas internas a la vista.</p></div>
+      <div class="cmd"><code>/cutaway</code><p>Lo abre como una maqueta de museo: mitad exterior, mitad interior.</p></div>
+      <div class="cmd"><code>/crosssection</code><p>Un corte limpio en sección, capa por capa.</p></div>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <h3>Familia 3</h3>
+    <h4>Explicar procesos</h4>
+    <div class="rejilla">
+      <div class="cmd"><code>/infographic</code><p>Una infografía completa, con sus iconos y sus datos ordenados.</p></div>
+      <div class="cmd"><code>/flowchart</code><p>Un diagrama de flujo con decisiones y flechas, paso a paso.</p></div>
+      <div class="cmd"><code>/timeline</code><p>Cualquier historia convertida en línea de tiempo con sus hitos.</p></div>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <h3>Familia 4</h3>
+    <h4>Planos y 3D</h4>
+    <div class="rejilla">
+      <div class="cmd"><code>/blueprint</code><p>Un plano de arquitecto, líneas blancas sobre fondo azul y con medidas.</p></div>
+      <div class="cmd"><code>/isometric</code><p>La escena levantada en 3D isométrico, estilo diorama de videojuego.</p></div>
+      <div class="cmd"><code>/explodedview</code><p>El objeto despiezado, con cada pieza flotando en su sitio.</p></div>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <h3>Familia 5</h3>
+    <h4>Ordenar ideas</h4>
+    <div class="rejilla">
+      <div class="cmd"><code>/mindmap</code><p>Un mapa mental con ramas de colores, sin folio en blanco.</p></div>
+      <div class="cmd"><code>/stickynotes</code><p>Tus ideas en un tablón de notas adhesivas.</p></div>
+      <div class="cmd"><code>/roadmap</code><p>La hoja de ruta de un proyecto, con sus fases y sus hitos.</p></div>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <h3>Familia 6</h3>
+    <h4>Comparar</h4>
+    <div class="rejilla">
+      <div class="cmd"><code>/comparison</code><p>Dos opciones enfrentadas a dos columnas, con iconos y etiquetas.</p></div>
+      <div class="cmd"><code>/beforeafter</code><p>El antes y el después clásico, en una sola imagen.</p></div>
+      <div class="cmd"><code>/layers</code><p>Algo separado en capas etiquetadas, para explicar de qué se compone.</p></div>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <h3>Familia 7</h3>
+    <h4>Mundos pequeños</h4>
+    <div class="rejilla">
+      <div class="cmd"><code>/figurine</code><p>Una persona o un producto como figura de colección, con su caja.</p></div>
+      <div class="cmd"><code>/lego</code><p>Lo que quieras montado en piezas de construcción, minifiguras incluidas.</p></div>
+      <div class="cmd"><code>/miniature</code><p>Dioramas diminutos con efecto maqueta y desenfoque tilt-shift.</p></div>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <h3>Familia 8</h3>
+    <h4>Mapas de negocio</h4>
+    <div class="rejilla">
+      <div class="cmd"><code>/ecosystem</code><p>El ecosistema de tu empresa de un vistazo: producto, canales, proveedores y clientes.</p></div>
+      <div class="cmd"><code>/network</code><p>Un mapa de nodos y conexiones: un equipo, una comunidad, tus partners.</p></div>
+      <div class="cmd"><code>/dashboard</code><p>Un panel de control con sus gráficas y sus métricas.</p></div>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <h3>Familia 9</h3>
+    <h4>Dibujado a mano</h4>
+    <div class="rejilla">
+      <div class="cmd"><code>/handwritten</code><p>Apuntes manuscritos con subrayados y flechas. Humaniza cualquier imagen de IA.</p></div>
+      <div class="cmd"><code>/sketch</code><p>Un boceto a lápiz de trazo suelto, para enseñar una idea sin cerrarla.</p></div>
+      <div class="cmd"><code>/storyboard</code><p>Una escena en viñetas, con aire de preproducción de cine.</p></div>
+    </div>
+  </section>
+
+  <section class="bonus">
+    <h4>Y el truco que lo multiplica todo: se combinan</h4>
+    <p>Como son estilos y no órdenes, se suman en vez de pelearse. Escribe dos juntos y abres un estilo nuevo que no estaba en la lista.</p>
+    <span class="ejemplo">/handwritten /infographic → una infografía dibujada a mano sobre papel de cuaderno</span>
+  </section>
+
+  <div class="copiar">
+    <button type="button" id="btn-copiar">Copiar los 27 comandos</button>
+    <p class="ok" id="aviso"></p>
+  </div>
+
+</main>
+
+<script>
+  const LISTA = [
+    "LOS 27 COMANDOS DE CHATGPT PARA IMÁGENES — Código AdrIA",
+    "",
+    "1 · Para llamar la atención: /newspaperad · /dronview · /anatomy",
+    "2 · Ver por dentro: /xray · /cutaway · /crosssection",
+    "3 · Explicar procesos: /infographic · /flowchart · /timeline",
+    "4 · Planos y 3D: /blueprint · /isometric · /explodedview",
+    "5 · Ordenar ideas: /mindmap · /stickynotes · /roadmap",
+    "6 · Comparar: /comparison · /beforeafter · /layers",
+    "7 · Mundos pequeños: /figurine · /lego · /miniature",
+    "8 · Mapas de negocio: /ecosystem · /network · /dashboard",
+    "9 · Dibujado a mano: /handwritten · /sketch · /storyboard",
+    "",
+    "El secreto: no son comandos de verdad, son estilos que ChatGPT reconoce.",
+    "Y se combinan: /handwritten /infographic = infografía dibujada a mano.",
+    "",
+    "Más en codigoadria.com"
+  ].join("\n");
+
+  document.getElementById("btn-copiar").addEventListener("click", async () => {
+    const aviso = document.getElementById("aviso");
+    try {
+      await navigator.clipboard.writeText(LISTA);
+      aviso.textContent = "Copiado. Ya lo puedes pegar donde quieras.";
+    } catch (e) {
+      aviso.textContent = "Tu navegador no deja copiar solo: selecciona la lista a mano.";
+    }
+  });
+</script>
+
+<!--
+  FOOTER DE MARCA — OBLIGATORIO en todo HTML de Código AdrIA que se comparta en público.
+  Pégalo justo antes de </body>. Autocontenido: CSS propio + SVG en línea, sin dependencias.
+  Regla en CLAUDE.md raíz: "HTML público — marca y footer obligatorios".
+
+  Estructura (patrón Stripe: banda de cierre + columnas + fila legal):
+    1. Banda de cierre con UNA sola llamada a la acción rellena (la comunidad).
+    2. Tres columnas de enlaces: empezar / seguir / la casa.
+    3. Fila legal con logo enlazado + copyright.
+
+  Enlaces oficiales (verificados 2-ago-2026):
+  - Comunidad Telegram (alta): https://forms.gle/LQUSEfZZ9m8R5e8f6
+  - Curso:     https://www.codigoadria.com/curso-automatizaciones/
+  - Academia:  https://www.codigoadria.com/academia/
+  - YouTube:   https://www.youtube.com/@codigoadria?sub_confirmation=1
+  - LinkedIn:  https://www.linkedin.com/in/ricardohoyosperez/
+  - Instagram: https://www.instagram.com/ricardohoyos1/  ← el PERSONAL (decisión de Ricardo)
+
+  Adapta SOLO el texto de .ca-cta-sub al contenido de la página. El resto no se toca.
+  El footer usa #07181d, distinto del bloque editorial de cierre (#102e35), para que ambos
+  se lean como dos bandas separadas. En la fila legal se muestra solo el logo: no añadir
+  texto «Código AdrIA» junto a él, porque ya forma parte del propio logotipo.
+  En la CABECERA de la página, el logo SIEMPRE enlazado a https://www.codigoadria.com.
+
+  ⚠️ Si la página tiene bloques <pre> con ejemplos de código, escapa las etiquetas
+  (&lt;style&gt;, &lt;script&gt;): una etiqueta cruda se interpreta de verdad, se traga
+  el resto del documento y revienta este footer.
+-->
+<style>
+  .ca-foot{
+    background:#07181d;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Estos 27 salieron de probarlos uno a uno. En la comunidad van cayendo los nuevos
+          según los encuentro, con el ejemplo hecho y sin postureo.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
