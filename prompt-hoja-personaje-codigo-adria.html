@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prompt Hoja de personaje · Código AdrIA</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Prompt Hoja de personaje · Código AdrIA">
+  <meta property="og:description" content="Convierte una sola foto en una ficha completa de personaje con este prompt listo para copiar.">
+  <meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+  <meta property="og:url" content="https://iaparatodos.github.io/adria-demos/prompt-hoja-personaje-codigo-adria.html">
+  <meta property="og:site_name" content="Código AdrIA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prompt Hoja de personaje · Código AdrIA">
+  <meta name="twitter:description" content="Convierte una sola foto en una ficha completa de personaje con este prompt listo para copiar.">
+  <meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+  <meta name="theme-color" content="#102e35">
+  <style>
+    :root {
+      --turquesa: #4dd2d0;
+      --petroleo: #3f6f7b;
+      --profundo: #102e35;
+      --marfil: #f7f2e8;
+      --blanco: #ffffff;
+      --tinta: #19363d;
+      --suave: #668087;
+      --borde: rgba(16, 46, 53, .13);
+      --sombra: 0 22px 60px rgba(16, 46, 53, .14);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--tinta);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(77, 210, 208, .18), transparent 28rem),
+        linear-gradient(180deg, #fff 0%, var(--marfil) 100%);
+      font-family: Poppins, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    button, a { font: inherit; }
+    .shell { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 24px 0;
+    }
+    .brand {
+      color: var(--profundo);
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -.04em;
+      text-decoration: none;
+    }
+    .brand span { color: var(--turquesa); }
+    .tag {
+      padding: 7px 12px;
+      border: 1px solid rgba(63, 111, 123, .25);
+      border-radius: 999px;
+      color: var(--petroleo);
+      background: rgba(255,255,255,.7);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+      gap: 36px;
+      align-items: center;
+      padding: clamp(34px, 6vw, 74px);
+      border-radius: 34px;
+      color: #fff;
+      background: var(--profundo);
+      box-shadow: var(--sombra);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -120px;
+      top: -150px;
+      border-radius: 50%;
+      background: rgba(77, 210, 208, .2);
+      filter: blur(2px);
+    }
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--turquesa);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+    .hero-copy { position: relative; z-index: 1; }
+    .hero-copy > p:not(.eyebrow) {
+      max-width: 680px;
+      margin: 24px 0 30px;
+      color: rgba(255,255,255,.78);
+      font-size: clamp(17px, 2.2vw, 21px);
+    }
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 24px;
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(10px);
+    }
+    .hero-card strong { display: block; font-size: 42px; line-height: 1; color: var(--turquesa); }
+    .hero-card span { display: block; margin-top: 10px; color: rgba(255,255,255,.78); }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 14px 22px;
+      border: 0;
+      border-radius: 15px;
+      color: var(--profundo);
+      background: var(--turquesa);
+      box-shadow: 0 10px 30px rgba(77, 210, 208, .18);
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(77, 210, 208, .27); }
+    .button:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+    main { padding: 34px 0 84px; }
+    .section { margin-top: 34px; }
+    .section-title { margin: 0 0 18px; font-size: clamp(27px, 4vw, 40px); letter-spacing: -.04em; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .step {
+      padding: 25px;
+      border: 1px solid var(--borde);
+      border-radius: 22px;
+      background: rgba(255,255,255,.83);
+      box-shadow: 0 10px 30px rgba(16,46,53,.06);
+    }
+    .step b {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      color: var(--profundo);
+      background: var(--turquesa);
+    }
+    .step h3 { margin: 0 0 7px; font-size: 18px; }
+    .step p { margin: 0; color: var(--suave); font-size: 15px; }
+    .prompt-card {
+      overflow: hidden;
+      border: 1px solid var(--borde);
+      border-radius: 26px;
+      background: var(--blanco);
+      box-shadow: var(--sombra);
+    }
+    .prompt-head {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      color: #fff;
+      background: rgba(16,46,53,.97);
+    }
+    .prompt-head strong { font-size: 17px; }
+    .prompt-head .button { min-height: 44px; padding: 10px 16px; border-radius: 12px; font-size: 14px; }
+    .prompt {
+      max-height: 680px;
+      overflow: auto;
+      padding: clamp(24px, 5vw, 48px);
+      white-space: pre-wrap;
+      color: #263f45;
+      font-family: Poppins, ui-sans-serif, system-ui, sans-serif;
+      font-size: clamp(15px, 1.8vw, 17px);
+      line-height: 1.75;
+    }
+    .note {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 20px 22px;
+      border: 1px solid rgba(63,111,123,.2);
+      border-radius: 18px;
+      color: var(--petroleo);
+      background: rgba(77,210,208,.1);
+    }
+    .note strong { color: var(--profundo); }
+    footer { padding: 30px 0 46px; color: var(--suave); font-size: 13px; text-align: center; }
+    #toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 20;
+      transform: translate(-50%, 30px);
+      padding: 13px 18px;
+      border-radius: 12px;
+      color: #fff;
+      background: var(--profundo);
+      box-shadow: var(--sombra);
+      opacity: 0;
+      pointer-events: none;
+      transition: .22s ease;
+      font-weight: 700;
+    }
+    #toast.show { opacity: 1; transform: translate(-50%, 0); }
+    @media (max-width: 760px) {
+      .topbar { padding: 18px 0; }
+      .hero { grid-template-columns: 1fr; gap: 24px; padding: 34px 24px; border-radius: 25px; }
+      .hero-card { display: flex; align-items: center; gap: 15px; padding: 20px; }
+      .hero-card strong { font-size: 34px; }
+      .hero-card span { margin: 0; }
+      .steps { grid-template-columns: 1fr; }
+      .prompt-head { align-items: stretch; flex-direction: column; }
+      .prompt-head .button { width: 100%; }
+      .prompt { max-height: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell topbar">
+    <a class="brand" href="https://codigoadria.com" rel="noopener">Código Adr<span>IA</span></a>
+    <div class="tag">Recurso gratuito</div>
+  </header>
+
+  <div class="shell hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Prompt listo para usar</p>
+      <h1>De una foto a una hoja de personaje completa.</h1>
+      <p>Un prompt preparado para mantener la identidad, el vestuario y la coherencia entre vistas, poses y expresiones.</p>
+      <button class="button" type="button" data-copy>Copiar el prompt</button>
+    </div>
+    <aside class="hero-card" aria-label="Resumen del recurso">
+      <strong>4:5</strong>
+      <span>Tablero editorial, vistas completas, poses, expresiones y paleta de color.</span>
+    </aside>
+  </div>
+
+  <main class="shell">
+    <section class="section" aria-labelledby="como-usarlo">
+      <h2 class="section-title" id="como-usarlo">Cómo usarlo</h2>
+      <div class="steps">
+        <article class="step"><b>1</b><h3>Adjunta tu foto</h3><p>Usa una imagen frontal, nítida y con buena luz.</p></article>
+        <article class="step"><b>2</b><h3>Copia el prompt</h3><p>Pégalo junto a la foto en tu generador de imágenes.</p></article>
+        <article class="step"><b>3</b><h3>Personaliza el nombre</h3><p>Sustituye [NOMBRE DEL PERSONAJE] antes de generar.</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="prompt-title">
+      <h2 class="section-title" id="prompt-title">El prompt completo</h2>
+      <div class="prompt-card">
+        <div class="prompt-head">
+          <strong>HOJA DE PERSONAJE</strong>
+          <button class="button" type="button" data-copy>Copiar prompt</button>
+        </div>
+        <div class="prompt" id="prompt">Crea una hoja de diseño profesional titulada “HOJA DE PERSONAJE”, utilizando a la persona de la imagen adjunta como referencia principal de identidad. Formato vertical 4:5, alta resolución y presentación de tablero editorial sobre fondo marfil cálido.
+
+Reproduce fielmente a la persona de la imagen adjunta. Conserva exactamente sus rasgos faciales, edad aparente, tono de piel, color de ojos, cabello, peinado, complexión y proporciones corporales en todas las representaciones. La persona debe resultar claramente reconocible. No embellezcas, rejuvenezcas ni modifiques su identidad. Mantén perfecta coherencia facial y anatómica entre todas las vistas, poses y expresiones.
+
+Si la persona es una mujer, vístela siempre con un elegante vestido de noche de satén negro hasta el suelo, tirantes finos, escote en V, espalda abierta, silueta entallada, abertura lateral alta y sandalias negras minimalistas de tacón. Si es un hombre, vístelo siempre con un traje negro de noche elegante y perfectamente entallado, chaqueta de solapas refinadas, camisa negra, pantalón negro de corte impecable y zapatos negros de vestir. Mantén exactamente el mismo vestuario, calzado y accesorios en todas las imágenes.
+
+Encabezado superior grande: “HOJA DE PERSONAJE”. Junto al encabezado, en menor tamaño: “[NOMBRE DEL PERSONAJE]”.
+
+Sección principal izquierda titulada “VISTAS DEL PERSONAJE”: tres figuras completas y alineadas mostrando frente, perfil y espalda. Rótulos: “VISTA FRONTAL”, “VISTA LATERAL” y “VISTA TRASERA”.
+
+Sección inferior izquierda titulada “POSES DINÁMICAS”: sosteniendo una copa de champán; tocándose el cabello; pensando con una mano bajo la barbilla; y sentada o sentado elegantemente en un taburete negro alto.
+
+Columna derecha titulada “EXPRESIONES FACIALES”: cuatro retratos de cabeza y hombros con los rótulos “NEUTRAL”, “FELIZ”, “PENSATIVA” o “PENSATIVO”, y “JUGUETONA” o “JUGUETÓN”, concordando con la persona de referencia.
+
+Sección inferior derecha titulada “MATERIALES Y PALETA DE COLOR”: muestras circulares de colores y texturas con las etiquetas “VESTUARIO — Negro elegante”, “PIEL — [TONO REAL]”, “CABELLO — [COLOR REAL]” y “OJOS — [COLOR REAL]”.
+
+Añade un retrato dentro de un marco rectangular redondeado con el rótulo “REFERENCIA”.
+
+Sección inferior titulada “NOTAS DEL PERSONAJE”, con este texto: “Una presencia segura, elegante y misteriosa, con una gracia atemporal que deja una impresión duradera.”
+
+Estilo visual: fotografía editorial de moda hiperrealista combinada con una presentación pulida de concept art. Iluminación suave de estudio, sombras naturales sutiles, tonos neutros cálidos, composición precisa, líneas divisorias negras finas, tipografía sans serif condensada, jerarquía visual clara, abundante espacio negativo y acabado de portfolio profesional premium.
+
+Todas las figuras de cuerpo entero deben aparecer completas, incluyendo cabeza, manos, pies, calzado y parte inferior del vestido o pantalón.
+
+Evitar: interfaces de redes sociales, iconos, botones, marcas de agua, logotipos, textos en inglés, errores ortográficos, tipografía deformada, rostros inconsistentes, cambios de edad o identidad, cuerpos distintos, extremidades duplicadas, manos deformes, figuras recortadas, cambios de vestuario o peinado, fondos decorativos, objetos innecesarios y personas adicionales.</div>
+      </div>
+    </section>
+
+    <section class="section note">
+      <span aria-hidden="true">✓</span>
+      <div><strong>Consejo:</strong> si una vista cambia demasiado el rostro, vuelve a generar sin retocar el prompt. La consistencia mejora cuando mantienes una sola foto de referencia.</div>
+    </section>
+  </main>
+
+  <footer class="shell">Código AdrIA · Inteligencia artificial aplicada, sin humo ni tecnicismos.</footer>
+  <div id="toast" role="status" aria-live="polite">Prompt copiado</div>
+  <script>
+    const promptText = document.getElementById('prompt').textContent.trim();
+    const toast = document.getElementById('toast');
+    async function copyPrompt() {
+      try {
+        await navigator.clipboard.writeText(promptText);
+      } catch (error) {
+        const area = document.createElement('textarea');
+        area.value = promptText;
+        area.style.position = 'fixed';
+        area.style.opacity = '0';
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand('copy');
+        area.remove();
+      }
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+    document.querySelectorAll('[data-copy]').forEach(button => button.addEventListener('click', copyPrompt));
+  </script>
+</body>
+</html>
