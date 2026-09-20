@@ -16,6 +16,9 @@
   <meta name="twitter:description" content="Convierte una sola foto en una ficha completa de personaje con este prompt listo para copiar.">
   <meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
   <meta name="theme-color" content="#102e35">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --turquesa: #4dd2d0;
@@ -41,32 +44,9 @@
     }
     button, a { font: inherit; }
     .shell { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 24px 0;
-    }
-    .brand {
-      color: var(--profundo);
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -.04em;
-      text-decoration: none;
-    }
-    .brand span { color: var(--turquesa); }
-    .tag {
-      padding: 7px 12px;
-      border: 1px solid rgba(63, 111, 123, .25);
-      border-radius: 999px;
-      color: var(--petroleo);
-      background: rgba(255,255,255,.7);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    header.top { background: #07181d; padding: 18px 0; }
+    header.top img { height: 26px; width: auto; display: block; }
     .hero {
       position: relative;
       overflow: hidden;
@@ -208,7 +188,96 @@
       background: rgba(77,210,208,.1);
     }
     .note strong { color: var(--profundo); }
-    footer { padding: 30px 0 46px; color: var(--suave); font-size: 13px; text-align: center; }
+    .ca-foot {
+      background: #07181d;
+      color: #fff;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      letter-spacing: -.01em;
+    }
+    .ca-foot * { box-sizing: border-box; }
+    .ca-foot a { text-decoration: none; }
+    .ca-foot .ca-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .ca-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 64px 0 52px;
+    }
+    .ca-cta-copy { max-width: 34rem; }
+    .ca-kicker {
+      margin: 0 0 14px;
+      color: #4dd2d0;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .ca-cta h2 {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+      font-weight: 600;
+      letter-spacing: -.035em;
+      line-height: 1.12;
+    }
+    .ca-cta-sub { margin: 14px 0 0; color: #a9bdc2; font-size: .98rem; font-weight: 300; line-height: 1.6; }
+    .ca-btn {
+      display: inline-block;
+      flex: none;
+      padding: 15px 30px;
+      border-radius: 9999px;
+      color: #0b2026;
+      background: #4dd2d0;
+      font-size: .94rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: background .2s, transform .12s;
+    }
+    .ca-btn:hover { background: #6fe0de; }
+    .ca-btn:active { transform: scale(.98); }
+    .ca-cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 36px;
+      padding: 44px 0;
+      border-top: 1px solid rgba(255,255,255,.09);
+    }
+    .ca-col h3 {
+      margin: 0 0 16px;
+      color: #7c9299;
+      font-size: .74rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .ca-col ul { margin: 0; padding: 0; list-style: none; }
+    .ca-col li { margin-bottom: 11px; }
+    .ca-col li:last-child { margin-bottom: 0; }
+    .ca-col a {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: #dfe9eb;
+      font-size: .94rem;
+      transition: color .18s;
+    }
+    .ca-col a:hover { color: #4dd2d0; }
+    .ca-col svg { width: 16px; height: 16px; fill: currentColor; flex: none; opacity: .8; }
+    .ca-legal {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 26px 0 40px;
+      border-top: 1px solid rgba(255,255,255,.09);
+    }
+    .ca-legal-brand { display: inline-flex; align-items: center; gap: 11px; transition: opacity .2s; }
+    .ca-legal-brand:hover { opacity: .8; }
+    .ca-legal-brand img { height: 32px; width: auto; display: block; }
+    .ca-legal p { margin: 0; color: #6f858c; font-size: .8rem; }
     #toast {
       position: fixed;
       left: 50%;
@@ -227,7 +296,6 @@
     }
     #toast.show { opacity: 1; transform: translate(-50%, 0); }
     @media (max-width: 760px) {
-      .topbar { padding: 18px 0; }
       .hero { grid-template-columns: 1fr; gap: 24px; padding: 34px 24px; border-radius: 25px; }
       .hero-card { display: flex; align-items: center; gap: 15px; padding: 20px; }
       .hero-card strong { font-size: 34px; }
@@ -236,13 +304,16 @@
       .prompt-head { align-items: stretch; flex-direction: column; }
       .prompt-head .button { width: 100%; }
       .prompt { max-height: none; }
+      .ca-cta { padding: 52px 0 40px; }
+      .ca-btn { width: 100%; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <header class="shell topbar">
-    <a class="brand" href="https://codigoadria.com" rel="noopener">Código Adr<span>IA</span></a>
-    <div class="tag">Recurso gratuito</div>
+  <header class="top">
+    <div class="wrap">
+      <a href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"></a>
+    </div>
   </header>
 
   <div class="shell hero">
@@ -309,7 +380,50 @@ Evitar: interfaces de redes sociales, iconos, botones, marcas de agua, logotipos
     </section>
   </main>
 
-  <footer class="shell">Código AdrIA · Inteligencia artificial aplicada, sin humo ni tecnicismos.</footer>
+  <footer class="ca-foot">
+    <div class="ca-wrap">
+      <div class="ca-cta">
+        <div class="ca-cta-copy">
+          <p class="ca-kicker">Código AdrIA</p>
+          <h2>La IA aplicada al trabajo real, sin humo</h2>
+          <p class="ca-cta-sub">Este prompt sale de probar cómo mantener la identidad de una persona entre vistas, poses y expresiones. En la comunidad compartimos recursos prácticos como este.</p>
+        </div>
+        <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+      </div>
+
+      <div class="ca-cols">
+        <div class="ca-col">
+          <h3>Empieza aquí</h3>
+          <ul>
+            <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+            <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+            <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+          </ul>
+        </div>
+        <div class="ca-col">
+          <h3>Sígueme</h3>
+          <ul>
+            <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+            <li><a href="https://www.linkedin.com/in/ricardohoyosperez/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/ricardohoyos1/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+          </ul>
+        </div>
+        <div class="ca-col">
+          <h3>La casa</h3>
+          <ul>
+            <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+            <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+            <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ca-legal">
+        <a class="ca-legal-brand" href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"></a>
+        <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+      </div>
+    </div>
+  </footer>
   <div id="toast" role="status" aria-live="polite">Prompt copiado</div>
   <script>
     const promptText = document.getElementById('prompt').textContent.trim();
