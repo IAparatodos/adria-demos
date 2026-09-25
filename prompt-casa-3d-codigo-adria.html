@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prompt Casa en 3D · Código AdrIA</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Prompt Casa en 3D · Código AdrIA">
+  <meta property="og:description" content="El prompt de la casa en 3D que pasa del boceto al hogar, hecha con código y Claude Opus 5.5.">
+  <meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+  <meta property="og:url" content="https://iaparatodos.github.io/adria-demos/prompt-casa-3d-codigo-adria.html">
+  <meta property="og:site_name" content="Código AdrIA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prompt Casa en 3D · Código AdrIA">
+  <meta name="twitter:description" content="El prompt de la casa en 3D que pasa del boceto al hogar, hecha con código y Claude Opus 5.5.">
+  <meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+  <meta name="theme-color" content="#102e35">
+  <link rel="icon" type="image/png" href="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+  <link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --turquesa: #4dd2d0;
+      --petroleo: #3f6f7b;
+      --profundo: #102e35;
+      --marfil: #f7f2e8;
+      --blanco: #ffffff;
+      --tinta: #19363d;
+      --suave: #668087;
+      --borde: rgba(16, 46, 53, .13);
+      --sombra: 0 22px 60px rgba(16, 46, 53, .14);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--tinta);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(77, 210, 208, .18), transparent 28rem),
+        linear-gradient(180deg, #fff 0%, var(--marfil) 100%);
+      font-family: Poppins, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    button, a { font: inherit; }
+    .shell { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    header.top { background: #07181d; padding: 18px 0; }
+    header.top img { height: 26px; width: auto; display: block; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+      gap: 36px;
+      align-items: center;
+      padding: clamp(34px, 6vw, 74px);
+      border-radius: 34px;
+      color: #fff;
+      background: var(--profundo);
+      box-shadow: var(--sombra);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -120px;
+      top: -150px;
+      border-radius: 50%;
+      background: rgba(77, 210, 208, .2);
+      filter: blur(2px);
+    }
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--turquesa);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+    .hero-copy { position: relative; z-index: 1; }
+    .hero-copy > p:not(.eyebrow) {
+      max-width: 680px;
+      margin: 24px 0 30px;
+      color: rgba(255,255,255,.78);
+      font-size: clamp(17px, 2.2vw, 21px);
+    }
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 24px;
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(10px);
+    }
+    .hero-card strong { display: block; white-space: nowrap; font-size: 42px; line-height: 1; color: var(--turquesa); }
+    .hero-card span { display: block; margin-top: 10px; color: rgba(255,255,255,.78); }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 14px 22px;
+      border: 0;
+      border-radius: 15px;
+      color: var(--profundo);
+      background: var(--turquesa);
+      box-shadow: 0 10px 30px rgba(77, 210, 208, .18);
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(77, 210, 208, .27); }
+    .button:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+    main { padding: 34px 0 84px; }
+    .section { margin-top: 34px; }
+    .section-title { margin: 0 0 18px; font-size: clamp(27px, 4vw, 40px); letter-spacing: -.04em; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .step {
+      padding: 25px;
+      border: 1px solid var(--borde);
+      border-radius: 22px;
+      background: rgba(255,255,255,.83);
+      box-shadow: 0 10px 30px rgba(16,46,53,.06);
+    }
+    .step b {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      color: var(--profundo);
+      background: var(--turquesa);
+    }
+    .step h3 { margin: 0 0 7px; font-size: 18px; }
+    .step p { margin: 0; color: var(--suave); font-size: 15px; }
+    .prompt-card {
+      overflow: hidden;
+      border: 1px solid var(--borde);
+      border-radius: 26px;
+      background: var(--blanco);
+      box-shadow: var(--sombra);
+    }
+    .prompt-head {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      color: #fff;
+      background: rgba(16,46,53,.97);
+    }
+    .prompt-head strong { font-size: 17px; }
+    .prompt-head .button { min-height: 44px; padding: 10px 16px; border-radius: 12px; font-size: 14px; }
+    .prompt {
+      max-height: 680px;
+      overflow: auto;
+      padding: clamp(24px, 5vw, 48px);
+      white-space: pre-wrap;
+      color: #263f45;
+      font-family: Poppins, ui-sans-serif, system-ui, sans-serif;
+      font-size: clamp(15px, 1.8vw, 17px);
+      line-height: 1.75;
+    }
+    .note {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 20px 22px;
+      border: 1px solid rgba(63,111,123,.2);
+      border-radius: 18px;
+      color: var(--petroleo);
+      background: rgba(77,210,208,.1);
+    }
+    .note strong { color: var(--profundo); }
+    #toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 20;
+      transform: translate(-50%, 30px);
+      padding: 13px 18px;
+      border-radius: 12px;
+      color: #fff;
+      background: var(--profundo);
+      box-shadow: var(--sombra);
+      opacity: 0;
+      pointer-events: none;
+      transition: .22s ease;
+      font-weight: 700;
+    }
+    #toast.show { opacity: 1; transform: translate(-50%, 0); }
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; gap: 24px; padding: 34px 24px; border-radius: 25px; }
+      .hero-card { display: flex; align-items: center; gap: 15px; padding: 20px; }
+      .hero-card strong { font-size: 34px; }
+      .hero-card span { margin: 0; }
+      .steps { grid-template-columns: 1fr; }
+      .prompt-head { align-items: stretch; flex-direction: column; }
+      .prompt-head .button { width: 100%; }
+      .prompt { max-height: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"></a>
+    </div>
+  </header>
+
+  <div class="shell hero">
+    <div class="hero-copy">
+      <p class="eyebrow">El prompt de la casa en 3D</p>
+      <h1>Una casa en 3D que pasa del boceto al hogar, sin ser un vídeo.</h1>
+      <p>Es la versión ampliada del prompt con el que hice la casa del reel. Te devuelve una página web que dibuja la vivienda en el móvil en tiempo real: la puedes pausar, tocar y cambiar.</p>
+      <button class="button" type="button" data-copy>Copiar el prompt</button>
+    </div>
+    <aside class="hero-card" aria-label="Resumen del recurso">
+      <strong>4 etapas</strong>
+      <span>Líneas iniciales, modelado de masas, detalle y hogar terminado.</span>
+    </aside>
+  </div>
+
+  <main class="shell">
+    <section class="section" aria-labelledby="como-usarlo">
+      <h2 class="section-title" id="como-usarlo">Cómo usarlo</h2>
+      <div class="steps">
+        <article class="step"><b>1</b><h3>Describe tu vivienda</h3><p>Pégalo en Claude con el modelo Opus 5.5 y cambia [VIVIENDA] y [ACABADOS] por la casa que quieras enseñar.</p></article>
+        <article class="step"><b>2</b><h3>Ábrelo en el móvil</h3><p>Claude te devuelve la página lista para ver. Está pensada en vertical, así que se luce en el móvil.</p></article>
+        <article class="step"><b>3</b><h3>Retócala hablando</h3><p>Pídele otros materiales, más estancias o otra luz. Como es código, se cambia en un momento y no hay que volver a generar nada.</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="prompt-title">
+      <h2 class="section-title" id="prompt-title">El prompt completo</h2>
+      <div class="prompt-card">
+        <div class="prompt-head">
+          <strong>CASA EN 3D</strong>
+          <button class="button" type="button" data-copy>Copiar prompt</button>
+        </div>
+        <div class="prompt" id="prompt">Crea una página web interactiva, en un solo archivo HTML, que cuente cómo una vivienda pasa del boceto al hogar terminado. Constrúyela en 3D con Three.js y TSL (Three Shading Language), con WebGPU y caída a WebGL si el navegador no lo soporta.
+
+La vivienda: [VIVIENDA, por ejemplo «casa familiar de una planta, 78 m², salón-comedor, cocina, 3 dormitorios, 2 baños, garaje y patio»].
+
+La arquitectura evoluciona sola a través de cuatro etapas, con transiciones suaves entre ellas:
+1. Líneas iniciales: el plano se traza sobre una cuadrícula azul tipo blueprint. Muros, huecos y giros de puerta dibujados con líneas finas, y el nombre de cada estancia escrito sobre el suelo.
+2. Modelado de masas: los muros suben hasta su altura real y la casa aparece en volumen, en blanco, como una maqueta.
+3. Detalle: carpintería, ventanas de vidrio, suelos y muebles básicos en cada estancia. [ACABADOS, por ejemplo «aluminio negro, cerámica 60×60, tarima de madera»].
+4. Hogar terminado: fachada acabada, jardín, alguna palmera o árbol y luz cálida de atardecer con sombras suaves.
+
+La cámara gira despacio alrededor de la casa y se acerca en cada etapa. En la última termina a la altura de una persona, mirando la fachada.
+
+Interfaz, pensada para verse bien en el móvil en vertical:
+- Arriba, el título «Del boceto al hogar» y una línea con la descripción de la vivienda.
+- Abajo, un panel con el nombre de la etapa, una frase que explique qué está pasando, una barra de progreso con las cuatro etapas y un botón de pausa y reproducción.
+- Al tocar una etapa en la barra, salta a ella.
+
+Que todo se genere por código, sin imágenes ni modelos externos, y que la animación completa dure unos 20 segundos y se repita.</div>
+      </div>
+    </section>
+
+    <section class="section note">
+      <span aria-hidden="true">✓</span>
+      <div><strong>Hecho con Claude Opus 5.5, Three.js y TSL.</strong> Si una etapa no te convence, pídele que la rehaga antes de tocar lo demás. Si tu móvil no tiene WebGPU, la página usa WebGL y se ve igual.</div>
+    </section>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite">Prompt copiado</div>
+  <script>
+    const promptText = document.getElementById('prompt').textContent.trim();
+    const toast = document.getElementById('toast');
+    function fallbackCopy(text) {
+      const area = document.createElement('textarea');
+      area.value = text;
+      area.setAttribute('readonly', '');
+      area.style.position = 'fixed';
+      area.style.top = '0';
+      area.style.opacity = '0';
+      document.body.appendChild(area);
+      area.select();
+      area.setSelectionRange(0, text.length);
+      let ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      area.remove();
+      return ok;
+    }
+    async function copyPrompt() {
+      let ok = false;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(promptText);
+          ok = true;
+        }
+      } catch (error) { ok = false; }
+      if (!ok) ok = fallbackCopy(promptText);
+      toast.textContent = ok ? 'Prompt copiado' : 'No se pudo copiar: selecciona el texto a mano';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+    document.querySelectorAll('[data-copy]').forEach(button => button.addEventListener('click', copyPrompt));
+  </script>
+<style>
+  .ca-foot{
+    background:#07181d;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Si esta casa te ha servido, en la comunidad compartimos más prompts y flujos como este, también los que no salen a la primera.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+</body>
+</html>
