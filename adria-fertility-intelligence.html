@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pregúntale a tu clínica · AdrIA Fertility Intelligence</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pregúntale a tu clínica · Código AdrIA">
+<meta property="og:description" content="Protocolos, actas y procedimientos de tu clínica de fertilidad, en una conversación con fuente.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/adria-fertility-intelligence.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pregúntale a tu clínica · Código AdrIA">
+<meta name="twitter:description" content="Protocolos, actas y procedimientos de tu clínica de fertilidad, en una conversación con fuente.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta name="description" content="La IA que conoce los documentos de tu clínica de fertilidad: pregunta en lenguaje natural y recibe la respuesta con el documento del que sale.">
+<link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico">
+<link rel="icon" type="image/png" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#102e35;--deep:#0a2228;--paper:#f4f7f8;--mint:#4dd2d0;--soft:#a9bdc2;--teal:#3f6f7b;--muted:#5a6a70;--line:#e2eaec;--coral:#ff9c86}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--navy);font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.55;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%}
+
+/* header */
+header{background:var(--navy);color:var(--paper);padding:20px 7vw;border-bottom:1px solid #ffffff1f;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:16px;text-decoration:none}
+.brand-name{font-weight:700;letter-spacing:-1px;font-size:25px;line-height:1}
+.brand-name small{display:block;font-size:9.5px;letter-spacing:2.2px;font-weight:500;text-transform:uppercase;margin-top:5px;color:var(--soft)}
+.by{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--soft);text-decoration:none;border-left:1px solid #ffffff2a;padding-left:16px}
+.by img{height:22px;width:auto;display:block}
+.nav{display:flex;gap:24px;font-size:13px;align-items:center}
+.nav a{text-decoration:none;color:#dfe9eb}
+.nav a:hover{color:var(--mint)}
+.nav .btn{padding:10px 18px;font-size:13px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 24px;border-radius:9999px;background:var(--mint);color:var(--navy)!important;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:15px;transition:background .2s,transform .12s}
+.btn:hover{background:#6fe0de}
+.btn:active{transform:scale(.98)}
+.btn.ghost{background:transparent;border:1px solid #ffffff55;color:#fff!important}
+.btn.ghost:hover{border-color:var(--mint);color:var(--mint)!important}
+
+/* hero */
+.hero{background:var(--navy);color:var(--paper);padding:80px 7vw 90px;display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+.eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--teal)}
+.hero .eyebrow,.dark .eyebrow{color:var(--mint)}
+h1{font-size:clamp(40px,5vw,76px);line-height:1.04;letter-spacing:-2.5px;font-weight:600;margin:22px 0 24px}
+h1 em{color:var(--mint);font-style:normal;display:block}
+.hero p.sub{color:#dfe9eb;max-width:560px;font-size:19px;font-weight:300;margin:0 0 30px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.ticks{list-style:none;padding:0;margin:30px 0 0;display:flex;flex-wrap:wrap;gap:10px 22px;font-size:14px;color:#dfe9eb}
+.ticks li{display:flex;align-items:center;gap:8px}
+.ticks li::before{content:"";width:18px;height:18px;border-radius:50%;background:var(--mint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z' fill='%23102e35'/%3E%3C/svg%3E") center/13px no-repeat;flex:none}
+
+/* chat */
+.chat{background:var(--deep);border:1px solid #ffffff22;border-radius:22px;overflow:hidden;box-shadow:0 30px 70px #0006;min-width:0}
+.chat-top{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #ffffff17;font-size:13px}
+.chat-id{display:flex;align-items:center;gap:11px}
+.avatar{width:34px;height:34px;border-radius:10px;background:var(--mint);color:var(--navy);display:grid;place-items:center;font-weight:700;font-size:14px}
+.chat-id b{display:block;font-size:14px;color:#fff}
+.chat-id span{color:var(--soft);font-size:11.5px}
+.live{display:flex;align-items:center;gap:7px;color:var(--soft);font-size:11px;letter-spacing:.5px}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 #4dd2d099;animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px #4dd2d000}100%{box-shadow:0 0 0 0 #4dd2d000}}
+.chat-body{padding:22px 20px;height:430px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:14px}
+.msg{max-width:88%;padding:12px 15px;border-radius:15px;font-size:14px;line-height:1.5;animation:in .35s ease both}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.msg.q{align-self:flex-end;background:#1d4550;color:#fff;border-bottom-right-radius:5px}
+.msg.q small{display:block;font-size:10.5px;color:var(--soft);margin-bottom:3px;letter-spacing:.3px}
+.msg.a{align-self:flex-start;background:#f4f7f8;color:var(--navy);border-bottom-left-radius:5px}
+.src{display:inline-flex;align-items:center;gap:6px;margin-top:9px;font-size:11.5px;background:#fff;border:1px solid var(--line);color:var(--teal);padding:4px 9px;border-radius:7px;font-weight:500}
+.src::before{content:"";width:11px;height:13px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm0 2.5L17.5 8H14zM8 13h8v1.5H8zm0 3.5h8V18H8z' fill='%233f6f7b'/%3E%3C/svg%3E") center/contain no-repeat}
+.msg.a.none .src{color:#8a5a12;border-color:#f1dfbd;background:#fdf6e9}
+.typing{align-self:flex-start;background:#f4f7f8;border-radius:15px;padding:13px 16px;display:flex;gap:5px}
+.typing span{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:blink 1.2s infinite}
+.typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.chat-input{display:flex;align-items:center;gap:10px;margin:0 20px 18px;padding:12px 14px;border-radius:12px;background:#ffffff0d;border:1px solid #ffffff1c;color:var(--soft);font-size:13px}
+.chat-input .caret{flex:1;min-height:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#fff}
+.chat-input .send{width:30px;height:30px;border-radius:8px;background:var(--mint);display:grid;place-items:center;flex:none}
+.chat-note{font-size:11px;color:var(--soft);text-align:center;padding:0 20px 16px;margin:0}
+
+/* band */
+.band{background:var(--mint);padding:20px 7vw;font-size:17px;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.band strong{font-weight:600}
+
+/* sections */
+.section{padding:90px 7vw;max-width:1500px;margin:auto}
+.section h2{font-size:clamp(30px,3.4vw,52px);line-height:1.1;letter-spacing:-1.6px;margin:14px 0 22px;max-width:900px;font-weight:600}
+.lead{max-width:780px;font-size:18px;color:var(--muted);font-weight:300;margin:0}
+.dark{background:var(--navy);color:var(--paper)}
+.dark .lead{color:var(--soft)}
+.dark-in{padding:90px 7vw;max-width:1500px;margin:auto}
+.dark-in h2{font-size:clamp(30px,3.4vw,52px);line-height:1.1;letter-spacing:-1.6px;margin:14px 0 22px;max-width:900px;font-weight:600}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+.card .quote{font-size:22px;line-height:1.3;letter-spacing:-.6px;font-weight:500;margin:14px 0 12px}
+.card p{color:var(--muted);font-size:15px;margin:0}
+.tag{display:inline-block;padding:5px 10px;font-size:11px;border-radius:6px;background:var(--paper);color:var(--navy);font-weight:600;letter-spacing:.4px;text-transform:uppercase}
+
+/* questions */
+.qgroups{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:40px}
+.qgroup{background:#ffffff0a;border:1px solid #ffffff1c;border-radius:18px;padding:26px}
+.qgroup h3{margin:0 0 16px;font-size:13px;letter-spacing:1.6px;text-transform:uppercase;color:var(--mint);font-weight:600}
+.qgroup ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.qgroup li{background:#ffffff10;border-radius:11px;padding:11px 14px;font-size:15px;color:#e8f0f1}
+.qgroup li::before{content:"“";color:var(--mint);font-weight:700;margin-right:3px}
+.qgroup li::after{content:"”";color:var(--mint);font-weight:700;margin-left:2px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:44px}
+.step{border-top:3px solid var(--teal);padding-top:18px}
+.step b{font-size:36px;color:var(--teal);font-weight:600;letter-spacing:-1px}
+.step h3{font-size:20px;margin:8px 0 10px;letter-spacing:-.4px;font-weight:600}
+.step p{font-size:15px;color:var(--muted);margin:0}
+
+/* demo */
+.demo{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.demo-box{background:var(--navy);color:#fff;border-radius:22px;padding:44px;text-align:center}
+.demo-box .big{font-size:clamp(30px,3.2vw,46px);font-weight:600;letter-spacing:-1.5px;line-height:1.1;margin:0}
+.demo-box .big em{color:var(--mint);font-style:normal}
+.nots{list-style:none;padding:0;margin:26px 0 0;display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+.nots li{font-size:13px;padding:7px 13px;border-radius:9999px;border:1px solid #ffffff33;color:var(--soft)}
+.nots li s{text-decoration-color:var(--coral)}
+.checks{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-direction:column;gap:14px}
+.checks li{display:flex;gap:12px;font-size:16px;color:var(--muted)}
+.checks li strong{color:var(--navy);font-weight:600}
+.checks li::before{content:"";flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;background:#dff5f4 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z' fill='%233f6f7b'/%3E%3C/svg%3E") center/14px no-repeat}
+
+/* trust */
+.trust{display:grid;grid-template-columns:1.05fr 1fr;gap:50px;align-items:start}
+.trust-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.trust-item{background:#ffffff0a;border:1px solid #ffffff1c;border-radius:16px;padding:22px}
+.trust-item h3{font-size:16px;margin:0 0 8px;color:#fff;font-weight:600}
+.trust-item p{font-size:14px;margin:0;color:var(--soft)}
+.fine{font-size:12px;color:var(--soft);margin-top:22px}
+
+/* pilot */
+.pilot{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:44px}
+.who{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.who span{background:#fff;border:1px solid var(--line);border-radius:9999px;padding:9px 16px;font-size:14px}
+
+/* closing */
+.closing{padding:90px 7vw;background:var(--deep);color:var(--paper);text-align:center}
+.closing h2{font-size:clamp(38px,5vw,72px);line-height:1.05;letter-spacing:-2.5px;max-width:1000px;margin:18px auto;font-weight:600}
+.closing h2 em{color:var(--mint);font-style:normal}
+.closing p{color:var(--soft);max-width:640px;margin:0 auto 32px;font-size:18px;font-weight:300}
+
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr;padding:48px 16px 60px;gap:40px}
+  header{padding:16px}
+  .nav a:not(.btn){display:none}
+  .by span{display:none}
+  .section,.dark-in{padding:60px 16px}
+  .band{padding:18px 16px;font-size:15px;display:block}
+  .band span{display:block;margin-top:4px}
+  .grid3,.qgroups,.steps,.demo,.trust,.trust-list{grid-template-columns:1fr}
+  .pilot{grid-template-columns:1fr 1fr}
+  .closing{padding:64px 16px}
+  .demo-box{padding:32px 22px}
+  .chat-body{height:340px}
+}
+@media(max-width:520px){
+  .brand-name{font-size:21px}
+  .by{display:none}
+  .pilot{grid-template-columns:1fr}
+  .ctas .btn{width:100%}
+  h1{letter-spacing:-1.5px}
+  .msg{max-width:94%;font-size:13.5px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="#inicio" aria-label="AdrIA Fertility Intelligence">
+    <span class="brand-name">AdrIA<small>Fertility Intelligence</small></span>
+  </a>
+  <nav class="nav">
+    <a href="#preguntas">Qué responde</a>
+    <a href="#como">Cómo funciona</a>
+    <a href="#datos">Datos y privacidad</a>
+    <a class="by" href="https://www.codigoadria.com"><span>un producto de</span><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"></a>
+    <a class="btn" href="#reservar">Reservar demo</a>
+  </nav>
+</header>
+
+<main id="inicio">
+
+<section class="hero">
+  <div>
+    <div class="eyebrow">Para dirección y coordinación · Clínicas de fertilidad</div>
+    <h1>Pregúntale a tu clínica.<em>Te contesta con sus documentos.</em></h1>
+    <p class="sub">Protocolos, procedimientos, actas y documentación de calidad en una sola conversación. Preguntas como se lo preguntarías a un compañero, y cada respuesta te dice de qué documento sale.</p>
+    <div class="ctas">
+      <a class="btn" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3bKmewinGStVqF6OXCHhZRLZ6sBSDOF36eeFuzyTR9ZWs1GjM2sOR9WcFHy8-EoGkdjvXu7wMr" target="_blank" rel="noopener">Reservar una demo</a>
+      <a class="btn ghost" href="#preguntas">Ver qué responde</a>
+    </div>
+    <ul class="ticks">
+      <li>Con las herramientas que ya usáis</li>
+      <li>Cada respuesta, con su fuente</li>
+      <li>Sin datos de pacientes para empezar</li>
+    </ul>
+  </div>
+
+  <div class="chat" aria-label="Conversación de ejemplo con la IA de una clínica">
+    <div class="chat-top">
+      <div class="chat-id"><div class="avatar">A</div><div><b>La IA de tu clínica</b><span>Lee los documentos que vosotros elegís</span></div></div>
+      <div class="live"><i></i>EN LÍNEA</div>
+    </div>
+    <div class="chat-body" id="chat" aria-live="polite"></div>
+    <div class="chat-input"><span class="caret" id="caret">Pregúntale lo que quieras…</span><span class="send"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20.5 21 12 3 3.5V10l12 2-12 2z" fill="#102e35"/></svg></span></div>
+    <p class="chat-note">Conversación de ejemplo con documentos ficticios</p>
+  </div>
+</section>
+
+<div class="band"><strong>La información ya está en tu clínica.</strong><span>Lo que cuesta es encontrarla cuando hace falta.</span></div>
+
+<section class="section">
+  <div class="eyebrow">Lo que pasa cada semana</div>
+  <h2>Nadie pierde la información.<br>Solo el tiempo de buscarla.</h2>
+  <p class="lead">Está repartida entre carpetas, correos, versiones de un mismo PDF y la memoria de dos o tres personas. Cada vez que alguien la necesita, empieza la búsqueda desde cero.</p>
+  <div class="grid3">
+    <article class="card"><span class="tag">Buscar</span><p class="quote">«¿Cuál es la última versión?»</p><p>Tres archivos con el mismo nombre y ninguna certeza de cuál está aprobado.</p></article>
+    <article class="card"><span class="tag">Preguntar</span><p class="quote">«Eso lo sabe Laura»</p><p>Y Laura está en consulta, de vacaciones o atendiendo a otra persona que le pregunta lo mismo.</p></article>
+    <article class="card"><span class="tag">Repetir</span><p class="quote">«¿Me lo vuelves a explicar?»</p><p>Cada incorporación nueva vuelve a preguntar lo que ya está escrito en alguna parte.</p></article>
+  </div>
+</section>
+
+<section class="dark" id="preguntas">
+  <div class="dark-in">
+    <div class="eyebrow">Qué le puedes preguntar</div>
+    <h2>Lo que hoy te cuesta una llamada<br>o media mañana buscando.</h2>
+    <p class="lead">Ejemplos de preguntas sobre documentación interna. Si la respuesta no está en los documentos, te lo dice en lugar de inventársela.</p>
+    <div class="qgroups">
+      <div class="qgroup"><h3>Protocolos y procedimientos</h3><ul><li>¿Cuál es la versión vigente de este protocolo y qué cambió respecto a la anterior?</li><li>¿Qué pasos sigue recepción cuando una paciente cambia la fecha de su primera visita?</li><li>¿Tenemos un procedimiento escrito para esto?</li></ul></div>
+      <div class="qgroup"><h3>Reuniones y acuerdos</h3><ul><li>¿Qué acordamos en la última reunión de coordinación?</li><li>¿Quién quedó como responsable de ese tema y para cuándo?</li><li>¿Cuántas veces hemos hablado de esto este año?</li></ul></div>
+      <div class="qgroup"><h3>Calidad y auditorías</h3><ul><li>¿Qué tenemos que revisar antes de la próxima auditoría?</li><li>¿Dónde está el último registro de esta incidencia?</li><li>¿Qué documentos caducan este trimestre?</li></ul></div>
+      <div class="qgroup"><h3>Equipo y formación</h3><ul><li>¿Qué tiene que leer una persona nueva en coordinación su primera semana?</li><li>¿Cómo se usa este formulario?</li><li>¿A quién se avisa cuando pasa esto?</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="como">
+  <div class="eyebrow">Cómo funciona</div>
+  <h2>No cambiáis de herramientas.<br>Les añadís una conversación.</h2>
+  <p class="lead">Trabajamos sobre lo que ya usáis para guardar documentos: Microsoft 365, Google Workspace o carpetas compartidas. El equipo sigue archivando como siempre.</p>
+  <div class="steps">
+    <div class="step"><b>01</b><h3>Elegís qué entra</h3><p>Decidimos juntos qué documentos lee la IA y cuáles se quedan fuera. Empezamos por un conjunto pequeño y útil.</p></div>
+    <div class="step"><b>02</b><h3>Lo conectamos donde ya está</h3><p>Los archivos se quedan donde están. Cuando actualizáis un documento, la IA trabaja con la versión nueva.</p></div>
+    <div class="step"><b>03</b><h3>El equipo pregunta</h3><p>En lenguaje normal. La respuesta llega con el documento del que sale, para que cualquiera pueda comprobarla.</p></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="demo">
+    <div>
+      <div class="eyebrow">La demostración</div>
+      <h2>Una demo vale más<br>que cien diapositivas.</h2>
+      <p class="lead">Antes de la reunión preparamos una IA con documentación pública de vuestra clínica y de vuestro sector. El día de la demo os sentamos delante y os decimos una sola cosa.</p>
+      <ul class="checks">
+        <li><span><strong>30 minutos</strong>, por videollamada o en vuestra clínica.</span></li>
+        <li><span><strong>Sin pedir acceso</strong> a vuestros sistemas para hacer la demo.</span></li>
+        <li><span><strong>Las preguntas las ponéis vosotros</strong>, sobre lo que os importe ese día.</span></li>
+      </ul>
+    </div>
+    <div class="demo-box">
+      <p class="big">«Pregúntale<br><em>lo que quieras.»</em></p>
+      <ul class="nots"><li><s>PowerPoint</s></li><li><s>Tecnicismos</s></li><li><s>Promesas</s></li><li>Respuestas</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="datos">
+  <div class="dark-in trust">
+    <div>
+      <div class="eyebrow">Datos y privacidad</div>
+      <h2>La confianza de una paciente<br>no se negocia.</h2>
+      <p class="lead">Por eso empezamos por la documentación interna, la que no contiene datos de pacientes: protocolos, procedimientos, actas y calidad. Los datos de salud tienen protección reforzada en el RGPD. Incluirlos exige una evaluación previa y medidas que se demuestran antes de ponerlo en marcha, no después.</p>
+      <p class="fine">El cumplimiento del RGPD es una condición de cada implantación. No se da por hecho en ninguna.</p>
+    </div>
+    <div class="trust-list">
+      <div class="trust-item"><h3>Vosotros decidís</h3><p>Qué documentos entran, quién puede preguntar y qué se queda fuera.</p></div>
+      <div class="trust-item"><h3>Respuestas comprobables</h3><p>Cada respuesta indica el documento del que sale.</p></div>
+      <div class="trust-item"><h3>Si no está, lo dice</h3><p>No rellena huecos con suposiciones.</p></div>
+      <div class="trust-item"><h3>Permisos probados</h3><p>Antes de arrancar comprobamos que nadie accede a lo que no podía abrir.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="piloto">
+  <div class="eyebrow">Cómo empezamos</div>
+  <h2>Un piloto pequeño.<br>Una decisión con datos vuestros.</h2>
+  <p class="lead">Empezamos por un conjunto de documentos y por las preguntas reales de vuestro equipo. Y medimos.</p>
+  <div class="pilot">
+    <div class="step"><b>01</b><h3>Demo</h3><p>Veis cómo responde antes de decidir nada.</p></div>
+    <div class="step"><b>02</b><h3>Diagnóstico</h3><p>Elegimos los documentos y las diez preguntas que más tiempo os cuestan hoy.</p></div>
+    <div class="step"><b>03</b><h3>Piloto</h3><p>Lo ponemos en marcha con un grupo reducido del equipo, en unas tres semanas desde que tengamos los accesos.</p></div>
+    <div class="step"><b>04</b><h3>Decisión</h3><p>Comparamos el tiempo de antes y el de después. Si no compensa, se para.</p></div>
+  </div>
+  <div class="who"><span>Dirección médica</span><span>Gerencia</span><span>Coordinación</span><span>Calidad</span><span>Recepción y atención a pacientes</span><span>Equipo nuevo</span></div>
+</section>
+
+<section class="closing" id="reservar">
+  <div class="eyebrow" style="color:var(--mint)">El siguiente paso</div>
+  <h2>Siéntate delante.<br><em>Pregúntale lo que quieras.</em></h2>
+  <p>Reserva 30 minutos. Llevamos la demo preparada con documentación de tu clínica y de tu sector.</p>
+  <a class="btn" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3bKmewinGStVqF6OXCHhZRLZ6sBSDOF36eeFuzyTR9ZWs1GjM2sOR9WcFHy8-EoGkdjvXu7wMr" target="_blank" rel="noopener">Reservar una demo</a>
+</section>
+
+</main>
+
+<script>
+(() => {
+  const convo = [
+    {q:'Dirección médica', t:'¿Cuál es la versión vigente del protocolo de preparación endometrial?',
+     a:'La versión 4, aprobada por dirección médica el 14 de septiembre. Sustituye a la versión 3 y cambia el apartado de controles.',
+     s:'Protocolo_preparacion_endometrial_v4.pdf · pág. 2'},
+    {q:'Coordinación', t:'¿Qué acordamos en la última reunión sobre las primeras visitas?',
+     a:'Confirmar cada primera visita por teléfono 48 horas antes. Responsable: coordinación. Se revisa en la reunión de noviembre.',
+     s:'Acta_coordinacion_2026-09-18.docx'},
+    {q:'Recepción', t:'¿Tenemos las tarifas de 2027?',
+     a:'No he encontrado ningún documento con tarifas de 2027. La última tarifa aprobada es la de 2026.',
+     s:'Tarifas_2026.xlsx · no hay versión 2027', none:true}
+  ];
+  const box = document.getElementById('chat'), caret = document.getElementById('caret');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wait = ms => new Promise(r => setTimeout(r, reduce ? 0 : ms));
+  const el = (cls, html) => { const d = document.createElement('div'); d.className = cls; d.innerHTML = html; box.appendChild(d); trim(); return d; };
+  const trim = () => { while (box.scrollHeight > box.clientHeight + 2 && box.children.length > 1) box.removeChild(box.firstChild); };
+  const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+  async function type(text){
+    if (reduce) return;
+    caret.textContent = '';
+    for (const ch of text){ caret.textContent += ch; await wait(28); }
+    await wait(350);
+  }
+  async function run(){
+    for (;;){
+      for (const m of convo){
+        await type(m.t);
+        caret.textContent = 'Pregúntale lo que quieras…';
+        el('msg q', `<small>${esc(m.q)}</small>${esc(m.t)}`);
+        await wait(500);
+        const ty = el('typing', '<span></span><span></span><span></span>');
+        await wait(1300);
+        ty.remove();
+        el('msg a' + (m.none ? ' none' : ''), `${esc(m.a)}<br><span class="src">${esc(m.s)}</span>`);
+        await wait(3200);
+      }
+      if (reduce) return;
+      await wait(1500);
+      box.innerHTML = '';
+    }
+  }
+  run();
+})();
+</script>
+
+<!-- Footer de marca: brand-context/assets/footer-publico.html (solo cambia .ca-cta-sub) -->
+<style>
+  .ca-foot{
+    background:#07181d;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">AdrIA Fertility Intelligence es un producto de Código AdrIA. En la comunidad contamos cómo montamos estas cosas: lo que funciona y lo que no.</p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+</body>
+</html>
