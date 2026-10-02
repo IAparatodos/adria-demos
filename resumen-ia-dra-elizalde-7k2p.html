@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dra. Elizalde · Lo que la IA te quita de encima</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dra. Elizalde · Lo que la IA te quita de encima · Código AdrIA">
+<meta property="og:description" content="Diez cosas que hoy haces a mano en la consulta y cómo se quitan de en medio. Resumen de la reunión del 2 de octubre.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/resumen-ia-dra-elizalde-7k2p.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dra. Elizalde · Lo que la IA te quita de encima · Código AdrIA">
+<meta name="twitter:description" content="Diez cosas que hoy haces a mano en la consulta y cómo se quitan de en medio. Resumen de la reunión del 2 de octubre.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23102e35'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%234dd2d0' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%234dd2d0'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tq:#4dd2d0;--pt:#3f6f7b;--pf:#102e35;
+  --bg:#081b20;--bg2:#0d262d;--surface:#112f37;--text:#eef6f7;--muted:#9fbac0;--line:rgba(77,210,208,.18);
+  --hot:#ff7a59;--hot-dim:rgba(255,122,89,.14);
+  --tq-dim:rgba(77,210,208,.12);--tq-border:rgba(77,210,208,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;overflow-x:hidden}
+a{color:var(--tq)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+
+/* HERO */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;
+  background:radial-gradient(1200px 600px at 80% -10%,rgba(77,210,208,.28),transparent 60%),
+             radial-gradient(900px 500px at -10% 110%,rgba(255,122,89,.16),transparent 60%),
+             linear-gradient(160deg,#0a2129,#071519)}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(77,210,208,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(77,210,208,.06) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%)}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;animation:float 14s ease-in-out infinite}
+.orb.a{width:420px;height:420px;background:var(--tq);top:-120px;right:-80px}
+.orb.b{width:320px;height:320px;background:var(--hot);bottom:-140px;left:-60px;animation-delay:-6s}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.06)}}
+.hero .wrap{position:relative;padding:80px 16px 64px}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid var(--tq-border);background:var(--tq-dim);color:var(--tq);border-radius:999px;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--tq);box-shadow:0 0 0 0 rgba(77,210,208,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(77,210,208,.6)}70%{box-shadow:0 0 0 12px rgba(77,210,208,0)}100%{box-shadow:0 0 0 0 rgba(77,210,208,0)}}
+.hero h1{font-size:clamp(2.3rem,7vw,5rem);font-weight:900;line-height:1.02;letter-spacing:-.02em;margin:26px 0 18px;max-width:900px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--tq),#9ff0ee);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:clamp(1.05rem,2.2vw,1.35rem);color:var(--muted);max-width:720px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.chip{padding:8px 14px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);font-size:.85rem;color:var(--muted)}
+.chip b{color:var(--text)}
+.scroll{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;animation:bob 2s infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+/* COUNTERS */
+.counters{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.counters .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;padding:0 16px}
+.counter{padding:34px 18px;text-align:center;border-right:1px solid var(--line)}
+.counter:last-child{border-right:0}
+.counter b{display:block;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;line-height:1;color:var(--tq);font-variant-numeric:tabular-nums}
+.counter span{display:block;margin-top:8px;font-size:.85rem;color:var(--muted)}
+@media(max-width:700px){.counter{border-right:0;border-bottom:1px solid var(--line)}.counter:last-child{border-bottom:0}}
+
+/* SECTION HEADERS */
+.sec{padding:clamp(60px,9vw,110px) 0}
+.kicker{color:var(--tq);font-size:.8rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.sec h2{font-size:clamp(1.9rem,4.5vw,3.2rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin:10px 0 14px;max-width:820px}
+.sec .sub{color:var(--muted);font-size:1.05rem;max-width:700px;margin-bottom:40px}
+
+/* PAIN CARDS */
+.pains{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.pain{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px 24px 22px;overflow:hidden;transition:transform .35s,border-color .35s,box-shadow .35s;cursor:pointer}
+.pain::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--hot),transparent)}
+.pain:hover{transform:translateY(-6px);border-color:rgba(255,122,89,.5);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.pain .num{position:absolute;top:14px;right:18px;font-size:3.4rem;font-weight:900;color:rgba(255,255,255,.05);line-height:1}
+.pain .ico{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:var(--hot-dim);font-size:1.6rem;margin-bottom:16px}
+.pain h3{font-size:1.2rem;font-weight:700;line-height:1.25;margin-bottom:8px}
+.pain p{color:var(--muted);font-size:.93rem}
+.pain .q{margin-top:12px;padding:10px 14px;border-left:3px solid var(--hot);background:var(--hot-dim);border-radius:0 10px 10px 0;font-style:italic;font-size:.9rem;color:var(--text)}
+.pain .fix{max-height:0;overflow:hidden;transition:max-height .45s ease,margin .3s}
+.pain.open .fix{max-height:320px;margin-top:14px}
+.fix-in{padding:14px 16px;border-radius:12px;background:var(--tq-dim);border:1px solid var(--tq-border)}
+.fix-in b{display:block;color:var(--tq);font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px}
+.fix-in p{color:var(--text);font-size:.92rem}
+.pain .hint{margin-top:12px;font-size:.75rem;color:var(--tq);letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.pain.open .hint{opacity:.5}
+
+/* DAY TIMELINE */
+.day{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tl{position:relative;display:grid;grid-template-columns:1fr;gap:0;margin-top:10px}
+.tl::before{content:"";position:absolute;left:18px;top:0;bottom:0;width:2px;background:linear-gradient(var(--hot),var(--tq))}
+.step{position:relative;padding:14px 0 14px 56px}
+.step::before{content:"";position:absolute;left:11px;top:22px;width:16px;height:16px;border-radius:50%;background:var(--bg2);border:3px solid var(--hot)}
+.step.ok::before{border-color:var(--tq);background:var(--tq)}
+.step time{display:block;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.step h4{font-size:1.05rem;font-weight:700;margin:2px 0 4px}
+.step p{color:var(--muted);font-size:.92rem}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px}
+.two .col h3{font-size:1rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.two .col.hoy h3{color:var(--hot)}
+.two .col.luego h3{color:var(--tq)}
+
+/* MAP */
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.node{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px}
+.node .tag{display:inline-block;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700;padding:4px 10px;border-radius:999px;margin-bottom:12px}
+.node .tag.a{background:var(--tq-dim);color:var(--tq)}
+.node .tag.b{background:var(--hot-dim);color:var(--hot)}
+.node .tag.c{background:rgba(255,255,255,.06);color:var(--muted)}
+.node h3{font-size:1.25rem;font-weight:800;margin-bottom:8px}
+.node ul{padding-left:18px;color:var(--muted);font-size:.92rem;display:grid;gap:6px}
+.node ul strong{color:var(--text)}
+
+/* QUOTES */
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.quote{background:linear-gradient(160deg,rgba(77,210,208,.10),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:20px;padding:28px 24px;font-size:1.1rem;font-weight:500;line-height:1.4;position:relative}
+.quote::before{content:"“";position:absolute;top:-6px;left:16px;font-size:5rem;font-weight:900;color:var(--tq);opacity:.35;line-height:1}
+.quote small{display:block;margin-top:14px;color:var(--muted);font-size:.8rem;font-weight:400}
+
+/* NEXT */
+.next{background:radial-gradient(800px 400px at 50% 0%,rgba(77,210,208,.22),transparent 65%),var(--bg2);border-top:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:10px}
+.stp{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;position:relative}
+.stp b{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--tq);color:var(--pf);font-weight:900;margin-bottom:14px}
+.stp h3{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.stp p{color:var(--muted);font-size:.92rem}
+.cta{display:inline-block;margin-top:34px;padding:16px 28px;border-radius:14px;background:var(--tq);color:var(--pf);font-weight:800;text-decoration:none;font-size:1rem;box-shadow:0 16px 40px rgba(77,210,208,.3);transition:transform .2s}
+.cta:hover{transform:translateY(-3px)}
+
+.footer{padding:36px 16px 56px;text-align:center;color:var(--muted);font-size:.84rem}
+.footer b{color:var(--text)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="orb a"></div><div class="orb b"></div>
+  <div class="wrap">
+    <span class="badge"><i></i>Resumen de la reunión · 2 de octubre de 2026</span>
+    <h1>Diez cosas que haces <em>a mano</em> y que ya no hace falta hacer.</h1>
+    <p>Dra. Renata Elizalde · ginecóloga en Igin Pamplona y en su consulta privada. Media hora de conversación con Ricardo Hoyos, y esto es lo que salió a la luz.</p>
+    <div class="meta">
+      <span class="chip"><b>34 min</b> de reunión</span>
+      <span class="chip"><b>10</b> puntos de dolor</span>
+      <span class="chip"><b>2</b> negocios: Igin y la consulta privada</span>
+      <span class="chip"><b>1</b> tienda del marido esperando turno</span>
+    </div>
+  </div>
+  <div class="scroll">desliza</div>
+</section>
+
+<section class="counters">
+  <div class="wrap">
+    <div class="counter rv"><b data-n="18" data-suf=" meses">0</b><span>pasando a Word, a mano, las fichas en papel de tu padre</span></div>
+    <div class="counter rv d1"><b data-n="2" data-suf="-3 meses">0</b><span>tarda Igin en volver a llamar a quien no agendó</span></div>
+    <div class="counter rv d2"><b data-n="1" data-suf=" Excel">0</b><span>cada noche, en casa, con tu marido</span></div>
+    <div class="counter rv d3"><b data-n="4" data-suf=" agencias">0</b><span>quemadas en la web de la tienda</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="kicker rv">Lo que nos contaste</div>
+    <h2 class="rv">Los puntos de dolor, uno a uno</h2>
+    <p class="sub rv">Toca cada tarjeta para ver cómo se quita de en medio. Ninguna necesita cambiar de programa: se conectan a lo que ya usas.</p>
+
+    <div class="pains">
+      <div class="pain rv" onclick="this.classList.toggle('open')">
+        <span class="num">01</span><div class="ico">📞</div>
+        <h3>La llamada que se pierde</h3>
+        <p>En Igin contesta una persona, y si no agenda primera visita, se apunta y «se llama a los dos o tres meses». A veces no se llama.</p>
+        <div class="q">«Me viene una paciente que se muda de Barcelona a Biarritz y quiere traer sus embriones… se les ha pasado.»</div>
+        <div class="fix"><div class="fix-in"><b>Cómo se quita</b><p>Cada llamada o formulario entra solo en una lista con su estado. Si en 48 h nadie la ha agendado, aviso. Si pasan 30 días, recordatorio automático a la paciente y a quien la atendió.</p></div></div>
+        <div class="hint">Toca para ver la solución</div>
+      </div>
+
+      <div class="pain rv d1" onclick="this.classList.toggle('open')">
+        <span class="num">02</span><div class="ico">📝</div>
+        <h3>El papel de la consulta</h3>
+        <p>El día de consulta privada te llevas todo en un papel. Llegas a casa y lo metes en un Excel con tu marido. Todos los días.</p>
+        <div class="q">«Todos los días lo acabo terminando de meter en el Excel.»</div>
+        <div class="fix"><div class="fix-in"><b>Cómo se quita</b><p>Dictas o grabas la consulta. La transcripción se convierte en la fila del Excel y en la nota de la ficha, sin teclear. Tú solo revisas.</p></div></div>
+        <div class="hint">Toca para ver la solución</div>
+      </div>
+
+      <div class="pain rv d2" onclick="this.classList.toggle('open')">
+        <span class="num">03</span><div class="ico">📁</div>
+        <h3>Un Word por paciente, con tu código</h3>
+        <p>Año y medio digitalizando lo que tu padre escribía a mano. Carpetas con nombres que solo tú entiendes, en un servidor de casa.</p>
+        <div class="q">«Lo tengo todo por carpetas con nombres un poco codificados por mí.»</div>
+        <div class="fix"><div class="fix-in"><b>Cómo se quita</b><p>Esos Word se indexan y se les puede preguntar: «¿qué le pasó a esta paciente en 2022?». Nada sale del servidor; la IA entra con permisos y responde sin que busques carpeta por carpeta.</p></div></div>
+        <div class="hint">Toca para ver la solución</div>
+      </div>
+
+      <div class="pain rv d3" onclick="this.classList.toggle('open')">
+        <span class="num">04</span><div class="ico">🎙️</div>
+        <h3>La anamnesis depende de quién la haga</h3>
+        <p>Dos técnicas: una la hace muy bien, la otra «verdaderamente mal». Tú sueñas con un micro que la saque sola de la conversación.</p>
+        <div class="q">«Cuando le metamos un micro y nos haga la anamnesis solo de la conversación, eso será una maravilla.»</div>
+        <div class="fix"><div class="fix-in"><b>Cómo se quita</b><p>Se graba la entrevista, se transcribe y se rellena la plantilla de anamnesis siempre con la misma estructura. La técnica revisa, no redacta. Con el nombre fuera y la IA dentro del entorno de Igin.</p></div></div>
+        <div class="hint">Toca para ver la solución</div>
+      </div>
+
+      <div class="pain rv" onclick="this.classList.toggle('open')">
+        <span class="num">05</span><div class="ico">📓</div>
+        <h3>La revisión anual en un cuadernillo</h3>
+        <p>Como hacían las enfermeras de tu padre: se llama por teléfono a la paciente y se apunta en un cuaderno. Si el cuaderno falla, la revisión no existe.</p>
+        <div class="q">«Esa revisión se les llama por teléfono, apuntamos en un cuadernillo.»</div>
+        <div class="fix"><div class="fix-in"><b>Cómo se quita</b><p>La cita del año que viene se crea al cerrar la de hoy. Aviso a la paciente dos días antes y el mismo día, con los informes que debe traer. Copia para ti. Nadie llama a nadie.</p></div></div>
+        <div class="hint">Toca para ver la solución</div>
+      </div>
+
+      <div class="pain rv d1" onclick="this.classList.toggle('open')">
+        <span class="num">06</span><div class="ico">🧾</div>
+        <h3>Las facturas, a mano a fin de mes</h3>
+        <p>Las cuentas de la privada van en un Excel manual. En Igin, el informático te está preparando un botón; hasta ahora lo hacías en casa.</p>
+        <div class="q">«Iba a casa y lo hacía manual.»</div>
+        <div class="fix"><div class="fix-in"><b>Cómo se quita</b><p>El día 1, una automatización saca todas las facturas del mes con los datos del programa. Tú las miras y le das a enviar. Sin IA: es una regla, no una conversación.</p></div></div>
+        <div class="hint">Toca para ver la solución</div>
+      </div>
+
+      <div class="pain rv d2" onclick="this.classList.toggle('open')">
+        <span class="num">07</span><div class="ico">🤖</div>
+        <h3>Un Copilot que no analiza nada</h3>
+        <p>Igin tiene FileMaker propio y una ventanita de Copilot dentro de la anamnesis. Responde dudas, pero no cruza datos ni resume la historia de una paciente.</p>
+        <div class="q">«Con el botoncito de Copilot no hacen este análisis.»</div>
+        <div class="fix"><div class="fix-in"><b>Cómo se quita</b><p>FileMaker tiene API. Conectada a Copilot sobre SharePoint, le preguntas «¿qué sabemos de esta paciente?» y te devuelve presupuesto, situación, documentos pendientes y la nota para la próxima cita. Con reglas de quién ve qué.</p></div></div>
+        <div class="hint">Toca para ver la solución</div>
+      </div>
+
+      <div class="pain rv d3" onclick="this.classList.toggle('open')">
+        <span class="num">08</span><div class="ico">⭐</div>
+        <h3>Reseñas que nadie vigila</h3>
+        <p>Acaban de entrar cuatro reseñas en Igin y sospechas que algunas respuestas son automáticas. Y hoy las pacientes preguntan a ChatGPT, no solo a Google.</p>
+        <div class="q">«Ahora ya no es Google.»</div>
+        <div class="fix"><div class="fix-in"><b>Cómo se quita</b><p>Cada reseña se contesta sola en el tono de la clínica y se guarda en una tabla con su sentimiento: dónde fallas, qué repiten. Y se mide si la clínica sale cuando alguien pregunta «fertilidad en Pamplona».</p></div></div>
+        <div class="hint">Toca para ver la solución</div>
+      </div>
+
+      <div class="pain rv" onclick="this.classList.toggle('open')">
+        <span class="num">09</span><div class="ico">🛡️</div>
+        <h3>La ficha de Google que te robaron</h3>
+        <p>Un grupo compró un centro en Pamplona y, con un correo falso, se quedó la ficha de Google de tu padre. Las pacientes acababan llamando a su clínica.</p>
+        <div class="q">«Una técnica de marketing para llevarse las pacientes.»</div>
+        <div class="fix"><div class="fix-in"><b>Cómo se quita</b><p>Ficha verificada a tu nombre, alertas de cualquier cambio de teléfono o dirección, y una web propia aunque sea sencilla (Kit Digital) para que tu nombre tenga casa.</p></div></div>
+        <div class="hint">Toca para ver la solución</div>
+      </div>
+
+      <div class="pain rv d1" onclick="this.classList.toggle('open')">
+        <span class="num">10</span><div class="ico">🏪</div>
+        <h3>El marido que se aburre vendiendo</h3>
+        <p>Tienda de ayuda a la dependencia en Pamplona, web que ha pasado por cuatro agencias, y un emprendedor al que «ahora solo le queda vender».</p>
+        <div class="q">«Veo que el que te tiene que copiar es mi marido.»</div>
+        <div class="fix"><div class="fix-in"><b>Cómo se quita</b><p>Lo mismo que hace Ricardo en Adrihosan: cada contacto en su lista, seguimiento automático, resumen cada mañana de lo pendiente y anuncios revisados por la IA. Dos personas menos en la tienda, no una más.</p></div></div>
+        <div class="hint">Toca para ver la solución</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec day">
+  <div class="wrap">
+    <div class="kicker rv">Un día de consulta privada</div>
+    <h2 class="rv">Hoy frente a después</h2>
+    <p class="sub rv">El mismo día, con las mismas pacientes. Cambia lo que haces tú cuando se van.</p>
+    <div class="two">
+      <div class="col hoy rv"><h3>Hoy</h3>
+        <div class="tl">
+          <div class="step"><time>09:00</time><h4>Consulta con papel</h4><p>Apuntas en una hoja lo que va saliendo.</p></div>
+          <div class="step"><time>14:00</time><h4>Revisión del año que viene</h4><p>Al cuadernillo. Ya se llamará.</p></div>
+          <div class="step"><time>21:00</time><h4>El Excel en casa</h4><p>Pasas la hoja a Excel con tu marido. Y el Word de cada paciente, cuando puedes.</p></div>
+          <div class="step"><time>Día 30</time><h4>Facturas a mano</h4><p>Repasas el mes y las haces una a una.</p></div>
+        </div>
+      </div>
+      <div class="col luego rv d2"><h3>Después</h3>
+        <div class="tl">
+          <div class="step ok"><time>09:00</time><h4>Consulta grabada</h4><p>La transcripción cae en la ficha y en la fila del Excel. Tú revisas.</p></div>
+          <div class="step ok"><time>14:00</time><h4>Cita de 2027 ya creada</h4><p>Con aviso dos días antes y el mismo día. Copia para ti.</p></div>
+          <div class="step ok"><time>21:00</time><h4>Cena</h4><p>El Excel ya está hecho.</p></div>
+          <div class="step ok"><time>Día 1</time><h4>Facturas listas</h4><p>Las miras y le das a enviar.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="kicker rv">Tres sitios donde aplicarlo</div>
+    <h2 class="rv">Mismo método, tres negocios</h2>
+    <div class="map">
+      <div class="node rv"><span class="tag a">Igin · Pamplona</span><h3>La clínica</h3><ul>
+        <li>FileMaker propio con informático: <strong>tiene API</strong>.</li>
+        <li>Copilot ya dentro; falta conectarlo a los datos.</li>
+        <li>Leads que se pierden y anamnesis desigual.</li>
+        <li>Lo decide Íñigo con su informático.</li></ul></div>
+      <div class="node rv d1"><span class="tag b">Consulta privada</span><h3>Lo tuyo</h3><ul>
+        <li>Transcripción a la ficha.</li>
+        <li>Revisión anual automática.</li>
+        <li>Facturas el día 1.</li>
+        <li><strong>Lo decides tú.</strong> Pequeño y rápido.</li></ul></div>
+      <div class="node rv d2"><span class="tag c">La tienda</span><h3>Tu marido</h3><ul>
+        <li>Web con cuatro agencias detrás.</li>
+        <li>Clientes sin seguimiento.</li>
+        <li>Anuncios sin revisar.</li>
+        <li>El caso más parecido al de Adrihosan.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker rv">Frases de la reunión</div>
+    <h2 class="rv">Dicho con tus palabras</h2>
+    <div class="quotes">
+      <div class="quote rv">Imagínate, se puede poner una lavadora y que nos resuma todas las conversaciones.<small>Sobre transcribir la consulta y adjuntarla a la ficha</small></div>
+      <div class="quote rv d1">Me encanta enredar. Podría no ser médico y dedicarme a esto.<small>Sobre la informática y la IA</small></div>
+      <div class="quote rv d2">Eso es lo que mi marido y la empresa se tienen que plantear: les ahorra mucho tiempo y personal.<small>Sobre la tienda</small></div>
+      <div class="quote rv d3">Yo pago más de 2.000 € al mes en IA. Tenía dos chavales ayudándome y ya no los tengo: no hay faena para ellos.<small>Ricardo, sobre Adrihosan</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec next">
+  <div class="wrap">
+    <div class="kicker rv">Y ahora qué</div>
+    <h2 class="rv">Tres pasos, por orden</h2>
+    <div class="steps">
+      <div class="stp rv"><b>1</b><h3>Empezar por lo tuyo</h3><p>Consulta grabada, revisión anual y facturas. Tres piezas pequeñas que se montan en semanas y no tocan nada de Igin.</p></div>
+      <div class="stp rv d1"><b>2</b><h3>Una llamada con el informático de Igin</h3><p>Media hora para saber qué expone la API de FileMaker. Con eso se sabe si el Copilot de la anamnesis puede pasar a hablar con los datos.</p></div>
+      <div class="stp rv d2"><b>3</b><h3>Que tu marido reserve su demo</h3><p>Media hora, su tienda, su web. Es el caso que Ricardo lleva en su propia empresa desde hace años.</p></div>
+    </div>
+    <a class="cta rv d3" href="mailto:ricardo@codigoadria.com?subject=Reuni%C3%B3n%20del%202%20de%20octubre">Escribir a Ricardo</a>
+  </div>
+</section>
+
+<div class="footer"><b>Código AdrIA</b> · Ricardo Hoyos · ricardo@codigoadria.com · 96 195 71 36<br>Resumen de la reunión del 2 de octubre de 2026 con la Dra. Renata Elizalde.</div>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,n=+el.dataset.n,suf=el.dataset.suf||'';let t0=null;
+  const run=ts=>{if(!t0)t0=ts;const p=Math.min((ts-t0)/1100,1);const v=Math.round(n*(1-Math.pow(1-p,3)));el.textContent=v+suf;if(p<1)requestAnimationFrame(run);};
+  requestAnimationFrame(run);co.unobserve(el);}),{threshold:.5});
+document.querySelectorAll('.counter b').forEach(el=>co.observe(el));
+</script>
+</body>
+</html>
