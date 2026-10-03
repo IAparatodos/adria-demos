@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adrihosan · Ads y Merchant: errores, cambios y pendientes (2-3 oct 2026)</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root { --tinta:#1f2328; --gris:#5b6470; --linea:#e3e6ea; --fondo:#f6f7f9; --rojo:#b42318; --rojo-f:#fdecea; --ambar:#8a5a00; --ambar-f:#fff4d6; --verde:#1b6b3a; --verde-f:#e6f4ea; --azul:#1d4ed8; --azul-f:#e8efff; }
+  * { box-sizing:border-box }
+  body { margin:0; font:16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color:var(--tinta); background:var(--fondo) }
+  main { max-width:960px; margin:0 auto; padding:32px 16px 64px }
+  h1 { font-size:28px; line-height:1.2; margin:0 0 6px }
+  h2 { font-size:21px; margin:40px 0 12px; padding-top:18px; border-top:2px solid var(--linea) }
+  h3 { font-size:17px; margin:22px 0 8px }
+  p { margin:0 0 12px }
+  .sub { color:var(--gris); margin-bottom:24px }
+  .caja { background:#fff; border:1px solid var(--linea); border-radius:10px; padding:18px 20px; margin:14px 0 }
+  .caja.rojo { border-left:5px solid var(--rojo) } .caja.ambar { border-left:5px solid var(--ambar) } .caja.verde { border-left:5px solid var(--verde) } .caja.azul { border-left:5px solid var(--azul) }
+  .tag { display:inline-block; font-size:12px; font-weight:600; padding:2px 8px; border-radius:999px; margin-right:6px; vertical-align:middle }
+  .t-rojo { background:var(--rojo-f); color:var(--rojo) } .t-ambar { background:var(--ambar-f); color:var(--ambar) } .t-verde { background:var(--verde-f); color:var(--verde) } .t-azul { background:var(--azul-f); color:var(--azul) }
+  table { width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--linea); border-radius:10px; overflow:hidden; margin:14px 0; font-size:15px }
+  th, td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--linea); vertical-align:top }
+  th { background:#fafbfc; font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:.03em; color:var(--gris) }
+  tr:last-child td { border-bottom:0 }
+  .num { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums }
+  ul { margin:6px 0 12px; padding-left:22px } li { margin:4px 0 }
+  .kpi { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:12px; margin:16px 0 }
+  .kpi div { background:#fff; border:1px solid var(--linea); border-radius:10px; padding:14px 16px }
+  .kpi b { display:block; font-size:24px; line-height:1.1 } .kpi span { color:var(--gris); font-size:13px }
+  small, .nota { color:var(--gris); font-size:13px }
+  @media (max-width:640px){ h1{font-size:23px} table{font-size:14px} th,td{padding:8px} }
+</style>
+</head>
+<body>
+<main>
+  <h1>Adrihosan · Google Ads, Merchant y Meta</h1>
+  <p class="sub">Informe de errores, cambios hechos y pendientes · 2 y 3 de octubre de 2026 · preparado por el asistente para Ricardo Hoyos</p>
+
+  <h2>La pregunta: ¿por qué esto no estaba revisado?</h2>
+  <div class="caja rojo">
+    <p><strong>Respuesta corta:</strong> porque nadie tenía asignada la revisión. La cuenta de Google Ads no la tocábamos hasta el 1 de octubre, Merchant funcionaba solo con el feed automático de Google desde que se apagaron los feeds de 2024, y el feed de Meta lo construimos en septiembre sin comprobación posterior. No había ni una medición de referencia (qué formato vende) ni una alarma que avisara cuando algo se vaciaba.</p>
+  </div>
+  <p>Desglosado, son cinco causas que se han ido sumando:</p>
+  <table>
+    <tr><th style="width:34%">Causa</th><th>Qué pasó por ella</th><th style="width:22%">Desde cuándo</th></tr>
+    <tr><td><strong>1. Sin dueño de revisión en Google Ads.</strong> La cuenta se gestionaba desde fuera y nosotros no entrábamos por API hasta octubre.</td><td>Un grupo de anuncios de prueba encendido tres meses, dos experimentos antiguos sin cerrar, el blog alimentando Discover, Canarias/Ceuta/Melilla sin excluir, presupuestos sin ajustar, 974 filtros de producto de la campaña Azu apuntando a ids que Merchant ya no tiene.</td><td>Al menos desde julio de 2026</td></tr>
+    <tr><td><strong>2. Merchant dependía del rastreo de Google</strong>, no de un feed nuestro.</td><td>Google solo leía título, precio, disponibilidad y una foto. 365 productos no aptos, 28 variables sin precio, 88 fichas de muebles sin leer, sin marca, categoría, m² ni ficha técnica. Nadie miraba el diagnóstico.</td><td>Desde la retirada de los feeds de 2024</td></tr>
+    <tr><td><strong>3. El feed de Meta se entregó sin una columna</strong> y sin comprobar después los conjuntos del catálogo. <span class="tag t-rojo">error nuestro</span></td><td>Los conjuntos dinámicos por categoría se vaciaron el 12 de septiembre y los anuncios de catálogo dejaron de enseñar muebles Mondiaz y espejos. Las ventas de mueble grande por web cayeron a cero desde el 3 de septiembre y lo descubrimos el 2 de octubre.</td><td>12-sep → 2-oct (20 días)</td></tr>
+    <tr><td><strong>4. No había medición de qué vende.</strong></td><td>Se decidía sobre creatividades y campañas sin saber que el 93 % del valor de las PMax viene de las tarjetas de Shopping. El activo era el catálogo y se trabajaba el anuncio.</td><td>Hasta el 2-oct</td></tr>
+    <tr><td><strong>5. Sin vigilancia automática.</strong></td><td>Ningún aviso si un feed se vacía, si Merchant deja de leer, si una generación nocturna se queda a medias. Todo se descubría al mirar a mano.</td><td>Hasta el 3-oct (ver «qué cambia»)</td></tr>
+  </table>
+
+  <h2>Errores encontrados</h2>
+  <h3>Heredados en la cuenta (antes de que entráramos)</h3>
+  <table>
+    <tr><th style="width:36%">Error</th><th>Efecto</th><th style="width:20%">Estado</th></tr>
+    <tr><td>Grupo «Prueba productos» encendido en la campaña de Hidráulica</td><td>37 € y 394 clics en tres meses para una venta de 1 €, restando presupuesto al grupo bueno</td><td><span class="tag t-verde">pausado 2-oct</span></td></tr>
+    <tr><td>Dos experimentos de búsqueda antiguos («Baldosa Hidráulica Prueba 45», «Plato Ducha Pasar a CPA»)</td><td>Cero gasto desde julio; estorban. La API no deja pausarlos</td><td><span class="tag t-ambar">cerrar en el panel de Experimentos</span></td></tr>
+    <tr><td>PMax usando páginas del blog y búsquedas de marca como anuncio</td><td>400 € al mes en Discover, YouTube y Display con una sola venta; 14.209 clics baratos</td><td><span class="tag t-verde">116 URL y lista de marca excluidas en las 7 campañas</span></td></tr>
+    <tr><td>Canarias, Ceuta y Melilla sin excluir</td><td>Clics a zonas a las que no se sirve</td><td><span class="tag t-verde">excluidas en todas; Baleares se mantiene</span></td></tr>
+    <tr><td>Campaña Azu con 974 filtros por id de producto que Merchant no tiene</td><td>Los grupos de fichas de Azu no encuentran sus productos; Azu vendió 404 € en septiembre por otros grupos</td><td><span class="tag t-azul">se arregla solo con el feed propio (mismos ids)</span></td></tr>
+    <tr><td>Merchant: hoja FREGADEROS de 2024, 4 feeds complementarios muertos, 81 productos sin precio, 88 pendientes de rastreo, Techlam Ivory no apto</td><td>Productos vendibles fuera de Shopping</td><td><span class="tag t-verde">FREGADEROS y complementarios fuera · espejos con medida</span> <span class="tag t-ambar">Techlam en revisión · 88 Mondiaz dependen del feed propio</span></td></tr>
+    <tr><td>Emojis e iconos en 814 descripciones cortas (se veían como imágenes rotas en los anuncios)</td><td>Fichas y textos de anuncio sucios</td><td><span class="tag t-verde">limpiadas las 32.871 descripciones cortas</span></td></tr>
+    <tr><td>Campaña de Meta de tráfico «Baldosa Hidráulica EVERGREEN 25» (pausada el 17-sep)</td><td>21.058 clics a 0,01 € y cero compras en 90 días</td><td><span class="tag t-verde">se queda pausada; la de Objetivo Compra vende a 39 €/compra</span></td></tr>
+  </table>
+
+  <h3>Nuestros (del asistente), con su corrección</h3>
+  <table>
+    <tr><th style="width:36%">Error</th><th>Efecto</th><th style="width:22%">Corrección</th></tr>
+    <tr><td><strong>Feed de Meta sin la columna de categoría</strong> (entregado el 12-sep)</td><td>Conjuntos de catálogo a cero; muebles Mondiaz y espejos sin anuncios de catálogo durante 20 días; ventas de mueble grande por web a cero</td><td>Plugin v1.1 el 2-oct a las 23:00; el 3-oct los conjuntos vuelven a tener 349 muebles de diseño, 757 espejos y 296 hidráulica</td></tr>
+    <tr><td>Tabla de ventas de muebles inflada (casi 30.000 € en agosto) por un cruce de categorías</td><td>Dato falso en el informe durante unos minutos</td><td>Recalculado con artículos únicos: 6.175 € agosto, 4.996 € septiembre. Lo detectó Ricardo</td></tr>
+    <tr><td>«31 productos simples sin precio» en Woo</td><td>Diagnóstico equivocado</td><td>Eran 28 variables con precio que el feed automático no sabe leer, y 3 que ya no existen</td></tr>
+    <tr><td>Feed de Meta enlaza las variaciones con <code>?variation_id=</code></td><td>Ese parámetro no preselecciona la variante; la ficha abre con el rango de precios</td><td>El feed de Google ya usa <code>?attribute_=</code>. <span class="tag t-ambar">pendiente aplicar lo mismo en Meta</span></td></tr>
+    <tr><td>Primera versión del feed de Google con la ficha técnica en 12 columnas</td><td>Merchant avisó en 53 de 115 filas; al recortar filas, 106 errores</td><td>Una columna por atributo separada por comas: tercera lectura sin avisos ni errores</td></tr>
+    <tr><td>Vigilante nocturno: Telegram «el cron de las 02:30 no ha arrancado»</td><td>Aviso incorrecto: sí arrancó y se quedó clavado en la fila 2.000</td><td>La URL de estado devolvía la portada cacheada. Plugin v1.5 sin caché; el script añade un parámetro único</td></tr>
+    <tr><td>Telegram «la generación nocturna ha fallado» a las 07:36</td><td>Falsa alarma</td><td>El script se subió mal al Hetzner (comillas). Resubido y probado: 44.950 filas en 7 minutos</td></tr>
+    <tr><td>Pendiente obsoleto «fotos de Ricardo» en la campaña Resto del catálogo</td><td>Pedí unas fotos que ya estaban hechas y aprobadas desde el día 2</td><td>Nota corregida con fecha y con la orden de no volver a pedirlas</td></tr>
+  </table>
+
+  <h2>Cambios hechos</h2>
+  <div class="kpi">
+    <div><b>3.558 €</b><span>gasto Google Ads · 30 días</span></div>
+    <div><b>9.837 €</b><span>valor de conversión · 30 días</span></div>
+    <div><b>2,8×</b><span>retorno</span></div>
+    <div><b>93 %</b><span>del valor PMax viene de Shopping (jun-oct)</span></div>
+  </div>
+  <h3>Google Ads (2-oct)</h3>
+  <ul>
+    <li>Auditoría completa entregada (informe HTML con 8 hallazgos, decisiones y método).</li>
+    <li>Exclusiones en las 7 PMax: lista de marca, 116 URL del blog y negativas de inodoro/wc/cisterna donde no tocaba.</li>
+    <li>Geografía: Canarias, Ceuta y Melilla excluidas en todas; Baleares dentro (envía el proveedor).</li>
+    <li>Presupuestos: marca 13 €, Piscinas 10 €, Platos de Ducha 35 €. Grupo «Prueba productos» pausado.</li>
+    <li>Muebles de Baño: grupo nuevo solo con feed (tarjetas de producto) y los tres grupos con imágenes y vídeos pausados.</li>
+    <li>Audiencias y señales con datos reales; grupo «General» de Hidráulica filtrado a las 4 categorías de hidráulica.</li>
+    <li>Campaña «Resto del catálogo» (barro, radiadores, inodoros, grifería, fregaderos): creada el 1-oct, 5 €/día, 5 grupos con fotos de ambiente reales y 11 vídeos; todo aprobado, sirviendo desde el 2-oct. Primer día: 5 €, 1.181 impresiones, 75 clics.</li>
+    <li><strong>Decisión:</strong> ningún cambio más en campañas hasta la revisión del 17 de octubre. El valor de 15 € por contacto de WhatsApp queda medido (GA4, PMax y Pipedrive coinciden) y sin aplicar.</li>
+  </ul>
+  <h3>Merchant Center (2-3 oct)</h3>
+  <ul>
+    <li>Fuera la hoja FREGADEROS (3 hojas, 117 productos archivados) y los 4 feeds complementarios de 2024. Espejos led con medida (30 variaciones). Techlam Ivory en revisión.</li>
+    <li><strong>Feed propio construido</strong>: 44.950 productos (los mismos que Meta) con marca real (26.478), categoría de Google, precio por variación, precio por m², hasta 10 fotos extra, peso, medidas, color y ficha técnica. Generado en 7 minutos cada noche desde el Hetzner a las 02:30; Merchant lo lee a las 04:30.</li>
+    <li>Prueba en marcha con grifos de cocina (115 productos) como fuente primaria; leída sin avisos ni errores.</li>
+  </ul>
+  <h3>Meta (2-3 oct)</h3>
+  <ul>
+    <li>Causa de la caída de muebles encontrada y corregida (columna de categoría en el feed). Conjuntos de catálogo llenos otra vez el 3-oct.</li>
+    <li>Campaña de tráfico de hidráulica: se mantiene pausada con datos.</li>
+  </ul>
+  <h3>Tienda</h3>
+  <ul>
+    <li>Emojis e iconos eliminados de las 32.871 descripciones cortas (copia de seguridad en la base de datos).</li>
+    <li>«Paga al recibir» retirado de 576 fichas (1-oct).</li>
+  </ul>
+
+  <h2>Pendientes</h2>
+  <table>
+    <tr><th style="width:16%">Cuándo</th><th>Qué</th><th style="width:16%">Quién</th></tr>
+    <tr><td>Mié 8-oct 09:30</td><td>Revisar la prueba de grifos en Merchant: productos aptos con id nuevo, si desaparecen las copias del feed automático, variaciones del espejo Francia, precio por m², y si los grifos entran en los filtros de «Resto del catálogo». Evento en el calendario.</td><td>asistente + Ricardo</td></tr>
+    <tr><td>Mar 13-oct (mañana)</td><td>Si la prueba pasa: dar de alta el catálogo entero como fuente principal de Merchant, con el automático activo de red. Foto previa y 7 días de seguimiento. <strong>Con tu OK ese día.</strong></td><td>asistente, OK de Ricardo</td></tr>
+    <tr><td>Vie 17-oct 09:30</td><td>Revisión general de todos los cambios de Ads con 15 días de datos: tabla de redes, Muebles solo-feed, Resto del catálogo, presupuestos, valor de WhatsApp. Evento en el calendario.</td><td>asistente + Ricardo</td></tr>
+    <tr><td>Sin fecha</td><td>Cerrar los dos experimentos antiguos desde el panel de Experimentos de Google Ads (no gastan).</td><td>Ricardo (panel) o asistente por Chrome</td></tr>
+    <tr><td>Sin fecha</td><td>Feed de Meta: enlazar las variaciones con <code>?attribute_=</code> como ya hace el de Google.</td><td>asistente</td></tr>
+    <tr><td>Sin fecha</td><td>Decidir si el feed de Google manda el PVP tachado (44.946 filas llevan precio rebajado) o solo el precio web.</td><td>Ricardo</td></tr>
+    <tr><td>Sin fecha</td><td>Merchant: seguimiento de la revisión de Techlam Ivory y de los 28 variables, que deberían quedar aptos con el feed propio.</td><td>asistente</td></tr>
+    <tr><td>Sin fecha</td><td>Fichas a arreglar en la tienda: grifo Niza con SKU y fotos cruzadas (oro rosa ↔ oro amarillo); lavabo Lijar descatalogado aún publicado.</td><td>asistente</td></tr>
+  </table>
+
+  <h2>Qué cambia para que no vuelva a pasar</h2>
+  <div class="caja verde">
+    <ul>
+      <li><strong>Ya hecho:</strong> la generación nocturna del feed de Google avisa por Telegram si falla o si las filas no cuadran con Meta. Tres comprobaciones a mano se han convertido en una automática.</li>
+      <li><strong>Ya hecho:</strong> revisiones con fecha en el calendario (8 y 17 de octubre), no «cuando haya tiempo».</li>
+      <li><strong>Propuesta:</strong> que el parte de apertura de las 07:45 incluya cada día tres números: productos no aptos en Merchant, productos en los conjuntos clave de Meta, y la hora de la última generación de cada feed. Si uno baja, se ve esa misma mañana y no veinte días después.</li>
+      <li><strong>Propuesta:</strong> una revisión mensual fija de Google Ads con la misma tabla de la auditoría (gasto por red, por campaña y Shopping frente al resto).</li>
+    </ul>
+  </div>
+  <p class="nota">Fuentes: Google Ads API (cuenta 318-107-3235), Merchant Center API (cuenta 698095163), Meta Marketing API (cuenta Adrihosan 2), GA4, Pipedrive y la base de datos de la tienda. Detalle técnico en el informe de auditoría y en el README del feed de Google.</p>
+</main>
+</body>
+</html>
