@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reunión con Pedro Bisbal · 8 de octubre de 2026</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Reunión con Pedro Bisbal · Código AdrIA">
+<meta property="og:description" content="WhatsApp dentro del Gloriómetro, el OS en Codex y el producto para directivos.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/og-resumen-pedro-bisbal-2026-10-08.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/resumen-reunion-pedro-bisbal-2026-10-08.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reunión con Pedro Bisbal · Código AdrIA">
+<meta name="twitter:description" content="WhatsApp dentro del Gloriómetro, el OS en Codex y el producto para directivos.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/og-resumen-pedro-bisbal-2026-10-08.jpg">
+<meta name="robots" content="noindex">
+<link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+<meta name="theme-color" content="#0b2228">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#4dd2d0;--accent-dim:rgba(77,210,208,.12);--accent-border:rgba(77,210,208,.35);--petroleo:#3f6f7b;--bg:#0b2228;--card:#102e35;--card2:#143840;--text:#e8f3f3;--muted:#9fbcbf;--green:#5fd39a;--amber:#f2c14e}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Poppins,system-ui,sans-serif;line-height:1.65;font-size:clamp(15px,1.05vw,17px)}
+a{color:var(--accent)}
+.top{max-width:1080px;margin:0 auto;padding:22px 20px 0;display:flex;align-items:center;justify-content:space-between}
+.top img{height:38px;display:block;background:#fff;border-radius:10px;padding:4px 8px}
+.top span{font-size:.8rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.hero{max-width:1080px;margin:0 auto;padding:clamp(40px,7vw,80px) 20px 34px}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--accent-dim);border:1px solid var(--accent-border);font-size:.8rem;font-weight:600;color:var(--accent)}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.1;margin:18px 0 14px;font-weight:800;letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--accent)}
+.subtitle{color:var(--muted);font-size:clamp(1rem,1.6vw,1.2rem);max-width:760px;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:24px;font-size:.9rem;color:var(--muted)}
+.kpis{max-width:1080px;margin:0 auto;padding:0 20px 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.kpi{background:var(--card);border:1px solid var(--accent-border);border-radius:16px;padding:18px}
+.kpi b{display:block;font-size:1.7rem;color:var(--accent);font-weight:800;line-height:1.1}
+.kpi span{font-size:.85rem;color:var(--muted)}
+nav{position:sticky;top:0;z-index:5;background:rgba(11,34,40,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--accent-border)}
+nav .in{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+nav .in::-webkit-scrollbar{display:none}
+.nav-item{white-space:nowrap;padding:7px 13px;border-radius:999px;font-size:.82rem;color:var(--muted);cursor:pointer;border:1px solid transparent}
+.nav-item.active,.nav-item:hover{color:var(--text);background:var(--accent-dim);border-color:var(--accent-border)}
+.nav-num{color:var(--accent);font-weight:700;margin-right:4px}
+main{max-width:1080px;margin:0 auto;padding:10px 20px 60px}
+.section{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:clamp(20px,3vw,34px);margin:22px 0;opacity:0;transform:translateY(14px);transition:.5s ease}
+.section.vis{opacity:1;transform:none}
+.sec-head{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap}
+.emoji{font-size:1.8rem;line-height:1}
+.sec-head h2{margin:0;font-size:clamp(1.25rem,2.4vw,1.6rem);font-weight:700;flex:1;min-width:220px}
+.ts{font-size:.8rem;font-weight:600;color:var(--accent);background:var(--accent-dim);border:1px solid var(--accent-border);padding:4px 10px;border-radius:999px;white-space:nowrap}
+.lead{color:var(--muted);margin:12px 0 6px}
+.tp{border-top:1px solid rgba(255,255,255,.07);padding:12px 0 2px}
+.tp-h{display:flex;justify-content:space-between;gap:12px;cursor:pointer;font-weight:600}
+.tp-h::after{content:"+";color:var(--accent);font-weight:700}
+.tp.open .tp-h::after{content:"–"}
+.tp-b{display:none;color:var(--muted);padding:6px 0 4px;font-size:.95rem}
+.tp.open .tp-b{display:block}
+blockquote{margin:16px 0 4px;padding:12px 16px;border-left:3px solid var(--accent);background:var(--card2);border-radius:0 12px 12px 0;font-style:italic}
+blockquote cite{display:block;font-style:normal;font-size:.8rem;color:var(--muted);margin-top:6px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:14px}
+.box{background:var(--card2);border-radius:14px;padding:16px;border:1px solid rgba(255,255,255,.06)}
+.box h3{margin:0 0 8px;font-size:1rem}
+.box ul{margin:0;padding-left:18px;color:var(--muted);font-size:.93rem}
+.ok{color:var(--green)} .warn{color:var(--amber)}
+.steps{list-style:none;padding:0;margin:14px 0 0;counter-reset:s}
+.steps li{counter-increment:s;position:relative;padding:12px 14px 12px 52px;background:var(--card2);border-radius:12px;margin-bottom:10px}
+.steps li::before{content:counter(s);position:absolute;left:14px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#0b2228;font-weight:800;display:grid;place-items:center;font-size:.85rem}
+.steps small{display:block;color:var(--muted)}
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:14px}
+.res a,.res div{display:block;background:var(--card2);border-radius:12px;padding:14px;text-decoration:none;color:var(--text);border:1px solid rgba(255,255,255,.06);font-size:.92rem}
+.res b{display:block;color:var(--accent);margin-bottom:2px}
+@media(max-width:600px){.steps li{padding-left:46px}}
+</style>
+</head>
+<body>
+<div class="top"><a href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"></a><span>Resumen de reunión</span></div>
+
+<header class="hero">
+  <div class="badge"><span class="dot"></span>Sesión de trabajo · Pedro Bisbal × Código AdrIA</div>
+  <h1>Tu WhatsApp ya entra en el <em>Gloriómetro</em></h1>
+  <p class="subtitle">Dos horas de trabajo en directo: el sistema operativo abierto en Codex, el intento por la vía oficial de Meta, la escucha de WhatsApp instalada en tu Mac y conectada al botón Capturar, la idea de producto para directivos y la skill de vídeo.</p>
+  <div class="meta"><span>📅 Jueves 8 de octubre de 2026</span><span>⏱ 2 h 06 min</span><span>📋 8 temas</span><span>👥 Pedro Bisbal y Ricardo Hoyos</span></div>
+</header>
+
+<div class="kpis">
+  <div class="kpi"><b>79</b><span>chats sincronizados al vincular (29 grupos y 50 individuales)</span></div>
+  <div class="kpi"><b>1.686</b><span>mensajes recuperados, desde el 20 de marzo de 2024</span></div>
+  <div class="kpi"><b>3</b><span>fuentes en Capturar: correo, Slack y ahora WhatsApp</span></div>
+  <div class="kpi"><b>0</b><span>mensajes enviados: la escucha solo lee</span></div>
+</div>
+
+<nav id="nav"><div class="in">
+  <div class="nav-item active" data-t="s1"><span class="nav-num">1</span>OS en Codex</div>
+  <div class="nav-item" data-t="s2"><span class="nav-num">2</span>Copilot en empresa</div>
+  <div class="nav-item" data-t="s3"><span class="nav-num">3</span>El Gloriómetro</div>
+  <div class="nav-item" data-t="s4"><span class="nav-num">4</span>Vía oficial de Meta</div>
+  <div class="nav-item" data-t="s5"><span class="nav-num">5</span>La escucha</div>
+  <div class="nav-item" data-t="s6"><span class="nav-num">6</span>Capturar con WhatsApp</div>
+  <div class="nav-item" data-t="s7"><span class="nav-num">7</span>Producto para directivos</div>
+  <div class="nav-item" data-t="s8"><span class="nav-num">8</span>Skill de vídeo</div>
+  <div class="nav-item" data-t="pasos"><span class="nav-num">→</span>Próximos pasos</div>
+  <div class="nav-item" data-t="recursos"><span class="nav-num">🔗</span>Recursos</div>
+</div></nav>
+
+<main>
+
+<section class="section" id="s1">
+  <div class="sec-head"><span class="emoji">🗂️</span><h2>El sistema operativo también funciona en Codex</h2><span class="ts">1:30 – 10:00</span></div>
+  <p class="lead">Tu pregunta de arranque: si el OS se puede llevar a ChatGPT. La respuesta fue enseñártelo: basta con abrir la misma carpeta.</p>
+  <div class="tp open"><div class="tp-h">Misma carpeta, otro motor</div><div class="tp-b">En Codex se crea un proyecto sobre la carpeta del OS y se le pide «coge contexto de lo que hay en esta carpeta». Lee las instrucciones y, en vez de <code>CLAUDE.md</code>, trabaja con su propio <code>AGENTS.md</code>. Lo probaste en la llamada y te describió tu sistema completo: contexto personal, negocio, clientes, proyectos y memoria.</div></div>
+  <div class="tp"><div class="tp-h">Local frente a la nube de Claude</div><div class="tp-b">Trabajar en local permite usar cualquier IA sobre los mismos archivos. Lo que vive en la nube de Claude solo sirve con Claude, y las skills de la nube no son las mismas que las de tu ordenador: de ahí que a veces te pida instalar skills que ya tienes.</div></div>
+  <div class="tp"><div class="tp-h">Trabajar desde el móvil: Remote Control</div><div class="tp-b">Para seguir desde el teléfono hace falta una sesión abierta en el ordenador. Desde la terminal, en la carpeta del OS, se arranca Claude y se activa el control remoto; desde la app aparece esa misma sesión. Si se cierra la sesión del ordenador, desaparece del móvil.</div></div>
+  <div class="tp"><div class="tp-h">El modelo, con /model</div><div class="tp-b">En la terminal, <code>/model</code> enseña los modelos y se elige con las flechas. Para tareas largas o que generan código, uno potente; para lo sencillo, el automático gasta menos.</div></div>
+  <blockquote>«Imagínate que un día Claude se cae y tienes que hacer algo con un cliente: ya lo tienes.»<cite>Ricardo</cite></blockquote>
+</section>
+
+<section class="section" id="s2">
+  <div class="sec-head"><span class="emoji">🏢</span><h2>Copilot en la empresa: dónde está cada uno</h2><span class="ts">10:00 – 14:20</span></div>
+  <p class="lead">Muchas empresas solo permiten el ecosistema de Microsoft, y eso marca qué se puede montar.</p>
+  <div class="tp open"><div class="tp-h">Lo que enseñó Ricardo</div><div class="tp-b">Un agente de Copilot conectado a una base de pacientes de demo, con permisos por usuario: consulta citas y fichas. Funciona, pero cuesta mucho más montarlo que con Claude («con Claude lo hago en cinco minutos y con Copilot me tiro una hora»), porque hay que pasar por SharePoint y sus conexiones.</div></div>
+  <div class="tp"><div class="tp-h">El enfoque de Pedro</div><div class="tp-b">Su servicio es formación, capacitación y plan de adopción. A los usuarios de base no los mete en Codex ni en Cowork: los departamentos de sistemas lo tienen capado. Si hace falta desarrollo, lo deriva a quien lo haga.</div></div>
+  <div class="tp"><div class="tp-h">Clínicas de fertilidad</div><div class="tp-b">Ricardo está en un grupo con más de 500 clínicas de España y Latinoamérica. Hizo una encuesta, casi todas usan el mismo programa de gestión, y quien lo comercializa le ha dado vía libre para trabajar con su API.</div></div>
+</section>
+
+<section class="section" id="s3">
+  <div class="sec-head"><span class="emoji">🎯</span><h2>El Gloriómetro: lo que te faltaba</h2><span class="ts">14:20 – 20:50</span></div>
+  <p class="lead">Tu herramienta de productividad montada encima del OS. El botón Capturar hace el triaje de tus fuentes de trabajo y lo deja todo en una bandeja para procesar.</p>
+  <div class="grid2">
+    <div class="box"><h3>Cómo funciona</h3><ul><li>Capturar: triaje de correo, Slack y WhatsApp.</li><li>Procesar: cada entrada se clasifica como tarea A, B o C según tus prioridades.</li><li>De ahí va a agenda, a repositorio, a tareas o a espera.</li><li>Acción: las tres grandes del día, compromisos de agenda y seguimientos.</li></ul></div>
+    <div class="box"><h3>El hueco que había</h3><ul><li>WhatsApp no estaba conectado y el sistema quedaba cojo.</li><li>Lo que necesitas: que te pidan fechas por WhatsApp y que el sistema mire tu agenda y lo deje propuesto.</li><li>La decisión de agendar sigue siendo tuya: «necesita mi criterio».</li></ul></div>
+  </div>
+  <div class="tp"><div class="tp-h">El informe diario de Ricardo</div><div class="tp-b">Como referencia, Ricardo enseñó el informe que le llega cada mañana con el WhatsApp de su tienda: conversaciones del día, pedidos y presupuestos, posibles clientes, incidencias y lo que sigue sin responder, con propuesta de respuesta.</div></div>
+  <div class="tp"><div class="tp-h">Lo que hay que depurar</div><div class="tp-b">Ahora mismo cualquier correo enviado se queda «a la espera» como seguimiento y las listas crecen sin parar. Hay que ajustar esas reglas para que la bandeja se pueda vaciar.</div></div>
+  <blockquote>«Tengo que tener la seguridad de que cuando le doy al botón de capturar va a mis tres fuentes de trabajo.»<cite>Pedro</cite></blockquote>
+</section>
+
+<section class="section" id="s4">
+  <div class="sec-head"><span class="emoji">🧱</span><h2>La vía oficial de Meta no pasó</h2><span class="ts">21:20 – 43:30</span></div>
+  <p class="lead">Probamos el alta oficial desde codigoadria.com/conecta-whatsapp. No llegó a funcionar, por dos motivos distintos.</p>
+  <div class="tp open"><div class="tp-h">1 · Las cookies</div><div class="tp-b">Habías rechazado las cookies de la web y el gestor de consentimiento bloquea el código de Facebook: el botón no hacía nada. Al aceptarlas desde «Gestionar consentimiento», el botón ya respondió.</div></div>
+  <div class="tp"><div class="tp-h">2 · El aviso de Meta</div><div class="tp-b">Ya dentro de tu Business Manager, Meta devolvía «Función no disponible». Con la cuenta de Ricardo, que tiene rol en la app, la ventana se abre bien, lo que apunta a que Meta deja pasar a quien tiene rol y frena a un cliente de fuera. Ricardo lo investiga.</div></div>
+  <div class="tp"><div class="tp-h">Lo que aprendimos para próximas altas</div><div class="tp-b">El cliente tiene que poder entrar en su propio Facebook y tener acceso de administración al portfolio de su negocio. Si no sabe qué teléfono tiene vinculado a su cuenta, la verificación se atasca ahí.</div></div>
+</section>
+
+<section class="section" id="s5">
+  <div class="sec-head"><span class="emoji">👂</span><h2>Plan B: la escucha de WhatsApp en tu Mac</h2><span class="ts">44:50 – 1:02:00</span></div>
+  <p class="lead">Se instaló por la vía extraoficial: el mismo mecanismo que WhatsApp Web, con un código QR desde «Dispositivos vinculados». Lo montó tu propio Claude Code a partir de un texto que le pegaste en la terminal.</p>
+  <div class="grid2">
+    <div class="box"><h3 class="ok">✔ Qué quedó hecho</h3><ul><li>Escucha vinculada a tu número de negocio (dispositivo «Claudio»).</li><li>79 chats y 1.686 mensajes sincronizados.</li><li>Prueba en directo: el mensaje «Hola, ya estamos monitorizando» entró al momento.</li><li>Claude te listó los tres últimos interlocutores con su mensaje.</li></ul></div>
+    <div class="box"><h3 class="warn">⚠ Solo lectura, a propósito</h3><ul><li>El envío está desactivado en el código, y Claude cerró solo un puerto por el que se podían mandar mensajes.</li><li>No marca nada como leído.</li><li>Enviar por esta vía se puede, pero con riesgo de bloqueo: mejor no hasta tener la vía oficial.</li></ul></div>
+  </div>
+  <div class="tp"><div class="tp-h">Lo que conviene saber</div><div class="tp-b">WhatsApp no manda el historial completo al vincular, solo un trozo. A partir de ahí guarda todo lo que entra mientras la escucha está encendida. Ve todos tus chats, también los personales, así que conviene ponerle reglas de qué entra y qué no.</div></div>
+</section>
+
+<section class="section" id="s6">
+  <div class="sec-head"><span class="emoji">⚡</span><h2>WhatsApp, dentro del botón Capturar</h2><span class="ts">1:02:00 – 1:33:00</span></div>
+  <p class="lead">Mientras hablábamos, tu Claude integró la escucha en el Gloriómetro y la dejó como servicio del Mac.</p>
+  <div class="tp open"><div class="tp-h">Cómo queda Capturar</div><div class="tp-b">Al pulsar, lee primero WhatsApp (tarda unos 5 segundos) y después el correo de siempre. Cada conversación entra en la bandeja como una sola entrada con todo lo nuevo, igual que un correo, y no duplica si pulsas dos veces. Deja fuera los grupos y el historial antiguo.</div></div>
+  <div class="tp"><div class="tp-h">Siempre encendida</div><div class="tp-b">La escucha es ahora un servicio de macOS, igual que el Gloriómetro: arranca sola al encender el Mac y se relanza si se cae (Claude la tiró para probarlo y volvió en un segundo sin pedir el QR). Si al capturar la encuentra caída, la levanta.</div></div>
+  <div class="tp"><div class="tp-h">Si el Mac está apagado</div><div class="tp-b">No se pierden mensajes: WhatsApp los guarda y los entrega al reconectar. El límite está en unos 14 días sin conectar; pasado eso, WhatsApp desvincula el dispositivo y hay que volver a escanear el QR (Capturar te avisará). Si un día se actualiza la escucha, hay que repasar el instalador.</div></div>
+  <div class="tp"><div class="tp-h">La prueba de fuego</div><div class="tp-b">Pulsaste Capturar en el Gloriómetro y entraron las conversaciones de WhatsApp junto al correo. Funcionando.</div></div>
+  <blockquote>«Ya te he ahorrado unas cuantas horas de trabajo.»<cite>Ricardo</cite></blockquote>
+</section>
+
+<section class="section" id="s7">
+  <div class="sec-head"><span class="emoji">🚀</span><h2>Esto ya es producto: el OS para directivos</h2><span class="ts">1:20:00 – 1:30:00</span></div>
+  <p class="lead">Llegamos los dos a la misma idea por separado: el sistema operativo más una capa visual como el Gloriómetro, instalado en el ordenador de cada directivo.</p>
+  <div class="tp open"><div class="tp-h">Lo que piden los comités</div><div class="tp-b">En tus formaciones con comités directivos, cuando enseñas el Gloriómetro la respuesta es «eso es lo que queremos». Ya no son horas de formación: es un producto con envoltorio.</div></div>
+  <div class="tp"><div class="tp-h">Cómo se desplegaría</div><div class="tp-b">Instalación del OS (Ricardo lo tiene empaquetado: cinco minutos), una entrevista de una hora para conocer cómo trabaja la persona y su identidad, configuración de conectores y la capa visual. Puede vivir en local si hay información sensible, o en un espacio reservado de SharePoint para tenerlo accesible desde cualquier sitio. Ellos solo ven la interfaz; el mantenimiento lo llevamos nosotros.</div></div>
+  <div class="tp"><div class="tp-h">Precio</div><div class="tp-b">Ricardo planteó 5.000 € o más. Pedro: está por ver, pero barato no puede ser, porque mezcla productividad, IA y saber hacer las cosas.</div></div>
+  <div class="tp"><div class="tp-h">Antes de construir</div><div class="tp-b">Pedro lanzará una encuesta a los directivos con los que ha trabajado estos dos años, con una pequeña demo. Si hay interés, se decide cómo empaquetarlo. La demo que más impacta: la captura con WhatsApp.</div></div>
+  <blockquote>«No construir una catedral hasta que no tengas feligreses.»<cite>Pedro</cite></blockquote>
+</section>
+
+<section class="section" id="s8">
+  <div class="sec-head"><span class="emoji">🎬</span><h2>La skill de vídeo, instalada</h2><span class="ts">1:35:00 – 1:58:00</span></div>
+  <p class="lead">Ricardo te mandó por correo la skill de estudio de reels y vídeo, y tu sistema operativo la analizó antes de incorporarla.</p>
+  <div class="tp open"><div class="tp-h">Qué hace</div><div class="tp-b">Al empezar te entrevista (colores, marca, qué quieres hacer). Si tienes vídeo grabado, lo monta: quita silencios y fallos, mete apoyos visuales cada pocos segundos y pone rótulos solo con las palabras clave. Si no tienes vídeo, te prepara el guion. Al final, un auditor independiente revisa lo que montó el primero.</div></div>
+  <div class="tp"><div class="tp-h">Decisiones que tomaste</div><div class="tp-b">La adaptas a tus dos marcas (Pedro Bisbal e IA Estratégica) y te dirá cuál usa en cada pieza. Para los rótulos arranca con la API de OpenAI, que los hace mejor con tu tipografía; si no te convence, se prueba con Magnific.</div></div>
+  <div class="tp"><div class="tp-h">El aviso de siempre</div><div class="tp-b">Corta por la transcripción y a veces deja las palabras demasiado secas: hay que pedirle que deje un poco de aire en cada corte. Y todo lo que genera imágenes, vídeo o avatar consume créditos.</div></div>
+</section>
+
+<section class="section" id="pasos">
+  <div class="sec-head"><span class="emoji">✅</span><h2>Próximos pasos</h2></div>
+  <ol class="steps">
+    <li><b>Pedro</b> · mandar a Ricardo por WhatsApp la URL de su web del sistema operativo para directivos, para que la revise con ojo crítico.</li>
+    <li><b>Pedro</b> · depurar las reglas del Gloriómetro (seguimientos que no hacen falta) y probar la skill de vídeo este fin de semana.</li>
+    <li><b>Pedro</b> · lanzar la encuesta a sus directivos con una demo antes de construir el producto.</li>
+    <li><b>Pedro</b> · presentar a Ricardo al consultor de optimización de ecommerce que conoce.</li>
+    <li><b>Ricardo</b> · investigar por qué Meta frena el alta oficial a un cliente de fuera y, cuando funcione, habilitar el envío para que la disponibilidad pueda responderse por WhatsApp.</li>
+    <li><b>Los dos</b> · pensar la siguiente skill que interesa pasar.</li>
+    <li><b>Martes 13 de octubre</b> · sesión de seguimiento del Geniatón con los inscritos (Pedro, Ximo y Ricardo).</li>
+  </ol>
+</section>
+
+<section class="section" id="recursos">
+  <div class="sec-head"><span class="emoji">🔗</span><h2>Recursos mencionados</h2></div>
+  <div class="res">
+    <a href="https://www.codigoadria.com/conecta-whatsapp/"><b>Conecta tu WhatsApp</b>El alta oficial que probamos (pendiente del aviso de Meta)</a>
+    <div><b>Claude Code · Remote Control</b>Seguir una sesión del ordenador desde el móvil</div>
+    <div><b>Codex (ChatGPT)</b>El mismo OS abierto con otro motor, con su AGENTS.md</div>
+    <div><b>Copilot + SharePoint</b>Agentes en empresas que solo admiten Microsoft</div>
+    <div><b>Skill de estudio de reels y vídeo</b>Enviada por correo e instalada en tu OS</div>
+    <div><b>OpenAI (imágenes) · Magnific · HeyGen</b>Rótulos, apoyos visuales y avatar en la skill de vídeo</div>
+    <div><b>MCP</b>El protocolo con el que los asistentes se conectan a otras aplicaciones</div>
+    <div><b>Tactiq</b>Transcripción de la reunión</div>
+  </div>
+</section>
+
+</main>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.08});
+document.querySelectorAll('.section').forEach(s=>io.observe(s));
+document.querySelectorAll('.tp-h').forEach(h=>h.addEventListener('click',()=>h.parentElement.classList.toggle('open')));
+const items=[...document.querySelectorAll('.nav-item')];
+items.forEach(i=>i.addEventListener('click',()=>{const t=document.getElementById(i.dataset.t);window.scrollTo({top:t.getBoundingClientRect().top+scrollY-70,behavior:'smooth'})}));
+addEventListener('scroll',()=>{let cur=items[0];items.forEach(i=>{const t=document.getElementById(i.dataset.t);if(t.getBoundingClientRect().top<120)cur=i});items.forEach(i=>i.classList.toggle('active',i===cur));cur.scrollIntoView({block:'nearest',inline:'nearest'})},{passive:true});
+</script>
+<!--
+  FOOTER DE MARCA — OBLIGATORIO en todo HTML de Código AdrIA que se comparta en público.
+  Pégalo justo antes de </body>. Autocontenido: CSS propio + SVG en línea, sin dependencias.
+  Regla en CLAUDE.md raíz: "HTML público — marca y footer obligatorios".
+
+  Estructura (patrón Stripe: banda de cierre + columnas + fila legal):
+    1. Banda de cierre con UNA sola llamada a la acción rellena (la comunidad).
+    2. Tres columnas de enlaces: empezar / seguir / la casa.
+    3. Fila legal con logo enlazado + copyright.
+
+  Enlaces oficiales (verificados 2-ago-2026):
+  - Comunidad Telegram (alta): https://forms.gle/LQUSEfZZ9m8R5e8f6
+  - Curso:     https://www.codigoadria.com/curso-automatizaciones/
+  - Academia:  https://www.codigoadria.com/academia/
+  - YouTube:   https://www.youtube.com/@codigoadria?sub_confirmation=1
+  - LinkedIn:  https://www.linkedin.com/in/ricardohoyosperez/
+  - Instagram: https://www.instagram.com/ricardohoyos1/  ← el PERSONAL (decisión de Ricardo)
+
+  Adapta SOLO el texto de .ca-cta-sub al contenido de la página. El resto no se toca.
+  El footer usa #07181d, distinto del bloque editorial de cierre (#102e35), para que ambos
+  se lean como dos bandas separadas. En la fila legal se muestra solo el logo: no añadir
+  texto «Código AdrIA» junto a él, porque ya forma parte del propio logotipo.
+  En la CABECERA de la página, el logo SIEMPRE enlazado a https://www.codigoadria.com.
+
+  ⚠️ Si la página tiene bloques <pre> con ejemplos de código, escapa las etiquetas
+  (&lt;style&gt;, &lt;script&gt;): una etiqueta cruda se interpreta de verdad, se traga
+  el resto del documento y revienta este footer.
+-->
+<style>
+  .ca-foot{
+    background:#07181d;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          En la comunidad compartimos sesiones como esta: lo que montamos,
+          lo que funciona y lo que todavía falla.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://forms.gle/LQUSEfZZ9m8R5e8f6">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
