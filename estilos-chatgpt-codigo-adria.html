@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07181d">
+<title>Los 63 estilos de ChatGPT · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Los 63 estilos de ChatGPT · Código AdrIA">
+<meta property="og:description" content="Temporada 3: 63 estilos para pedir imágenes a ChatGPT, cada uno con su prompt listo para copiar.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/og-estilos-chatgpt.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/estilos-chatgpt-codigo-adria.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Los 63 estilos de ChatGPT · Código AdrIA">
+<meta name="twitter:description" content="Temporada 3: 63 estilos para pedir imágenes a ChatGPT, cada uno con su prompt listo para copiar.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/og-estilos-chatgpt.jpg">
+<meta name="description" content="Temporada 3: 63 estilos para pedir imágenes a ChatGPT, cada uno con su prompt listo para copiar.">
+<link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --tinta:#07181d; --tinta-2:#102e35; --turquesa:#4dd2d0;
+    --papel:#f6f8f8; --gris:#5c7077; --linea:#dde5e6;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--papel);color:var(--tinta);
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;line-height:1.6;font-weight:300;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  a{color:inherit}
+
+  header.top{background:var(--tinta);padding:18px 0}
+  header.top img{height:26px;display:block}
+
+  .hero{background:var(--tinta-2);color:#fff;padding:72px 0 64px;text-align:center}
+  .hero .kicker{
+    margin:0 0 16px;font-size:.72rem;font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--turquesa)
+  }
+  .hero h1{
+    margin:0;font-size:clamp(1.9rem,5vw,3rem);font-weight:600;
+    letter-spacing:-.04em;line-height:1.1
+  }
+  .hero p{margin:18px auto 0;max-width:38rem;color:#a9bdc2;font-size:1.02rem}
+  .hero .barra{color:var(--turquesa);font-weight:600}
+
+  .secreto{
+    max-width:760px;margin:-32px auto 0;position:relative;background:#fff;
+    border-radius:16px;padding:28px 32px;box-shadow:0 12px 40px rgba(7,24,29,.12)
+  }
+  .secreto h2{margin:0 0 8px;font-size:1.05rem;font-weight:600;letter-spacing:-.02em}
+  .secreto p{margin:0 0 12px;color:var(--gris);font-size:.96rem}
+  .secreto p:last-child{margin:0}
+  .secreto .ejemplo{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9rem;
+    color:var(--tinta);background:#eaf7f7;border-radius:10px;padding:10px 14px;display:block;
+    overflow-wrap:anywhere
+  }
+
+  .copiar{text-align:center;margin:36px 0 0}
+  .btn{
+    font-family:inherit;font-size:.94rem;font-weight:600;cursor:pointer;
+    border:0;border-radius:9999px;padding:15px 30px;
+    background:var(--tinta);color:#fff;transition:background .2s,transform .12s
+  }
+  .btn:hover{background:var(--tinta-2)}
+  .btn:active{transform:scale(.98)}
+  .copiar .ok{margin:12px 0 0;font-size:.88rem;color:var(--gris);min-height:1.2em}
+
+  .temas{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:28px 0 0}
+  .temas a{
+    text-decoration:none;font-size:.82rem;font-weight:400;color:var(--tinta);
+    background:#fff;border:1px solid var(--linea);border-radius:9999px;padding:6px 13px;
+    transition:border-color .2s
+  }
+  .temas a:hover{border-color:var(--turquesa)}
+
+  main{padding:48px 0 64px}
+  .bloque{margin:0 0 44px;scroll-margin-top:16px}
+  .bloque h3{
+    margin:0 0 4px;font-size:.72rem;font-weight:600;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gris)
+  }
+  .bloque h4{margin:0 0 20px;font-size:1.4rem;font-weight:600;letter-spacing:-.03em}
+  .rejilla{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .cmd{
+    display:flex;flex-direction:column;
+    background:#fff;border:1px solid var(--linea);border-radius:14px;padding:22px 22px 20px;
+    transition:border-color .2s;min-width:0
+  }
+  .cmd:hover{border-color:var(--turquesa)}
+  .cmd code{
+    align-self:flex-start;margin:0 0 10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:1rem;font-weight:600;color:var(--tinta);background:#eaf7f7;
+    border-radius:8px;padding:5px 11px;letter-spacing:-.02em
+  }
+  .cmd .para{margin:0 0 16px;font-size:.93rem;color:var(--gris)}
+  .prompt{
+    margin-top:auto;background:var(--tinta);border-radius:10px;padding:14px 14px 12px;
+    display:flex;flex-direction:column;gap:10px
+  }
+  .prompt p{
+    margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.84rem;
+    line-height:1.55;color:#dfe9eb;overflow-wrap:anywhere
+  }
+  .cp{
+    align-self:flex-end;font-family:inherit;font-size:.8rem;font-weight:600;cursor:pointer;
+    border:0;border-radius:9999px;padding:7px 16px;background:var(--turquesa);color:#0b2026;
+    transition:background .2s,transform .12s
+  }
+  .cp:hover{background:#6fe0de}
+  .cp:active{transform:scale(.97)}
+  .cp.hecho{background:#fff}
+
+  .bonus{
+    background:var(--tinta);color:#fff;border-radius:18px;padding:40px 36px;margin:8px 0 0
+  }
+  .bonus h4{margin:0 0 12px;font-size:1.35rem;font-weight:600;letter-spacing:-.03em;color:#fff}
+  .bonus p{margin:0 0 18px;color:#a9bdc2;font-size:.98rem}
+  .bonus .ejemplo{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92rem;
+    color:var(--turquesa);background:rgba(77,210,208,.1);
+    border-radius:10px;padding:12px 16px;display:block;overflow-wrap:anywhere
+  }
+  @media (max-width:640px){
+    .wrap{padding:0 16px}
+    .hero{padding:56px 0 56px}
+    .secreto{margin:-24px 16px 0;padding:24px 20px}
+    .bonus{padding:30px 22px}
+    .btn{width:100%}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"></a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker">Comandos ocultos de ChatGPT · Temporada 3</p>
+    <h1>63 estilos para pedirle<br>imágenes a ChatGPT</h1>
+    <p>Escribes la <span class="barra">/</span> con la palabra, detrás pones lo que quieres, y ya. Son 21 temas, y cada estilo trae su prompt de ejemplo para copiar y probar.</p>
+  </div>
+</section>
+
+<div class="secreto wrap">
+  <h2>El secreto que casi nadie cuenta</h2>
+  <p>No son comandos de verdad. No vienen en ninguna documentación de OpenAI: son <strong>estilos que el generador de imágenes reconoce</strong> cuando ve la barra con la palabra. Por eso valen para cualquier tema que les pongas detrás.</p>
+  <p>Se escriben siempre al principio del mensaje, y luego lo que quieres ver:</p>
+  <span class="ejemplo">/watercolor el puerto de un pueblo pesquero a primera hora de la mañana</span>
+</div>
+
+<main class="wrap">
+
+  <div class="copiar">
+    <button type="button" class="btn" id="btn-todo">Copiar los 63</button>
+    <p class="ok" id="aviso" aria-live="polite"></p>
+    <nav class="temas" aria-label="Temas">
+      <a href="#t1">Retro</a>
+      <a href="#t2">Arte clásico</a>
+      <a href="#t3">Cómic y animación</a>
+      <a href="#t4">Papel y tela</a>
+      <a href="#t5">Materiales que brillan</a>
+      <a href="#t6">Foto de producto</a>
+      <a href="#t7">Tu imagen personal</a>
+      <a href="#t8">Publicidad</a>
+      <a href="#t9">Para enseñar</a>
+      <a href="#t10">Casa y reformas</a>
+      <a href="#t11">Mapas</a>
+      <a href="#t12">Ciencia</a>
+      <a href="#t13">Juegos</a>
+      <a href="#t14">Moda y diseño</a>
+      <a href="#t15">Comida</a>
+      <a href="#t16">Épocas</a>
+      <a href="#t17">Para los peques</a>
+      <a href="#t18">Marca</a>
+      <a href="#t19">Cine</a>
+      <a href="#t20">3D de videojuego</a>
+      <a href="#t21">Tu cara en objetos</a>
+    </nav>
+  </div>
+
+  <div style="height:40px"></div>
+
+  <section class="bloque" id="t1">
+    <h3>Tema 1</h3>
+    <h4>Retro</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/polaroid</code>
+        <p class="para">Una foto instantánea con su marco blanco y esos colores lavados de las de antes.</p>
+        <div class="prompt">
+          <p>/polaroid mi perro dormido en el sofá un domingo por la tarde</p>
+          <button type="button" class="cp" data-copy="/polaroid mi perro dormido en el sofá un domingo por la tarde" aria-label="Copiar el prompt de /polaroid">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/vhs</code>
+        <p class="para">Un fotograma de cinta de vídeo casera, con rayas, ruido y la fecha en una esquina.</p>
+        <div class="prompt">
+          <p>/vhs una fiesta de cumpleaños en el salón de casa, años noventa</p>
+          <button type="button" class="cp" data-copy="/vhs una fiesta de cumpleaños en el salón de casa, años noventa" aria-label="Copiar el prompt de /vhs">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/pixelart</code>
+        <p class="para">Lo que pidas dibujado con píxeles gordos, como un videojuego de los ochenta.</p>
+        <div class="prompt">
+          <p>/pixelart una cafetería de barrio con la persiana a medio subir</p>
+          <button type="button" class="cp" data-copy="/pixelart una cafetería de barrio con la persiana a medio subir" aria-label="Copiar el prompt de /pixelart">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t2">
+    <h3>Tema 2</h3>
+    <h4>Arte clásico</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/oilpainting</code>
+        <p class="para">Un óleo con la pincelada a la vista, como un cuadro colgado en un museo.</p>
+        <div class="prompt">
+          <p>/oilpainting retrato de una abuela pelando naranjas junto a la ventana</p>
+          <button type="button" class="cp" data-copy="/oilpainting retrato de una abuela pelando naranjas junto a la ventana" aria-label="Copiar el prompt de /oilpainting">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/watercolor</code>
+        <p class="para">Acuarela suave: manchas que se funden y el papel que se nota debajo.</p>
+        <div class="prompt">
+          <p>/watercolor el puerto de un pueblo pesquero a primera hora de la mañana</p>
+          <button type="button" class="cp" data-copy="/watercolor el puerto de un pueblo pesquero a primera hora de la mañana" aria-label="Copiar el prompt de /watercolor">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/ukiyoe</code>
+        <p class="para">Grabado japonés en madera, de línea firme y colores planos.</p>
+        <div class="prompt">
+          <p>/ukiyoe un surfista cogiendo una ola enorme en la playa de la Malvarrosa</p>
+          <button type="button" class="cp" data-copy="/ukiyoe un surfista cogiendo una ola enorme en la playa de la Malvarrosa" aria-label="Copiar el prompt de /ukiyoe">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t3">
+    <h3>Tema 3</h3>
+    <h4>Cómic y animación</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/comic</code>
+        <p class="para">Viñetas de cómic, con sus bocadillos y sus onomatopeyas.</p>
+        <div class="prompt">
+          <p>/comic un repartidor que llega tarde y se encuentra la puerta cerrada, en cuatro viñetas</p>
+          <button type="button" class="cp" data-copy="/comic un repartidor que llega tarde y se encuentra la puerta cerrada, en cuatro viñetas" aria-label="Copiar el prompt de /comic">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/manga</code>
+        <p class="para">Manga japonés en blanco y negro, con líneas de acción y mucho drama.</p>
+        <div class="prompt">
+          <p>/manga una chica corriendo por el andén para no perder el último metro</p>
+          <button type="button" class="cp" data-copy="/manga una chica corriendo por el andén para no perder el último metro" aria-label="Copiar el prompt de /manga">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/claymation</code>
+        <p class="para">Todo hecho de plastilina, como en las películas de animación fotograma a fotograma.</p>
+        <div class="prompt">
+          <p>/claymation un cocinero dándole la vuelta a una tortilla de patatas</p>
+          <button type="button" class="cp" data-copy="/claymation un cocinero dándole la vuelta a una tortilla de patatas" aria-label="Copiar el prompt de /claymation">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t4">
+    <h3>Tema 4</h3>
+    <h4>Papel y tela</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/papercraft</code>
+        <p class="para">Una escena montada con papel recortado y apilado en capas.</p>
+        <div class="prompt">
+          <p>/papercraft un bosque de otoño con un zorro escondido entre los árboles</p>
+          <button type="button" class="cp" data-copy="/papercraft un bosque de otoño con un zorro escondido entre los árboles" aria-label="Copiar el prompt de /papercraft">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/origami</code>
+        <p class="para">Figuras de papel plegado, con sus aristas y sus dobleces.</p>
+        <div class="prompt">
+          <p>/origami una ballena saltando sobre olas de papel azul</p>
+          <button type="button" class="cp" data-copy="/origami una ballena saltando sobre olas de papel azul" aria-label="Copiar el prompt de /origami">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/knitted</code>
+        <p class="para">Tejido de punto, como un jersey de lana: se ven los puntos y la textura.</p>
+        <div class="prompt">
+          <p>/knitted el logo de mi cafetería en un jersey navideño de lana roja y blanca</p>
+          <button type="button" class="cp" data-copy="/knitted el logo de mi cafetería en un jersey navideño de lana roja y blanca" aria-label="Copiar el prompt de /knitted">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t5">
+    <h3>Tema 5</h3>
+    <h4>Materiales que brillan</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/neon</code>
+        <p class="para">Un rótulo de tubos de neón encendido sobre una pared oscura.</p>
+        <div class="prompt">
+          <p>/neon el nombre de mi bar, «La Esquina», sobre una pared de ladrillo</p>
+          <button type="button" class="cp" data-copy="/neon el nombre de mi bar, «La Esquina», sobre una pared de ladrillo" aria-label="Copiar el prompt de /neon">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/chrome</code>
+        <p class="para">Metal cromado con reflejos de espejo, como el emblema de un coche clásico.</p>
+        <div class="prompt">
+          <p>/chrome el nombre de mi taller en una placa de metal cromado atornillada a la fachada</p>
+          <button type="button" class="cp" data-copy="/chrome el nombre de mi taller en una placa de metal cromado atornillada a la fachada" aria-label="Copiar el prompt de /chrome">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/goldleaf</code>
+        <p class="para">Pan de oro sobre fondo oscuro, como un icono o un retablo antiguo.</p>
+        <div class="prompt">
+          <p>/goldleaf dos palomas con ramas de olivo para una invitación de boda</p>
+          <button type="button" class="cp" data-copy="/goldleaf dos palomas con ramas de olivo para una invitación de boda" aria-label="Copiar el prompt de /goldleaf">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t6">
+    <h3>Tema 6</h3>
+    <h4>Foto de producto</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/productshot</code>
+        <p class="para">Foto de catálogo: fondo limpio, buena luz y el producto de protagonista.</p>
+        <div class="prompt">
+          <p>/productshot un bote de miel artesana con etiqueta de papel, sobre fondo blanco</p>
+          <button type="button" class="cp" data-copy="/productshot un bote de miel artesana con etiqueta de papel, sobre fondo blanco" aria-label="Copiar el prompt de /productshot">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/flatlay</code>
+        <p class="para">Vista desde arriba con los objetos bien ordenados sobre una mesa.</p>
+        <div class="prompt">
+          <p>/flatlay todo lo que llevo en la mochila para un fin de semana en la montaña</p>
+          <button type="button" class="cp" data-copy="/flatlay todo lo que llevo en la mochila para un fin de semana en la montaña" aria-label="Copiar el prompt de /flatlay">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/mockup</code>
+        <p class="para">Tu diseño puesto sobre un objeto real: una taza, una bolsa, una pantalla.</p>
+        <div class="prompt">
+          <p>/mockup el logo de mi panadería «Pan de Ayer» impreso en una bolsa de papel kraft</p>
+          <button type="button" class="cp" data-copy="/mockup el logo de mi panadería «Pan de Ayer» impreso en una bolsa de papel kraft" aria-label="Copiar el prompt de /mockup">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t7">
+    <h3>Tema 7</h3>
+    <h4>Tu imagen personal</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/headshot</code>
+        <p class="para">Retrato profesional de hombros para arriba, de los que se ponen en LinkedIn.</p>
+        <div class="prompt">
+          <p>/headshot a partir de la foto que te adjunto, con fondo gris liso y luz suave de estudio</p>
+          <button type="button" class="cp" data-copy="/headshot a partir de la foto que te adjunto, con fondo gris liso y luz suave de estudio" aria-label="Copiar el prompt de /headshot">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/caricature</code>
+        <p class="para">Una caricatura que exagera los rasgos con gracia, sin pasarse.</p>
+        <div class="prompt">
+          <p>/caricature un profesor de química despeinado con las gafas en la punta de la nariz</p>
+          <button type="button" class="cp" data-copy="/caricature un profesor de química despeinado con las gafas en la punta de la nariz" aria-label="Copiar el prompt de /caricature">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/popart</code>
+        <p class="para">Retrato pop art a lo Warhol: colores planos y la imagen repetida.</p>
+        <div class="prompt">
+          <p>/popart a partir de la foto que te adjunto, repetida cuatro veces en colores fucsia, amarillo, turquesa y naranja</p>
+          <button type="button" class="cp" data-copy="/popart a partir de la foto que te adjunto, repetida cuatro veces en colores fucsia, amarillo, turquesa y naranja" aria-label="Copiar el prompt de /popart">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t8">
+    <h3>Tema 8</h3>
+    <h4>Publicidad</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/flyer</code>
+        <p class="para">Un folleto para colgar o repartir, con su titular y sus datos.</p>
+        <div class="prompt">
+          <p>/flyer clases de yoga para principiantes, martes y jueves a las 19:00, en el centro cívico</p>
+          <button type="button" class="cp" data-copy="/flyer clases de yoga para principiantes, martes y jueves a las 19:00, en el centro cívico" aria-label="Copiar el prompt de /flyer">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/magazinecover</code>
+        <p class="para">Portada de revista, con cabecera grande y titulares alrededor.</p>
+        <div class="prompt">
+          <p>/magazinecover mi perro como estrella del mes, con titulares divertidos</p>
+          <button type="button" class="cp" data-copy="/magazinecover mi perro como estrella del mes, con titulares divertidos" aria-label="Copiar el prompt de /magazinecover">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/billboard</code>
+        <p class="para">Tu anuncio en una valla publicitaria en plena calle.</p>
+        <div class="prompt">
+          <p>/billboard un anuncio de mi taller de bicicletas en una avenida de ciudad</p>
+          <button type="button" class="cp" data-copy="/billboard un anuncio de mi taller de bicicletas en una avenida de ciudad" aria-label="Copiar el prompt de /billboard">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t9">
+    <h3>Tema 9</h3>
+    <h4>Para enseñar</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/whiteboard</code>
+        <p class="para">Pizarra blanca de oficina con rotuladores de colores y flechas.</p>
+        <div class="prompt">
+          <p>/whiteboard cómo se calcula el IVA de una factura, paso a paso</p>
+          <button type="button" class="cp" data-copy="/whiteboard cómo se calcula el IVA de una factura, paso a paso" aria-label="Copiar el prompt de /whiteboard">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/flashcard</code>
+        <p class="para">Una tarjeta de estudio con una sola idea y bien clara.</p>
+        <div class="prompt">
+          <p>/flashcard qué es la fotosíntesis, explicado para un niño de diez años</p>
+          <button type="button" class="cp" data-copy="/flashcard qué es la fotosíntesis, explicado para un niño de diez años" aria-label="Copiar el prompt de /flashcard">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/cheatsheet</code>
+        <p class="para">La chuleta de una página con lo esencial de un tema.</p>
+        <div class="prompt">
+          <p>/cheatsheet los atajos de teclado de Excel que más se usan en el día a día</p>
+          <button type="button" class="cp" data-copy="/cheatsheet los atajos de teclado de Excel que más se usan en el día a día" aria-label="Copiar el prompt de /cheatsheet">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t10">
+    <h3>Tema 10</h3>
+    <h4>Casa y reformas</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/floorplan</code>
+        <p class="para">El plano de una vivienda visto desde arriba, con sus estancias.</p>
+        <div class="prompt">
+          <p>/floorplan un piso de 80 m² con dos dormitorios, salón-cocina abierto y un baño</p>
+          <button type="button" class="cp" data-copy="/floorplan un piso de 80 m² con dos dormitorios, salón-cocina abierto y un baño" aria-label="Copiar el prompt de /floorplan">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/interiordesign</code>
+        <p class="para">Una estancia decorada como en una revista de interiorismo.</p>
+        <div class="prompt">
+          <p>/interiordesign un baño pequeño con plato de ducha, azulejo verde y madera clara</p>
+          <button type="button" class="cp" data-copy="/interiordesign un baño pequeño con plato de ducha, azulejo verde y madera clara" aria-label="Copiar el prompt de /interiordesign">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/render</code>
+        <p class="para">Render fotorrealista: el espacio ya terminado, como una foto real.</p>
+        <div class="prompt">
+          <p>/render baño pequeño reformado con plato de ducha, azulejo verde y madera clara</p>
+          <button type="button" class="cp" data-copy="/render baño pequeño reformado con plato de ducha, azulejo verde y madera clara" aria-label="Copiar el prompt de /render">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t11">
+    <h3>Tema 11</h3>
+    <h4>Mapas</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/treasuremap</code>
+        <p class="para">Un mapa del tesoro en pergamino viejo, con su X marcada.</p>
+        <div class="prompt">
+          <p>/treasuremap el camino de casa al colegio con los sitios favoritos de mis hijos</p>
+          <button type="button" class="cp" data-copy="/treasuremap el camino de casa al colegio con los sitios favoritos de mis hijos" aria-label="Copiar el prompt de /treasuremap">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/travelposter</code>
+        <p class="para">Un cartel de viajes antiguo, de los de agencia.</p>
+        <div class="prompt">
+          <p>/travelposter Valencia, con la Ciudad de las Artes y la playa</p>
+          <button type="button" class="cp" data-copy="/travelposter Valencia, con la Ciudad de las Artes y la playa" aria-label="Copiar el prompt de /travelposter">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/topographic</code>
+        <p class="para">Un mapa con curvas de nivel, de los de montaña.</p>
+        <div class="prompt">
+          <p>/topographic una sierra con dos rutas de senderismo y un refugio en la cima</p>
+          <button type="button" class="cp" data-copy="/topographic una sierra con dos rutas de senderismo y un refugio en la cima" aria-label="Copiar el prompt de /topographic">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t12">
+    <h3>Tema 12</h3>
+    <h4>Ciencia</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/microscopic</code>
+        <p class="para">Lo que pidas visto a través de un microscopio.</p>
+        <div class="prompt">
+          <p>/microscopic un copo de nieve con todo su detalle</p>
+          <button type="button" class="cp" data-copy="/microscopic un copo de nieve con todo su detalle" aria-label="Copiar el prompt de /microscopic">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/hologram</code>
+        <p class="para">Una proyección holográfica, azulada y translúcida.</p>
+        <div class="prompt">
+          <p>/hologram una zapatilla de deporte girando sobre una mesa de cristal</p>
+          <button type="button" class="cp" data-copy="/hologram una zapatilla de deporte girando sobre una mesa de cristal" aria-label="Copiar el prompt de /hologram">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/constellation</code>
+        <p class="para">Una figura dibujada con estrellas unidas por líneas en el cielo.</p>
+        <div class="prompt">
+          <p>/constellation mi gato convertido en una constelación del cielo nocturno</p>
+          <button type="button" class="cp" data-copy="/constellation mi gato convertido en una constelación del cielo nocturno" aria-label="Copiar el prompt de /constellation">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t13">
+    <h3>Tema 13</h3>
+    <h4>Juegos</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/jigsaw</code>
+        <p class="para">Puzle de piezas encajadas, con alguna pieza suelta a un lado.</p>
+        <div class="prompt">
+          <p>/jigsaw la foto de mi equipo con una pieza suelta donde iría el nuevo fichaje</p>
+          <button type="button" class="cp" data-copy="/jigsaw la foto de mi equipo con una pieza suelta donde iría el nuevo fichaje" aria-label="Copiar el prompt de /jigsaw">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/tradingcard</code>
+        <p class="para">Una carta coleccionable, con sus puntos y sus habilidades.</p>
+        <div class="prompt">
+          <p>/tradingcard mi abuelo como carta de colección, con poderes de jardinero</p>
+          <button type="button" class="cp" data-copy="/tradingcard mi abuelo como carta de colección, con poderes de jardinero" aria-label="Copiar el prompt de /tradingcard">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/videogame</code>
+        <p class="para">La captura de un videojuego, con su marcador y sus vidas.</p>
+        <div class="prompt">
+          <p>/videogame mi oficina convertida en un nivel de plataformas</p>
+          <button type="button" class="cp" data-copy="/videogame mi oficina convertida en un nivel de plataformas" aria-label="Copiar el prompt de /videogame">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t14">
+    <h3>Tema 14</h3>
+    <h4>Moda y diseño</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/lookbook</code>
+        <p class="para">Las fotos de moda del catálogo de una temporada.</p>
+        <div class="prompt">
+          <p>/lookbook colección de otoño de una marca pequeña de jerséis de punto</p>
+          <button type="button" class="cp" data-copy="/lookbook colección de otoño de una marca pequeña de jerséis de punto" aria-label="Copiar el prompt de /lookbook">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/seamlesspattern</code>
+        <p class="para">Un estampado que se repite sin que se note el corte.</p>
+        <div class="prompt">
+          <p>/seamlesspattern limones y hojas de olivo sobre fondo crema</p>
+          <button type="button" class="cp" data-copy="/seamlesspattern limones y hojas de olivo sobre fondo crema" aria-label="Copiar el prompt de /seamlesspattern">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/tshirtdesign</code>
+        <p class="para">Un diseño preparado para estampar en una camiseta.</p>
+        <div class="prompt">
+          <p>/tshirtdesign una cafetera italiana con el texto «Primero, el café»</p>
+          <button type="button" class="cp" data-copy="/tshirtdesign una cafetera italiana con el texto «Primero, el café»" aria-label="Copiar el prompt de /tshirtdesign">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t15">
+    <h3>Tema 15</h3>
+    <h4>Comida</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/recipecard</code>
+        <p class="para">La ficha de una receta, con ingredientes y pasos.</p>
+        <div class="prompt">
+          <p>/recipecard una tortilla de patatas con cebolla para cuatro personas</p>
+          <button type="button" class="cp" data-copy="/recipecard una tortilla de patatas con cebolla para cuatro personas" aria-label="Copiar el prompt de /recipecard">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/menu</code>
+        <p class="para">La carta de un restaurante, lista para imprimir.</p>
+        <div class="prompt">
+          <p>/menu la carta de un bar de tapas con diez platos y sus precios</p>
+          <button type="button" class="cp" data-copy="/menu la carta de un bar de tapas con diez platos y sus precios" aria-label="Copiar el prompt de /menu">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/foodphoto</code>
+        <p class="para">Foto de comida con pinta de revista de cocina.</p>
+        <div class="prompt">
+          <p>/foodphoto una tostada con tomate y jamón sobre una tabla de madera, con luz de ventana</p>
+          <button type="button" class="cp" data-copy="/foodphoto una tostada con tomate y jamón sobre una tabla de madera, con luz de ventana" aria-label="Copiar el prompt de /foodphoto">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t16">
+    <h3>Tema 16</h3>
+    <h4>Épocas</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/victorian</code>
+        <p class="para">Estética de la Inglaterra del siglo XIX, con encajes y retratos serios.</p>
+        <div class="prompt">
+          <p>/victorian un retrato de familia con el perro vestido de gala</p>
+          <button type="button" class="cp" data-copy="/victorian un retrato de familia con el perro vestido de gala" aria-label="Copiar el prompt de /victorian">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/cyberpunk</code>
+        <p class="para">Ciudad futurista de neones, lluvia y pantallas por todas partes.</p>
+        <div class="prompt">
+          <p>/cyberpunk el mercado central de mi ciudad en el año 2090</p>
+          <button type="button" class="cp" data-copy="/cyberpunk el mercado central de mi ciudad en el año 2090" aria-label="Copiar el prompt de /cyberpunk">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/artdeco</code>
+        <p class="para">Los años veinte: geometría, dorados y líneas elegantes.</p>
+        <div class="prompt">
+          <p>/artdeco el cartel de inauguración de una coctelería</p>
+          <button type="button" class="cp" data-copy="/artdeco el cartel de inauguración de una coctelería" aria-label="Copiar el prompt de /artdeco">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t17">
+    <h3>Tema 17</h3>
+    <h4>Para los peques</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/storybook</code>
+        <p class="para">Una ilustración de cuento infantil.</p>
+        <div class="prompt">
+          <p>/storybook un erizo que tiene miedo a la oscuridad y una luciérnaga que le acompaña</p>
+          <button type="button" class="cp" data-copy="/storybook un erizo que tiene miedo a la oscuridad y una luciérnaga que le acompaña" aria-label="Copiar el prompt de /storybook">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/coloringpage</code>
+        <p class="para">Un dibujo de líneas limpias para imprimir y colorear.</p>
+        <div class="prompt">
+          <p>/coloringpage un dinosaurio jugando al fútbol en el parque</p>
+          <button type="button" class="cp" data-copy="/coloringpage un dinosaurio jugando al fútbol en el parque" aria-label="Copiar el prompt de /coloringpage">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/plushie</code>
+        <p class="para">Lo que sea convertido en un peluche blandito.</p>
+        <div class="prompt">
+          <p>/plushie el monstruo del dibujo que te adjunto, que lo ha hecho mi hija</p>
+          <button type="button" class="cp" data-copy="/plushie el monstruo del dibujo que te adjunto, que lo ha hecho mi hija" aria-label="Copiar el prompt de /plushie">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t18">
+    <h3>Tema 18</h3>
+    <h4>Marca</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/logo</code>
+        <p class="para">Una propuesta de logotipo para tu negocio.</p>
+        <div class="prompt">
+          <p>/logo para una frutería de barrio que se llama «La Huerta de Pepa»</p>
+          <button type="button" class="cp" data-copy="/logo para una frutería de barrio que se llama «La Huerta de Pepa»" aria-label="Copiar el prompt de /logo">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/icon</code>
+        <p class="para">El icono de una app o de una web.</p>
+        <div class="prompt">
+          <p>/icon para una app que te recuerda cuándo regar las plantas</p>
+          <button type="button" class="cp" data-copy="/icon para una app que te recuerda cuándo regar las plantas" aria-label="Copiar el prompt de /icon">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/emblem</code>
+        <p class="para">Un escudo o una insignia, de los de club.</p>
+        <div class="prompt">
+          <p>/emblem para un club de corredores de montaña, con un pico y dos zapatillas</p>
+          <button type="button" class="cp" data-copy="/emblem para un club de corredores de montaña, con un pico y dos zapatillas" aria-label="Copiar el prompt de /emblem">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t19">
+    <h3>Tema 19</h3>
+    <h4>Cine</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/cinematic</code>
+        <p class="para">Un fotograma de película, con luz dramática y encuadre de cine.</p>
+        <div class="prompt">
+          <p>/cinematic una mujer esperando el autobús bajo la lluvia, de noche</p>
+          <button type="button" class="cp" data-copy="/cinematic una mujer esperando el autobús bajo la lluvia, de noche" aria-label="Copiar el prompt de /cinematic">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/filmnoir</code>
+        <p class="para">Cine negro en blanco y negro, con sombras muy duras.</p>
+        <div class="prompt">
+          <p>/filmnoir un detective en su despacho con la persiana entreabierta</p>
+          <button type="button" class="cp" data-copy="/filmnoir un detective en su despacho con la persiana entreabierta" aria-label="Copiar el prompt de /filmnoir">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/movieposter</code>
+        <p class="para">El cartel de una película, con título y reparto.</p>
+        <div class="prompt">
+          <p>/movieposter la mudanza de mi familia como si fuera una película de acción</p>
+          <button type="button" class="cp" data-copy="/movieposter la mudanza de mi familia como si fuera una película de acción" aria-label="Copiar el prompt de /movieposter">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t20">
+    <h3>Tema 20</h3>
+    <h4>3D de videojuego</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/lowpoly</code>
+        <p class="para">3D de pocos polígonos, con las caras planas a la vista.</p>
+        <div class="prompt">
+          <p>/lowpoly un faro en una isla al atardecer</p>
+          <button type="button" class="cp" data-copy="/lowpoly un faro en una isla al atardecer" aria-label="Copiar el prompt de /lowpoly">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/voxel</code>
+        <p class="para">Todo construido con cubitos, como un mundo de bloques.</p>
+        <div class="prompt">
+          <p>/voxel mi casa del pueblo con el huerto y el perro en la puerta</p>
+          <button type="button" class="cp" data-copy="/voxel mi casa del pueblo con el huerto y el perro en la puerta" aria-label="Copiar el prompt de /voxel">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/glassmorphism</code>
+        <p class="para">Efecto de cristal esmerilado, translúcido, muy de pantallas modernas.</p>
+        <div class="prompt">
+          <p>/glassmorphism la tarjeta de visita de una clínica dental</p>
+          <button type="button" class="cp" data-copy="/glassmorphism la tarjeta de visita de una clínica dental" aria-label="Copiar el prompt de /glassmorphism">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="bloque" id="t21">
+    <h3>Tema 21</h3>
+    <h4>Tu cara en objetos</h4>
+    <div class="rejilla">
+      <article class="cmd">
+        <code>/stamp</code>
+        <p class="para">Tu cara en un sello de correos.</p>
+        <div class="prompt">
+          <p>/stamp con mi cara, a partir de la foto que te adjunto, como sello conmemorativo</p>
+          <button type="button" class="cp" data-copy="/stamp con mi cara, a partir de la foto que te adjunto, como sello conmemorativo" aria-label="Copiar el prompt de /stamp">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/coin</code>
+        <p class="para">Tu perfil acuñado en una moneda, con su relieve.</p>
+        <div class="prompt">
+          <p>/coin con mi perfil, a partir de la foto que te adjunto, como moneda de plata antigua</p>
+          <button type="button" class="cp" data-copy="/coin con mi perfil, a partir de la foto que te adjunto, como moneda de plata antigua" aria-label="Copiar el prompt de /coin">Copiar</button>
+        </div>
+      </article>
+      <article class="cmd">
+        <code>/wantedposter</code>
+        <p class="para">El cartel de «Se busca» del Oeste, con tu foto.</p>
+        <div class="prompt">
+          <p>/wantedposter con la foto que te adjunto, buscado por comerse los yogures de la nevera de la oficina</p>
+          <button type="button" class="cp" data-copy="/wantedposter con la foto que te adjunto, buscado por comerse los yogures de la nevera de la oficina" aria-label="Copiar el prompt de /wantedposter">Copiar</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="bonus">
+    <h4>Y si la quieres con tu cara o con tu dibujo</h4>
+    <p>En los que dicen «la foto que te adjunto», sube la imagen en el mismo mensaje en el que escribes el comando. ChatGPT la toma de base y le aplica el estilo.</p>
+    <span class="ejemplo">/coin con mi perfil, a partir de la foto que te adjunto, como moneda de plata antigua</span>
+  </section>
+
+</main>
+
+<script>
+  const TODO = "LOS 63 ESTILOS DE CHATGPT PARA IMÁGENES · TEMPORADA 3 · Código AdrIA\n\nCómo se usan: escribe el comando al principio del mensaje y detrás lo que quieres.\n\n1 · Retro\n/polaroid mi perro dormido en el sofá un domingo por la tarde\n/vhs una fiesta de cumpleaños en el salón de casa, años noventa\n/pixelart una cafetería de barrio con la persiana a medio subir\n\n2 · Arte clásico\n/oilpainting retrato de una abuela pelando naranjas junto a la ventana\n/watercolor el puerto de un pueblo pesquero a primera hora de la mañana\n/ukiyoe un surfista cogiendo una ola enorme en la playa de la Malvarrosa\n\n3 · Cómic y animación\n/comic un repartidor que llega tarde y se encuentra la puerta cerrada, en cuatro viñetas\n/manga una chica corriendo por el andén para no perder el último metro\n/claymation un cocinero dándole la vuelta a una tortilla de patatas\n\n4 · Papel y tela\n/papercraft un bosque de otoño con un zorro escondido entre los árboles\n/origami una ballena saltando sobre olas de papel azul\n/knitted el logo de mi cafetería en un jersey navideño de lana roja y blanca\n\n5 · Materiales que brillan\n/neon el nombre de mi bar, «La Esquina», sobre una pared de ladrillo\n/chrome el nombre de mi taller en una placa de metal cromado atornillada a la fachada\n/goldleaf dos palomas con ramas de olivo para una invitación de boda\n\n6 · Foto de producto\n/productshot un bote de miel artesana con etiqueta de papel, sobre fondo blanco\n/flatlay todo lo que llevo en la mochila para un fin de semana en la montaña\n/mockup el logo de mi panadería «Pan de Ayer» impreso en una bolsa de papel kraft\n\n7 · Tu imagen personal\n/headshot a partir de la foto que te adjunto, con fondo gris liso y luz suave de estudio\n/caricature un profesor de química despeinado con las gafas en la punta de la nariz\n/popart a partir de la foto que te adjunto, repetida cuatro veces en colores fucsia, amarillo, turquesa y naranja\n\n8 · Publicidad\n/flyer clases de yoga para principiantes, martes y jueves a las 19:00, en el centro cívico\n/magazinecover mi perro como estrella del mes, con titulares divertidos\n/billboard un anuncio de mi taller de bicicletas en una avenida de ciudad\n\n9 · Para enseñar\n/whiteboard cómo se calcula el IVA de una factura, paso a paso\n/flashcard qué es la fotosíntesis, explicado para un niño de diez años\n/cheatsheet los atajos de teclado de Excel que más se usan en el día a día\n\n10 · Casa y reformas\n/floorplan un piso de 80 m² con dos dormitorios, salón-cocina abierto y un baño\n/interiordesign un baño pequeño con plato de ducha, azulejo verde y madera clara\n/render baño pequeño reformado con plato de ducha, azulejo verde y madera clara\n\n11 · Mapas\n/treasuremap el camino de casa al colegio con los sitios favoritos de mis hijos\n/travelposter Valencia, con la Ciudad de las Artes y la playa\n/topographic una sierra con dos rutas de senderismo y un refugio en la cima\n\n12 · Ciencia\n/microscopic un copo de nieve con todo su detalle\n/hologram una zapatilla de deporte girando sobre una mesa de cristal\n/constellation mi gato convertido en una constelación del cielo nocturno\n\n13 · Juegos\n/jigsaw la foto de mi equipo con una pieza suelta donde iría el nuevo fichaje\n/tradingcard mi abuelo como carta de colección, con poderes de jardinero\n/videogame mi oficina convertida en un nivel de plataformas\n\n14 · Moda y diseño\n/lookbook colección de otoño de una marca pequeña de jerséis de punto\n/seamlesspattern limones y hojas de olivo sobre fondo crema\n/tshirtdesign una cafetera italiana con el texto «Primero, el café»\n\n15 · Comida\n/recipecard una tortilla de patatas con cebolla para cuatro personas\n/menu la carta de un bar de tapas con diez platos y sus precios\n/foodphoto una tostada con tomate y jamón sobre una tabla de madera, con luz de ventana\n\n16 · Épocas\n/victorian un retrato de familia con el perro vestido de gala\n/cyberpunk el mercado central de mi ciudad en el año 2090\n/artdeco el cartel de inauguración de una coctelería\n\n17 · Para los peques\n/storybook un erizo que tiene miedo a la oscuridad y una luciérnaga que le acompaña\n/coloringpage un dinosaurio jugando al fútbol en el parque\n/plushie el monstruo del dibujo que te adjunto, que lo ha hecho mi hija\n\n18 · Marca\n/logo para una frutería de barrio que se llama «La Huerta de Pepa»\n/icon para una app que te recuerda cuándo regar las plantas\n/emblem para un club de corredores de montaña, con un pico y dos zapatillas\n\n19 · Cine\n/cinematic una mujer esperando el autobús bajo la lluvia, de noche\n/filmnoir un detective en su despacho con la persiana entreabierta\n/movieposter la mudanza de mi familia como si fuera una película de acción\n\n20 · 3D de videojuego\n/lowpoly un faro en una isla al atardecer\n/voxel mi casa del pueblo con el huerto y el perro en la puerta\n/glassmorphism la tarjeta de visita de una clínica dental\n\n21 · Tu cara en objetos\n/stamp con mi cara, a partir de la foto que te adjunto, como sello conmemorativo\n/coin con mi perfil, a partir de la foto que te adjunto, como moneda de plata antigua\n/wantedposter con la foto que te adjunto, buscado por comerse los yogures de la nevera de la oficina\n\nMás en codigoadria.com";
+
+  async function copiar(texto) {
+    try {
+      await navigator.clipboard.writeText(texto);
+      return true;
+    } catch (e) {
+      // Fallback for browsers inside apps (Instagram, Telegram) that block the Clipboard API
+      const ta = document.createElement("textarea");
+      ta.value = texto;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      let ok = false;
+      try { ok = document.execCommand("copy"); } catch (e2) { ok = false; }
+      ta.remove();
+      return ok;
+    }
+  }
+
+  document.getElementById("btn-todo").addEventListener("click", async () => {
+    const aviso = document.getElementById("aviso");
+    aviso.textContent = (await copiar(TODO))
+      ? "Copiados los 63. Pégalos en tus notas y los tienes siempre a mano."
+      : "Tu navegador no deja copiar solo: copia los prompts uno a uno.";
+  });
+
+  document.querySelectorAll(".cp").forEach((b) => {
+    b.addEventListener("click", async () => {
+      const ok = await copiar(b.dataset.copy);
+      b.textContent = ok ? "Copiado" : "Cópialo a mano";
+      b.classList.toggle("hecho", ok);
+      setTimeout(() => { b.textContent = "Copiar"; b.classList.remove("hecho"); }, 1800);
+    });
+  });
+</script>
+
+<!--
+  FOOTER DE MARCA — OBLIGATORIO en todo HTML de Código AdrIA que se comparta en público.
+  Pégalo justo antes de </body>. Autocontenido: CSS propio + SVG en línea, sin dependencias.
+  Regla en CLAUDE.md raíz: "HTML público — marca y footer obligatorios".
+
+  Estructura (patrón Stripe: banda de cierre + columnas + fila legal):
+    1. Banda de cierre con UNA sola llamada a la acción rellena (la comunidad).
+    2. Tres columnas de enlaces: empezar / seguir / la casa.
+    3. Fila legal con logo enlazado + copyright.
+
+  Enlaces oficiales (verificados 2-ago-2026):
+  - Comunidad Telegram (alta): https://www.codigoadria.com/telegram-comunidad/
+  - Curso:     https://www.codigoadria.com/curso-automatizaciones/
+  - Academia:  https://www.codigoadria.com/academia/
+  - YouTube:   https://www.youtube.com/@codigoadria?sub_confirmation=1
+  - LinkedIn:  https://www.linkedin.com/in/ricardohoyosperez/
+  - Instagram: https://www.instagram.com/ricardohoyos1/  ← el PERSONAL (decisión de Ricardo)
+
+  Adapta SOLO el texto de .ca-cta-sub al contenido de la página. El resto no se toca.
+  El footer usa #07181d, distinto del bloque editorial de cierre (#102e35), para que ambos
+  se lean como dos bandas separadas. En la fila legal se muestra solo el logo: no añadir
+  texto «Código AdrIA» junto a él, porque ya forma parte del propio logotipo.
+  En la CABECERA de la página, el logo SIEMPRE enlazado a https://www.codigoadria.com.
+
+  ⚠️ Si la página tiene bloques <pre> con ejemplos de código, escapa las etiquetas
+  (&lt;style&gt;, &lt;script&gt;): una etiqueta cruda se interpreta de verdad, se traga
+  el resto del documento y revienta este footer.
+-->
+<style>
+  .ca-foot{
+    background:#07181d;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          En la comunidad de Telegram compartimos lo que vamos probando con la IA:
+          lo que sale bien y también lo que no.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://www.codigoadria.com/telegram-comunidad/">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com/telegram-comunidad/">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
