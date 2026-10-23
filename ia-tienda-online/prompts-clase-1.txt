@@ -1,0 +1,24 @@
+PROMPTS DE LA CLASE 1 · «IA para tu Tienda Online» · Código AdrIA
+Cambia los datos del ejemplo (un plato de ducha de mi tienda) por los de tu producto.
+
+PETICIÓN A · sin contexto (en un chat temporal)
+Redacta un borrador de ficha de producto de 150 palabras como máximo para una tienda online. Incluye título, descripción breve, tres puntos que el comprador debería comprobar y datos que faltan. Usa únicamente los datos que te doy; no inventes prestaciones, disponibilidad, plazos, certificados, envío ni accesorios.
+Datos: Plato de ducha carga mineral Nature. Medidas 160 x 70 cm, altura 3 cm. La ficha pública de Adrihosan identifica al fabricante Nuovvo y fabricación en España. URL de origen: https://www.adrihosan.com/producto/plato-de-ducha-carga-mineral-nature-160-x-70/
+
+PETICIÓN B · con contexto (en OTRO chat temporal)
+Pega primero tu «Contexto de mi tienda» (los cuatro bloques) y, a continuación, la MISMA petición A, sin cambiar ni un dato.
+Compara las dos respuestas con estas cuatro preguntas:
+1. ¿Conserva los datos sin inventar?
+2. ¿Distingue unidad y caja/m²?
+3. ¿Usa nuestro tono sin relleno?
+4. ¿Qué datos faltan y cuánto he tenido que corregir?
+
+REVISIÓN COMO COMPRADOR · la auditoría de tu ficha
+Revisa la ficha pública que te pego abajo como si fueras un comprador. Enumera cinco dudas que tendrías antes de pedir el producto. Separa los datos que faltan de lo que está poco claro. No inventes características ni simules una compra: las dudas son hipótesis que contrastaremos con consultas reales.
+[Pega aquí el texto público visible de tu ficha, nunca información de pedidos ni de clientes.]
+
+REGLA DE LA CLASE
+El contexto orienta; la revisión decide. Dos chats temporales independientes, mismo modelo, misma petición. Nunca reutilices el primer chat para la segunda toma.
+
+Comunidad de Telegram de Código AdrIA (ahí dejo los prompts de cada vídeo):
+https://www.codigoadria.com/telegram-comunidad/
