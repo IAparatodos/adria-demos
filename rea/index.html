@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Acceso a REA: cómo clonar un estilo de reel con Claude · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Acceso a REA: cómo clonar un estilo de reel con Claude · Código AdrIA">
+<meta property="og:description" content="La guía del reel de Miguel: tres prompts, el avatar y REA para clonar cualquier estilo o app.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/rea/index.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Acceso a REA: cómo clonar un estilo de reel con Claude · Código AdrIA">
+<meta name="twitter:description" content="La guía del reel de Miguel: tres prompts, el avatar y REA para clonar cualquier estilo o app.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--tinta:#07181d;--tinta-2:#102e35;--turquesa:#4dd2d0;--petroleo:#3f6f7b;--papel:#f6f8f8;--gris:#5c7077;--linea:#dde5e6}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--papel);color:var(--tinta);font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;font-weight:300;line-height:1.6;letter-spacing:-.01em}
+a{color:inherit}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+header.top{background:var(--tinta);padding:18px 0}
+header.top img{height:40px;width:auto;display:block}
+.hero{background:var(--tinta-2);color:#fff;padding:64px 0 72px}
+.kicker{margin:0 0 16px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--turquesa)}
+.hero h1{margin:0;font-size:clamp(1.9rem,5vw,3rem);font-weight:600;letter-spacing:-.04em;line-height:1.1}
+.hero p.sub{margin:18px 0 0;max-width:40rem;color:#a9bdc2;font-size:1.02rem}
+main{padding:48px 0 64px}
+section{margin:0 0 44px}
+h2{margin:0 0 6px;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gris)}
+h3{margin:0 0 18px;font-size:1.45rem;font-weight:600;letter-spacing:-.03em}
+p{margin:0 0 14px}
+.caja{background:#fff;border:1px solid var(--linea);border-radius:14px;padding:22px 24px;margin:0 0 16px}
+.caja h4{margin:0 0 8px;font-size:1.08rem;font-weight:600;letter-spacing:-.02em}
+.caja p{color:var(--gris);font-size:.95rem}
+pre{white-space:pre-wrap;font-family:inherit;font-weight:300;font-size:.93rem;line-height:1.6;background:#f6f8f8;border:1px solid #e3eaeb;border-radius:12px;padding:18px 20px;margin:0;color:var(--tinta)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:#eaf7f7;border-radius:6px;padding:2px 7px}
+pre code{background:none;padding:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9rem}
+.acciones{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.btn{display:inline-block;border:0;border-radius:9999px;padding:12px 24px;font:inherit;font-size:.92rem;font-weight:600;cursor:pointer;text-decoration:none;background:var(--tinta);color:#fff}
+.btn:hover{background:var(--tinta-2)}
+.btn.sec{background:#fff;color:var(--tinta);border:1px solid var(--tinta)}
+.pasos{display:grid;gap:16px}
+.paso{display:flex;gap:16px;align-items:flex-start}
+.num{flex:none;width:34px;height:34px;border-radius:50%;background:var(--turquesa);color:var(--tinta);display:flex;align-items:center;justify-content:center;font-weight:600}
+.nota{background:var(--tinta);color:#fff;border-radius:18px;padding:32px 34px}
+.nota h3{color:#fff}
+.nota p{color:#a9bdc2}
+.nota a{color:var(--turquesa)}
+.ok{margin:12px 0 0;font-size:.88rem;color:var(--gris);min-height:1.2em}
+ul{margin:0 0 14px;padding-left:20px}
+li{margin:0 0 6px}
+@media (max-width:640px){.nota{padding:26px 22px}}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <a href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/img/logo-codigo-adria-blanco.png" alt="Código AdrIA"></a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <p class="kicker">Recurso · los reels de Miguel</p>
+  <h1>Acceso a REA: cómo cloné<br>un estilo de reel de 99 € con Claude</h1>
+  <p class="sub">Lo que viste en el reel, sin cortar nada: la herramienta con la que clono cualquier estilo o funcionalidad de una web, los tres prompts que usé y el paso del avatar. Y lo que no te cuenta un pack de plantillas.</p>
+</div></section>
+
+<main class="wrap">
+
+<section>
+  <h2>Primero</h2>
+  <h3>Qué es REA y para qué lo uso</h3>
+  <p>REA son las siglas de <em>Reverse Engineer Anything</em>. Es un proyecto abierto (licencia MIT) de morluto que conecta tu agente de inteligencia artificial, Claude Code en mi caso, con herramientas de ingeniería inversa. Le señalas una web, una app o un programa, le pides que entienda cómo hace algo, y te devuelve la explicación con su evidencia y sus límites. Todo se ejecuta en tu ordenador.</p>
+  <p>Lo uso para dos cosas. La primera, clonar funcionalidades: con él cloné Auphonic, la app que limpia y nivela el audio, en una tarde (se llama AdrIA Audio y la enseño en el canal). La segunda, lo del reel de Miguel: copiar un estilo visual que está a la vista de todo el mundo en vez de pagar un pack de plantillas.</p>
+  <div class="caja">
+    <h4>Dónde se descarga, y dónde no</h4>
+    <p>Solo de las fuentes oficiales: el repositorio <a href="https://github.com/morluto/rea" target="_blank" rel="noopener">github.com/morluto/rea</a>, la web rea.tools o el paquete <code>rea-agents</code> de npm. Cualquier otro sitio que te lo ofrezca, fuera. Y una regla que el propio autor deja escrita: si analizas binarios con IDA, Hopper o Ghidra, con licencia y con permiso.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Instalación</h2>
+  <h3>Tres minutos, un comando</h3>
+  <p>Hace falta Node.js 22 o más nuevo. Después, en la terminal:</p>
+  <pre id="rec-install"><code>npx rea-agents setup</code></pre>
+  <p style="margin-top:12px">Te pregunta con qué agentes quieres usarlo (Claude Code, Codex, Cursor, Gemini CLI…), te enseña los cambios que va a hacer en su configuración y los aplica cuando los apruebas. Reinicia el agente y ya le puedes hablar de REA. Para actualizar más adelante, el mismo comando con <code>@latest</code>: <code>npx rea-agents@latest setup</code>.</p>
+  <div class="acciones"><button class="btn" type="button" data-copiar="rec-install">Copiar el comando</button><a class="btn sec" href="https://github.com/morluto/rea" target="_blank" rel="noopener">Abrir el repositorio</a></div>
+</section>
+
+<section>
+  <h2>Cómo se le pide</h2>
+  <h3>El prompt que usé con Auphonic</h3>
+  <p>REA no tiene menús. Le hablas al agente en castellano y él decide qué herramienta de análisis toca. Esto es lo que le pediría hoy para AdrIA Audio; lo que le pedí entonces era más corto, y por eso la app me salió en verde en vez de con mis colores y con un fade al final de cada frase. La segunda vuelta siempre existe:</p>
+  <pre id="rec-rea">Analiza cómo funciona la limpieza de audio de esta web: qué pasos sigue desde que subo un archivo hasta que me devuelve el resultado, qué parámetros deja elegir al usuario y qué hace cada uno. Enséñame la evidencia de cada conclusión y dime qué no has podido confirmar.
+
+Después, construye en mi proyecto una app local que haga lo mismo con ffmpeg: subir un audio, elegir reducción de ruido, equilibrio de voz, limpieza de graves y volumen final para podcast, y descargar el resultado. Usa mi identidad: Poppins, turquesa #4dd2d0, petróleo #3f6f7b y fondo #102e35.</pre>
+  <div class="acciones"><button class="btn" type="button" data-copiar="rec-rea">Copiar el prompt</button></div>
+</section>
+
+<section>
+  <h2>El reel de Miguel</h2>
+  <h3>Cómo copié el estilo «Glass Explainer» en tres pasos</h3>
+  <p>Miguel se gastó 99 € en un pack de plantillas para editar reels con Claude. La web de ese pack tiene vídeos de muestra públicos. Eso es todo lo que hace falta.</p>
+  <div class="pasos">
+    <div class="paso"><div class="num">1</div><div>
+      <div class="caja"><h4>Mirar las muestras</h4>
+      <p>Saqué seis fotogramas de los vídeos de muestra (captura de pantalla, nada más) y se los di a Claude con esta petición:</p>
+      <pre id="rec-p1">Te paso seis fotogramas de unos vídeos de muestra. Quiero una ficha del estilo, sin inventar nada que no se vea: fondo y rejilla, colores exactos, tipografías (sans para el texto, serif cursiva para la palabra clave), componentes que aparecen (notificaciones que caen, tarjetas de cristal, contadores, una curva que se dibuja, barra de progreso), cómo entran y salen, y el ritmo: cada cuántos segundos cambia algo en pantalla. Si dudas de un dato, dilo.</pre>
+      <div class="acciones"><button class="btn" type="button" data-copiar="rec-p1">Copiar</button></div></div>
+    </div></div>
+    <div class="paso"><div class="num">2</div><div>
+      <div class="caja"><h4>Copiar el estilo</h4>
+      <p>Con esa ficha, le pedí la composición animada. Yo uso HyperFrames (HTML animado que se renderiza a vídeo), pero el prompt vale para cualquier motor que acepte HTML:</p>
+      <pre id="rec-p2">Con la ficha de estilo anterior, genera una composición HTML animada de 1080×1920 para un reel de unos 50 segundos. Abajo va un panel con mi avatar (vídeo adjunto); arriba, la capa gráfica con los componentes de la ficha; entre medias, captions de palabras clave (nunca el texto literal) con la palabra fuerte en serif cursiva naranja.
+
+Los tiempos salen de beats.json, que te adjunto: ahí está cada frase de la locución con el segundo exacto en que empieza, sacado de la transcripción del audio. Cada tarjeta entra cuando se dice su palabra. Regla fija: cada cuatro segundos como máximo tiene que cambiar algo en pantalla. No pongas en pantalla ningún dato que la voz no diga.</pre>
+      <div class="acciones"><button class="btn" type="button" data-copiar="rec-p2">Copiar</button></div></div>
+    </div></div>
+    <div class="paso"><div class="num">3</div><div>
+      <div class="caja"><h4>Avatar al micro</h4>
+      <p>Escribí el texto como se habla (frases con coma donde va a cambiar la tarjeta), lo mandé a HeyGen con mi avatar (foto real y voz clonada), transcribí el resultado palabra por palabra con whisper para sacar los tiempos de beats.json, y rendericé. Antes de publicar, otro agente que no ha participado en el montaje lo audita: formato, sincronía, ritmo, audio y que nada en pantalla sea humo. Ese informe es el que decide si sale o se corrige.</p></div>
+    </div></div>
+  </div>
+</section>
+
+<section class="nota">
+  <h2 style="color:#4dd2d0">Para que no te vendan humo, tampoco yo</h2>
+  <h3>Lo que un pack de 99 € te da y esto no</h3>
+  <p>Un pack te da veinte diseños listos para rellenar. Esto te da el método: la primera vez tardas una tarde, y la segunda, una hora. «Sin pagar un euro más» quiere decir con lo que ya pago cada mes: Claude y HeyGen son suscripciones. Si no las tienes, el cálculo es otro. Y REA es gratis, pero las herramientas de binarios que puede usar por debajo (Hopper, IDA) no.</p>
+  <p>Las dudas que te salgan al montarlo, en la comunidad de Telegram: <a href="https://www.codigoadria.com/telegram-comunidad/">codigoadria.com/telegram-comunidad</a>. Ahí dejo los recursos de cada vídeo antes que en ningún otro sitio.</p>
+</section>
+
+<p class="ok" id="aviso" style="text-align:center"></p>
+</main>
+
+<!-- FOOTER PÚBLICO CÓDIGO ADRIA -->
+<style>
+  .ca-foot{background:#07181d;color:#fff;font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;letter-spacing:-.01em}
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .ca-cta{display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;padding:64px 0 52px}
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0}
+  .ca-cta h2{margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff;text-transform:none}
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;background:#4dd2d0;color:#0b2026;white-space:nowrap;transition:background .2s,transform .12s;flex:none}
+  .ca-btn:hover{background:#6fe0de}
+  .ca-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;padding:44px 0;border-top:1px solid rgba(255,255,255,.09)}
+  .ca-col h3{margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299}
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col a{display:inline-flex;align-items:center;gap:9px;font-size:.94rem;color:#dfe9eb;transition:color .18s}
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-legal{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+  @media (max-width:640px){.ca-cta{padding:52px 0 40px}.ca-btn{width:100%;text-align:center}}
+</style>
+<footer class="ca-foot">
+  <div class="ca-wrap">
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">Lo que aquí tienes es lo que uso yo. En la comunidad dejo el recurso de cada vídeo y respondo a lo que vaya saliendo.</p>
+      </div>
+      <a class="ca-btn" href="https://www.codigoadria.com/telegram-comunidad/">Entrar gratis en la comunidad</a>
+    </div>
+    <div class="ca-cols">
+      <div class="ca-col"><h3>Empieza aquí</h3><ul>
+        <li><a href="https://www.codigoadria.com/telegram-comunidad/">Comunidad en Telegram</a></li>
+        <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+        <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+      </ul></div>
+      <div class="ca-col"><h3>Sígueme</h3><ul>
+        <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">YouTube</a></li>
+        <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/ricardohoyos1/">Instagram</a></li>
+      </ul></div>
+      <div class="ca-col"><h3>La casa</h3><ul>
+        <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+        <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+        <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+      </ul></div>
+    </div>
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/img/logo-codigo-adria-blanco.png" alt="Código AdrIA"></a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var aviso=document.getElementById('aviso');
+  document.querySelectorAll('[data-copiar]').forEach(function(b){ b.addEventListener('click', function(){
+    var t=document.getElementById(b.getAttribute('data-copiar')).textContent;
+    if(!navigator.clipboard){aviso.textContent='Tu navegador no deja copiar solo: selecciona el texto a mano.';return;}
+    navigator.clipboard.writeText(t).then(function(){aviso.textContent='Copiado.';},function(){aviso.textContent='Tu navegador no deja copiar solo: selecciona el texto a mano.';});
+  });});
+})();
+</script>
+</body>
+</html>
