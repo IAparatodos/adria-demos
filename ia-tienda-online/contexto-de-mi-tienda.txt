@@ -1,0 +1,21 @@
+CONTEXTO DE MI TIENDA · plantilla de Código AdrIA
+(Rellena los cuatro bloques y pégalos antes de cualquier petición a la IA. Solo información pública: nada de pedidos, tarifas privadas ni contratos.)
+
+1. QUÉ VENDEMOS Y A QUIÉN
+Qué vendes, a quién, y cómo se vende cada tipo de producto (por unidad, por caja, por m², por pack…). Pon las reglas que la IA no puede adivinar.
+Ejemplo (Adrihosan): vendemos materiales de baño y cerámica. Un plato de ducha se vende por unidad. La cerámica tiene precio por m² y se vende por caja; esa regla NO se aplica al plato de ducha.
+
+2. CÓMO HABLAMOS
+Tuteo o usted, frases cortas o largas, qué palabras usamos y cuáles están prohibidas.
+Ejemplo: tuteo, frases claras y concretas. Explica qué debe comprobar el comprador. Evita «solución integral», «experiencia premium» y adjetivos sin información.
+
+3. QUÉ NO SE INVENTA
+Lo que la IA no puede afirmar si no está en los datos.
+Ejemplo: no inventes stock, plazos, portes, garantía, certificados, clase antideslizante ni accesorios incluidos. Si no está en los datos, no lo afirmes. Si hay contradicciones, señálalas antes de redactar.
+
+4. QUÉ RESULTADO QUEREMOS
+Qué tiene que devolver y qué no tiene que hacer.
+Ejemplo: un borrador útil para revisar: título, descripción breve, puntos a comprobar y datos que faltan. Conserva los hechos del producto y separa recomendaciones editoriales de características comprobadas. No publicar ni modificar la tienda.
+
+Más plantillas y las dudas que vayan saliendo, en la comunidad de Telegram de Código AdrIA:
+https://www.codigoadria.com/telegram-comunidad/
