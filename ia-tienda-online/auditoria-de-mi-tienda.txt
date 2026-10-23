@@ -1,0 +1,38 @@
+AUDITORÍA DE MI TIENDA EN CINCO PASOS · Código AdrIA
+Una prueba, una fecha. Rellena cada paso y vuelve a esta hoja el día que te marques.
+
+1. FICHA REAL QUE REVISO
+Producto y URL:
+Qué quiero mejorar de ella:
+
+2. DUDAS QUE PROPONE LA IA (hipótesis)
+Pide a la IA que actúe como comprador y saque cinco dudas. Cópialas aquí:
+-
+-
+-
+-
+-
+
+3. DUDAS CONTRASTADAS CON CONSULTAS REALES
+¿Cuáles coinciden con lo que te preguntan por WhatsApp, correo o teléfono? ¿Cuáles no?
+-
+
+4. TIEMPO ACTUAL DE LA TAREA
+Minutos que tardas hoy en esta tarea (cronometrado, no estimado):
+Veces por semana:
+Total al mes:
+
+5. PRUEBA, CRITERIO Y FECHA DE REVISIÓN
+Qué voy a probar con IA (una sola cosa):
+Cómo sabré si se queda o se tira (tiempo total con revisión, errores, utilidad):
+Fecha en la que lo reviso:
+Decisión: mantener / ajustar / descartar
+
+FRAGMENTO REAL A (sin contexto)
+Pega aquí dos frases del borrador de la petición A:
+
+FRAGMENTO REAL B (con contexto)
+Pega aquí dos frases del borrador de la petición B:
+
+Comunidad de Telegram de Código AdrIA:
+https://www.codigoadria.com/telegram-comunidad/
