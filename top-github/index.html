@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102e35">
+<meta name="robots" content="noindex, nofollow">
+<title>Top GitHub: la ficha de los 7 repos · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Top GitHub: la ficha de los 7 repos · Código AdrIA">
+<meta property="og:description" content="Los 7 repos de la semana del 25-oct-2026: qué hacen, para quién y el comando para instalarlos.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/og-top-github.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/top-github/index.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Top GitHub: la ficha de los 7 repos · Código AdrIA">
+<meta name="twitter:description" content="Los 7 repos de la semana del 25-oct-2026: qué hacen, para quién y el comando para instalarlos.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/og-top-github.jpg">
+<link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--tinta:#07181d;--tinta-2:#102e35;--turquesa:#4dd2d0;--petroleo:#3f6f7b;--papel:#f6f8f8;--gris:#5c7077;--linea:#dde5e6}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--papel);color:var(--tinta);font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;font-weight:300;line-height:1.6;letter-spacing:-.01em}
+a{color:inherit}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+header.top{background:var(--tinta);padding:18px 0}
+header.top img{height:40px;width:auto;display:block}
+.hero{background:var(--tinta-2);color:#fff;padding:64px 0 72px}
+.kicker{margin:0 0 16px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--turquesa)}
+.hero h1{margin:0;font-size:clamp(1.9rem,5vw,3rem);font-weight:600;letter-spacing:-.04em;line-height:1.1}
+.hero p.sub{margin:18px 0 0;max-width:40rem;color:#a9bdc2;font-size:1.02rem}
+.indice{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0;padding:0;list-style:none}
+.indice a{display:inline-block;text-decoration:none;font-size:.86rem;font-weight:500;color:#fff;border:1px solid rgba(77,210,208,.45);border-radius:9999px;padding:6px 14px}
+.indice a:hover{background:rgba(77,210,208,.15)}
+main{padding:48px 0 64px}
+.nota-fecha{background:#fff;border:1px solid var(--linea);border-left:4px solid var(--turquesa);border-radius:12px;padding:16px 20px;margin:0 0 36px;color:var(--gris);font-size:.92rem}
+.repo{background:#fff;border:1px solid var(--linea);border-radius:18px;padding:28px 30px;margin:0 0 26px;scroll-margin-top:16px}
+.repo .cab{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin:0 0 4px}
+.repo .gh{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--petroleo)}
+.repo h2{margin:0;font-size:1.5rem;font-weight:600;letter-spacing:-.03em;line-height:1.2}
+.repo .ruta{margin:0 0 16px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86rem;color:var(--gris)}
+.repo p{margin:0 0 12px}
+.repo .que{font-size:1.02rem;font-weight:400}
+.datos{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0 20px;padding:0;list-style:none}
+.datos li{background:var(--papel);border-radius:12px;padding:10px 14px}
+.datos b{display:block;font-size:1.02rem;font-weight:600;color:var(--tinta)}
+.datos span{font-size:.76rem;color:var(--gris)}
+.etq{margin:18px 0 6px;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
+pre{white-space:pre-wrap;word-break:break-word;margin:0;background:#0d2228;color:#e6f4f4;border-radius:12px;padding:16px 18px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88rem;line-height:1.55}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:#eaf7f7;border-radius:6px;padding:1px 6px}
+.acciones{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.btn{display:inline-block;border:0;border-radius:9999px;padding:11px 22px;font:inherit;font-size:.9rem;font-weight:600;cursor:pointer;text-decoration:none;background:var(--tinta);color:#fff}
+.btn:hover{background:var(--tinta-2)}
+.btn.turq{background:var(--turquesa);color:var(--tinta)}
+.btn.sec{background:#fff;color:var(--tinta);border:1px solid var(--tinta)}
+.aviso{margin:18px 0 0;background:#fff7e8;border:1px solid #f1d9a6;border-radius:12px;padding:14px 18px;font-size:.92rem;color:#5b4a22}
+.aviso strong{font-weight:600}
+.cierre{background:var(--tinta-2);color:#fff;border-radius:18px;padding:32px 34px;margin:40px 0 0}
+.cierre h2{margin:0 0 10px;font-size:1.3rem;font-weight:600;letter-spacing:-.03em}
+.cierre p{margin:0 0 16px;color:#a9bdc2}
+.ok{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--tinta);color:#fff;border-radius:9999px;padding:10px 20px;font-size:.88rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.ok.ver{opacity:1}
+@media (max-width:640px){.repo{padding:22px 20px}.cierre{padding:26px 22px}.hero{padding:48px 0 56px}}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <a href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/img/logo-codigo-adria-blanco.png" alt="Código AdrIA"></a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <p class="kicker">Top GitHub · semana del 25-oct-2026</p>
+  <h1>La ficha de los 7 repos</h1>
+  <p class="sub">Los siete proyectos de la serie de reels, uno por tarjeta. De cada uno te cuento qué hace y a quién le sirve, y te dejo el comando para instalarlo copiado tal cual de su README oficial. Con el enlace al repo, para que lo bajes de la fuente y no de una copia.</p>
+  <ul class="indice">
+    <li><a href="#rea">1 · REA</a></li>
+    <li><a href="#cloudflare">2 · security-audit</a></li>
+    <li><a href="#orca">3 · Orca</a></li>
+    <li><a href="#graphify">4 · graphify</a></li>
+    <li><a href="#opencode">5 · OpenCode</a></li>
+    <li><a href="#hyperframes">6 · HyperFrames</a></li>
+    <li><a href="#comfyui">7 · ComfyUI</a></li>
+  </ul>
+</div></section>
+
+<main class="wrap">
+
+<p class="nota-fecha">Las estrellas son las que mostraba GitHub Trending semanal (todos los lenguajes) el 25-oct-2026 a las 07:55, hora peninsular. Cambian a diario, así que cuando leas esto serán otras. Licencia y lenguaje, contrastados con la API pública de GitHub.</p>
+
+<article class="repo" id="rea">
+  <div class="cab"><span class="gh">GH · 1</span><h2>REA (Reverse Engineer Anything)</h2></div>
+  <p class="ruta">morluto/rea</p>
+  <p class="que">Conecta tu agente de IA con herramientas de ingeniería inversa para que te explique cómo funciona una app sin tener su código fuente.</p>
+  <p><strong>Para quién:</strong> desarrolladores y makers que trabajan con Claude Code, Codex, Cursor o Gemini CLI y quieren entender cómo está hecha una función de otra app antes de construir algo parecido. Analiza binarios nativos, apps JavaScript y Electron, ensamblados .NET y webs, y lo hace en tu ordenador.</p>
+  <ul class="datos">
+    <li><b>78.562</b><span>estrellas en la semana del 25-oct-2026</span></li>
+    <li><b>380.020</b><span>estrellas totales a esa fecha</span></li>
+    <li><b>TypeScript</b><span>lenguaje</span></li>
+    <li><b>MIT</b><span>licencia</span></li>
+  </ul>
+  <p class="etq">Instalación</p>
+  <pre id="cmd-rea">npx rea-agents setup</pre>
+  <p style="margin-top:12px">Pide Node.js 22 (22.23.4 o posterior), 24 (24.22.1 o posterior) o 26.12.1 en adelante, con npm. El asistente te pregunta con qué agentes lo vas a usar, te enseña los cambios en su configuración y los aplica cuando das el visto bueno. Luego reinicias el agente.</p>
+  <div class="acciones"><button class="btn" type="button" data-copiar="cmd-rea">Copiar el comando</button><a class="btn sec" href="https://github.com/morluto/rea" target="_blank" rel="noopener">Abrir el repo oficial</a></div>
+  <p class="aviso"><strong>Úsalo con cabeza.</strong> Solo con software tuyo o que tengas permiso para analizar; el propio proyecto lo deja escrito. Y bájalo únicamente de sus fuentes oficiales: github.com/morluto/rea, rea.tools o el paquete <code>rea-agents</code> de npm. El README avisa de que circulan copias con nombres parecidos.</p>
+</article>
+
+<article class="repo" id="cloudflare">
+  <div class="cab"><span class="gh">GH · 2</span><h2>security-audit (Cloudflare)</h2></div>
+  <p class="ruta">cloudflare/security-audit-skill</p>
+  <p class="que">Una skill que convierte a tu agente de programación en auditor de seguridad: revisa tu código en seis fases y cada hallazgo lo verifica otro agente distinto.</p>
+  <p><strong>Para quién:</strong> devs y equipos pequeños que mantienen código propio (webs, APIs, apps) y no tienen a nadie de seguridad en plantilla. Según el README, es la skill de la que salió el sistema de búsqueda de vulnerabilidades de Cloudflare. Cada hallazgo acaba marcado como <code>confirmed</code>, <code>needs_validation</code> o <code>rejected</code>, y al final te deja un REPORT.md con el resumen.</p>
+  <ul class="datos">
+    <li><b>12.680</b><span>estrellas en la semana del 25-oct-2026</span></li>
+    <li><b>45.196</b><span>estrellas totales a esa fecha</span></li>
+    <li><b>JavaScript</b><span>lenguaje</span></li>
+    <li><b>MIT</b><span>licencia</span></li>
+  </ul>
+  <p class="etq">Instalación</p>
+  <pre id="cmd-cloudflare">npx skills add https://github.com/cloudflare/security-audit-skill \
+  --skill security-audit</pre>
+  <div class="acciones"><button class="btn" type="button" data-copiar="cmd-cloudflare">Copiar el comando</button><a class="btn sec" href="https://github.com/cloudflare/security-audit-skill" target="_blank" rel="noopener">Abrir el repo oficial</a></div>
+  <p class="etq">Y para lanzarla, dentro del proyecto le dices a tu agente</p>
+  <pre id="cmd-cloudflare-uso">security audit this codebase</pre>
+  <div class="acciones"><button class="btn" type="button" data-copiar="cmd-cloudflare-uso">Copiar</button><a class="btn sec" href="https://blog.cloudflare.com/build-your-own-vulnerability-harness" target="_blank" rel="noopener">Leer el post de Cloudflare</a></div>
+  <p class="aviso"><strong>Lo que no es.</strong> Es una primera revisión guiada. No sustituye a una auditoría profesional ni te garantiza que no quede ningún fallo: lo que marque como confirmado, revísalo antes de dar nada por cerrado.</p>
+</article>
+
+<article class="repo" id="orca">
+  <div class="cab"><span class="gh">GH · 3</span><h2>Orca</h2></div>
+  <p class="ruta">stablyai/orca</p>
+  <p class="que">Un orquestador de agentes de programación: lanza Codex, Claude Code, OpenCode o Pi en paralelo, cada uno en su propio worktree, y los sigues desde una sola app.</p>
+  <p><strong>Para quién:</strong> quien ya programa con agentes y quiere repartir el mismo encargo entre varios, comparar lo que sale y fusionar el mejor. Hay app de escritorio para macOS, Windows y Linux, y otra para el móvil (iOS y Android) que te avisa cuando un agente termina. Usas cada agente con tu propia suscripción.</p>
+  <ul class="datos">
+    <li><b>9.828</b><span>estrellas en la semana del 25-oct-2026</span></li>
+    <li><b>105.134</b><span>estrellas totales a esa fecha</span></li>
+    <li><b>TypeScript</b><span>lenguaje</span></li>
+    <li><b>MIT</b><span>licencia</span></li>
+  </ul>
+  <p class="etq">Instalación</p>
+  <p>La vía principal es descargar la app desde <a href="https://onorca.dev/download" target="_blank" rel="noopener">onorca.dev/download</a>. En Mac, también con Homebrew:</p>
+  <pre id="cmd-orca">brew install --cask stablyai/orca/orca</pre>
+  <div class="acciones"><button class="btn" type="button" data-copiar="cmd-orca">Copiar el comando</button><a class="btn sec" href="https://github.com/stablyai/orca" target="_blank" rel="noopener">Abrir el repo oficial</a></div>
+</article>
+
+<article class="repo" id="graphify">
+  <div class="cab"><span class="gh">GH · 4</span><h2>graphify</h2></div>
+  <p class="ruta">Graphify-Labs/graphify</p>
+  <p class="que">Convierte tu proyecto (código, documentación, esquemas SQL, configuraciones y PDF) en un grafo de conocimiento que tu asistente de IA consulta en vez de leer archivo por archivo.</p>
+  <p><strong>Para quién:</strong> quien hereda código o trabaja en proyectos grandes y quiere que su asistente entienda la estructura sin releerlo todo. El código lo analiza en local con tree-sitter, sin pasar por ningún modelo. Te deja tres archivos: graph.html (el mapa navegable), GRAPH_REPORT.md (conceptos clave y preguntas sugeridas) y graph.json.</p>
+  <ul class="datos">
+    <li><b>6.868</b><span>estrellas en la semana del 25-oct-2026</span></li>
+    <li><b>134.585</b><span>estrellas totales a esa fecha</span></li>
+    <li><b>Python</b><span>lenguaje</span></li>
+    <li><b>Apache-2.0</b><span>licencia</span></li>
+  </ul>
+  <p class="etq">Instalación (Python 3.10 o superior)</p>
+  <pre id="cmd-graphify">uv tool install graphifyy
+graphify install</pre>
+  <p style="margin-top:12px">Después abres tu asistente dentro del proyecto y escribes <code>/graphify .</code>. Si no usas uv, el README da como alternativa <code>pipx install graphifyy</code>.</p>
+  <div class="acciones"><button class="btn" type="button" data-copiar="cmd-graphify">Copiar los comandos</button><a class="btn sec" href="https://github.com/Graphify-Labs/graphify" target="_blank" rel="noopener">Abrir el repo oficial</a></div>
+  <p class="aviso"><strong>Ojo con el nombre.</strong> El paquete oficial es <code>graphifyy</code>, con dos «y». El README avisa de que el resto de paquetes <code>graphify*</code> de PyPI no tienen nada que ver con ellos. Aparte del repo abierto tienen una versión de pago, Graphify Cloud; esta ficha habla solo del open source.</p>
+</article>
+
+<article class="repo" id="opencode">
+  <div class="cab"><span class="gh">GH · 5</span><h2>OpenCode</h2></div>
+  <p class="ruta">anomalyco/opencode</p>
+  <p class="que">Un agente de programación con IA de código abierto que funciona en la terminal y también como app de escritorio, todavía en beta.</p>
+  <p><strong>Para quién:</strong> devs que quieren una alternativa abierta a los agentes cerrados. Trae dos agentes que se cambian con la tecla Tab: <code>build</code>, con acceso completo, y <code>plan</code>, de solo lectura, que no edita archivos y te pide permiso antes de ejecutar un comando. Este último viene muy bien para explorar un código que no conoces sin romper nada.</p>
+  <ul class="datos">
+    <li><b>6.857</b><span>estrellas en la semana del 25-oct-2026</span></li>
+    <li><b>221.266</b><span>estrellas totales a esa fecha</span></li>
+    <li><b>TypeScript</b><span>lenguaje</span></li>
+    <li><b>MIT</b><span>licencia</span></li>
+  </ul>
+  <p class="etq">Instalación</p>
+  <pre id="cmd-opencode">curl -fsSL https://opencode.ai/v2/install | bash</pre>
+  <p style="margin-top:12px">Si prefieres npm: <code>npm i -g @opencode/cli@latest</code>. La app de escritorio se baja de <a href="https://opencode.ai/download" target="_blank" rel="noopener">opencode.ai/download</a>.</p>
+  <div class="acciones"><button class="btn" type="button" data-copiar="cmd-opencode">Copiar el comando</button><a class="btn sec" href="https://github.com/anomalyco/opencode" target="_blank" rel="noopener">Abrir el repo oficial</a></div>
+</article>
+
+<article class="repo" id="hyperframes">
+  <div class="cab"><span class="gh">GH · 6</span><h2>HyperFrames (HeyGen)</h2></div>
+  <p class="ruta">heygen-com/hyperframes</p>
+  <p class="que">El framework abierto de HeyGen que convierte HTML, CSS, multimedia y animaciones en vídeos MP4, pensado para que lo use tu agente de IA.</p>
+  <p><strong>Para quién:</strong> creadores, marketers y devs que quieren sacar una intro o un gráfico animado pidiéndoselo al agente. El README pone de ejemplo una intro de producto de diez segundos con título en fundido, vídeo de fondo y música suave. Necesitas Node.js 22 o superior y FFmpeg.</p>
+  <ul class="datos">
+    <li><b>5.633</b><span>estrellas en la semana del 25-oct-2026</span></li>
+    <li><b>71.620</b><span>estrellas totales a esa fecha</span></li>
+    <li><b>TypeScript</b><span>lenguaje</span></li>
+    <li><b>Apache-2.0</b><span>licencia</span></li>
+  </ul>
+  <p class="etq">Instalación en Claude Code (como plugin)</p>
+  <pre id="cmd-hyperframes">claude plugin marketplace add heygen-com/hyperframes
+claude plugin install hyperframes@hyperframes</pre>
+  <div class="acciones"><button class="btn" type="button" data-copiar="cmd-hyperframes">Copiar los comandos</button><a class="btn sec" href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">Abrir el repo oficial</a></div>
+  <p class="etq">En otros agentes (Codex, Cursor, Gemini CLI, OpenCode…)</p>
+  <pre id="cmd-hyperframes-skills">npx skills add heygen-com/hyperframes</pre>
+  <div class="acciones"><button class="btn" type="button" data-copiar="cmd-hyperframes-skills">Copiar el comando</button></div>
+</article>
+
+<article class="repo" id="comfyui">
+  <div class="cab"><span class="gh">GH · 7</span><h2>ComfyUI</h2></div>
+  <p class="ruta">Comfy-Org/ComfyUI</p>
+  <p class="que">Interfaz, API y motor por nodos para modelos de difusión: genera imágenes, vídeo, 3D y audio con IA en tu ordenador o en su nube.</p>
+  <p><strong>Para quién:</strong> creativos, diseñadores y creadores de contenido que quieren controlar cada paso de la generación. Cada nodo es un paso y los vas conectando. Según su README, puede mover modelos abiertos grandes con solo 4 GB de VRAM y 8 GB de RAM; la cifra es suya y yo no la he medido. Con los partner nodes llegas también a modelos cerrados como Nano Banana o Seedance.</p>
+  <ul class="datos">
+    <li><b>4.648</b><span>estrellas en la semana del 25-oct-2026</span></li>
+    <li><b>142.713</b><span>estrellas totales a esa fecha</span></li>
+    <li><b>Python</b><span>lenguaje</span></li>
+    <li><b>GPL-3.0</b><span>licencia (copyleft)</span></li>
+  </ul>
+  <p class="etq">Instalación</p>
+  <p>En Windows y Mac lo que recomiendan es la app de escritorio: <a href="https://www.comfy.org/download" target="_blank" rel="noopener">comfy.org/download</a>. Por terminal, con su CLI:</p>
+  <pre id="cmd-comfyui">pip install comfy-cli
+comfy install</pre>
+  <div class="acciones"><button class="btn" type="button" data-copiar="cmd-comfyui">Copiar los comandos</button><a class="btn sec" href="https://github.com/Comfy-Org/ComfyUI" target="_blank" rel="noopener">Abrir el repo oficial</a></div>
+</article>
+
+<section class="cierre">
+  <h2>¿Te atascas instalando alguno?</h2>
+  <p>Pregúntalo en la comunidad de Telegram. Ahí dejo el recurso de cada vídeo antes que en ningún otro sitio, y la semana que viene llega otro Top GitHub.</p>
+  <a class="btn turq" href="https://www.codigoadria.com/telegram-comunidad/">Ir a la comunidad</a>
+</section>
+
+</main>
+
+<p class="ok" id="aviso" role="status" aria-live="polite"></p>
+<script>
+(function(){
+  var aviso = document.getElementById('aviso'), t;
+  function decir(txt){ aviso.textContent = txt; aviso.classList.add('ver'); clearTimeout(t); t = setTimeout(function(){ aviso.classList.remove('ver'); }, 2200); }
+  document.querySelectorAll('[data-copiar]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var txt = document.getElementById(b.getAttribute('data-copiar')).textContent;
+      if (!navigator.clipboard) { decir('Tu navegador no deja copiar solo: selecciónalo a mano.'); return; }
+      navigator.clipboard.writeText(txt).then(function(){ decir('Copiado. Pégalo en tu terminal.'); }, function(){ decir('Tu navegador no deja copiar solo: selecciónalo a mano.'); });
+    });
+  });
+})();
+</script>
+<!-- FOOTER PÚBLICO CÓDIGO ADRIA -->
+<style>
+  .ca-foot{
+    background:#07181d;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">Esta ficha es la de los siete repos del Top GitHub. En la comunidad dejo el recurso de cada vídeo y respondo a lo que vaya saliendo.</p>
+      </div>
+      <a class="ca-btn" href="https://www.codigoadria.com/telegram-comunidad/">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com/telegram-comunidad/">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+</body>
+</html>
