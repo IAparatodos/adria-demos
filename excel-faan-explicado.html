@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tu base de contactos, explicada · Código AdrIA</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tu base de contactos, explicada · Código AdrIA">
+<meta property="og:description" content="Qué hay en tu base de contactos, qué ordenar y cómo entrarán solos los contactos de LinkedIn.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/excel-faan-explicado.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tu base de contactos, explicada · Código AdrIA">
+<meta name="twitter:description" content="Qué hay en tu base de contactos, qué ordenar y cómo entrarán solos los contactos de LinkedIn.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23102e35'/%3E%3Ctext x='32' y='42' font-size='30' text-anchor='middle' fill='%234dd2d0' font-family='Arial' font-weight='700'%3ECA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --turq:#4dd2d0; --turq2:#0e9c99; --petr:#3f6f7b; --verde:#102e35; --papel:#f4f7f7;
+  --tinta:#102e35; --suave:#5b7780; --linea:#d6e2e3; --blanco:#ffffff; --mal:#b5534d; --malbg:#f8ebea;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Poppins,system-ui,sans-serif;background:var(--papel);color:var(--tinta);line-height:1.6;font-size:16px}
+header{background:var(--verde);color:#fff;padding:48px 20px 40px}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header .wrap{padding:0}
+.kicker{color:var(--turq);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:13px}
+h1{font-size:clamp(28px,5vw,42px);line-height:1.15;margin:8px 0 12px}
+header p{color:#cfe3e5;max-width:680px;margin:0}
+section{padding:36px 0;border-bottom:1px solid var(--linea)}
+h2{font-size:24px;margin:0 0 6px}
+h2 .n{display:inline-block;background:var(--turq);color:var(--verde);width:34px;height:34px;border-radius:50%;text-align:center;line-height:34px;font-size:17px;margin-right:10px}
+.lead{color:var(--suave);margin:0 0 20px}
+.card{background:var(--blanco);border:1px solid var(--linea);border-radius:14px;padding:20px;margin:14px 0}
+.idea{border-left:5px solid var(--turq);background:#e9f8f8;padding:16px 18px;border-radius:0 12px 12px 0;margin:18px 0}
+.idea b{color:var(--turq2)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.hoja{background:var(--blanco);border:1px solid var(--linea);border-radius:14px;padding:18px;position:relative}
+.hoja .tab{display:inline-block;background:var(--petr);color:#fff;font-weight:600;font-size:13px;padding:3px 12px;border-radius:8px 8px 0 0;margin-bottom:8px}
+.hoja .num{font-size:34px;font-weight:700;color:var(--turq2);line-height:1}
+.hoja .num small{font-size:14px;color:var(--suave);font-weight:500}
+.hoja p{margin:8px 0 0;font-size:14px;color:var(--suave)}
+.hoja.vacia{border-style:dashed}
+.hoja.vacia .num{color:var(--mal)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--linea);vertical-align:top}
+th{background:var(--verde);color:#fff;font-weight:600}
+td code{background:var(--papel);padding:1px 6px;border-radius:5px;font-size:13px}
+.scroll{overflow-x:auto;border-radius:12px;border:1px solid var(--linea);background:#fff}
+.bars .row{display:grid;grid-template-columns:110px 1fr 70px;align-items:center;gap:10px;margin:8px 0;font-size:14px}
+.bar{height:16px;background:var(--papel);border-radius:8px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--turq2);border-radius:8px}
+.bar i.bajo{background:var(--mal)}
+.legend{font-size:13px;color:var(--suave)}
+.fila{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.celda{background:#fff;border:1px solid var(--linea);border-radius:10px;padding:10px}
+.celda .k{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--petr);font-weight:600}
+.celda .v{font-size:14px;word-break:break-word}
+.celda.ojo{border-color:var(--mal);background:var(--malbg)}
+.problema{display:grid;grid-template-columns:44px 1fr;gap:14px;background:#fff;border:1px solid var(--linea);border-radius:14px;padding:18px;margin:12px 0}
+.problema .ico{width:44px;height:44px;border-radius:12px;background:var(--malbg);color:var(--mal);font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center}
+.problema h3{margin:0 0 4px;font-size:17px}
+.problema p{margin:4px 0;font-size:15px}
+.problema .sol{color:var(--turq2);font-weight:500}
+.tags span{display:inline-block;background:var(--papel);border:1px solid var(--linea);border-radius:20px;padding:2px 10px;margin:3px 2px;font-size:13px}
+.pasos{counter-reset:p;list-style:none;padding:0}
+.pasos li{counter-increment:p;position:relative;padding:12px 12px 12px 56px;background:#fff;border:1px solid var(--linea);border-radius:12px;margin:10px 0}
+.pasos li::before{content:counter(p);position:absolute;left:14px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--turq2);color:#fff;text-align:center;line-height:30px;font-weight:600}
+dl{margin:0}
+dt{font-weight:600;color:var(--turq2);margin-top:12px}
+dd{margin:2px 0 0}
+footer{padding:28px 20px 48px;color:var(--suave);font-size:13px;text-align:center}
+@media (max-width:560px){.bars .row{grid-template-columns:80px 1fr 56px}}
+
+/* Animated automation flow */
+.flow{background:var(--verde);border-radius:18px;padding:22px 18px 18px;color:#fff;margin:20px 0}
+.flow-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.flow-top h3{margin:0;font-size:18px}
+.flow-top button{font-family:inherit;font-size:13px;font-weight:600;background:var(--turq);color:var(--verde);border:0;border-radius:20px;padding:6px 14px;cursor:pointer}
+.steps{display:grid;grid-template-columns:repeat(7,1fr);gap:0;position:relative}
+.step{position:relative;text-align:center;padding:0 4px;cursor:pointer}
+.step .dot{width:46px;height:46px;margin:0 auto;border-radius:50%;background:#1d4650;border:2px solid #2d5d68;display:flex;align-items:center;justify-content:center;font-size:20px;position:relative;z-index:2;transition:all .4s}
+.step .lbl{font-size:12px;margin-top:8px;color:#9fc3c7;line-height:1.3;transition:color .4s}
+.step.done .dot{background:var(--turq2);border-color:var(--turq2)}
+.step.on .dot{background:var(--turq);border-color:#fff;transform:scale(1.15);box-shadow:0 0 0 6px rgba(77,210,208,.25)}
+.step.on .lbl{color:#fff;font-weight:600}
+.step.jose.on .dot{background:var(--petr);box-shadow:0 0 0 6px rgba(63,111,123,.45)}
+.step::after{content:"";position:absolute;top:23px;left:calc(50% + 23px);width:calc(100% - 46px);height:2px;background:#2d5d68;z-index:1}
+.step:last-child::after{display:none}
+.step.done::after{background:var(--turq2)}
+.step.on::before{content:"";position:absolute;top:19px;left:calc(50% + 23px);width:10px;height:10px;border-radius:50%;background:var(--turq);z-index:3;animation:travel 2.6s linear infinite}
+.step:last-child::before{display:none}
+@keyframes travel{from{transform:translateX(0);opacity:1}to{transform:translateX(calc(100% + 60px));opacity:0}}
+.stage{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.say{background:#16404a;border-radius:14px;padding:16px}
+.say .k{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--turq);font-weight:600}
+.say h4{margin:4px 0 6px;font-size:18px}
+.say p{margin:0;color:#cfe3e5;font-size:14px}
+.ficha{background:#fff;color:var(--tinta);border-radius:14px;padding:14px;font-size:13px}
+.ficha .t{font-weight:600;color:var(--petr);font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.ficha .f{display:grid;grid-template-columns:105px 1fr;gap:6px;padding:4px 6px;border-radius:6px;opacity:.18;transition:all .5s}
+.ficha .f b{font-weight:500;color:var(--suave)}
+.ficha .f.show{opacity:1;background:#e6f7f7}
+.ficha .f.jose.show{background:#e8eef0}
+.ficha .f.flash{animation:flash 1s}
+@keyframes flash{0%{background:var(--turq)}100%{background:#e6f7f7}}
+.ficha .dup{margin-top:8px;font-size:12px;color:var(--turq2);font-weight:600;min-height:18px}
+.prog{height:4px;background:#1d4650;border-radius:4px;margin-top:16px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--turq)}
+.prog i.run{animation:fill var(--dur) linear forwards}
+@keyframes fill{to{width:100%}}
+@media (max-width:700px){
+  .steps{grid-template-columns:1fr;gap:6px}
+  .step{display:grid;grid-template-columns:46px 1fr;gap:12px;align-items:center;text-align:left}
+  .step .dot{margin:0}
+  .step .lbl{margin:0;font-size:14px}
+  .step::after{top:46px;left:22px;width:2px;height:6px}
+  .step.on::before{display:none}
+  .stage{grid-template-columns:1fr}
+}
+/* Night timeline */
+.night{background:linear-gradient(90deg,#0b1f24 0%,#102e35 60%,#3f6f7b 85%,#4dd2d0 100%);border-radius:18px;padding:22px 18px;color:#fff;margin:20px 0}
+.night h3{margin:0 0 4px;font-size:18px}
+.night .sub{color:#9fc3c7;font-size:13px;margin:0 0 18px}
+.track{position:relative;height:6px;background:rgba(255,255,255,.15);border-radius:6px;margin:34px 10px 10px}
+.track .moon{position:absolute;top:-17px;left:0;font-size:26px;transform:translateX(-50%);animation:sky 16s linear infinite}
+@keyframes sky{0%{left:0}100%{left:100%}}
+.marks{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:20px}
+.mark{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px;transition:all .5s}
+.mark .h{font-weight:700;color:var(--turq);font-size:15px}
+.mark .w{font-weight:600;margin:2px 0 4px;font-size:14px}
+.mark p{margin:0;font-size:12.5px;color:#cfe3e5;line-height:1.45}
+.mark.on{background:rgba(77,210,208,.18);border-color:var(--turq);transform:translateY(-4px)}
+@media (max-width:700px){.marks{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.track .moon{animation:none;left:50%}}
+@media (prefers-reduced-motion:reduce){.step.on::before,.prog i.run,.ficha .f.flash{animation:none}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <div class="kicker">Código AdrIA · FAAN · 6 de noviembre de 2026</div>
+  <h1>El Excel de José, explicado</h1>
+  <p>Qué hay dentro del archivo «base de datos FAANBI 261102 para IA», para qué lo usa José, qué está bien, qué está desordenado y qué vamos a hacer con él.</p>
+</div></header>
+
+<main class="wrap">
+
+<section>
+  <h2><span class="n">1</span>¿Qué es este archivo?</h2>
+  <p class="lead">Es la agenda de contactos de la empresa de José.</p>
+  <div class="card">
+    <p style="margin-top:0">José hace <b>comunicación</b>: escribe notas de prensa y las manda a gente que puede publicarlas o a la que le interesan. Para eso necesita una lista con <b>a quién escribir</b>: periodistas, cocineros, médicos, arquitectos…</p>
+    <p style="margin-bottom:0">Este Excel es esa lista. Funciona como la agenda del móvil, pero en vez de tener a todos mezclados los tiene <b>separados en carpetas por tema</b>. Cada carpeta es una pestaña del Excel, lo que en Excel se llama una <b>hoja</b>.</p>
+  </div>
+  <div class="idea"><b>Ojo:</b> José nos ha mandado una versión <b>recortada</b>. Están todas las carpetas pero solo una muestra de los contactos. La de verdad tiene «miles», según dice. Nos sirve para ver cómo está organizada, no para contar cuánta gente tiene.</div>
+</section>
+
+<section>
+  <h2><span class="n">2</span>Las 6 carpetas (hojas)</h2>
+  <p class="lead">José las llama «primer filtro»: la primera pregunta para colocar a alguien es <b>¿de qué mundo es?</b></p>
+  <div class="grid">
+    <div class="hoja"><span class="tab">Medios</span><div class="num">185 <small>contactos</small></div><p>Periodistas, directores de comunicación y gente del audiovisual. Es la hoja más grande y la más importante para mandar notas de prensa.</p></div>
+    <div class="hoja"><span class="tab">Chef</span><div class="num">157 <small>contactos</small></div><p>Cocineros, jefes de sala, restaurantes y hoteles. Lo que en el sector llaman <b>HORECA</b> (HOteles, REstaurantes, CAfeterías).</p></div>
+    <div class="hoja"><span class="tab">CABMA</span><div class="num">49 <small>contactos</small></div><p>Un cajón de sastre de empresas: arquitectura, construcción, joyerías, abogados, inmobiliarias, bancos… En la muestra, más de la mitad son de Murcia.</p></div>
+    <div class="hoja"><span class="tab">CESVIMAP</span><div class="num">4 <small>contactos</small></div><p>Expertos en investigar accidentes de tráfico y fuerzas de seguridad. CESVIMAP es un centro de investigación de MAPFRE.</p></div>
+    <div class="hoja"><span class="tab">Medicina</span><div class="num">6 <small>contactos</small></div><p>Médicos y profesionales de la salud: hospitales, gerentes, nutricionistas.</p></div>
+    <div class="hoja vacia"><span class="tab">Motor</span><div class="num">0 <small>contactos</small></div><p>Del fabricante de coches al taller. En esta muestra está <b>vacía</b>: solo tiene los títulos de las columnas.</p></div>
+  </div>
+  <p class="legend">Total en la muestra: 401 contactos.</p>
+</section>
+
+<section>
+  <h2><span class="n">3</span>Qué guarda de cada persona (las columnas)</h2>
+  <p class="lead">Todas las hojas tienen casi las mismas columnas. Cada fila es una persona o una empresa.</p>
+  <div class="scroll"><table>
+    <tr><th>Columna</th><th>Qué significa</th><th>Ejemplo real</th></tr>
+    <tr><td><b>Medio / Empresa</b></td><td>Dónde trabaja la persona. En Medios se llama «Medio» (el periódico o la agencia); en el resto, «Empresa».</td><td><code>EFE</code> · <code>Hospital Bellvitge</code></td></tr>
+    <tr><td><b>Nombre</b></td><td>Nombre de la persona de contacto.</td><td><code>Nombre Apellido</code></td></tr>
+    <tr><td><b>Mail</b></td><td>Su correo. Es lo más importante: es por donde le llega la nota de prensa.</td><td><code>nombre@medio.com</code></td></tr>
+    <tr><td><b>Comunidad</b></td><td>Zona geográfica: una comunidad autónoma, «Nacional» si cubre toda España o un país.</td><td><code>Nacional</code> · <code>Murcia</code> · <code>Francia</code></td></tr>
+    <tr><td><b>General</b></td><td>El <b>segundo filtro</b>: el tema concreto dentro de la carpeta. Un periodista de Medios puede ser de «Salud», «Deporte», «Cine»…</td><td><code>Agencia / Salud</code> · <code>3 Estrellas Michelin</code></td></tr>
+    <tr><td><b>Teléfono</b></td><td>Teléfono, cuando lo tiene.</td><td><code>+34 600 00 00 00</code></td></tr>
+    <tr><td><b>Columna1…4</b></td><td>Columnas que José ha ido usando sin ponerles nombre: fechas, webs, enlaces de LinkedIn…</td><td><code>linkedin.com/in/…</code></td></tr>
+    <tr><td><b>Fecha envío</b></td><td>Cuándo le mandó la última nota de prensa.</td><td><code>23-sep-2026</code></td></tr>
+  </table></div>
+
+  <div class="card">
+    <p style="margin-top:0"><b>Así se lee una fila completa</b> (hoja Medios, ejemplo):</p>
+    <div class="fila">
+      <div class="celda"><div class="k">Medio</div><div class="v">EFE</div></div>
+      <div class="celda"><div class="k">Nombre</div><div class="v">Ana P. (ejemplo)</div></div>
+      <div class="celda"><div class="k">Mail</div><div class="v">ana@…</div></div>
+      <div class="celda"><div class="k">Comunidad</div><div class="v">Nacional</div></div>
+      <div class="celda"><div class="k">General</div><div class="v">Agencia / Salud</div></div>
+      <div class="celda"><div class="k">Teléfono</div><div class="v">6xx xx…</div></div>
+    </div>
+    <p style="margin-bottom:0">En palabras: <i>«Ana trabaja en la agencia EFE, cubre noticias de salud para toda España y le escribo a este correo»</i>. Si José tiene una nota sobre un hospital, la busca filtrando Medios → General contiene «Salud».</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">4</span>¿Qué tan completa está cada carpeta?</h2>
+  <p class="lead">Porcentaje de filas que tienen ese dato relleno. Cuanto más larga la barra, mejor. En rojo, las que están por debajo de la mitad.</p>
+
+  <div class="card bars">
+    <p style="margin:0 0 6px"><b>Correo electrónico</b>: sin correo no se puede mandar la nota.</p>
+    <div class="row"><span>Medios</span><div class="bar"><i style="width:97%"></i></div><span>97 %</span></div>
+    <div class="row"><span>Medicina</span><div class="bar"><i style="width:100%"></i></div><span>100 %</span></div>
+    <div class="row"><span>CABMA</span><div class="bar"><i style="width:83%"></i></div><span>83 %</span></div>
+    <div class="row"><span>CESVIMAP</span><div class="bar"><i class="bajo" style="width:25%"></i></div><span>25 %</span></div>
+    <div class="row"><span>Chef</span><div class="bar"><i class="bajo" style="width:21%"></i></div><span>21 %</span></div>
+  </div>
+
+  <div class="card bars">
+    <p style="margin:0 0 6px"><b>Teléfono</b></p>
+    <div class="row"><span>Chef</span><div class="bar"><i style="width:67%"></i></div><span>67 %</span></div>
+    <div class="row"><span>CABMA</span><div class="bar"><i style="width:63%"></i></div><span>63 %</span></div>
+    <div class="row"><span>Medicina</span><div class="bar"><i class="bajo" style="width:33%"></i></div><span>33 %</span></div>
+    <div class="row"><span>Medios</span><div class="bar"><i class="bajo" style="width:24%"></i></div><span>24 %</span></div>
+    <div class="row"><span>CESVIMAP</span><div class="bar"><i class="bajo" style="width:0%"></i></div><span>0 %</span></div>
+  </div>
+
+  <div class="card bars">
+    <p style="margin:0 0 6px"><b>Perfil de LinkedIn</b>: lo que más nos importa a nosotros (ver punto 6).</p>
+    <div class="row"><span>CESVIMAP</span><div class="bar"><i class="bajo" style="width:50%"></i></div><span>2 de 4</span></div>
+    <div class="row"><span>CABMA</span><div class="bar"><i class="bajo" style="width:8%"></i></div><span>4 de 49</span></div>
+    <div class="row"><span>Medios</span><div class="bar"><i class="bajo" style="width:0%"></i></div><span>0</span></div>
+    <div class="row"><span>Chef</span><div class="bar"><i class="bajo" style="width:0%"></i></div><span>0</span></div>
+    <div class="row"><span>Medicina</span><div class="bar"><i class="bajo" style="width:0%"></i></div><span>0</span></div>
+  </div>
+
+  <div class="idea"><b>Lo que se ve:</b> en <b>Medios</b> José escribe por correo, porque casi todos lo tienen. En <b>Chef</b> llama por teléfono, porque solo 1 de cada 5 tiene correo. Y <b>casi nadie tiene LinkedIn apuntado</b>: 6 de 401.</div>
+</section>
+
+<section>
+  <h2><span class="n">5</span>Lo que está desordenado</h2>
+  <p class="lead">No son errores graves: es lo normal en una lista que una persona lleva a mano durante años. Pero hay que arreglarlo antes de meter contactos de forma automática.</p>
+
+  <div class="problema"><div class="ico">1</div><div>
+    <h3>El tema («General») se escribe cada vez de una forma</h3>
+    <p>En Medios hay <b>95 temas distintos para 185 personas</b>. Algunos dicen lo mismo con otras palabras:</p>
+    <p class="tags"><span>Deporte</span><span>Agencia deportes</span><span>Agencia / Deportes</span><span>Baloncesto</span></p>
+    <p>Es como si en clase unos apuntaran «Mates», otros «Matemáticas» y otros «Mate»: al buscar una, no salen las otras. En Chef, además, 48 filas tienen el tema en blanco, y en la misma columna se mezclan tres cosas distintas:</p>
+    <p class="tags"><span>Chef · Consultor · Vino · JdS</span> = la categoría de verdad</p>
+    <p class="tags"><span>Chef 8 · Chef 9</span> = una marca de José: «tanda 8», «tanda 9»</p>
+    <p class="tags"><span>2024</span> = participó en el concurso de ese año</p>
+    <p>José lo explicó en la reunión del 3-nov: el número detrás de «Chef» lo pone él «para saber dónde llego con los filtros». Es como un marcapáginas. Con la automatización no hará falta, porque el sistema apunta la fecha en que entra cada contacto.</p>
+    <p class="sol">→ Hace falta una <b>lista cerrada de temas por carpeta</b> y sacar a columnas propias lo que no es tema: la tanda (o mejor, la fecha de alta) y el año del concurso.</p>
+  </div></div>
+
+  <div class="problema"><div class="ico">2</div><div>
+    <h3>Hay columnas sin nombre</h3>
+    <p>«Columna1», «Columna2»… En Medios, «Columna1» guarda la fecha de envío; en las demás hojas esa fecha va en una columna llamada «Fecha envío». En CABMA, «Columna1» guarda unas veces una web y otras un enlace de LinkedIn.</p>
+    <p class="sol">→ Darle nombre a cada columna y usar el mismo en todas las hojas.</p>
+  </div></div>
+
+  <div class="problema"><div class="ico">3</div><div>
+    <h3>Datos en la casilla equivocada</h3>
+    <div class="fila" style="margin:8px 0">
+      <div class="celda"><div class="k">Medio</div><div class="v">Café Real</div></div>
+      <div class="celda ojo"><div class="k">Nombre</div><div class="v">Salamanca</div></div>
+      <div class="celda"><div class="k">Comunidad</div><div class="v">CyL</div></div>
+    </div>
+    <p>En Chef, la columna «Nombre» lleva a veces una ciudad («Salamanca»), un tipo de cocina («Tradicional», «Braserío») o «Casera». Y en «Comunidad» conviven <span class="tags"><span>CyL</span><span>CyL Valladolid</span><span>CyL Ávila</span></span>, que deberían ser la misma comunidad con la ciudad aparte.</p>
+    <p class="sol">→ Separar comunidad y ciudad en dos columnas.</p>
+  </div></div>
+
+  <div class="problema"><div class="ico">4</div><div>
+    <h3>Muchos correos personales</h3>
+    <p>De 180 correos de Medios, <b>124 son Gmail o Hotmail</b>, no del periódico. Está bien (un periodista cambia de medio y conserva su Gmail), pero hay que tenerlo en cuenta para no meter a la misma persona dos veces y para la ley de protección de datos.</p>
+  </div></div>
+
+  <div class="problema"><div class="ico">5</div><div>
+    <h3>El archivo pesa 130 MB y no por los contactos</h3>
+    <p>Los datos ocupan menos de 1 MB. El resto son <b>23 fotos en 4K</b> pegadas muy a la derecha (de la columna AE en adelante), donde no se ven, y repetidas en cada hoja. Por eso lo tuvo que mandar por WeTransfer.</p>
+    <p class="sol">→ Si las borra, el Excel cabe en un correo normal.</p>
+  </div></div>
+</section>
+
+<section>
+  <h2><span class="n">6</span>¿Y qué hacemos nosotros con esto?</h2>
+  <p class="lead">Lo que José ha contratado (fase 1).</p>
+  <ol class="pasos">
+    <li><b>WaLead manda invitaciones en LinkedIn</b> a perfiles del tipo que le interesa a José (periodistas, chefs, médicos…). WaLead es una herramienta que automatiza esas invitaciones.</li>
+    <li><b>Recogemos a quien acepta</b>: nombre, empresa, cargo y enlace de su perfil.</li>
+    <li><b>Lo clasificamos y lo metemos en este Excel</b>, en la carpeta correcta (primer filtro) y con su tema (segundo filtro), igual que lo haría José a mano.</li>
+  </ol>
+  <div class="flow" id="flow">
+    <div class="flow-top">
+      <h3>Así viaja un contacto de LinkedIn al Excel</h3>
+      <button type="button" id="flowBtn">Pausa</button>
+    </div>
+    <div class="steps" id="steps">
+      <div class="step" data-i="0"><div class="dot">🔎</div><div class="lbl">WaLead busca e invita</div></div>
+      <div class="step" data-i="1"><div class="dot">🤝</div><div class="lbl">La persona acepta</div></div>
+      <div class="step" data-i="2"><div class="dot">📥</div><div class="lbl">«Revisa LinkedIn»</div></div>
+      <div class="step" data-i="3"><div class="dot">🏷️</div><div class="lbl">Clasifica</div></div>
+      <div class="step" data-i="4"><div class="dot">🧹</div><div class="lbl">¿Ya lo tengo?</div></div>
+      <div class="step" data-i="5"><div class="dot">📊</div><div class="lbl">Fila nueva en la hoja</div></div>
+      <div class="step jose" data-i="6"><div class="dot">👤</div><div class="lbl">José repasa</div></div>
+    </div>
+    <div class="stage">
+      <div class="say"><div class="k" id="sayK">Paso 1 de 7</div><h4 id="sayH"></h4><p id="sayP"></p></div>
+      <div class="ficha">
+        <div class="t">La ficha del contacto</div>
+        <div class="f" data-f="nombre"><b>Nombre</b><span>Laura G. (ejemplo)</span></div>
+        <div class="f" data-f="cargo"><b>Cargo LinkedIn</b><span>Redactora de gastronomía</span></div>
+        <div class="f" data-f="empresa"><b>Empresa / Medio</b><span>Un diario de Valladolid</span></div>
+        <div class="f" data-f="contacto"><b>Email · Tel.</b><span>si los tiene públicos</span></div>
+        <div class="f" data-f="zona"><b>Zona</b><span>Valladolid · CyL · España</span></div>
+        <div class="f" data-f="premios"><b>Premios</b><span>Premio de periodismo gastronómico 2024 (ejemplo)</span></div>
+        <div class="f" data-f="hoja"><b>Hoja</b><span>Medios</span></div>
+        <div class="f" data-f="perfil"><b>Perfil · Tema</b><span>Periodista · Gastro</span></div>
+        <div class="f" data-f="alta"><b>Fecha alta · Origen</b><span>hoy · WaLead</span></div>
+        <div class="f jose" data-f="jose"><b>Ámbito · Notas</b><span>Regional · «le gustan las bravas»</span></div>
+        <div class="dup" id="dup"></div>
+      </div>
+    </div>
+    <div class="prog"><i id="prog"></i></div>
+  </div>
+
+  <div class="idea"><b>Por eso importa el punto 5.</b> Si los temas no son una lista cerrada, la IA no sabe en qué casilla meter a cada persona y acabaríamos añadiendo un tema nuevo por cada contacto. Y como hoy no hay una columna de LinkedIn, no tendríamos dónde apuntar el perfil.</div>
+
+  </section>
+
+<section>
+  <h2><span class="n">7</span>La automatización nocturna</h2>
+  <p class="lead">La fuente es <b>LinkedIn</b>, no WaLead. Volcamos <b>todos</b> los contactos de José y cada noche añadimos los nuevos, vengan de la campaña de WaLead o de que alguien le haya conectado por su cuenta.</p>
+
+  <div class="card">
+    <p style="margin-top:0"><b>Una sola vez: la carga inicial</b></p>
+    <ol style="margin:0;padding-left:20px">
+      <li>José pide a LinkedIn <b>«Obtener una copia de tus datos» → Contactos</b>. Es la exportación oficial: en unos minutos le llega un archivo con todos sus contactos (nombre, enlace al perfil, empresa, cargo y fecha de conexión). Así no hay que entrar en miles de perfiles uno a uno, que es lo que haría saltar las alarmas de LinkedIn.</li>
+      <li>Clasificamos todos con la tabla de equivalencias, cruzamos con su Excel actual para no repetir a nadie y lo volcamos a la hoja nueva.</li>
+      <li>El email solo viene en esa exportación si el contacto lo permite. A los que no lo traen se les completa <b>poco a poco, unos 30 por noche</b>, entrando en su ficha de contacto.</li>
+    </ol>
+  </div>
+
+  <div class="night">
+    <h3>Cada noche, en el ordenador de José</h3>
+    <p class="sub">Tiene que ser su ordenador: la sesión de LinkedIn es la suya y LinkedIn desconfía de los accesos desde servidores. La instalación la hacemos nosotros por escritorio remoto.</p>
+    <div class="track"><span class="moon" aria-hidden="true">🌙</span></div>
+    <div class="marks" id="marks">
+      <div class="mark"><div class="h">23:00</div><div class="w">Se despierta</div><p>Una tarea programada abre Claude y su Chrome, donde ya tiene LinkedIn abierto.</p></div>
+      <div class="mark"><div class="h">23:05</div><div class="w">Los nuevos</div><p>Lee «Mis contactos → Añadidos recientemente» desde la última pasada y entra en la ficha de cada uno (contacto y premios), a ritmo de persona.</p></div>
+      <div class="mark"><div class="h">23:30</div><div class="w">Completa emails</div><p>Con el tiempo que sobra, rellena unos 30 emails pendientes de la carga inicial.</p></div>
+      <div class="mark"><div class="h">23:50</div><div class="w">A la hoja</div><p>Clasifica, quita duplicados y escribe en Google Sheets. Aunque José la tenga abierta, no se pisa nada.</p></div>
+      <div class="mark"><div class="h">08:00</div><div class="w">Aviso</div><p>«5 contactos nuevos: 3 Medios, 2 Chef. 1 sin clasificar, revísalo.»</p></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="hoja" style="border-top:5px solid var(--turq2)"><span class="tab" style="background:var(--turq2)">Por qué Google Sheets</span><p style="color:var(--tinta)">La automatización escribe mientras José tiene la hoja abierta, y cada uno ve los cambios del otro. Con un Excel en el ordenador, si los dos escriben a la vez se pierden filas (nos pasó en la prueba). Cuando quiera, se descarga como Excel.</p><p style="color:var(--turq2);font-weight:600">✓ Probado el 6-nov: cargamos los 401 contactos en Google Sheets y, con la hoja abierta, se añadieron 4 contactos reales de LinkedIn. Aparecieron solos, sin recargar, y una segunda pasada no repitió a nadie.</p></div>
+    <div class="hoja" style="border-top:5px solid var(--petr)"><span class="tab">Lo que necesita José</span><p style="color:var(--tinta)">El ordenador enchufado y sin apagar por la noche, Chrome con LinkedIn abierto y el plan básico de Claude. Si una noche está apagado, la siguiente recupera desde la última pasada.</p></div>
+    <div class="hoja" style="border-top:5px solid var(--turq)"><span class="tab" style="background:var(--turq);color:var(--verde)">Ritmo seguro</span><p style="color:var(--tinta)">Solo leer, nunca escribir ni invitar desde esta tarea. Pausas de persona entre perfiles y un tope de fichas por noche.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">8</span>Lo que necesitamos de José para arrancar</h2>
+  <ol class="pasos">
+    <li><b>La lista cerrada de temas de cada carpeta</b>, y qué tipo de perfil va a cada una (Medios, Chef, CABMA, CESVIMAP, Medicina, Motor).</li>
+    <li><b>El Excel limpio</b>: sin las fotos, sin los números en las categorías, con la tanda y el año del concurso en columnas propias y los mismos nombres de columna en todas las hojas. La propuesta del apartado 9 sirve de guía.</li>
+    <li><b>La copia de sus contactos de LinkedIn</b>: Ajustes → Privacidad de datos → Obtener una copia de tus datos → Contactos.</li>
+    <li><b>Su cuenta de Claude y la de WaLead</b>, creadas a su nombre.</li>
+    <li><b>Los accesos de WaLead, Claude y LinkedIn</b>, por el buzón seguro: <a href="https://www.codigoadria.com/buzon-claves/">codigoadria.com/buzon-claves</a>.</li>
+  </ol>
+</section>
+
+<section>
+  <h2><span class="n">9</span>La propuesta: una columna para cada dato</h2>
+  <p class="lead">Hemos hecho una copia del Excel de José con las columnas reordenadas, para que vea cómo quedaría.</p>
+  <div class="card">
+    <p style="margin-top:0">La regla es sencilla: <b>en cada casilla, un solo dato</b>. Si «Chef 8» lleva dos datos (qué es y en qué tanda va), se parte en dos columnas. Y cada columna lleva un color que dice <b>quién la rellena</b>:</p>
+    <div class="fila" style="margin:14px 0">
+      <div class="celda" style="background:#4dd2d0;border-color:#4dd2d0"><div class="k" style="color:#102e35">Turquesa · Automático</div><div class="v">La rellena el sistema cuando recoge el contacto de LinkedIn.</div></div>
+      <div class="celda" style="background:#3f6f7b;border-color:#3f6f7b;color:#fff"><div class="k" style="color:#fff">Petróleo · José</div><div class="v">Solo las sabe o decide él. El sistema no las toca.</div></div>
+      <div class="celda" style="background:#e3e8e9"><div class="k">Gris · Antes</div><div class="v">El valor original, para comprobar el reparto. Se borran después.</div></div>
+    </div>
+  </div>
+  <div class="scroll"><table>
+    <tr><th>Columna</th><th>Quién</th><th>Qué guarda</th></tr>
+    <tr><td>ID</td><td style="color:#0e9c99"><b>Automático</b></td><td>Número único de cada contacto.</td></tr>
+    <tr><td>Fecha alta</td><td style="color:#0e9c99"><b>Automático</b></td><td>Día en que entró en la base. Hace el trabajo de la tanda.</td></tr>
+    <tr><td>Origen</td><td style="color:#0e9c99"><b>Automático</b></td><td>WaLead, Excel de José o Manual (desplegable).</td></tr>
+    <tr><td>Nombre</td><td style="color:#0e9c99"><b>Automático</b></td><td>Nombre y apellidos.</td></tr>
+    <tr><td>Cargo en LinkedIn</td><td style="color:#0e9c99"><b>Automático</b></td><td>Lo que pone en su perfil, tal cual.</td></tr>
+    <tr><td>Empresa / Medio</td><td style="color:#0e9c99"><b>Automático</b></td><td>Dónde trabaja.</td></tr>
+    <tr><td>Email · Teléfono</td><td style="color:#0e9c99"><b>Automático</b></td><td>Cómo contactarle.</td></tr>
+    <tr><td>Ciudad · Provincia · Comunidad · País</td><td style="color:#0e9c99"><b>Automático</b></td><td>Dónde está, cada cosa en su columna (antes iba todo junto: «CyL Valladolid»).</td></tr>
+    <tr><td>LinkedIn · Web</td><td style="color:#0e9c99"><b>Automático</b></td><td>Enlace a su perfil y a la web de la empresa.</td></tr>
+    <tr><td>Perfil</td><td style="color:#0e9c99"><b>Automático</b></td><td>Qué es: Agencia, Periodista, Chef, JdS, Consultor… La IA lo deduce del cargo con la <b>tabla de equivalencias</b>. Si José lo corrige, manda lo suyo.</td></tr>
+    <tr><td>Tema / Sector</td><td style="color:#0e9c99"><b>Automático</b></td><td>De qué escribe o en qué sector está: Salud, Deporte, Joyería…</td></tr>
+    <tr><td>Premios / Distinciones</td><td style="color:#0e9c99"><b>Automático</b></td><td>Lo que pone en «Reconocimientos y premios» de su LinkedIn, más lo que añada José (estrellas Michelin, «Bravas top»…). El sistema solo escribe si la casilla está vacía: lo de José no se pisa.</td></tr>
+    <tr><td>Ámbito</td><td style="color:#3f6f7b"><b>José</b></td><td>Para medios: Nacional, Regional, Local o Internacional.</td></tr>
+    <tr><td>Especialidad</td><td style="color:#3f6f7b"><b>José</b></td><td>Tipo de cocina (Tradicional, Brasa…). Antes estaba metido en «Nombre».</td></tr>
+    <tr><td>Concurso</td><td style="color:#3f6f7b"><b>José</b></td><td>Año en que participó (2023, 2024…).</td></tr>
+    <tr><td>Tanda</td><td style="color:#3f6f7b"><b>José</b></td><td>Su marca «hasta dónde he llegado». Antes era el 8 de «Chef 8».</td></tr>
+    <tr><td>Último envío</td><td style="color:#3f6f7b"><b>José</b></td><td>Fecha de la última nota que le mandó (antes «Fecha envío» o «Columna1»).</td></tr>
+    <tr><td>Estado</td><td style="color:#3f6f7b"><b>José</b></td><td>Activo, Baja o No enviar (desplegable).</td></tr>
+    <tr><td>Notas</td><td style="color:#3f6f7b"><b>José</b></td><td>Lo que quiera apuntar.</td></tr>
+  </table></div>
+  <div class="card">
+    <p style="margin-top:0"><b>Ejemplo: así queda la fila de «Cal Bonavida»</b> (hoja Chef)</p>
+    <div class="fila">
+      <div class="celda ojo"><div class="k">Antes · Nombre</div><div class="v">Casera</div></div>
+      <div class="celda ojo"><div class="k">Antes · General</div><div class="v">Chef 8</div></div>
+    </div>
+    <p style="margin:10px 0 6px;text-align:center;color:#0e9c99;font-weight:600">↓ se parte en ↓</p>
+    <div class="fila">
+      <div class="celda" style="background:#e6f7f7"><div class="k">Perfil</div><div class="v">Chef</div></div>
+      <div class="celda" style="background:#e8eef0"><div class="k">Especialidad</div><div class="v">Casera</div></div>
+      <div class="celda" style="background:#e8eef0"><div class="k">Tanda</div><div class="v">8</div></div>
+      <div class="celda" style="background:#e8eef0"><div class="k">Último envío</div><div class="v">26/08/2026</div></div>
+    </div>
+  </div>
+  <div class="idea"><b>Qué trae además la copia:</b> los 401 contactos ya repartidos en las columnas nuevas, sin perder ningún dato (lo hemos comprobado valor a valor). Las fotos no se han copiado, así que pasa de 130 MB a 69 KB. Tiene una hoja <b>Leyenda</b> que explica cada columna y una hoja <b>Equivalencias</b> con los primeros ejemplos de la reunión («chef ejecutivo» → Chef, «interiorista y fundadora» → Interiorista).</div>
+</section>
+
+<section style="border-bottom:0">
+  <h2><span class="n">10</span>Mini diccionario</h2>
+  <div class="card"><dl>
+    <dt>Hoja</dt><dd>Cada pestaña de abajo del Excel. Aquí, una por sector.</dd>
+    <dt>Nota de prensa</dt><dd>Texto corto que una empresa manda a los periodistas para que publiquen una noticia sobre ella.</dd>
+    <dt>HORECA</dt><dd>Hoteles, restaurantes y cafeterías.</dd>
+    <dt>CABMA</dt><dd>Nombre de José para una carpeta de empresas variadas (arquitectura, construcción, joyería…).</dd>
+    <dt>CESVIMAP</dt><dd>Centro de investigación de MAPFRE sobre seguridad vial y reparación de vehículos.</dd>
+    <dt>FFCCS</dt><dd>Fuerzas y Cuerpos de Seguridad: Policía, Guardia Civil…</dd>
+    <dt>WaLead</dt><dd>Herramienta que manda invitaciones de LinkedIn de forma automática y recoge los datos de quien acepta.</dd>
+    <dt>Lista cerrada</dt><dd>Un desplegable con opciones fijas, en vez de dejar que cada uno escriba lo que quiera.</dd>
+  </dl></div>
+</section>
+
+</main>
+<script>
+(function () {
+  const STEPS = [
+    {h: "WaLead busca e invita", p: "Le decimos qué perfil buscar, por ejemplo «periodistas de gastronomía de Valladolid», y WaLead manda la invitación en LinkedIn. Lo hace a ritmo de persona y dentro del límite semanal, para que LinkedIn no bloquee el perfil de José.", show: []},
+    {h: "La persona acepta", p: "Laura acepta la invitación. A partir de ahí es contacto de José y podemos ver los datos de su perfil.", show: ["nombre"]},
+    {h: "«Revisa LinkedIn»", p: "Cada pocos días, la skill de Claude repasa quién ha aceptado y copia sus datos: nombre, cargo, empresa, correo y teléfono si son públicos, dónde está y los premios de su perfil. Es lo que José hacía a mano cada dos días.", show: ["nombre", "cargo", "empresa", "contacto", "zona", "premios"]},
+    {h: "Clasifica con la tabla de equivalencias", p: "Su cargo dice «Redactora de gastronomía». La tabla de equivalencias lo traduce a las categorías de José: hoja Medios, perfil Periodista, tema Gastro. Así no salen cientos de temas distintos.", show: ["nombre", "cargo", "empresa", "contacto", "zona", "premios", "hoja", "perfil"]},
+    {h: "¿Ya lo tengo?", p: "Antes de escribir, busca su correo y su LinkedIn en la hoja. Si ya estaba, no la repite: como mucho, completa lo que faltaba.", show: ["nombre", "cargo", "empresa", "contacto", "zona", "premios", "hoja", "perfil"], dup: "✓ No está en la base. Es nueva."},
+    {h: "Fila nueva en la hoja", p: "Se añade una fila en la hoja Medios con las columnas turquesa rellenas, la fecha de alta de hoy y el origen «WaLead». Las columnas de José se quedan vacías para él.", show: ["nombre", "cargo", "empresa", "contacto", "zona", "premios", "hoja", "perfil", "alta"], dup: "✓ Guardada en Medios."},
+    {h: "José repasa", p: "Le llega un aviso: «3 contactos nuevos esta semana». Si quiere, corrige el perfil o el tema y rellena sus columnas (petróleo): ámbito, notas… y añade premios que LinkedIn no tenga. Lo que José cambia, manda.", show: ["nombre", "cargo", "empresa", "contacto", "zona", "premios", "hoja", "perfil", "alta", "jose"], dup: "✓ Lista para la próxima nota de prensa."}
+  ];
+  const DUR = 4200;
+  const steps = [...document.querySelectorAll("#steps .step")];
+  const fields = [...document.querySelectorAll(".ficha .f")];
+  const sayK = document.getElementById("sayK"), sayH = document.getElementById("sayH"), sayP = document.getElementById("sayP");
+  const dup = document.getElementById("dup"), prog = document.getElementById("prog"), btn = document.getElementById("flowBtn");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let i = 0, timer = null, playing = !reduce;
+  prog.style.setProperty("--dur", DUR + "ms");
+
+  function render(n) {
+    i = n;
+    const s = STEPS[n];
+    steps.forEach((el, k) => { el.classList.toggle("on", k === n); el.classList.toggle("done", k < n); });
+    const prev = n > 0 ? STEPS[n - 1].show : [];
+    fields.forEach(f => {
+      const key = f.dataset.f, on = s.show.includes(key);
+      f.classList.toggle("show", on);
+      f.classList.remove("flash");
+      if (on && !prev.includes(key) && !reduce) { void f.offsetWidth; f.classList.add("flash"); }
+    });
+    sayK.textContent = "Paso " + (n + 1) + " de " + STEPS.length;
+    sayH.textContent = s.h; sayP.textContent = s.p; dup.textContent = s.dup || "";
+    prog.classList.remove("run"); void prog.offsetWidth;
+    if (playing) prog.classList.add("run");
+  }
+  function schedule() { clearTimeout(timer); if (playing) timer = setTimeout(() => render((i + 1) % STEPS.length) || schedule(), DUR); }
+  btn.addEventListener("click", () => {
+    playing = !playing; btn.textContent = playing ? "Pausa" : "Reproducir";
+    if (playing) { render(i); schedule(); } else { clearTimeout(timer); prog.classList.remove("run"); }
+  });
+  steps.forEach(el => el.addEventListener("click", () => { render(+el.dataset.i); schedule(); }));
+  btn.textContent = playing ? "Pausa" : "Reproducir";
+  render(0); schedule();
+})();
+(function () {
+  // Light up each night checkpoint as the moon passes it (16 s loop, 5 marks)
+  const marks = [...document.querySelectorAll("#marks .mark")];
+  if (!marks.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const LOOP = 16000, t0 = performance.now();
+  (function tick(now) {
+    const k = Math.min(marks.length - 1, Math.floor(((now - t0) % LOOP) / LOOP * marks.length));
+    marks.forEach((m, j) => m.classList.toggle("on", j === k));
+    requestAnimationFrame(tick);
+  })(t0);
+})();
+</script>
+<footer>Código AdrIA · Análisis de la muestra recibida el 5-nov-2026 (401 contactos en 6 hojas).</footer>
+</body>
+</html>
