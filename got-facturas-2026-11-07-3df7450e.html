@@ -1,0 +1,158 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GOT · El flujo de facturas y cómo conectarlo</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="GOT · El flujo de facturas y cómo conectarlo · Código AdrIA">
+<meta property="og:description" content="Así se archivan las facturas y esto es lo que necesitamos para conectar el correo y las carpetas.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/got-facturas-2026-11-07-3df7450e.html">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GOT · El flujo de facturas y cómo conectarlo · Código AdrIA">
+<meta name="twitter:description" content="Así se archivan las facturas y esto es lo que necesitamos para conectar el correo y las carpetas.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Así se archivan las facturas y esto es lo que necesitamos para conectar el correo y las carpetas."><link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico"><style>
+:root{--ink:#192e34;--muted:#53666b;--line:#dbe4e4;--paper:#f5f7f5;--turquoise:#4dd2d0;--red:#b5112c;--green:#246c4c}*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink);line-height:1.55}a{color:#155d65;text-underline-offset:4px}button,a{touch-action:manipulation}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #ac2643;outline-offset:4px}button{cursor:pointer;font:inherit}header{background:#102e35;color:white;padding:22px 5vw;display:flex;justify-content:space-between;align-items:center;gap:20px}header img{width:145px;display:block}header .got{border-left:1px solid #51686c;padding-left:20px;font-weight:700;letter-spacing:.05em}.header-brands{display:flex;align-items:center;gap:20px}header .private{font-size:12px;color:#c5d9d8}.wrap{max-width:1160px;margin:auto;padding:0 32px}.hero{display:grid;grid-template-columns:1.35fr 1fr;gap:50px;padding-top:60px;padding-bottom:42px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.15em;font-weight:750;color:#496268;margin:0 0 18px}h1{font-size:clamp(40px,5vw,65px);letter-spacing:-.06em;line-height:1.03;margin:0 0 24px;max-width:670px}h1 em{font-style:normal;color:#16727a}.lead{font-size:19px;max-width:570px;color:var(--muted);margin:0}.badge{display:inline-block;font-size:12px;background:#e0edeb;color:#255d56;padding:7px 12px;border-radius:99px;margin-top:24px}.proof{align-self:center;background:white;border:1px solid var(--line);border-radius:20px;padding:25px 28px;box-shadow:0 10px 30px #172d3406}.proof h2{font-size:15px;margin:0 0 19px}.metric{display:flex;align-items:center;gap:20px;border-bottom:1px solid var(--line);padding:14px 0}.metric:last-child{border:0;padding-bottom:0}.metric strong{font-size:37px;letter-spacing:-.06em;width:45px;color:#116c72}.metric span{display:block;color:var(--muted);font-size:13px}.metric b{display:block;font-size:15px}.nav{display:flex;gap:26px;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:15px 0;font-size:14px}.nav a{text-decoration:none;font-weight:650}section{padding:46px 0}h2{font-size:29px;letter-spacing:-.035em;margin:0 0 10px}section>p{color:var(--muted);max-width:730px;margin-top:0}.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:25px 0}.step{text-align:left;padding:17px 13px;background:white;color:var(--ink);border:1px solid var(--line);border-radius:12px;min-height:112px}.step small{display:block;color:var(--muted);font-size:11px;margin-bottom:8px}.step b{display:block;font-size:14px}.step.active{background:#15383f;color:white;border-color:#15383f}.step.active small{color:#78dedd}.explain{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;padding:28px;background:white;border:1px solid var(--line);border-radius:16px;min-height:240px}.explain h3{margin:4px 0 12px;font-size:23px;letter-spacing:-.025em}.explain p{color:var(--muted);margin-top:0}.example{background:#f2f6f5;border-radius:12px;padding:20px;overflow-wrap:anywhere}.example label{font-size:12px;color:var(--muted);font-weight:650}.example select{width:100%;margin:7px 0 14px;padding:9px;background:white;border:1px solid #b7c9c7;border-radius:6px;font:inherit;color:var(--ink)}#example-output{font-family:ui-monospace,SFMono-Regular,monospace;font-size:13px;white-space:pre-wrap}.controls{display:flex;gap:10px;align-items:center;margin-top:18px}.controls button{padding:10px 17px;border:1px solid #b6cdcb;background:white;border-radius:8px;color:var(--ink)}.controls .primary{background:var(--ink);color:white;border-color:var(--ink)}.controls button:disabled{opacity:.4;cursor:default}.controls span{font-size:12px;margin-left:auto;color:var(--muted)}.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:25px}.case{background:white;border:1px solid var(--line);border-radius:15px;padding:23px;display:flex;flex-direction:column}.case-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.pill{border-radius:6px;padding:4px 8px;background:#e7f2ea;color:#315f43;font-size:11px;font-weight:750}.pill.credit{background:#fce9e9;color:#9b2639}.amount{font-weight:700;font-variant-numeric:tabular-nums}.case h3{font-size:22px;margin:20px 0 4px;letter-spacing:-.03em}.case .muted{font-size:12px;color:var(--muted);margin:0 0 14px}.case p{font-size:14px}.file-path{background:var(--paper);font-family:ui-monospace,SFMono-Regular,monospace;font-size:12px;padding:13px;border-radius:8px;overflow-wrap:anywhere;margin-top:auto}.case-actions{display:flex;flex-direction:column;gap:8px;margin-top:18px;font-size:12px}.checks{display:grid;grid-template-columns:1fr 1fr;gap:20px}.check{padding:26px;border:1px solid var(--line);border-radius:15px;background:white}.check h3{margin-top:0;font-size:19px}.check ul{padding-left:20px;color:var(--muted);font-size:14px}.check li{margin:10px 0}.handoff{background:#15383f;border-radius:20px;padding:32px;color:white;display:grid;grid-template-columns:1fr 1fr;gap:30px}.handoff h2{font-size:27px}.handoff p,.handoff li{color:#c9deda;font-size:14px}.handoff a{color:#81e1dc}.downloads{display:grid;gap:10px;align-content:center}.download{display:block;background:#25474c;border:1px solid #47666a;border-radius:8px;padding:13px 16px;text-decoration:none;font-size:14px}.download strong{display:block;color:white}.download small{color:#b9d6d2}.evidence{font-size:12px;color:var(--muted);margin:20px 0 0}.scope{font-size:13px;color:var(--muted);border-left:3px solid #b5cdca;padding:4px 0 4px 16px;margin:25px 0 0}.ca-foot{margin-top:30px}@media(max-width:800px){header{padding:18px 24px}header .private{display:none}.hero{grid-template-columns:1fr;gap:28px;padding-top:35px}.cases{grid-template-columns:1fr}.flow{grid-template-columns:repeat(5,minmax(110px,1fr));overflow:auto;padding-bottom:8px}.explain,.checks,.handoff{grid-template-columns:1fr}.wrap{padding:0 20px}h1{font-size:45px}.proof{padding:20px}.metric{padding:9px 0}.metric strong{font-size:29px}.header-brands{gap:12px}header img{width:120px}header .got{padding-left:12px;font-size:14px}.controls span{display:none}.nav{gap:18px}.explain{padding:20px}}@media print{header,.nav,.controls,.downloads,.ca-foot{display:none}.hero{padding-top:0}.flow{display:none}.wrap{padding:0}.cases{grid-template-columns:repeat(3,1fr)}.case{break-inside:avoid}.handoff{background:white;color:#192e34}.handoff p{color:#53666b}}
+</style><style>header img{background:white;padding:8px;border-radius:7px}body .ca-legal-brand img{background:white;padding:6px;border-radius:5px;height:40px}</style></head><body><header><div class="header-brands"><a href="https://www.codigoadria.com" aria-label="Código AdrIA"><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"></a><span class="got">GOT ORTOPEDIA</span></div><span class="private">Propuesta de conexión · Noviembre 2026</span></header><main class="wrap"><div class="hero"><div><p class="eyebrow">Archivo de facturas · Piloto n8n</p><h1>Del correo<br>a <em>su carpeta.</em></h1><p class="lead">Cada factura con su sociedad, su mes y su nombre. Vanesa conserva la revisión y el control de la contabilidad.</p><span class="badge">Ensayo local verificado · 7 de noviembre de 2026</span></div><aside class="proof"><h2>Probado con vuestros documentos</h2><div class="metric"><strong>3</strong><div><b>PDF archivados correctamente</b><span>Primera ejecución real en n8n.</span></div></div><div class="metric"><strong>0</strong><div><b>Copias nuevas al repetir</b><span>Los tres se reconocen como duplicados.</span></div></div><div class="metric"><strong>3/3</strong><div><b>Originales conservados</b><span>Se ha comprobado que las copias son idénticas.</span></div></div></aside></div><nav class="nav"><a href="#recorrido">El recorrido</a><a href="#muestras">Ejemplos ilustrativos</a><a href="#revision">Cuándo revisar</a><a href="#arranque">Qué necesitamos</a></nav><section id="recorrido"><h2>Qué ocurre con cada PDF</h2><p>Selecciona un paso para explicar el proceso. El flujo se ha probado localmente con tres documentos recibidos. Aquí se muestran ejemplos ficticios: esta pantalla explica el proceso y no conecta con vuestro correo.</p><div class="flow" role="group" aria-label="Pasos del flujo"><button class="step active" data-step="0"><small>01 · ENTRADA</small><b>Recoger PDF</b></button><button class="step" data-step="1"><small>02 · LECTURA</small><b>Leer el documento</b></button><button class="step" data-step="2"><small>03 · CONTROL</small><b>Verificar los datos</b></button><button class="step" data-step="3"><small>04 · ARCHIVO</small><b>Guardar una copia</b></button><button class="step" data-step="4"><small>05 · REPETICIÓN</small><b>Evitar duplicados</b></button></div><div class="explain"><div><p class="eyebrow" id="step-counter">Paso 1 de 5</p><h3 id="step-title"></h3><p id="step-copy"></p><div class="controls"><button id="prev">← Anterior</button><button class="primary" id="next">Siguiente →</button><span>Recorrido explicativo</span></div></div><div class="example"><label for="case-select">Ejemplo ficticio</label><select id="case-select"></select><div id="example-output" aria-live="polite"></div></div></div></section><section id="muestras"><h2>Tres situaciones que resuelve el flujo</h2><p>Ejemplos ficticios para mostrar cómo queda el archivo. Los nombres, importes y números de esta página no corresponden a las facturas recibidas.</p><div class="cases"><article class="case"><div class="case-top"><span class="pill ">Factura</span><span class="amount">100,00 €</span></div><h3>Proveedor de ejemplo A</h3><p class="muted">Empresa A · 2026-10-06</p><p>Se usa la fecha de emisión del PDF, aunque el correo llegue otro día.</p><div class="file-path">Empresa A/2026-10/2026-10-06 Proveedor A DEMO-001.pdf</div></article><article class="case"><div class="case-top"><span class="pill ">Factura</span><span class="amount">200,00 €</span></div><h3>Proveedor de ejemplo B</h3><p class="muted">Empresa B · 2026-09-08</p><p>La sociedad y el mes salen del PDF, aunque el asunto del correo diga otra cosa.</p><div class="file-path">Empresa B/2026-09/2026-09-08 Proveedor B DEMO-002.pdf</div></article><article class="case"><div class="case-top"><span class="pill credit">Abono</span><span class="amount">-25,00 €</span></div><h3>Proveedor de ejemplo C</h3><p class="muted">Empresa A · 2026-10-09</p><p>El abono conserva su importe negativo y queda identificado en el nombre.</p><div class="file-path">Empresa A/2026-10/2026-10-09 Proveedor C DEMO-003 ABONO.pdf</div></article></div><p class="scope">En el ensayo real se archivaron tres PDF, se conservaron los originales y no se crearon copias nuevas al repetir. La conexión al correo y las carpetas de GOT sigue pendiente.</p></section><section id="revision"><h2>Lo dudoso se queda a la vista</h2><div class="checks"><article class="check"><h3>Carpeta «_Revisar»</h3><ul><li>Formato nuevo o PDF escaneado que necesita lectura adicional.</li><li>Sociedad, número o fecha que no se pueden verificar.</li><li>Mismo número de factura con un archivo diferente.</li><li>PDF dañado, fecha imposible o documento que no es una factura.</li></ul><p class="scope">Un pendiente sigue figurando como pendiente al repetir el lote. No se elimina ni se sobrescribe.</p></article><article class="check"><h3>Vanesa mantiene su forma de trabajar</h3><ul><li>Revisa el PDF y lo contabiliza en su programa.</li><li>Después lo pasa a «Contabilizado», dentro del mes.</li><li>El sistema lo sigue reconociendo aunque ya lo haya movido.</li><li>Los fallos y el motivo de revisión quedan registrados.</li></ul><p class="scope">Esta versión archiva documentos. La emisión de alquileres y la comparación de precios se preparan aparte.</p></article></div></section><section id="arranque"><h2>Qué necesitamos para conectarlo</h2><p>Los ejemplos ya están recibidos y probados. El siguiente paso es importar el flujo en el equipo acordado y comprobar juntos el acceso al correo y a las carpetas.</p><div class="checks"><article class="check"><h3>José · Equipo y correo</h3><ul><li>Confirmar qué ordenador lo ejecutará, si n8n ya está instalado y si el equipo puede quedarse encendido y sin suspensión.</li><li>Indicar qué buzón o buzones reciben las facturas. Revisar la configuración de OVH/Outlook: IMAP o POP3, y si los mensajes quedan en el servidor.</li><li>Tener acceso a la configuración del correo para introducir la conexión durante la sesión. Las contraseñas se introducen allí, no se envían por email.</li><li>Comprobar que desde ese ordenador se pueden leer las carpetas de entrada y escribir en las carpetas de destino del servidor.</li></ul></article><article class="check"><h3>Vanesa · Carpetas y criterio de archivo</h3><ul><li>Pasar la ruta completa de entrada y de destino de cada sociedad, tal como se ve desde el ordenador que ejecutará el flujo. Una captura con la barra de ruta también sirve.</li><li>Confirmar la estructura sociedad / mes, el nombre «fecha + proveedor + número» y la carpeta «Contabilizado».</li><li>Elegir un buzón o una carpeta de pruebas para el primer ensayo conjunto.</li><li>Revisar el resultado y los documentos enviados a «_Revisar» antes de activar el archivo automático.</li></ul></article></div><div class="handoff" style="margin-top:24px"><div><p class="eyebrow" style="color:#80d8d2">En la próxima sesión</p><h2>Verlo funcionar.<br>Conectarlo juntos.</h2><p>Primero enseñamos la prueba con los documentos recibidos. Después configuramos un buzón o una carpeta de pruebas y comprobamos dónde queda cada copia.</p></div><div><h3>Lo que cerraremos</h3><p>Equipo, buzones, rutas y permisos. También acordaremos cuándo debe ejecutarse la entrada por carpeta y quién revisará los pendientes.</p><p>La activación queda para cuando esa prueba esté comprobada. El flujo se entrega preparado, sin conexiones activas a los sistemas de GOT.</p></div></div><p class="scope">Esta primera versión está calibrada con los tres formatos recibidos. Los formatos nuevos y los PDF escaneados pasan a revisión. Se archiva una copia del documento; la contabilización continúa en manos de Vanesa.</p><p class="evidence">Página pública accesible por enlace, con ejemplos ficticios. Los PDF originales y el paquete técnico se conservan aparte.</p></section></main>
+<style>
+  .ca-foot{
+    background:#07181d;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Si esta receta te ha servido, en la comunidad compartimos muchas más:
+          flujos que funcionan, lo que no funciona, sin postureo.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://www.codigoadria.com/telegram-comunidad/">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com/telegram-comunidad/">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+<script>
+const examples=[{"proveedor": "Proveedor de ejemplo A", "empresa": "Empresa A", "fecha": "2026-10-06", "numero": "DEMO-001", "tipo": "factura", "importe": "100,00 €", "archivo": "factura-ejemplo-a.pdf", "ruta": "Empresa A/2026-10/2026-10-06 Proveedor A DEMO-001.pdf", "nota": "Se usa la fecha de emisión del PDF, aunque el correo llegue otro día."}, {"proveedor": "Proveedor de ejemplo B", "empresa": "Empresa B", "fecha": "2026-09-08", "numero": "DEMO-002", "tipo": "factura", "importe": "200,00 €", "archivo": "factura-ejemplo-b.pdf", "ruta": "Empresa B/2026-09/2026-09-08 Proveedor B DEMO-002.pdf", "nota": "La sociedad y el mes salen del PDF, aunque el asunto del correo diga otra cosa."}, {"proveedor": "Proveedor de ejemplo C", "empresa": "Empresa A", "fecha": "2026-10-09", "numero": "DEMO-003", "tipo": "abono", "importe": "-25,00 €", "archivo": "abono-ejemplo-c.pdf", "ruta": "Empresa A/2026-10/2026-10-09 Proveedor C DEMO-003 ABONO.pdf", "nota": "El abono conserva su importe negativo y queda identificado en el nombre."}];
+const steps=[['Recoger los PDF','La entrada puede ser un correo con adjuntos PDF o una carpeta. El procesamiento está probado localmente; falta conectar el origen elegido en GOT.'],['Leer lo que dice la factura','Se extrae el texto del PDF. La sociedad, la fecha y el número se leen del propio documento. El asunto y la fecha del correo no deciden la carpeta de destino.'],['Comprobar a quién corresponde','Se verifican NIF y razón social del destinatario, proveedor, número, fecha e importe. Si falta una comprobación, el documento pasa a revisión.'],['Guardar una copia ordenada','Se crea la carpeta de la sociedad y el mes. El original no se modifica. La copia se comprueba antes de registrar el resultado.'],['Reconocer lo que ya estaba','Cuando se vuelve a recibir el mismo documento, se reconoce y no se crea una copia nueva. También reconoce los que Vanesa ya haya movido a Contabilizado.']];
+let step=0;const selector=document.querySelector('#case-select');examples.forEach((e,i)=>{const o=document.createElement('option');o.value=i;o.textContent=e.proveedor;selector.append(o)});
+function render(){const e=examples[Number(selector.value)||0];document.querySelector('#step-counter').textContent=`Paso ${step+1} de 5`;document.querySelector('#step-title').textContent=steps[step][0];document.querySelector('#step-copy').textContent=steps[step][1];document.querySelectorAll('.step').forEach((el,i)=>{el.classList.toggle('active',i===step);el.setAttribute('aria-pressed',String(i===step))});document.querySelector('#prev').disabled=step===0;document.querySelector('#next').disabled=step===4;document.querySelector('#example-output').textContent=[`Archivo recibido:
+${e.archivo}
+
+La fecha del correo no decide el mes.`,`${e.proveedor}
+N.º ${e.numero}
+Fecha: ${e.fecha}
+Importe: ${e.importe}
+Tipo: ${e.tipo}`,`Destinatario: ${e.empresa}
+Fecha del PDF: ${e.fecha}
+
+${e.nota}`,`Copia comprobada:
+${e.ruta}
+
+Original conservado.`,`Resultado ilustrativo al repetir:
+DUPLICADO
+
+${e.proveedor}
+0 copias adicionales.`][step]}
+document.querySelectorAll('.step').forEach(el=>el.onclick=()=>{step=Number(el.dataset.step);render()});document.querySelector('#prev').onclick=()=>{step=Math.max(0,step-1);render()};document.querySelector('#next').onclick=()=>{step=Math.min(4,step+1);render()};selector.onchange=render;render();
+</script></body></html>
