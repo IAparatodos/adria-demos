@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wilson Fertility · Cómo se une todo: redes, web, VRepro y Microsoft 365</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wilson Fertility · Viaje de la paciente y cómo se une todo · Código AdrIA">
+<meta property="og:description" content="De un comentario en redes o un formulario web a VRepro y Outlook, paso a paso.">
+<meta property="og:image" content="https://iaparatodos.github.io/adria-demos/og-wilson-flujo-captacion-53be46.jpg">
+<meta property="og:url" content="https://iaparatodos.github.io/adria-demos/wilson-flujo-captacion-53be46.html">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Código AdrIA">
+<meta name="theme-color" content="#102e35">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wilson Fertility · Viaje de la paciente y cómo se une todo · Código AdrIA">
+<meta name="twitter:description" content="De un comentario en redes o un formulario web a VRepro y Outlook, paso a paso.">
+<meta name="twitter:image" content="https://iaparatodos.github.io/adria-demos/og-wilson-flujo-captacion-53be46.jpg">
+<link rel="icon" href="https://iaparatodos.github.io/adria-demos/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="https://iaparatodos.github.io/adria-demos/favicon-codigo-adria.png">
+<link rel="apple-touch-icon" href="https://iaparatodos.github.io/adria-demos/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tq:#4dd2d0; --pe:#3f6f7b; --pr:#102e35;
+  --ink:#102e35; --muted:#5b6f75; --line:#e2ebed; --soft:#f4f9f9;
+  --l-pac:#fff4e5; --l-pac-b:#f0a640;
+  --l-red:#fde9f1; --l-red-b:#d9548b;
+  --l-web:#eaf1ff; --l-web-b:#4a78d6;
+  --l-n8n:#eefbf3; --l-n8n-b:#2f9e5b;
+  --l-vr:#e6f8f8; --l-vr-b:#1aa3a1;
+  --l-ms:#eef0ff; --l-ms-b:#5b5fc7;
+  --warn:#b5651d;
+}
+*{box-sizing:border-box}
+body{margin:0;font:15.5px/1.6 Poppins,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);background:#fff}
+header.hero{background:var(--pr);color:#fff;padding:44px 24px 36px}
+header.hero .in{max-width:1180px;margin:0 auto}
+.brand{display:inline-block;margin-bottom:18px;background:#fff;border-radius:10px;padding:7px 12px}.brand img{height:34px;width:auto;display:block}
+.kicker{color:var(--tq);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:13px}
+h1{font-size:32px;line-height:1.2;margin:8px 0 10px}
+.hero p{max-width:820px;color:#cfe3e6;margin:0}
+main{max-width:1180px;margin:0 auto;padding:10px 24px 80px}
+h2{font-size:23px;margin:48px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+h2 .n{display:inline-block;background:var(--tq);color:var(--pr);border-radius:8px;padding:0 10px;margin-right:8px}
+h3{font-size:17px;margin:22px 0 6px}
+p{margin:8px 0}
+.lead{font-size:17px}
+.answer{background:var(--soft);border-left:5px solid var(--tq);border-radius:10px;padding:18px 22px;margin:22px 0}
+.answer b{color:var(--pe)}
+.warnbox{border-left:5px solid var(--warn);background:#fff7ef;border-radius:10px;padding:14px 18px;margin:14px 0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:860px){.grid3,.grid2{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:#fff}
+.card h4{margin:0 0 6px;font-size:15.5px}
+.tag{display:inline-block;font-size:12px;font-weight:600;border-radius:20px;padding:1px 10px;margin:0 4px 4px 0}
+.t-si{background:#e3f6ea;color:#1f7a45}.t-no{background:#fde8e8;color:#a33}.t-q{background:#fff1dd;color:#9a5a12}
+table{border-collapse:collapse;width:100%;font-size:14.5px;margin:10px 0}
+th,td{border-bottom:1px solid var(--line);padding:9px 8px;text-align:left;vertical-align:top}
+th{background:var(--soft);font-weight:600}
+ol.steps li{margin:4px 0}
+
+/* ---------- Mapa general ---------- */
+.map{display:grid;grid-template-columns:1fr 70px 1fr 70px 1fr;align-items:stretch;margin:18px 0}
+@media(max-width:900px){.map{grid-template-columns:1fr}.map .arrowcol{transform:rotate(90deg);height:50px}}
+.zone{border-radius:14px;padding:16px;border:2px dashed}
+.zone h4{margin:0 0 4px;font-size:16px}
+.zone .sub{font-size:13px;color:var(--muted);margin-bottom:10px}
+.z-mk{background:#fbf6ff;border-color:#b58ad8}
+.z-vr{background:var(--l-vr);border-color:var(--l-vr-b);border-style:solid}
+.z-ms{background:var(--l-ms);border-color:var(--l-ms-b)}
+.pill{background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 10px;margin:6px 0;font-size:13.5px}
+.pill b{display:block;font-size:14px}
+.arrowcol{display:flex;align-items:center;justify-content:center;flex-direction:column;font-size:12px;color:var(--muted);text-align:center}
+.arrowcol .ar{font-size:30px;color:var(--pe);line-height:1}
+
+/* ---------- Swimlanes ---------- */
+.flowwrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:14px 0 6px;background:#fff;width:calc(100vw - 32px);max-width:1560px;position:relative;left:50%;transform:translateX(-50%)}
+.flow{position:relative;display:grid}
+.lane-label{position:sticky;left:0;z-index:3;display:flex;align-items:center;padding:8px 10px;font-weight:600;font-size:13px;border-right:1px solid var(--line);line-height:1.25}
+.lane-label small{display:block;font-weight:400;color:var(--muted);font-size:11.5px}
+.lane-bg{border-top:1px solid var(--line)}
+.step{position:relative;z-index:2;margin:10px 8px;border-radius:11px;border:2px solid;background:#fff;padding:9px 10px 10px;font-size:12.6px;line-height:1.38;align-self:center}
+.step .num{position:absolute;top:-11px;left:-9px;width:24px;height:24px;border-radius:50%;background:var(--pr);color:#fff;font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center}
+.step b{display:block;font-size:13.4px;margin-bottom:2px}
+.step .note{display:block;margin-top:5px;font-size:11.5px;color:var(--muted)}
+.step.alt{border-style:dashed}
+svg.arrows{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:visible}
+.lgd{font-size:12.5px;color:var(--muted);margin:4px 0 0}
+
+.L-pac{background:var(--l-pac)}.S-pac{border-color:var(--l-pac-b)}
+.L-red{background:var(--l-red)}.S-red{border-color:var(--l-red-b)}
+.L-web{background:var(--l-web)}.S-web{border-color:var(--l-web-b)}
+.L-n8n{background:var(--l-n8n)}.S-n8n{border-color:var(--l-n8n-b)}
+.L-vr{background:var(--l-vr)}.S-vr{border-color:var(--l-vr-b)}
+.L-ms{background:var(--l-ms)}.S-ms{border-color:var(--l-ms-b)}
+
+footer{margin-top:60px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:16px}
+footer a{color:var(--pe)}
+.src{font-size:13px;color:var(--muted)}
+.src a{color:var(--pe);word-break:break-word}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="in">
+  <a class="brand" href="https://www.codigoadria.com"><img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA"></a>
+  <div class="kicker">Wilson Fertility · Propuesta para el equipo · 12 de noviembre de 2026</div>
+  <h1>El viaje de la paciente y cómo se une todo</h1>
+  <p>Dos recorridos (redes sociales y formulario de la web), qué herramienta hace cada paso, dónde está la frontera entre marketing y la parte de pacientes, y si el correo de Outlook se puede integrar con VRepro.</p>
+</div></header>
+
+<main>
+
+<div class="answer">
+  <p class="lead"><b>La respuesta corta.</b> Sí se puede integrar el correo de Outlook, pero no metiéndolo <i>dentro</i> de VRepro. VRepro no tiene publicada ninguna conexión con Outlook ni con Microsoft 365: solo nombra Google Calendar. Lo que hacemos es que una pieza en medio (n8n, en el servidor de Hetzner) haga de pegamento:</p>
+  <ul>
+    <li>el contacto que entra por redes o por la web se da de alta <b>solo en VRepro</b>, que es el CRM;</li>
+    <li>al mismo tiempo, el equipo recibe el aviso <b>en Microsoft</b> (una tarea en Planner o un mensaje en Teams, con el enlace a la ficha), y contesta <b>desde Outlook</b>, desde info@;</li>
+    <li>Copilot trabaja sobre Outlook, Teams y los documentos de Microsoft. Para que responda con datos de VRepro hace falta pasarle informes sin datos clínicos (Excel o SharePoint). Lo clínico no sale de VRepro.</li>
+  </ul>
+  <p>Para que esto funcione, antes hay que hacer una cosa: <b>pasar el correo del dominio de Hostinet a Microsoft 365 de verdad</b> (cambiar el MX y poner SPF, DKIM y DMARC). El reenvío que probamos rebotó justo por eso.</p>
+</div>
+
+<h2><span class="n">1</span>El mapa: tres zonas y una sola puerta</h2>
+<p>La clave es que marketing y pacientes están separados, pero <b>no aislados</b>: todo contacto que consiga marketing acaba en VRepro. La única puerta entre las dos zonas es la API de VRepro, y solo la cruza n8n.</p>
+
+<div class="map">
+  <div class="zone z-mk">
+    <h4>Zona de marketing</h4>
+    <div class="sub">Fuera de Quirón. iMac de marketing, Claude y servidor Hetzner.</div>
+    <div class="pill"><b>Redes</b>Instagram, Facebook, TikTok, YouTube (y luego cuentas por idioma)</div>
+    <div class="pill"><b>ManyChat</b>Detecta la palabra en el comentario y manda el mensaje privado</div>
+    <div class="pill"><b>Web en WordPress.com</b>Páginas de regalo por tema e idioma + formulario de contacto</div>
+    <div class="pill"><b>n8n en Hetzner</b>El pegamento: recibe, comprueba, da de alta y avisa</div>
+    <div class="pill"><b>Envío de emails (Brevo)</b>La guía en PDF, la confirmación del permiso y la secuencia de seguimiento</div>
+  </div>
+  <div class="arrowcol"><span class="ar">→</span>API de VRepro<br>(alta y búsqueda de contactos)</div>
+  <div class="zone z-vr">
+    <h4>VRepro: el CRM y la historia clínica</h4>
+    <div class="sub">La fuente de verdad. Aquí vive cada contacto y cada paciente.</div>
+    <div class="pill"><b>Contacto potencial (CRM)</b>Procedencia, canal, campaña, interés y país. Tareas y tiempos de respuesta</div>
+    <div class="pill"><b>Primera visita</b>La crea el equipo, como hoy</div>
+    <div class="pill"><b>Paciente</b>Historia clínica, laboratorio, criobanco, facturación</div>
+    <div class="pill"><b>Recordatorios propios</b>VRepro ya manda SMS, email y WhatsApp de citas</div>
+  </div>
+  <div class="arrowcol"><span class="ar">↔</span>Aviso con enlace<br>a la ficha</div>
+  <div class="zone z-ms">
+    <h4>Zona Microsoft 365</h4>
+    <div class="sub">Lo que aprueba Quirón. Pacientes y gestión de la clínica.</div>
+    <div class="pill"><b>Outlook · buzón compartido info@</b>Donde se contesta a las pacientes</div>
+    <div class="pill"><b>Planner</b>Cada correo y cada contacto nuevo, con responsable y estado (sustituye a Google Tasks)</div>
+    <div class="pill"><b>Teams</b>Avisos al equipo: «contacto nuevo, llamar hoy»</div>
+    <div class="pill"><b>Copilot</b>Resume y redacta en Outlook; responde preguntas sobre informes no clínicos</div>
+  </div>
+</div>
+
+<h2><span class="n">2</span>Recorrido 1 · De un vídeo en redes a la primera visita</h2>
+<p>Es el circuito que enseñamos el jueves: el vídeo pide comentar una palabra y la persona acaba en VRepro, etiquetada por tema y país. Cada caja es un paso; la fila dice <b>quién</b> lo hace.</p>
+<div class="flowwrap"><div class="flow" id="flowRedes"></div></div>
+<p class="lgd">Línea continua: el camino normal. Caja con borde discontinuo: variante o paso opcional.</p>
+
+<h3>Lo que hay que saber de este recorrido</h3>
+<div class="grid2">
+  <div class="card"><h4>Instagram y Facebook sí; TikTok, a medias</h4>
+  <p>En Instagram y Facebook, ManyChat contesta por privado a quien comenta la palabra. Meta solo deja <b>un mensaje por comentario</b> y dentro de los 7 días siguientes; si la persona contesta, se abre una ventana de 24 horas. En TikTok el mensaje automático desde un comentario no funciona en España todavía: ahí el vídeo debe pedir que nos <b>escriban</b> la palabra por privado.</p></div>
+  <div class="card"><h4>Por qué la página y no pedir el email en el chat</h4>
+  <p>Pedir el email dentro del mensaje privado es más rápido, pero no deja bien guardado el permiso ni el país. La página recoge nombre, email, país y dos casillas sin marcar, y guarda la prueba del consentimiento. Para una clínica, con datos que rozan la salud, esto no es opcional.</p></div>
+  <div class="card"><h4>La velocidad manda</h4>
+  <p>La paciente de fertilidad está interesada poco tiempo (lo dijo José Ángel). El objetivo es un primer contacto personal <b>el mismo día</b>, y si puede ser, en la primera hora. Por eso el aviso al equipo sale a la vez que el alta en VRepro.</p></div>
+  <div class="card"><h4>Un regalo por tema y por idioma</h4>
+  <p>Sin algo a cambio nadie deja el correo. Cada palabra («donación», «inseminación», «ROPA»…) lleva su página y su guía. Primero en español; cuando funcione, se copia para Italia, Alemania, Francia y Estados Unidos.</p></div>
+</div>
+
+<h2><span class="n">3</span>Recorrido 2 · Del formulario de contacto de la web a la primera visita</h2>
+<p>La paciente llega a la web por Google, por una IA, por recomendación o desde el hospital, y rellena el formulario. Aquí aparece algo importante: <b>no todo el que escribe es un contacto nuevo</b>. Si ya es paciente, no va al CRM: va a la cola de info@ en Outlook.</p>
+<div class="flowwrap"><div class="flow" id="flowWeb"></div></div>
+<p class="lgd">Línea continua: el camino normal. Caja con borde discontinuo: variante (paciente que ya existe).</p>
+
+<h3>Lo que hay que saber de este recorrido</h3>
+<div class="grid2">
+  <div class="card"><h4>El formulario no pide datos de salud</h4>
+  <p>Nombre, email, teléfono, país, idioma y «qué te interesa» con opciones cerradas (primera visita, segunda opinión, preservación, donación, otra cosa). Nada de diagnóstico, edad ni historial: eso va en la primera visita, dentro de VRepro.</p></div>
+  <div class="card"><h4>Sin duplicados</h4>
+  <p>Antes de crear nada, n8n busca el email o el teléfono en VRepro. Ya lo pedimos en el alcance de la API. Si existe como contacto, se le añade la nueva solicitud; si existe como paciente, el mensaje va a info@ y no toca el CRM.</p></div>
+  <div class="card"><h4>WordPress.com ya lo permite</h4>
+  <p>El formulario de Jetpack que trae WordPress.com puede mandar cada envío a una dirección (webhook) sin plugins de pago. Sirve cualquier plan de pago. Le pondremos una clave secreta para que nadie más pueda meter contactos.</p></div>
+  <div class="card"><h4>El reparto, como en su documento de correo</h4>
+  <p>La tarea de Planner se asigna por regla: primera visita, a atención al paciente; criobanco y facturas, a Isaac; lo dudoso, a revisión de las TCAE. Así cada solicitud tiene dueño y no desaparece, que es lo que hoy falla con Google Tasks.</p></div>
+</div>
+
+<h2><span class="n">4</span>¿Se puede integrar Outlook con VRepro? Las cuatro piezas</h2>
+<table>
+  <tr><th style="width:24%">Qué</th><th style="width:16%">Estado</th><th>Cómo</th></tr>
+  <tr><td><b>Correo del dominio en Microsoft 365</b></td><td><span class="tag t-si">Se puede ya</span></td><td>Cambiar el MX del dominio al de Microsoft, publicar SPF, DKIM y DMARC (este último empezando en modo «solo observar»), crear info@ como <b>buzón compartido</b> (no necesita licencia) y migrar el correo antiguo de Hostinet por IMAP. Es el primer paso y desbloquea todo lo demás.</td></tr>
+  <tr><td><b>Avisos de VRepro → Outlook / Planner / Teams</b></td><td><span class="tag t-si">Con n8n</span></td><td>Cuando n8n da de alta un contacto en VRepro, crea la tarea en Planner y avisa en Teams con el enlace a la ficha. Se hace con la API de Microsoft (Graph), sin pagar Power Automate.</td></tr>
+  <tr><td><b>Que los correos que manda VRepro salgan desde info@</b></td><td><span class="tag t-q">Preguntar a NaturalSoft</span></td><td>VRepro manda recordatorios y plantillas de seguimiento por email. Si admite configurar un servidor de correo propio (SMTP o Microsoft 365), esos correos saldrán del dominio de la clínica y las respuestas de las pacientes llegarán a info@. No está publicado: hay que preguntarlo.</td></tr>
+  <tr><td><b>Sincronizar el calendario de VRepro con Outlook</b></td><td><span class="tag t-no">No publicado</span></td><td>Solo nombran Google Calendar, Webex y Jitsi. Las citas siguen en VRepro. Si un día hace falta, se pregunta a NaturalSoft o se hace con la API.</td></tr>
+  <tr><td><b>Copilot respondiendo con datos de VRepro</b></td><td><span class="tag t-q">Por fases</span></td><td>Copilot Chat (gratis con la cuenta) resume y redacta sobre Outlook y Teams. Para preguntas como «cuántos contactos buenos entraron el mes pasado», lo realista es un informe periódico <b>sin datos clínicos</b> en Excel o SharePoint que Copilot pueda leer. Conectar Copilot directamente a VRepro exige licencia de Copilot de pago y un conector a medida: es un proyecto aparte.</td></tr>
+</table>
+
+<div class="warnbox"><b>Ojo con Power Automate.</b> Viene incluido con Microsoft 365, pero solo para conectores básicos. Recibir los avisos de la web o de ManyChat y llamar a la API de VRepro son funciones de pago (unos 15 $ por usuario al mes). Como el marketing ya está fuera de Microsoft, lo lógico es que n8n haga de puente con VRepro y dejar Power Automate para lo interno: por ejemplo, correo de info@ marcado → tarea en Planner, que sí es gratis.</div>
+
+<h2><span class="n">5</span>Lo que hay que preguntar a NaturalSoft (VRepro)</h2>
+<p>VRepro es de NaturalSoft (Granada). Su web habla de un CRM nativo con campañas, plantillas de seguimiento, canales, procedencias y remitentes, de una «API configurable», HL7 e integración con otros CRM. No hay documentación pública de la API. Esto es lo que necesitamos saber, además del alcance que ya mandó Isaac:</p>
+<ol class="steps">
+  <li><b>Alta de contactos por API</b>: qué campos admite (procedencia, canal, campaña, interés, país, idioma) y si se puede buscar por email y teléfono antes de crear.</li>
+  <li><b>Remitente de correo</b>: si VRepro puede enviar con un servidor propio o con Microsoft 365 como remitente (info@ del dominio).</li>
+  <li><b>Calendario</b>: si existe sincronización con Outlook o Exchange.</li>
+  <li><b>Notas en la ficha</b>: si la API permite añadir una nota o actividad a un contacto (para dejar constancia de que se le mandó la guía y de que confirmó el permiso).</li>
+  <li><b>Informes</b>: si hay exportación programada de indicadores del CRM (contactos por canal, conversión a primera visita) para llevarla a Excel y que Copilot la lea.</li>
+  <li><b>Protección de datos</b>: región exacta donde se alojan los datos (dicen AWS) y contrato de encargado del tratamiento para la integración.</li>
+  <li><b>Precio y entorno de pruebas</b>, con datos ficticios.</li>
+</ol>
+
+<h2><span class="n">6</span>Qué cuesta cada pieza (orientativo)</h2>
+<table>
+  <tr><th>Pieza</th><th>Para qué</th><th>Coste aproximado</th></tr>
+  <tr><td>ManyChat Pro</td><td>Comentario → mensaje privado en Instagram y Facebook; webhook a n8n</td><td>Desde unos 29–39 $/mes, sube con el número de contactos activos (confirmar en su web)</td></tr>
+  <tr><td>WordPress.com</td><td>Páginas de regalo y formulario con webhook</td><td>Cualquier plan de pago; lo da la migración que ya están haciendo</td></tr>
+  <tr><td>Servidor Hetzner + n8n</td><td>El pegamento</td><td>El servidor que ya van a contratar (5–15 €/mes); n8n es gratis instalado ahí</td></tr>
+  <tr><td>Brevo (empresa europea)</td><td>Guía en PDF, confirmación del permiso y secuencia de emails</td><td>Gratis hasta 300 emails al día; desde unos 9 $/mes sin su marca</td></tr>
+  <tr><td>Microsoft 365 Business Standard</td><td>Outlook, Teams, Planner, Bookings y Copilot Chat por persona</td><td>Unos 12–14 € por usuario y mes (confirmar en el panel). Premium si Informática de Quirón exige más seguridad</td></tr>
+  <tr><td>Buzón compartido info@</td><td>La cola común de correo</td><td>Sin licencia (hasta 50 GB)</td></tr>
+  <tr><td>Copilot de pago</td><td>Copilot dentro de Word, Excel y Outlook con datos de la empresa</td><td>Unos 21 $ por usuario y mes. Recomendado: 1 o 2 de prueba, no para todos</td></tr>
+  <tr><td>API de VRepro</td><td>Alta y búsqueda de contactos</td><td>Lo presupuesta NaturalSoft (José Luis habla con Santiago)</td></tr>
+</table>
+
+<h2><span class="n">7</span>Protección de datos: lo mínimo para hacerlo bien</h2>
+<div class="grid3">
+  <div class="card"><h4>Consentimiento explícito</h4><p>Que alguien pida una guía sobre donación ya dice algo de su salud. Dos casillas sin marcar y separadas: una para recibir la guía y que la contacten; otra, opcional, para recibir novedades. La guía no puede depender de la segunda.</p></div>
+  <div class="card"><h4>Doble confirmación</h4><p>Un email para confirmar el permiso. No lo exige la ley española, pero es la mejor prueba y filtra emails falsos. Se guarda fecha, hora, texto aceptado y canal.</p></div>
+  <div class="card"><h4>Contratos y píxel</h4><p>Contrato de encargado con ManyChat (es de EE. UU.), con Brevo y con VRepro. El píxel de Meta, solo con consentimiento de cookies y sin el tema («donación», «FIV») en eventos ni direcciones. En Microsoft: desactivar la búsqueda web de Copilot y los modelos que salen de la UE.</p></div>
+</div>
+
+<h2><span class="n">8</span>Orden para montarlo</h2>
+<ol class="steps">
+  <li><b>Correo a Microsoft 365</b>: MX, SPF, DKIM, DMARC, info@ como buzón compartido y migración desde Hostinet. Se puede hacer ya con los accesos que tenemos, en una hora tranquila y avisando al equipo.</li>
+  <li><b>Configurar el CRM de VRepro</b> (lo traemos preparado el jueves 19): procedencias, canales, campañas, intereses y países. Sin esto la API no tiene dónde etiquetar.</li>
+  <li><b>Triaje de info@ en Planner</b>, para cerrar el problema de Google Tasks.</li>
+  <li><b>Circuito de redes en español</b>: ManyChat + una página de regalo + n8n + Brevo, con un tema. Mientras no esté la API, n8n deja el contacto en una lista y crea la tarea en Planner para darlo de alta a mano en VRepro.</li>
+  <li><b>Formulario de la web</b>, cuando esté la web nueva.</li>
+  <li><b>API de VRepro</b>: el alta pasa a ser automática.</li>
+  <li><b>Informe para Copilot</b> y, cuando funcione en español, los otros idiomas.</li>
+</ol>
+
+<h2>Fuentes</h2>
+<div class="src">
+<p><b>VRepro / NaturalSoft:</b> <a href="https://naturalsoft.es/soluciones/vrepro/">naturalsoft.es/soluciones/vrepro</a> · <a href="https://naturalsoft.es/herramientas/">naturalsoft.es/herramientas</a> · <a href="https://naturalsoft.es/blog/vrepro-software-integral-clinicas-fertilidad-ia/">blog: VRepro software integral</a> · <a href="https://naturalsoft.es/blog/como-elegir-software-clinica-reproduccion-asistida-2026/">blog: cómo elegir software (CRM nativo)</a></p>
+<p><b>Microsoft:</b> <a href="https://learn.microsoft.com/en-us/microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider">registros DNS</a> · <a href="https://learn.microsoft.com/en-us/defender-office-365/email-authentication-spf-configure">SPF</a> · <a href="https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure">DKIM</a> · <a href="https://learn.microsoft.com/en-us/microsoft-365/admin/email/about-shared-mailboxes">buzón compartido</a> · <a href="https://learn.microsoft.com/en-us/exchange/mailbox-migration/migrating-imap-mailboxes/migrating-imap-mailboxes">migración IMAP</a> · <a href="https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/types">licencias de Power Automate</a> · <a href="https://learn.microsoft.com/en-us/copilot/plan/copilot-license-options">licencias de Copilot</a> · <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/prerequisites">conectores de Copilot</a> · <a href="https://learn.microsoft.com/en-us/copilot/plan/enterprise-data-protection">protección de datos de Copilot</a></p>
+<p><b>ManyChat y Meta:</b> <a href="https://developers.facebook.com/docs/instagram-platform/private-replies/">respuestas privadas de Meta</a> · <a href="https://help.manychat.com/hc/en-us/articles/17961702404892-Use-cases-and-strategies-for-TikTok-automations-on-Manychat">ManyChat y TikTok</a></p>
+<p><b>WordPress.com:</b> <a href="https://wordpress.com/support/plugins/">plugins</a> · <a href="https://jetpack.com/support/jetpack-blocks/contact-form/managing-contact-form-responses-and-integrations/">Jetpack Forms e integraciones</a></p>
+<p><b>Protección de datos:</b> <a href="https://www.aepd.es/es/documento/2018-0164.pdf">AEPD, comunicaciones comerciales</a> · <a href="https://www.edpb.europa.eu/system/files/2026-04/edpb-summary-consent_en.pdf">EDPB, consentimiento</a></p>
+<p>Precios de ManyChat, Copilot y Microsoft 365 en euros sacados de fuentes secundarias: hay que confirmarlos antes de presupuestar.</p>
+</div>
+
+</main>
+<style>
+  .ca-foot{
+    background:#07181d;color:#fff;
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    letter-spacing:-.01em;
+  }
+  .ca-foot *{box-sizing:border-box}
+  .ca-foot a{text-decoration:none}
+  .ca-foot .ca-wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* 1 · banda de cierre */
+  .ca-cta{
+    display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;
+    padding:64px 0 52px
+  }
+  .ca-cta-copy{max-width:34rem}
+  .ca-kicker{
+    margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4dd2d0
+  }
+  .ca-cta h2{
+    margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#fff
+  }
+  .ca-cta-sub{margin:14px 0 0;font-size:.98rem;font-weight:300;line-height:1.6;color:#a9bdc2}
+  .ca-btn{
+    display:inline-block;border-radius:9999px;padding:15px 30px;font-size:.94rem;font-weight:600;
+    background:#4dd2d0;color:#0b2026;white-space:nowrap;
+    transition:background .2s,transform .12s;flex:none
+  }
+  .ca-btn:hover{background:#6fe0de}
+  .ca-btn:active{transform:scale(.98)}
+
+  /* 2 · columnas */
+  .ca-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;
+    padding:44px 0;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-col h3{
+    margin:0 0 16px;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7c9299
+  }
+  .ca-col ul{margin:0;padding:0;list-style:none}
+  .ca-col li{margin-bottom:11px}
+  .ca-col li:last-child{margin-bottom:0}
+  .ca-col a{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.94rem;color:#dfe9eb;transition:color .18s
+  }
+  .ca-col a:hover{color:#4dd2d0}
+  .ca-col svg{width:16px;height:16px;fill:currentColor;flex:none;opacity:.8}
+
+  /* 3 · fila legal */
+  .ca-legal{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+    padding:26px 0 40px;border-top:1px solid rgba(255,255,255,.09)
+  }
+  .ca-legal-brand{display:inline-flex;align-items:center;gap:11px;transition:opacity .2s}
+  .ca-legal-brand:hover{opacity:.8}
+  .ca-legal-brand img{height:32px;width:auto;display:block}
+  .ca-legal p{margin:0;font-size:.8rem;color:#6f858c}
+
+  @media (max-width:640px){
+    .ca-cta{padding:52px 0 40px}
+    .ca-btn{width:100%;text-align:center}
+  }
+</style>
+
+<footer class="ca-foot">
+  <div class="ca-wrap">
+
+    <div class="ca-cta">
+      <div class="ca-cta-copy">
+        <p class="ca-kicker">Código AdrIA</p>
+        <h2>La IA aplicada al trabajo real, sin humo</h2>
+        <p class="ca-cta-sub">
+          Este documento lo ha preparado Código AdrIA para el equipo de Wilson Fertility. En la comunidad compartimos más flujos como este: los que funcionan y los que no.
+        </p>
+      </div>
+      <a class="ca-btn" href="https://www.codigoadria.com/telegram-comunidad/">Entrar gratis en la comunidad</a>
+    </div>
+
+    <div class="ca-cols">
+      <div class="ca-col">
+        <h3>Empieza aquí</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com/telegram-comunidad/">Comunidad en Telegram</a></li>
+          <li><a href="https://www.codigoadria.com/curso-automatizaciones/">Curso de automatización con IA</a></li>
+          <li><a href="https://www.codigoadria.com/academia/">Academia · membresía</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>Sígueme</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@codigoadria?sub_confirmation=1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</a></li>
+          <li><a href="https://www.linkedin.com/in/ricardohoyosperez/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.7H9.2V8.9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3ZM5.3 7.3a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1Zm1.8 13.1H3.5V8.9h3.6v11.5ZM22.2 0H1.8A1.8 1.8 0 0 0 0 1.8v20.4A1.8 1.8 0 0 0 1.8 24h20.4a1.8 1.8 0 0 0 1.8-1.8V1.8A1.8 1.8 0 0 0 22.2 0Z"/></svg>LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ricardohoyos1/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4a3.9 3.9 0 0 1 1.4.9 3.9 3.9 0 0 1 .9 1.4c.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a4.2 4.2 0 0 1-2.3 2.3c-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.9 3.9 0 0 1-1.4-.9 3.9 3.9 0 0 1-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2a3.9 3.9 0 0 1 .9-1.4 3.9 3.9 0 0 1 1.4-.9c.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1M12 0C8.7 0 8.3 0 7 .1A6.1 6.1 0 0 0 4.1.7a5.8 5.8 0 0 0-2.1 1.4A5.8 5.8 0 0 0 .7 4.1 6.1 6.1 0 0 0 .1 7C0 8.3 0 8.7 0 12s0 3.7.1 5a6.1 6.1 0 0 0 .6 2.9 5.8 5.8 0 0 0 1.4 2.1 5.8 5.8 0 0 0 2.1 1.4 6.1 6.1 0 0 0 2.9.6c1.3.1 1.7.1 5 .1s3.7 0 5-.1a6.1 6.1 0 0 0 2.9-.6 6.2 6.2 0 0 0 3.5-3.5 6.1 6.1 0 0 0 .6-2.9c.1-1.3.1-1.7.1-5s0-3.7-.1-5a6.1 6.1 0 0 0-.6-2.9 5.8 5.8 0 0 0-1.4-2.1A5.8 5.8 0 0 0 19.9.7 6.1 6.1 0 0 0 17 .1C15.7 0 15.3 0 12 0Zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.8a1.4 1.4 0 1 0 1.4 1.4 1.4 1.4 0 0 0-1.4-1.4Z"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+      <div class="ca-col">
+        <h3>La casa</h3>
+        <ul>
+          <li><a href="https://www.codigoadria.com">codigoadria.com</a></li>
+          <li><a href="https://www.codigoadria.com/blog/">El blog</a></li>
+          <li><a href="https://www.codigoadria.com/contacto/">Hablar con Ricardo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ca-legal">
+      <a class="ca-legal-brand" href="https://www.codigoadria.com">
+        <img src="https://iaparatodos.github.io/adria-demos/logo-codigo-adria-png.png" alt="Código AdrIA">
+      </a>
+      <p>© Código AdrIA · Ricardo Hoyos · Hecho en Valencia</p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+const LANES = {
+  pac:{label:'Paciente', sub:'quien nos descubre'},
+  red:{label:'Redes + ManyChat', sub:'zona marketing'},
+  web:{label:'Web', sub:'WordPress.com'},
+  n8n:{label:'n8n + Brevo', sub:'servidor Hetzner'},
+  vr:{label:'VRepro', sub:'CRM e historia clínica'},
+  ms:{label:'Equipo · Microsoft 365', sub:'Outlook, Planner, Teams'}
+};
+
+const REDES = {
+  lanes:['pac','red','web','n8n','vr','ms'],
+  steps:[
+    {id:1,lane:'pac',col:1,t:'Ve el vídeo y comenta la palabra',d:'«DONACIÓN», «ROPA», «INFO»… cada vídeo pide la suya.',n:'En TikTok: nos escribe la palabra por privado.'},
+    {id:2,lane:'red',col:2,t:'ManyChat le contesta por privado',d:'Un mensaje con el enlace a la página del tema, en su idioma.',n:'Meta: 1 mensaje por comentario, en 7 días.'},
+    {id:3,lane:'web',col:3,t:'Página del regalo',d:'Nombre, email, país y dos casillas sin marcar.',n:'Se guarda la prueba del permiso.'},
+    {id:4,lane:'n8n',col:4,t:'n8n recibe y comprueba',d:'Clave secreta, permiso marcado, email válido.'},
+    {id:5,lane:'vr',col:5,t:'Alta en VRepro',d:'Busca por email; si no existe, crea el contacto con procedencia, canal, campaña, interés y país.',n:'Vía API. Hasta tenerla: tarea de alta manual.'},
+    {id:6,lane:'n8n',col:6,t:'Guía en PDF + confirmación',d:'Brevo le manda la guía y el email para confirmar el permiso.'},
+    {id:7,lane:'ms',col:6,t:'Aviso al equipo',d:'Tarea en Planner y mensaje en Teams: «contacto nuevo, llamar hoy», con enlace a la ficha.',alt:false},
+    {id:8,lane:'ms',col:7,t:'Contacto personal el mismo día',d:'Llamada o correo desde Outlook (info@). Se cierra la tarea.'},
+    {id:9,lane:'n8n',col:7,t:'Secuencia de seguimiento',d:'4–6 emails en 2–3 semanas: la guía, cómo es la primera visita, el equipo, precios y proceso, pedir cita.',n:'Solo si confirmó el permiso.'},
+    {id:10,lane:'vr',col:8,t:'Primera visita en VRepro',d:'La crea el equipo. El contacto pasa a paciente y entra en su historia clínica.'}
+  ],
+  edges:[[1,2],[2,3],[3,4],[4,5],[5,6],[5,7],[7,8],[6,9],[8,10],[9,10]]
+};
+
+const WEB = {
+  lanes:['pac','web','n8n','vr','ms'],
+  steps:[
+    {id:1,lane:'pac',col:1,t:'Llega a la web',d:'Desde Google, una IA, una recomendación o el hospital.'},
+    {id:2,lane:'web',col:2,t:'Formulario de contacto',d:'Nombre, email, teléfono, país, idioma, qué le interesa (opciones cerradas) y casillas.',n:'Sin datos de salud.'},
+    {id:3,lane:'n8n',col:3,t:'n8n recibe y comprueba',d:'Clave secreta, permiso, email y teléfono válidos.'},
+    {id:4,lane:'vr',col:4,t:'¿Ya existe en VRepro?',d:'Búsqueda por email y teléfono.'},
+    {id:5,lane:'vr',col:5,t:'Alta o actualización del contacto',d:'Procedencia «Web», interés, país e idioma.'},
+    {id:6,lane:'ms',col:4,t:'Ya es paciente → a info@',d:'No toca el CRM: entra en la cola de Outlook y se reparte como cualquier correo de paciente.',alt:true},
+    {id:7,lane:'n8n',col:6,t:'Acuse automático',d:'«Hemos recibido tu mensaje; te llamamos hoy». Desde info@ o desde Brevo.'},
+    {id:8,lane:'ms',col:6,t:'Tarea asignada en Planner',d:'Por regla: primera visita → atención al paciente; criobanco y facturas → Isaac; dudas → TCAE.'},
+    {id:9,lane:'ms',col:7,t:'El responsable contacta',d:'Desde Outlook. Cierra la tarea y anota en VRepro.'},
+    {id:10,lane:'vr',col:8,t:'Primera visita en VRepro',d:'La crea el equipo. Pasa a paciente.'}
+  ],
+  edges:[[1,2],[2,3],[3,4],[4,5],[4,6],[5,7],[5,8],[8,9],[9,10]]
+};
+
+function build(el, cfg){
+  const cols = Math.max(...cfg.steps.map(s=>s.col));
+  el.style.gridTemplateColumns = `130px repeat(${cols}, minmax(146px,1fr))`; el.style.minWidth=(130+cols*146)+'px';
+  el.style.gridTemplateRows = `repeat(${cfg.lanes.length}, auto)`;
+  cfg.lanes.forEach((ln,i)=>{
+    const lab=document.createElement('div');
+    lab.className='lane-label L-'+ln; lab.style.gridRow=i+1; lab.style.gridColumn=1;
+    lab.innerHTML=`<span>${LANES[ln].label}<small>${LANES[ln].sub}</small></span>`;
+    el.appendChild(lab);
+    const bg=document.createElement('div');
+    bg.className='lane-bg L-'+ln; bg.style.gridRow=i+1; bg.style.gridColumn=`2 / span ${cols}`;
+    bg.style.opacity=.45; bg.style.minHeight='118px';
+    el.appendChild(bg);
+  });
+  const nodes={};
+  cfg.steps.forEach(s=>{
+    const d=document.createElement('div');
+    d.className='step S-'+s.lane+(s.alt?' alt':'');
+    d.style.gridRow=cfg.lanes.indexOf(s.lane)+1; d.style.gridColumn=s.col+1;
+    d.innerHTML=`<span class="num">${s.id}</span><b>${s.t}</b>${s.d}${s.n?`<span class="note">${s.n}</span>`:''}`;
+    el.appendChild(d); nodes[s.id]=d;
+  });
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('class','arrows'); el.appendChild(svg);
+  function draw(){
+    const r0=el.getBoundingClientRect();
+    svg.setAttribute('width',el.scrollWidth); svg.setAttribute('height',el.scrollHeight);
+    svg.innerHTML=`<defs><marker id="ah${el.id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3f6f7b"/></marker></defs>`;
+    cfg.edges.forEach(([a,b])=>{
+      const A=nodes[a].getBoundingClientRect(), B=nodes[b].getBoundingClientRect();
+      const sa=cfg.steps.find(s=>s.id===a), sb=cfg.steps.find(s=>s.id===b);
+      let p;
+      if(sa.col===sb.col){ // same column: vertical
+        const x=A.left-r0.left+A.width/2;
+        const down=B.top>A.top;
+        const y1=down?A.bottom-r0.top:A.top-r0.top, y2=down?B.top-r0.top:B.bottom-r0.top;
+        p=`M${x},${y1} L${x},${y2}`;
+      } else {
+        const x1=A.right-r0.left, y1=A.top-r0.top+A.height/2;
+        const x2=B.left-r0.left, y2=B.top-r0.top+B.height/2;
+        const mx=x1+(x2-x1)/2;
+        p=Math.abs(y1-y2)<4?`M${x1},${y1} L${x2},${y2}`:`M${x1},${y1} L${mx},${y1} L${mx},${y2} L${x2},${y2}`;
+      }
+      const dashed = sb.alt ? ' stroke-dasharray="6 5"' : '';
+      svg.insertAdjacentHTML('beforeend',`<path d="${p}" fill="none" stroke="#3f6f7b" stroke-width="2"${dashed} marker-end="url(#ah${el.id})"/>`);
+    });
+  }
+  draw(); window.addEventListener('resize',draw); document.fonts&&document.fonts.ready.then(draw);
+}
+build(document.getElementById('flowRedes'), REDES);
+build(document.getElementById('flowWeb'), WEB);
+</script>
+</body>
+</html>
